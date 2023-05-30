@@ -16,17 +16,11 @@ Notation，JavaScript对象表示法)是一种轻量级的数据交换格式。
       </tags>
   </entry>
   <entry>
-    <title>第一篇文章</title>
-    <url>/blog/2023/05/25/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>这是第一篇文章</p>
-]]></content>
-  </entry>
-  <entry>
     <title>概率统计中几个容易混淆的概念</title>
     <url>/blog/2023/05/30/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%AD%E5%87%A0%E4%B8%AA%E5%AE%B9%E6%98%93%E6%B7%B7%E6%B7%86%E7%9A%84%E6%A6%82%E5%BF%B5/</url>
     <content><![CDATA[<p><span class="math inline">\(\alpha\)</span>分位点、置信度<span
 class="math inline">\(1-\alpha\)</span>、显著性水平<span
-class="math inline">\(\alpha\)</span>、区间估计的准确度与精确度、置信区间与假设检验的关系</p>
+class="math inline">\(\alpha\)</span>、区间估计的准确度与精确度、置信区间与假设检验的关系。</p>
 <span id="more"></span>
 <h2 id="alpha分位点"><span
 class="math inline">\(\alpha\)</span>分位点</h2>
@@ -122,6 +116,12 @@ role="doc-backlink">↩︎</a></p></li>
       <tags>
         <tag>概率统计</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>第一篇文章</title>
+    <url>/blog/2023/05/25/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>这是第一篇文章</p>
+]]></content>
   </entry>
   <entry>
     <title>踩坑记录（1）</title>
