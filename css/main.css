@@ -2632,6 +2632,7 @@ body {
   background-attachment: fixed;
   background-size: cover;
 }
+/*文章透明度设置*/
 .post-block {
   opacity: 0.9;
 }
