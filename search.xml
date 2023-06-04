@@ -118,33 +118,34 @@ role="doc-backlink">↩︎</a></p></li>
       </tags>
   </entry>
   <entry>
-    <title>第一篇文章</title>
-    <url>/blog/2023/05/25/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>这是第一篇文章</p>
-]]></content>
-  </entry>
-  <entry>
     <title>踩坑记录（1）</title>
     <url>/blog/2023/05/26/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%881%EF%BC%89/</url>
     <content><![CDATA[<p>做数据库课设时，我试图修改一个外键的删除规则和更新规则为<code>CASCADE</code>。</p>
-<p>SQL语句执行成功了，然而刷新后它的属性又都变回了<code>RESTRICT</code>。
+<p>SQL语句执行成功了，然而刷新后它的规则又都变回了<code>RESTRICT</code>。
 <span id="more"></span></p>
 <p>我使用的是 MySQL + DBeaver。</p>
-<p>建立外键时，选择的删除属性和更新属性是无动作（默认）。</p>
+<p>建立外键时，选择的删除规则和更新规则是无动作（默认）。</p>
 <p>建立后，MySQL把它们设为了<code>RESTRICT</code>。</p>
 <p>由于一些麻烦的原因，我想把它们改成<code>CASCADE</code>，于是出现了上面的情况。</p>
-<p>DBeaver给出的SQL语句是： <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dbkeshe.student <span class="keyword">DROP</span> <span class="keyword">FOREIGN</span> KEY student_FK;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dbkeshe.student <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> student_FK <span class="keyword">FOREIGN</span> KEY (CLASS_NO) <span class="keyword">REFERENCES</span> dbkeshe.class(CLASS_NO) <span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE <span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE;</span><br></pre></td></tr></table></figure>
-我以为是DBeaver的问题，又在命令行里执行了一遍，还是会变回<code>RESTRICT</code>。</p>
+<p>DBeaver给出的SQL语句是把外键删了重建： <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dbkeshe.student <span class="keyword">DROP</span> <span class="keyword">FOREIGN</span> KEY student_FK;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dbkeshe.student <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> student_FK <span class="keyword">FOREIGN</span> KEY (CLASS_NO) <span class="keyword">REFERENCES</span> dbkeshe.class(CLASS_NO) <span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE <span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE;</span><br></pre></td></tr></table></figure>
+准确说不是刷新后变回，在当前的外键窗口刷新是不变的，关闭窗口后重新打开就变了。我以为是DBeaver的问题，又在命令行里执行了一遍，还是会变回<code>RESTRICT</code>。关键是MySQL还没报错。</p>
 <p>网上搜了一下，没有找到类似的情况发生过。</p>
-<p>我又尝试把所有的外键约束删了，然后再重建，还是不行。</p>
-<p>把所有的外键约束和索引删了，然后再重建，还是不行。</p>
-<p>到最后还是没有找到原因。</p>
-<p>我只好重建一个数据库，把旧数据库dump出来的SQL语句外键约束后面全部加上<code>ON DELETE CASCADE ON UPDATE CASCADE</code>。这回成功了。</p>
+<p>我又尝试把所有的外键约束删了，然后再重建，还是不行。把所有的外键约束和索引删了，然后再重建，还是不行。到最后还是没有找到原因。</p>
+<p>我把旧数据库dump出来的sql文件外键约束后面全部加上<code>ON DELETE CASCADE ON UPDATE CASCADE</code>，再用sql文件重建一个数据库，这回成功了。然后...我数天后打开它又变回去了？？？并且重建后还是会变回去。</p>
+<p>除了手动重建数据库，最后有一个不得已而为之的方法：要想实现级联更新，暂时关闭外键约束</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> foreign_key_checks <span class="operator">=</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>然后把要级联更新的所有表都手动更新一遍，再打开约束...</p>
 ]]></content>
       <tags>
         <tag>MySQL</tag>
         <tag>踩坑记录</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>第一篇文章</title>
+    <url>/blog/2023/05/25/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>这是第一篇文章</p>
+]]></content>
   </entry>
   <entry>
     <title>踩坑记录（2）</title>
