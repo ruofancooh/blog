@@ -2,6 +2,7 @@
 
 <head>
     <meta charset="utf-8">
+    <title>404 Not Found</title>
 </head>
 
 <body style="background-color: #eee;">
@@ -19,7 +20,11 @@
             transition: opacity 1s;
         `;
         document.body.appendChild(img);
-        disappear();
+        akariDisappear();
+        const title = document.title;
+        document.title = "";
+        animateTitle();
+
         function ji_yaoushingan(akkarin) {
             const world = {
                 "​": "0",
@@ -39,7 +44,8 @@
             }
             return vanishment(this.world);
         }
-        function disappear() {
+
+        function akariDisappear() {
             let opacity = 1;
             const timer = setInterval(function () {
                 opacity -= 0.1;
@@ -48,6 +54,31 @@
                     clearInterval(timer);
                 }
             }, 100);
+        }
+
+        function animateTitle() {
+            let len = document.title.length;
+            if (len === title.length) {
+                let timer = setInterval(function () {
+                    len--;
+                    document.title = title.substring(0, len);
+                    if (len === 0) {
+                        clearInterval(timer);
+                        document.title = "​";
+                    }
+                }, 100);
+            } else {
+                len++;
+                document.title = title.substring(0, len);
+                let timer = setInterval(function () {
+                    len++;
+                    document.title = title.substring(0, len);
+                    if (len === title.length) {
+                        clearInterval(timer);
+                        setTimeout(animateTitle, 1000);
+                    }
+                }, 100);
+            }
         }
     </script>
 </body>
