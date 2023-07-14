@@ -1,102 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>概率统计中几个容易混淆的概念</title>
-    <url>/blog/2023/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%AD%E5%87%A0%E4%B8%AA%E5%AE%B9%E6%98%93%E6%B7%B7%E6%B7%86%E7%9A%84%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<p><span class="math inline">\(\alpha\)</span>分位点、置信度<span
-class="math inline">\(1-\alpha\)</span>、显著性水平<span
-class="math inline">\(\alpha\)</span>、区间估计的准确度与精确度、置信区间与假设检验的关系。</p>
-<span id="more"></span>
-<h2 id="alpha分位点"><span
-class="math inline">\(\alpha\)</span>分位点</h2>
-<p>简单地说，上<span class="math inline">\(\alpha\)</span>分位点<a
-href="#fn1" class="footnote-ref" id="fnref1"
-role="doc-noteref"><sup>1</sup></a>把随机变量的取值区间分成了两部分，随机变量取值落在右边的概率为<span
-class="math inline">\(\alpha\)</span>。</p>
-<p>即<span
-class="math inline">\(P\{X&gt;上\alpha分位点\}=\alpha\)</span></p>
-<p>从图像上看，比如：</p>
-<img src="/blog/2023/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%AD%E5%87%A0%E4%B8%AA%E5%AE%B9%E6%98%93%E6%B7%B7%E6%B7%86%E7%9A%84%E6%A6%82%E5%BF%B5/1.png" class="">
-<p>标准正态分布<span class="math inline">\(Z\sim
-N(0,1)\)</span>的概率密度函数，它的函数图像上<span
-class="math inline">\(\alpha\)</span>分位点(记作<span
-class="math inline">\(z_\alpha\)</span>)以右与<span
-class="math inline">\(x\)</span>轴围成的面积为<span
-class="math inline">\(\alpha\)</span>。</p>
-<p>相应地，下<span
-class="math inline">\(\alpha\)</span>分位点把随机变量的取值区间分成了两部分，随机变量取值落在左边的概率为<span
-class="math inline">\(\alpha\)</span>。</p>
-<h2 id="置信度1-alpha">置信度<span
-class="math inline">\(1-\alpha\)</span></h2>
-<p><strong>参数估计</strong></p>
-<p>总体的分布函数中有参数<span
-class="math inline">\(\theta\)</span>未知。抽样，用样本估计参数<span
-class="math inline">\(\theta\)</span>。</p>
-<p>例如总体<span class="math inline">\(X\)</span>服从参数为<span
-class="math inline">\(\theta\)</span>的指数分布，要估计<span
-class="math inline">\(\theta\)</span></p>
-<p><span
-class="math inline">\(\theta\)</span>正好是总体均值，可以用样本均值估计总体均值。</p>
-<p>抽三个样本<span
-class="math inline">\(X_1,X_2,X_3\)</span>，样本均值<span
-class="math inline">\(\bar{X}=\dfrac{X_1+X_2+X_3}{3}\)</span></p>
-<p><span class="math inline">\(\theta\)</span>的估计量<span
-class="math inline">\(\hat\theta=\dfrac{X_1+X_2+X_3}{3}\)</span></p>
-<p><strong>区间估计</strong></p>
-<p>总体的分布函数中有参数<span
-class="math inline">\(\theta\)</span>未知。抽样，用样本估计参数<span
-class="math inline">\(\theta\)</span>的<em>一个范围</em>。</p>
-<p>这个范围<em>是一个随机区间</em>。</p>
-<p>当这个随机区间包含<span
-class="math inline">\(\theta\)</span>真值的概率大于等于<span
-class="math inline">\(1-\alpha\)</span>时，这个区间是<span
-class="math inline">\(\theta\)</span>的置信度为<span
-class="math inline">\(1-\alpha\)</span>的置信区间。</p>
-<blockquote>
-<p>样本数目不变的情况下，做一百次试验，有95个置信区间包含了总体真值。置信度为95%<a
-href="#fn2" class="footnote-ref" id="fnref2"
-role="doc-noteref"><sup>2</sup></a></p>
-</blockquote>
-<h2
-id="区间估计的准确度可靠性与精确度">区间估计的准确度（可靠性）与精确度</h2>
-<p>置信度越大，置信区间越可靠，估计准确度越高。<a href="#fn3"
-class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
-<p>置信区间越短，估计精确度越高。</p>
-<h2 id="显著性水平alpha">显著性水平<span
-class="math inline">\(\alpha\)</span></h2>
-<p><strong>假设检验</strong></p>
-<p>总体的分布函数未知或有参数未知。做假设、抽样，用样本判断是否接收假设。</p>
-<p>例如正态总体<span
-class="math inline">\(N(\mu,\sigma^2)\)</span>，<span
-class="math inline">\(\mu\)</span>未知。做假设：</p>
-<p><span class="math inline">\(H_0:\mu=\mu_0\)</span> <span
-class="math inline">\(H_1:\mu\not=\mu_0\)</span></p>
-<p><span
-class="math inline">\(P\{拒绝H_0|H_0为真\}\le\alpha\)</span></p>
-<p><span class="math inline">\(\alpha\)</span>即为显著性水平。</p>
-<h2 id="置信区间与假设检验的关系">置信区间与假设检验的关系</h2>
-<p>（显著性水平为<span
-class="math inline">\(\alpha\)</span>的双边/单边假设检验问题的）<strong>接受域</strong></p>
-<p>就是（参数的置信度为<span
-class="math inline">\(1-\alpha\)</span>的双侧/单侧）<strong>置信区间</strong>。</p>
-<aside id="footnotes" class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1"><p><a
-href="https://www.zhihu.com/question/22420473/answer/1601002988">概率论分位点的含义？
-- 知乎用户的回答 - 知乎</a><a href="#fnref1" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p><a
-href="https://www.zhihu.com/question/20183513/answer/15023786">如何理解置信度？
-- 邹日佳的回答 - 知乎</a><a href="#fnref2" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p><a
-href="https://www.zhihu.com/question/42770047/answer/149729398">置信区间的准确度和精确度如何确定以及它们之间的联系？
-- 知乎</a><a href="#fnref3" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
-</ol>
-</aside>
+    <title>JSON</title>
+    <url>/blog/2023/JSON/</url>
+    <content><![CDATA[<p>JSON(JavaScript Object
+Notation，JavaScript对象表示法)是一种轻量级的数据交换格式。
+<span id="more"></span></p>
+<h2 id="json与js对象互转">json与js对象互转</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> json = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// js对象转json字符串</span></span><br><span class="line">json = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// json字符串转js对象</span></span><br><span class="line">obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(json)</span><br></pre></td></tr></table></figure>
+<h2 id="使用python编解码json">使用Python编解码json</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">dic = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编码</span></span><br><span class="line">string = json.dumps(dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解码</span></span><br><span class="line">dic = json.loads(string)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>暂无分类</category>
@@ -255,15 +168,102 @@ href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </categories>
   </entry>
   <entry>
-    <title>JSON</title>
-    <url>/blog/2023/JSON/</url>
-    <content><![CDATA[<p>JSON(JavaScript Object
-Notation，JavaScript对象表示法)是一种轻量级的数据交换格式。
-<span id="more"></span></p>
-<h2 id="json与js对象互转">json与js对象互转</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> json = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// js对象转json字符串</span></span><br><span class="line">json = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// json字符串转js对象</span></span><br><span class="line">obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(json)</span><br></pre></td></tr></table></figure>
-<h2 id="使用python编解码json">使用Python编解码json</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">dic = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编码</span></span><br><span class="line">string = json.dumps(dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解码</span></span><br><span class="line">dic = json.loads(string)</span><br></pre></td></tr></table></figure>
+    <title>概率统计中几个容易混淆的概念</title>
+    <url>/blog/2023/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%AD%E5%87%A0%E4%B8%AA%E5%AE%B9%E6%98%93%E6%B7%B7%E6%B7%86%E7%9A%84%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<p><span class="math inline">\(\alpha\)</span>分位点、置信度<span
+class="math inline">\(1-\alpha\)</span>、显著性水平<span
+class="math inline">\(\alpha\)</span>、区间估计的准确度与精确度、置信区间与假设检验的关系。</p>
+<span id="more"></span>
+<h2 id="alpha分位点"><span
+class="math inline">\(\alpha\)</span>分位点</h2>
+<p>简单地说，上<span class="math inline">\(\alpha\)</span>分位点<a
+href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>把随机变量的取值区间分成了两部分，随机变量取值落在右边的概率为<span
+class="math inline">\(\alpha\)</span>。</p>
+<p>即<span
+class="math inline">\(P\{X&gt;上\alpha分位点\}=\alpha\)</span></p>
+<p>从图像上看，比如：</p>
+<img src="/blog/2023/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%AD%E5%87%A0%E4%B8%AA%E5%AE%B9%E6%98%93%E6%B7%B7%E6%B7%86%E7%9A%84%E6%A6%82%E5%BF%B5/1.png" class="">
+<p>标准正态分布<span class="math inline">\(Z\sim
+N(0,1)\)</span>的概率密度函数，它的函数图像上<span
+class="math inline">\(\alpha\)</span>分位点(记作<span
+class="math inline">\(z_\alpha\)</span>)以右与<span
+class="math inline">\(x\)</span>轴围成的面积为<span
+class="math inline">\(\alpha\)</span>。</p>
+<p>相应地，下<span
+class="math inline">\(\alpha\)</span>分位点把随机变量的取值区间分成了两部分，随机变量取值落在左边的概率为<span
+class="math inline">\(\alpha\)</span>。</p>
+<h2 id="置信度1-alpha">置信度<span
+class="math inline">\(1-\alpha\)</span></h2>
+<p><strong>参数估计</strong></p>
+<p>总体的分布函数中有参数<span
+class="math inline">\(\theta\)</span>未知。抽样，用样本估计参数<span
+class="math inline">\(\theta\)</span>。</p>
+<p>例如总体<span class="math inline">\(X\)</span>服从参数为<span
+class="math inline">\(\theta\)</span>的指数分布，要估计<span
+class="math inline">\(\theta\)</span></p>
+<p><span
+class="math inline">\(\theta\)</span>正好是总体均值，可以用样本均值估计总体均值。</p>
+<p>抽三个样本<span
+class="math inline">\(X_1,X_2,X_3\)</span>，样本均值<span
+class="math inline">\(\bar{X}=\dfrac{X_1+X_2+X_3}{3}\)</span></p>
+<p><span class="math inline">\(\theta\)</span>的估计量<span
+class="math inline">\(\hat\theta=\dfrac{X_1+X_2+X_3}{3}\)</span></p>
+<p><strong>区间估计</strong></p>
+<p>总体的分布函数中有参数<span
+class="math inline">\(\theta\)</span>未知。抽样，用样本估计参数<span
+class="math inline">\(\theta\)</span>的<em>一个范围</em>。</p>
+<p>这个范围<em>是一个随机区间</em>。</p>
+<p>当这个随机区间包含<span
+class="math inline">\(\theta\)</span>真值的概率大于等于<span
+class="math inline">\(1-\alpha\)</span>时，这个区间是<span
+class="math inline">\(\theta\)</span>的置信度为<span
+class="math inline">\(1-\alpha\)</span>的置信区间。</p>
+<blockquote>
+<p>样本数目不变的情况下，做一百次试验，有95个置信区间包含了总体真值。置信度为95%<a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a></p>
+</blockquote>
+<h2
+id="区间估计的准确度可靠性与精确度">区间估计的准确度（可靠性）与精确度</h2>
+<p>置信度越大，置信区间越可靠，估计准确度越高。<a href="#fn3"
+class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>置信区间越短，估计精确度越高。</p>
+<h2 id="显著性水平alpha">显著性水平<span
+class="math inline">\(\alpha\)</span></h2>
+<p><strong>假设检验</strong></p>
+<p>总体的分布函数未知或有参数未知。做假设、抽样，用样本判断是否接收假设。</p>
+<p>例如正态总体<span
+class="math inline">\(N(\mu,\sigma^2)\)</span>，<span
+class="math inline">\(\mu\)</span>未知。做假设：</p>
+<p><span class="math inline">\(H_0:\mu=\mu_0\)</span> <span
+class="math inline">\(H_1:\mu\not=\mu_0\)</span></p>
+<p><span
+class="math inline">\(P\{拒绝H_0|H_0为真\}\le\alpha\)</span></p>
+<p><span class="math inline">\(\alpha\)</span>即为显著性水平。</p>
+<h2 id="置信区间与假设检验的关系">置信区间与假设检验的关系</h2>
+<p>（显著性水平为<span
+class="math inline">\(\alpha\)</span>的双边/单边假设检验问题的）<strong>接受域</strong></p>
+<p>就是（参数的置信度为<span
+class="math inline">\(1-\alpha\)</span>的双侧/单侧）<strong>置信区间</strong>。</p>
+<aside id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a
+href="https://www.zhihu.com/question/22420473/answer/1601002988">概率论分位点的含义？
+- 知乎用户的回答 - 知乎</a><a href="#fnref1" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a
+href="https://www.zhihu.com/question/20183513/answer/15023786">如何理解置信度？
+- 邹日佳的回答 - 知乎</a><a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a
+href="https://www.zhihu.com/question/42770047/answer/149729398">置信区间的准确度和精确度如何确定以及它们之间的联系？
+- 知乎</a><a href="#fnref3" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>
 ]]></content>
       <categories>
         <category>暂无分类</category>
