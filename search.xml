@@ -270,6 +270,15 @@ role="doc-backlink">↩︎</a></p></li>
       </categories>
   </entry>
   <entry>
+    <title>第一篇文章</title>
+    <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>这是第一篇文章</p>
+]]></content>
+      <categories>
+        <category>暂无分类</category>
+      </categories>
+  </entry>
+  <entry>
     <title>踩坑记录（1）</title>
     <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%881%EF%BC%89/</url>
     <content><![CDATA[<p>做数据库课设时，我试图修改一个外键的删除规则和更新规则为<code>CASCADE</code>。</p>
@@ -287,15 +296,6 @@ role="doc-backlink">↩︎</a></p></li>
 <p>除了手动重建数据库，最后有一个不得已而为之的方法：要想实现级联更新，暂时关闭外键约束</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> foreign_key_checks <span class="operator">=</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
 <p>然后把要级联更新的所有表都手动更新一遍，再打开约束...</p>
-]]></content>
-      <categories>
-        <category>暂无分类</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>第一篇文章</title>
-    <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>这是第一篇文章</p>
 ]]></content>
       <categories>
         <category>暂无分类</category>
