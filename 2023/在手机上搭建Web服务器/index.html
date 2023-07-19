@@ -19,29 +19,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="你需要：  一台系统为 Android 6.0 以上的手机 一台能够正常使用 Android SDK Platform-Tools 的电脑">
+    <meta name="description" content="使用的主要工具：  Termux——模拟 Linux 环境 Flask——作为后端框架 Ngrok——内网穿透  你需要：  能够正常运行以上软件的安卓手机 最好有一台电脑">
 <meta property="og:type" content="article">
-<meta property="og:title" content="root手机教程（使用Magisk）">
-<meta property="og:url" content="https://hrfis.me/blog/2023/root%E6%89%8B%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%88%E4%BD%BF%E7%94%A8Magisk%EF%BC%89/index.html">
+<meta property="og:title" content="在手机上搭建Web服务器">
+<meta property="og:url" content="https://hrfis.me/blog/2023/%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
 <meta property="og:site_name" content="若凡的博客">
-<meta property="og:description" content="你需要：  一台系统为 Android 6.0 以上的手机 一台能够正常使用 Android SDK Platform-Tools 的电脑">
+<meta property="og:description" content="使用的主要工具：  Termux——模拟 Linux 环境 Flask——作为后端框架 Ngrok——内网穿透  你需要：  能够正常运行以上软件的安卓手机 最好有一台电脑">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://hrfis.me/blog/2023/root%E6%89%8B%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%88%E4%BD%BF%E7%94%A8Magisk%EF%BC%89/1.png">
-<meta property="article:published_time" content="2023-07-08T14:24:00.000Z">
-<meta property="article:modified_time" content="2023-07-11T05:02:16.417Z">
+<meta property="article:published_time" content="2023-07-19T05:45:00.000Z">
+<meta property="article:modified_time" content="2023-07-19T05:44:29.909Z">
 <meta property="article:author" content="ruofan">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://hrfis.me/blog/2023/root%E6%89%8B%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%88%E4%BD%BF%E7%94%A8Magisk%EF%BC%89/1.png">
 
 
-<link rel="canonical" href="https://hrfis.me/blog/2023/root%E6%89%8B%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%88%E4%BD%BF%E7%94%A8Magisk%EF%BC%89/">
+<link rel="canonical" href="https://hrfis.me/blog/2023/%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/2023/root%E6%89%8B%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%88%E4%BD%BF%E7%94%A8Magisk%EF%BC%89/","path":"2023/root手机教程（使用Magisk）/","title":"root手机教程（使用Magisk）"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/2023/%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/","path":"2023/在手机上搭建Web服务器/","title":"在手机上搭建Web服务器"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>root手机教程（使用Magisk） | 若凡的博客</title>
+<title>在手机上搭建Web服务器 | 若凡的博客</title>
   
 
 
@@ -140,8 +138,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">背景知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-%E4%B8%8E-android"><span class="nav-number">1.1.</span> <span class="nav-text">Linux 与 Android</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-%E4%B8%8E-android-%E4%B8%AD%E7%9A%84%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90"><span class="nav-number">1.2.</span> <span class="nav-text">Linux 与 Android
-中的用户权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bootloader%E9%94%81"><span class="nav-number">1.3.</span> <span class="nav-text">Bootloader锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#magisk"><span class="nav-number">1.4.</span> <span class="nav-text">Magisk</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%99%A4bl%E9%94%81"><span class="nav-number">2.1.</span> <span class="nav-text">解除BL锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E5%8F%96boot.img"><span class="nav-number">2.2.</span> <span class="nav-text">提取boot.img</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87usb%E8%B0%83%E8%AF%95%E6%89%8B%E6%9C%BA"><span class="nav-number">2.3.</span> <span class="nav-text">通过USB调试手机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%B4%E4%B8%8A%E9%9D%A2%E5%85%B7"><span class="nav-number">3.</span> <span class="nav-text">戴上面具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%90%E8%97%8F%E9%9D%A2%E5%85%B7"><span class="nav-number">4.</span> <span class="nav-text">隐藏面具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8shamiko%E9%9A%90%E8%97%8Froot"><span class="nav-number">4.1.</span> <span class="nav-text">使用Shamiko隐藏root</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E9%9A%8F%E6%9C%BA%E5%8C%85%E5%90%8D%E9%9A%90%E8%97%8F%E9%9D%A2%E5%85%B7%E5%BA%94%E7%94%A8"><span class="nav-number">4.2.</span> <span class="nav-text">使用随机包名隐藏面具应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%BB%AD%E5%A4%84%E7%90%86%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F%E6%97%B6"><span class="nav-number">5.</span> <span class="nav-text">后续处理——更新系统时</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#termux%E6%A8%A1%E6%8B%9F-linux-%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">Termux——模拟 Linux 环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%89%8B%E6%9C%BA%E6%B2%A1%E6%9C%89-root"><span class="nav-number">1.1.</span> <span class="nav-text">如果手机没有 root：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%89%8B%E6%9C%BA%E5%B7%B2-root"><span class="nav-number">1.2.</span> <span class="nav-text">如果手机已 root：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flask%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6"><span class="nav-number">2.</span> <span class="nav-text">Flask——后端框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-flask"><span class="nav-number">2.1.</span> <span class="nav-text">安装 Flask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BD%BF%E7%94%A8-flask"><span class="nav-number">2.2.</span> <span class="nav-text">在本地使用 Flask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E4%BD%BF%E7%94%A8-flask"><span class="nav-number">2.3.</span> <span class="nav-text">在局域网内使用 Flask</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F"><span class="nav-number">3.</span> <span class="nav-text">Ngrok——内网穿透</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ngrok"><span class="nav-number">3.1.</span> <span class="nav-text">安装 Ngrok</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D%E8%A7%A3%E5%86%B3-dns-%E9%97%AE%E9%A2%98"><span class="nav-number">3.2.</span> <span class="nav-text">在开始之前，解决 DNS 问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">3.2.1.</span> <span class="nav-text">解决方法：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-ngrok"><span class="nav-number">3.3.</span> <span class="nav-text">使用 Ngrok</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0-authtoken-%E5%88%B0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.3.1.</span> <span class="nav-text">添加 Authtoken 到配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0-domain-%E5%92%8C-edge"><span class="nav-number">3.3.2.</span> <span class="nav-text">添加 Domain 和 Edge</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%81%E8%AE%B8%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82"><span class="nav-number">3.3.3.</span> <span class="nav-text">允许跨域请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C-ngrok"><span class="nav-number">3.3.4.</span> <span class="nav-text">运行 Ngrok</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E5%8F%91%E9%80%81-http-%E8%AF%B7%E6%B1%82"><span class="nav-number">3.3.5.</span> <span class="nav-text">测试发送 HTTP 请求</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%BB%AD%E5%A4%84%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">后续处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%9D%E6%B4%BB"><span class="nav-number">4.1.</span> <span class="nav-text">保活</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">4.2.</span> <span class="nav-text">启动服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">4.3.</span> <span class="nav-text">关闭服务器</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -194,7 +191,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/2023/root%E6%89%8B%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%88%E4%BD%BF%E7%94%A8Magisk%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/2023/%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="data:image/webp;base64,UklGRgYjAABXRUJQVlA4IPoiAABwjwCdASqqAaoBPjEWiEMiISEVv3QoIAMEtLd+Pbf0y58AeL3gevlTdA69oPR738fT/xv/pfpn+K/Of078bv7D/4v9T0perPMv+M/UT6X/df1//uH7N/hj7XvCngC/hX8i/rX9t/Zv+2fuZxvGvf6L/P+oF6p/Qf8d/ef3I/yXp+/0/o39qP8L9w32A/xb+Xf2T8sf75///+P9x/9jwaPu3+p/an4Af5N/bP8F/Yv3e/yn//+2D+t/7f+i/Ir3Pfnf+E/2H+e/dn/Q////2/on/LP6r/lf73/of+P/kP///7hUnKLnOc5znOc5znOc5znOc6vgtTAPM4yYB5nGTAPLVRkwDzMdbPy72aYG6uq8FqYA8BpG+d0rACzf0oitBaQlVKt/6utxcZd4LUwDqrtRxhwk3gYmLINi1RCv9wHxOBXp/7GWhqKUtmSjsfvPC1ufh1RCSHcIBFmjvtg/s3Kw7ll0N/2YIs2v0AaYoat186gLou4zIxfk/hqGsvpvZRewOZPRHWjXbtoIcFsjfHXJJhX6EwZAexExuoaPqqyd08TFP02hK85R00CbEQI3R2VZKIY4FfyPEu8FqS16cnecu4oDHorkfr/cGVMHRl6CjtULHuTHGgGxiOq0fao9XKvRE68+4UZXXVeCqQpqBXjYRGvFFwXlGJMYrwRCZhnXsTaCiEZnyQaUvpvT3yqzZQGXwTjJgHYZTV0Wkg5dh1N3QUIsQcyPXHLe20UhJPI/wMh3ppi8J0FqYB1tGmCFAFVIlsABtdVwarSgXVQ1evkvmih6CMx5dQOAuhXpEU7+41waK8FqUqiKliGYaOdYq2bZo7Fgo2DQjJnGJiaJNcvuQMr83UzaL7YHG8FwuOK83TydswTA3V1XQBJGv9SFEeSoHfftngtJjsZHWFPn9CX+hkwDq1ZL+QnqdPu1njkefmG0TmalzsX0nUsuqhulK5i1xANXerSVR6H0zEcgEA7fB/KyFzDz7nmzzetEXJC7DvoncALPwSv2Sikgh43Vlx0lro1+Fhcng5P++mS9t3zPWtD3ecollRbW9E+YZqgPpCjJh4qfkxgLfGhg+jS53LQm82cXZoQNi6xyDz3UsTXrxnhNNoCtHTE7QfemuegNFMClQj12EpTjJOezNqgFAlH+Bs7dKncBFB0IPK6bhwxULvjWXVeAClhQZYmTIWWLDqeKqTwWpexN9Wsuq8FVr9f+HbyXO0czXnSvblIjS4FIF56VIPM4xMdYEpAP2r43zVtaTiech3PBaXocTsngjOq8FpMdYKuqS02qF7A0JU0UmCOV98HMaAISUdqYB1vW/V/d4NgnjdXVQ3VKzQS6xFt30GVfOiUB6Hr61yxE4yYB1t2rBHmcYmOsF0JwhnInAq9ahcGOySiax2jALqvBUpmqfdCwMQeZmOpfAz7y2bpYfeQwWVvblLFkQqbmaJZxkvj1eC1L2PHr4+C1MAWDeBJB5nDtfweZw2X8qEVO6KE7UwDrwGjPnu4PMzHUwDzMUevebRrLqvAYmh91coDELheZEpiAAP77QeAB+kjcn/PKuKTksZVKgZDCL+sr61detnjUe71AjsOnLfy81YVOEkuWXCVRR10KsmaRV/qnSSsJpjKcbX0d4M+FHKkBD8prn4esl8Vwqbi5DMOtXkNf1Zkm+C8P88++eZKFDobLraGVx+lLX6nA2Qg1ngoHvmcLr43ISFrMqdyyfM0R4ayFr9rijIJJ6ltiJE1ccxAs61ypPyKFM/B1F4TP7c1RWpbX+ThZO1fO4glelPQ7F/lNjm0cTRMbAx55kYWVcbQRnWjLdQIA4beEwGrZVmwa+bG7m9T5Kzckl5URRm0+NkyoewhmrMvsk+ZI+VxuNa4m7m41Agj7u/71K3RA4QNqE8IbPQsXsjgJwLL9ZreiZXS/9Dv53OaFg45YhhUppeAub1KtpzxtfGZK/jET3YLyJJfXyYJ7mwP+pSqo/TZOb2MJCh7VyiRD7rxxfixNR7deV2WrWAKT0RMENeBSn99HigtJHtcukxdxsBFs+O9SgnHXiq25SdE9HSxwc1fEa23lujYvWuuSLtrtyc97BM10sJYVsHkVXupa/Dk0Wq3bTUDSR+LCv7IepKq3GbfEYx5rpHt1EHV7BzsOhCfjKvdIBqjU8nofn0YchfK3xIGHUn4AS22ztc1EvIA9+rhn+2uq6ubJA3IHTwV3WBc0QVUaC4HZ37BI+lRTCQCHlDmO18re7Y/hKh7aR2ZPj5rjDGbOhmfxv8zL1+c4rXztAMVZbF54/QfpkVQdu32K4KJwLY9Pn1AizYC26U5YvO9sc4G3NyJ5KKof/4spZJwbtvnF7l/sQ6j43nzYsW2xGoT9yL+GxYdmwFcJ/XJFBDSevRbTnl4t1E28im4g+BzIC49OPBBnmeOWtLM2zrmgBDG5rIIirgM9T9Nx3/JzyfvMDui3IiRbLbQtWWNRxoeGgIZx8Wr1t3otpDcS1TPtRLFFNA7Cs6bX+28gd6yJywhYapR2zcZIOAEGb8oKo1HMKTsmlHTg8B/61Q9PbCKxxslvzcZc56NiYz1tBQasN9XK0/UQWsTyrISKHk/OZpfi46PnDFiByn3E57ai75hQRvZsR7DHzui+SDJPyPq4sPFisb5BvhRNN5HB8B7XOgBV2ONoP/+WVQvuRdwz2U/jfeLkzjCKzhumNNjQSuZ8+jI7uZ/NxtUJ1Rf9v/0foOJqFeAwRjmqif5YwV1VYgFFAcaFeGKBHqgL+TJQ526fHhmKv/chGUTbaOk9v9C1UYDHJObJToUfbWtco7JBxLqrY05XDOE2LslU+iCug9pKa5oNr3jA3JXU/zr5XX89j6wIOq4H/+di2HIVYeVvQy8405MkrWyJeYuUgvulBKVJFr+xbMKhbbh2hbOL22CN9N7SbN7rivHWQCloKKcc8FhCJfZsNcJsyPujACQxIodpmhC5sl/HaPwTgztGxU//7vmCKrJmtIC1FEjsibMmlqvHRBOAotqtOFFRaxAu5EVQsCdM8GUHLN7I6QGiWeEbcnQVuaD1u1QFXBGStCpM6xG78cPjacxI7rJpa0lBDgFW4OrsaBBCrk3akR0eI1Bd/Pfshju0xNtu8EJ/itRf77e/6RE6edPCQgX83UnEI+Fbl61YrMOgPUej+n8B/oKLCI/yiFy0WjhtgKUJ16605EXWQPIDvL+WvwyaxHqgKhz7ZI0LkQDBy6koKo9WuY8DCgyToE4mpP+hgfrKLjPF/pke1k+3d/rYA6bjUkXSZnmafEk/+OFZdm39O8L+RrJYM4SlozfLTJfn2xTYGT9Ssy0lHLOnU7Yk4y5ItXjYxWN7y/u/uaBq0ehzKKcYiBTGik+6NOxCwkuf2NHX3nN0/9ylK3SNn/oglUx/HbnD+cdL3GYcIPmbHVdU0K6Wf+WWyUnbjJRPMLPJaKo7ULivQpcwEJ3gAazr91VZ7/nHMwkA8eyRZZElCl2rd9gDTMAsAUDzuuBXaAgHWvew2wUXBOaITeWitCMiXhzr7wGt8GQb/kVByRXvbziSv+s4mhTRrLXML4aaTBldEl6PcEF0yZv3pc5LzI6BduhVeqBfjXK0lpEJCYTFOxK0sqbxvgghjPVQ/SRargRgQnehe9KGRaZrkgMPPP7FCMHLiZZmtF0cPmjva5SbTuEtrBTh30Jf6PEeSC3myTvA6Q8gaqUYl/DJZ8iWpwPkYJLjVIawY7kh00iW0sll0XELNJQieo/eMCp00RVjjbzenBD8QPNs1+sZlavjK+w9meJbnCM2Owyp0sYbQ2iI8X0qGzwKgVwXjb29QcMr6a26Z+UqIZk/QUmJEiFCJo2egjzrlrRySBnwx+dLGMNkE+AxfmE4WLjSl7MvQGvtU339OWLpgjFR/o6GEzydY3To0zIQXJ3O+LOi4TrHK588+CMyHcUPyLvWJyoco0b9JZzvXmVZ7Y46m0Ofk///u6AK9tEc0xX4P/OU4SNYyjgtqJZtQktq7PkubLBBg3j5MDSew3BjhFx2pjMXOtRuo8q854dq//40oWZMO/Jga3aXL78tPxG/ot2k+jy1UyK+WF+EPGjCb70QyNfsAJpFXyHsamFDGmQ5c/cKZP6rV66KkRiCmt/2htByA/BV5F9P2HNdZ0M/ttsJXjTsdb68dtwCdTQSNCeHLe9jkzXSSo2DHaHYTByC3Sze7HFqPpAiZ4R0rJ97ru6iF0xx6QANYPkX5zm9EDfGiW8yo29aSvSpzrHdFHDX4Bt2H5vdx0XKJSVsrAThZYEqeg9vL+hsVD0Pwez/mKBO6Al3sJXjv9+QSmMI13jAVqukWXfaTfsToG7/cxITa7SHIQZQ19a3BubQT1lNURyDyh+6KdpG7gv1Kt1JUnB1KcdDCsJyuIBFIfvHCGq51+vN1OkL5w0+cKoT54+G085msy60qiR58gLOoTEwM38Q5EHok6FyG/ZoQHYx53DPYaNA3UhGFAgJcUwhj1D7H9He4MShBWMZiAvBKlwbbapKu3yrzkAaG/7ClqrnUfAF3yIOxnw/sJx7bTTP+r7qnp58AlWRGndDh1NwJY92eTF14bAtyfwGr/Ok7/91f7xCpR5N55xCYK6/RzbUi4D7Orux6eRGprU7PIkSD8KcOj2uU6omMgB58RAp4RcRUXL9UOpYj/9XDApicSxp5XR3RdjFev/lit4bi35KXnW7DwP/6bX2q9b3eADjZYY50i4/akdt0t/mwiwrSFfHFT8kFtaJ4YhMMoseZZlFrs66fgBX1B8fSany9jpafQcFKlU9rYXRaDzZPI9gVYcMGh4xJHwDEU+2kNJkdgz0JTofOAhsjNG9+PwLhZ37gab5JfcR9tSeyHUZrkfabVqVpt+gSBGuNsC3f3Pf2qMVNNkuykK+dyFuMR8dGPQ7N92MoxJDTDkxBIrWaMATI9wkOq5mR60bcr/6goPxIRVZyuch9VywRaTeHTv/TZW3JAkvlxCkvkCTO+x8uLfPWxoKggIILuAOTWAc0Avmqci4+IwoXiqGcQFha9xPhJXv3jtEM5JQGUm0128MBKVrGUoeuqbuJJpX7uIQGOPs903Hchv33y1qbgiUW2up+/VPe/mFtMS9kKhSGpnQDwcoRgk0i7u2ZhTC5dl/JU6zp5IzMoBhKWYM4uykjOw7IeyLNwNfA9aDAoGsqUosBsGRhAg1Hnvdl7b1rxHr+fzQuVvwAa+MDL/pgd50snnEscicSk3mfUVlvCt//mfUNKdILvoUAuOzr/lVQCFY0pJTLK3aFP/S30VfqzP0Pzu/G4cl9pcGCnOL63UVf/6PL59C73k1GLsRF+o5jS8pI4vGEXqGfXpgIRhDMmUqH3EnQsXHbVyzZ+Y8zJeJkE0Z1RX4mhCMtT4m9ZG5poS/7YDkvlzMnvtr2nDwjCUUlHDxEW0out8L2ve9B8yrqe34NhF9TYLwluE1qqRFaUWMYBFw3xsLrvVG79upjCIA1GYRYsSfyIs1dypsdH+CiNNGafWbMFBsGCNOTsESr4PgTgS+SVT8NUPW8yP6j27/XRbibg2Pj89Q/RNK55RRqsGKj3EKmzskZ8tfMXGPqafuaCayW/TrSfX/IgTntHFLBC0YwEBG9iJ7fCV7ZRWEHwAfM55sWLBpGgBGCycaj54AQe+3lszud048yWRXkt7tYwmBpqCwl/DbMxGfA34G41yT8B8lkgEwBhgDIp7w+B280qVe5rMYfgg2Nct71Fchp2fP/qZgAjGI/x+FT5azyH1ptbTEnAjFPAWCCB0a1tgbf5RRbQRue/4Ge4q18xEmz8z6224r5eRhaa/FNs04Isy05xm4Jwm+ODzpoOU34qMbD9fZYEmchoW6s9P1bJk/fguC72+Hnwgg6azCbUFCQgmqwO1HN7wi7E8Ve0QN1+269RjMCIzgSa9wZaXi4sRYlCHu9f2E9MU0e7hLxdgPCECQD2ii4x/Z9S2nSg2flwXFavEfVNIdcs0DnQ5+mpP+68ixrRwBmMUBbnnqRF55X83tQlVM0XXKy69WdW9ZuBNLLhypwRFj+T2acVu4ApfhCO7PubqGpufoxogTPFrlCiLj2d6zlU7jpDTsNAiPzERqV4guUm0FKDhKy5c9YG2TlP9e7vZiuh6LuOK+iq9ALuGlUmPOAuK7jEie0fPv9/WwAVDV8cxB542g3f7uDEGn2VqWndQ6ED686NDjsfMoP5pgbFJ0YHHCJrFsmh3WLRSrXZkAyOSwrjyBx7/i0YF1dR3ROa3KIhZILBI5kRlRu5oewG18kmUvfvEv8eu0LgjmqtaaNTWJD1559C9Mr1X9rXqtH7bNUgTvZSWn/KerTZ2MT1iV7NkB1lqp2LTtGybzfDsrBE4NHZpuHDJhqfkT1qDL911XODh6SEgO5ljaS/UO3oQICKIO2ocQ1ehiSo/S249jhLd0glv8SFdNpHcZuxAyHtlPpMNoPKoMr3GRUNufIttWRZWz0+tEXdJWoNMxXM6jH6FFP8mGbWvCczo+0wWkeJCKftTEX/yN68f9DCGRZJ5BnqoHh/pcof8krFo2wwxsL+cmqoF9qBJkEjt4n6RThVXC4CvM85ZcAfEYnGj39rX08noBTnEkNbrtMtTqYVleWF5eLWGOW2KgaM+ewhkRROQEsHtKv5HKVTge46bRfXgod2EOQNmYAE7iNaYcCfouIz7HNTk0vbkM9cHj0Nnba905Vzial0pNIez/VfElPLzUFJiHEtnMgI/zdxxZSmw8KhhVeDRumuwVbjlSDxdSoP0OUrBCxFpPbp6sMLhdJQKAr0CCoFgjORpGFxdPgiTgryBErbHykGkdemuSSb3zAc2jXUKRikMhVq7aWPjgib8qVZm2S69CVpYHCENe2p+LY4Q7X7qb0wOm1lPm+eU4wDhMN0yRL80TMJjAF4YBmED/S8aGXaRoNJ6Lpq0iMH5vgRCU/og2XVAHOPx/dA/D2QBTbaSbkTyWH410uc38BjIjpvqKy3SlvFQ93vF12Q5whf6vzeEf2RQZTj4thSq7DnNgGrjzQVEJkZqS9fpXwigxB8fiukTProH7xLGheU26jIR5RVNGSCQLRdLqV04ufOrUQf1S6WJGIezCJJPm/anNh6XJEHCXyHSfyYUW+w+czMG5gBUKQg96guRiGLj8BsA/AGyNG0+jus2ZZ/9ozuBImU5e5ClDV/LUj8o6Iq7I+Xnjnr/ZLMbOx7RWWh8HZEDDapMKFqd9V1Ak2HdmXwppqd1LECmXBtk5Ii5WBgIk/4cSvZ7yGl8bwcuOTOr1PeeR6lcWrNZ/U56U4QoJZa2lXr9tkugKSwlCbikplIUqsTgJfvrW/+mcJqzJWkbo5+93W2vuW0uoRZMoTsx+p6AFzg3xfrgryYlEssTy/P/yStvMigQnHbfc8SbnSYviHHNmQ2eQpBiKqsSOlV4Qf6kdAPDP6vcg8jF94njy0fUiQamw4UtqoJQVUI5VfZbljNQOq8lvly5vP8/7Oflt9F6QOBANtZa9nTB403SzgdQGyXF5knHXiidPM93BPPMj6IDnXtiM1065uPKrmIoCGdJyNRGcFvEebIM7JKkTnSC2GqpgPyUlTMzgn39tDCNqPArgBVYhaPJEiiyKaJKwbTdOXTodsa6xEIsdx/x6I0YyFaVhTWtvxRFmk2SIjfGQQPifPFlCYcaSCe/mV+DuAl8m0bnn+fJU8cWOGKDttS+Q6y+xPnB3Xe7P7qIE8M6ZLBAJntktg0K5Dc1rzGZdyAeZM2x/c2CSSIN2ps49uTUOy5RzxPIScBepV4NH9zNaQreRB+kP9a5zx5imFBr+dw2ANGNKRYsP0TKyTDhVuJZprRoR+hhRCeC8Yy/o3c0pxxvdg+iaSyOQZM+kvHNVLAYvkMEBa1smd0O62P+5f1AJVC7kGthd3IJfbuMt/EwETI9NawmHrZtFruiHK+jMw1pX0ibenBjbb8AKh9Kxt+GKvc7pFsVlBQx0ph+zBafwyqyWkjvY1AmglZUJCJ+SEq2IYtlICWEUJuq33De+RmqriPpmjH8DCE/9vzWH2kKw0dGxSSWXJmBm6gugEqTuOXInGfronSrWOxXMB/tvlFstZ0C5SLhO0I8Ie9kcmvVQJyywgRfaYNXYCwqO/Bt7cP/0nLhvIs0ZOHaXizRWWZB0HiK/1+sL81qKLfHEEivykZDsHDWlgHB/+CmRectesfhZw6sQyl86cW4SI2Apzz9NnlNmMdeThviZvoxVyJ+3uD9kqexBob6TBm/n9biAZ+KSbpV0LF4S8p4zQWl0WHXoA60Dfp1XVmngYNxbV3N9PMEy2O7MVV6A0RHNCXPSeVHk6F+4KOMUaYyqF/8+E729wOi0b8eDKXBYS5X94gCN0O900LV80jFEib6cLB1AWF07f5DhjXtZekbVQl8/v+MVLbeQ59DGDL6T/DNX1+cP1zNTXjC+HFG76n41Rf7zSgpOUgSaBUtkIwVCGqVSrIS2ysQTNiLgLYzEEg/JjOIxkW0Qg66egj4scMQgvZFdv92j3sJHYZGnD8jFUAv3pwHcnZd+RI/76RnNY4aNOAYxiFgR3ju/WNipMG+DvkbTPEeijCf8x+PvKtVF3qpg+jyv6Vn2N+nnd6uM9RLvuyABC8ITFRWh2rEogAKB56mRnNispIPlUzr6GVDtJ/GnBBvkj9KppvJxORlxk5vK5yiPc7t/p0L1vT+MRCVvyfKqtlscPa8XwaxMvdN72CioxXlO4Gy7K4GRV1rQYnyhiK5V8Pj3FDvfqOUJXGAo9YYtEkvzVLejovrpHbEGFSmdIubl/zxNc8QJI4XO8nXAX+iO+aU3R6DCEZ3cDgHVT0R5Qn3kNTjRB1xWAo9jIJrExPx3hqfEleQyQlTJ/lIu95ELWS0LMcFlDkKcm/T8/DXDHeMq1pxjCuVzuJyLMF5VVFA3qCpbkTGGTSihIN/YXb+9/WtsEPoZrk99V5IxHV7CC4lpncML+woWcuQStBYdKM5V0tlnGvKosmHldehAQXRkSS2K5GcaslNW1YmwE0FMBXgjQtzvwM92X6BML+pvxQdSNKmnIC1eO4Zx8ap6xwzqk2yqEAmSTY6QR3SuyX4MfiW09OENXkUzeOyGLAwhVQ14CMbafRRFVM7zu2dKiR7M7BF4n8+HEW0xZi47sdUXUGcRWqVPbJiNZQANy0AArJCjQPps/k0FKmfe8ncQW3sjIASehL3ARRe4eh3+omAIAj5VaSXQwZFJBd0T05J26H/lIAnCLLGl/CnEEWIoHw8HmJYwvP+sUbcHnsdruWmb6ZS9JwClSWUSqKHSralzM2yuqDzcMnlkpQQI8coeFuxE7H5g3gIh/9ViL0AoziPVfTlgSI19I0JlIhTmHgU5GyP706W23fWzKtg3Nj2n3UNCIYdP4e9A/gjGidApPFkfDxa2GK74kkdYmV8KAJPuNO68WToB+WeQhACcUs2euh4OFQYMMI1+vuo5BkqYPNiaEDquTrdp518P/TJFYKfQyY/8aS3N+o3q/kILWgv5sL7xLREahlPgqv5buFoY7jJCPxSOgvD+3P5BDJzX51jCioNH7SFmw5ra3isij7TA+Tw0KCHbX4b3l6RveAh1vmagPz95io9xxn6nJbKc3W6+SnXgwxC2wpJmFiHKC6ycdPZ2oFf8sEdLE2heRbcmjAwMEY1FnURjgWRD7mUymmHFDuqAzv8O7+1l5N0MghVy97ccdVfSLH666u7rKOJkT/V/unzSb9HRM4L5Qmm7LEgfqGafXX7fFXAkwsIfrLNGWdf/eIaLQyuFoej+oRk5M36sW3pKH+APeSGkSccH5IS5Xfcc5ZS8TB1CaCaNGuMB+N6JGfRRDluo6kOQNV48ffJ4XlZnrA5EVyTfgNK06mPiYadYjTTgMqEnqpe/fV3O7l1TJGqVpbns+mVxDiYq3CUtnIaYt7B0DiSWA304m1ftKSxUgP2mQnfuAMd/uGj42ah43ruh1euzHBcEeE2e3WiCfQEJ41r8rcJBR3za/mF+ydfqKKG50gGfxoannOHsA7F/4iE1KnES80dxCDO5jocjO0vCmZDjIyvxUwvvttgA4vhndkFccXr38DKSZwhYd15mAKcquKtIrOf61fua2q+K2SdUYrHylERcuQgdc44HzbaA4oGvWMGjcUEWmc5fjqOyUhoR0eyLj1VLJ4GLbk7dE3KJuoa5L6UjNgQr9q0Bk7wcdAToQ9rrlUziSlx8j6SI/Nq3UtfwkqtBDD9Bm84GuuVg0Vbc9JxQPNCBS0EgalKdyaJKmE1SG7eMGFuk1reNA/es3F9xCrdyQt2JWBODFRuAceLr9IulZ3sUu/PlLddhX9UtiLD7Vbvs9EtS7yuXtD0XYdbtUJzG0fGqXkXshyfmLFJUhgz6oymzlgK+dX0fV0opwk/4R2GT1h/ulLSB7ceNcO1PlZ54G1s+Vujw679RIE95cWRDO8Qu8ASFDFJLNFa007CsMP6V3x1ClimoydMsqSzNBdBUOm8eHJdBZVtO0a1pVfMlk6qxJYgUisKQeteygqCg97Cn3th+y2e1XbE5gfEV0sqEIGHxGo2Xu38X1NDvd8Uxo+/g7O7SgEEbkzPUgFS9J459CZ0WZuw/cehfcNKyl6AGyUp5cG6bm9mOt35Ksh49mTT7AYeXaIb7frET1EbwWFvqOm5hZ1piy5lCzYuuPrqjGMXYpKOv3/TuE5O+vpZnx4edOIpa04EJ7T4nay0M2ZDkuzl+ZTPOyU00UNpzyhPcUGn76s31eJ8EisSdGeVg5QdzzHKLI5MJYtusy9jZVvKYyOzBaiIu5AJ+3zVJVePi8IJLBhzgyRPaQfU3Kp/8PuxwTtZhkB+bNpO3JZli0z8Ap8RZfr6ZZNLbEE9or7pO+cNKTBDlQbFtlUyXxyo9XMfWjHX0vaPXVPVqPfEVGW5uZeDhXDhWlru8t2HTsF4BunxjjcV0xAAVdmfDxJAMjerWcye7cOzRElUXG2Ku1W3Okb8l+r5PBXu67aF3op8czyAD/7iuefr4wK5kE90o9NwiS0C+hVyts+U83KTIIXlmkkRxBr2a9xaB9InWUoaGX/MOcY+L+crcxzv+j5KuRRxPyAeCuyifqM9oeAUAb2wDeEvV0NhNNyZDBBz+wYSSzyUn59J+N2tQB6iNYP35FABOtrqiKZSt4wP69EhOLF4Up+CUW1mqHumh9Et0BSq143NHXALz8MS/PJ6buk4LzVa0VuaLx/UT0HHWgvgyApiCYMTrq2jnvvXYTBlh5L3FfB+4bymtrEhjnY1liiQjUF+tNDOCV7adBn9RoDFHIE9G12wPtW4daS65QL4JkDcwqR1Kd7h3hMW2o5WBdqJI+BvlcyJbLipeAGjihCZium5vyzKQRMjFeN7Ke/UsLE/1BtICtDYsGjmGWswktoBdoBM6D66cu1DBtR/CKrSJJr4S4Fp7mLh1Gp3DilnI1q1se0bwL4wrve/l3FhvAA8VE1rNbGpxCYA/XLz6cpBlEDGJcQLOEwPacGPPtxkoMe+HD9CSGBxcJGZTxlXgdILOdTREjFvyLS+eimpuYXoKNrvU5B0ZYo744653vuTLoZ6HegAThz0//EjW8s3H1HKfW4w4QlLlrdZX5kFanWFaT97b+w7G0CDbdL2CQULZT595sQU0ufIhmT1sLraUFDLLqy0usnLno7CvfM7NK8ePVAwc2tEIGFnRk7dbmYHKKgvGAo6M9kxmkLVFbdEnhe5jyoUj5cKlha9Pgx52UU6FoFSgYDSik2d2bhCbxi+W+vMuzIx2Cxxycw/hF3crGVq6mbFdntisiPP07wJim2hHXd1Hg9LgXXa2mfKqMyCr/DLvhLBq43VhUv5IRYkodxQ9aQvfjqmfUvdhIgAAELOCCQP0qLF0YquJFSlNdMUfwbl3NlepJN6UOUCAD08+KUwEUPoIaLnaWwSw6BpRtPPc40fmxr7YSAAAAA==">
@@ -207,12 +204,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="root手机教程（使用Magisk） | 若凡的博客">
+      <meta itemprop="name" content="在手机上搭建Web服务器 | 若凡的博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          root手机教程（使用Magisk）
+          在手机上搭建Web服务器
         </h1>
 
         <div class="post-meta-container">
@@ -222,15 +219,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2023-07-08 22:24:00" itemprop="dateCreated datePublished" datetime="2023-07-08T22:24:00+08:00">2023-07-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-07-11 13:02:16" itemprop="dateModified" datetime="2023-07-11T13:02:16+08:00">2023-07-11</time>
+      <time title="创建时间：2023-07-19 13:45:00 / 修改时间：13:44:29" itemprop="dateCreated datePublished" datetime="2023-07-19T13:45:00+08:00">2023-07-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -249,14 +240,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.4k</span>
+      <span>4.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>6 分钟</span>
+      <span>9 分钟</span>
     </span>
 </div>
 
@@ -266,148 +257,202 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>你需要：</p>
+    <div class="post-body" itemprop="articleBody"><p>使用的主要工具：</p>
 <ul>
-<li>一台系统为 Android 6.0 以上的手机</li>
-<li>一台能够正常使用 <a
-target="_blank" rel="noopener" href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn">Android
-SDK Platform-Tools</a> 的电脑</li>
+<li>Termux——模拟 Linux 环境</li>
+<li>Flask——作为后端框架</li>
+<li>Ngrok——内网穿透</li>
+</ul>
+<p>你需要：</p>
+<ul>
+<li>能够正常运行以上软件的安卓手机</li>
+<li>最好有一台电脑</li>
 </ul>
 <span id="more"></span>
-<p>另外，如果你手机的Android kernel版本在5.10以上，你也可以使用<a
-target="_blank" rel="noopener" href="https://kernelsu.org/zh_CN/">KernelSU</a>——这不属于此教程的范围。</p>
-<h2 id="背景知识">背景知识</h2>
-<h3 id="linux-与-android">Linux 与 Android</h3>
-<p>Linux是一种操作系统内核，由Linus
-Torvalds开发。<strong>基于Linux内核</strong>，Android
-Inc.公司开发出了Android操作系统。</p>
-<p>2005年，Google收购Android
-Inc.。2007年，Google将Android的源代码公开，并创建了<a
-target="_blank" rel="noopener" href="https://source.android.google.cn/?hl=zh-cn">AOSP</a>（Android Open
-Source Project）项目。</p>
-<p>许多手机厂商的定制系统，如MIUI、Flyme、HarmonyOS等都是<strong>基于AOSP源码</strong>开发的。和AOSP对标的<a
-target="_blank" rel="noopener" href="https://gitee.com/openharmony">OpenHarmony</a>也有用到Linux内核。所以，如果你的手机不是苹果，它里面大概率就会有一个修改过的Linux内核。</p>
-<h3 id="linux-与-android-中的用户权限">Linux 与 Android
-中的用户权限</h3>
-<p>Linux操作系统是多用户操作系统，用户<code>root</code>拥有最高权限——对系统的完全控制权。拥有root权限的用户可以把其他用户添加到root用户组。在root用户组里，每个用户都有root权限。</p>
-<p>在Android操作系统中，<strong>每个应用（APP）都是一个独立的用户</strong>。如果没有<code>root</code>用户把APP添加到root用户组，就没有APP能够获得root权限。</p>
-<p>而在正常情况下，你在手机上见到的所有画面都是APP的进程（比如系统界面是<code>com.android.systemui</code>）。这时想要获得root权限，就需要修改更底层的东西。</p>
-<h3 id="bootloader锁">Bootloader锁</h3>
-<p>Bootloader，即启动引导加载程序。它负责在计算机启动时，引导操作系统加载。</p>
-<p>在bootloader执行的过程中，如果签名验证未通过，说明系统底层文件被修改。这时bootloader会停止执行，<strong>无法进入系统</strong>。这被称为bootloader（BL）锁。</p>
-<h3 id="magisk">Magisk</h3>
-<p>The <strong>Magic Mask</strong> for
-Android，是一套用于定制Android的开源软件。它可以为应用程序提供 root
-访问权限。后文简称<strong>面具</strong>。</p>
-<p>面具获取root权限的原理是通过修改boot分区，代理linux内核的第一个进程init。<a
-href="#fn1" class="footnote-ref" id="fnref1"
-role="doc-noteref"><sup>1</sup></a></p>
-<p>面具修改了系统分区。因此，使用面具的前提是解除BL锁。</p>
-<h2 id="准备工作">准备工作</h2>
-<h3 id="解除bl锁">解除BL锁</h3>
+<p><strong>这个教程需要手机有 root 权限</strong>，仅用于解决<a
+href="#在开始之前解决-dns-问题">这个问题</a>。</p>
+<p>如果没有更好的，不使用 root 权限的方法的话。</p>
+<p><a
+href="/blog/2023/root%E6%89%8B%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%88%E4%BD%BF%E7%94%A8Magisk%EF%BC%89/">root
+手机教程（使用 Magisk）</a></p>
+<h2 id="termux模拟-linux-环境">Termux——模拟 Linux 环境</h2>
+<p><a target="_blank" rel="noopener" href="https://termux.dev/cn/index.html">Termux</a>
+是一个在安卓手机上模拟 Linux 环境的 app。</p>
+<p>适用于 Android &gt;= 7，无需手机 root。可以在 github 上<a
+target="_blank" rel="noopener" href="https://github.com/termux/termux-app/releases/">下载</a>。</p>
+<p>Termux 模拟 Linux
+环境的根目录在手机的<code>/data/data/com.termux/files/</code>。</p>
+<h3 id="如果手机没有-root">如果手机没有 root：</h3>
+<ul>
+<li><p>在 termux 内，最多访问到上一级目录
+<code>com.termux/</code>，无法访问<code>/data/</code>。</p></li>
+<li><p>在 termux
+外，使用文件管理器无法访问<code>/data/</code>。</p></li>
+<li><p>在 termux 内访问手机 SD 卡，需使用命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">termux-setup-storage</span><br></pre></td></tr></table></figure>
+<p>这会把 SD 卡目录<code>/storage/emulated/0/</code>链接到
+<code>/data/data/com.termux/files/home/storage/shared/</code>。</p></li>
+</ul>
+<h3 id="如果手机已-root">如果手机已 root：</h3>
+<p>可以直接使用<a target="_blank" rel="noopener" href="https://mt2.cn/">MT
+管理器</a>访问各个目录。这样转移文件比较方便。</p>
+<h2 id="flask后端框架">Flask——后端框架</h2>
+<p>Flask 是一个用 Python 编写的 Web 框架。<a
+target="_blank" rel="noopener" href="https://flask.palletsprojects.com/">官网</a> | <a
+target="_blank" rel="noopener" href="https://dormousehole.readthedocs.io/">中文文档</a></p>
+<h3 id="安装-flask">安装 Flask</h3>
+<p>首先在 Termux 上安装 Python：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install python</span><br></pre></td></tr></table></figure>
+<p>然后用 Python 的包管理工具 pip 安装 Flask：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask</span><br></pre></td></tr></table></figure>
+<h3 id="在本地使用-flask">在本地使用 Flask</h3>
+<ol type="1">
+<li>在家目录下新建一个文件夹。名字随便取，用于存放代码：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/flask-app</span><br></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li><p>在文件夹里新建<code>app.py</code>文件——你可以在电脑上写好了传到手机，也可以用
+MT 管理器写，还可以用 Vim 写。</p></li>
+<li><p>编写代码：</p></li>
+</ol>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, make_response</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="comment">#处理根路由的视图函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line"></span><br><span class="line">    <span class="comment">#创建 html 字符串</span></span><br><span class="line">    html_content = <span class="string">&quot;&lt;h1&gt;Hello, Flask!&lt;/h1&gt;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#创建响应对象</span></span><br><span class="line">    response = make_response(html_content)</span><br><span class="line">    response.headers[<span class="string">&#x27;Content-Type&#x27;</span>] = <span class="string">&#x27;text/html&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#返回响应</span></span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+<ol start="4" type="1">
+<li>在<code>flask-app</code>目录下运行：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python app.py &amp;</span><br></pre></td></tr></table></figure>
+<p><code>&amp;</code>表示把程序放在后台运行。</p>
+<p>你会看到：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> * Serving Flask app &#x27;app&#x27;</span><br><span class="line"> * Debug mode: off</span><br><span class="line">WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.</span><br><span class="line"> * Running on http://127.0.0.1:5000</span><br><span class="line">Press CTRL+C to quit</span><br></pre></td></tr></table></figure>
+<p>用浏览器访问<code>http://127.0.0.1:5000</code>，看到<code>Hello, Flask!</code>即为成功。</p>
+<h3 id="在局域网内使用-flask">在局域网内使用 Flask</h3>
+<p>指定<code>app.run()</code>里面的<code>host</code>和<code>port</code>参数，即可在
+Wi-Fi 局域网内访问手机。</p>
+<ol type="1">
+<li><p>在手机设置里搜索（或者使用<code>ifconfig</code>命令），找到你手机的
+ip 地址。比如是<code>192.168.1.2</code>。</p></li>
+<li><p>把代码里的<code>app.run()</code>改为</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.run(host=<span class="string">&#x27;192.168.1.2&#x27;</span>, port=<span class="number">5000</span>)</span><br></pre></td></tr></table></figure>
+<p>端口号任意填不冲突就行，默认是<code>5000</code>。</p></li>
+<li><p>如上文，运行。</p></li>
+</ol>
+<p>你可以在本机，或在局域网内任意设备的浏览器上访问<code>http://192.168.1.2:5000</code>。</p>
+<h2 id="ngrok内网穿透">Ngrok——内网穿透</h2>
+<p>我们搭建了“服务器”。但是没有公网 ip，无法接受来自局域网外的访问。</p>
+<p>Ngrok
+是一个用于创建安全隧道的工具，它可以将本地的服务器或应用程序暴露到公共互联网。</p>
+<h3 id="安装-ngrok">安装 Ngrok</h3>
+<ol type="1">
+<li><p>查看 Termux 模拟 Linux 环境的 CPU 架构（跟随你手机的架构）</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uname</span> -m</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">getprop ro.product.cpu.abi</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://ngrok.com/download">下载</a>对应架构的 Ngrok
+到手机。（最新版 Ngrok
+没有开源，使用<code>pkg install ngrok</code>找不到包，因此在官网上下载）</p></li>
+<li><p>解压文件，并移动到<code>~/../usr/bin</code>目录。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvzf ~/storage/shared/[你下载的.tgz文件路径] -C ~/../usr/bin</span><br></pre></td></tr></table></figure>
+<p>这里用家目录的上一级<code>~/../</code>表示 linux
+环境根目录，也可以使用<code>$PREFIX</code>。如果直接使用<code>/</code>，Termux
+会认为是手机的根目录。</p></li>
+</ol>
+<h3 id="在开始之前解决-dns-问题">在开始之前，解决 DNS 问题</h3>
+<p>官网上的包，没有适配<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>
+Termux。因此在我首次连接时，发生了连接错误。</p>
+<p>在运行的同时打印日志：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ngrok http 5000 --log-level debug --<span class="built_in">log</span> stdout</span><br></pre></td></tr></table></figure>
+<p>大部分内容略。关键在这里：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read udp [::1]:43938-&gt;[::1]:53: read: connection refused</span><br></pre></td></tr></table></figure>
+<p>在本地主机<code>[::1]</code>的<code>43938</code>端口和<code>53</code>端口之间，建立连接失败。<code>53</code>是
+DNS 服务的端口，说明 DNS 查询出了问题。</p>
+<p>Ngrok 是用 Go 语言写的，</p>
 <blockquote>
-<p>解锁 BootLoader 实际上就是让 BootLoader
-启动链上某些阶段的签名验证不生效。<a href="#fn2" class="footnote-ref"
+<p>根据 src/net/dnsclient_unix.go，如果 /etc/resolv.conf 不存在，则选择
+localhost:53 作为名称服务器。<a href="#fn2" class="footnote-ref"
 id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 </blockquote>
-<p>你需要在你手机厂商的网站上申请解锁码，然后用他们提供的工具解锁。有一些厂商（华为等）已经不提供解锁码。</p>
-<p>注意：解锁BL后会<strong>清除所有用户数据，恢复出厂设置</strong>。请提前做好你重要文件的备份。</p>
-<h3 id="提取boot.img">提取boot.img</h3>
-<p>在网上搜索，找到你手机的安装包。</p>
-<p>通常是一个<code>.zip</code>或.<code>tgz</code>格式的压缩包。确保手机型号一致、操作系统版本一致。</p>
-<p>解压后找到<code>boot.img</code>或者<code>init_boot.img（如果有）</code>。复制两份，分别保存到手机和电脑，备用。</p>
+<p>它想找<code>/etc/resolv.conf</code>查询
+DNS，而在手机里找不到这个文件。进而向<code>localhost:53</code>发送 udp
+数据包。手机的<code>53</code>端口没有开放，开启<code>1024</code>以下的端口需要
+root 权限。</p>
+<p>在 Termux
+里有<code>resolv.conf</code>文件，在<code>$PREFIX/usr/etc/resolv.conf</code>。但是官方的包没有改路径，源码也没有开放。</p>
+<p>我尝试修改 Ngrok 配置文件里的
+<code>dns_resolver_ips</code>，但是没有用。</p>
+<h4 id="解决方法">解决方法：</h4>
+<p>在手机<code>/etc/</code>目录下新建<code>resolv.conf</code>就行了。</p>
 <ul>
-<li>如果你找不到<code>boot.img</code>，而找到了<code>playload.bin</code>：参考<a
-target="_blank" rel="noopener" href="https://magiskcn.com/payload-dumper-go-boot">这篇教程</a>。或者使用<a
-target="_blank" rel="noopener" href="https://mt2.cn/">MT管理器</a>提取。</li>
-<li>如果你的手机<em><strong>已经root了</strong></em>：可以在<code>adb shell</code>下使用<code>ls -l /dev/block/by-name/</code>查看分区表。找到boot分区，比如<code>/dev/block/sdc41</code>。使用<code>dd if=/dev/block/sdc41 of=/sdcard/boot.img</code>提取boot分区。</li>
+<li><p>这需要 root 权限。</p></li>
+<li><p><strong>这会修改<code>system</code>分区</strong>。如果手机升级，卸载面具前还要刷回原来的<code>system</code>；如果空间不够，可以删一些没用的系统预装软件数据，通常在<code>/system/app/</code>。</p></li>
+<li><p>暂时没找到不使用 root 权限的解决方法。</p></li>
 </ul>
-<h3 id="通过usb调试手机">通过USB调试手机</h3>
-<p>在手机设置里找到系统版本（比如MIUI，是在“全部参数”里的“MIUI版本”）。连续点击，直到手机出现提示框“您现在处于开发者模式”。</p>
-<p>在手机设置里找到开发者选项，进入。找到<strong>USB调试</strong>选项并开启。</p>
-<p>下载<a
-target="_blank" rel="noopener" href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn">Android
-SDK
-Platform-Tools</a>，解压到你喜欢的目录。比如<code>D:\platform-tools</code>。你会看到目录里有<code>adb.exe</code>和<code>fastboot.exe</code>等一些文件。</p>
-<p>打开命令行（Windows下win+R输入cmd，回车），你会看到：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\你的用户名\&gt;</span><br></pre></td></tr></table></figure>
-<p>这是你当前所在的目录。当你要执行一个<code>.exe</code>文件时，系统先从当前目录里寻找。如果找不到，就从环境变量里寻找。再找不到就打印错误信息。</p>
-<p>你刚才解压出来的<code>.exe</code>文件只能在它们所在的目录下运行。如果不想切换目录，想让它们在任意目录下都可以运行，需要把它们<strong>所在的目录</strong>添加到<strong>环境变量</strong>。</p>
-<p>Windows
-10下，<code>Win + I</code>打开设置。系统-&gt;关于-&gt;高级系统设置-&gt;环境变量，双击系统变量<code>Path</code>，新建，把<code>D:\platform-tools</code>复制到列表，确定确定确定。这样环境变量就设置好了。</p>
-<p>用数据线连接手机和电脑。你可以尝试在<code>cmd</code>里使用命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure>
-<p>这时手机会弹出授权窗口。点击确定，你会在电脑上看到：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List of devices attached</span><br><span class="line">你手机的序列号        device</span><br></pre></td></tr></table></figure>
-<p>说明adb连接成功。</p>
-<h2 id="戴上面具">戴上面具</h2>
-<p><a
-target="_blank" rel="noopener" href="https://github.com/topjohnwu/Magisk/releases">下载面具</a>并安装打开，你将看到：</p>
-<img src="/blog/2023/root%E6%89%8B%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%88%E4%BD%BF%E7%94%A8Magisk%EF%BC%89/1.png" class="">
-<p>如果Ramdisk为<strong>否</strong>，或者你的手机品牌是<strong>华为</strong>或<strong>三星</strong>：参考
-<a
-target="_blank" rel="noopener" href="https://jesse205.github.io/MagiskChineseDocument/install.html">Magisk
-中文文档</a>。</p>
-<p>点击“安装”按钮。如果你手机的安装包中有<code>vbmeta.img</code>，选中“修补
-boot 映像中的 vbmeta”选项。否则不选中。</p>
-<p>在方式中选择“选择并修补一个文件”。然后选择你提取出来的<code>boot.img</code>或<code>init_boot.img</code>。点击“安装”。</p>
-<p>面具会把修补后的文件<code>magisk_patched-[版本号_随机字符].img</code>存放到SD卡的<code>Download</code>目录下。</p>
-<p>把修补后的文件复制到电脑：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb pull /sdcard/Download/magisk_patched-[版本号_随机字符].img 电脑上的一个文件夹路径</span><br></pre></td></tr></table></figure>
-<p>重启手机到<code>fastboot</code>模式：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb reboot fastboot</span><br></pre></td></tr></table></figure>
-<p>刷写新的<code>boot</code>分区：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash boot（或者init_boot） 电脑上的一个文件夹路径\magisk_patched-[版本号_随机字符].img</span><br></pre></td></tr></table></figure>
-<p>重启手机：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure>
-<p>打开面具。如果看到了Magisk-&gt;当前的版本号，说明成功。</p>
+<h3 id="使用-ngrok">使用 Ngrok</h3>
+<p>先<a target="_blank" rel="noopener" href="https://dashboard.ngrok.com/signup">注册账号</a>，然后<a
+target="_blank" rel="noopener" href="https://dashboard.ngrok.com">进入仪表板</a>。</p>
+<h4 id="添加-authtoken-到配置文件">添加 Authtoken 到配置文件</h4>
+<p>在本地服务器连接 Ngrok 服务器时，Authtoken 用于认证你的身份。</p>
+<p>点击 <em>Your Authtoken</em>，你会看到你的 Authtoken。使用命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ngrok config add-authtoken [你的authtoken]</span><br></pre></td></tr></table></figure>
+<p>这会向配置文件<code>~/.config/ngrok/ngrok.yml</code>里写入：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">authtoken:</span> [<span class="string">你的authtoken</span>]</span><br></pre></td></tr></table></figure>
+<h4 id="添加-domain-和-edge">添加 Domain 和 Edge</h4>
+<p>点击 <em>Domains</em>。Ngrok
+应该会提醒你领取一个域名，像<code>[几个英文单词].ngrok-free.app</code>。这是在前端发送请求时的目标域名。</p>
+<p>点击 <em>Edges</em>。点击 <em>+ New Edge</em> 按钮创建一个 Edge。</p>
+<p>点击新建的
+Edge，找到<code>edge=edghts_[一串字符]</code>，复制到手机备用。</p>
+<h4 id="允许跨域请求">允许跨域请求</h4>
+<p>Flask
+可以根据用户的请求，动态生成前端代码。而如果前端代码单独放在另一台服务器上，比如
+Github Pages——</p>
+<p>从<code>github.io</code>向<code>ngrok-free.app</code>发送 HTTP
+请求。由于两者不在同一域名下，浏览器为了用户安全，会拦截跨源请求。</p>
+<p>解决方法是，在后端的响应里加上<a
+target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS">跨域资源共享（CORS）</a>头。</p>
+<p>flask-cors 库可以给 Flask 的响应自动加上 CORS 头。<a
+target="_blank" rel="noopener" href="https://flask-cors.readthedocs.io/">flask-cors 文档</a></p>
+<p>安装 flask-cors：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-cors</span><br></pre></td></tr></table></figure>
+<p>然后在<code>app.py</code>里加两行：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, make_response</span><br><span class="line"><span class="keyword">from</span> flask_cors <span class="keyword">import</span> CORS    <span class="comment">#&lt;----------</span></span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">CORS(app)                      <span class="comment">#&lt;----------</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="comment">#处理根路由的视图函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line"></span><br><span class="line">    <span class="comment">#创建 html 字符串</span></span><br><span class="line">    html_content = <span class="string">&quot;&lt;h1&gt;Hello, Flask!&lt;/h1&gt;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#创建响应对象</span></span><br><span class="line">    response = make_response(html_content)</span><br><span class="line">    response.headers[<span class="string">&#x27;Content-Type&#x27;</span>] = <span class="string">&#x27;text/html&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#返回响应</span></span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+<h4 id="运行-ngrok">运行 Ngrok</h4>
+<p>找到前面复制到手机上的<code>edge=edghts_[一串字符]</code>。</p>
+<p>先启动 Flask 到后台，再运行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ngrok tunnel --label edge=[一串字符] http://localhost:5000</span><br></pre></td></tr></table></figure>
+<h4 id="测试发送-http-请求">测试发送 HTTP 请求</h4>
 <ul>
-<li><p>如果你的手机打不开了：说明面具不适合你的手机，或者你有地方做错了。
-你需要长按【电源】键重启，然后马上同时按住【电源】键和【音量+】键（也有手机是【电源】键和【音量-】键）。这会把手机重启到<code>fastboot</code>模式。
-然后使用以下命令恢复boot分区： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash boot（或者init_boot） 电脑上的一个文件夹路径\你修补前的boot.img</span><br></pre></td></tr></table></figure></p></li>
-<li><p>在安装面具后：需要禁用系统自动更新。<a
-href="#后续处理更新系统时">后续处理——更新系统时</a></p></li>
+<li><p>用 <a
+target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2019/09/curl-reference.html">curl</a>
+发送<code>GET</code>请求</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -v [你的Ngrok域名]</span><br></pre></td></tr></table></figure></li>
+<li><p>在本地<code>file://</code>协议或其他域名下，用 <a
+target="_blank" rel="noopener" href="https://www.axios-http.cn/">axios</a> 发送跨域请求</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      axios</span></span><br><span class="line"><span class="language-javascript">        .<span class="title function_">get</span>(<span class="string">&quot;https://你的Ngrok域名&quot;</span>)</span></span><br><span class="line"><span class="language-javascript">        .<span class="title function_">then</span>(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">console</span>.<span class="title function_">log</span>(response);</span></span><br><span class="line"><span class="language-javascript">        &#125;)</span></span><br><span class="line"><span class="language-javascript">        .<span class="title function_">catch</span>(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">console</span>.<span class="title function_">log</span>(error);</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="隐藏面具">隐藏面具</h2>
-<p>为了用户安全，一些银行类的app在检测到root后会禁止用户使用。需要对这一类app隐藏root。</p>
-<h3 id="使用shamiko隐藏root">使用Shamiko隐藏root</h3>
-<p>Shamiko是一个面具模块，用于隐藏root。</p>
+<h2 id="后续处理">后续处理</h2>
+<h3 id="保活">保活</h3>
+<p>如果你想让服务器一直运行，在保持手机开机之外，还要：</p>
 <ul>
-<li>如果使用的是<a
-target="_blank" rel="noopener" href="https://github.com/magojohnji/Magisk-delta/blob/main/intro.md">Magisk
-Delta</a>，则不能安装此模块。可用其内置的MagiskHide。</li>
+<li><p>始终把 Termux 挂在后台，锁定，并忽略电池优化</p></li>
+<li><p>使用<code>nohup</code>命令让程序不挂起（往下看）↓</p></li>
 </ul>
-<p>在面具设置里：</p>
-<ul>
-<li><p>找到“Zygisk”，<strong>开启</strong>。</p></li>
-<li><p>找到“遵守排除列表”，<strong>关闭</strong>。</p></li>
-<li><p>找到“配置排除列表”，选择要对其隐藏root的应用。点击，在展开的列表里全部打上勾，直到上方进度条满。</p></li>
-</ul>
-<p><a
-target="_blank" rel="noopener" href="https://github.com/LSPosed/LSPosed.github.io/releases/">下载Shamiko</a>
-。打开面具-&gt;模块-&gt;从本地安装-&gt;选择下载的<code>shamiko-[版本号]-release.zip</code>-&gt;确定-&gt;重启手机。</p>
-<p>如果看到模块-&gt;Shamiko的简介里露出了😋，说明Shamiko正常运行。</p>
-<h3 id="使用随机包名隐藏面具应用">使用随机包名隐藏面具应用</h3>
-<p>面具设置-&gt;隐藏Magisk应用</p>
-<h2 id="后续处理更新系统时">后续处理——更新系统时</h2>
-<p>系统更新前：先打开面具，选择“卸载Magisk”-&gt;<strong>还原原厂映像</strong>。然后更新系统。</p>
-<p>系统更新后：仍然使用提取boot-&gt;修补boot-&gt;刷入boot的方式安装面具。</p>
-<ul>
-<li>如果希望在更新系统时保留面具：参考<a
-target="_blank" rel="noopener" href="https://jesse205.github.io/MagiskChineseDocument/ota.html">这篇文档</a>。</li>
-</ul>
+<h3 id="启动服务器">启动服务器</h3>
+<p>先启动 Termux，再依次启动 Flask 和 Ngrok。</p>
+<p>可以向<code>$PREFIX/usr/etc/profile</code>文件中添加以下几行命令， 让
+Termux 启动的同时自执行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/flask-app</span><br><span class="line"><span class="built_in">nohup</span> python app.py &amp;</span><br><span class="line"><span class="built_in">nohup</span> ngrok tunnel --label edge=[一串字符] http://localhost:5000 &amp;</span><br></pre></td></tr></table></figure>
+<h3 id="关闭服务器">关闭服务器</h3>
+<p>使用<code>jobs</code>查看进程列表，<code>kill %[进程序号]</code>杀死进程。</p>
+<p>当然，你也可以直接杀掉 Termux 的后台。</p>
 <aside id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
 <hr />
 <ol>
 <li id="fn1"><p><a
-target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/eF9izvazeSZ1bVxOcxamQg">何为root？维术：https://mp.weixin.qq.com/s/eF9izvazeSZ1bVxOcxamQg</a><a
+target="_blank" rel="noopener" href="https://wiki.termux.com/wiki/Differences_from_Linux">Termux 与
+Linux 的区别：https://wiki.termux.com/wiki/Differences_from_Linux</a><a
 href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p><a
-target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/-9VKyraHq5Qt2PTzqVqZOg">当我们谈论解锁
-BootLoader
-时，我们在谈论什么？维术：https://mp.weixin.qq.com/s/-9VKyraHq5Qt2PTzqVqZOg</a><a
-href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/a/49315513">woohaha
+的回答：https://stackoverflow.com/a/49315513</a><a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </aside>
 
@@ -427,7 +472,7 @@ href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://hrfis.me/blog/2023/root%E6%89%8B%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%88%E4%BD%BF%E7%94%A8Magisk%EF%BC%89/" title="root手机教程（使用Magisk）">https://hrfis.me/blog/2023/root手机教程（使用Magisk）/</a>
+      <a href="https://hrfis.me/blog/2023/%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="在手机上搭建Web服务器">https://hrfis.me/blog/2023/在手机上搭建Web服务器/</a>
   </li>
   <li class="post-copyright-license">
       <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -440,14 +485,11 @@ href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/blog/2023/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%AD%E5%87%A0%E4%B8%AA%E5%AE%B9%E6%98%93%E6%B7%B7%E6%B7%86%E7%9A%84%E6%A6%82%E5%BF%B5/" rel="prev" title="概率统计中几个容易混淆的概念">
-                  <i class="fa fa-chevron-left"></i> 概率统计中几个容易混淆的概念
+                <a href="/blog/2023/root%E6%89%8B%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%88%E4%BD%BF%E7%94%A8Magisk%EF%BC%89/" rel="prev" title="root手机教程（使用Magisk）">
+                  <i class="fa fa-chevron-left"></i> root手机教程（使用Magisk）
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/blog/2023/%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="next" title="在手机上搭建Web服务器">
-                  在手机上搭建Web服务器 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -529,7 +571,7 @@ href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/2023/root%E6%89%8B%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%88%E4%BD%BF%E7%94%A8Magisk%EF%BC%89/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/2023/%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/"}</script>
   <script src="/blog/js/third-party/quicklink.js"></script>
 
 </body>
