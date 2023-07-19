@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hrfis.me/blog/2023/root%E6%89%8B%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%88%E4%BD%BF%E7%94%A8Magisk%EF%BC%89/</loc>
+    
+    <lastmod>2023-07-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hrfis.me/blog/2023/%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     
     <lastmod>2023-07-19</lastmod>
@@ -21,15 +30,6 @@
   
   <url>
     <loc>https://hrfis.me/blog/categories/index.html</loc>
-    
-    <lastmod>2023-07-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/2023/root%E6%89%8B%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%88%E4%BD%BF%E7%94%A8Magisk%EF%BC%89/</loc>
     
     <lastmod>2023-07-11</lastmod>
     
