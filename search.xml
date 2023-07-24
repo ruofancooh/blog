@@ -291,7 +291,8 @@ root 权限。</p>
 <p>我尝试修改 Ngrok 配置文件里的
 <code>dns_resolver_ips</code>，但是没有用。</p>
 <h4 id="解决方法">解决方法：</h4>
-<p>在手机<code>/etc/</code>目录下新建<code>resolv.conf</code>就行了。</p>
+<p>把 Termux
+的<code>resolv.conf</code>文件复制到手机<code>/etc/</code>目录下就行了。</p>
 <ul>
 <li><p>这需要 root 权限。</p></li>
 <li><p><strong>这会修改<code>system</code>分区</strong>。如果手机升级，卸载面具前还要刷回原来的<code>system</code>；如果空间不够，可以删一些没用的系统预装软件数据，通常在<code>/system/app/</code>。</p></li>
@@ -371,6 +372,15 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 ]]></content>
       <categories>
         <category>教程</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>第一篇文章</title>
+    <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>这是第一篇文章</p>
+]]></content>
+      <categories>
+        <category>暂无分类</category>
       </categories>
   </entry>
   <entry>
@@ -470,15 +480,6 @@ href="https://www.zhihu.com/question/42770047/answer/149729398">置信区间的�
 role="doc-backlink">↩︎</a></p></li>
 </ol>
 </aside>
-]]></content>
-      <categories>
-        <category>暂无分类</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>第一篇文章</title>
-    <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>这是第一篇文章</p>
 ]]></content>
       <categories>
         <category>暂无分类</category>
