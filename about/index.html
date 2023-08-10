@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="博主      const pLabel &#x3D; document.getElementById(&quot;myAge&quot;);   const ms_astronomy_julian_year &#x3D; 31557600000;   const timestamp_my_birth &#x3D; 990773520000;   const decimal_places &#x3D; 3;    function upd">
+    <meta name="description" content="博主      const pLabel_myAge &#x3D; document.getElementById(&quot;myAge&quot;);   const ms_astronomy_julian_year &#x3D; 31557600000;   const timestamp_my_birth &#x3D; 990773520000;   const decimal_places &#x3D; 3;    functi">
 <meta property="og:type" content="website">
 <meta property="og:title" content="关于">
 <meta property="og:url" content="https://hrfis.me/blog/about/index.html">
 <meta property="og:site_name" content="若凡的博客">
-<meta property="og:description" content="博主      const pLabel &#x3D; document.getElementById(&quot;myAge&quot;);   const ms_astronomy_julian_year &#x3D; 31557600000;   const timestamp_my_birth &#x3D; 990773520000;   const decimal_places &#x3D; 3;    function upd">
+<meta property="og:description" content="博主      const pLabel_myAge &#x3D; document.getElementById(&quot;myAge&quot;);   const ms_astronomy_julian_year &#x3D; 31557600000;   const timestamp_my_birth &#x3D; 990773520000;   const decimal_places &#x3D; 3;    functi">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-05-27T06:48:35.000Z">
-<meta property="article:modified_time" content="2023-08-08T03:11:34.407Z">
+<meta property="article:modified_time" content="2023-08-10T14:10:59.016Z">
 <meta property="article:author" content="ruofan">
 <meta name="twitter:card" content="summary">
 
@@ -204,25 +204,28 @@
 <p id="myAge">
 </p>
 <script>
-  const pLabel = document.getElementById("myAge");
+  const pLabel_myAge = document.getElementById("myAge");
   const ms_astronomy_julian_year = 31557600000;
   const timestamp_my_birth = 990773520000;
   const decimal_places = 3;
 
-  function updateAge() {
+  function getMyAge() {
     let timestamp_UTC = new Date().getTime();
-    let age = (timestamp_UTC - timestamp_my_birth) / ms_astronomy_julian_year
-    pLabel.innerText = `24 - ${(24 - age).toFixed(decimal_places)} 岁，是学生。`;
+    let age = (timestamp_UTC - timestamp_my_birth) / ms_astronomy_julian_year;
+    return age;
   }
 
-  updateAge();
-  const ms_interval = ms_astronomy_julian_year / 10 ** (decimal_places + 1);
-  setInterval(updateAge, ms_interval);
+  function updateMyAge() {
+    let age = getMyAge();
+    pLabel_myAge.innerText = `24 - ${(24 - age).toFixed(decimal_places)} 岁，是学生。`;
+  }
+
+  updateMyAge();
 </script>
 <p>我认为，目前我很难用文字描述纯粹的“感性”，而是在尝试用一种理性的方式理解感性。</p>
 <p>理由是：在我打这段文字时，我是“心如止水”的，并且比一天中的任何时间都平静、有活力。在想写的写完之后关掉手机，回想之前写的，心跳相比之前会越来越乱。</p>
-<p>在大学之前，作文对我来说非常难——记叙文没有经历；议论文没有经历+没有素材+太较真。最后靠着一篇有着正好我能接受的题干，极端情况为
-0.6 的议论文混过了高考。</p>
+<p>在大学之前，作文对我来说非常难——记叙文没有经历；议论文没有经历+没有素材+太“较真”。最后用一篇有着正好我能接受的题干，“较真”程度为
+0.6 的议论文献给了高考。</p>
 <p><del>好在现在有 GPT 了。</del></p>
 <h2 id="为什么写博客">为什么写博客</h2>
 <ul>
@@ -231,11 +234,22 @@
 <li><p>【本我】的想法：</p>
 <p>【超我】想要学习，【自我】用写文章的形式满足【本我】的成就感，迷惑【超我】，以达到学习的假象。</p></li>
 <li><p>经过一番斗争后，【自我】的想法：</p>
-<ul>
-<li><p>为了好玩。顺便练练书面表达能力。</p></li>
-<li><p>你所热爱的﹐就是你的生活﹒</p></li>
-</ul></li>
+<p>为了有趣/好玩/娱乐。为了满足表达欲。</p></li>
 </ul>
+<p id="deadline" style="color:rgba(85,85,85,1)">
+你所热爱的，就是你的生活。
+</p>
+<script>
+const pLabel_deadline = document.getElementById("deadline");
+const school_year = 2;
+
+function updateColor() {
+  let percentage = (24 - getMyAge()) / school_year;
+  pLabel_deadline.style=`color:rgba(85,85,85,${percentage*0.5});`;
+}
+
+updateColor();
+</script>
 <h2 id="博客内容">博客内容</h2>
 <p>“博客”是 blog 的音译。blog 全称
 weblog，即“网络日志”。并不只能包含<strong>知识</strong>，也可以包含<strong>观点</strong>和<strong>情绪</strong>。</p>
@@ -269,7 +283,7 @@ target="_blank" rel="noopener" href="http://home.ustc.edu.cn/~liujunyan/blog/hex
 <p>可以<a target="_blank" rel="noopener" href="https://github.com/ruofancooh/blog">查看这个站点的
 Github 仓库</a>。</p>
 <h2 id="网络一线牵">网络一线牵</h2>
-<p>QQ号：<span class="math inline">\(863^3-88811\)</span></p>
+<p>QQ 号：<span class="math inline">\(863^3-88811\)</span></p>
 <p>这只是为了防机器人。你可能有在点开“新朋友”后发现是机器人加好友的经历。</p>
 
       </div>
