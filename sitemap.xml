@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://hrfis.me/blog/categories/index.html</loc>
+    <loc>https://hrfis.me/blog/about/index.html</loc>
     
     <lastmod>2023-08-12</lastmod>
     
@@ -11,7 +11,16 @@
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/about/index.html</loc>
+    <loc>https://hrfis.me/blog/2023/%E3%80%8A%E8%8D%89%E8%9B%87%E6%83%8A%E4%B8%80%E3%80%8B%E6%AD%8C%E8%AF%8D%E8%A7%A3%E8%AF%BB/</loc>
+    
+    <lastmod>2023-08-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/categories/index.html</loc>
     
     <lastmod>2023-08-12</lastmod>
     
@@ -83,15 +92,6 @@
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/2023/%E3%80%8A%E8%8D%89%E8%9B%87%E6%83%8A%E4%B8%80%E3%80%8B%E6%AD%8C%E8%AF%8D%E8%A7%A3%E8%AF%BB/</loc>
-    
-    <lastmod>2023-08-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hrfis.me/blog/2023/%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     
     <lastmod>2023-08-01</lastmod>
@@ -121,7 +121,7 @@
 
   
   <url>
-    <loc>https://hrfis.me/blog/categories/%E6%A6%82%E5%BF%B5/</loc>
+    <loc>https://hrfis.me/blog/categories/%E5%85%B1%E9%B8%A3/</loc>
     <lastmod>2023-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -135,7 +135,7 @@
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/categories/%E5%85%B1%E9%B8%A3/</loc>
+    <loc>https://hrfis.me/blog/categories/%E6%A6%82%E5%BF%B5/</loc>
     <lastmod>2023-08-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
