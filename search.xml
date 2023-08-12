@@ -12,7 +12,7 @@ Notation，JavaScript对象表示法)是一种轻量级的数据交换格式。
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">dic = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编码</span></span><br><span class="line">string = json.dumps(dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解码</span></span><br><span class="line">dic = json.loads(string)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>暂无分类</category>
+        <category>概念</category>
       </categories>
   </entry>
   <entry>
@@ -335,6 +335,15 @@ China。</p>
       </categories>
   </entry>
   <entry>
+    <title>第一篇文章</title>
+    <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>这是第一篇文章</p>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
     <title>在手机上搭建Web服务器</title>
     <url>/blog/2023/%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
     <content><![CDATA[<p>使用的主要工具：</p>
@@ -648,7 +657,7 @@ role="doc-backlink">↩︎</a></p></li>
 </aside>
 ]]></content>
       <categories>
-        <category>暂无分类</category>
+        <category>概念</category>
       </categories>
   </entry>
   <entry>
@@ -671,16 +680,7 @@ role="doc-backlink">↩︎</a></p></li>
 <p>然后把要级联更新的所有表都手动更新一遍，再打开约束...</p>
 ]]></content>
       <categories>
-        <category>暂无分类</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>第一篇文章</title>
-    <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>这是第一篇文章</p>
-]]></content>
-      <categories>
-        <category>暂无分类</category>
+        <category>探索</category>
       </categories>
   </entry>
   <entry>
@@ -701,7 +701,7 @@ role="doc-backlink">↩︎</a></p></li>
 href="https://chz613.github.io/post/hexo-next-url-html-suffix.html">这篇文章</a>给出了解决方法，就是修改配置文件里的<code>permalink:</code>使生成文章的链接带<code>.html</code>后缀。但是这样只有文章的结尾带后缀，其他页面还是不带。修改其他页面需要修改hexo和next组件里的脚本。而脚本已经更新过，不是当时的了。考虑到未来有可能还会更新，和页面路径的统一性，还是不改配置了。手动改html吧。</p>
 ]]></content>
       <categories>
-        <category>暂无分类</category>
+        <category>探索</category>
       </categories>
   </entry>
   <entry>
@@ -746,7 +746,7 @@ href="https://github.com/jgm/pandoc/releases/latest">安装pandoc</a></p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="attr">every_page:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>暂无分类</category>
+        <category>探索</category>
       </categories>
   </entry>
 </search>
