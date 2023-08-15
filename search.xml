@@ -660,15 +660,6 @@ role="doc-backlink">↩︎</a></p></li>
       </categories>
   </entry>
   <entry>
-    <title>第一篇文章</title>
-    <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>这是第一篇文章</p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
     <title>踩坑记录（1）</title>
     <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%881%EF%BC%89/</url>
     <content><![CDATA[<p>做数据库课设时，我试图修改一个外键的删除规则和更新规则为<code>CASCADE</code>。</p>
@@ -692,21 +683,9 @@ role="doc-backlink">↩︎</a></p></li>
       </categories>
   </entry>
   <entry>
-    <title>踩坑记录（2）</title>
-    <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%882%EF%BC%89/</url>
-    <content><![CDATA[<p>Web大作业要求提交网站代码，而博客的html在本地打开会加载不出来css和js。这是文件路径的问题。
-<span id="more"></span></p>
-<p>hexo生成的html文件，里面引用文件的路径是这样的：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/blog/css/<span class="selector-tag">main</span><span class="selector-class">.css</span>&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>在线打开一切正常，因为这里的根目录是网站根目录。而用浏览器直接打开本地html文件时，浏览器会认为它是文件根目录：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">href=&quot;file:///blog/css/main.css<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
-<p>正确的预览方法是使用命令<code>hexo s</code>并在<code>http://localhost:4000/blog/</code>预览。</p>
-<p>不过作业是要提交的，为了能直接预览只能手动改路径了。把所有html里引用的文件地址都替换成相应的相对地址就行了。</p>
-<p>但是还有一个问题。这样引用的css和js正常了，页面跳转链接不正常：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;./2023/05/30/文章标题/&#x27;</span>&gt;</span>文章标题<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在线打开，浏览器会从<code>/</code>自动跳转到<code>index.html</code>。而本地则不会，浏览器会打开<code>index.html</code>所在的文件夹。</p>
-<p><a
-href="https://chz613.github.io/post/hexo-next-url-html-suffix.html">这篇文章</a>给出了解决方法，就是修改配置文件里的<code>permalink:</code>使生成文章的链接带<code>.html</code>后缀。但是这样只有文章的结尾带后缀，其他页面还是不带。修改其他页面需要修改hexo和next组件里的脚本。而脚本已经更新过，不是当时的了。考虑到未来有可能还会更新，和页面路径的统一性，还是不改配置了。手动改html吧。</p>
+    <title>第一篇文章</title>
+    <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>这是第一篇文章</p>
 ]]></content>
       <categories>
         <category>探索</category>
@@ -752,6 +731,27 @@ href="https://ruofancooh.github.io/blog/2023/05/27/%E8%B8%A9%E5%9D%91%E8%AE%B0%E
 href="https://github.com/jgm/pandoc/releases/latest">安装pandoc</a></p>
 <p>更改next配置文件：</p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="attr">every_page:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>踩坑记录（2）</title>
+    <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%882%EF%BC%89/</url>
+    <content><![CDATA[<p>Web大作业要求提交网站代码，而博客的html在本地打开会加载不出来css和js。这是文件路径的问题。
+<span id="more"></span></p>
+<p>hexo生成的html文件，里面引用文件的路径是这样的：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/blog/css/<span class="selector-tag">main</span><span class="selector-class">.css</span>&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>在线打开一切正常，因为这里的根目录是网站根目录。而用浏览器直接打开本地html文件时，浏览器会认为它是文件根目录：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">href=&quot;file:///blog/css/main.css<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
+<p>正确的预览方法是使用命令<code>hexo s</code>并在<code>http://localhost:4000/blog/</code>预览。</p>
+<p>不过作业是要提交的，为了能直接预览只能手动改路径了。把所有html里引用的文件地址都替换成相应的相对地址就行了。</p>
+<p>但是还有一个问题。这样引用的css和js正常了，页面跳转链接不正常：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;./2023/05/30/文章标题/&#x27;</span>&gt;</span>文章标题<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在线打开，浏览器会从<code>/</code>自动跳转到<code>index.html</code>。而本地则不会，浏览器会打开<code>index.html</code>所在的文件夹。</p>
+<p><a
+href="https://chz613.github.io/post/hexo-next-url-html-suffix.html">这篇文章</a>给出了解决方法，就是修改配置文件里的<code>permalink:</code>使生成文章的链接带<code>.html</code>后缀。但是这样只有文章的结尾带后缀，其他页面还是不带。修改其他页面需要修改hexo和next组件里的脚本。而脚本已经更新过，不是当时的了。考虑到未来有可能还会更新，和页面路径的统一性，还是不改配置了。手动改html吧。</p>
 ]]></content>
       <categories>
         <category>探索</category>
