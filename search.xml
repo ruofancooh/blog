@@ -669,27 +669,6 @@ role="doc-backlink">↩︎</a></p></li>
       </categories>
   </entry>
   <entry>
-    <title>踩坑记录（2）</title>
-    <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%882%EF%BC%89/</url>
-    <content><![CDATA[<p>Web大作业要求提交网站代码，而博客的html在本地打开会加载不出来css和js。这是文件路径的问题。
-<span id="more"></span></p>
-<p>hexo生成的html文件，里面引用文件的路径是这样的：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/blog/css/<span class="selector-tag">main</span><span class="selector-class">.css</span>&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>在线打开一切正常，因为这里的根目录是网站根目录。而用浏览器直接打开本地html文件时，浏览器会认为它是文件根目录：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">href=&quot;file:///blog/css/main.css<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
-<p>正确的预览方法是使用命令<code>hexo s</code>并在<code>http://localhost:4000/blog/</code>预览。</p>
-<p>不过作业是要提交的，为了能直接预览只能手动改路径了。把所有html里引用的文件地址都替换成相应的相对地址就行了。</p>
-<p>但是还有一个问题。这样引用的css和js正常了，页面跳转链接不正常：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;./2023/05/30/文章标题/&#x27;</span>&gt;</span>文章标题<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在线打开，浏览器会从<code>/</code>自动跳转到<code>index.html</code>。而本地则不会，浏览器会打开<code>index.html</code>所在的文件夹。</p>
-<p><a
-href="https://chz613.github.io/post/hexo-next-url-html-suffix.html">这篇文章</a>给出了解决方法，就是修改配置文件里的<code>permalink:</code>使生成文章的链接带<code>.html</code>后缀。但是这样只有文章的结尾带后缀，其他页面还是不带。修改其他页面需要修改hexo和next组件里的脚本。而脚本已经更新过，不是当时的了。考虑到未来有可能还会更新，和页面路径的统一性，还是不改配置了。手动改html吧。</p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
     <title>踩坑记录（1）</title>
     <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%881%EF%BC%89/</url>
     <content><![CDATA[<p>做数据库课设时，我试图修改一个外键的删除规则和更新规则为<code>CASCADE</code>。</p>
@@ -707,6 +686,27 @@ href="https://chz613.github.io/post/hexo-next-url-html-suffix.html">这篇文章
 <p>除了手动重建数据库，最后有一个不得已而为之的方法：要想实现级联更新，暂时关闭外键约束</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> foreign_key_checks <span class="operator">=</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
 <p>然后把要级联更新的所有表都手动更新一遍，再打开约束...</p>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>踩坑记录（2）</title>
+    <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%882%EF%BC%89/</url>
+    <content><![CDATA[<p>Web大作业要求提交网站代码，而博客的html在本地打开会加载不出来css和js。这是文件路径的问题。
+<span id="more"></span></p>
+<p>hexo生成的html文件，里面引用文件的路径是这样的：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/blog/css/<span class="selector-tag">main</span><span class="selector-class">.css</span>&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>在线打开一切正常，因为这里的根目录是网站根目录。而用浏览器直接打开本地html文件时，浏览器会认为它是文件根目录：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">href=&quot;file:///blog/css/main.css<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
+<p>正确的预览方法是使用命令<code>hexo s</code>并在<code>http://localhost:4000/blog/</code>预览。</p>
+<p>不过作业是要提交的，为了能直接预览只能手动改路径了。把所有html里引用的文件地址都替换成相应的相对地址就行了。</p>
+<p>但是还有一个问题。这样引用的css和js正常了，页面跳转链接不正常：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;./2023/05/30/文章标题/&#x27;</span>&gt;</span>文章标题<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在线打开，浏览器会从<code>/</code>自动跳转到<code>index.html</code>。而本地则不会，浏览器会打开<code>index.html</code>所在的文件夹。</p>
+<p><a
+href="https://chz613.github.io/post/hexo-next-url-html-suffix.html">这篇文章</a>给出了解决方法，就是修改配置文件里的<code>permalink:</code>使生成文章的链接带<code>.html</code>后缀。但是这样只有文章的结尾带后缀，其他页面还是不带。修改其他页面需要修改hexo和next组件里的脚本。而脚本已经更新过，不是当时的了。考虑到未来有可能还会更新，和页面路径的统一性，还是不改配置了。手动改html吧。</p>
 ]]></content>
       <categories>
         <category>探索</category>
@@ -752,6 +752,143 @@ href="https://ruofancooh.github.io/blog/2023/05/27/%E8%B8%A9%E5%9D%91%E8%AE%B0%E
 href="https://github.com/jgm/pandoc/releases/latest">安装pandoc</a></p>
 <p>更改next配置文件：</p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="attr">every_page:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>十进制与K进制小数互转</title>
+    <url>/blog/2023/%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8EK%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC/</url>
+    <content><![CDATA[<ul>
+<li>K 转 10：和整数进制转换的方法一样</li>
+<li>10 转 K：乘 K 取整</li>
+</ul>
+<span id="more"></span>
+<h2 id="k-转-10和整数进制转换的方法一样">K 转
+10：和整数进制转换的方法一样</h2>
+<p>每一位分别乘上 K 的次方，再相加。</p>
+<h3 id="转-10">2 转 10</h3>
+<h4 id="有限小数">有限小数</h4>
+<p><span class="math inline">\(11.1011_{2} = 3.6875_{10}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>项</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{1}\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1\times2^{0}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{-1}\)</span></td>
+<td><span class="math inline">\(0.5\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0\times2^{-2}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{-3}\)</span></td>
+<td><span class="math inline">\(0.125\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1\times2^{-4}\)</span></td>
+<td><span class="math inline">\(0.0625\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>总和</strong></td>
+<td><span class="math inline">\(3.6875\)</span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="无限循环小数">无限循环小数</h4>
+<p><span class="math inline">\(1.1 \dot{0} 11 \dot{0} ... _{2} =
+1.7_{10}\)</span></p>
+<p>可以转换成分数计算：</p>
+<p><span class="math display">\[
+\begin{aligned}
+1.1 \dot{0} 11 \dot{0} ... _{2} &amp; = x \\
+11.\dot{0} 11 \dot{0} ... _{2} &amp; = 2_{10}x \\
+110110. \dot{0} 11 \dot{0} ... _{2} &amp; = 32_{10}x \\
+两式相减，110011_{2} &amp; = 30_{10}x \\
+x &amp; = \frac{110011_{2}}{30_{10}} = \frac{51_{10}}{30_{10}} =
+1.7_{10}
+\end{aligned}
+\]</span></p>
+<h3 id="转-10-1">16 转 10</h3>
+<p>同上略。</p>
+<h2 id="转-k乘-k-取整">10 转 K：乘 K 取整</h2>
+<p>整数部分仍然除 K 取余，小数部分乘 K 取整，然后相加。</p>
+<h3 id="转-2">10 转 2</h3>
+<p><span class="math inline">\(0.7 _{10} = 0.1 \dot{0} 11 \dot{0} ...
+_{2}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>小数部分乘 2</th>
+<th>取整数部分</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0.7 \times 2 = 1.4\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.4 \times 2 = 0.8\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(0.8 \times 2 = 1.6\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.6 \times 2 = 1.2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(0.2 \times 2 = 0.4\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<h3 id="转-16">10 转 16</h3>
+<p><span class="math inline">\(0.7 _{10} = 0.\mathrm{B} \dot{3} ...
+_{16}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>小数部分乘 16</th>
+<th>取整数部分</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0.7 \times 16 = 11.2\)</span></td>
+<td><span class="math inline">\(\mathrm{B}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.2 \times 16 = 3.2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+</tr>
+<tr class="odd">
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
       <categories>
         <category>探索</category>
