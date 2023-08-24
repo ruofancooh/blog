@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JSON</title>
+    <url>/blog/2023/JSON/</url>
+    <content><![CDATA[<p>JSON(JavaScript Object
+Notation，JavaScript对象表示法)是一种轻量级的数据交换格式。
+<span id="more"></span></p>
+<h2 id="json与js对象互转">json与js对象互转</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> json = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// js对象转json字符串</span></span><br><span class="line">json = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// json字符串转js对象</span></span><br><span class="line">obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(json)</span><br></pre></td></tr></table></figure>
+<h2 id="使用python编解码json">使用Python编解码json</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">dic = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编码</span></span><br><span class="line">string = json.dumps(dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解码</span></span><br><span class="line">dic = json.loads(string)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>概念</category>
+      </categories>
+  </entry>
+  <entry>
     <title>VSCode快捷键</title>
     <url>/blog/2023/VSCode%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
     <content><![CDATA[<p>旨在少用鼠标/触摸板，避免分心。但是触摸板在快速定位，滚动屏幕和选中非完整行上比较方便。</p>
@@ -50,21 +65,6 @@
 ]]></content>
       <categories>
         <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>JSON</title>
-    <url>/blog/2023/JSON/</url>
-    <content><![CDATA[<p>JSON(JavaScript Object
-Notation，JavaScript对象表示法)是一种轻量级的数据交换格式。
-<span id="more"></span></p>
-<h2 id="json与js对象互转">json与js对象互转</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> json = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// js对象转json字符串</span></span><br><span class="line">json = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// json字符串转js对象</span></span><br><span class="line">obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(json)</span><br></pre></td></tr></table></figure>
-<h2 id="使用python编解码json">使用Python编解码json</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">dic = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编码</span></span><br><span class="line">string = json.dumps(dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解码</span></span><br><span class="line">dic = json.loads(string)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>概念</category>
       </categories>
   </entry>
   <entry>
@@ -924,6 +924,15 @@ Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p><
       </categories>
   </entry>
   <entry>
+    <title>第一篇文章</title>
+    <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>这是第一篇文章</p>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
     <title>糊弄</title>
     <url>/blog/2023/%E7%B3%8A%E5%BC%84/</url>
     <content><![CDATA[<p>在粗略地、不系统地看了一些语词的解释后，我发现自己越来越会给自己找理由。</p>
@@ -1005,36 +1014,6 @@ Wall》有着非常强烈的共情，同时又造成了非常强烈的无力感�
       </categories>
   </entry>
   <entry>
-    <title>第一篇文章</title>
-    <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>这是第一篇文章</p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>踩坑记录（2）</title>
-    <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%882%EF%BC%89/</url>
-    <content><![CDATA[<p>Web大作业要求提交网站代码，而博客的html在本地打开会加载不出来css和js。这是文件路径的问题。
-<span id="more"></span></p>
-<p>hexo生成的html文件，里面引用文件的路径是这样的：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/blog/css/<span class="selector-tag">main</span><span class="selector-class">.css</span>&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>在线打开一切正常，因为这里的根目录是网站根目录。而用浏览器直接打开本地html文件时，浏览器会认为它是文件根目录：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">href=&quot;file:///blog/css/main.css<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
-<p>正确的预览方法是使用命令<code>hexo s</code>并在<code>http://localhost:4000/blog/</code>预览。</p>
-<p>不过作业是要提交的，为了能直接预览只能手动改路径了。把所有html里引用的文件地址都替换成相应的相对地址就行了。</p>
-<p>但是还有一个问题。这样引用的css和js正常了，页面跳转链接不正常：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;./2023/05/30/文章标题/&#x27;</span>&gt;</span>文章标题<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在线打开，浏览器会从<code>/</code>自动跳转到<code>index.html</code>。而本地则不会，浏览器会打开<code>index.html</code>所在的文件夹。</p>
-<p><a
-href="https://chz613.github.io/post/hexo-next-url-html-suffix.html">这篇文章</a>给出了解决方法，就是修改配置文件里的<code>permalink:</code>使生成文章的链接带<code>.html</code>后缀。但是这样只有文章的结尾带后缀，其他页面还是不带。修改其他页面需要修改hexo和next组件里的脚本。而脚本已经更新过，不是当时的了。考虑到未来有可能还会更新，和页面路径的统一性，还是不改配置了。手动改html吧。</p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
     <title>踩坑记录（3）</title>
     <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%883%EF%BC%89/</url>
     <content><![CDATA[<p>这里记录的是我用hexo部署博客时踩的一些坑的正确解决方法。同类型的有<a
@@ -1077,6 +1056,122 @@ href="https://github.com/jgm/pandoc/releases/latest">安装pandoc</a></p>
 ]]></content>
       <categories>
         <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>踩坑记录（2）</title>
+    <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%882%EF%BC%89/</url>
+    <content><![CDATA[<p>Web大作业要求提交网站代码，而博客的html在本地打开会加载不出来css和js。这是文件路径的问题。
+<span id="more"></span></p>
+<p>hexo生成的html文件，里面引用文件的路径是这样的：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/blog/css/<span class="selector-tag">main</span><span class="selector-class">.css</span>&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>在线打开一切正常，因为这里的根目录是网站根目录。而用浏览器直接打开本地html文件时，浏览器会认为它是文件根目录：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">href=&quot;file:///blog/css/main.css<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
+<p>正确的预览方法是使用命令<code>hexo s</code>并在<code>http://localhost:4000/blog/</code>预览。</p>
+<p>不过作业是要提交的，为了能直接预览只能手动改路径了。把所有html里引用的文件地址都替换成相应的相对地址就行了。</p>
+<p>但是还有一个问题。这样引用的css和js正常了，页面跳转链接不正常：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;./2023/05/30/文章标题/&#x27;</span>&gt;</span>文章标题<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在线打开，浏览器会从<code>/</code>自动跳转到<code>index.html</code>。而本地则不会，浏览器会打开<code>index.html</code>所在的文件夹。</p>
+<p><a
+href="https://chz613.github.io/post/hexo-next-url-html-suffix.html">这篇文章</a>给出了解决方法，就是修改配置文件里的<code>permalink:</code>使生成文章的链接带<code>.html</code>后缀。但是这样只有文章的结尾带后缀，其他页面还是不带。修改其他页面需要修改hexo和next组件里的脚本。而脚本已经更新过，不是当时的了。考虑到未来有可能还会更新，和页面路径的统一性，还是不改配置了。手动改html吧。</p>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>普通十进制数转单精度浮点数</title>
+    <url>/blog/2023/%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0/</url>
+    <content><![CDATA[<ul>
+<li>在 IEEE 754 标准下</li>
+</ul>
+<span id="more"></span>
+<p>单精度浮点数，即 32 位二进制浮点数，包含：</p>
+<p>一位符号位 + 八位指数位 + 二十三位尾数位</p>
+<h2 id="例一">例一</h2>
+<p>以 <span class="math inline">\(0.1_{10}\)</span> 为例：</p>
+<ol type="1">
+<li><p>把十进制转换为二进制</p>
+<p><span class="math inline">\(0.1 _{10} = 0.0\dot{0}01\dot{1}...
+_{2}\)</span></p></li>
+<li><p>用以 <span class="math inline">\(2_{10}\)</span>
+为基数的科学计数法表示，并保证【尾数的小数点前是 <span
+class="math inline">\(1_{2}\)</span>】</p>
+<p><span class="math inline">\(= 1.\dot{1}00\dot{1}..._{2} \times
+(2^{-4})_{10}\)</span></p>
+<p>可以看到指数是 <span class="math inline">\(-4_{10}\)</span></p></li>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
+class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<p>这里 <span class="math inline">\(e\)</span>
+等于【用于表示指数位的位数】 <span
+class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
+class="math inline">\(127_{10}\)</span></p>
+<p>则阶码为 <span class="math inline">\(-4_{10} + 127_{10} =
+123_{10}\)</span></p>
+<p>阶码的二进制为 <code>0111 1011</code>，注意
+<em>阶码始终为无符号整数</em></p></li>
+<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是无限的，所以要舍去一部分</p>
+<p>它的前二十位是：<code>1001 1001 1001 1001 1001</code></p>
+<p>二十一至二十八位是：<code>1001 1001</code></p>
+<p>所以二十一至二十三位，要么取 <code>100</code>，要么取
+<code>101</code>。</p>
+<p>通常是舍入到最接近的，一样接近则偶数（末尾为
+<code>0</code>）优先，这里 <code>101</code> 更接近。</p></li>
+<li><p>把符号位连同阶码、尾数位缝合起来</p>
+<p><code>0 | 0111 1011 | 1001 1001 1001 1001 1001 101</code></p></li>
+</ol>
+<h2 id="例二">例二</h2>
+<p>以 <span class="math inline">\(12_{10} = 1.5_{10} \times
+(2^{3})_{10}\)</span> 为例，和上面的步骤一样：</p>
+<ol type="1">
+<li><p>把十进制转换为二进制</p>
+<p><span class="math inline">\(12 _{10} = 1100 _{2}\)</span></p></li>
+<li><p>用以 <span class="math inline">\(2\)</span>
+为基数的科学计数法表示，并保证【尾数的小数点前是 <span
+class="math inline">\(1\)</span>】</p>
+<p><span class="math inline">\(= 1.1_{2} \times (2^3)_{10}\)</span></p>
+<p>可以看到指数是 <span class="math inline">\(3_{10}\)</span></p></li>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
+class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<p>这里 <span class="math inline">\(e\)</span>
+等于【用于表示指数位的位数】 <span
+class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
+class="math inline">\(127_{10}\)</span></p>
+<p>则阶码为 <span class="math inline">\(3_{10} + 127_{10} =
+130_{10}\)</span></p>
+<p>阶码的二进制为 <code>1000 0010</code>，注意
+<em>阶码始终为无符号整数</em></p></li>
+<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是有限的，所以后面直接补零</p>
+<p>小数点后二十三位是：<code>1000 0000 0000 0000 000</code></p></li>
+<li><p>把符号位连同阶码、尾数位缝合起来</p>
+<p><code>0 | 1000 0010 | 1000 0000 0000 0000 000</code></p></li>
+</ol>
+<h2 id="特殊情况">特殊情况</h2>
+<p><a href="/blog/2023/32位浮点数的五种形式/">32
+位浮点数的五种形式</a></p>
+<h2 id="如何验证">如何验证</h2>
+<ul>
+<li><p><a
+href="https://baseconvert.com/ieee-754-floating-point">在线转换</a></p></li>
+<li><p><a href="/blog/2023/用GDB查看变量内存/">用 GDB
+查看变量内存</a></p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/IEEE_754">Wikipedia</a> |
+<a href="https://zh.wikipedia.org/wiki/IEEE_754">维基百科</a></p></li>
+<li><p>获取国际标准文件</p>
+<p>IEEE 754 标准是电气与电子工程师协会（Institute of Electrical and
+Electronics Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <a
+href="https://standards.ieee.org/ieee/754/6210/">IEEE
+754-2019</a>，对应国际标准 <a
+href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/standard/08/09/80985.html">ISO/IEC
+60559:2020</a>，预计下一次在 2028 年修订。 http://snti.ru/
+这个网站分享了各种国际标准文件的磁力链接，但是可以免费下载的不全，IEC
+的只有 61xxx。据说可以给站长发邮件要
+<code>popov_al@perm.ru</code>，每个文件一刀乐。在 ISO 官网上下载需要 187
+瑞士法郎，合 1000 多人民币。</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>教程</category>
       </categories>
   </entry>
 </search>
