@@ -1,5 +1,5 @@
 :root {
-  --body-bg-color: #eee;
+  --body-bg-color: #f5f5d5;
   --content-bg-color: #fff;
   --card-bg-color: #f5f5f5;
   --text-color: #555;
@@ -2573,10 +2573,10 @@ header.header {
 }
 .post-body h1,
 .post-body h2 {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #f5f5d5;
 }
 .post-body h3 {
-  border-bottom: 1px dotted #eee;
+  border-bottom: 1px dotted #f5f5d5;
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .main-inner {
@@ -2614,4 +2614,7 @@ header.header {
 }
 blockquote {
   background-color: #f3f3f3;
+}
+.post-block {
+  opacity: 1;
 }
