@@ -854,6 +854,81 @@ href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/stand
       </categories>
   </entry>
   <entry>
+    <title>用GDB查看变量内存</title>
+    <url>/blog/2023/%E7%94%A8GDB%E6%9F%A5%E7%9C%8B%E5%8F%98%E9%87%8F%E5%86%85%E5%AD%98/</url>
+    <content><![CDATA[<p>起因是想验证浮点数的存储方式。</p>
+<p><a
+href="https://baseconvert.com/ieee-754-floating-point">这个网站</a>可以实现普通十进制数与
+IEEE 754 浮点数的相互转换。</p>
+<span id="more"></span>
+<p>示例程序：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">float</span> num = <span class="number">1.7</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在第六行打上断点，VSCode 开调试，在调试控制台里：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/4tb &amp;num</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>-exec</code> 执行命令</li>
+<li><code>x</code> 查看内存</li>
+<li><code>4</code> 输出 4 个单元
+<ul>
+<li>不写默认为 <code>1</code></li>
+</ul></li>
+<li><code>t</code> 以二进制形式输出
+<ul>
+<li><code>x</code> 十六进制</li>
+</ul></li>
+<li><code>b</code> 以【一个字节】为一个单元
+<ul>
+<li><code>h</code> 两个字节</li>
+<li><code>w</code> 四个字节</li>
+<li><code>g</code> 八个字节</li>
+</ul></li>
+<li><code>&amp;</code>取变量地址</li>
+</ul>
+<p>输出结果：</p>
+<p><code>0x61fe1c: 10011010 10011001 11011001 00111111</code></p>
+<p>从右往左排列后：</p>
+<p><code>00111111 11011001 10011001 10011010</code></p>
+<p>才是<code>float 1.7</code>的二进制表示。</p>
+<p>还可以直接用</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/tw &amp;num</span><br></pre></td></tr></table></figure>
+<p>输出四个字节，结果：</p>
+<p><code>0x61fe1c: 00111111110110011001100110011010</code></p>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>用browser-sync实现在文件内容改变后立即刷新页面</title>
+    <url>/blog/2023/%E7%94%A8browser-sync%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
+    <content><![CDATA[<p>起因是：</p>
+<p>不管是直接打开 html
+文件，还是用<code>python -m http.server 8000 --bind 127.0.0.1</code>，在修改保存
+html 文件后浏览器都不能立马刷新。</p>
+<span id="more"></span>
+<ol type="1">
+<li><p>安装</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install browser-sync</span><br></pre></td></tr></table></figure>
+<p>安装到想作为服务器根目录的文件夹。以前觉得全局安装好，现在暂时觉得本地安装好。（据说用
+Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p></li>
+<li><p>运行</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npx browser-sync start --server --files <span class="string">&quot;.&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>--files</code> 后指定要监视的文件。</p>
+<p><code>.</code> 表示监视当前目录以及子目录下的所有文件。</p>
+<p>可以改成 <code>*.html</code>，<code>public/*.*</code> 等。</p></li>
+</ol>
+<p>html
+文件里至少得有一对<code>&lt;body&gt;</code>标签，要么没法自动刷新。</p>
+<p>在没有修改文件内容，只 <code>Ctrl + S</code>
+保存时也会刷新，在命令行会输出
+<code>File event [change]</code>，只不过看不出来。</p>
+<p>好像和直接通过浏览器来刷新不一样，因为我在选项卡上没看到加载动画。</p>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
     <title>概率统计中几个容易混淆的概念</title>
     <url>/blog/2023/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%AD%E5%87%A0%E4%B8%AA%E5%AE%B9%E6%98%93%E6%B7%B7%E6%B7%86%E7%9A%84%E6%A6%82%E5%BF%B5/</url>
     <content><![CDATA[<p><span class="math inline">\(\alpha\)</span>分位点、置信度<span
@@ -956,81 +1031,6 @@ role="doc-backlink">↩︎</a></p></li>
       </categories>
   </entry>
   <entry>
-    <title>用browser-sync实现在文件内容改变后立即刷新页面</title>
-    <url>/blog/2023/%E7%94%A8browser-sync%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
-    <content><![CDATA[<p>起因是：</p>
-<p>不管是直接打开 html
-文件，还是用<code>python -m http.server 8000 --bind 127.0.0.1</code>，在修改保存
-html 文件后浏览器都不能立马刷新。</p>
-<span id="more"></span>
-<ol type="1">
-<li><p>安装</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install browser-sync</span><br></pre></td></tr></table></figure>
-<p>安装到想作为服务器根目录的文件夹。以前觉得全局安装好，现在暂时觉得本地安装好。（据说用
-Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p></li>
-<li><p>运行</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npx browser-sync start --server --files <span class="string">&quot;.&quot;</span></span><br></pre></td></tr></table></figure>
-<p><code>--files</code> 后指定要监视的文件。</p>
-<p><code>.</code> 表示监视当前目录以及子目录下的所有文件。</p>
-<p>可以改成 <code>*.html</code>，<code>public/*.*</code> 等。</p></li>
-</ol>
-<p>html
-文件里至少得有一对<code>&lt;body&gt;</code>标签，要么没法自动刷新。</p>
-<p>在没有修改文件内容，只 <code>Ctrl + S</code>
-保存时也会刷新，在命令行会输出
-<code>File event [change]</code>，只不过看不出来。</p>
-<p>好像和直接通过浏览器来刷新不一样，因为我在选项卡上没看到加载动画。</p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>用GDB查看变量内存</title>
-    <url>/blog/2023/%E7%94%A8GDB%E6%9F%A5%E7%9C%8B%E5%8F%98%E9%87%8F%E5%86%85%E5%AD%98/</url>
-    <content><![CDATA[<p>起因是想验证浮点数的存储方式。</p>
-<p><a
-href="https://baseconvert.com/ieee-754-floating-point">这个网站</a>可以实现普通十进制数与
-IEEE 754 浮点数的相互转换。</p>
-<span id="more"></span>
-<p>示例程序：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">float</span> num = <span class="number">1.7</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第六行打上断点，VSCode 开调试，在调试控制台里：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/4tb &amp;num</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>-exec</code> 执行命令</li>
-<li><code>x</code> 查看内存</li>
-<li><code>4</code> 输出 4 个单元
-<ul>
-<li>不写默认为 <code>1</code></li>
-</ul></li>
-<li><code>t</code> 以二进制形式输出
-<ul>
-<li><code>x</code> 十六进制</li>
-</ul></li>
-<li><code>b</code> 以【一个字节】为一个单元
-<ul>
-<li><code>h</code> 两个字节</li>
-<li><code>w</code> 四个字节</li>
-<li><code>g</code> 八个字节</li>
-</ul></li>
-<li><code>&amp;</code>取变量地址</li>
-</ul>
-<p>输出结果：</p>
-<p><code>0x61fe1c: 10011010 10011001 11011001 00111111</code></p>
-<p>从右往左排列后：</p>
-<p><code>00111111 11011001 10011001 10011010</code></p>
-<p>才是<code>float 1.7</code>的二进制表示。</p>
-<p>还可以直接用</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/tw &amp;num</span><br></pre></td></tr></table></figure>
-<p>输出四个字节，结果：</p>
-<p><code>0x61fe1c: 00111111110110011001100110011010</code></p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
     <title>第一篇文章</title>
     <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
     <content><![CDATA[<p>这是第一篇文章</p>
@@ -1097,27 +1097,6 @@ Wall》有着非常强烈的共情，同时又造成了非常强烈的无力感�
       </categories>
   </entry>
   <entry>
-    <title>说的道理</title>
-    <url>/blog/2023/%E8%AF%B4%E7%9A%84%E9%81%93%E7%90%86/</url>
-    <content><![CDATA[<ul>
-<li>如何应对拖延</li>
-</ul>
-<span id="more"></span>
-<h2 id="如何应对拖延">如何应对拖延</h2>
-<p>先写最重要的部分，不要迷失在语言表达，想梗和想标题上。</p>
-<p>有想写的马上写，可以先不发，或者先发一部分，后来再拼起来。</p>
-<p>有想做的马上做，可以先做一部分。</p>
-<p>有时候脑子里总在想一个标题，其实自己根本对要写的内容都没有明确的理解，只是觉得这个标题特别吊，光把时间用到“预想写完之后的结果”了。</p>
-<p>从<a
-href="https://www.ruanyifeng.com/blog/2019/08/weekly-issue-69.html">阮一峰的一篇文章</a>里看到，博客需要先写快，后写好。</p>
-<p>从<a href="https://space.bilibili.com/230711744/article">B
-站的一篇笔记</a>看到，满足欲望不是什么坏事。在没有特别重要的事情的情况下，先把最想做的做了。</p>
-]]></content>
-      <categories>
-        <category>共鸣</category>
-      </categories>
-  </entry>
-  <entry>
     <title>踩坑记录（1）</title>
     <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%881%EF%BC%89/</url>
     <content><![CDATA[<p>做数据库课设时，我试图修改一个外键的删除规则和更新规则为<code>CASCADE</code>。</p>
@@ -1141,24 +1120,27 @@ href="https://www.ruanyifeng.com/blog/2019/08/weekly-issue-69.html">阮一峰的
       </categories>
   </entry>
   <entry>
-    <title>踩坑记录（2）</title>
-    <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%882%EF%BC%89/</url>
-    <content><![CDATA[<p>Web大作业要求提交网站代码，而博客的html在本地打开会加载不出来css和js。这是文件路径的问题。
-<span id="more"></span></p>
-<p>hexo生成的html文件，里面引用文件的路径是这样的：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/blog/css/<span class="selector-tag">main</span><span class="selector-class">.css</span>&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>在线打开一切正常，因为这里的根目录是网站根目录。而用浏览器直接打开本地html文件时，浏览器会认为它是文件根目录：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">href=&quot;file:///blog/css/main.css<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
-<p>正确的预览方法是使用命令<code>hexo s</code>并在<code>http://localhost:4000/blog/</code>预览。</p>
-<p>不过作业是要提交的，为了能直接预览只能手动改路径了。把所有html里引用的文件地址都替换成相应的相对地址就行了。</p>
-<p>但是还有一个问题。这样引用的css和js正常了，页面跳转链接不正常：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;./2023/05/30/文章标题/&#x27;</span>&gt;</span>文章标题<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在线打开，浏览器会从<code>/</code>自动跳转到<code>index.html</code>。而本地则不会，浏览器会打开<code>index.html</code>所在的文件夹。</p>
-<p><a
-href="https://chz613.github.io/post/hexo-next-url-html-suffix.html">这篇文章</a>给出了解决方法，就是修改配置文件里的<code>permalink:</code>使生成文章的链接带<code>.html</code>后缀。但是这样只有文章的结尾带后缀，其他页面还是不带。修改其他页面需要修改hexo和next组件里的脚本。而脚本已经更新过，不是当时的了。考虑到未来有可能还会更新，和页面路径的统一性，还是不改配置了。手动改html吧。</p>
+    <title>说的道理</title>
+    <url>/blog/2023/%E8%AF%B4%E7%9A%84%E9%81%93%E7%90%86/</url>
+    <content><![CDATA[<ul>
+<li>如何应对拖延</li>
+</ul>
+<span id="more"></span>
+<h2 id="如何应对拖延">如何应对拖延</h2>
+<p>先写最重要的部分，不要迷失在语言表达，想梗和想标题上。</p>
+<p>有想写的马上写，可以先不发，或者先发一部分，后来再拼起来。</p>
+<p>有想做的马上做，可以先做一部分。</p>
+<p>有时候脑子里总在想一个标题，其实自己根本对要写的内容都没有明确的理解，只是觉得这个标题特别吊，光把时间用到“预想写完之后的结果”了。</p>
+<p>从<a
+href="https://www.ruanyifeng.com/blog/2019/08/weekly-issue-69.html">阮一峰的一篇文章</a>里看到，博客需要先写快，后写好。</p>
+<p>从<a href="https://space.bilibili.com/230711744/article">B
+站的一篇笔记</a>看到，满足欲望不是什么坏事。在没有特别重要的事情的情况下，先把最想做的做了。</p>
+<iframe frameborder="no" width="100%" height="86" src="//music.163.com/outchain/player?type=2&amp;id=386830&amp;auto=1&amp;height=66">
+</iframe>
+<p>睡一觉起来发现海港没了</p>
 ]]></content>
       <categories>
-        <category>探索</category>
+        <category>共鸣</category>
       </categories>
   </entry>
   <entry>
@@ -1204,6 +1186,272 @@ href="https://github.com/jgm/pandoc/releases/latest">安装pandoc</a></p>
 ]]></content>
       <categories>
         <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>踩坑记录（2）</title>
+    <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%882%EF%BC%89/</url>
+    <content><![CDATA[<p>Web大作业要求提交网站代码，而博客的html在本地打开会加载不出来css和js。这是文件路径的问题。
+<span id="more"></span></p>
+<p>hexo生成的html文件，里面引用文件的路径是这样的：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/blog/css/<span class="selector-tag">main</span><span class="selector-class">.css</span>&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>在线打开一切正常，因为这里的根目录是网站根目录。而用浏览器直接打开本地html文件时，浏览器会认为它是文件根目录：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">href=&quot;file:///blog/css/main.css<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
+<p>正确的预览方法是使用命令<code>hexo s</code>并在<code>http://localhost:4000/blog/</code>预览。</p>
+<p>不过作业是要提交的，为了能直接预览只能手动改路径了。把所有html里引用的文件地址都替换成相应的相对地址就行了。</p>
+<p>但是还有一个问题。这样引用的css和js正常了，页面跳转链接不正常：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;./2023/05/30/文章标题/&#x27;</span>&gt;</span>文章标题<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在线打开，浏览器会从<code>/</code>自动跳转到<code>index.html</code>。而本地则不会，浏览器会打开<code>index.html</code>所在的文件夹。</p>
+<p><a
+href="https://chz613.github.io/post/hexo-next-url-html-suffix.html">这篇文章</a>给出了解决方法，就是修改配置文件里的<code>permalink:</code>使生成文章的链接带<code>.html</code>后缀。但是这样只有文章的结尾带后缀，其他页面还是不带。修改其他页面需要修改hexo和next组件里的脚本。而脚本已经更新过，不是当时的了。考虑到未来有可能还会更新，和页面路径的统一性，还是不改配置了。手动改html吧。</p>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>让博客commit前的工作更简单</title>
+    <url>/blog/2023/%E8%AE%A9%E5%8D%9A%E5%AE%A2commit%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9B%B4%E7%AE%80%E5%8D%95/</url>
+    <content><![CDATA[<p>起因是，我是把博客代码分两个仓库存的。需要做很多重复的工作。</p>
+<p>于是我写了两个 bat 文件。</p>
+<span id="more"></span>
+<p>起因是，我是把博客代码分两个仓库存的：</p>
+<ul>
+<li><p><code>blog-source</code>存 Hexo 框架源码，NexT
+主题源码和自己的部分（更改后的配置文件、md 文档、图片等）</p></li>
+<li><p><code>blog</code>存渲染之后的网页，分支是<code>gh-pages</code></p></li>
+</ul>
+<p>这就造成在 commit 前，我需要做以下工作：</p>
+<ol type="1">
+<li><p>在<code>blog-source</code>文件夹里先打开本地预览服务器。</p></li>
+<li><p>点击链接，在浏览器里打开。</p></li>
+<li><p>预览没问题，渲染网页。</p></li>
+<li><p>删除<code>blog</code>文件夹里除了<code>.git</code>外的所有文件和文件夹。</p></li>
+<li><p>把渲染的网页从<code>blog-source/public/</code>转移到<code>blog</code>文件夹里。</p></li>
+<li><p>清除<code>blog-source</code>文件夹里渲染的网页。</p></li>
+</ol>
+<p>手动操作了十几天后很烦，于是我写了两个 bat 文件：</p>
+<p><code>bs.bat</code> 做第 1-2 步</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d d:\repo\blog-source</span><br><span class="line"><span class="built_in">start</span> http://localhost:<span class="number">4000</span>/blog/</span><br><span class="line"><span class="keyword">call</span> npx hexo s</span><br></pre></td></tr></table></figure>
+<p><code>bg.bat</code> 做第 3-6 步</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">:: 删除旧文件</span><br><span class="line"><span class="built_in">cd</span> /d d:\repo\blog</span><br><span class="line">git rm -r *</span><br><span class="line">:: 渲染新文件</span><br><span class="line"><span class="built_in">cd</span> ..\blog-source</span><br><span class="line"><span class="keyword">call</span> npx hexo g</span><br><span class="line">:: 转移新文件</span><br><span class="line"><span class="built_in">xcopy</span> public ..\blog /s /e</span><br><span class="line"><span class="keyword">call</span> npx hexo clean</span><br></pre></td></tr></table></figure>
+<p>再建一个专门存 bat 的文件夹，把它添加到环境变量
+PATH。这样在任一文件夹下都可以做第 1-6 步了。</p>
+<p>commit 我用的是 GitHub Desktop，暂时没有换的必要。</p>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>乐理-A0-频率与音程</title>
+    <url>/blog/2023/%E4%B9%90%E7%90%86-A0-%E9%A2%91%E7%8E%87%E4%B8%8E%E9%9F%B3%E7%A8%8B/</url>
+    <content><![CDATA[<ul>
+<li>钢琴琴键的声音频率</li>
+<li>音程与升降号</li>
+<li>音程速查表</li>
+<li>用 Python 写一个程序，输入 88 键钢琴的任一音名，输出对应的频率</li>
+</ul>
+<span id="more"></span>
+<h2 id="声音的频率">声音的频率</h2>
+<p>声音是由声源振动产生的，通过机械波传递。</p>
+<p>声音的频率就是机械波的频率，也是声源振动的频率。</p>
+<p>比如声源振动 <span class="math inline">\(440\)</span>
+次每秒，频率就是 <span
+class="math inline">\(440\mathrm{Hz}\)</span>。“每秒”这个单位 <span
+class="math inline">\(\mathrm{s^{-1}}\)</span> 也记作赫兹 <span
+class="math inline">\(\mathrm{Hz}\)</span>，是国际单位制“秒”的导出单位。</p>
+<p>暂时先不管“基频”、“泛频”等概念。</p>
+<h2 id="钢琴琴键的声音频率">钢琴琴键的声音频率</h2>
+<ol type="1">
+<li><p>规定一个基准频率，比如 <span
+class="math inline">\(440\mathrm{Hz}\)</span>，作为第一个音。</p></li>
+<li><p>把第一个音的频率乘上 <span
+class="math inline">\(\sqrt[12]{2}\)</span>，就得到第二个音。一直乘，乘了十二次之后，第十三个音的频率正好是第一个音频率的两倍。</p>
+<p>这十三个音把一个 <span class="math inline">\(1:2\)</span>
+的频率区间分成了十二个部分，每个音的频率都是对应部分的端点，相邻两音的频率比为
+<span
+class="math inline">\(1:\sqrt[12]{2}\)</span>。这就是十二平均律。</p></li>
+<li><p>如果把第一个音（<span
+class="math inline">\(440\mathrm{Hz}\)</span>）记作<code>A4</code>，往前乘十二次，得到
+<span class="math inline">\(880\mathrm{Hz}\)</span>
+的音，就记作<code>A5</code>。同理，再乘十二次，得到 <span
+class="math inline">\(1760\mathrm{Hz}\)</span> 就是<code>A6</code>。</p>
+<p>还可以往后除，<span class="math inline">\(220\mathrm{Hz}\)</span>
+是<code>A3</code>，<span class="math inline">\(110\mathrm{Hz}\)</span>
+是<code>A2</code>。</p>
+<p>同理。<span class="math inline">\(27.5\mathrm{Hz}\)</span>
+是<code>A0</code>，<span class="math inline">\(3520\mathrm{Hz}\)</span>
+是<code>A7</code>。</p>
+<p><code>A7</code>再往前乘三次，得到频率为 <span
+class="math inline">\(3520 \times \sqrt[4]{2} \mathrm{Hz}\)</span>
+的音，记作<code>C8</code>。</p></li>
+<li><p>从<code>A0</code>到<code>C8</code>，有 88 个音，频率构成首项为
+<span class="math inline">\(27.5\)</span>，公比为 <span
+class="math inline">\(\sqrt[12]{2}\)</span> 的等比数列。这就是 88
+键钢琴每个琴键的频率。</p></li>
+</ol>
+<p>上面是规定 <span class="math inline">\(\mathrm{A4=440Hz}\)</span>
+时，还可以有其他规定。</p>
+<h2 id="音程">音程</h2>
+<p>两个音之间的频率比，称为音程。</p>
+<p>频率比为 <span class="math inline">\(1:2\)</span>
+的两个音之间，音程称为一个<strong>纯八度</strong>（简称八度）。</p>
+<p>快速认识钢琴一个八度里的音：</p>
+<img src="/blog/2023/%E4%B9%90%E7%90%86-A0-%E9%A2%91%E7%8E%87%E4%B8%8E%E9%9F%B3%E7%A8%8B/1.jpg" class="">
+<p>为什么这么命名，先别管。</p>
+<p>两个相邻琴键的频率比，比如<code>C4</code>和<code>C#4</code>之间，频率比为
+<span
+class="math inline">\(1:\sqrt[12]{2}\)</span>，称为一个<strong>半音</strong>。也叫小二度。</p>
+<p>两个琴键相隔一个琴键的频率比，比如<code>C4</code>和<code>D4</code>之间，频率比为
+<span
+class="math inline">\(1:\sqrt[6]{2}\)</span>，称为两个半音。也叫一个<strong>全音</strong>或大二度。</p>
+<h2 id="音程速查表">音程速查表</h2>
+<p>“一四五八无大小，二三六七没有纯”</p>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>相隔半音数</th>
+<th>音程名（纯）</th>
+<th>音程名（大）</th>
+<th>音程名（小）</th>
+<th>音程名（增）</th>
+<th>音程名（减）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>纯一度</td>
+<td></td>
+<td></td>
+<td></td>
+<td>减二度</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td></td>
+<td></td>
+<td>小二度</td>
+<td>增一度</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td></td>
+<td>大二度</td>
+<td></td>
+<td></td>
+<td>减三度</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td></td>
+<td></td>
+<td>小三度</td>
+<td>增二度</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td></td>
+<td>大三度</td>
+<td></td>
+<td></td>
+<td>减四度</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>纯四度</td>
+<td></td>
+<td></td>
+<td>增三度</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td></td>
+<td></td>
+<td></td>
+<td>增四度</td>
+<td>减五度</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>纯五度</td>
+<td></td>
+<td></td>
+<td></td>
+<td>减六度</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td></td>
+<td></td>
+<td>小六度</td>
+<td>增五度</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td></td>
+<td>大六度</td>
+<td></td>
+<td></td>
+<td>减七度</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td></td>
+<td></td>
+<td>小七度</td>
+<td>增六度</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td></td>
+<td>大七度</td>
+<td></td>
+<td></td>
+<td>减八度</td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>纯八度</td>
+<td></td>
+<td></td>
+<td>增七度</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="升降号">升降号</h2>
+<p><span class="math inline">\(\sharp\)</span>
+为升号（sharp），用于把一个音升高半音。</p>
+<p>比如 <span class="math inline">\(\mathrm{B \sharp 4 =
+C5}\)</span>。<code>B#4 = C5</code></p>
+<p><span class="math inline">\(\flat\)</span>
+为降号（flat），用于把一个音降低半音。</p>
+<p>比如 <span class="math inline">\(\mathrm{D \flat 4 = C \sharp
+4}\)</span>。<code>Db4 = C#4</code></p>
+<h2 id="作业">作业</h2>
+<p>用 Python 写一个程序，输入 88
+键钢琴的任一音名，输出对应的频率。当输入<code>all</code>时，输出所有音的频率。（<span
+class="math inline">\(\mathrm{A4=440Hz}\)</span>，白键不加升降号，黑键始终为升号，保留三位小数）</p>
+<p><strong>仅供参考的答案</strong></p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 一个八度内的12个音</span></span><br><span class="line">oks = octave_keys = (<span class="string">&quot;C&quot;</span>, <span class="string">&quot;#C&quot;</span>, <span class="string">&quot;D&quot;</span>, <span class="string">&quot;#D&quot;</span>, <span class="string">&quot;E&quot;</span>, <span class="string">&quot;F&quot;</span>, <span class="string">&quot;#F&quot;</span>, <span class="string">&quot;G&quot;</span>, <span class="string">&quot;#G&quot;</span>, <span class="string">&quot;A&quot;</span>, <span class="string">&quot;#A&quot;</span>, <span class="string">&quot;B&quot;</span>)</span><br><span class="line"><span class="comment"># 生成钢琴的88个音</span></span><br><span class="line">pks = piano_keys = [<span class="string">&quot;A0&quot;</span>, <span class="string">&quot;#A0&quot;</span>, <span class="string">&quot;B0&quot;</span>]</span><br><span class="line">pks.extend([key + <span class="built_in">str</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">8</span>) <span class="keyword">for</span> key <span class="keyword">in</span> oks])</span><br><span class="line">pks.extend([<span class="string">&quot;C8&quot;</span>])</span><br><span class="line">pks = <span class="built_in">tuple</span>(pks)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calc_frequency</span>(<span class="params">alphabet: <span class="built_in">str</span></span>) -&gt; <span class="built_in">float</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    计算输入音名的频率，音名需要在88键钢琴内</span></span><br><span class="line"><span class="string">    返回频率</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 基准频率</span></span><br><span class="line">    F_A4 = <span class="number">440</span></span><br><span class="line">    <span class="comment"># 计算相隔的半音数</span></span><br><span class="line">    semitones = pks.index(alphabet) - pks.index(<span class="string">&quot;A4&quot;</span>)</span><br><span class="line">    <span class="comment"># 计算频率</span></span><br><span class="line">    f_alphabet = F_A4 * <span class="number">2</span> ** (semitones / <span class="number">12</span>)</span><br><span class="line">    <span class="keyword">return</span> f_alphabet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 存放音名频率的字典</span></span><br><span class="line">frequency_dict = <span class="built_in">dict</span>()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">create_frequency_dict</span>() -&gt; <span class="literal">None</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    生成频率字典</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> pks:</span><br><span class="line">        frequency_dict[key] = calc_frequency(key)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    alphabet = <span class="built_in">input</span>(<span class="string">&quot;输入音名：&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> alphabet <span class="keyword">in</span> pks:</span><br><span class="line">        f_alphabet = calc_frequency(alphabet)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;alphabet&#125;</span> 的频率是 <span class="subst">&#123;f_alphabet:<span class="number">.3</span>f&#125;</span>Hz&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> alphabet == <span class="string">&quot;all&quot;</span>:</span><br><span class="line">        create_frequency_dict()</span><br><span class="line">        <span class="keyword">for</span> k, v <span class="keyword">in</span> frequency_dict.items():</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;k:&gt;<span class="number">3</span>&#125;</span> 的频率是 <span class="subst">&#123;v:<span class="number">.3</span>f&#125;</span>Hz&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;输入格式错误&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>概念</category>
       </categories>
   </entry>
 </search>
