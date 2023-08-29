@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JSON</title>
+    <url>/blog/2023/JSON/</url>
+    <content><![CDATA[<p>JSON(JavaScript Object
+Notation，JavaScript对象表示法)是一种轻量级的数据交换格式。
+<span id="more"></span></p>
+<h2 id="json与js对象互转">json与js对象互转</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> json = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// js对象转json字符串</span></span><br><span class="line">json = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// json字符串转js对象</span></span><br><span class="line">obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(json)</span><br></pre></td></tr></table></figure>
+<h2 id="使用python编解码json">使用Python编解码json</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">dic = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编码</span></span><br><span class="line">string = json.dumps(dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解码</span></span><br><span class="line">dic = json.loads(string)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>概念</category>
+      </categories>
+  </entry>
+  <entry>
     <title>VSCode快捷键</title>
     <url>/blog/2023/VSCode%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
     <content><![CDATA[<p>旨在少用鼠标/触摸板，避免分心。但是触摸板在快速定位，滚动屏幕和选中非完整行上比较方便。</p>
@@ -50,133 +65,6 @@
 ]]></content>
       <categories>
         <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>JSON</title>
-    <url>/blog/2023/JSON/</url>
-    <content><![CDATA[<p>JSON(JavaScript Object
-Notation，JavaScript对象表示法)是一种轻量级的数据交换格式。
-<span id="more"></span></p>
-<h2 id="json与js对象互转">json与js对象互转</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> json = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// js对象转json字符串</span></span><br><span class="line">json = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// json字符串转js对象</span></span><br><span class="line">obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(json)</span><br></pre></td></tr></table></figure>
-<h2 id="使用python编解码json">使用Python编解码json</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">dic = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编码</span></span><br><span class="line">string = json.dumps(dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解码</span></span><br><span class="line">dic = json.loads(string)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>概念</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>《草蛇惊一》歌词解读</title>
-    <url>/blog/2023/%E3%80%8A%E8%8D%89%E8%9B%87%E6%83%8A%E4%B8%80%E3%80%8B%E6%AD%8C%E8%AF%8D%E8%A7%A3%E8%AF%BB/</url>
-    <content><![CDATA[<p>《草蛇惊一》收录于初音未来 V4C 专辑《初梦》，作词是<a
-href="https://space.bilibili.com/396967">麦当叔劳劳</a>。</p>
-<span id="more"></span>
-<p><a href="https://www.bilibili.com/video/BV1Px41177ht/">去 B
-站观看</a> | 在线听：</p>
-<iframe frameborder="no" width="100%" height="86" src="//music.163.com/outchain/player?type=2&amp;id=515455714&amp;auto=1&amp;height=66">
-</iframe>
-<p>这种歌词应该属于“意识流”。解读需要把自己代入主人公的视角。一千个读者心中有一千个哈姆雷特，我认为歌词写的是主人公内心的矛盾。</p>
-<p>歌词结构：</p>
-<p>主歌一-&gt;主歌二-&gt;导歌-&gt;副歌-&gt;</p>
-<p>主歌二-&gt;导歌-&gt;副歌-&gt;</p>
-<p>改词的副歌-&gt;副歌-&gt;重复副歌最后一句</p>
-<h2 id="歌名">歌名</h2>
-<p>很容易从歌名联想到“打草惊蛇”。</p>
-<p>我认为“草蛇惊一”的“一”是指打草的人。</p>
-<p>在这里，草、蛇和打草的人都是主人公自己——主人公自己惊动了自己。</p>
-<h2 id="主歌一">主歌一</h2>
-<blockquote>
-<p><em>羡慕风车 不必去四海漂泊 只要能在原地旋转便能体会风的快乐</em></p>
-</blockquote>
-<p>第一句最重要，是起因。</p>
-<p>主人公的内心独白。我们把主人公此时的视角记作“视角 A”。</p>
-<p>“风车”有三层意思：</p>
-<ol type="1">
-<li>指被“风”驱动的人或物。</li>
-<li>指《堂吉诃德》里的风车所指，即假想敌。</li>
-<li>指主人公自己。</li>
-</ol>
-<p>在刚开始，主人公认为“风车”是第一层意思，后来认识到了第二层意思。在经过多次反思后，才认识到了第三层意思。</p>
-<p>至于“风”这个意象（能指），可以结合以下几首歌理解：</p>
-<p>（原谅我开始报菜名，因为我还没法做到既简单、又准确的描述）</p>
-<blockquote>
-<ul>
-<li><p>草东没有派对《大风吹》：<em>“大<strong>风</strong>吹着谁 谁就倒霉”</em></p></li>
-<li><p>崔健《酷瓜树》：<em>“泥土带着<strong>风</strong> 闻着新鲜 让人沉睡”</em></p></li>
-<li><p>ilem《白鸟过河滩》：<em>“<strong>风</strong>把我不想知道的事情告诉我”</em></p></li>
-<li><p>ilem《斩草歌》：<em>“腐草迎<strong>风</strong>遮望眼 对错凭谁”</em></p></li>
-<li><p>ilem《石头歌》：<em>“太阳落月亮升 旧血肉化成<strong>风</strong> 只有石头一动不动”</em></p></li>
-<li><p>ilem《我没有歌能给你听》：<em>“一些流浪的<strong>风</strong> 一些景色”</em></p></li>
-</ul>
-</blockquote>
-<p>“原地旋转”就是不作出改变，变成石头，最后变成流浪的风。</p>
-<blockquote>
-<p><em>及时行乐 外婆的故事里说因果报应乃白日见鬼</em></p>
-</blockquote>
-<p>视角 A 想要把自己的人生观向“风车”靠拢。</p>
-<blockquote>
-<p><em>转折 没曾想单木不林一丝不线如我 孤单的说书者也能偷乐</em></p>
-</blockquote>
-<p>主人公突然转换为上帝视角，把自己代入说书者。这样就像看电影一样，不用再担心各种现实问题了。</p>
-<blockquote>
-<p><em>相濡以沫不如相忘于江湖 外公总说这是他孤单的借口</em></p>
-</blockquote>
-<p>进一步妄想自己是“相忘于江湖”的鱼，逃避现实。</p>
-<h2 id="主歌二">主歌二</h2>
-<blockquote>
-<p><em>放轻松 压力别弄得太大 飘飘欲仙欲死不知是不是自己的风格</em></p>
-</blockquote>
-<p>主人公认为自己逃避现实是不对的，此时视角转换回了视角 A。</p>
-<p>前半部分是视角 A 对自己说的，后半部分是视角 A 对说书者说的。</p>
-<blockquote>
-<p><em>一语道破 下手斩草除根哭吧哭吧 无聊卑微笑话</em></p>
-</blockquote>
-<p>视角
-A“一语道破”了说书者的伪装，并否定掉了风车的人生观。认为有这种想法的自己是“无聊卑微笑话”。</p>
-<blockquote>
-<p><em>音色也在不知不觉中变得低沉 就像患了名为暴躁的病一样</em></p>
-</blockquote>
-<p>主人公在否定自己之后，风车的一面并没有消失，而是在反噬视角 A。</p>
-<blockquote>
-<p><em>快停止吧 那张顽固蠢蛋的终身证明我不想再去想念</em></p>
-</blockquote>
-<p>风车和视角 A
-在脑海里互相争斗。主人公希望自己不要再胡思乱想了，给自己开了“顽固蠢蛋的终身证明”。</p>
-<h2 id="导歌">导歌</h2>
-<blockquote>
-<p><em>一不做二不休自在风流 乐不思蜀子龙我就不走</em></p>
-</blockquote>
-<p>对于一件事，我要么不做，要么就做到最好，我觉得这样太酷啦；</p>
-<p>赵云救了刘禅最终导致乐不思蜀，这让我怎么做接下来每一步的决定呢？干脆不做了。</p>
-<blockquote>
-<p><em>过五关杀六将公子献头 金蝉脱壳孙老头八十二变我有</em></p>
-</blockquote>
-<p>主人公一会儿代入关羽，一会儿代入荆轲/太子丹。并预想了像他们一样做事之后的结果。</p>
-<p>“金蝉脱壳”指主人公抽离自己为说书者。</p>
-<p>“孙老头八十二变”指思想转换的复杂性。</p>
-<blockquote>
-<p><em>百闻不如一见来翻筋斗 福星高照五湖四海都随我漫步遨游
-山雨欲来风满楼</em></p>
-</blockquote>
-<p>终于要作决定了！但是在做出决定之前的继续妄想，构成了主人公脑海里的狂风。</p>
-<h2 id="副歌">副歌</h2>
-<blockquote>
-<p><em>再见吧 提线的傀儡师 耻笑咚咚跳的心脏和那不实际的憧憬</em></p>
-</blockquote>
-<p>傀儡是身体，傀儡师是幻想。主人公向对自己造成心惊肉跳的幻想作别。</p>
-<blockquote>
-<p><em>玩笑吧 我不想听假话 暴露皆大欢喜不攻自破不成熟的笑话</em></p>
-</blockquote>
-<p>主人公给自己的 EQ 开了低通滤波。</p>
-<blockquote>
-<p><em>怠慢吗 或许只是懈怠吧 嘁嘁咔咔咚咚咭咭再也不想它</em></p>
-</blockquote>
-<p>主人公认为，这都是由自己的“怠慢”或者“懈怠”造成的。在又一番思想斗争之后停止了思考。</p>
-]]></content>
-      <categories>
-        <category>共鸣</category>
       </categories>
   </entry>
   <entry>
@@ -537,8 +425,12 @@ C5}\)</span>。<code>B#4 = C5</code></p>
 class="math inline">\(\mathrm{A4=440Hz}\)</span>，白键不加升降号，黑键始终为升号，保留三位小数）</p>
 <p><strong>仅供参考的答案</strong></p>
 <figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">这部分代码用于生成包含钢琴88个音的字符串元组，把输出的结果单独保存到一个文件 my_constants.py 里。</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">oks = octave_keys = (<span class="string">&quot;C&quot;</span>, <span class="string">&quot;C#&quot;</span>, <span class="string">&quot;D&quot;</span>, <span class="string">&quot;D#&quot;</span>, <span class="string">&quot;E&quot;</span>, <span class="string">&quot;F&quot;</span>, <span class="string">&quot;F#&quot;</span>, <span class="string">&quot;G&quot;</span>, <span class="string">&quot;G#&quot;</span>, <span class="string">&quot;A&quot;</span>, <span class="string">&quot;A#&quot;</span>, <span class="string">&quot;B&quot;</span>)</span><br><span class="line">pks = piano_keys = [<span class="string">&quot;A0&quot;</span>, <span class="string">&quot;A#0&quot;</span>, <span class="string">&quot;B0&quot;</span>]</span><br><span class="line">pks.extend([key + <span class="built_in">str</span>(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">8</span>) <span class="keyword">for</span> key <span class="keyword">in</span> oks])</span><br><span class="line">pks.extend([<span class="string">&quot;C8&quot;</span>])</span><br><span class="line">pks = <span class="built_in">tuple</span>(pks)</span><br><span class="line"><span class="built_in">print</span>(pks)</span><br></pre></td></tr></table></figure>
-<p><code>main.py</code></p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> my_constants <span class="keyword">import</span> PIANO_KEYS</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PianoKeyFreq</span>:</span><br><span class="line">    pianokey_freq: <span class="built_in">dict</span>  <span class="comment"># 存放音名频率的字典</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        生成音名频率字典</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        self.pianokey_freq = <span class="built_in">dict</span>()</span><br><span class="line">        <span class="keyword">for</span> key <span class="keyword">in</span> PIANO_KEYS:</span><br><span class="line">            self.pianokey_freq[key] = self.calc_frequency(key)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">calc_frequency</span>(<span class="params">self, alphabet: <span class="built_in">str</span></span>) -&gt; <span class="built_in">float</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        计算音名的频率，音名需要已经在88键钢琴内</span></span><br><span class="line"><span class="string">        返回频率</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="comment"># 基准频率</span></span><br><span class="line">        F_A4 = <span class="number">440</span></span><br><span class="line">        <span class="comment"># 计算相隔的半音数</span></span><br><span class="line">        semitones = PIANO_KEYS.index(alphabet) - PIANO_KEYS.index(<span class="string">&quot;A4&quot;</span>)</span><br><span class="line">        <span class="comment"># 计算频率</span></span><br><span class="line">        f_alphabet = F_A4 * <span class="number">2</span> ** (semitones / <span class="number">12</span>)</span><br><span class="line">        <span class="keyword">return</span> f_alphabet</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PrintPianoKeyFreq</span>(<span class="title class_ inherited__">PianoKeyFreq</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">print_freq</span>(<span class="params">self, alphabet: <span class="built_in">str</span></span>) -&gt; <span class="built_in">float</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        输出一个音名对应的频率</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            f_alphabet = self.pianokey_freq[alphabet]</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;alphabet&#125;</span> 的频率是 <span class="subst">&#123;f_alphabet:<span class="number">.3</span>f&#125;</span>Hz&quot;</span>)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;找不到音名，输入 all 以查看所有音名的频率&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">print_all_freq</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        输出所有音名对应的频率</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">for</span> k, v <span class="keyword">in</span> self.pianokey_freq.items():</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;k:&gt;<span class="number">3</span>&#125;</span> 的频率是 <span class="subst">&#123;v:<span class="number">.3</span>f&#125;</span>Hz&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    ppkf = PrintPianoKeyFreq()</span><br><span class="line">    inpu = <span class="built_in">input</span>(<span class="string">&quot;输入音名：&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> inpu == <span class="string">&quot;all&quot;</span>:</span><br><span class="line">        ppkf.print_all_freq()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        ppkf.print_freq(inpu)</span><br><span class="line">    <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
+<p><code>my_constants.py</code> 存放常量：</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">FREQ_A4 = <span class="number">440</span></span><br><span class="line">PIANO_KEYS = ()</span><br></pre></td></tr></table></figure>
+<p><code>calculator.py</code> 存放计算逻辑：</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> my_constants <span class="keyword">import</span> FREQ_A4, PIANO_KEYS</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calc_semitones</span>(<span class="params">pitch_name1: <span class="built_in">str</span>, pitch_name2: <span class="built_in">str</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    计算 pitch_name2 与 pitch_name1 相隔的半音数，pitch_name2 频率高时返回正数</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    semitones = PIANO_KEYS.index(pitch_name2) - PIANO_KEYS.index(pitch_name1)</span><br><span class="line">    <span class="keyword">return</span> semitones</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calc_freq</span>(<span class="params">pitch_name: <span class="built_in">str</span></span>) -&gt; <span class="built_in">float</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    计算音名的频率，音名需要已经在88键钢琴内，返回频率</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 计算相隔的半音数</span></span><br><span class="line">    semitones = calc_semitones(<span class="string">&quot;A4&quot;</span>, pitch_name)</span><br><span class="line">    <span class="comment"># 计算频率</span></span><br><span class="line">    f_pitch_name = FREQ_A4 * <span class="number">2</span> ** (semitones / <span class="number">12</span>)</span><br><span class="line">    <span class="keyword">return</span> f_pitch_name</span><br></pre></td></tr></table></figure>
+<p><code>main.py</code>：</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> calculator <span class="keyword">import</span> calc_freq</span><br><span class="line"><span class="keyword">from</span> my_constants <span class="keyword">import</span> PIANO_KEYS</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成 &#123;音名:频率&#125; 字典</span></span><br><span class="line">pianokey_freq: <span class="built_in">dict</span>[<span class="built_in">str</span>, <span class="built_in">float</span>] = &#123;</span><br><span class="line">    pitch_name: calc_freq(pitch_name) <span class="keyword">for</span> pitch_name <span class="keyword">in</span> PIANO_KEYS</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">FreqPrinter</span>:</span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">print_freq</span>(<span class="params">pitch_name: <span class="built_in">str</span></span>) -&gt; <span class="built_in">float</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        输出一个音名对应的频率</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        f_pitch_name = pianokey_freq.get(pitch_name)</span><br><span class="line">        <span class="keyword">if</span> f_pitch_name <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;pitch_name&#125;</span> 的频率是 <span class="subst">&#123;f_pitch_name:<span class="number">.3</span>f&#125;</span>Hz&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;找不到音名，输入 all 以查看所有音名的频率&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">print_all_freq</span>() -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        输出所有音名对应的频率</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">for</span> pitch_name, freq <span class="keyword">in</span> pianokey_freq.items():</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;pitch_name:&gt;<span class="number">3</span>&#125;</span> 的频率是 <span class="subst">&#123;freq:<span class="number">.3</span>f&#125;</span>Hz&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    entered_value = <span class="built_in">input</span>(<span class="string">&quot;输入音名：&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> entered_value == <span class="string">&quot;all&quot;</span>:</span><br><span class="line">        FreqPrinter.print_all_freq()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        FreqPrinter.print_freq(entered_value)</span><br><span class="line">    <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>概念</category>
@@ -682,6 +574,118 @@ _{16}\)</span></p>
       </categories>
   </entry>
   <entry>
+    <title>《草蛇惊一》歌词解读</title>
+    <url>/blog/2023/%E3%80%8A%E8%8D%89%E8%9B%87%E6%83%8A%E4%B8%80%E3%80%8B%E6%AD%8C%E8%AF%8D%E8%A7%A3%E8%AF%BB/</url>
+    <content><![CDATA[<p>《草蛇惊一》收录于初音未来 V4C 专辑《初梦》，作词是<a
+href="https://space.bilibili.com/396967">麦当叔劳劳</a>。</p>
+<span id="more"></span>
+<p><a href="https://www.bilibili.com/video/BV1Px41177ht/">去 B
+站观看</a> | 在线听：</p>
+<iframe frameborder="no" width="100%" height="86" src="//music.163.com/outchain/player?type=2&amp;id=515455714&amp;auto=1&amp;height=66">
+</iframe>
+<p>这种歌词应该属于“意识流”。解读需要把自己代入主人公的视角。一千个读者心中有一千个哈姆雷特，我认为歌词写的是主人公内心的矛盾。</p>
+<p>歌词结构：</p>
+<p>主歌一-&gt;主歌二-&gt;导歌-&gt;副歌-&gt;</p>
+<p>主歌二-&gt;导歌-&gt;副歌-&gt;</p>
+<p>改词的副歌-&gt;副歌-&gt;重复副歌最后一句</p>
+<h2 id="歌名">歌名</h2>
+<p>很容易从歌名联想到“打草惊蛇”。</p>
+<p>我认为“草蛇惊一”的“一”是指打草的人。</p>
+<p>在这里，草、蛇和打草的人都是主人公自己——主人公自己惊动了自己。</p>
+<h2 id="主歌一">主歌一</h2>
+<blockquote>
+<p><em>羡慕风车 不必去四海漂泊 只要能在原地旋转便能体会风的快乐</em></p>
+</blockquote>
+<p>第一句最重要，是起因。</p>
+<p>主人公的内心独白。我们把主人公此时的视角记作“视角 A”。</p>
+<p>“风车”有三层意思：</p>
+<ol type="1">
+<li>指被“风”驱动的人或物。</li>
+<li>指《堂吉诃德》里的风车所指，即假想敌。</li>
+<li>指主人公自己。</li>
+</ol>
+<p>在刚开始，主人公认为“风车”是第一层意思，后来认识到了第二层意思。在经过多次反思后，才认识到了第三层意思。</p>
+<p>至于“风”这个意象（能指），可以结合以下几首歌理解：</p>
+<p>（原谅我开始报菜名，因为我还没法做到既简单、又准确的描述）</p>
+<blockquote>
+<ul>
+<li><p>草东没有派对《大风吹》：<em>“大<strong>风</strong>吹着谁 谁就倒霉”</em></p></li>
+<li><p>崔健《酷瓜树》：<em>“泥土带着<strong>风</strong> 闻着新鲜 让人沉睡”</em></p></li>
+<li><p>ilem《白鸟过河滩》：<em>“<strong>风</strong>把我不想知道的事情告诉我”</em></p></li>
+<li><p>ilem《斩草歌》：<em>“腐草迎<strong>风</strong>遮望眼 对错凭谁”</em></p></li>
+<li><p>ilem《石头歌》：<em>“太阳落月亮升 旧血肉化成<strong>风</strong> 只有石头一动不动”</em></p></li>
+<li><p>ilem《我没有歌能给你听》：<em>“一些流浪的<strong>风</strong> 一些景色”</em></p></li>
+</ul>
+</blockquote>
+<p>“原地旋转”就是不作出改变，变成石头，最后变成流浪的风。</p>
+<blockquote>
+<p><em>及时行乐 外婆的故事里说因果报应乃白日见鬼</em></p>
+</blockquote>
+<p>视角 A 想要把自己的人生观向“风车”靠拢。</p>
+<blockquote>
+<p><em>转折 没曾想单木不林一丝不线如我 孤单的说书者也能偷乐</em></p>
+</blockquote>
+<p>主人公突然转换为上帝视角，把自己代入说书者。这样就像看电影一样，不用再担心各种现实问题了。</p>
+<blockquote>
+<p><em>相濡以沫不如相忘于江湖 外公总说这是他孤单的借口</em></p>
+</blockquote>
+<p>进一步妄想自己是“相忘于江湖”的鱼，逃避现实。</p>
+<h2 id="主歌二">主歌二</h2>
+<blockquote>
+<p><em>放轻松 压力别弄得太大 飘飘欲仙欲死不知是不是自己的风格</em></p>
+</blockquote>
+<p>主人公认为自己逃避现实是不对的，此时视角转换回了视角 A。</p>
+<p>前半部分是视角 A 对自己说的，后半部分是视角 A 对说书者说的。</p>
+<blockquote>
+<p><em>一语道破 下手斩草除根哭吧哭吧 无聊卑微笑话</em></p>
+</blockquote>
+<p>视角
+A“一语道破”了说书者的伪装，并否定掉了风车的人生观。认为有这种想法的自己是“无聊卑微笑话”。</p>
+<blockquote>
+<p><em>音色也在不知不觉中变得低沉 就像患了名为暴躁的病一样</em></p>
+</blockquote>
+<p>主人公在否定自己之后，风车的一面并没有消失，而是在反噬视角 A。</p>
+<blockquote>
+<p><em>快停止吧 那张顽固蠢蛋的终身证明我不想再去想念</em></p>
+</blockquote>
+<p>风车和视角 A
+在脑海里互相争斗。主人公希望自己不要再胡思乱想了，给自己开了“顽固蠢蛋的终身证明”。</p>
+<h2 id="导歌">导歌</h2>
+<blockquote>
+<p><em>一不做二不休自在风流 乐不思蜀子龙我就不走</em></p>
+</blockquote>
+<p>对于一件事，我要么不做，要么就做到最好，我觉得这样太酷啦；</p>
+<p>赵云救了刘禅最终导致乐不思蜀，这让我怎么做接下来每一步的决定呢？干脆不做了。</p>
+<blockquote>
+<p><em>过五关杀六将公子献头 金蝉脱壳孙老头八十二变我有</em></p>
+</blockquote>
+<p>主人公一会儿代入关羽，一会儿代入荆轲/太子丹。并预想了像他们一样做事之后的结果。</p>
+<p>“金蝉脱壳”指主人公抽离自己为说书者。</p>
+<p>“孙老头八十二变”指思想转换的复杂性。</p>
+<blockquote>
+<p><em>百闻不如一见来翻筋斗 福星高照五湖四海都随我漫步遨游
+山雨欲来风满楼</em></p>
+</blockquote>
+<p>终于要作决定了！但是在做出决定之前的继续妄想，构成了主人公脑海里的狂风。</p>
+<h2 id="副歌">副歌</h2>
+<blockquote>
+<p><em>再见吧 提线的傀儡师 耻笑咚咚跳的心脏和那不实际的憧憬</em></p>
+</blockquote>
+<p>傀儡是身体，傀儡师是幻想。主人公向对自己造成心惊肉跳的幻想作别。</p>
+<blockquote>
+<p><em>玩笑吧 我不想听假话 暴露皆大欢喜不攻自破不成熟的笑话</em></p>
+</blockquote>
+<p>主人公给自己的 EQ 开了低通滤波。</p>
+<blockquote>
+<p><em>怠慢吗 或许只是懈怠吧 嘁嘁咔咔咚咚咭咭再也不想它</em></p>
+</blockquote>
+<p>主人公认为，这都是由自己的“怠慢”或者“懈怠”造成的。在又一番思想斗争之后停止了思考。</p>
+]]></content>
+      <categories>
+        <category>共鸣</category>
+      </categories>
+  </entry>
+  <entry>
     <title>在Windows中安装Linux虚拟机</title>
     <url>/blog/2023/%E5%9C%A8Windows%E4%B8%AD%E8%BF%90%E8%A1%8CLinux%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
     <content><![CDATA[<ul>
@@ -751,101 +755,6 @@ China。</p>
 <p>在 VM Player 里打开虚拟机设置-&gt;选项-&gt;共享文件夹。</p>
 <p>我这里设置在<code>D:\VMachines\Shared</code>。</p>
 <p>在虚拟机里的位置是<code>/mnt/hgfs/Shared</code>。</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>普通十进制数转单精度浮点数</title>
-    <url>/blog/2023/%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0/</url>
-    <content><![CDATA[<ul>
-<li>在 IEEE 754 标准下</li>
-</ul>
-<span id="more"></span>
-<p>单精度浮点数，即 32 位二进制浮点数，包含：</p>
-<p>一位符号位 + 八位指数位 + 二十三位尾数位</p>
-<h2 id="例一">例一</h2>
-<p>以 <span class="math inline">\(0.1_{10}\)</span> 为例：</p>
-<ol type="1">
-<li><p>把十进制转换为二进制</p>
-<p><span class="math inline">\(0.1 _{10} = 0.0\dot{0}01\dot{1}...
-_{2}\)</span></p></li>
-<li><p>用以 <span class="math inline">\(2_{10}\)</span>
-为基数的科学计数法表示，并保证【尾数的小数点前是 <span
-class="math inline">\(1_{2}\)</span>】</p>
-<p><span class="math inline">\(= 1.\dot{1}00\dot{1}..._{2} \times
-(2^{-4})_{10}\)</span></p>
-<p>可以看到指数是 <span class="math inline">\(-4_{10}\)</span></p></li>
-<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
-class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
-<p>这里 <span class="math inline">\(e\)</span>
-等于【用于表示指数位的位数】 <span
-class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
-class="math inline">\(127_{10}\)</span></p>
-<p>则阶码为 <span class="math inline">\(-4_{10} + 127_{10} =
-123_{10}\)</span></p>
-<p>阶码的二进制为 <code>0111 1011</code>，注意
-<em>阶码始终为无符号整数</em></p></li>
-<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是无限的，所以要舍去一部分</p>
-<p>它的前二十位是：<code>1001 1001 1001 1001 1001</code></p>
-<p>二十一至二十八位是：<code>1001 1001</code></p>
-<p>所以二十一至二十三位，要么取 <code>100</code>，要么取
-<code>101</code>。</p>
-<p>通常是舍入到最接近的，一样接近则偶数（末尾为
-<code>0</code>）优先，这里 <code>101</code> 更接近。</p></li>
-<li><p>把符号位连同阶码、尾数位缝合起来</p>
-<p><code>0 | 0111 1011 | 1001 1001 1001 1001 1001 101</code></p></li>
-</ol>
-<h2 id="例二">例二</h2>
-<p>以 <span class="math inline">\(12_{10} = 1.5_{10} \times
-(2^{3})_{10}\)</span> 为例，和上面的步骤一样：</p>
-<ol type="1">
-<li><p>把十进制转换为二进制</p>
-<p><span class="math inline">\(12 _{10} = 1100 _{2}\)</span></p></li>
-<li><p>用以 <span class="math inline">\(2\)</span>
-为基数的科学计数法表示，并保证【尾数的小数点前是 <span
-class="math inline">\(1\)</span>】</p>
-<p><span class="math inline">\(= 1.1_{2} \times (2^3)_{10}\)</span></p>
-<p>可以看到指数是 <span class="math inline">\(3_{10}\)</span></p></li>
-<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
-class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
-<p>这里 <span class="math inline">\(e\)</span>
-等于【用于表示指数位的位数】 <span
-class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
-class="math inline">\(127_{10}\)</span></p>
-<p>则阶码为 <span class="math inline">\(3_{10} + 127_{10} =
-130_{10}\)</span></p>
-<p>阶码的二进制为 <code>1000 0010</code>，注意
-<em>阶码始终为无符号整数</em></p></li>
-<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是有限的，所以后面直接补零</p>
-<p>小数点后二十三位是：<code>1000 0000 0000 0000 000</code></p></li>
-<li><p>把符号位连同阶码、尾数位缝合起来</p>
-<p><code>0 | 1000 0010 | 1000 0000 0000 0000 000</code></p></li>
-</ol>
-<h2 id="特殊情况">特殊情况</h2>
-<p><a
-href="/blog/2023/单精度浮点数的五种形式/">单精度浮点数的五种形式</a></p>
-<h2 id="如何验证">如何验证</h2>
-<ul>
-<li><p><a
-href="https://baseconvert.com/ieee-754-floating-point">在线转换</a></p></li>
-<li><p><a href="/blog/2023/用GDB查看变量内存/">用 GDB
-查看变量内存</a></p></li>
-<li><p><a href="https://en.wikipedia.org/wiki/IEEE_754">Wikipedia</a> |
-<a href="https://zh.wikipedia.org/wiki/IEEE_754">维基百科</a></p></li>
-<li><p>获取国际标准文件</p>
-<p>IEEE 754 标准是电气与电子工程师协会（Institute of Electrical and
-Electronics Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <a
-href="https://standards.ieee.org/ieee/754/6210/">IEEE
-754-2019</a>，对应国际标准 <a
-href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/standard/08/09/80985.html">ISO/IEC
-60559:2020</a>，预计下一次在 2028 年修订。 http://snti.ru/
-这个网站分享了各种国际标准文件的磁力链接，但是可以免费下载的不全，IEC
-的只有 61xxx。据说可以给站长发邮件要
-<code>popov_al@perm.ru</code>，每个文件一刀乐。在 ISO 官网上下载需要 187
-瑞士法郎，合 1000 多人民币。</p></li>
-</ul>
 ]]></content>
       <categories>
         <category>教程</category>
@@ -1067,6 +976,101 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </categories>
   </entry>
   <entry>
+    <title>普通十进制数转单精度浮点数</title>
+    <url>/blog/2023/%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0/</url>
+    <content><![CDATA[<ul>
+<li>在 IEEE 754 标准下</li>
+</ul>
+<span id="more"></span>
+<p>单精度浮点数，即 32 位二进制浮点数，包含：</p>
+<p>一位符号位 + 八位指数位 + 二十三位尾数位</p>
+<h2 id="例一">例一</h2>
+<p>以 <span class="math inline">\(0.1_{10}\)</span> 为例：</p>
+<ol type="1">
+<li><p>把十进制转换为二进制</p>
+<p><span class="math inline">\(0.1 _{10} = 0.0\dot{0}01\dot{1}...
+_{2}\)</span></p></li>
+<li><p>用以 <span class="math inline">\(2_{10}\)</span>
+为基数的科学计数法表示，并保证【尾数的小数点前是 <span
+class="math inline">\(1_{2}\)</span>】</p>
+<p><span class="math inline">\(= 1.\dot{1}00\dot{1}..._{2} \times
+(2^{-4})_{10}\)</span></p>
+<p>可以看到指数是 <span class="math inline">\(-4_{10}\)</span></p></li>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
+class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<p>这里 <span class="math inline">\(e\)</span>
+等于【用于表示指数位的位数】 <span
+class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
+class="math inline">\(127_{10}\)</span></p>
+<p>则阶码为 <span class="math inline">\(-4_{10} + 127_{10} =
+123_{10}\)</span></p>
+<p>阶码的二进制为 <code>0111 1011</code>，注意
+<em>阶码始终为无符号整数</em></p></li>
+<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是无限的，所以要舍去一部分</p>
+<p>它的前二十位是：<code>1001 1001 1001 1001 1001</code></p>
+<p>二十一至二十八位是：<code>1001 1001</code></p>
+<p>所以二十一至二十三位，要么取 <code>100</code>，要么取
+<code>101</code>。</p>
+<p>通常是舍入到最接近的，一样接近则偶数（末尾为
+<code>0</code>）优先，这里 <code>101</code> 更接近。</p></li>
+<li><p>把符号位连同阶码、尾数位缝合起来</p>
+<p><code>0 | 0111 1011 | 1001 1001 1001 1001 1001 101</code></p></li>
+</ol>
+<h2 id="例二">例二</h2>
+<p>以 <span class="math inline">\(12_{10} = 1.5_{10} \times
+(2^{3})_{10}\)</span> 为例，和上面的步骤一样：</p>
+<ol type="1">
+<li><p>把十进制转换为二进制</p>
+<p><span class="math inline">\(12 _{10} = 1100 _{2}\)</span></p></li>
+<li><p>用以 <span class="math inline">\(2\)</span>
+为基数的科学计数法表示，并保证【尾数的小数点前是 <span
+class="math inline">\(1\)</span>】</p>
+<p><span class="math inline">\(= 1.1_{2} \times (2^3)_{10}\)</span></p>
+<p>可以看到指数是 <span class="math inline">\(3_{10}\)</span></p></li>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
+class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<p>这里 <span class="math inline">\(e\)</span>
+等于【用于表示指数位的位数】 <span
+class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
+class="math inline">\(127_{10}\)</span></p>
+<p>则阶码为 <span class="math inline">\(3_{10} + 127_{10} =
+130_{10}\)</span></p>
+<p>阶码的二进制为 <code>1000 0010</code>，注意
+<em>阶码始终为无符号整数</em></p></li>
+<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是有限的，所以后面直接补零</p>
+<p>小数点后二十三位是：<code>1000 0000 0000 0000 000</code></p></li>
+<li><p>把符号位连同阶码、尾数位缝合起来</p>
+<p><code>0 | 1000 0010 | 1000 0000 0000 0000 000</code></p></li>
+</ol>
+<h2 id="特殊情况">特殊情况</h2>
+<p><a
+href="/blog/2023/单精度浮点数的五种形式/">单精度浮点数的五种形式</a></p>
+<h2 id="如何验证">如何验证</h2>
+<ul>
+<li><p><a
+href="https://baseconvert.com/ieee-754-floating-point">在线转换</a></p></li>
+<li><p><a href="/blog/2023/用GDB查看变量内存/">用 GDB
+查看变量内存</a></p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/IEEE_754">Wikipedia</a> |
+<a href="https://zh.wikipedia.org/wiki/IEEE_754">维基百科</a></p></li>
+<li><p>获取国际标准文件</p>
+<p>IEEE 754 标准是电气与电子工程师协会（Institute of Electrical and
+Electronics Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <a
+href="https://standards.ieee.org/ieee/754/6210/">IEEE
+754-2019</a>，对应国际标准 <a
+href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/standard/08/09/80985.html">ISO/IEC
+60559:2020</a>，预计下一次在 2028 年修订。 http://snti.ru/
+这个网站分享了各种国际标准文件的磁力链接，但是可以免费下载的不全，IEC
+的只有 61xxx。据说可以给站长发邮件要
+<code>popov_al@perm.ru</code>，每个文件一刀乐。在 ISO 官网上下载需要 187
+瑞士法郎，合 1000 多人民币。</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+  </entry>
+  <entry>
     <title>概率统计中几个容易混淆的概念</title>
     <url>/blog/2023/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%AD%E5%87%A0%E4%B8%AA%E5%AE%B9%E6%98%93%E6%B7%B7%E6%B7%86%E7%9A%84%E6%A6%82%E5%BF%B5/</url>
     <content><![CDATA[<p><span class="math inline">\(\alpha\)</span>分位点、置信度<span
@@ -1169,15 +1173,6 @@ role="doc-backlink">↩︎</a></p></li>
       </categories>
   </entry>
   <entry>
-    <title>第一篇文章</title>
-    <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>这是第一篇文章</p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
     <title>用GDB查看变量内存</title>
     <url>/blog/2023/%E7%94%A8GDB%E6%9F%A5%E7%9C%8B%E5%8F%98%E9%87%8F%E5%86%85%E5%AD%98/</url>
     <content><![CDATA[<p>起因是想验证浮点数的存储方式。</p>
@@ -1217,6 +1212,45 @@ IEEE 754 浮点数的相互转换。</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/tw &amp;num</span><br></pre></td></tr></table></figure>
 <p>输出四个字节，结果：</p>
 <p><code>0x61fe1c: 00111111110110011001100110011010</code></p>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>用browser-sync实现在文件内容改变后立即刷新页面</title>
+    <url>/blog/2023/%E7%94%A8browser-sync%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
+    <content><![CDATA[<p>起因是：</p>
+<p>不管是直接打开 html
+文件，还是用<code>python -m http.server 8000 --bind 127.0.0.1</code>，在修改保存
+html 文件后浏览器都不能立马刷新。</p>
+<span id="more"></span>
+<ol type="1">
+<li><p>安装</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install browser-sync</span><br></pre></td></tr></table></figure>
+<p>安装到想作为服务器根目录的文件夹。以前觉得全局安装好，现在暂时觉得本地安装好。（据说用
+Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p></li>
+<li><p>运行</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npx browser-sync start --server --files <span class="string">&quot;.&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>--files</code> 后指定要监视的文件。</p>
+<p><code>.</code> 表示监视当前目录以及子目录下的所有文件。</p>
+<p>可以改成 <code>*.html</code>，<code>public/*.*</code> 等。</p></li>
+</ol>
+<p>html
+文件里至少得有一对<code>&lt;body&gt;</code>标签，要么没法自动刷新。</p>
+<p>在没有修改文件内容，只 <code>Ctrl + S</code>
+保存时也会刷新，在命令行会输出
+<code>File event [change]</code>，只不过看不出来。</p>
+<p>好像和直接通过浏览器来刷新不一样，因为我在选项卡上没看到加载动画。</p>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>第一篇文章</title>
+    <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>这是第一篇文章</p>
 ]]></content>
       <categories>
         <category>探索</category>
@@ -1277,36 +1311,6 @@ Wall》有着非常强烈的共情，同时又造成了非常强烈的无力感�
 ]]></content>
       <categories>
         <category>共鸣</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>用browser-sync实现在文件内容改变后立即刷新页面</title>
-    <url>/blog/2023/%E7%94%A8browser-sync%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
-    <content><![CDATA[<p>起因是：</p>
-<p>不管是直接打开 html
-文件，还是用<code>python -m http.server 8000 --bind 127.0.0.1</code>，在修改保存
-html 文件后浏览器都不能立马刷新。</p>
-<span id="more"></span>
-<ol type="1">
-<li><p>安装</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install browser-sync</span><br></pre></td></tr></table></figure>
-<p>安装到想作为服务器根目录的文件夹。以前觉得全局安装好，现在暂时觉得本地安装好。（据说用
-Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p></li>
-<li><p>运行</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npx browser-sync start --server --files <span class="string">&quot;.&quot;</span></span><br></pre></td></tr></table></figure>
-<p><code>--files</code> 后指定要监视的文件。</p>
-<p><code>.</code> 表示监视当前目录以及子目录下的所有文件。</p>
-<p>可以改成 <code>*.html</code>，<code>public/*.*</code> 等。</p></li>
-</ol>
-<p>html
-文件里至少得有一对<code>&lt;body&gt;</code>标签，要么没法自动刷新。</p>
-<p>在没有修改文件内容，只 <code>Ctrl + S</code>
-保存时也会刷新，在命令行会输出
-<code>File event [change]</code>，只不过看不出来。</p>
-<p>好像和直接通过浏览器来刷新不一样，因为我在选项卡上没看到加载动画。</p>
-]]></content>
-      <categories>
-        <category>探索</category>
       </categories>
   </entry>
   <entry>
