@@ -1,6 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>乐理-A♯0-音名与唱名、音阶与音级</title>
+    <url>/blog/2023/%E4%B9%90%E7%90%86-A%E2%99%AF0-%E9%9F%B3%E5%90%8D%E4%B8%8E%E5%94%B1%E5%90%8D%E3%80%81%E9%9F%B3%E9%98%B6%E4%B8%8E%E9%9F%B3%E7%BA%A7/</url>
+    <content><![CDATA[<ul>
+<li>音名与唱名</li>
+<li>七声音阶及音级</li>
+</ul>
+<span id="more"></span>
+<p><em>英文并不一定是正确的专业名词，只是用来作变量名。同时解释也不一定准确，只是为了方便程序编码时的应用。</em></p>
+<h2 id="音名和唱名">音名和唱名</h2>
+<ul>
+<li><p>音名（pitch name，音高名称）</p>
+<ul>
+<li><p><code>C4</code>、<code>C#4</code>、<code>D4</code>等是音名，对应<strong>绝对音高</strong>。</p></li>
+<li><p>比如 <span class="math inline">\(\mathrm{C4 = 220 \times
+\sqrt[4]{2} Hz}\)</span>。</p></li>
+</ul></li>
+</ul>
+<p><img src="/blog/images/piano.webp"></p>
+<ul>
+<li><p>唱名（sol-fa note，唱名表示法<a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a>中的音符）</p>
+<ul>
+<li><p><code>do</code>、<code>re</code>、<code>mi</code>、<code>fa</code>、<code>sol</code>、<code>la</code>、<code>ti</code>
+是唱名，对应<strong>相对音高</strong>。</p></li>
+<li><p>在简谱里记作
+<code>1</code>、<code>2</code>、<code>3</code>、<code>4</code>、<code>5</code>、<code>6</code>、<code>7</code>。</p></li>
+<li><p>我们可以<strong>规定</strong> <code>1</code> 至 <code>7</code>
+分别<strong>对应</strong>七个白键 <code>C4</code> 至
+<code>B4</code>。这时简谱头部会有 <span class="math inline">\(\mathrm{1
+= C}\)</span>。</p></li>
+<li><p>在简谱里，如果用 <span class="math inline">\(1\)</span> 表示
+<span class="math inline">\(\mathrm{C4}\)</span>，那么 <span
+class="math inline">\(\mathrm{\dot{1}}\)</span> 就表示 <span
+class="math inline">\(\mathrm{C5}\)</span>。<span
+class="math inline">\(\mathrm{\dot{\dot{1}}}\)</span> 表示 <span
+class="math inline">\(\mathrm{C6}\)</span>，<span
+class="math inline">\(\underset{·}{1}\)</span> 表示 <span
+class="math inline">\(\mathrm{C3}\)</span>，以此类推。</p></li>
+</ul></li>
+</ul>
+<h2 id="音阶">音阶</h2>
+<blockquote>
+<p>在音乐理论中，音阶（scale，尺度）是按基本频率或音高排序的任何一组音符。按音高递增排序的音阶是升序音阶，按音高递减排序的音阶是降序音阶。<a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a></p>
+</blockquote>
+<p><code>A0 B0 C1 D1 E1 F1 G1 A1 B1 ... C4 D4 E4 F4 G4 A4 B4 ... C7 D7 E7 F7 G7 A7 B7 C8</code>
+就是一组升序音阶，对应钢琴的所有白键。</p>
+<p>在上面的例子中，每个八度里用到了七个音名<code>C D E F G A B</code>（不包括区间右端点），这被称为<strong>七声音阶</strong>（heptatonic
+scale）。</p>
+<h2 id="音级">音级</h2>
+<p>七声音阶里有七个音级（degree，刻度）：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">音级</th>
+<th>名称</th>
+<th>英文名称</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(Ⅰ\)</span></td>
+<td>主音</td>
+<td>tonic</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(Ⅱ\)</span></td>
+<td>上主音</td>
+<td>supertonic</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(Ⅲ\)</span></td>
+<td>中音</td>
+<td>mediant</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(Ⅳ\)</span></td>
+<td>下属音</td>
+<td>subdominant</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(Ⅴ\)</span></td>
+<td>属音</td>
+<td>dominant</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(Ⅵ\)</span></td>
+<td>下中音</td>
+<td>submediant</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(Ⅶ\)</span></td>
+<td>导音</td>
+<td>subtonic / leading note</td>
+</tr>
+</tbody>
+</table>
+<aside id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a
+href="https://en.wikipedia.org/wiki/Solmization">https://en.wikipedia.org/wiki/Solmization</a><a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a
+href="https://en.wikipedia.org/wiki/Scale_(music)">https://en.wikipedia.org/wiki/Scale_(music)</a><a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>
+]]></content>
+      <categories>
+        <category>概念</category>
+      </categories>
+  </entry>
+  <entry>
     <title>乐理-A0-频率与音程</title>
     <url>/blog/2023/%E4%B9%90%E7%90%86-A0-%E9%A2%91%E7%8E%87%E4%B8%8E%E9%9F%B3%E7%A8%8B/</url>
     <content><![CDATA[<ul>
@@ -206,129 +329,6 @@ class="math inline">\(\mathrm{A4=440Hz}\)</span>，白键不加升降号，黑�
 <p><strong>暂时能跑的答案：</strong></p>
 <p><a
 href="https://github.com/ruofancooh/utility-room/tree/main/learning/music">A0-main.py</a></p>
-]]></content>
-      <categories>
-        <category>概念</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>乐理-A♯0-音名与唱名、音阶与音级</title>
-    <url>/blog/2023/%E4%B9%90%E7%90%86-A%E2%99%AF0-%E9%9F%B3%E5%90%8D%E4%B8%8E%E5%94%B1%E5%90%8D%E3%80%81%E9%9F%B3%E9%98%B6%E4%B8%8E%E9%9F%B3%E7%BA%A7/</url>
-    <content><![CDATA[<ul>
-<li>音名与唱名</li>
-<li>七声音阶及音级</li>
-</ul>
-<span id="more"></span>
-<p><em>英文并不一定是正确的专业名词，只是用来作变量名。同时解释也不一定准确，只是为了方便程序编码时的应用。</em></p>
-<h2 id="音名和唱名">音名和唱名</h2>
-<ul>
-<li><p>音名（pitch name，音高名称）</p>
-<ul>
-<li><p><code>C4</code>、<code>C#4</code>、<code>D4</code>等是音名，对应<strong>绝对音高</strong>。</p></li>
-<li><p>比如 <span class="math inline">\(\mathrm{C4 = 220 \times
-\sqrt[4]{2} Hz}\)</span>。</p></li>
-</ul></li>
-</ul>
-<p><img src="/blog/images/piano.webp"></p>
-<ul>
-<li><p>唱名（sol-fa note，唱名表示法<a href="#fn1" class="footnote-ref"
-id="fnref1" role="doc-noteref"><sup>1</sup></a>中的音符）</p>
-<ul>
-<li><p><code>do</code>、<code>re</code>、<code>mi</code>、<code>fa</code>、<code>sol</code>、<code>la</code>、<code>ti</code>
-是唱名，对应<strong>相对音高</strong>。</p></li>
-<li><p>在简谱里记作
-<code>1</code>、<code>2</code>、<code>3</code>、<code>4</code>、<code>5</code>、<code>6</code>、<code>7</code>。</p></li>
-<li><p>我们可以<strong>规定</strong> <code>1</code> 至 <code>7</code>
-分别<strong>对应</strong>七个白键 <code>C4</code> 至
-<code>B4</code>。这时简谱头部会有 <span class="math inline">\(\mathrm{1
-= C}\)</span>。</p></li>
-<li><p>在简谱里，如果用 <span class="math inline">\(1\)</span> 表示
-<span class="math inline">\(\mathrm{C4}\)</span>，那么 <span
-class="math inline">\(\mathrm{\dot{1}}\)</span> 就表示 <span
-class="math inline">\(\mathrm{C5}\)</span>。<span
-class="math inline">\(\mathrm{\dot{\dot{1}}}\)</span> 表示 <span
-class="math inline">\(\mathrm{C6}\)</span>，<span
-class="math inline">\(\underset{·}{1}\)</span> 表示 <span
-class="math inline">\(\mathrm{C3}\)</span>，以此类推。</p></li>
-</ul></li>
-</ul>
-<h2 id="音阶">音阶</h2>
-<blockquote>
-<p>在音乐理论中，音阶（scale，尺度）是按基本频率或音高排序的任何一组音符。按音高递增排序的音阶是升序音阶，按音高递减排序的音阶是降序音阶。<a
-href="#fn2" class="footnote-ref" id="fnref2"
-role="doc-noteref"><sup>2</sup></a></p>
-</blockquote>
-<p><code>A0 B0 C1 D1 E1 F1 G1 A1 B1 ... C4 D4 E4 F4 G4 A4 B4 ... C7 D7 E7 F7 G7 A7 B7 C8</code>
-就是一组升序音阶，对应钢琴的所有白键。</p>
-<p>在上面的例子中，每个八度里用到了七个音名<code>C D E F G A B</code>（不包括区间右端点），这被称为<strong>七声音阶</strong>（heptatonic
-scale）。</p>
-<h2 id="音级">音级</h2>
-<p>七声音阶里有七个音级（degree，刻度）：</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">音级</th>
-<th>名称</th>
-<th>英文名称</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(Ⅰ\)</span></td>
-<td>主音</td>
-<td>tonic</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(Ⅱ\)</span></td>
-<td>上主音</td>
-<td>supertonic</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(Ⅲ\)</span></td>
-<td>中音</td>
-<td>mediant</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(Ⅳ\)</span></td>
-<td>下属音</td>
-<td>subdominant</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(Ⅴ\)</span></td>
-<td>属音</td>
-<td>dominant</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(Ⅵ\)</span></td>
-<td>下中音</td>
-<td>submediant</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(Ⅶ\)</span></td>
-<td>导音</td>
-<td>subtonic / leading note</td>
-</tr>
-</tbody>
-</table>
-<aside id="footnotes" class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1"><p><a
-href="https://en.wikipedia.org/wiki/Solmization">https://en.wikipedia.org/wiki/Solmization</a><a
-href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p><a
-href="https://en.wikipedia.org/wiki/Scale_(music)">https://en.wikipedia.org/wiki/Scale_(music)</a><a
-href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</aside>
 ]]></content>
       <categories>
         <category>概念</category>
@@ -541,228 +541,6 @@ class="math inline">\(\mathrm{V}\)</span>
       </categories>
   </entry>
   <entry>
-    <title>《草蛇惊一》歌词解读</title>
-    <url>/blog/2023/%E3%80%8A%E8%8D%89%E8%9B%87%E6%83%8A%E4%B8%80%E3%80%8B%E6%AD%8C%E8%AF%8D%E8%A7%A3%E8%AF%BB/</url>
-    <content><![CDATA[<p>《草蛇惊一》收录于初音未来 V4C 专辑《初梦》，作词是<a
-href="https://space.bilibili.com/396967">麦当叔劳劳</a>。</p>
-<span id="more"></span>
-<p><a href="https://www.bilibili.com/video/BV1Px41177ht/">去 B
-站观看</a> | 在线听：</p>
-<iframe frameborder="no" width="100%" height="86" src="//music.163.com/outchain/player?type=2&amp;id=515455714&amp;auto=1&amp;height=66">
-</iframe>
-<p>这种歌词应该属于“意识流”。解读需要把自己代入主人公的视角。一千个读者心中有一千个哈姆雷特，我认为歌词写的是主人公内心的矛盾。</p>
-<p>歌词结构：</p>
-<p>主歌一-&gt;主歌二-&gt;导歌-&gt;副歌-&gt;</p>
-<p>主歌二-&gt;导歌-&gt;副歌-&gt;</p>
-<p>改词的副歌-&gt;副歌-&gt;重复副歌最后一句</p>
-<h2 id="歌名">歌名</h2>
-<p>很容易从歌名联想到“打草惊蛇”。</p>
-<p>我认为“草蛇惊一”的“一”是指打草的人。</p>
-<p>在这里，草、蛇和打草的人都是主人公自己——主人公自己惊动了自己。</p>
-<h2 id="主歌一">主歌一</h2>
-<blockquote>
-<p><em>羡慕风车 不必去四海漂泊 只要能在原地旋转便能体会风的快乐</em></p>
-</blockquote>
-<p>第一句最重要，是起因。</p>
-<p>主人公的内心独白。我们把主人公此时的视角记作“视角 A”。</p>
-<p>“风车”有三层意思：</p>
-<ol type="1">
-<li>指被“风”驱动的人或物。</li>
-<li>指《堂吉诃德》里的风车所指，即假想敌。</li>
-<li>指主人公自己。</li>
-</ol>
-<p>在刚开始，主人公认为“风车”是第一层意思，后来认识到了第二层意思。在经过多次反思后，才认识到了第三层意思。</p>
-<p>至于“风”这个意象（能指），可以结合以下几首歌理解：</p>
-<p>（原谅我开始报菜名，因为我还没法做到既简单、又准确的描述）</p>
-<blockquote>
-<ul>
-<li><p>草东没有派对《大风吹》：<em>“大<strong>风</strong>吹着谁 谁就倒霉”</em></p></li>
-<li><p>崔健《酷瓜树》：<em>“泥土带着<strong>风</strong> 闻着新鲜 让人沉睡”</em></p></li>
-<li><p>ilem《白鸟过河滩》：<em>“<strong>风</strong>把我不想知道的事情告诉我”</em></p></li>
-<li><p>ilem《斩草歌》：<em>“腐草迎<strong>风</strong>遮望眼 对错凭谁”</em></p></li>
-<li><p>ilem《石头歌》：<em>“太阳落月亮升 旧血肉化成<strong>风</strong> 只有石头一动不动”</em></p></li>
-<li><p>ilem《我没有歌能给你听》：<em>“一些流浪的<strong>风</strong> 一些景色”</em></p></li>
-</ul>
-</blockquote>
-<p>“原地旋转”就是不作出改变，变成石头，最后变成流浪的风。</p>
-<blockquote>
-<p><em>及时行乐 外婆的故事里说因果报应乃白日见鬼</em></p>
-</blockquote>
-<p>视角 A 想要把自己的人生观向“风车”靠拢。</p>
-<blockquote>
-<p><em>转折 没曾想单木不林一丝不线如我 孤单的说书者也能偷乐</em></p>
-</blockquote>
-<p>主人公突然转换为上帝视角，把自己代入说书者。这样就像看电影一样，不用再担心各种现实问题了。</p>
-<blockquote>
-<p><em>相濡以沫不如相忘于江湖 外公总说这是他孤单的借口</em></p>
-</blockquote>
-<p>进一步妄想自己是“相忘于江湖”的鱼，逃避现实。</p>
-<h2 id="主歌二">主歌二</h2>
-<blockquote>
-<p><em>放轻松 压力别弄得太大 飘飘欲仙欲死不知是不是自己的风格</em></p>
-</blockquote>
-<p>主人公认为自己逃避现实是不对的，此时视角转换回了视角 A。</p>
-<p>前半部分是视角 A 对自己说的，后半部分是视角 A 对说书者说的。</p>
-<blockquote>
-<p><em>一语道破 下手斩草除根哭吧哭吧 无聊卑微笑话</em></p>
-</blockquote>
-<p>视角
-A“一语道破”了说书者的伪装，并否定掉了风车的人生观。认为有这种想法的自己是“无聊卑微笑话”。</p>
-<blockquote>
-<p><em>音色也在不知不觉中变得低沉 就像患了名为暴躁的病一样</em></p>
-</blockquote>
-<p>主人公在否定自己之后，风车的一面并没有消失，而是在反噬视角 A。</p>
-<blockquote>
-<p><em>快停止吧 那张顽固蠢蛋的终身证明我不想再去想念</em></p>
-</blockquote>
-<p>风车和视角 A
-在脑海里互相争斗。主人公希望自己不要再胡思乱想了，给自己开了“顽固蠢蛋的终身证明”。</p>
-<h2 id="导歌">导歌</h2>
-<blockquote>
-<p><em>一不做二不休自在风流 乐不思蜀子龙我就不走</em></p>
-</blockquote>
-<p>对于一件事，我要么不做，要么就做到最好，我觉得这样太酷啦；</p>
-<p>赵云救了刘禅最终导致乐不思蜀，这让我怎么做接下来每一步的决定呢？干脆不做了。</p>
-<blockquote>
-<p><em>过五关杀六将公子献头 金蝉脱壳孙老头八十二变我有</em></p>
-</blockquote>
-<p>主人公一会儿代入关羽，一会儿代入荆轲/太子丹。并预想了像他们一样做事之后的结果。</p>
-<p>“金蝉脱壳”指主人公抽离自己为说书者。</p>
-<p>“孙老头八十二变”指思想转换的复杂性。</p>
-<blockquote>
-<p><em>百闻不如一见来翻筋斗 福星高照五湖四海都随我漫步遨游
-山雨欲来风满楼</em></p>
-</blockquote>
-<p>终于要作决定了！但是在做出决定之前的继续妄想，构成了主人公脑海里的狂风。</p>
-<h2 id="副歌">副歌</h2>
-<blockquote>
-<p><em>再见吧 提线的傀儡师 耻笑咚咚跳的心脏和那不实际的憧憬</em></p>
-</blockquote>
-<p>傀儡是身体，傀儡师是幻想。主人公向对自己造成心惊肉跳的幻想作别。</p>
-<blockquote>
-<p><em>玩笑吧 我不想听假话 暴露皆大欢喜不攻自破不成熟的笑话</em></p>
-</blockquote>
-<p>主人公给自己的 EQ 开了低通滤波。</p>
-<blockquote>
-<p><em>怠慢吗 或许只是懈怠吧 嘁嘁咔咔咚咚咭咭再也不想它</em></p>
-</blockquote>
-<p>主人公认为，这都是由自己的“怠慢”或者“懈怠”造成的。在又一番思想斗争之后停止了思考。</p>
-]]></content>
-      <categories>
-        <category>共鸣</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>说的道理</title>
-    <url>/blog/2023/%E8%AF%B4%E7%9A%84%E9%81%93%E7%90%86/</url>
-    <content><![CDATA[<ul>
-<li>如何应对拖延</li>
-<li>常问 GPT</li>
-</ul>
-<span id="more"></span>
-<h2 id="如何应对拖延">如何应对拖延</h2>
-<p>先写最重要的部分，不要迷失在语言表达，想梗和想标题上。</p>
-<p>有想写的马上写，可以先不发，或者先发一部分，后来再拼起来。</p>
-<p>有想做的马上做，可以先做一部分。</p>
-<p>有时候脑子里总在想一个标题，其实自己根本对要写的内容都没有明确的理解，只是觉得这个标题特别吊，光把时间用到“预想写完之后的结果”了。</p>
-<p>从<a
-href="https://www.ruanyifeng.com/blog/2019/08/weekly-issue-69.html">阮一峰的一篇文章</a>里看到，博客需要先写快，后写好。</p>
-<p>从<a href="https://space.bilibili.com/230711744/article">B
-站的一篇笔记</a>看到，满足欲望不是什么坏事。在没有特别重要的事情的情况下，先把最想做的做了。</p>
-<iframe frameborder="no" width="100%" height="86" src="//music.163.com/outchain/player?type=2&amp;id=386830&amp;auto=1&amp;height=66">
-</iframe>
-<p>睡一觉起来发现海港没了。</p>
-<h2 id="常问-gpt">常问 GPT</h2>
-<p>由于我经常对一个问题，一会想用这种解决方法，一会想用那种解决方法，结果想来想去都是把以前有印象的碎片拼接起来，不会凭空创造出新的解决方法。</p>
-<p>比如写代码，只是看到代码量增多，造成了没有意义的正反馈，实际结构写得非常混乱。</p>
-<p>有那么多包不用，用 Python
-就得调包。因为我总是想把问题以现有的经验解决。</p>
-<p>到最后发现，本来是想解决一个小的问题，总是想把它做大来解决更多问题。假舟楫者非能水也而绝江河，我搁那终日而思去了。</p>
-<p>我问 GPT：</p>
-<p>py 有没有乐理相关的库？</p>
-<p>它直接给了我几个名字：music21、mingus</p>
-<p>这还用得着我去写吗？算法不会，调包不愿意，属于上也上不去，下也下不来。</p>
-<p>然后我发现我的注意力又转移了：本来想学乐理，后来想边学乐理边练
-python，后来全纠结 python 去了。</p>
-<p>我要去看别人的库是怎么写的，在这之前还要问 GPT 怎么写库。</p>
-]]></content>
-      <categories>
-        <category>共鸣</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>JSON</title>
-    <url>/blog/2023/JSON/</url>
-    <content><![CDATA[<p>JSON(JavaScript Object
-Notation，JavaScript对象表示法)是一种轻量级的数据交换格式。
-<span id="more"></span></p>
-<h2 id="json与js对象互转">json与js对象互转</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> json = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// js对象转json字符串</span></span><br><span class="line">json = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// json字符串转js对象</span></span><br><span class="line">obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(json)</span><br></pre></td></tr></table></figure>
-<h2 id="使用python编解码json">使用Python编解码json</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">dic = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编码</span></span><br><span class="line">string = json.dumps(dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解码</span></span><br><span class="line">dic = json.loads(string)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>概念</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>糊弄</title>
-    <url>/blog/2023/%E7%B3%8A%E5%BC%84/</url>
-    <content><![CDATA[<p>在粗略地、不系统地看了一些语词的解释后，我发现自己越来越会给自己找理由。</p>
-<span id="more"></span>
-<h2 id="犬儒的辩证法">犬儒的“辩证法”</h2>
-<p>一切都是互相影响的，我把它换个词描述为薛定谔的蝴蝶效应。</p>
-<p>我这篇博客发出来或者不发出来，未来都会因此受到影响。（如果不发出来，我会感觉心里憋得慌，难受）</p>
-<p>如你所见，这篇博客发出来了，有人看或者没人看，未来都会因此受到影响。</p>
-<p>并且，都会有“好”的一面（反思/批判地接受）和“坏”的一面（模仿/不加批判地接受），不管是对我自己还是对其他人。</p>
-<p>特别是对我自己，我会有两种对立统一的行动（是行动吗？）：</p>
-<ol type="1">
-<li><p>自己在思想混乱时能想到这篇博客，以开始做“好”的事。如果只是想想而没有开始做，就转向
-2。</p></li>
-<li><p>自己做“反面教材”，以心安理得地做“坏”的事来让别人获得反思。（在做出决定的那一刻是这样的，事实上，在有了“辩证”的想法后，就不可能永远心安理得，又会转向
-1）</p></li>
-</ol>
-<p>这种思想循环就是《草蛇惊一》的歌词“金蝉脱壳...山雨欲来风满楼”所描述的。心里想着塞翁失马，实际上是等待戈多。</p>
-<h2 id="直觉主义">直觉主义</h2>
-<p>在未明子的体系里是 1-3-4。</p>
-<p>犹记得我在高考复习时、高考前夜、高考时、高考后都完全不紧张，连喜悦的心情也没有。</p>
-<p>我只不过是看电影。</p>
-<p>这是我中学时对待无良教师的想法。也许在不远的将来我被社会毒打时我会重新拾起这种想法。</p>
-<h2 id="局限性">局限性</h2>
-<p>我最初于《中国近现代史纲要》课本里看到这个词。</p>
-<p>我遇到一个不好的老师，潜意识地认为之后所有老师都不好。</p>
-<p>我是一个属于农村的孩子，最早的记忆却是在市区里生活。三年级之前，我在市区上学，转到县城之后，遍地的方言和粗口让我感到非常不适应。在初中刚开始，我甚至正好跟全班最没有素质、成绩最差的五个人分到了同一组。</p>
-<p>这种游离于群体之外，认为“是不是只有我一个人对”的状态一直在持续。据我父母说那几年我也不和他们说话。</p>
-<p>抑郁症。“没有倾诉对象”导致的。</p>
-<p>根本就不是抑郁症，医生都没看出来，填几个问卷就判断是玉玉。但是为了有意识地忽略社恐的一面，却给自己贴上了标签，把【没有倾诉对象的失落感】映射为了【抑郁】。我自己能意识到，却说不出所以然。我是理科生，只有在网上搜哲学名词，搜到了唯心、唯我，嘛德还搜到了知乎懂哥讲的电子双缝干涉实验。（我也是懂哥，这也是我认为我博客可能带来“坏”的影响的原因）</p>
-<p>于是在 2017
-年末，我为了看到这场电影的结局，做了一个外人无法理解的决定。重新上学后好了一点，因为我心态变了，加上我移情到中文
-VOCALOID 社区中了。上大学又是一个坎。我从没有像 2020
-年那一样获得如此多的认同感——在网络虚拟空间内。然而在下半年上学时，我仍不愿意社交，并移情给了
-B 站的中文 VOCALOID 的音乐制作人（俗称 P
-主），在意识到做得太过时，我自闭了。然后又衣锦还乡了。然后鸽子变大了。然后是删稿，然后非常羞愧的主动请求招安。然后是表面告别、无尽的群除我佬和潜水。最后变成谎言。</p>
-<p>在 2022 年听了平克弗洛伊德的《The Wall》，2023 年看了 JOJO
-石之海之后，我更倾向于是“谁都没有错”，或者“大部分人都没有错”。特别是我对《The
-Wall》有着非常强烈的共情，同时又造成了非常强烈的无力感和后遗症。（这时候可以听二手玫瑰的《公益歌曲》《穷光蛋》等以毒攻毒）</p>
-<p>“无良老师”是因为“我和其他学生不同，不听话”，转学是因为父母工作原因要养活我。谁都没有错（在每个人内心当时的认知层面上），由于“认知的局限性”，最后却造成了悲剧。</p>
-<p>然后，我又多了一个理由：现在的我做“错”事，是因为我不知道它是错事，俗称“师爷还不知道自己是个装糊涂的天才”。</p>
-<h2 id="待补充">待补充</h2>
-<ul>
-<li><p>不可知论</p></li>
-<li><p>符号学</p></li>
-<li><p>后现代</p></li>
-</ul>
-<p>这终究是糊弄。我写日记，所以不是正经人。</p>
-<blockquote>
-<p>拒绝从善恶的结构性差异中汲取凝视的快感。
-这种凝视是高效便捷的享乐循环。悬置真正的实践，把宝贵的时间投入虚空是可耻的。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>共鸣</category>
-      </categories>
-  </entry>
-  <entry>
     <title>VSCode快捷键</title>
     <url>/blog/2023/VSCode%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
     <content><![CDATA[<p>旨在少用鼠标/触摸板，避免分心。但是触摸板在快速定位，滚动屏幕和选中非完整行上比较方便。</p>
@@ -812,6 +590,21 @@ Wall》有着非常强烈的共情，同时又造成了非常强烈的无力感�
 ]]></content>
       <categories>
         <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JSON</title>
+    <url>/blog/2023/JSON/</url>
+    <content><![CDATA[<p>JSON(JavaScript Object
+Notation，JavaScript对象表示法)是一种轻量级的数据交换格式。
+<span id="more"></span></p>
+<h2 id="json与js对象互转">json与js对象互转</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> json = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// js对象转json字符串</span></span><br><span class="line">json = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// json字符串转js对象</span></span><br><span class="line">obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(json)</span><br></pre></td></tr></table></figure>
+<h2 id="使用python编解码json">使用Python编解码json</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">dic = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编码</span></span><br><span class="line">string = json.dumps(dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解码</span></span><br><span class="line">dic = json.loads(string)</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>概念</category>
       </categories>
   </entry>
   <entry>
@@ -967,6 +760,81 @@ href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </categories>
   </entry>
   <entry>
+    <title>在Windows中安装Linux虚拟机</title>
+    <url>/blog/2023/%E5%9C%A8Windows%E4%B8%AD%E8%BF%90%E8%A1%8CLinux%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
+    <content><![CDATA[<ul>
+<li>真机系统：Windows 10</li>
+<li>使用软件：VMware Workstation 17.0.2 Player</li>
+<li>虚拟机系统：Ubuntu 22.04.3 server</li>
+</ul>
+<span id="more"></span>
+<p>也可以给硬盘分一个新的区，单独安装 Linux。不过没有必要。</p>
+<h2 id="下载安装-vmware-workstation-player">下载安装 VMware Workstation
+Player</h2>
+<blockquote>
+<p>使用 VMware Workstation Player 在 Windows 或 Linux PC
+上轻松地将多个操作系统作为虚拟机运行。——网站介绍</p>
+</blockquote>
+<p><a
+href="https://customerconnect.vmware.com/cn/downloads/info/slug/desktop_end_user_computing/vmware_workstation_player/">下载页面</a></p>
+<p>这里下载的是当前最新版
+<code>VMware Workstation 17.0.2 Player for Windows 64-bit Operating Systems</code>。</p>
+<p>安装过程略（“增强型键盘驱动程序”不知道有什么用，先勾上）。</p>
+<h2 id="下载-ubuntu-镜像">下载 Ubuntu 镜像</h2>
+<p>是一种 Linux 发行版操作系统。</p>
+<p><a
+href="https://launchpad.net/ubuntu/+cdmirrors">下载页面（仓库集合）</a>，找到
+China。</p>
+<p>这里下载的是<code>ubuntu-22.04.3-live-server-amd64.iso</code>。</p>
+<h2 id="在-vm-player-中新建虚拟机">在 VM Player 中新建虚拟机</h2>
+<ol type="1">
+<li><code>创建新虚拟机(N)</code></li>
+<li><code>安装程序光盘文件(iso)(M)</code></li>
+<li><code>浏览(R)</code>，选择下载的镜像文件，下一步。</li>
+<li>设置虚拟机名称和位置，下一步。（我这里设置的是<code>Ubuntu100</code>和<code>D:\VMachines\Ubuntu100</code>）</li>
+<li>指定磁盘容量，下一步。</li>
+<li>自定义硬件（我这里把 CPU 改成了 4 核）。完成。</li>
+</ol>
+<p>你会看到：</p>
+<p><img src="/blog/images/vm.png"></p>
+<p>按回车开始安装 Ubuntu。</p>
+<h2 id="安装-ubuntu">安装 Ubuntu</h2>
+<ol type="1">
+<li><p>语言选择，默认回车。</p></li>
+<li><p>键盘布局选择，默认回车。</p></li>
+<li><p>安装类型，默认回车。</p></li>
+<li><p>网络，默认回车。</p></li>
+<li><p>代理，默认回车。</p></li>
+<li><p>配置镜像源，如果网络不好，改成</p>
+<ul>
+<li><p>清华源：<code>https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</code></p></li>
+<li><p>南京源：<code>https://mirror.nju.edu.cn/ubuntu/</code></p></li>
+<li><p>北邮源：<code>https://mirrors.bupt.edu.cn/ubuntu/</code></p>
+<p>等均可。</p></li>
+</ul></li>
+<li><p>配置存储布局，默认选择<code>Done</code>，回车。</p></li>
+<li><p>文件系统，<code>Done</code>，<code>Continue</code>。</p></li>
+<li><p>设置用户名密码等。</p></li>
+<li><p>是否升级到 Pro 版，默认不升级，<code>Continue</code>。</p></li>
+<li><p>是否安装 OpenSSH server，先不安装。</p></li>
+<li><p>是否安装其他东西，先都不选。</p></li>
+<li><p>等待安装系统。</p></li>
+<li><p>安装完成后，点击 VM Player
+下方的“我已完成安装”，然后<code>Reboot Now</code>。</p></li>
+</ol>
+<p>输入用户名和密码登录 Ubuntu。注意输入密码默认是不回显的。</p>
+<h2 id="设置虚拟机与真机的共享文件夹">设置虚拟机与真机的共享文件夹</h2>
+<p>VM
+的虚拟磁盘文件不好直接打开。有时候需要在虚拟机和真机之间互传文件，可以通过共享文件夹。</p>
+<p>在 VM Player 里打开虚拟机设置-&gt;选项-&gt;共享文件夹。</p>
+<p>我这里设置在<code>D:\VMachines\Shared</code>。</p>
+<p>在虚拟机里的位置是<code>/mnt/hgfs/Shared</code>。</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+  </entry>
+  <entry>
     <title>十进制与K进制小数互转</title>
     <url>/blog/2023/%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8EK%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC/</url>
     <content><![CDATA[<ul>
@@ -1101,81 +969,6 @@ _{16}\)</span></p>
 ]]></content>
       <categories>
         <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>在Windows中安装Linux虚拟机</title>
-    <url>/blog/2023/%E5%9C%A8Windows%E4%B8%AD%E8%BF%90%E8%A1%8CLinux%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
-    <content><![CDATA[<ul>
-<li>真机系统：Windows 10</li>
-<li>使用软件：VMware Workstation 17.0.2 Player</li>
-<li>虚拟机系统：Ubuntu 22.04.3 server</li>
-</ul>
-<span id="more"></span>
-<p>也可以给硬盘分一个新的区，单独安装 Linux。不过没有必要。</p>
-<h2 id="下载安装-vmware-workstation-player">下载安装 VMware Workstation
-Player</h2>
-<blockquote>
-<p>使用 VMware Workstation Player 在 Windows 或 Linux PC
-上轻松地将多个操作系统作为虚拟机运行。——网站介绍</p>
-</blockquote>
-<p><a
-href="https://customerconnect.vmware.com/cn/downloads/info/slug/desktop_end_user_computing/vmware_workstation_player/">下载页面</a></p>
-<p>这里下载的是当前最新版
-<code>VMware Workstation 17.0.2 Player for Windows 64-bit Operating Systems</code>。</p>
-<p>安装过程略（“增强型键盘驱动程序”不知道有什么用，先勾上）。</p>
-<h2 id="下载-ubuntu-镜像">下载 Ubuntu 镜像</h2>
-<p>是一种 Linux 发行版操作系统。</p>
-<p><a
-href="https://launchpad.net/ubuntu/+cdmirrors">下载页面（仓库集合）</a>，找到
-China。</p>
-<p>这里下载的是<code>ubuntu-22.04.3-live-server-amd64.iso</code>。</p>
-<h2 id="在-vm-player-中新建虚拟机">在 VM Player 中新建虚拟机</h2>
-<ol type="1">
-<li><code>创建新虚拟机(N)</code></li>
-<li><code>安装程序光盘文件(iso)(M)</code></li>
-<li><code>浏览(R)</code>，选择下载的镜像文件，下一步。</li>
-<li>设置虚拟机名称和位置，下一步。（我这里设置的是<code>Ubuntu100</code>和<code>D:\VMachines\Ubuntu100</code>）</li>
-<li>指定磁盘容量，下一步。</li>
-<li>自定义硬件（我这里把 CPU 改成了 4 核）。完成。</li>
-</ol>
-<p>你会看到：</p>
-<p><img src="/blog/images/vm.png"></p>
-<p>按回车开始安装 Ubuntu。</p>
-<h2 id="安装-ubuntu">安装 Ubuntu</h2>
-<ol type="1">
-<li><p>语言选择，默认回车。</p></li>
-<li><p>键盘布局选择，默认回车。</p></li>
-<li><p>安装类型，默认回车。</p></li>
-<li><p>网络，默认回车。</p></li>
-<li><p>代理，默认回车。</p></li>
-<li><p>配置镜像源，如果网络不好，改成</p>
-<ul>
-<li><p>清华源：<code>https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</code></p></li>
-<li><p>南京源：<code>https://mirror.nju.edu.cn/ubuntu/</code></p></li>
-<li><p>北邮源：<code>https://mirrors.bupt.edu.cn/ubuntu/</code></p>
-<p>等均可。</p></li>
-</ul></li>
-<li><p>配置存储布局，默认选择<code>Done</code>，回车。</p></li>
-<li><p>文件系统，<code>Done</code>，<code>Continue</code>。</p></li>
-<li><p>设置用户名密码等。</p></li>
-<li><p>是否升级到 Pro 版，默认不升级，<code>Continue</code>。</p></li>
-<li><p>是否安装 OpenSSH server，先不安装。</p></li>
-<li><p>是否安装其他东西，先都不选。</p></li>
-<li><p>等待安装系统。</p></li>
-<li><p>安装完成后，点击 VM Player
-下方的“我已完成安装”，然后<code>Reboot Now</code>。</p></li>
-</ol>
-<p>输入用户名和密码登录 Ubuntu。注意输入密码默认是不回显的。</p>
-<h2 id="设置虚拟机与真机的共享文件夹">设置虚拟机与真机的共享文件夹</h2>
-<p>VM
-的虚拟磁盘文件不好直接打开。有时候需要在虚拟机和真机之间互传文件，可以通过共享文件夹。</p>
-<p>在 VM Player 里打开虚拟机设置-&gt;选项-&gt;共享文件夹。</p>
-<p>我这里设置在<code>D:\VMachines\Shared</code>。</p>
-<p>在虚拟机里的位置是<code>/mnt/hgfs/Shared</code>。</p>
-]]></content>
-      <categories>
-        <category>教程</category>
       </categories>
   </entry>
   <entry>
@@ -1637,15 +1430,6 @@ IEEE 754 浮点数的相互转换。</p>
       </categories>
   </entry>
   <entry>
-    <title>第一篇文章</title>
-    <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>这是第一篇文章</p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
     <title>用browser-sync实现在文件内容改变后立即刷新页面</title>
     <url>/blog/2023/%E7%94%A8browser-sync%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
     <content><![CDATA[<p>起因是：</p>
@@ -1704,6 +1488,15 @@ Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p><
 <p>再建一个专门存 bat 的文件夹，把它添加到环境变量
 PATH。这样在任一文件夹下都可以做第 1-6 步了。</p>
 <p>commit 我用的是 GitHub Desktop，暂时没有换的必要。</p>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>第一篇文章</title>
+    <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>这是第一篇文章</p>
 ]]></content>
       <categories>
         <category>探索</category>
@@ -1786,6 +1579,118 @@ md 文档头部加上<code>mathjax: true</code>。</em></strong></p>
       </categories>
   </entry>
   <entry>
+    <title>《草蛇惊一》歌词解读</title>
+    <url>/blog/2023/%E3%80%8A%E8%8D%89%E8%9B%87%E6%83%8A%E4%B8%80%E3%80%8B%E6%AD%8C%E8%AF%8D%E8%A7%A3%E8%AF%BB/</url>
+    <content><![CDATA[<p>《草蛇惊一》收录于初音未来 V4C 专辑《初梦》，作词是<a
+href="https://space.bilibili.com/396967">麦当叔劳劳</a>。</p>
+<span id="more"></span>
+<p><a href="https://www.bilibili.com/video/BV1Px41177ht/">去 B
+站观看</a> | 在线听：</p>
+<iframe frameborder="no" width="100%" height="86" src="//music.163.com/outchain/player?type=2&amp;id=515455714&amp;auto=1&amp;height=66">
+</iframe>
+<p>这种歌词应该属于“意识流”。解读需要把自己代入主人公的视角。一千个读者心中有一千个哈姆雷特，我认为歌词写的是主人公内心的矛盾。</p>
+<p>歌词结构：</p>
+<p>主歌一-&gt;主歌二-&gt;导歌-&gt;副歌-&gt;</p>
+<p>主歌二-&gt;导歌-&gt;副歌-&gt;</p>
+<p>改词的副歌-&gt;副歌-&gt;重复副歌最后一句</p>
+<h2 id="歌名">歌名</h2>
+<p>很容易从歌名联想到“打草惊蛇”。</p>
+<p>我认为“草蛇惊一”的“一”是指打草的人。</p>
+<p>在这里，草、蛇和打草的人都是主人公自己——主人公自己惊动了自己。</p>
+<h2 id="主歌一">主歌一</h2>
+<blockquote>
+<p><em>羡慕风车 不必去四海漂泊 只要能在原地旋转便能体会风的快乐</em></p>
+</blockquote>
+<p>第一句最重要，是起因。</p>
+<p>主人公的内心独白。我们把主人公此时的视角记作“视角 A”。</p>
+<p>“风车”有三层意思：</p>
+<ol type="1">
+<li>指被“风”驱动的人或物。</li>
+<li>指《堂吉诃德》里的风车所指，即假想敌。</li>
+<li>指主人公自己。</li>
+</ol>
+<p>在刚开始，主人公认为“风车”是第一层意思，后来认识到了第二层意思。在经过多次反思后，才认识到了第三层意思。</p>
+<p>至于“风”这个意象（能指），可以结合以下几首歌理解：</p>
+<p>（原谅我开始报菜名，因为我还没法做到既简单、又准确的描述）</p>
+<blockquote>
+<ul>
+<li><p>草东没有派对《大风吹》：<em>“大<strong>风</strong>吹着谁 谁就倒霉”</em></p></li>
+<li><p>崔健《酷瓜树》：<em>“泥土带着<strong>风</strong> 闻着新鲜 让人沉睡”</em></p></li>
+<li><p>ilem《白鸟过河滩》：<em>“<strong>风</strong>把我不想知道的事情告诉我”</em></p></li>
+<li><p>ilem《斩草歌》：<em>“腐草迎<strong>风</strong>遮望眼 对错凭谁”</em></p></li>
+<li><p>ilem《石头歌》：<em>“太阳落月亮升 旧血肉化成<strong>风</strong> 只有石头一动不动”</em></p></li>
+<li><p>ilem《我没有歌能给你听》：<em>“一些流浪的<strong>风</strong> 一些景色”</em></p></li>
+</ul>
+</blockquote>
+<p>“原地旋转”就是不作出改变，变成石头，最后变成流浪的风。</p>
+<blockquote>
+<p><em>及时行乐 外婆的故事里说因果报应乃白日见鬼</em></p>
+</blockquote>
+<p>视角 A 想要把自己的人生观向“风车”靠拢。</p>
+<blockquote>
+<p><em>转折 没曾想单木不林一丝不线如我 孤单的说书者也能偷乐</em></p>
+</blockquote>
+<p>主人公突然转换为上帝视角，把自己代入说书者。这样就像看电影一样，不用再担心各种现实问题了。</p>
+<blockquote>
+<p><em>相濡以沫不如相忘于江湖 外公总说这是他孤单的借口</em></p>
+</blockquote>
+<p>进一步妄想自己是“相忘于江湖”的鱼，逃避现实。</p>
+<h2 id="主歌二">主歌二</h2>
+<blockquote>
+<p><em>放轻松 压力别弄得太大 飘飘欲仙欲死不知是不是自己的风格</em></p>
+</blockquote>
+<p>主人公认为自己逃避现实是不对的，此时视角转换回了视角 A。</p>
+<p>前半部分是视角 A 对自己说的，后半部分是视角 A 对说书者说的。</p>
+<blockquote>
+<p><em>一语道破 下手斩草除根哭吧哭吧 无聊卑微笑话</em></p>
+</blockquote>
+<p>视角
+A“一语道破”了说书者的伪装，并否定掉了风车的人生观。认为有这种想法的自己是“无聊卑微笑话”。</p>
+<blockquote>
+<p><em>音色也在不知不觉中变得低沉 就像患了名为暴躁的病一样</em></p>
+</blockquote>
+<p>主人公在否定自己之后，风车的一面并没有消失，而是在反噬视角 A。</p>
+<blockquote>
+<p><em>快停止吧 那张顽固蠢蛋的终身证明我不想再去想念</em></p>
+</blockquote>
+<p>风车和视角 A
+在脑海里互相争斗。主人公希望自己不要再胡思乱想了，给自己开了“顽固蠢蛋的终身证明”。</p>
+<h2 id="导歌">导歌</h2>
+<blockquote>
+<p><em>一不做二不休自在风流 乐不思蜀子龙我就不走</em></p>
+</blockquote>
+<p>对于一件事，我要么不做，要么就做到最好，我觉得这样太酷啦；</p>
+<p>赵云救了刘禅最终导致乐不思蜀，这让我怎么做接下来每一步的决定呢？干脆不做了。</p>
+<blockquote>
+<p><em>过五关杀六将公子献头 金蝉脱壳孙老头八十二变我有</em></p>
+</blockquote>
+<p>主人公一会儿代入关羽，一会儿代入荆轲/太子丹。并预想了像他们一样做事之后的结果。</p>
+<p>“金蝉脱壳”指主人公抽离自己为说书者。</p>
+<p>“孙老头八十二变”指思想转换的复杂性。</p>
+<blockquote>
+<p><em>百闻不如一见来翻筋斗 福星高照五湖四海都随我漫步遨游
+山雨欲来风满楼</em></p>
+</blockquote>
+<p>终于要作决定了！但是在做出决定之前的继续妄想，构成了主人公脑海里的狂风。</p>
+<h2 id="副歌">副歌</h2>
+<blockquote>
+<p><em>再见吧 提线的傀儡师 耻笑咚咚跳的心脏和那不实际的憧憬</em></p>
+</blockquote>
+<p>傀儡是身体，傀儡师是幻想。主人公向对自己造成心惊肉跳的幻想作别。</p>
+<blockquote>
+<p><em>玩笑吧 我不想听假话 暴露皆大欢喜不攻自破不成熟的笑话</em></p>
+</blockquote>
+<p>主人公给自己的 EQ 开了低通滤波。</p>
+<blockquote>
+<p><em>怠慢吗 或许只是懈怠吧 嘁嘁咔咔咚咚咭咭再也不想它</em></p>
+</blockquote>
+<p>主人公认为，这都是由自己的“怠慢”或者“懈怠”造成的。在又一番思想斗争之后停止了思考。</p>
+]]></content>
+      <categories>
+        <category>共鸣</category>
+      </categories>
+  </entry>
+  <entry>
     <title>踩坑记录（2）</title>
     <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%882%EF%BC%89/</url>
     <content><![CDATA[<p>Web大作业要求提交网站代码，而博客的html在本地打开会加载不出来css和js。这是文件路径的问题。
@@ -1804,6 +1709,100 @@ href="https://chz613.github.io/post/hexo-next-url-html-suffix.html">这篇文章
 ]]></content>
       <categories>
         <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>糊弄</title>
+    <url>/blog/2023/%E7%B3%8A%E5%BC%84/</url>
+    <content><![CDATA[<p>在粗略地、不系统地看了一些语词的解释后，我发现自己越来越会给自己找理由。</p>
+<span id="more"></span>
+<h2 id="犬儒的辩证法">犬儒的“辩证法”</h2>
+<p>一切都是互相影响的，我把它换个词描述为薛定谔的蝴蝶效应。</p>
+<p>我这篇博客发出来或者不发出来，未来都会因此受到影响。（如果不发出来，我会感觉心里憋得慌，难受）</p>
+<p>如你所见，这篇博客发出来了，有人看或者没人看，未来都会因此受到影响。</p>
+<p>并且，都会有“好”的一面（反思/批判地接受）和“坏”的一面（模仿/不加批判地接受），不管是对我自己还是对其他人。</p>
+<p>特别是对我自己，我会有两种对立统一的行动（是行动吗？）：</p>
+<ol type="1">
+<li><p>自己在思想混乱时能想到这篇博客，以开始做“好”的事。如果只是想想而没有开始做，就转向
+2。</p></li>
+<li><p>自己做“反面教材”，以心安理得地做“坏”的事来让别人获得反思。（在做出决定的那一刻是这样的，事实上，在有了“辩证”的想法后，就不可能永远心安理得，又会转向
+1）</p></li>
+</ol>
+<p>这种思想循环就是《草蛇惊一》的歌词“金蝉脱壳...山雨欲来风满楼”所描述的。心里想着塞翁失马，实际上是等待戈多。</p>
+<h2 id="直觉主义">直觉主义</h2>
+<p>在未明子的体系里是 1-3-4。</p>
+<p>犹记得我在高考复习时、高考前夜、高考时、高考后都完全不紧张，连喜悦的心情也没有。</p>
+<p>我只不过是看电影。</p>
+<p>这是我中学时对待无良教师的想法。也许在不远的将来我被社会毒打时我会重新拾起这种想法。</p>
+<h2 id="局限性">局限性</h2>
+<p>我最初于《中国近现代史纲要》课本里看到这个词。</p>
+<p>我遇到一个不好的老师，潜意识地认为之后所有老师都不好。</p>
+<p>我是一个属于农村的孩子，最早的记忆却是在市区里生活。三年级之前，我在市区上学，转到县城之后，遍地的方言和粗口让我感到非常不适应。在初中刚开始，我甚至正好跟全班最没有素质、成绩最差的五个人分到了同一组。</p>
+<p>这种游离于群体之外，认为“是不是只有我一个人对”的状态一直在持续。据我父母说那几年我也不和他们说话。</p>
+<p>抑郁症。“没有倾诉对象”导致的。</p>
+<p>根本就不是抑郁症，医生都没看出来，填几个问卷就判断是玉玉。但是为了有意识地忽略社恐的一面，却给自己贴上了标签，把【没有倾诉对象的失落感】映射为了【抑郁】。我自己能意识到，却说不出所以然。我是理科生，只有在网上搜哲学名词，搜到了唯心、唯我，嘛德还搜到了知乎懂哥讲的电子双缝干涉实验。（我也是懂哥，这也是我认为我博客可能带来“坏”的影响的原因）</p>
+<p>于是在 2017
+年末，我为了看到这场电影的结局，做了一个外人无法理解的决定。重新上学后好了一点，因为我心态变了，加上我移情到中文
+VOCALOID 社区中了。上大学又是一个坎。我从没有像 2020
+年那一样获得如此多的认同感——在网络虚拟空间内。然而在下半年上学时，我仍不愿意社交，并移情给了
+B 站的中文 VOCALOID 的音乐制作人（俗称 P
+主），在意识到做得太过时，我自闭了。然后又衣锦还乡了。然后鸽子变大了。然后是删稿，然后非常羞愧的主动请求招安。然后是表面告别、无尽的群除我佬和潜水。最后变成谎言。</p>
+<p>在 2022 年听了平克弗洛伊德的《The Wall》，2023 年看了 JOJO
+石之海之后，我更倾向于是“谁都没有错”，或者“大部分人都没有错”。特别是我对《The
+Wall》有着非常强烈的共情，同时又造成了非常强烈的无力感和后遗症。（这时候可以听二手玫瑰的《公益歌曲》《穷光蛋》等以毒攻毒）</p>
+<p>“无良老师”是因为“我和其他学生不同，不听话”，转学是因为父母工作原因要养活我。谁都没有错（在每个人内心当时的认知层面上），由于“认知的局限性”，最后却造成了悲剧。</p>
+<p>然后，我又多了一个理由：现在的我做“错”事，是因为我不知道它是错事，俗称“师爷还不知道自己是个装糊涂的天才”。</p>
+<h2 id="待补充">待补充</h2>
+<ul>
+<li><p>不可知论</p></li>
+<li><p>符号学</p></li>
+<li><p>后现代</p></li>
+</ul>
+<p>这终究是糊弄。我写日记，所以不是正经人。</p>
+<blockquote>
+<p>拒绝从善恶的结构性差异中汲取凝视的快感。
+这种凝视是高效便捷的享乐循环。悬置真正的实践，把宝贵的时间投入虚空是可耻的。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>共鸣</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>说的道理</title>
+    <url>/blog/2023/%E8%AF%B4%E7%9A%84%E9%81%93%E7%90%86/</url>
+    <content><![CDATA[<ul>
+<li>如何应对拖延</li>
+<li>常问 GPT</li>
+</ul>
+<span id="more"></span>
+<h2 id="如何应对拖延">如何应对拖延</h2>
+<p>先写最重要的部分，不要迷失在语言表达，想梗和想标题上。</p>
+<p>有想写的马上写，可以先不发，或者先发一部分，后来再拼起来。</p>
+<p>有想做的马上做，可以先做一部分。</p>
+<p>有时候脑子里总在想一个标题，其实自己根本对要写的内容都没有明确的理解，只是觉得这个标题特别吊，光把时间用到“预想写完之后的结果”了。</p>
+<p>从<a
+href="https://www.ruanyifeng.com/blog/2019/08/weekly-issue-69.html">阮一峰的一篇文章</a>里看到，博客需要先写快，后写好。</p>
+<p>从<a href="https://space.bilibili.com/230711744/article">B
+站的一篇笔记</a>看到，满足欲望不是什么坏事。在没有特别重要的事情的情况下，先把最想做的做了。</p>
+<iframe frameborder="no" width="100%" height="86" src="//music.163.com/outchain/player?type=2&amp;id=386830&amp;auto=1&amp;height=66">
+</iframe>
+<p>睡一觉起来发现海港没了。</p>
+<h2 id="常问-gpt">常问 GPT</h2>
+<p>由于我经常对一个问题，一会想用这种解决方法，一会想用那种解决方法，结果想来想去都是把以前有印象的碎片拼接起来，不会凭空创造出新的解决方法。</p>
+<p>比如写代码，只是看到代码量增多，造成了没有意义的正反馈，实际结构写得非常混乱。</p>
+<p>有那么多包不用，用 Python
+就得调包。因为我总是想把问题以现有的经验解决。</p>
+<p>到最后发现，本来是想解决一个小的问题，总是想把它做大来解决更多问题。假舟楫者非能水也而绝江河，我搁那终日而思去了。</p>
+<p>我问 GPT：</p>
+<p>py 有没有乐理相关的库？</p>
+<p>它直接给了我几个名字：music21、mingus</p>
+<p>这还用得着我去写吗？算法不会，调包不愿意，属于上也上不去，下也下不来。</p>
+<p>然后我发现我的注意力又转移了：本来想学乐理，后来想边学乐理边练
+python，后来全纠结 python 去了。</p>
+]]></content>
+      <categories>
+        <category>共鸣</category>
       </categories>
   </entry>
 </search>
