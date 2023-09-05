@@ -19,27 +19,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="在 IEEE 754 标准下">
+    <meta name="description" content="Windows 10 环境配置">
 <meta property="og:type" content="article">
-<meta property="og:title" content="普通十进制数转单精度浮点数">
-<meta property="og:url" content="https://hrfis.me/blog/2023/%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0/index.html">
+<meta property="og:title" content="MongoDB - 00 - 准备">
+<meta property="og:url" content="https://hrfis.me/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/index.html">
 <meta property="og:site_name" content="若凡的笔记">
-<meta property="og:description" content="在 IEEE 754 标准下">
+<meta property="og:description" content="Windows 10 环境配置">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-08-24T07:10:00.000Z">
-<meta property="article:modified_time" content="2023-09-01T10:23:48.941Z">
+<meta property="article:published_time" content="2023-09-05T09:51:00.000Z">
+<meta property="article:modified_time" content="2023-09-05T09:51:29.069Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://hrfis.me/blog/2023/%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0/">
+<link rel="canonical" href="https://hrfis.me/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/2023/%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0/","path":"2023/普通十进制数转单精度浮点数/","title":"普通十进制数转单精度浮点数"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/","path":"2023/MongoDB-00-准备/","title":"MongoDB - 00 - 准备"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>普通十进制数转单精度浮点数 | 若凡的笔记</title>
+<title>MongoDB - 00 - 准备 | 若凡的笔记</title>
   
 
 
@@ -125,7 +125,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -138,7 +138,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B%E4%B8%80"><span class="nav-number">1.</span> <span class="nav-text">例一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B%E4%BA%8C"><span class="nav-number">2.</span> <span class="nav-text">例二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5"><span class="nav-number">3.</span> <span class="nav-text">特殊情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81"><span class="nav-number">4.</span> <span class="nav-text">如何验证</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -191,7 +190,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/2023/%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/Akari.webp">
@@ -204,12 +203,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="普通十进制数转单精度浮点数 | 若凡的笔记">
+      <meta itemprop="name" content="MongoDB - 00 - 准备 | 若凡的笔记">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          普通十进制数转单精度浮点数
+          MongoDB - 00 - 准备
         </h1>
 
         <div class="post-meta-container">
@@ -219,15 +218,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2023-08-24 15:10:00" itemprop="dateCreated datePublished" datetime="2023-08-24T15:10:00+08:00">2023-08-24</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-09-01 18:23:48" itemprop="dateModified" datetime="2023-09-01T18:23:48+08:00">2023-09-01</time>
+      <time title="创建时间：2023-09-05 17:51:00 / 修改时间：17:51:29" itemprop="dateCreated datePublished" datetime="2023-09-05T17:51:00+08:00">2023-09-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -235,7 +228,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">教程</span></a>
+          <a href="/blog/categories/%E6%8E%A2%E7%B4%A2/" itemprop="url" rel="index"><span itemprop="name">探索</span></a>
         </span>
     </span>
 
@@ -246,14 +239,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.4k</span>
+      <span>206</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -264,93 +257,19 @@
     
     
     <div class="post-body" itemprop="articleBody"><ul>
-<li>在 IEEE 754 标准下</li>
+<li>Windows 10 环境配置</li>
 </ul>
 <span id="more"></span>
-<p>单精度浮点数，即 32 位二进制浮点数，包含：</p>
-<p>一位符号位 + 八位指数位 + 二十三位尾数位</p>
-<h2 id="例一">例一</h2>
-<p>以 <span class="math inline">\(0.1_{10}\)</span> 为例：</p>
 <ol type="1">
-<li><p>把十进制转换为二进制</p>
-<p><span class="math inline">\(0.1 _{10} = 0.0\dot{0}01\dot{1}...
-_{2}\)</span></p></li>
-<li><p>用以 <span class="math inline">\(2_{10}\)</span>
-为基数的科学计数法表示，并保证【尾数的小数点前是 <span
-class="math inline">\(1_{2}\)</span>】</p>
-<p><span class="math inline">\(= 1.\dot{1}00\dot{1}..._{2} \times
-(2^{-4})_{10}\)</span></p>
-<p>可以看到指数是 <span class="math inline">\(-4_{10}\)</span></p></li>
-<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
-class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
-<p>这里 <span class="math inline">\(e\)</span>
-等于【用于表示指数位的位数】 <span
-class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
-class="math inline">\(127_{10}\)</span></p>
-<p>则阶码为 <span class="math inline">\(-4_{10} + 127_{10} =
-123_{10}\)</span></p>
-<p>阶码的二进制为 <code>0111 1011</code>，注意
-<em>阶码始终为无符号整数</em></p></li>
-<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是无限的，所以要舍去一部分</p>
-<p>它的前二十位是：<code>1001 1001 1001 1001 1001</code></p>
-<p>二十一至二十八位是：<code>1001 1001</code></p>
-<p>所以二十一至二十三位，要么取 <code>100</code>，要么取
-<code>101</code>。</p>
-<p>通常是舍入到最接近的，一样接近则偶数（末尾为
-<code>0</code>）优先，这里 <code>101</code> 更接近。</p></li>
-<li><p>把符号位连同阶码、尾数位缝合起来</p>
-<p><code>0 | 0111 1011 | 1001 1001 1001 1001 1001 101</code></p></li>
+<li><a target="_blank" rel="noopener" href="https://www.mongodb.com/try/download/community">下载
+MongoDB</a>，我下载的是<code>7.0.0 (current)</code>的<code>zip</code>格式。</li>
+<li>解压，右键用 PowerShell 运行<code>Install-Compass.ps1</code>，安装
+GUI。 默认会安装到 C 盘，安装完后手动移到 D 盘。</li>
+<li>建数据库文件夹，建一个空日志<code>test.log</code>。</li>
+<li><div class="sourceCode" id="cb1"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>   <span class="ex">mongod</span> <span class="at">--dbpath</span> <span class="pp">[</span><span class="ss">数据库文件夹路径</span><span class="pp">]</span> <span class="at">--logpath</span> <span class="pp">[</span><span class="ss">日志文件路径</span><span class="pp">]</span> <span class="at">--logappend</span></span></code></pre></div></li>
+<li>用 MongoDBCompass 连接。</li>
 </ol>
-<h2 id="例二">例二</h2>
-<p>以 <span class="math inline">\(12_{10} = 1.5_{10} \times
-(2^{3})_{10}\)</span> 为例，和上面的步骤一样：</p>
-<ol type="1">
-<li><p>把十进制转换为二进制</p>
-<p><span class="math inline">\(12 _{10} = 1100 _{2}\)</span></p></li>
-<li><p>用以 <span class="math inline">\(2\)</span>
-为基数的科学计数法表示，并保证【尾数的小数点前是 <span
-class="math inline">\(1\)</span>】</p>
-<p><span class="math inline">\(= 1.1_{2} \times (2^3)_{10}\)</span></p>
-<p>可以看到指数是 <span class="math inline">\(3_{10}\)</span></p></li>
-<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
-class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
-<p>这里 <span class="math inline">\(e\)</span>
-等于【用于表示指数位的位数】 <span
-class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
-class="math inline">\(127_{10}\)</span></p>
-<p>则阶码为 <span class="math inline">\(3_{10} + 127_{10} =
-130_{10}\)</span></p>
-<p>阶码的二进制为 <code>1000 0010</code>，注意
-<em>阶码始终为无符号整数</em></p></li>
-<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是有限的，所以后面直接补零</p>
-<p>小数点后二十三位是：<code>1000 0000 0000 0000 000</code></p></li>
-<li><p>把符号位连同阶码、尾数位缝合起来</p>
-<p><code>0 | 1000 0010 | 1000 0000 0000 0000 000</code></p></li>
-</ol>
-<h2 id="特殊情况">特殊情况</h2>
-<p><a
-href="/blog/2023/单精度浮点数的五种形式/">单精度浮点数的五种形式</a></p>
-<p>对呀对呀……单精度浮点数有五种形式，你知道么？</p>
-<h2 id="如何验证">如何验证</h2>
-<ul>
-<li><p><a
-target="_blank" rel="noopener" href="https://baseconvert.com/ieee-754-floating-point">在线转换</a></p></li>
-<li><p><a href="/blog/2023/用GDB查看变量内存/">用 GDB
-查看变量内存</a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/IEEE_754">Wikipedia</a> |
-<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/IEEE_754">维基百科</a></p></li>
-<li><p>获取国际标准文件</p>
-<p>IEEE 754 标准是电气与电子工程师协会（Institute of Electrical and
-Electronics Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <a
-target="_blank" rel="noopener" href="https://standards.ieee.org/ieee/754/6210/">IEEE
-754-2019</a>，对应国际标准 <a
-target="_blank" rel="noopener" href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/standard/08/09/80985.html">ISO/IEC
-60559:2020</a>，预计下一次在 2028 年修订。 http://snti.ru/
-这个网站分享了各种国际标准文件的磁力链接，但是可以免费下载的不全，IEC
-的只有 61xxx。据说可以给站长发邮件要
-<code>popov_al@perm.ru</code>，每个文件一刀乐。在 ISO 官网上下载需要 187
-瑞士法郎，合 1000 多人民币。</p></li>
-</ul>
 
     </div>
 
@@ -364,14 +283,11 @@ target="_blank" rel="noopener" href="https://www.iso.org/cms/%20render/live/en/s
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/blog/2023/%E7%94%A8browser-sync%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/" rel="prev" title="用browser-sync实现在文件内容改变后立即刷新页面">
-                  <i class="fa fa-chevron-left"></i> 用browser-sync实现在文件内容改变后立即刷新页面
+                <a href="/blog/2023/%E8%83%BD%E6%8C%87%E5%92%8C%E6%89%80%E6%8C%87/" rel="prev" title="能指和所指">
+                  <i class="fa fa-chevron-left"></i> 能指和所指
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/blog/2023/%E8%AF%B4%E7%9A%84%E9%81%93%E7%90%86/" rel="next" title="说的道理">
-                  说的道理 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -453,12 +369,12 @@ target="_blank" rel="noopener" href="https://www.iso.org/cms/%20render/live/en/s
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/2023/%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/"}</script>
   <script src="/blog/js/third-party/quicklink.js"></script>
 
 </body>
