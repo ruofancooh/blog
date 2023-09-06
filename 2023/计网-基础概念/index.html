@@ -19,27 +19,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="起因是，我是把博客代码分两个仓库存的。需要做很多重复的工作。 于是我写了两个 bat 文件。">
+    <meta name="description" content="概述：互 Lian 网、ISP、IXP、RFC 文档 组成及通信  边缘部分的通信：C&#x2F;S、P2P 核心部分的通信：电路交换、分组交换、报文交换  类别 性能指标 体系结构  对应谢希仁《计算机网络》第 8 版第一章。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="让博客commit前的工作更简单">
-<meta property="og:url" content="https://hrfis.me/blog/2023/%E8%AE%A9%E5%8D%9A%E5%AE%A2commit%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9B%B4%E7%AE%80%E5%8D%95/index.html">
+<meta property="og:title" content="计网-基础概念">
+<meta property="og:url" content="https://hrfis.me/blog/2023/%E8%AE%A1%E7%BD%91-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/index.html">
 <meta property="og:site_name" content="若凡的笔记">
-<meta property="og:description" content="起因是，我是把博客代码分两个仓库存的。需要做很多重复的工作。 于是我写了两个 bat 文件。">
+<meta property="og:description" content="概述：互 Lian 网、ISP、IXP、RFC 文档 组成及通信  边缘部分的通信：C&#x2F;S、P2P 核心部分的通信：电路交换、分组交换、报文交换  类别 性能指标 体系结构  对应谢希仁《计算机网络》第 8 版第一章。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-08-27T12:38:00.000Z">
-<meta property="article:modified_time" content="2023-08-27T12:37:34.633Z">
+<meta property="article:published_time" content="2023-09-06T09:51:00.000Z">
+<meta property="article:modified_time" content="2023-09-06T06:35:33.760Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://hrfis.me/blog/2023/%E8%AE%A9%E5%8D%9A%E5%AE%A2commit%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9B%B4%E7%AE%80%E5%8D%95/">
+<link rel="canonical" href="https://hrfis.me/blog/2023/%E8%AE%A1%E7%BD%91-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/2023/%E8%AE%A9%E5%8D%9A%E5%AE%A2commit%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9B%B4%E7%AE%80%E5%8D%95/","path":"2023/让博客commit前的工作更简单/","title":"让博客commit前的工作更简单"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/2023/%E8%AE%A1%E7%BD%91-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/","path":"2023/计网-基础概念/","title":"计网-基础概念"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>让博客commit前的工作更简单 | 若凡的笔记</title>
+<title>计网-基础概念 | 若凡的笔记</title>
   
 
 
@@ -125,7 +125,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -138,6 +138,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E6%88%90%E5%8F%8A%E9%80%9A%E4%BF%A1"><span class="nav-number">2.</span> <span class="nav-text">组成及通信</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%B9%E7%BC%98%E9%83%A8%E5%88%86%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="nav-number">2.1.</span> <span class="nav-text">边缘部分的通信</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cs"><span class="nav-number">2.1.1.</span> <span class="nav-text">C&#x2F;S</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p2p"><span class="nav-number">2.1.2.</span> <span class="nav-text">P2P</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E9%83%A8%E5%88%86%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="nav-number">2.2.</span> <span class="nav-text">核心部分的通信</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2"><span class="nav-number">2.2.1.</span> <span class="nav-text">电路交换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2"><span class="nav-number">2.2.2.</span> <span class="nav-text">分组交换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%A5%E6%96%87%E4%BA%A4%E6%8D%A2"><span class="nav-number">2.2.3.</span> <span class="nav-text">报文交换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">类别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">4.</span> <span class="nav-text">性能指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">5.</span> <span class="nav-text">体系结构</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -190,7 +191,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/2023/%E8%AE%A9%E5%8D%9A%E5%AE%A2commit%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9B%B4%E7%AE%80%E5%8D%95/">
+    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/2023/%E8%AE%A1%E7%BD%91-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/Akari.webp">
@@ -203,12 +204,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="让博客commit前的工作更简单 | 若凡的笔记">
+      <meta itemprop="name" content="计网-基础概念 | 若凡的笔记">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          让博客commit前的工作更简单
+          计网-基础概念
         </h1>
 
         <div class="post-meta-container">
@@ -220,7 +221,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-08-27 20:38:00 / 修改时间：20:37:34" itemprop="dateCreated datePublished" datetime="2023-08-27T20:38:00+08:00">2023-08-27</time>
+      <time title="创建时间：2023-09-06 17:51:00 / 修改时间：14:35:33" itemprop="dateCreated datePublished" datetime="2023-09-06T17:51:00+08:00">2023-09-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -228,7 +229,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/%E6%8E%A2%E7%B4%A2/" itemprop="url" rel="index"><span itemprop="name">探索</span></a>
+          <a href="/blog/categories/%E6%A6%82%E5%BF%B5/" itemprop="url" rel="index"><span itemprop="name">概念</span></a>
         </span>
     </span>
 
@@ -239,14 +240,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>622</span>
+      <span>1.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -256,32 +257,107 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>起因是，我是把博客代码分两个仓库存的。需要做很多重复的工作。</p>
-<p>于是我写了两个 bat 文件。</p>
-<span id="more"></span>
-<p>起因是，我是把博客代码分两个仓库存的：</p>
+    <div class="post-body" itemprop="articleBody"><ul>
+<li>概述：互 Lian 网、ISP、IXP、RFC 文档</li>
+<li>组成及通信
 <ul>
-<li><p><code>blog-source</code>存 Hexo 框架源码，NexT
-主题源码和自己的部分（更改后的配置文件、md 文档、图片等）</p></li>
-<li><p><code>blog</code>存渲染之后的网页，分支是<code>gh-pages</code></p></li>
+<li>边缘部分的通信：C/S、P2P</li>
+<li>核心部分的通信：电路交换、分组交换、报文交换</li>
+</ul></li>
+<li>类别</li>
+<li>性能指标</li>
+<li>体系结构</li>
 </ul>
-<p>这就造成在 commit 前，我需要做以下工作：</p>
+<p>对应谢希仁《计算机网络》第 8 版第一章。</p>
+<span id="more"></span>
+<h2 id="概述">概述</h2>
+<ul>
+<li>互连网 internet：通用名词，一群计算机连起来。</li>
+<li>互联网 Internet：专用名词，全球计算机连起来。</li>
+</ul>
+<p>世界上第一个网页：<a
+target="_blank" rel="noopener" href="http://info.cern.ch">http://info.cern.ch</a></p>
+<p><strong>ISP</strong></p>
+<p>互联网服务提供者（Internet Service Provider），移动联通电信公司。</p>
+<ul>
+<li>主干 ISP：国</li>
+<li>地区 ISP：省</li>
+<li>本地 ISP：省以下</li>
+</ul>
+<p>内容提供者可以连接各级 ISP 和 IXP。</p>
+<p><strong>IXP</strong></p>
+<p>互联网交换点（Internet eXchange Point），让两个 ISP 直接相连。</p>
+<p>比如两个同级 ISP 交换信息时，可以通过 IXP，而不必通过上级 ISP。</p>
+<p><strong>RFC 文档</strong></p>
+<p>“请求评论”（Request For
+Comments）的文档，公开发布的互联网建议标准，请求公众评论。</p>
+<p>最后制定互联网标准 STD。</p>
+<h2 id="组成及通信">组成及通信</h2>
+<ul>
+<li>边缘部分：所有用户直接使用的主机。又叫端系统。</li>
+<li>核心部分：大量网络和连接网络的路由器。</li>
+</ul>
+<h3 id="边缘部分的通信">边缘部分的通信</h3>
+<p>计算机通信，实际上是进程间通过端口号通信。</p>
+<h4 id="cs">C/S</h4>
+<p>客户-服务器</p>
+<p>客户和服务器都是指进程。</p>
+<h4 id="p2p">P2P</h4>
+<p>peer to peer，peer：平等的。</p>
+<p>本质是 C/S，每台主机既是 C 又是 S。</p>
+<h3 id="核心部分的通信">核心部分的通信</h3>
+<h4 id="电路交换">电路交换</h4>
+<p>三步走：建立连接-&gt;占线通信-&gt;释放连接</p>
+<ul>
+<li>占线，两台机器间通信完了才能接受与其他机器通信</li>
+<li>效率低（时间利用密度低，占线过程中会有不收发信息的时候）</li>
+</ul>
+<h4 id="分组交换">分组交换</h4>
+<p>存储转发，类比快递收寄</p>
 <ol type="1">
-<li><p>在<code>blog-source</code>文件夹里先打开本地预览服务器。</p></li>
-<li><p>点击链接，在浏览器里打开。</p></li>
-<li><p>预览没问题，渲染网页。</p></li>
-<li><p>删除<code>blog</code>文件夹里除了<code>.git</code>外的所有文件和文件夹。</p></li>
-<li><p>把渲染的网页从<code>blog-source/public/</code>转移到<code>blog</code>文件夹里。</p></li>
-<li><p>清除<code>blog-source</code>文件夹里渲染的网页。</p></li>
+<li><p>把报文分组，每组写上头部信息。（包裹大包分成小包，写上序号、寄出地和目的地等）</p></li>
+<li><p>通过路由器一级一级地转发到目的地。</p>
+<pre class="mermaid">   gantt
+    dateFormat s
+    axisFormat %S
+
+    section 1号包
+    从A到B    :0, 5s
+    从B到C    :5, 5s
+    从C到D    :10, 5s
+
+    section 2号包
+    从A到B    :5, 5s
+    从B到C    :10, 5s
+    从C到D    :15, 5s
+
+    section 3号包
+    从A到B    :10, 5s
+    从B到C    :15, 5s
+    从C到D    :20, 5s</pre>
+<ul>
+<li>0-5 时间 1 号包裹从 A 站到 B 站</li>
+<li>5-10 时间 1 号包裹从 B 站到 C 站、2 号包裹从 A 站到 B 站</li>
+<li>10-15 时间 1 号包裹从 C 站到 D 站、2 号包裹从 B 站到 C 站、3
+号包裹从 A 站到 B 站</li>
+<li>……</li>
+<li>（书上的图是以空间为横轴，以时间为纵轴）</li>
+</ul></li>
+<li><p>把各个包裹合并。</p></li>
 </ol>
-<p>手动操作了十几天后很烦，于是我写了两个 bat 文件：</p>
-<p><code>bs.bat</code> 做第 1-2 步</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d d:\repo\blog-source</span><br><span class="line"><span class="built_in">start</span> http://localhost:<span class="number">4000</span>/blog/</span><br><span class="line"><span class="keyword">call</span> npx hexo s</span><br></pre></td></tr></table></figure>
-<p><code>bg.bat</code> 做第 3-6 步</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">:: 删除旧文件</span><br><span class="line"><span class="built_in">cd</span> /d d:\repo\blog</span><br><span class="line">git rm -r *</span><br><span class="line">:: 渲染新文件</span><br><span class="line"><span class="built_in">cd</span> ..\blog-source</span><br><span class="line"><span class="keyword">call</span> npx hexo g</span><br><span class="line">:: 转移新文件</span><br><span class="line"><span class="built_in">xcopy</span> public ..\blog /s /e</span><br><span class="line"><span class="keyword">call</span> npx hexo clean</span><br></pre></td></tr></table></figure>
-<p>再建一个专门存 bat 的文件夹，把它添加到环境变量
-PATH。这样在任一文件夹下都可以做第 1-6 步了。</p>
-<p>commit 我用的是 GitHub Desktop，暂时没有换的必要。</p>
+<ul>
+<li>不会占线，速度比报文交换快</li>
+<li>排队等路由器转发</li>
+<li>动态分配线路，不保证带宽</li>
+<li>增加开销（合并的时候）</li>
+</ul>
+<h4 id="报文交换">报文交换</h4>
+<p>也是存储转发，但是不分组，直接发完整的。</p>
+<h2 id="类别">类别</h2>
+<h2 id="性能指标">性能指标</h2>
+<h2 id="体系结构">体系结构</h2>
+<p>TCP 在运输层</p>
+<p>IP 在网络层</p>
 
     </div>
 
@@ -295,14 +371,11 @@ PATH。这样在任一文件夹下都可以做第 1-6 步了。</p>
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/blog/2023/%E4%B9%90%E7%90%86-A0-%E9%A2%91%E7%8E%87%E4%B8%8E%E9%9F%B3%E7%A8%8B/" rel="prev" title="乐理-A0-频率与音程">
-                  <i class="fa fa-chevron-left"></i> 乐理-A0-频率与音程
+                <a href="/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/" rel="prev" title="MongoDB - 00 - 准备">
+                  <i class="fa fa-chevron-left"></i> MongoDB - 00 - 准备
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/blog/2023/%E4%B9%90%E7%90%86-A%E2%99%AF0-%E9%9F%B3%E5%90%8D%E4%B8%8E%E5%94%B1%E5%90%8D%E3%80%81%E9%9F%B3%E9%98%B6%E4%B8%8E%E9%9F%B3%E7%BA%A7/" rel="next" title="乐理-A♯0-音名与唱名、音阶与音级">
-                  乐理-A♯0-音名与唱名、音阶与音级 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -391,7 +464,7 @@ PATH。这样在任一文件夹下都可以做第 1-6 步了。</p>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/2023/%E8%AE%A9%E5%8D%9A%E5%AE%A2commit%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9B%B4%E7%AE%80%E5%8D%95/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/2023/%E8%AE%A1%E7%BD%91-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/"}</script>
   <script src="/blog/js/third-party/quicklink.js"></script>
 
 </body>

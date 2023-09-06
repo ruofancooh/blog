@@ -1,39 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java - 00 - 准备</title>
-    <url>/blog/2023/Java-00-%E5%87%86%E5%A4%87/</url>
-    <content><![CDATA[<ul>
-<li>Windows 10 + VSCode 环境配置</li>
-<li><code>Hello.java</code></li>
-</ul>
-<span id="more"></span>
-<h2 id="windows-10-vscode-环境配置">Windows 10 + VSCode 环境配置</h2>
-<ol type="1">
-<li>VSCode 里安装 <code>Extension Pack for Java</code> 扩展。
-它会提示你下载安装 JDK。安。</li>
-<li>设置环境变量
-<ul>
-<li><code>JAVA_HOME</code>：JDK 安装路径</li>
-<li><code>PATH</code>：<code>%JAVA_HOME%\bin</code></li>
-</ul></li>
-<li>终端输入： <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure> 输出： <figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">openjdk version &quot;17.0.8.1&quot; 2023-08-24</span><br><span class="line">OpenJDK Runtime Environment Temurin-17.0.8.1+1 (build 17.0.8.1+1)</span><br><span class="line">OpenJDK 64-Bit Server VM Temurin-17.0.8.1+1 (build 17.0.8.1+1, mixed mode, sharing)</span><br></pre></td></tr></table></figure></li>
-<li>VSCode
-设置搜<code>java.jdt.ls.java.home</code>，在<code>settings.json</code>里改成
-JDK 安装路径。</li>
-</ol>
-<h2 id="hello.java">Hello.java</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>按钮运行，或者终端：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java Hello.java</span><br></pre></td></tr></table></figure>
-<p>或者终端：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">javac Hello.java</span><br><span class="line">java Hello</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
     <title>MongoDB - 00 - 准备</title>
     <url>/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/</url>
     <content><![CDATA[<ul>
@@ -266,126 +233,6 @@ href="https://github.com/ruofancooh/utility-room/tree/main/learning/music">A0-ma
       </categories>
   </entry>
   <entry>
-    <title>社保</title>
-    <url>/blog/2023/%E7%A4%BE%E4%BF%9D/</url>
-    <content><![CDATA[<ul>
-<li>社保是什么</li>
-<li>城镇职工社保和城乡居民社保
-<ul>
-<li>城镇职工社保-&gt;五险</li>
-<li>城乡居民社保-&gt;两险</li>
-</ul></li>
-<li>法律依据是什么</li>
-</ul>
-<span id="more"></span>
-<h2 id="社保是什么">社保是什么</h2>
-<p>社保是社会保险。再往前问一步，保险是什么？</p>
-<p>你交钱给一个<strong>组织</strong>，并和他们签订<strong>契约</strong>。当你出事且符合<strong>出事的条件</strong>时，这个组织会根据契约的条文返还你对应比例的钱。</p>
-<table>
-<thead>
-<tr class="header">
-<th>保险类型</th>
-<th>组织</th>
-<th>契约</th>
-<th>出事的条件</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>商业保险</td>
-<td>保险公司</td>
-<td>保险合同、法律、法规</td>
-<td>由契约规定</td>
-</tr>
-<tr class="even">
-<td>社会保险</td>
-<td>国家</td>
-<td>法律、法规</td>
-<td>由契约规定</td>
-</tr>
-</tbody>
-</table>
-<p>保险是一种投资，当然可以选择不交——如果你不担心：</p>
-<ul>
-<li>老了，没钱用</li>
-<li>看病，没钱用</li>
-<li>工作受伤，没钱用</li>
-<li>工作没了，没钱用</li>
-<li>生孩子，没钱用</li>
-</ul>
-<p>这五大问题的话。它们分别对应社保的：</p>
-<ul>
-<li>基本养老保险</li>
-<li>基本医疗保险</li>
-<li>工伤保险</li>
-<li>失业保险</li>
-<li>生育保险</li>
-</ul>
-<h2 id="城镇职工社保和城乡居民社保">城镇职工社保和城乡居民社保</h2>
-<p>它们都属于社会保险。</p>
-<ul>
-<li>城镇职工社保，包括上面的五险。</li>
-<li>城乡居民社保，只包括医疗保险和养老保险。</li>
-</ul>
-<table>
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 25%" />
-<col style="width: 43%" />
-<col style="width: 12%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>社会保险类型</th>
-<th>谁交</th>
-<th>交的前提</th>
-<th>交的时间</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>职工社保</td>
-<td>职工和雇佣者分担</td>
-<td>职工与雇佣者签订<strong>劳动合同</strong></td>
-<td>按月</td>
-</tr>
-</tbody>
-</table>
-<p>待补充</p>
-<h2 id="法律依据">法律依据</h2>
-<ul>
-<li><p>《中华人民共和国宪法》<a
-href="https://flk.npc.gov.cn/detail2.html?MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY1YTQ4MzAwNGI%3D">2018-03-11
-施行版</a></p>
-<ul>
-<li><p>第二章第四十二条（节选）</p>
-<blockquote>
-<p>中华人民共和国公民有劳动的权利和义务。国家通过各种途径，创造劳动就业条件，加强劳动保护，改善劳动条件，并在发展生产的基础上，提高劳动报酬和福利待遇。……</p>
-</blockquote></li>
-<li><p>第二章第四十五条（节选）</p>
-<blockquote>
-<p>中华人民共和国公民在年老、疾病或者丧失劳动能力的情况下，有从国家和社会获得物质帮助的权利。国家发展为公民享受这些权利所需要的社会保险、社会救济和医疗卫生事业。……</p>
-</blockquote></li>
-</ul></li>
-<li><p>《中华人民共和国劳动法》<a
-href="https://flk.npc.gov.cn/detail2.html?ZmY4MDgwODE2ZjEzNWY0NjAxNmYyMGYxNmVlMTE3Mzc%3D">2018-12-29
-施行版</a></p>
-<ul>
-<li>第九章 社会保险和福利</li>
-</ul></li>
-<li><p>《中华人民共和国社会保险法》<a
-href="https://flk.npc.gov.cn/detail2.html?ZmY4MDgwODE2ZjEzNWY0NjAxNmYyMTA5ODliOTE3OWE%3D">2018-12-29
-施行版</a></p>
-<ul>
-<li>全文</li>
-</ul></li>
-</ul>
-]]></content>
-      <categories>
-        <category>概念</category>
-      </categories>
-  </entry>
-  <entry>
     <title>乐理-A♯0-音名与唱名、音阶与音级</title>
     <url>/blog/2023/%E4%B9%90%E7%90%86-A%E2%99%AF0-%E9%9F%B3%E5%90%8D%E4%B8%8E%E5%94%B1%E5%90%8D%E3%80%81%E9%9F%B3%E9%98%B6%E4%B8%8E%E9%9F%B3%E7%BA%A7/</url>
     <content><![CDATA[<ul>
@@ -503,6 +350,159 @@ href="https://en.wikipedia.org/wiki/Scale_(music)">https://en.wikipedia.org/wiki
 href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </aside>
+]]></content>
+      <categories>
+        <category>概念</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java - 00 - 准备</title>
+    <url>/blog/2023/Java-00-%E5%87%86%E5%A4%87/</url>
+    <content><![CDATA[<ul>
+<li>Windows 10 + VSCode 环境配置</li>
+<li><code>Hello.java</code></li>
+</ul>
+<span id="more"></span>
+<h2 id="windows-10-vscode-环境配置">Windows 10 + VSCode 环境配置</h2>
+<ol type="1">
+<li>VSCode 里安装 <code>Extension Pack for Java</code> 扩展。
+它会提示你下载安装 JDK。安。</li>
+<li>设置环境变量
+<ul>
+<li><code>JAVA_HOME</code>：JDK 安装路径</li>
+<li><code>PATH</code>：<code>%JAVA_HOME%\bin</code></li>
+</ul></li>
+<li>终端输入： <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure> 输出： <figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">openjdk version &quot;17.0.8.1&quot; 2023-08-24</span><br><span class="line">OpenJDK Runtime Environment Temurin-17.0.8.1+1 (build 17.0.8.1+1)</span><br><span class="line">OpenJDK 64-Bit Server VM Temurin-17.0.8.1+1 (build 17.0.8.1+1, mixed mode, sharing)</span><br></pre></td></tr></table></figure></li>
+<li>VSCode
+设置搜<code>java.jdt.ls.java.home</code>，在<code>settings.json</code>里改成
+JDK 安装路径。</li>
+</ol>
+<h2 id="hello.java">Hello.java</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>按钮运行，或者终端：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java Hello.java</span><br></pre></td></tr></table></figure>
+<p>或者终端：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">javac Hello.java</span><br><span class="line">java Hello</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>社保</title>
+    <url>/blog/2023/%E7%A4%BE%E4%BF%9D/</url>
+    <content><![CDATA[<ul>
+<li>社保是什么</li>
+<li>城镇职工社保和城乡居民社保
+<ul>
+<li>城镇职工社保-&gt;五险</li>
+<li>城乡居民社保-&gt;两险</li>
+</ul></li>
+<li>法律依据是什么</li>
+</ul>
+<span id="more"></span>
+<h2 id="社保是什么">社保是什么</h2>
+<p>社保是社会保险。再往前问一步，保险是什么？</p>
+<p>你交钱给一个<strong>组织</strong>，并和他们签订<strong>契约</strong>。当你出事且符合<strong>出事的条件</strong>时，这个组织会根据契约的条文返还你对应比例的钱。</p>
+<table>
+<thead>
+<tr class="header">
+<th>保险类型</th>
+<th>组织</th>
+<th>契约</th>
+<th>出事的条件</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>商业保险</td>
+<td>保险公司</td>
+<td>保险合同、法律、法规</td>
+<td>由契约规定</td>
+</tr>
+<tr class="even">
+<td>社会保险</td>
+<td>国家</td>
+<td>法律、法规</td>
+<td>由契约规定</td>
+</tr>
+</tbody>
+</table>
+<p>保险是一种投资，当然可以选择不交——如果你不担心：</p>
+<ul>
+<li>老了，没钱用</li>
+<li>看病，没钱用</li>
+<li>工作受伤，没钱用</li>
+<li>工作没了，没钱用</li>
+<li>生孩子，没钱用</li>
+</ul>
+<p>这五大问题的话。它们分别对应社保的：</p>
+<ul>
+<li>基本养老保险</li>
+<li>基本医疗保险</li>
+<li>工伤保险</li>
+<li>失业保险</li>
+<li>生育保险</li>
+</ul>
+<h2 id="城镇职工社保和城乡居民社保">城镇职工社保和城乡居民社保</h2>
+<p>它们都属于社会保险。</p>
+<ul>
+<li>城镇职工社保，包括上面的五险。</li>
+<li>城乡居民社保，只包括医疗保险和养老保险。</li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 25%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>社会保险类型</th>
+<th>谁交</th>
+<th>交的前提</th>
+<th>交的时间</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>职工社保</td>
+<td>职工和雇佣者分担</td>
+<td>职工与雇佣者签订<strong>劳动合同</strong></td>
+<td>按月</td>
+</tr>
+</tbody>
+</table>
+<p>待补充</p>
+<h2 id="法律依据">法律依据</h2>
+<ul>
+<li><p>《中华人民共和国宪法》<a
+href="https://flk.npc.gov.cn/detail2.html?MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY1YTQ4MzAwNGI%3D">2018-03-11
+施行版</a></p>
+<ul>
+<li><p>第二章第四十二条（节选）</p>
+<blockquote>
+<p>中华人民共和国公民有劳动的权利和义务。国家通过各种途径，创造劳动就业条件，加强劳动保护，改善劳动条件，并在发展生产的基础上，提高劳动报酬和福利待遇。……</p>
+</blockquote></li>
+<li><p>第二章第四十五条（节选）</p>
+<blockquote>
+<p>中华人民共和国公民在年老、疾病或者丧失劳动能力的情况下，有从国家和社会获得物质帮助的权利。国家发展为公民享受这些权利所需要的社会保险、社会救济和医疗卫生事业。……</p>
+</blockquote></li>
+</ul></li>
+<li><p>《中华人民共和国劳动法》<a
+href="https://flk.npc.gov.cn/detail2.html?ZmY4MDgwODE2ZjEzNWY0NjAxNmYyMGYxNmVlMTE3Mzc%3D">2018-12-29
+施行版</a></p>
+<ul>
+<li>第九章 社会保险和福利</li>
+</ul></li>
+<li><p>《中华人民共和国社会保险法》<a
+href="https://flk.npc.gov.cn/detail2.html?ZmY4MDgwODE2ZjEzNWY0NjAxNmYyMTA5ODliOTE3OWE%3D">2018-12-29
+施行版</a></p>
+<ul>
+<li>全文</li>
+</ul></li>
+</ul>
 ]]></content>
       <categories>
         <category>概念</category>
@@ -712,6 +712,58 @@ class="math inline">\(\mathrm{V}\)</span>
 ]]></content>
       <categories>
         <category>概念</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>VSCode快捷键</title>
+    <url>/blog/2023/VSCode%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <content><![CDATA[<p>旨在少用鼠标/触摸板，避免分心。但是触摸板在快速定位，滚动屏幕和选中非完整行上比较方便。</p>
+<p>设置快捷键：<code>Ctrl + K, Ctrl + S</code></p>
+<span id="more"></span>
+<h2 id="外观">外观</h2>
+<p>打开关闭主侧边栏：<code>Ctrl + B</code></p>
+<p>打开关闭下方面板：<code>Ctrl + J</code></p>
+<p>打开侧边预览：<code>Ctrl + K, V</code></p>
+<p>进入退出禅模式：<code>Ctrl + K, Z</code></p>
+<p>切换选项卡：<code>Ctrl + Tab</code></p>
+<h2 id="光标与选择">光标与选择</h2>
+<p>选择：<code>Shift + 方向键</code></p>
+<p>快速选中一行：<code>Ctrl + L</code></p>
+<p>向下选中多行：继续按<code>Ctrl + L</code></p>
+<p>选中多行：光标移动到行首，然后<code>Shift + 上下</code></p>
+<p>光标移动到行首：<code>Fn + 左</code></p>
+<p>从光标处选中到行首：<code>Shift + Fn + 左</code></p>
+<p>按单词移动光标：<code>Ctrl + 左右</code></p>
+<p>滚动屏幕，光标处于原位置：<code>Ctrl + 上下</code></p>
+<h2 id="编辑">编辑</h2>
+<p>格式化文档：<code>Shift + ALt + F</code></p>
+<p>注释/取消注释：<code>Ctrl + /</code></p>
+<p>快速复制一行：<code>Shift + Alt + 上下</code></p>
+<p>移动行：<code>Alt + 上下</code></p>
+<p>按行号跳转：<code>Ctrl + G</code></p>
+<p>快速删除一行：<code>Ctrl + Shift + K</code></p>
+<p>删除一行并保留空行：<code>Fn + 右, Shift + Fn + 左 , Backspace</code></p>
+<h2 id="查找替换">查找替换</h2>
+<p>查找框：<code>Ctrl + F</code></p>
+<p>查找框上的按钮：</p>
+<ul>
+<li><p>区分大小写：<code>Alt + C</code></p></li>
+<li><p>全字匹配：<code>Alt + W</code></p></li>
+<li><p>正则表达式：<code>Alt + R</code></p></li>
+<li><p>下一个：<code>Enter</code></p></li>
+<li><p>上一个：<code>Shift + Enter</code></p></li>
+<li><p>在选定内容中查找：<code>Alt + L</code></p></li>
+</ul>
+<p>替换框：<code>Ctrl + H</code></p>
+<p>替换框上的按钮：</p>
+<ul>
+<li><p>替换：<code>Enter</code></p></li>
+<li><p>全部替换：<code>Shift + Enter</code></p></li>
+</ul>
+<p>关闭查找替换框：<code>Esc</code></p>
+]]></content>
+      <categories>
+        <category>探索</category>
       </categories>
   </entry>
   <entry>
@@ -958,58 +1010,6 @@ href="https://www.bilibili.com/read/cv3194623/">https://www.bilibili.com/read/cv
       </categories>
   </entry>
   <entry>
-    <title>VSCode快捷键</title>
-    <url>/blog/2023/VSCode%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
-    <content><![CDATA[<p>旨在少用鼠标/触摸板，避免分心。但是触摸板在快速定位，滚动屏幕和选中非完整行上比较方便。</p>
-<p>设置快捷键：<code>Ctrl + K, Ctrl + S</code></p>
-<span id="more"></span>
-<h2 id="外观">外观</h2>
-<p>打开关闭主侧边栏：<code>Ctrl + B</code></p>
-<p>打开关闭下方面板：<code>Ctrl + J</code></p>
-<p>打开侧边预览：<code>Ctrl + K, V</code></p>
-<p>进入退出禅模式：<code>Ctrl + K, Z</code></p>
-<p>切换选项卡：<code>Ctrl + Tab</code></p>
-<h2 id="光标与选择">光标与选择</h2>
-<p>选择：<code>Shift + 方向键</code></p>
-<p>快速选中一行：<code>Ctrl + L</code></p>
-<p>向下选中多行：继续按<code>Ctrl + L</code></p>
-<p>选中多行：光标移动到行首，然后<code>Shift + 上下</code></p>
-<p>光标移动到行首：<code>Fn + 左</code></p>
-<p>从光标处选中到行首：<code>Shift + Fn + 左</code></p>
-<p>按单词移动光标：<code>Ctrl + 左右</code></p>
-<p>滚动屏幕，光标处于原位置：<code>Ctrl + 上下</code></p>
-<h2 id="编辑">编辑</h2>
-<p>格式化文档：<code>Shift + ALt + F</code></p>
-<p>注释/取消注释：<code>Ctrl + /</code></p>
-<p>快速复制一行：<code>Shift + Alt + 上下</code></p>
-<p>移动行：<code>Alt + 上下</code></p>
-<p>按行号跳转：<code>Ctrl + G</code></p>
-<p>快速删除一行：<code>Ctrl + Shift + K</code></p>
-<p>删除一行并保留空行：<code>Fn + 右, Shift + Fn + 左 , Backspace</code></p>
-<h2 id="查找替换">查找替换</h2>
-<p>查找框：<code>Ctrl + F</code></p>
-<p>查找框上的按钮：</p>
-<ul>
-<li><p>区分大小写：<code>Alt + C</code></p></li>
-<li><p>全字匹配：<code>Alt + W</code></p></li>
-<li><p>正则表达式：<code>Alt + R</code></p></li>
-<li><p>下一个：<code>Enter</code></p></li>
-<li><p>上一个：<code>Shift + Enter</code></p></li>
-<li><p>在选定内容中查找：<code>Alt + L</code></p></li>
-</ul>
-<p>替换框：<code>Ctrl + H</code></p>
-<p>替换框上的按钮：</p>
-<ul>
-<li><p>替换：<code>Enter</code></p></li>
-<li><p>全部替换：<code>Shift + Enter</code></p></li>
-</ul>
-<p>关闭查找替换框：<code>Esc</code></p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
     <title>JSON</title>
     <url>/blog/2023/JSON/</url>
     <content><![CDATA[<p>JSON(JavaScript Object
@@ -1171,6 +1171,239 @@ BootLoader
 href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </aside>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>十进制与K进制小数互转</title>
+    <url>/blog/2023/%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8EK%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC/</url>
+    <content><![CDATA[<ul>
+<li>K 转 10：和整数进制转换的方法一样</li>
+<li>10 转 K：乘 K 取整</li>
+</ul>
+<span id="more"></span>
+<h2 id="k-转-10和整数进制转换的方法一样">K 转
+10：和整数进制转换的方法一样</h2>
+<p>每一位分别乘上 K 的次方，再相加。</p>
+<h3 id="转-10">2 转 10</h3>
+<h4 id="有限小数">有限小数</h4>
+<p><span class="math inline">\(11.1011_{2} = 3.6875_{10}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>项</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{1}\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1\times2^{0}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{-1}\)</span></td>
+<td><span class="math inline">\(0.5\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0\times2^{-2}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{-3}\)</span></td>
+<td><span class="math inline">\(0.125\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1\times2^{-4}\)</span></td>
+<td><span class="math inline">\(0.0625\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>总和</strong></td>
+<td><span class="math inline">\(3.6875\)</span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="无限循环小数">无限循环小数</h4>
+<p><span class="math inline">\(1.1 \dot{0} 11 \dot{0} ... _{2} =
+1.7_{10}\)</span></p>
+<p>可以转换成分数计算：</p>
+<p><span class="math display">\[
+\begin{aligned}
+1.1 \dot{0} 11 \dot{0} ... _{2} &amp; = x \\
+11.\dot{0} 11 \dot{0} ... _{2} &amp; = 2_{10}x \\
+110110. \dot{0} 11 \dot{0} ... _{2} &amp; = 32_{10}x \\
+两式相减，110011_{2} &amp; = 30_{10}x \\
+x &amp; = \frac{110011_{2}}{30_{10}} = \frac{51_{10}}{30_{10}} =
+1.7_{10}
+\end{aligned}
+\]</span></p>
+<h3 id="转-10-1">16 转 10</h3>
+<p>同上略。</p>
+<h2 id="转-k乘-k-取整">10 转 K：乘 K 取整</h2>
+<p>整数部分仍然除 K 取余，小数部分乘 K 取整，然后相加。</p>
+<h3 id="转-2">10 转 2</h3>
+<p><span class="math inline">\(0.7 _{10} = 0.1 \dot{0} 11 \dot{0} ...
+_{2}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>小数部分乘 2</th>
+<th>取整数部分</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0.7 \times 2 = 1.4\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.4 \times 2 = 0.8\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(0.8 \times 2 = 1.6\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.6 \times 2 = 1.2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(0.2 \times 2 = 0.4\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<h3 id="转-16">10 转 16</h3>
+<p><span class="math inline">\(0.7 _{10} = 0.\mathrm{B} \dot{3} ...
+_{16}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>小数部分乘 16</th>
+<th>取整数部分</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0.7 \times 16 = 11.2\)</span></td>
+<td><span class="math inline">\(\mathrm{B}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.2 \times 16 = 3.2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+</tr>
+<tr class="odd">
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>普通十进制数转单精度浮点数</title>
+    <url>/blog/2023/%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0/</url>
+    <content><![CDATA[<ul>
+<li>在 IEEE 754 标准下</li>
+</ul>
+<span id="more"></span>
+<p>单精度浮点数，即 32 位二进制浮点数，包含：</p>
+<p>一位符号位 + 八位指数位 + 二十三位尾数位</p>
+<h2 id="例一">例一</h2>
+<p>以 <span class="math inline">\(0.1_{10}\)</span> 为例：</p>
+<ol type="1">
+<li><p>把十进制转换为二进制</p>
+<p><span class="math inline">\(0.1 _{10} = 0.0\dot{0}01\dot{1}...
+_{2}\)</span></p></li>
+<li><p>用以 <span class="math inline">\(2_{10}\)</span>
+为基数的科学计数法表示，并保证【尾数的小数点前是 <span
+class="math inline">\(1_{2}\)</span>】</p>
+<p><span class="math inline">\(= 1.\dot{1}00\dot{1}..._{2} \times
+(2^{-4})_{10}\)</span></p>
+<p>可以看到指数是 <span class="math inline">\(-4_{10}\)</span></p></li>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
+class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<p>这里 <span class="math inline">\(e\)</span>
+等于【用于表示指数位的位数】 <span
+class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
+class="math inline">\(127_{10}\)</span></p>
+<p>则阶码为 <span class="math inline">\(-4_{10} + 127_{10} =
+123_{10}\)</span></p>
+<p>阶码的二进制为 <code>0111 1011</code>，注意
+<em>阶码始终为无符号整数</em></p></li>
+<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是无限的，所以要舍去一部分</p>
+<p>它的前二十位是：<code>1001 1001 1001 1001 1001</code></p>
+<p>二十一至二十八位是：<code>1001 1001</code></p>
+<p>所以二十一至二十三位，要么取 <code>100</code>，要么取
+<code>101</code>。</p>
+<p>通常是舍入到最接近的，一样接近则偶数（末尾为
+<code>0</code>）优先，这里 <code>101</code> 更接近。</p></li>
+<li><p>把符号位连同阶码、尾数位缝合起来</p>
+<p><code>0 | 0111 1011 | 1001 1001 1001 1001 1001 101</code></p></li>
+</ol>
+<h2 id="例二">例二</h2>
+<p>以 <span class="math inline">\(12_{10} = 1.5_{10} \times
+(2^{3})_{10}\)</span> 为例，和上面的步骤一样：</p>
+<ol type="1">
+<li><p>把十进制转换为二进制</p>
+<p><span class="math inline">\(12 _{10} = 1100 _{2}\)</span></p></li>
+<li><p>用以 <span class="math inline">\(2\)</span>
+为基数的科学计数法表示，并保证【尾数的小数点前是 <span
+class="math inline">\(1\)</span>】</p>
+<p><span class="math inline">\(= 1.1_{2} \times (2^3)_{10}\)</span></p>
+<p>可以看到指数是 <span class="math inline">\(3_{10}\)</span></p></li>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
+class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<p>这里 <span class="math inline">\(e\)</span>
+等于【用于表示指数位的位数】 <span
+class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
+class="math inline">\(127_{10}\)</span></p>
+<p>则阶码为 <span class="math inline">\(3_{10} + 127_{10} =
+130_{10}\)</span></p>
+<p>阶码的二进制为 <code>1000 0010</code>，注意
+<em>阶码始终为无符号整数</em></p></li>
+<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是有限的，所以后面直接补零</p>
+<p>小数点后二十三位是：<code>1000 0000 0000 0000 000</code></p></li>
+<li><p>把符号位连同阶码、尾数位缝合起来</p>
+<p><code>0 | 1000 0010 | 1000 0000 0000 0000 000</code></p></li>
+</ol>
+<h2 id="特殊情况">特殊情况</h2>
+<p><a
+href="/blog/2023/单精度浮点数的五种形式/">单精度浮点数的五种形式</a></p>
+<p>对呀对呀……单精度浮点数有五种形式，你知道么？</p>
+<h2 id="如何验证">如何验证</h2>
+<ul>
+<li><p><a
+href="https://baseconvert.com/ieee-754-floating-point">在线转换</a></p></li>
+<li><p><a href="/blog/2023/用GDB查看变量内存/">用 GDB
+查看变量内存</a></p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/IEEE_754">Wikipedia</a> |
+<a href="https://zh.wikipedia.org/wiki/IEEE_754">维基百科</a></p></li>
+<li><p>获取国际标准文件</p>
+<p>IEEE 754 标准是电气与电子工程师协会（Institute of Electrical and
+Electronics Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <a
+href="https://standards.ieee.org/ieee/754/6210/">IEEE
+754-2019</a>，对应国际标准 <a
+href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/standard/08/09/80985.html">ISO/IEC
+60559:2020</a>，预计下一次在 2028 年修订。 http://snti.ru/
+这个网站分享了各种国际标准文件的磁力链接，但是可以免费下载的不全，IEC
+的只有 61xxx。据说可以给站长发邮件要
+<code>popov_al@perm.ru</code>，每个文件一刀乐。在 ISO 官网上下载需要 187
+瑞士法郎，合 1000 多人民币。</p></li>
+</ul>
 ]]></content>
       <categories>
         <category>教程</category>
@@ -1467,323 +1700,6 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
       </categories>
   </entry>
   <entry>
-    <title>十进制与K进制小数互转</title>
-    <url>/blog/2023/%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8EK%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC/</url>
-    <content><![CDATA[<ul>
-<li>K 转 10：和整数进制转换的方法一样</li>
-<li>10 转 K：乘 K 取整</li>
-</ul>
-<span id="more"></span>
-<h2 id="k-转-10和整数进制转换的方法一样">K 转
-10：和整数进制转换的方法一样</h2>
-<p>每一位分别乘上 K 的次方，再相加。</p>
-<h3 id="转-10">2 转 10</h3>
-<h4 id="有限小数">有限小数</h4>
-<p><span class="math inline">\(11.1011_{2} = 3.6875_{10}\)</span></p>
-<table>
-<thead>
-<tr class="header">
-<th>项</th>
-<th>值</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(1\times2^{1}\)</span></td>
-<td><span class="math inline">\(2\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(1\times2^{0}\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(1\times2^{-1}\)</span></td>
-<td><span class="math inline">\(0.5\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0\times2^{-2}\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(1\times2^{-3}\)</span></td>
-<td><span class="math inline">\(0.125\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(1\times2^{-4}\)</span></td>
-<td><span class="math inline">\(0.0625\)</span></td>
-</tr>
-<tr class="odd">
-<td><strong>总和</strong></td>
-<td><span class="math inline">\(3.6875\)</span></td>
-</tr>
-</tbody>
-</table>
-<h4 id="无限循环小数">无限循环小数</h4>
-<p><span class="math inline">\(1.1 \dot{0} 11 \dot{0} ... _{2} =
-1.7_{10}\)</span></p>
-<p>可以转换成分数计算：</p>
-<p><span class="math display">\[
-\begin{aligned}
-1.1 \dot{0} 11 \dot{0} ... _{2} &amp; = x \\
-11.\dot{0} 11 \dot{0} ... _{2} &amp; = 2_{10}x \\
-110110. \dot{0} 11 \dot{0} ... _{2} &amp; = 32_{10}x \\
-两式相减，110011_{2} &amp; = 30_{10}x \\
-x &amp; = \frac{110011_{2}}{30_{10}} = \frac{51_{10}}{30_{10}} =
-1.7_{10}
-\end{aligned}
-\]</span></p>
-<h3 id="转-10-1">16 转 10</h3>
-<p>同上略。</p>
-<h2 id="转-k乘-k-取整">10 转 K：乘 K 取整</h2>
-<p>整数部分仍然除 K 取余，小数部分乘 K 取整，然后相加。</p>
-<h3 id="转-2">10 转 2</h3>
-<p><span class="math inline">\(0.7 _{10} = 0.1 \dot{0} 11 \dot{0} ...
-_{2}\)</span></p>
-<table>
-<thead>
-<tr class="header">
-<th>小数部分乘 2</th>
-<th>取整数部分</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(0.7 \times 2 = 1.4\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0.4 \times 2 = 0.8\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(0.8 \times 2 = 1.6\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0.6 \times 2 = 1.2\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(0.2 \times 2 = 0.4\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-</tr>
-<tr class="even">
-<td>...</td>
-<td>...</td>
-</tr>
-</tbody>
-</table>
-<h3 id="转-16">10 转 16</h3>
-<p><span class="math inline">\(0.7 _{10} = 0.\mathrm{B} \dot{3} ...
-_{16}\)</span></p>
-<table>
-<thead>
-<tr class="header">
-<th>小数部分乘 16</th>
-<th>取整数部分</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(0.7 \times 16 = 11.2\)</span></td>
-<td><span class="math inline">\(\mathrm{B}\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0.2 \times 16 = 3.2\)</span></td>
-<td><span class="math inline">\(3\)</span></td>
-</tr>
-<tr class="odd">
-<td>...</td>
-<td>...</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>普通十进制数转单精度浮点数</title>
-    <url>/blog/2023/%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0/</url>
-    <content><![CDATA[<ul>
-<li>在 IEEE 754 标准下</li>
-</ul>
-<span id="more"></span>
-<p>单精度浮点数，即 32 位二进制浮点数，包含：</p>
-<p>一位符号位 + 八位指数位 + 二十三位尾数位</p>
-<h2 id="例一">例一</h2>
-<p>以 <span class="math inline">\(0.1_{10}\)</span> 为例：</p>
-<ol type="1">
-<li><p>把十进制转换为二进制</p>
-<p><span class="math inline">\(0.1 _{10} = 0.0\dot{0}01\dot{1}...
-_{2}\)</span></p></li>
-<li><p>用以 <span class="math inline">\(2_{10}\)</span>
-为基数的科学计数法表示，并保证【尾数的小数点前是 <span
-class="math inline">\(1_{2}\)</span>】</p>
-<p><span class="math inline">\(= 1.\dot{1}00\dot{1}..._{2} \times
-(2^{-4})_{10}\)</span></p>
-<p>可以看到指数是 <span class="math inline">\(-4_{10}\)</span></p></li>
-<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
-class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
-<p>这里 <span class="math inline">\(e\)</span>
-等于【用于表示指数位的位数】 <span
-class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
-class="math inline">\(127_{10}\)</span></p>
-<p>则阶码为 <span class="math inline">\(-4_{10} + 127_{10} =
-123_{10}\)</span></p>
-<p>阶码的二进制为 <code>0111 1011</code>，注意
-<em>阶码始终为无符号整数</em></p></li>
-<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是无限的，所以要舍去一部分</p>
-<p>它的前二十位是：<code>1001 1001 1001 1001 1001</code></p>
-<p>二十一至二十八位是：<code>1001 1001</code></p>
-<p>所以二十一至二十三位，要么取 <code>100</code>，要么取
-<code>101</code>。</p>
-<p>通常是舍入到最接近的，一样接近则偶数（末尾为
-<code>0</code>）优先，这里 <code>101</code> 更接近。</p></li>
-<li><p>把符号位连同阶码、尾数位缝合起来</p>
-<p><code>0 | 0111 1011 | 1001 1001 1001 1001 1001 101</code></p></li>
-</ol>
-<h2 id="例二">例二</h2>
-<p>以 <span class="math inline">\(12_{10} = 1.5_{10} \times
-(2^{3})_{10}\)</span> 为例，和上面的步骤一样：</p>
-<ol type="1">
-<li><p>把十进制转换为二进制</p>
-<p><span class="math inline">\(12 _{10} = 1100 _{2}\)</span></p></li>
-<li><p>用以 <span class="math inline">\(2\)</span>
-为基数的科学计数法表示，并保证【尾数的小数点前是 <span
-class="math inline">\(1\)</span>】</p>
-<p><span class="math inline">\(= 1.1_{2} \times (2^3)_{10}\)</span></p>
-<p>可以看到指数是 <span class="math inline">\(3_{10}\)</span></p></li>
-<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
-class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
-<p>这里 <span class="math inline">\(e\)</span>
-等于【用于表示指数位的位数】 <span
-class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
-class="math inline">\(127_{10}\)</span></p>
-<p>则阶码为 <span class="math inline">\(3_{10} + 127_{10} =
-130_{10}\)</span></p>
-<p>阶码的二进制为 <code>1000 0010</code>，注意
-<em>阶码始终为无符号整数</em></p></li>
-<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是有限的，所以后面直接补零</p>
-<p>小数点后二十三位是：<code>1000 0000 0000 0000 000</code></p></li>
-<li><p>把符号位连同阶码、尾数位缝合起来</p>
-<p><code>0 | 1000 0010 | 1000 0000 0000 0000 000</code></p></li>
-</ol>
-<h2 id="特殊情况">特殊情况</h2>
-<p><a
-href="/blog/2023/单精度浮点数的五种形式/">单精度浮点数的五种形式</a></p>
-<p>对呀对呀……单精度浮点数有五种形式，你知道么？</p>
-<h2 id="如何验证">如何验证</h2>
-<ul>
-<li><p><a
-href="https://baseconvert.com/ieee-754-floating-point">在线转换</a></p></li>
-<li><p><a href="/blog/2023/用GDB查看变量内存/">用 GDB
-查看变量内存</a></p></li>
-<li><p><a href="https://en.wikipedia.org/wiki/IEEE_754">Wikipedia</a> |
-<a href="https://zh.wikipedia.org/wiki/IEEE_754">维基百科</a></p></li>
-<li><p>获取国际标准文件</p>
-<p>IEEE 754 标准是电气与电子工程师协会（Institute of Electrical and
-Electronics Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <a
-href="https://standards.ieee.org/ieee/754/6210/">IEEE
-754-2019</a>，对应国际标准 <a
-href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/standard/08/09/80985.html">ISO/IEC
-60559:2020</a>，预计下一次在 2028 年修订。 http://snti.ru/
-这个网站分享了各种国际标准文件的磁力链接，但是可以免费下载的不全，IEC
-的只有 61xxx。据说可以给站长发邮件要
-<code>popov_al@perm.ru</code>，每个文件一刀乐。在 ISO 官网上下载需要 187
-瑞士法郎，合 1000 多人民币。</p></li>
-</ul>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>用GDB查看变量内存</title>
-    <url>/blog/2023/%E7%94%A8GDB%E6%9F%A5%E7%9C%8B%E5%8F%98%E9%87%8F%E5%86%85%E5%AD%98/</url>
-    <content><![CDATA[<p>起因是想验证浮点数的存储方式。</p>
-<p><a
-href="https://baseconvert.com/ieee-754-floating-point">这个网站</a>可以实现普通十进制数与
-IEEE 754 浮点数的相互转换。</p>
-<span id="more"></span>
-<p>示例程序：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">float</span> num = <span class="number">1.7</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第六行打上断点，VSCode 开调试，在调试控制台里：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/4tb &amp;num</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>-exec</code> 执行命令</li>
-<li><code>x</code> 查看内存</li>
-<li><code>4</code> 输出 4 个单元
-<ul>
-<li>不写默认为 <code>1</code></li>
-</ul></li>
-<li><code>t</code> 以二进制形式输出
-<ul>
-<li><code>x</code> 十六进制</li>
-</ul></li>
-<li><code>b</code> 以【一个字节】为一个单元
-<ul>
-<li><code>h</code> 两个字节</li>
-<li><code>w</code> 四个字节</li>
-<li><code>g</code> 八个字节</li>
-</ul></li>
-<li><code>&amp;</code>取变量地址</li>
-</ul>
-<p>输出结果：</p>
-<p><code>0x61fe1c: 10011010 10011001 11011001 00111111</code></p>
-<p>从右往左排列后：</p>
-<p><code>00111111 11011001 10011001 10011010</code></p>
-<p>才是<code>float 1.7</code>的二进制表示。</p>
-<p>还可以直接用</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/tw &amp;num</span><br></pre></td></tr></table></figure>
-<p>输出四个字节，结果：</p>
-<p><code>0x61fe1c: 00111111110110011001100110011010</code></p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>用browser-sync实现在文件内容改变后立即刷新页面</title>
-    <url>/blog/2023/%E7%94%A8browser-sync%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
-    <content><![CDATA[<p>起因是：</p>
-<p>不管是直接打开 html
-文件，还是用<code>python -m http.server 8000 --bind 127.0.0.1</code>，在修改保存
-html 文件后浏览器都不能立马刷新。</p>
-<span id="more"></span>
-<ol type="1">
-<li><p>安装</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install browser-sync</span><br></pre></td></tr></table></figure>
-<p>安装到想作为服务器根目录的文件夹。以前觉得全局安装好，现在暂时觉得本地安装好。（据说用
-Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p></li>
-<li><p>运行</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npx browser-sync start --server --files <span class="string">&quot;.&quot;</span></span><br></pre></td></tr></table></figure>
-<p><code>--files</code> 后指定要监视的文件。</p>
-<p><code>.</code> 表示监视当前目录以及子目录下的所有文件。</p>
-<p>可以改成 <code>*.html</code>，<code>public/*.*</code> 等。</p></li>
-</ol>
-<p>html
-文件里至少得有一对<code>&lt;body&gt;</code>标签，要么没法自动刷新。</p>
-<p>在没有修改文件内容，只 <code>Ctrl + S</code>
-保存时也会刷新，在命令行会输出
-<code>File event [change]</code>，只不过看不出来。</p>
-<p>好像和直接通过浏览器来刷新不一样，因为我在选项卡上没看到加载动画。</p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>第一篇文章</title>
-    <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>这是第一篇文章</p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
     <title>概率统计中几个容易混淆的概念</title>
     <url>/blog/2023/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%AD%E5%87%A0%E4%B8%AA%E5%AE%B9%E6%98%93%E6%B7%B7%E6%B7%86%E7%9A%84%E6%A6%82%E5%BF%B5/</url>
     <content><![CDATA[<p><span class="math inline">\(\alpha\)</span>分位点、置信度<span
@@ -1886,23 +1802,84 @@ role="doc-backlink">↩︎</a></p></li>
       </categories>
   </entry>
   <entry>
-    <title>踩坑记录（1）</title>
-    <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%881%EF%BC%89/</url>
-    <content><![CDATA[<p>做数据库课设时，我试图修改一个外键的删除规则和更新规则为<code>CASCADE</code>。</p>
-<p>SQL语句执行成功了，然而刷新后它的规则又都变回了<code>RESTRICT</code>。
-<span id="more"></span></p>
-<p>我使用的是 MySQL + DBeaver。</p>
-<p>建立外键时，选择的删除规则和更新规则是无动作（默认）。</p>
-<p>建立后，MySQL把它们设为了<code>RESTRICT</code>。</p>
-<p>由于一些麻烦的原因，我想把它们改成<code>CASCADE</code>，于是出现了上面的情况。</p>
-<p>DBeaver给出的SQL语句是把外键删了重建： <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dbkeshe.student <span class="keyword">DROP</span> <span class="keyword">FOREIGN</span> KEY student_FK;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dbkeshe.student <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> student_FK <span class="keyword">FOREIGN</span> KEY (CLASS_NO) <span class="keyword">REFERENCES</span> dbkeshe.class(CLASS_NO) <span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE <span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE;</span><br></pre></td></tr></table></figure>
-准确说不是刷新后变回，在当前的外键窗口刷新是不变的，关闭窗口后重新打开就变了。我以为是DBeaver的问题，又在命令行里执行了一遍，还是会变回<code>RESTRICT</code>。关键是MySQL还没报错。</p>
-<p>网上搜了一下，没有找到类似的情况发生过。</p>
-<p>我又尝试把所有的外键约束删了，然后再重建，还是不行。把所有的外键约束和索引删了，然后再重建，还是不行。到最后还是没有找到原因。</p>
-<p>我把旧数据库dump出来的sql文件外键约束后面全部加上<code>ON DELETE CASCADE ON UPDATE CASCADE</code>，再用sql文件重建一个数据库，这回成功了。然后...我数天后打开它又变回去了？？？并且重建后还是会变回去。</p>
-<p>除了手动重建数据库，最后有一个不得已而为之的方法：要想实现级联更新，暂时关闭外键约束</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> foreign_key_checks <span class="operator">=</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-<p>然后把要级联更新的所有表都手动更新一遍，再打开约束...</p>
+    <title>用GDB查看变量内存</title>
+    <url>/blog/2023/%E7%94%A8GDB%E6%9F%A5%E7%9C%8B%E5%8F%98%E9%87%8F%E5%86%85%E5%AD%98/</url>
+    <content><![CDATA[<p>起因是想验证浮点数的存储方式。</p>
+<p><a
+href="https://baseconvert.com/ieee-754-floating-point">这个网站</a>可以实现普通十进制数与
+IEEE 754 浮点数的相互转换。</p>
+<span id="more"></span>
+<p>示例程序：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">float</span> num = <span class="number">1.7</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在第六行打上断点，VSCode 开调试，在调试控制台里：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/4tb &amp;num</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>-exec</code> 执行命令</li>
+<li><code>x</code> 查看内存</li>
+<li><code>4</code> 输出 4 个单元
+<ul>
+<li>不写默认为 <code>1</code></li>
+</ul></li>
+<li><code>t</code> 以二进制形式输出
+<ul>
+<li><code>x</code> 十六进制</li>
+</ul></li>
+<li><code>b</code> 以【一个字节】为一个单元
+<ul>
+<li><code>h</code> 两个字节</li>
+<li><code>w</code> 四个字节</li>
+<li><code>g</code> 八个字节</li>
+</ul></li>
+<li><code>&amp;</code>取变量地址</li>
+</ul>
+<p>输出结果：</p>
+<p><code>0x61fe1c: 10011010 10011001 11011001 00111111</code></p>
+<p>从右往左排列后：</p>
+<p><code>00111111 11011001 10011001 10011010</code></p>
+<p>才是<code>float 1.7</code>的二进制表示。</p>
+<p>还可以直接用</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/tw &amp;num</span><br></pre></td></tr></table></figure>
+<p>输出四个字节，结果：</p>
+<p><code>0x61fe1c: 00111111110110011001100110011010</code></p>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>用browser-sync实现在文件内容改变后立即刷新页面</title>
+    <url>/blog/2023/%E7%94%A8browser-sync%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
+    <content><![CDATA[<p>起因是：</p>
+<p>不管是直接打开 html
+文件，还是用<code>python -m http.server 8000 --bind 127.0.0.1</code>，在修改保存
+html 文件后浏览器都不能立马刷新。</p>
+<span id="more"></span>
+<ol type="1">
+<li><p>安装</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install browser-sync</span><br></pre></td></tr></table></figure>
+<p>安装到想作为服务器根目录的文件夹。以前觉得全局安装好，现在暂时觉得本地安装好。（据说用
+Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p></li>
+<li><p>运行</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npx browser-sync start --server --files <span class="string">&quot;.&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>--files</code> 后指定要监视的文件。</p>
+<p><code>.</code> 表示监视当前目录以及子目录下的所有文件。</p>
+<p>可以改成 <code>*.html</code>，<code>public/*.*</code> 等。</p></li>
+</ol>
+<p>html
+文件里至少得有一对<code>&lt;body&gt;</code>标签，要么没法自动刷新。</p>
+<p>在没有修改文件内容，只 <code>Ctrl + S</code>
+保存时也会刷新，在命令行会输出
+<code>File event [change]</code>，只不过看不出来。</p>
+<p>好像和直接通过浏览器来刷新不一样，因为我在选项卡上没看到加载动画。</p>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>第一篇文章</title>
+    <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<p>这是第一篇文章</p>
 ]]></content>
       <categories>
         <category>探索</category>
@@ -1937,6 +1914,29 @@ role="doc-backlink">↩︎</a></p></li>
 <p>再建一个专门存 bat 的文件夹，把它添加到环境变量
 PATH。这样在任一文件夹下都可以做第 1-6 步了。</p>
 <p>commit 我用的是 GitHub Desktop，暂时没有换的必要。</p>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>踩坑记录（1）</title>
+    <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%881%EF%BC%89/</url>
+    <content><![CDATA[<p>做数据库课设时，我试图修改一个外键的删除规则和更新规则为<code>CASCADE</code>。</p>
+<p>SQL语句执行成功了，然而刷新后它的规则又都变回了<code>RESTRICT</code>。
+<span id="more"></span></p>
+<p>我使用的是 MySQL + DBeaver。</p>
+<p>建立外键时，选择的删除规则和更新规则是无动作（默认）。</p>
+<p>建立后，MySQL把它们设为了<code>RESTRICT</code>。</p>
+<p>由于一些麻烦的原因，我想把它们改成<code>CASCADE</code>，于是出现了上面的情况。</p>
+<p>DBeaver给出的SQL语句是把外键删了重建： <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dbkeshe.student <span class="keyword">DROP</span> <span class="keyword">FOREIGN</span> KEY student_FK;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dbkeshe.student <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> student_FK <span class="keyword">FOREIGN</span> KEY (CLASS_NO) <span class="keyword">REFERENCES</span> dbkeshe.class(CLASS_NO) <span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE <span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE;</span><br></pre></td></tr></table></figure>
+准确说不是刷新后变回，在当前的外键窗口刷新是不变的，关闭窗口后重新打开就变了。我以为是DBeaver的问题，又在命令行里执行了一遍，还是会变回<code>RESTRICT</code>。关键是MySQL还没报错。</p>
+<p>网上搜了一下，没有找到类似的情况发生过。</p>
+<p>我又尝试把所有的外键约束删了，然后再重建，还是不行。把所有的外键约束和索引删了，然后再重建，还是不行。到最后还是没有找到原因。</p>
+<p>我把旧数据库dump出来的sql文件外键约束后面全部加上<code>ON DELETE CASCADE ON UPDATE CASCADE</code>，再用sql文件重建一个数据库，这回成功了。然后...我数天后打开它又变回去了？？？并且重建后还是会变回去。</p>
+<p>除了手动重建数据库，最后有一个不得已而为之的方法：要想实现级联更新，暂时关闭外键约束</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> foreign_key_checks <span class="operator">=</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>然后把要级联更新的所有表都手动更新一遍，再打开约束...</p>
 ]]></content>
       <categories>
         <category>探索</category>
@@ -1990,6 +1990,27 @@ pandoc</a></p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="attr">every_page:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p><strong><em>现在我会把<code>every_page</code>改成<code>flase</code>，需要用时在
 md 文档头部加上<code>mathjax: true</code>。</em></strong></p>
+]]></content>
+      <categories>
+        <category>探索</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>踩坑记录（2）</title>
+    <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%882%EF%BC%89/</url>
+    <content><![CDATA[<p>Web大作业要求提交网站代码，而博客的html在本地打开会加载不出来css和js。这是文件路径的问题。
+<span id="more"></span></p>
+<p>hexo生成的html文件，里面引用文件的路径是这样的：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/blog/css/<span class="selector-tag">main</span><span class="selector-class">.css</span>&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>在线打开一切正常，因为这里的根目录是网站根目录。而用浏览器直接打开本地html文件时，浏览器会认为它是文件根目录：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">href=&quot;file:///blog/css/main.css<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
+<p>正确的预览方法是使用命令<code>hexo s</code>并在<code>http://localhost:4000/blog/</code>预览。</p>
+<p>不过作业是要提交的，为了能直接预览只能手动改路径了。把所有html里引用的文件地址都替换成相应的相对地址就行了。</p>
+<p>但是还有一个问题。这样引用的css和js正常了，页面跳转链接不正常：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;./2023/05/30/文章标题/&#x27;</span>&gt;</span>文章标题<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在线打开，浏览器会从<code>/</code>自动跳转到<code>index.html</code>。而本地则不会，浏览器会打开<code>index.html</code>所在的文件夹。</p>
+<p><a
+href="https://chz613.github.io/post/hexo-next-url-html-suffix.html">这篇文章</a>给出了解决方法，就是修改配置文件里的<code>permalink:</code>使生成文章的链接带<code>.html</code>后缀。但是这样只有文章的结尾带后缀，其他页面还是不带。修改其他页面需要修改hexo和next组件里的脚本。而脚本已经更新过，不是当时的了。考虑到未来有可能还会更新，和页面路径的统一性，还是不改配置了。手动改html吧。</p>
 ]]></content>
       <categories>
         <category>探索</category>
@@ -2106,24 +2127,26 @@ A“一语道破”了说书者的伪装，并否定掉了风车的人生观。�
       </categories>
   </entry>
   <entry>
-    <title>踩坑记录（2）</title>
-    <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%882%EF%BC%89/</url>
-    <content><![CDATA[<p>Web大作业要求提交网站代码，而博客的html在本地打开会加载不出来css和js。这是文件路径的问题。
-<span id="more"></span></p>
-<p>hexo生成的html文件，里面引用文件的路径是这样的：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/blog/css/<span class="selector-tag">main</span><span class="selector-class">.css</span>&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>在线打开一切正常，因为这里的根目录是网站根目录。而用浏览器直接打开本地html文件时，浏览器会认为它是文件根目录：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">href=&quot;file:///blog/css/main.css<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
-<p>正确的预览方法是使用命令<code>hexo s</code>并在<code>http://localhost:4000/blog/</code>预览。</p>
-<p>不过作业是要提交的，为了能直接预览只能手动改路径了。把所有html里引用的文件地址都替换成相应的相对地址就行了。</p>
-<p>但是还有一个问题。这样引用的css和js正常了，页面跳转链接不正常：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;./2023/05/30/文章标题/&#x27;</span>&gt;</span>文章标题<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在线打开，浏览器会从<code>/</code>自动跳转到<code>index.html</code>。而本地则不会，浏览器会打开<code>index.html</code>所在的文件夹。</p>
-<p><a
-href="https://chz613.github.io/post/hexo-next-url-html-suffix.html">这篇文章</a>给出了解决方法，就是修改配置文件里的<code>permalink:</code>使生成文章的链接带<code>.html</code>后缀。但是这样只有文章的结尾带后缀，其他页面还是不带。修改其他页面需要修改hexo和next组件里的脚本。而脚本已经更新过，不是当时的了。考虑到未来有可能还会更新，和页面路径的统一性，还是不改配置了。手动改html吧。</p>
+    <title>糊弄</title>
+    <url>/blog/2023/%E7%B3%8A%E5%BC%84/</url>
+    <content><![CDATA[<p>在粗略地、不系统地看了一些语词的解释后，我发现自己越来越会给自己找理由。</p>
+<span id="more"></span>
+<h2
+id="qs5yss55qe4occ6l6p6kb5rov4ocd">54qs5YSS55qE4oCc6L6p6K+B5rOV4oCd</h2>
+<p>5LiA5YiH6YO95piv5LqS55u45b2x5ZON55qE77yM5oiR5oqK5a6D5o2i5Liq6K+N5o+P6L+w5Li66Jab5a6a6LCU55qE6J206J225pWI5bqU44CCCgrmiJHov5nnr4fljZrlrqLlj5Hlh7rmnaXmiJbogIXkuI3lj5Hlh7rmnaXvvIzmnKrmnaXpg73kvJrlm6DmraTlj5fliLDlvbHlk43jgILvvIjlpoLmnpzkuI3lj5Hlh7rmnaXvvIzmiJHkvJrmhJ/op4nlv4Pph4zmhovlvpfmhYzvvIzpmr7lj5fvvIkKCuWmguS9oOaJgOinge+8jOi/meevh+WNmuWuouWPkeWHuuadpeS6hu+8jOacieS6uueci+aIluiAheayoeS6uueci++8jOacquadpemDveS8muWboOatpOWPl+WIsOW9seWTjeOAggoK5bm25LiU77yM6YO95Lya5pyJ4oCc5aW94oCd55qE5LiA6Z2i77yI5Y+N5oCdL+aJueWIpOWcsOaOpeWPl++8ieWSjOKAnOWdj+KAneeahOS4gOmdou+8iOaooeS7vy/kuI3liqDmibnliKTlnLDmjqXlj5fvvInvvIzkuI3nrqHmmK/lr7nmiJHoh6rlt7Hov5jmmK/lr7nlhbbku5bkurrjgIIKCueJueWIq+aYr+WvueaIkeiHquW3se+8jOaIkeS8muacieS4pOenjeWvueeri+e7n+S4gOeahOihjOWKqO+8iOaYr+ihjOWKqOWQl++8n++8ie+8mg==</p>
+<ol type="1">
+<li><p>6Ieq5bex5Zyo5oCd5oOz5re35Lmx5pe26IO95oOz5Yiw6L+Z56+H5Y2a5a6i77yM5Lul5byA5aeL5YGa4oCc5aW94oCd55qE5LqL44CC5aaC5p6c5Y+q5piv5oOz5oOz6ICM5rKh5pyJ5byA5aeL5YGa77yM5bCx6L2s5ZCRIDLjgII=</p></li>
+<li><p>6Ieq5bex5YGa4oCc5Y+N6Z2i5pWZ5p2Q4oCd77yM5Lul5b+D5a6J55CG5b6X5Zyw5YGa4oCc5Z2P4oCd55qE5LqL5p2l6K6p5Yir5Lq66I635b6X5Y+N5oCd44CC77yI5Zyo5YGa5Ye65Yaz5a6a55qE6YKj5LiA5Yi75piv6L+Z5qC355qE77yM5LqL5a6e5LiK77yM5Zyo5pyJ5LqG4oCc6L6p6K+B4oCd55qE5oOz5rOV5ZCO77yM5bCx5LiN5Y+v6IO95rC46L+c5b+D5a6J55CG5b6X77yM5Y+I5Lya6L2s5ZCRIDHvvIk=</p></li>
+</ol>
+<p>这种思想循环就是《草蛇惊一》的歌词“金蝉脱壳...山雨欲来风满楼”所描述的。心里想着塞翁失马，实际上是等待戈多。</p>
+<h2 id="u06kej5li75lmj">55u06KeJ5Li75LmJ</h2>
+<p>5Zyo5pyq5piO5a2Q55qE5L2T57O76YeM5pivIDEtMy0044CCCgrnirnorrDlvpfmiJHlnKjpq5jogIPlpI3kuaDml7bjgIHpq5jogIPliY3lpJzjgIHpq5jogIPml7bjgIHpq5jogIPlkI7pg73lrozlhajkuI3ntKflvKDvvIzov57llpzmgqbnmoTlv4Pmg4XkuZ/msqHmnInjgIIKCuaIkeWPquS4jei/h+aYr+eci+eUteW9seOAggoK6L+Z5piv5oiR5Lit5a2m5pe25a+55b6F5peg6Imv5pWZ5biI55qE5oOz5rOV44CC5Lmf6K645Zyo5LiN6L+c55qE5bCG5p2l5oiR6KKr56S+5Lya5q+S5omT5pe25oiR5Lya6YeN5paw5ou+6LW36L+Z56eN5oOz5rOV44CC</p>
+<h2 id="bga6zmq5ocn">5bGA6ZmQ5oCn</h2>
+<p>5oiR5pyA5Yid5LqO44CK5Lit5Zu96L+R546w5Luj5Y+y57qy6KaB44CL6K++5pys6YeM55yL5Yiw6L+Z5Liq6K+N44CCCgrmiJHpgYfliLDkuIDkuKrkuI3lpb3nmoTogIHluIjvvIzmvZzmhI/or4blnLDorqTkuLrkuYvlkI7miYDmnInogIHluIjpg73kuI3lpb3jgIIKCuaIkeaYr+S4gOS4quWxnuS6juWGnOadkeeahOWtqeWtkO+8jOacgOaXqeeahOiusOW/huWNtOaYr+WcqOW4guWMuumHjOeUn+a0u+OAguS4ieW5tOe6p+S5i+WJje+8jOaIkeWcqOW4guWMuuS4iuWtpu+8jOi9rOWIsOWOv+WfjuS5i+WQju+8jOmBjeWcsOeahOaWueiogOWSjOeyl+WPo+iuqeaIkeaEn+WIsOmdnuW4uOS4jemAguW6lOOAguWcqOWIneS4reWImuW8gOWni++8jOaIkeeUmuiHs+ato+Wlvei3n+WFqOePreacgOayoeaciee0oOi0qOOAgeaIkOe7qeacgOW3rueahOS6lOS4quS6uuWIhuWIsOS6huWQjOS4gOe7hOOAggoK6L+Z56eN5ri456a75LqO576k5L2T5LmL5aSW77yM6K6k5Li64oCc5piv5LiN5piv5Y+q5pyJ5oiR5LiA5Liq5Lq65a+54oCd55qE54q25oCB5LiA55u05Zyo5oyB57ut44CC5o2u5oiR54i25q+N6K+06YKj5Yeg5bm05oiR5Lmf5LiN5ZKM5LuW5Lus6K+06K+d44CCCgrmipHpg4Hnl4fjgILigJzmsqHmnInlgL7or4nlr7nosaHigJ3lr7zoh7TnmoTjgIIKCuagueacrOWwseS4jeaYr+aKkemDgeeXh++8jOWMu+eUn+mDveayoeeci+WHuuadpe+8jOWhq+WHoOS4qumXruWNt+WwseWIpOaWreaYr+eOieeOieOAguS9huaYr+S4uuS6huacieaEj+ivhuWcsOW/veeVpeekvuaBkOeahOS4gOmdou+8jOWNtOe7meiHquW3sei0tOS4iuS6huagh+etvu+8jOaKiuOAkOayoeacieWAvuivieWvueixoeeahOWkseiQveaEn+OAkeaYoOWwhOS4uuS6huOAkOaKkemDgeOAkeOAguaIkeiHquW3seiDveaEj+ivhuWIsO+8jOWNtOivtOS4jeWHuuaJgOS7peeEtuOAguaIkeaYr+eQhuenkeeUn++8jOWPquacieWcqOe9keS4iuaQnOWTsuWtpuWQjeivje+8jOaQnOWIsOS6huWUr+W/g+OAgeWUr+aIke+8jOWYm+W+t+i/mOaQnOWIsOS6huefpeS5juaHguWTpeiusueahOeUteWtkOWPjOe8neW5sua2ieWunumqjOOAgu+8iOaIkeS5n+aYr+aHguWTpe+8jOi/meS5n+aYr+aIkeiupOS4uuaIkeWNmuWuouWPr+iDveW4puadpeKAnOWdj+KAneeahOW9seWTjeeahOWOn+WboO+8iQoK5LqO5piv5ZyoIDIwMTcg5bm05pyr77yM5oiR5Li65LqG55yL5Yiw6L+Z5Zy655S15b2x55qE57uT5bGA77yM5YGa5LqG5LiA5Liq5aSW5Lq65peg5rOV55CG6Kej55qE5Yaz5a6a44CC6YeN5paw5LiK5a2m5ZCO5aW95LqG5LiA54K577yM5Zug5Li65oiR5b+D5oCB5Y+Y5LqG77yM5Yqg5LiK5oiR56e75oOF5Yiw5Lit5paHIFZPQ0FMT0lEIOekvuWMuuS4reS6huOAguS4iuWkp+WtpuWPiOaYr+S4gOS4quWdjuOAguaIkeS7juayoeacieWDjyAyMDIwIOW5tOmCo+S4gOagt+iOt+W+l+WmguatpOWkmueahOiupOWQjOaEn+KAlOKAlOWcqOe9kee7nOiZmuaLn+epuumXtOWGheOAgueEtuiAjOWcqOS4i+WNiuW5tOS4iuWtpuaXtu+8jOaIkeS7jeS4jeaEv+aEj+ekvuS6pO+8jOW5tuenu+aDhee7meS6hiBCIOermeeahOS4reaWhyBWT0NBTE9JRCDnmoTpn7PkuZDliLbkvZzkurrvvIjkv5fnp7AgUCDkuLvvvInvvIzlnKjmhI/or4bliLDlgZrlvpflpKrov4fml7bvvIzmiJHoh6rpl63kuobjgILnhLblkI7lj4jooaPplKbov5jkuaHkuobjgILnhLblkI7puL3lrZDlj5jlpKfkuobjgILnhLblkI7mmK/liKDnqL/vvIznhLblkI7pnZ7luLjnvp7mhKfnmoTkuLvliqjor7fmsYLmi5vlronjgILnhLblkI7mmK/ooajpnaLlkYrliKvjgIHml6DlsL3nmoTnvqTpmaTmiJHkvazlkozmvZzmsLTjgILmnIDlkI7lj5jmiJDosI7oqIDjgIIKCuWcqCAyMDIyIOW5tOWQrOS6huW5s+WFi+W8l+a0m+S8iuW+t+eahOOAilRoZSBXYWxs44CL77yMMjAyMyDlubTnnIvkuoYgSk9KTyDnn7PkuYvmtbfkuYvlkI7vvIzmiJHmm7TlgL7lkJHkuo7mmK/igJzosIHpg73msqHmnInplJnigJ3vvIzmiJbogIXigJzlpKfpg6jliIbkurrpg73msqHmnInplJnigJ3jgILnibnliKvmmK/miJHlr7njgIpUaGUgV2FsbOOAi+acieedgOmdnuW4uOW8uueDiOeahOWFseaDhe+8jOWQjOaXtuWPiOmAoOaIkOS6humdnuW4uOW8uueDiOeahOaXoOWKm+aEn+WSjOWQjumBl+eXh+OAgu+8iOi/meaXtuWAmeWPr+S7peWQrOS6jOaJi+eOq+eRsOeahOOAiuWFrOebiuatjOabsuOAi+OAiuept+WFieibi+OAi+etieS7peavkuaUu+avku+8iQoK4oCc5peg6Imv6ICB5biI4oCd5piv5Zug5Li64oCc5oiR5ZKM5YW25LuW5a2m55Sf5LiN5ZCM77yM5LiN5ZCs6K+d4oCd77yM6L2s5a2m5piv5Zug5Li654i25q+N5bel5L2c5Y6f5Zug6KaB5YW75rS75oiR44CC6LCB6YO95rKh5pyJ6ZSZ77yI5Zyo5q+P5Liq5Lq65YaF5b+D5b2T5pe255qE6K6k55+l5bGC6Z2i5LiK77yJ77yM55Sx5LqO4oCc6K6k55+l55qE5bGA6ZmQ5oCn4oCd77yM5pyA5ZCO5Y206YCg5oiQ5LqG5oKy5Ymn44CCCgrnhLblkI7vvIzmiJHlj4jlpJrkuobkuIDkuKrnkIbnlLHvvJrnjrDlnKjnmoTmiJHlgZrigJzplJnigJ3kuovvvIzmmK/lm6DkuLrmiJHkuI3nn6XpgZPlroPmmK/plJnkuovvvIzkv5fnp7DigJzluIjniLfov5jkuI3nn6XpgZPoh6rlt7HmmK/kuKroo4Xns4rmtoLnmoTlpKnmiY3igJ3jgII=</p>
+<p>6L+Z57uI56m25piv57OK5byE44CC5oiR5YaZ5pel6K6w77yM5omA5Lul5LiN5piv5q2j57uP5Lq644CC</p>
 ]]></content>
       <categories>
-        <category>探索</category>
+        <category>共鸣</category>
       </categories>
   </entry>
   <entry>
@@ -2190,26 +2213,112 @@ href="https://chz613.github.io/post/hexo-next-url-html-suffix.html">这篇文章
       </categories>
   </entry>
   <entry>
-    <title>糊弄</title>
-    <url>/blog/2023/%E7%B3%8A%E5%BC%84/</url>
-    <content><![CDATA[<p>在粗略地、不系统地看了一些语词的解释后，我发现自己越来越会给自己找理由。</p>
+    <title>计网-基础概念</title>
+    <url>/blog/2023/%E8%AE%A1%E7%BD%91-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<ul>
+<li>概述：互 Lian 网、ISP、IXP、RFC 文档</li>
+<li>组成及通信
+<ul>
+<li>边缘部分的通信：C/S、P2P</li>
+<li>核心部分的通信：电路交换、分组交换、报文交换</li>
+</ul></li>
+<li>类别</li>
+<li>性能指标</li>
+<li>体系结构</li>
+</ul>
+<p>对应谢希仁《计算机网络》第 8 版第一章。</p>
 <span id="more"></span>
-<h2
-id="qs5yss55qe4occ6l6p6kb5rov4ocd">54qs5YSS55qE4oCc6L6p6K+B5rOV4oCd</h2>
-<p>5LiA5YiH6YO95piv5LqS55u45b2x5ZON55qE77yM5oiR5oqK5a6D5o2i5Liq6K+N5o+P6L+w5Li66Jab5a6a6LCU55qE6J206J225pWI5bqU44CCCgrmiJHov5nnr4fljZrlrqLlj5Hlh7rmnaXmiJbogIXkuI3lj5Hlh7rmnaXvvIzmnKrmnaXpg73kvJrlm6DmraTlj5fliLDlvbHlk43jgILvvIjlpoLmnpzkuI3lj5Hlh7rmnaXvvIzmiJHkvJrmhJ/op4nlv4Pph4zmhovlvpfmhYzvvIzpmr7lj5fvvIkKCuWmguS9oOaJgOinge+8jOi/meevh+WNmuWuouWPkeWHuuadpeS6hu+8jOacieS6uueci+aIluiAheayoeS6uueci++8jOacquadpemDveS8muWboOatpOWPl+WIsOW9seWTjeOAggoK5bm25LiU77yM6YO95Lya5pyJ4oCc5aW94oCd55qE5LiA6Z2i77yI5Y+N5oCdL+aJueWIpOWcsOaOpeWPl++8ieWSjOKAnOWdj+KAneeahOS4gOmdou+8iOaooeS7vy/kuI3liqDmibnliKTlnLDmjqXlj5fvvInvvIzkuI3nrqHmmK/lr7nmiJHoh6rlt7Hov5jmmK/lr7nlhbbku5bkurrjgIIKCueJueWIq+aYr+WvueaIkeiHquW3se+8jOaIkeS8muacieS4pOenjeWvueeri+e7n+S4gOeahOihjOWKqO+8iOaYr+ihjOWKqOWQl++8n++8ie+8mg==</p>
+<h2 id="概述">概述</h2>
+<ul>
+<li>互连网 internet：通用名词，一群计算机连起来。</li>
+<li>互联网 Internet：专用名词，全球计算机连起来。</li>
+</ul>
+<p>世界上第一个网页：<a
+href="http://info.cern.ch">http://info.cern.ch</a></p>
+<p><strong>ISP</strong></p>
+<p>互联网服务提供者（Internet Service Provider），移动联通电信公司。</p>
+<ul>
+<li>主干 ISP：国</li>
+<li>地区 ISP：省</li>
+<li>本地 ISP：省以下</li>
+</ul>
+<p>内容提供者可以连接各级 ISP 和 IXP。</p>
+<p><strong>IXP</strong></p>
+<p>互联网交换点（Internet eXchange Point），让两个 ISP 直接相连。</p>
+<p>比如两个同级 ISP 交换信息时，可以通过 IXP，而不必通过上级 ISP。</p>
+<p><strong>RFC 文档</strong></p>
+<p>“请求评论”（Request For
+Comments）的文档，公开发布的互联网建议标准，请求公众评论。</p>
+<p>最后制定互联网标准 STD。</p>
+<h2 id="组成及通信">组成及通信</h2>
+<ul>
+<li>边缘部分：所有用户直接使用的主机。又叫端系统。</li>
+<li>核心部分：大量网络和连接网络的路由器。</li>
+</ul>
+<h3 id="边缘部分的通信">边缘部分的通信</h3>
+<p>计算机通信，实际上是进程间通过端口号通信。</p>
+<h4 id="cs">C/S</h4>
+<p>客户-服务器</p>
+<p>客户和服务器都是指进程。</p>
+<h4 id="p2p">P2P</h4>
+<p>peer to peer，peer：平等的。</p>
+<p>本质是 C/S，每台主机既是 C 又是 S。</p>
+<h3 id="核心部分的通信">核心部分的通信</h3>
+<h4 id="电路交换">电路交换</h4>
+<p>三步走：建立连接-&gt;占线通信-&gt;释放连接</p>
+<ul>
+<li>占线，两台机器间通信完了才能接受与其他机器通信</li>
+<li>效率低（时间利用密度低，占线过程中会有不收发信息的时候）</li>
+</ul>
+<h4 id="分组交换">分组交换</h4>
+<p>存储转发，类比快递收寄</p>
 <ol type="1">
-<li><p>6Ieq5bex5Zyo5oCd5oOz5re35Lmx5pe26IO95oOz5Yiw6L+Z56+H5Y2a5a6i77yM5Lul5byA5aeL5YGa4oCc5aW94oCd55qE5LqL44CC5aaC5p6c5Y+q5piv5oOz5oOz6ICM5rKh5pyJ5byA5aeL5YGa77yM5bCx6L2s5ZCRIDLjgII=</p></li>
-<li><p>6Ieq5bex5YGa4oCc5Y+N6Z2i5pWZ5p2Q4oCd77yM5Lul5b+D5a6J55CG5b6X5Zyw5YGa4oCc5Z2P4oCd55qE5LqL5p2l6K6p5Yir5Lq66I635b6X5Y+N5oCd44CC77yI5Zyo5YGa5Ye65Yaz5a6a55qE6YKj5LiA5Yi75piv6L+Z5qC355qE77yM5LqL5a6e5LiK77yM5Zyo5pyJ5LqG4oCc6L6p6K+B4oCd55qE5oOz5rOV5ZCO77yM5bCx5LiN5Y+v6IO95rC46L+c5b+D5a6J55CG5b6X77yM5Y+I5Lya6L2s5ZCRIDHvvIk=</p></li>
+<li><p>把报文分组，每组写上头部信息。（包裹大包分成小包，写上序号、寄出地和目的地等）</p></li>
+<li><p>通过路由器一级一级地转发到目的地。</p>
+<pre class="mermaid">   gantt
+    dateFormat s
+    axisFormat %S
+
+    section 1号包
+    从A到B    :0, 5s
+    从B到C    :5, 5s
+    从C到D    :10, 5s
+
+    section 2号包
+    从A到B    :5, 5s
+    从B到C    :10, 5s
+    从C到D    :15, 5s
+
+    section 3号包
+    从A到B    :10, 5s
+    从B到C    :15, 5s
+    从C到D    :20, 5s</pre>
+<ul>
+<li>0-5 时间 1 号包裹从 A 站到 B 站</li>
+<li>5-10 时间 1 号包裹从 B 站到 C 站、2 号包裹从 A 站到 B 站</li>
+<li>10-15 时间 1 号包裹从 C 站到 D 站、2 号包裹从 B 站到 C 站、3
+号包裹从 A 站到 B 站</li>
+<li>……</li>
+<li>（书上的图是以空间为横轴，以时间为纵轴）</li>
+</ul></li>
+<li><p>把各个包裹合并。</p></li>
 </ol>
-<p>这种思想循环就是《草蛇惊一》的歌词“金蝉脱壳...山雨欲来风满楼”所描述的。心里想着塞翁失马，实际上是等待戈多。</p>
-<h2 id="u06kej5li75lmj">55u06KeJ5Li75LmJ</h2>
-<p>5Zyo5pyq5piO5a2Q55qE5L2T57O76YeM5pivIDEtMy0044CCCgrnirnorrDlvpfmiJHlnKjpq5jogIPlpI3kuaDml7bjgIHpq5jogIPliY3lpJzjgIHpq5jogIPml7bjgIHpq5jogIPlkI7pg73lrozlhajkuI3ntKflvKDvvIzov57llpzmgqbnmoTlv4Pmg4XkuZ/msqHmnInjgIIKCuaIkeWPquS4jei/h+aYr+eci+eUteW9seOAggoK6L+Z5piv5oiR5Lit5a2m5pe25a+55b6F5peg6Imv5pWZ5biI55qE5oOz5rOV44CC5Lmf6K645Zyo5LiN6L+c55qE5bCG5p2l5oiR6KKr56S+5Lya5q+S5omT5pe25oiR5Lya6YeN5paw5ou+6LW36L+Z56eN5oOz5rOV44CC</p>
-<h2 id="bga6zmq5ocn">5bGA6ZmQ5oCn</h2>
-<p>5oiR5pyA5Yid5LqO44CK5Lit5Zu96L+R546w5Luj5Y+y57qy6KaB44CL6K++5pys6YeM55yL5Yiw6L+Z5Liq6K+N44CCCgrmiJHpgYfliLDkuIDkuKrkuI3lpb3nmoTogIHluIjvvIzmvZzmhI/or4blnLDorqTkuLrkuYvlkI7miYDmnInogIHluIjpg73kuI3lpb3jgIIKCuaIkeaYr+S4gOS4quWxnuS6juWGnOadkeeahOWtqeWtkO+8jOacgOaXqeeahOiusOW/huWNtOaYr+WcqOW4guWMuumHjOeUn+a0u+OAguS4ieW5tOe6p+S5i+WJje+8jOaIkeWcqOW4guWMuuS4iuWtpu+8jOi9rOWIsOWOv+WfjuS5i+WQju+8jOmBjeWcsOeahOaWueiogOWSjOeyl+WPo+iuqeaIkeaEn+WIsOmdnuW4uOS4jemAguW6lOOAguWcqOWIneS4reWImuW8gOWni++8jOaIkeeUmuiHs+ato+Wlvei3n+WFqOePreacgOayoeaciee0oOi0qOOAgeaIkOe7qeacgOW3rueahOS6lOS4quS6uuWIhuWIsOS6huWQjOS4gOe7hOOAggoK6L+Z56eN5ri456a75LqO576k5L2T5LmL5aSW77yM6K6k5Li64oCc5piv5LiN5piv5Y+q5pyJ5oiR5LiA5Liq5Lq65a+54oCd55qE54q25oCB5LiA55u05Zyo5oyB57ut44CC5o2u5oiR54i25q+N6K+06YKj5Yeg5bm05oiR5Lmf5LiN5ZKM5LuW5Lus6K+06K+d44CCCgrmipHpg4Hnl4fjgILigJzmsqHmnInlgL7or4nlr7nosaHigJ3lr7zoh7TnmoTjgIIKCuagueacrOWwseS4jeaYr+aKkemDgeeXh++8jOWMu+eUn+mDveayoeeci+WHuuadpe+8jOWhq+WHoOS4qumXruWNt+WwseWIpOaWreaYr+eOieeOieOAguS9huaYr+S4uuS6huacieaEj+ivhuWcsOW/veeVpeekvuaBkOeahOS4gOmdou+8jOWNtOe7meiHquW3sei0tOS4iuS6huagh+etvu+8jOaKiuOAkOayoeacieWAvuivieWvueixoeeahOWkseiQveaEn+OAkeaYoOWwhOS4uuS6huOAkOaKkemDgeOAkeOAguaIkeiHquW3seiDveaEj+ivhuWIsO+8jOWNtOivtOS4jeWHuuaJgOS7peeEtuOAguaIkeaYr+eQhuenkeeUn++8jOWPquacieWcqOe9keS4iuaQnOWTsuWtpuWQjeivje+8jOaQnOWIsOS6huWUr+W/g+OAgeWUr+aIke+8jOWYm+W+t+i/mOaQnOWIsOS6huefpeS5juaHguWTpeiusueahOeUteWtkOWPjOe8neW5sua2ieWunumqjOOAgu+8iOaIkeS5n+aYr+aHguWTpe+8jOi/meS5n+aYr+aIkeiupOS4uuaIkeWNmuWuouWPr+iDveW4puadpeKAnOWdj+KAneeahOW9seWTjeeahOWOn+WboO+8iQoK5LqO5piv5ZyoIDIwMTcg5bm05pyr77yM5oiR5Li65LqG55yL5Yiw6L+Z5Zy655S15b2x55qE57uT5bGA77yM5YGa5LqG5LiA5Liq5aSW5Lq65peg5rOV55CG6Kej55qE5Yaz5a6a44CC6YeN5paw5LiK5a2m5ZCO5aW95LqG5LiA54K577yM5Zug5Li65oiR5b+D5oCB5Y+Y5LqG77yM5Yqg5LiK5oiR56e75oOF5Yiw5Lit5paHIFZPQ0FMT0lEIOekvuWMuuS4reS6huOAguS4iuWkp+WtpuWPiOaYr+S4gOS4quWdjuOAguaIkeS7juayoeacieWDjyAyMDIwIOW5tOmCo+S4gOagt+iOt+W+l+WmguatpOWkmueahOiupOWQjOaEn+KAlOKAlOWcqOe9kee7nOiZmuaLn+epuumXtOWGheOAgueEtuiAjOWcqOS4i+WNiuW5tOS4iuWtpuaXtu+8jOaIkeS7jeS4jeaEv+aEj+ekvuS6pO+8jOW5tuenu+aDhee7meS6hiBCIOermeeahOS4reaWhyBWT0NBTE9JRCDnmoTpn7PkuZDliLbkvZzkurrvvIjkv5fnp7AgUCDkuLvvvInvvIzlnKjmhI/or4bliLDlgZrlvpflpKrov4fml7bvvIzmiJHoh6rpl63kuobjgILnhLblkI7lj4jooaPplKbov5jkuaHkuobjgILnhLblkI7puL3lrZDlj5jlpKfkuobjgILnhLblkI7mmK/liKDnqL/vvIznhLblkI7pnZ7luLjnvp7mhKfnmoTkuLvliqjor7fmsYLmi5vlronjgILnhLblkI7mmK/ooajpnaLlkYrliKvjgIHml6DlsL3nmoTnvqTpmaTmiJHkvazlkozmvZzmsLTjgILmnIDlkI7lj5jmiJDosI7oqIDjgIIKCuWcqCAyMDIyIOW5tOWQrOS6huW5s+WFi+W8l+a0m+S8iuW+t+eahOOAilRoZSBXYWxs44CL77yMMjAyMyDlubTnnIvkuoYgSk9KTyDnn7PkuYvmtbfkuYvlkI7vvIzmiJHmm7TlgL7lkJHkuo7mmK/igJzosIHpg73msqHmnInplJnigJ3vvIzmiJbogIXigJzlpKfpg6jliIbkurrpg73msqHmnInplJnigJ3jgILnibnliKvmmK/miJHlr7njgIpUaGUgV2FsbOOAi+acieedgOmdnuW4uOW8uueDiOeahOWFseaDhe+8jOWQjOaXtuWPiOmAoOaIkOS6humdnuW4uOW8uueDiOeahOaXoOWKm+aEn+WSjOWQjumBl+eXh+OAgu+8iOi/meaXtuWAmeWPr+S7peWQrOS6jOaJi+eOq+eRsOeahOOAiuWFrOebiuatjOabsuOAi+OAiuept+WFieibi+OAi+etieS7peavkuaUu+avku+8iQoK4oCc5peg6Imv6ICB5biI4oCd5piv5Zug5Li64oCc5oiR5ZKM5YW25LuW5a2m55Sf5LiN5ZCM77yM5LiN5ZCs6K+d4oCd77yM6L2s5a2m5piv5Zug5Li654i25q+N5bel5L2c5Y6f5Zug6KaB5YW75rS75oiR44CC6LCB6YO95rKh5pyJ6ZSZ77yI5Zyo5q+P5Liq5Lq65YaF5b+D5b2T5pe255qE6K6k55+l5bGC6Z2i5LiK77yJ77yM55Sx5LqO4oCc6K6k55+l55qE5bGA6ZmQ5oCn4oCd77yM5pyA5ZCO5Y206YCg5oiQ5LqG5oKy5Ymn44CCCgrnhLblkI7vvIzmiJHlj4jlpJrkuobkuIDkuKrnkIbnlLHvvJrnjrDlnKjnmoTmiJHlgZrigJzplJnigJ3kuovvvIzmmK/lm6DkuLrmiJHkuI3nn6XpgZPlroPmmK/plJnkuovvvIzkv5fnp7DigJzluIjniLfov5jkuI3nn6XpgZPoh6rlt7HmmK/kuKroo4Xns4rmtoLnmoTlpKnmiY3igJ3jgII=</p>
-<p>6L+Z57uI56m25piv57OK5byE44CC5oiR5YaZ5pel6K6w77yM5omA5Lul5LiN5piv5q2j57uP5Lq644CC</p>
+<ul>
+<li>不会占线，速度比报文交换快</li>
+<li>排队等路由器转发</li>
+<li>动态分配线路，不保证带宽</li>
+<li>增加开销（合并的时候）</li>
+</ul>
+<h4 id="报文交换">报文交换</h4>
+<p>也是存储转发，但是不分组，直接发完整的。</p>
+<h2 id="类别">类别</h2>
+<h2 id="性能指标">性能指标</h2>
+<h2 id="体系结构">体系结构</h2>
+<p>TCP 在运输层</p>
+<p>IP 在网络层</p>
 ]]></content>
       <categories>
-        <category>共鸣</category>
+        <category>概念</category>
       </categories>
   </entry>
 </search>
