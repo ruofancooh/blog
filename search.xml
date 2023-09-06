@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java - 00 - 准备</title>
+    <url>/blog/2023/Java-00-%E5%87%86%E5%A4%87/</url>
+    <content><![CDATA[<ul>
+<li>Windows 10 + VSCode 环境配置</li>
+<li><code>Hello.java</code></li>
+</ul>
+<span id="more"></span>
+<h2 id="windows-10-vscode-环境配置">Windows 10 + VSCode 环境配置</h2>
+<ol type="1">
+<li>VSCode 里安装 <code>Extension Pack for Java</code> 扩展。
+它会提示你下载安装 JDK。安。</li>
+<li>设置环境变量
+<ul>
+<li><code>JAVA_HOME</code>：JDK 安装路径</li>
+<li><code>PATH</code>：<code>%JAVA_HOME%\bin</code></li>
+</ul></li>
+<li>终端输入： <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure> 输出： <figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">openjdk version &quot;17.0.8.1&quot; 2023-08-24</span><br><span class="line">OpenJDK Runtime Environment Temurin-17.0.8.1+1 (build 17.0.8.1+1)</span><br><span class="line">OpenJDK 64-Bit Server VM Temurin-17.0.8.1+1 (build 17.0.8.1+1, mixed mode, sharing)</span><br></pre></td></tr></table></figure></li>
+<li>VSCode
+设置搜<code>java.jdt.ls.java.home</code>，在<code>settings.json</code>里改成
+JDK 安装路径。</li>
+</ol>
+<h2 id="hello.java">Hello.java</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>按钮运行，或者终端：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java Hello.java</span><br></pre></td></tr></table></figure>
+<p>或者终端：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">javac Hello.java</span><br><span class="line">java Hello</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java - 01 - 一些问题与回答</title>
+    <url>/blog/2023/Java-01-%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E4%B8%8E%E5%9B%9E%E7%AD%94/</url>
+    <content><![CDATA[<p>一些问题与回答</p>
+<span id="more"></span>
+<h2
+id="main函数不加static可以吗"><code>main</code>函数不加<code>static</code>可以吗？</h2>
+<p>不行。程序启动时实例还没有被创建，需要通过类名调用静态方法。</p>
+<h2
+id="当类名和文件名不一致时代码检查器会提示修改那么.java文件里只能写一个类吗">当类名和文件名不一致时，代码检查器会提示修改。那么<code>.java</code>文件里只能写一个类吗？</h2>
+<p>只能写一个与文件名相同的公共类。其他的类不加<code>public</code>。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test0</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;456&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Test0.fun();</span><br><span class="line">        <span class="type">Test1</span> <span class="variable">test1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test1</span>();</span><br><span class="line">        test1.fun();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="怎么获取键盘输入">怎么获取键盘输入？</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;<span class="comment">//注意要加分号</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Echo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建一个 String 对象</span></span><br><span class="line">        String str;</span><br><span class="line">        <span class="comment">// 创建一个 Scanner 对象，传参是标准输入流对象</span></span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scan</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="comment">// 读取一行，返回String</span></span><br><span class="line">        str = scan.nextLine();</span><br><span class="line">        <span class="comment">// println() 换行，print() 不换行</span></span><br><span class="line">        System.out.print(str);</span><br><span class="line">        System.out.println(str);</span><br><span class="line">        System.out.print(str);</span><br><span class="line">        System.out.println(str);</span><br><span class="line">        <span class="comment">// 别忘了关闭</span></span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="怎么获取文件输入">怎么获取文件输入？</h2>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
     <title>MongoDB - 00 - 准备</title>
     <url>/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/</url>
     <content><![CDATA[<ul>
@@ -19,7 +72,7 @@ class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#c
 </ol>
 ]]></content>
       <categories>
-        <category>探索</category>
+        <category>MongoDB</category>
       </categories>
   </entry>
   <entry>
@@ -141,9 +194,6 @@ href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </aside>
 ]]></content>
-      <categories>
-        <category>概念</category>
-      </categories>
   </entry>
   <entry>
     <title>乐理-A0-频率与音程</title>
@@ -351,49 +401,13 @@ class="math inline">\(\mathrm{A4=440Hz}\)</span>，白键不加升降号，黑�
 <p><a
 href="https://github.com/ruofancooh/utility-room/tree/main/learning/music">A0-main.py</a></p>
 ]]></content>
-      <categories>
-        <category>概念</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Java - 00 - 准备</title>
-    <url>/blog/2023/Java-00-%E5%87%86%E5%A4%87/</url>
-    <content><![CDATA[<ul>
-<li>Windows 10 + VSCode 环境配置</li>
-<li><code>Hello.java</code></li>
-</ul>
-<span id="more"></span>
-<h2 id="windows-10-vscode-环境配置">Windows 10 + VSCode 环境配置</h2>
-<ol type="1">
-<li>VSCode 里安装 <code>Extension Pack for Java</code> 扩展。
-它会提示你下载安装 JDK。安。</li>
-<li>设置环境变量
-<ul>
-<li><code>JAVA_HOME</code>：JDK 安装路径</li>
-<li><code>PATH</code>：<code>%JAVA_HOME%\bin</code></li>
-</ul></li>
-<li>终端输入： <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure> 输出： <figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">openjdk version &quot;17.0.8.1&quot; 2023-08-24</span><br><span class="line">OpenJDK Runtime Environment Temurin-17.0.8.1+1 (build 17.0.8.1+1)</span><br><span class="line">OpenJDK 64-Bit Server VM Temurin-17.0.8.1+1 (build 17.0.8.1+1, mixed mode, sharing)</span><br></pre></td></tr></table></figure></li>
-<li>VSCode
-设置搜<code>java.jdt.ls.java.home</code>，在<code>settings.json</code>里改成
-JDK 安装路径。</li>
-</ol>
-<h2 id="hello.java">Hello.java</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>按钮运行，或者终端：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java Hello.java</span><br></pre></td></tr></table></figure>
-<p>或者终端：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">javac Hello.java</span><br><span class="line">java Hello</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
   </entry>
   <entry>
     <title>乐理-B0-中古调式</title>
     <url>/blog/2023/%E4%B9%90%E7%90%86-B0-%E4%B8%AD%E5%8F%A4%E8%B0%83%E5%BC%8F/</url>
     <content><![CDATA[<ul>
 <li>【音阶相同】是什么意思</li>
-<li>调 diào 式与移调 diào</li>
+<li>调式与移调</li>
 <li><span class="math inline">\(7 \times 12\)</span> 种中古调式</li>
 <li>不同的中古调式可能使用相同的琴键</li>
 </ul>
@@ -590,29 +604,6 @@ class="math inline">\(\mathrm{V}\)</span>
 自然小调使用的琴键相同。</p></li>
 </ul>
 ]]></content>
-      <categories>
-        <category>概念</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Java - 01 - 一些问题与回答</title>
-    <url>/blog/2023/Java-01-%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E4%B8%8E%E5%9B%9E%E7%AD%94/</url>
-    <content><![CDATA[<p>一些问题与回答</p>
-<span id="more"></span>
-<h2
-id="main函数不加static可以吗"><code>main</code>函数不加<code>static</code>可以吗？</h2>
-<p>不行。程序启动时实例还没有被创建，需要通过类名调用静态方法。</p>
-<h2
-id="当类名和文件名不一致时代码检查器会提示修改那么.java文件里只能写一个类吗">当类名和文件名不一致时，代码检查器会提示修改。那么<code>.java</code>文件里只能写一个类吗？</h2>
-<p>只能写一个与文件名相同的公共类。其他的类不加<code>public</code>。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test0</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;456&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Test0.fun();</span><br><span class="line">        <span class="type">Test1</span> <span class="variable">test1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test1</span>();</span><br><span class="line">        test1.fun();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="怎么获取键盘输入">怎么获取键盘输入？</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;<span class="comment">//注意要加分号</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Echo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建一个 String 对象</span></span><br><span class="line">        String str;</span><br><span class="line">        <span class="comment">// 创建一个 Scanner 对象，传参是标准输入流对象</span></span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scan</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="comment">// 读取一行，返回String</span></span><br><span class="line">        str = scan.nextLine();</span><br><span class="line">        <span class="comment">// println() 换行，print() 不换行</span></span><br><span class="line">        System.out.print(str);</span><br><span class="line">        System.out.println(str);</span><br><span class="line">        System.out.print(str);</span><br><span class="line">        System.out.println(str);</span><br><span class="line">        <span class="comment">// 别忘了关闭</span></span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="怎么获取文件输入">怎么获取文件输入？</h2>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
   </entry>
   <entry>
     <title>乐理-C1-三分损益法与十二律</title>
@@ -853,24 +844,18 @@ href="https://zh.wikisource.org/wiki/史記/卷025">https://zh.wikisource.org/wi
 <a
 href="https://www.bilibili.com/read/cv3194623/">https://www.bilibili.com/read/cv3194623</a>.</p>
 ]]></content>
-      <categories>
-        <category>概念</category>
-      </categories>
   </entry>
   <entry>
     <title>JSON</title>
     <url>/blog/2023/JSON/</url>
-    <content><![CDATA[<p>JSON(JavaScript Object
-Notation，JavaScript对象表示法)是一种轻量级的数据交换格式。
-<span id="more"></span></p>
-<h2 id="json与js对象互转">json与js对象互转</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> json = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// js对象转json字符串</span></span><br><span class="line">json = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj)</span><br><span class="line"></span><br><span class="line"><span class="comment">// json字符串转js对象</span></span><br><span class="line">obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(json)</span><br></pre></td></tr></table></figure>
-<h2 id="使用python编解码json">使用Python编解码json</h2>
+    <content><![CDATA[<p>JSON(JavaScript Object Notation，JavaScript
+对象表示法)是一种轻量级的数据交换格式。</p>
+<span id="more"></span>
+<h2 id="json-与-js-对象互转">json 与 js 对象互转</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> json = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// js对象转json字符串</span></span><br><span class="line">json = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj);</span><br><span class="line"></span><br><span class="line"><span class="comment">// json字符串转js对象</span></span><br><span class="line">obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(json);</span><br></pre></td></tr></table></figure>
+<h2 id="使用-python-编解码-json">使用 Python 编解码 json</h2>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">dic = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编码</span></span><br><span class="line">string = json.dumps(dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解码</span></span><br><span class="line">dic = json.loads(string)</span><br></pre></td></tr></table></figure>
 ]]></content>
-      <categories>
-        <category>概念</category>
-      </categories>
   </entry>
   <entry>
     <title>root手机教程（使用Magisk）</title>
@@ -883,84 +868,105 @@ href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-c
 SDK Platform-Tools</a> 的电脑</li>
 </ul>
 <span id="more"></span>
-<p>另外，如果你手机的Android kernel版本在5.10以上，你也可以使用<a
+<p>另外，如果你手机的 Android kernel 版本在 5.10 以上，你也可以使用<a
 href="https://kernelsu.org/zh_CN/">KernelSU</a>——这不属于此教程的范围。</p>
 <h2 id="背景知识">背景知识</h2>
 <h3 id="linux-与-android">Linux 与 Android</h3>
-<p>Linux是一种操作系统内核，由Linus
-Torvalds开发。<strong>基于Linux内核</strong>，Android
-Inc.公司开发出了Android操作系统。</p>
-<p>2005年，Google收购Android
-Inc.。2007年，Google将Android的源代码公开，并创建了<a
+<p>Linux 是一种操作系统内核，由 Linus Torvalds 开发。<strong>基于 Linux
+内核</strong>，Android Inc.公司开发出了 Android 操作系统。</p>
+<p>2005 年，Google 收购 Android Inc.。2007 年，Google 将 Android
+的源代码公开，并创建了<a
 href="https://source.android.google.cn/?hl=zh-cn">AOSP</a>（Android Open
 Source Project）项目。</p>
-<p>许多手机厂商的定制系统，如MIUI、Flyme、HarmonyOS等都是<strong>基于AOSP源码</strong>开发的。和AOSP对标的<a
-href="https://gitee.com/openharmony">OpenHarmony</a>也有用到Linux内核。所以，如果你的手机不是苹果，它里面大概率就会有一个修改过的Linux内核。</p>
+<p>许多手机厂商的定制系统，如 MIUI、Flyme、HarmonyOS 等都是<strong>基于
+AOSP 源码</strong>开发的。和 AOSP 对标的<a
+href="https://gitee.com/openharmony">OpenHarmony</a>也有用到 Linux
+内核。所以，如果你的手机不是苹果，它里面大概率就会有一个修改过的 Linux
+内核。</p>
 <h3 id="linux-与-android-中的用户权限">Linux 与 Android
 中的用户权限</h3>
-<p>Linux操作系统是多用户操作系统，用户<code>root</code>拥有最高权限——对系统的完全控制权。拥有root权限的用户可以把其他用户添加到root用户组。在root用户组里，每个用户都有root权限。</p>
-<p>在Android操作系统中，<strong>每个应用（APP）都是一个独立的用户</strong>。如果没有<code>root</code>用户把APP添加到root用户组，就没有APP能够获得root权限。</p>
-<p>而在正常情况下，你在手机上见到的所有画面都是APP的进程（比如系统界面是<code>com.android.systemui</code>）。这时想要获得root权限，就需要修改更底层的东西。</p>
-<h3 id="bootloader锁">Bootloader锁</h3>
+<p>Linux
+操作系统是多用户操作系统，用户<code>root</code>拥有最高权限——对系统的完全控制权。拥有
+root 权限的用户可以把其他用户添加到 root 用户组。在 root
+用户组里，每个用户都有 root 权限。</p>
+<p>在 Android
+操作系统中，<strong>每个应用（APP）都是一个独立的用户</strong>。如果没有<code>root</code>用户把
+APP 添加到 root 用户组，就没有 APP 能够获得 root 权限。</p>
+<p>而在正常情况下，你在手机上见到的所有画面都是 APP
+的进程（比如系统界面是<code>com.android.systemui</code>）。这时想要获得
+root 权限，就需要修改更底层的东西。</p>
+<h3 id="bootloader-锁">Bootloader 锁</h3>
 <p>Bootloader，即启动引导加载程序。它负责在计算机启动时，引导操作系统加载。</p>
-<p>在bootloader执行的过程中，如果签名验证未通过，说明系统底层文件被修改。这时bootloader会停止执行，<strong>无法进入系统</strong>。这被称为bootloader（BL）锁。</p>
+<p>在 bootloader
+执行的过程中，如果签名验证未通过，说明系统底层文件被修改。这时
+bootloader 会停止执行，<strong>无法进入系统</strong>。这被称为
+bootloader（BL）锁。</p>
 <h3 id="magisk">Magisk</h3>
-<p>The <strong>Magic Mask</strong> for
-Android，是一套用于定制Android的开源软件。它可以为应用程序提供 root
+<p>The <strong>Magic Mask</strong> for Android，是一套用于定制 Android
+的开源软件。它可以为应用程序提供 root
 访问权限。后文简称<strong>面具</strong>。</p>
-<p>面具获取root权限的原理是通过修改boot分区，代理linux内核的第一个进程init。<a
-href="#fn1" class="footnote-ref" id="fnref1"
+<p>面具获取 root 权限的原理是通过修改 boot 分区，代理 linux
+内核的第一个进程 init。<a href="#fn1" class="footnote-ref" id="fnref1"
 role="doc-noteref"><sup>1</sup></a></p>
-<p>面具修改了系统分区。因此，使用面具的前提是解除BL锁。</p>
+<p>面具修改了系统分区。因此，使用面具的前提是解除 BL 锁。</p>
 <h2 id="准备工作">准备工作</h2>
-<h3 id="解除bl锁">解除BL锁</h3>
+<h3 id="解除-bl-锁">解除 BL 锁</h3>
 <blockquote>
 <p>解锁 BootLoader 实际上就是让 BootLoader
 启动链上某些阶段的签名验证不生效。<a href="#fn2" class="footnote-ref"
 id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 </blockquote>
 <p>你需要在你手机厂商的网站上申请解锁码，然后用他们提供的工具解锁。有一些厂商（华为等）已经不提供解锁码。</p>
-<p>注意：解锁BL后会<strong>清除所有用户数据，恢复出厂设置</strong>。请提前做好你重要文件的备份。</p>
-<h3 id="提取boot.img">提取boot.img</h3>
+<p>注意：解锁 BL
+后会<strong>清除所有用户数据，恢复出厂设置</strong>。请提前做好你重要文件的备份。</p>
+<h3 id="提取-boot.img">提取 boot.img</h3>
 <p>在网上搜索，找到你手机的安装包。</p>
 <p>通常是一个<code>.zip</code>或.<code>tgz</code>格式的压缩包。确保手机型号一致、操作系统版本一致。</p>
 <p>解压后找到<code>boot.img</code>或者<code>init_boot.img（如果有）</code>。复制两份，分别保存到手机和电脑，备用。</p>
 <ul>
 <li>如果你找不到<code>boot.img</code>，而找到了<code>payload.bin</code>：参考<a
 href="https://magiskcn.com/payload-dumper-go-boot">这篇教程</a>。或者使用<a
-href="https://mt2.cn/">MT管理器</a>提取。</li>
-<li>如果你的手机<em><strong>已经root了</strong></em>：可以在<code>adb shell</code>下使用<code>ls -l /dev/block/by-name/</code>查看分区表。找到boot分区，比如<code>/dev/block/sdc41</code>。使用<code>dd if=/dev/block/sdc41 of=/sdcard/boot.img</code>提取boot分区。</li>
+href="https://mt2.cn/">MT 管理器</a>提取。</li>
+<li>如果你的手机<em><strong>已经 root
+了</strong></em>：可以在<code>adb shell</code>下使用<code>ls -l /dev/block/by-name/</code>查看分区表。找到
+boot
+分区，比如<code>/dev/block/sdc41</code>。使用<code>dd if=/dev/block/sdc41 of=/sdcard/boot.img</code>提取
+boot 分区。</li>
 </ul>
-<h3 id="通过usb调试手机">通过USB调试手机</h3>
-<p>在手机设置里找到系统版本（比如MIUI，是在“全部参数”里的“MIUI版本”）。连续点击，直到手机出现提示框“您现在处于开发者模式”。</p>
-<p>在手机设置里找到开发者选项，进入。找到<strong>USB调试</strong>选项并开启。</p>
+<h3 id="通过-usb-调试手机">通过 USB 调试手机</h3>
+<p>在手机设置里找到系统版本（比如 MIUI，是在“全部参数”里的“MIUI
+版本”）。连续点击，直到手机出现提示框“您现在处于开发者模式”。</p>
+<p>在手机设置里找到开发者选项，进入。找到<strong>USB
+调试</strong>选项并开启。</p>
 <p>下载<a
 href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn">Android
 SDK
 Platform-Tools</a>，解压到你喜欢的目录。比如<code>D:\platform-tools</code>。你会看到目录里有<code>adb.exe</code>和<code>fastboot.exe</code>等一些文件。</p>
-<p>打开命令行（Windows下win+R输入cmd，回车），你会看到：</p>
+<p>打开命令行（Windows 下 win+R 输入 cmd，回车），你会看到：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">C:\Users\你的用户名\&gt;</span><br></pre></td></tr></table></figure>
 <p>这是你当前所在的目录。当你要执行一个<code>.exe</code>文件时，系统先从当前目录里寻找。如果找不到，就从环境变量里寻找。再找不到就打印错误信息。</p>
 <p>你刚才解压出来的<code>.exe</code>文件只能在它们所在的目录下运行。如果不想切换目录，想让它们在任意目录下都可以运行，需要把它们<strong>所在的目录</strong>添加到<strong>环境变量</strong>。</p>
-<p>Windows
-10下，<code>Win + I</code>打开设置。系统-&gt;关于-&gt;高级系统设置-&gt;环境变量，双击系统变量<code>Path</code>，新建，把<code>D:\platform-tools</code>复制到列表，确定确定确定。这样环境变量就设置好了。</p>
+<p>Windows 10
+下，<code>Win + I</code>打开设置。系统-&gt;关于-&gt;高级系统设置-&gt;环境变量，双击系统变量<code>Path</code>，新建，把<code>D:\platform-tools</code>复制到列表，确定确定确定。这样环境变量就设置好了。</p>
 <p>用数据线连接手机和电脑。你可以尝试在<code>cmd</code>里使用命令</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure>
 <p>这时手机会弹出授权窗口。点击确定，你会在电脑上看到：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">List of devices attached</span><br><span class="line">你手机的序列号        device</span><br></pre></td></tr></table></figure>
-<p>说明adb连接成功。</p>
+<p>说明 adb 连接成功。</p>
 <h2 id="戴上面具">戴上面具</h2>
 <p><a
 href="https://github.com/topjohnwu/Magisk/releases">下载面具</a>并安装打开，你将看到：</p>
 <p><img src="/blog/images/magisk.webp"></p>
-<p>如果Ramdisk为<strong>否</strong>，或者你的手机品牌是<strong>华为</strong>或<strong>三星</strong>：参考
+<p>如果 Ramdisk
+为<strong>否</strong>，或者你的手机品牌是<strong>华为</strong>或<strong>三星</strong>：参考
 <a
 href="https://jesse205.github.io/MagiskChineseDocument/install.html">Magisk
 中文文档</a>。</p>
 <p>点击“安装”按钮。如果你手机的安装包中有<code>vbmeta.img</code>，选中“修补
 boot 映像中的 vbmeta”选项。否则不选中。</p>
 <p>在方式中选择“选择并修补一个文件”。然后选择你提取出来的<code>boot.img</code>或<code>init_boot.img</code>。点击“安装”。</p>
-<p>面具会把修补后的文件<code>magisk_patched-[版本号_随机字符].img</code>存放到SD卡的<code>Download</code>目录下。</p>
+<p>面具会把修补后的文件<code>magisk_patched-[版本号_随机字符].img</code>存放到
+SD 卡的<code>Download</code>目录下。</p>
 <p>把修补后的文件复制到电脑：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb pull /sdcard/Download/magisk_patched-[版本号_随机字符].img 电脑上的一个文件夹路径</span><br></pre></td></tr></table></figure>
 <p>重启手机到<code>fastboot</code>模式：</p>
@@ -969,38 +975,43 @@ boot 映像中的 vbmeta”选项。否则不选中。</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot flash boot（或者init_boot） 电脑上的一个文件夹路径\magisk_patched-[版本号_随机字符].img</span><br></pre></td></tr></table></figure>
 <p>重启手机：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure>
-<p>打开面具。如果看到了Magisk-&gt;当前的版本号，说明成功。</p>
+<p>打开面具。如果看到了 Magisk-&gt;当前的版本号，说明成功。</p>
 <ul>
-<li><p>如果你的手机打不开了：说明面具不适合你的手机，或者你有地方做错了。
+<li>如果你的手机打不开了：说明面具不适合你的手机，或者你有地方做错了。
 你需要长按【电源】键重启，然后马上同时按住【电源】键和【音量+】键（也有手机是【电源】键和【音量-】键）。这会把手机重启到<code>fastboot</code>模式。
-然后使用以下命令恢复boot分区： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot flash boot（或者init_boot） 电脑上的一个文件夹路径\你修补前的boot.img</span><br></pre></td></tr></table></figure></p></li>
-<li><p>在安装面具后：需要禁用系统自动更新。<a
-href="#后续处理更新系统时">后续处理——更新系统时</a></p></li>
+然后使用以下命令恢复 boot 分区： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot flash boot（或者init_boot） 电脑上的一个文件夹路径\你修补前的boot.img</span><br></pre></td></tr></table></figure></li>
+<li>在安装面具后：需要禁用系统自动更新。<a
+href="#后续处理更新系统时">后续处理——更新系统时</a></li>
 </ul>
 <h2 id="隐藏面具">隐藏面具</h2>
-<p>为了用户安全，一些银行类的app在检测到root后会禁止用户使用。需要对这一类app隐藏root。</p>
-<h3 id="使用shamiko隐藏root">使用Shamiko隐藏root</h3>
-<p>Shamiko是一个面具模块，用于隐藏root。</p>
+<p>为了用户安全，一些银行类的 app 在检测到 root
+后会禁止用户使用。需要对这一类 app 隐藏 root。</p>
+<h3 id="使用-shamiko-隐藏-root">使用 Shamiko 隐藏 root</h3>
+<p>Shamiko 是一个面具模块，用于隐藏 root。</p>
 <ul>
 <li>如果使用的是<a
 href="https://github.com/magojohnji/Magisk-delta/blob/main/intro.md">Magisk
-Delta</a>，则不能安装此模块。可用其内置的MagiskHide。</li>
+Delta</a>，则不能安装此模块。可用其内置的 MagiskHide。</li>
 </ul>
 <p>在面具设置里：</p>
 <ul>
 <li><p>找到“Zygisk”，<strong>开启</strong>。</p></li>
 <li><p>找到“遵守排除列表”，<strong>关闭</strong>。</p></li>
-<li><p>找到“配置排除列表”，选择要对其隐藏root的应用。点击，在展开的列表里全部打上勾，直到上方进度条满。</p></li>
+<li><p>找到“配置排除列表”，选择要对其隐藏 root
+的应用。点击，在展开的列表里全部打上勾，直到上方进度条满。</p></li>
 </ul>
-<p><a
-href="https://github.com/LSPosed/LSPosed.github.io/releases/">下载Shamiko</a>
+<p><a href="https://github.com/LSPosed/LSPosed.github.io/releases/">下载
+Shamiko</a>
 。打开面具-&gt;模块-&gt;从本地安装-&gt;选择下载的<code>shamiko-[版本号]-release.zip</code>-&gt;确定-&gt;重启手机。</p>
-<p>如果看到模块-&gt;Shamiko的简介里露出了😋，说明Shamiko正常运行。</p>
+<p>如果看到模块-&gt;Shamiko 的简介里露出了 😋，说明 Shamiko
+正常运行。</p>
 <h3 id="使用随机包名隐藏面具应用">使用随机包名隐藏面具应用</h3>
-<p>面具设置-&gt;隐藏Magisk应用</p>
+<p>面具设置-&gt;隐藏 Magisk 应用</p>
 <h2 id="后续处理更新系统时">后续处理——更新系统时</h2>
-<p>系统更新前：先打开面具，选择“卸载Magisk”-&gt;<strong>还原原厂映像</strong>。然后更新系统。</p>
-<p>系统更新后：仍然使用提取boot-&gt;修补boot-&gt;刷入boot的方式安装面具。</p>
+<p>系统更新前：先打开面具，选择“卸载
+Magisk”-&gt;<strong>还原原厂映像</strong>。然后更新系统。</p>
+<p>系统更新后：仍然使用提取 boot-&gt;修补 boot-&gt;刷入 boot
+的方式安装面具。</p>
 <ul>
 <li>如果希望在更新系统时保留面具：参考<a
 href="https://jesse205.github.io/MagiskChineseDocument/ota.html">这篇文档</a>。</li>
@@ -1010,7 +1021,8 @@ role="doc-endnotes">
 <hr />
 <ol>
 <li id="fn1"><p><a
-href="https://mp.weixin.qq.com/s/eF9izvazeSZ1bVxOcxamQg">何为root？维术：https://mp.weixin.qq.com/s/eF9izvazeSZ1bVxOcxamQg</a><a
+href="https://mp.weixin.qq.com/s/eF9izvazeSZ1bVxOcxamQg">何为
+root？维术：https://mp.weixin.qq.com/s/eF9izvazeSZ1bVxOcxamQg</a><a
 href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p><a
 href="https://mp.weixin.qq.com/s/-9VKyraHq5Qt2PTzqVqZOg">当我们谈论解锁
@@ -1020,136 +1032,6 @@ href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </aside>
 ]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>VSCode快捷键</title>
-    <url>/blog/2023/VSCode%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
-    <content><![CDATA[<p>旨在少用鼠标/触摸板，避免分心。但是触摸板在快速定位，滚动屏幕和选中非完整行上比较方便。</p>
-<p>设置快捷键：<code>Ctrl + K, Ctrl + S</code></p>
-<span id="more"></span>
-<h2 id="外观">外观</h2>
-<p>打开关闭主侧边栏：<code>Ctrl + B</code></p>
-<p>打开关闭下方面板：<code>Ctrl + J</code></p>
-<p>打开侧边预览：<code>Ctrl + K, V</code></p>
-<p>进入退出禅模式：<code>Ctrl + K, Z</code></p>
-<p>切换选项卡：<code>Ctrl + Tab</code></p>
-<h2 id="光标与选择">光标与选择</h2>
-<p>选择：<code>Shift + 方向键</code></p>
-<p>快速选中一行：<code>Ctrl + L</code></p>
-<p>向下选中多行：继续按<code>Ctrl + L</code></p>
-<p>选中多行：光标移动到行首，然后<code>Shift + 上下</code></p>
-<p>光标移动到行首：<code>Fn + 左</code></p>
-<p>从光标处选中到行首：<code>Shift + Fn + 左</code></p>
-<p>按单词移动光标：<code>Ctrl + 左右</code></p>
-<p>滚动屏幕，光标处于原位置：<code>Ctrl + 上下</code></p>
-<h2 id="编辑">编辑</h2>
-<p>格式化文档：<code>Shift + ALt + F</code></p>
-<p>注释/取消注释：<code>Ctrl + /</code></p>
-<p>快速复制一行：<code>Shift + Alt + 上下</code></p>
-<p>移动行：<code>Alt + 上下</code></p>
-<p>按行号跳转：<code>Ctrl + G</code></p>
-<p>快速删除一行：<code>Ctrl + Shift + K</code></p>
-<p>删除一行并保留空行：<code>Fn + 右, Shift + Fn + 左 , Backspace</code></p>
-<h2 id="查找替换">查找替换</h2>
-<p>查找框：<code>Ctrl + F</code></p>
-<p>查找框上的按钮：</p>
-<ul>
-<li><p>区分大小写：<code>Alt + C</code></p></li>
-<li><p>全字匹配：<code>Alt + W</code></p></li>
-<li><p>正则表达式：<code>Alt + R</code></p></li>
-<li><p>下一个：<code>Enter</code></p></li>
-<li><p>上一个：<code>Shift + Enter</code></p></li>
-<li><p>在选定内容中查找：<code>Alt + L</code></p></li>
-</ul>
-<p>替换框：<code>Ctrl + H</code></p>
-<p>替换框上的按钮：</p>
-<ul>
-<li><p>替换：<code>Enter</code></p></li>
-<li><p>全部替换：<code>Shift + Enter</code></p></li>
-</ul>
-<p>关闭查找替换框：<code>Esc</code></p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>在Windows中安装Linux虚拟机</title>
-    <url>/blog/2023/%E5%9C%A8Windows%E4%B8%AD%E8%BF%90%E8%A1%8CLinux%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
-    <content><![CDATA[<ul>
-<li>真机系统：Windows 10</li>
-<li>使用软件：VMware Workstation 17.0.2 Player</li>
-<li>虚拟机系统：Ubuntu 22.04.3 server</li>
-</ul>
-<span id="more"></span>
-<p>也可以给硬盘分一个新的区，单独安装 Linux。不过没有必要。</p>
-<h2 id="下载安装-vmware-workstation-player">下载安装 VMware Workstation
-Player</h2>
-<blockquote>
-<p>使用 VMware Workstation Player 在 Windows 或 Linux PC
-上轻松地将多个操作系统作为虚拟机运行。——网站介绍</p>
-</blockquote>
-<p><a
-href="https://customerconnect.vmware.com/cn/downloads/info/slug/desktop_end_user_computing/vmware_workstation_player/">下载页面</a></p>
-<p>这里下载的是当前最新版
-<code>VMware Workstation 17.0.2 Player for Windows 64-bit Operating Systems</code>。</p>
-<p>安装过程略（“增强型键盘驱动程序”不知道有什么用，先勾上）。</p>
-<h2 id="下载-ubuntu-镜像">下载 Ubuntu 镜像</h2>
-<p>是一种 Linux 发行版操作系统。</p>
-<p><a
-href="https://launchpad.net/ubuntu/+cdmirrors">下载页面（仓库集合）</a>，找到
-China。</p>
-<p>这里下载的是<code>ubuntu-22.04.3-live-server-amd64.iso</code>。</p>
-<h2 id="在-vm-player-中新建虚拟机">在 VM Player 中新建虚拟机</h2>
-<ol type="1">
-<li><code>创建新虚拟机(N)</code></li>
-<li><code>安装程序光盘文件(iso)(M)</code></li>
-<li><code>浏览(R)</code>，选择下载的镜像文件，下一步。</li>
-<li>设置虚拟机名称和位置，下一步。（我这里设置的是<code>Ubuntu100</code>和<code>D:\VMachines\Ubuntu100</code>）</li>
-<li>指定磁盘容量，下一步。</li>
-<li>自定义硬件（我这里把 CPU 改成了 4 核）。完成。</li>
-</ol>
-<p>你会看到：</p>
-<p><img src="/blog/images/vm.png"></p>
-<p>按回车开始安装 Ubuntu。</p>
-<h2 id="安装-ubuntu">安装 Ubuntu</h2>
-<ol type="1">
-<li><p>语言选择，默认回车。</p></li>
-<li><p>键盘布局选择，默认回车。</p></li>
-<li><p>安装类型，默认回车。</p></li>
-<li><p>网络，默认回车。</p></li>
-<li><p>代理，默认回车。</p></li>
-<li><p>配置镜像源，如果网络不好，改成</p>
-<ul>
-<li><p>清华源：<code>https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</code></p></li>
-<li><p>南京源：<code>https://mirror.nju.edu.cn/ubuntu/</code></p></li>
-<li><p>北邮源：<code>https://mirrors.bupt.edu.cn/ubuntu/</code></p>
-<p>等均可。</p></li>
-</ul></li>
-<li><p>配置存储布局，默认选择<code>Done</code>，回车。</p></li>
-<li><p>文件系统，<code>Done</code>，<code>Continue</code>。</p></li>
-<li><p>设置用户名密码等。</p></li>
-<li><p>是否升级到 Pro 版，默认不升级，<code>Continue</code>。</p></li>
-<li><p>是否安装 OpenSSH server，先不安装。</p></li>
-<li><p>是否安装其他东西，先都不选。</p></li>
-<li><p>等待安装系统。</p></li>
-<li><p>安装完成后，点击 VM Player
-下方的“我已完成安装”，然后<code>Reboot Now</code>。</p></li>
-</ol>
-<p>输入用户名和密码登录 Ubuntu。注意输入密码默认是不回显的。</p>
-<h2 id="设置虚拟机与真机的共享文件夹">设置虚拟机与真机的共享文件夹</h2>
-<p>VM
-的虚拟磁盘文件不好直接打开。有时候需要在虚拟机和真机之间互传文件，可以通过共享文件夹。</p>
-<p>在 VM Player 里打开虚拟机设置-&gt;选项-&gt;共享文件夹。</p>
-<p>我这里设置在<code>D:\VMachines\Shared</code>。</p>
-<p>在虚拟机里的位置是<code>/mnt/hgfs/Shared</code>。</p>
-]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
   </entry>
   <entry>
     <title>十进制与K进制小数互转</title>
@@ -1284,105 +1166,185 @@ _{16}\)</span></p>
 </tbody>
 </table>
 ]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
   </entry>
   <entry>
-    <title>普通十进制数转单精度浮点数</title>
-    <url>/blog/2023/%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0/</url>
+    <title>《草蛇惊一》歌词解读</title>
+    <url>/blog/2023/%E3%80%8A%E8%8D%89%E8%9B%87%E6%83%8A%E4%B8%80%E3%80%8B%E6%AD%8C%E8%AF%8D%E8%A7%A3%E8%AF%BB/</url>
+    <content><![CDATA[<p>《草蛇惊一》收录于初音未来 V4C 专辑《初梦》，作词是<a
+href="https://space.bilibili.com/396967">麦当叔劳劳</a>。</p>
+<span id="more"></span>
+<p><a href="https://www.bilibili.com/video/BV1Px41177ht/">去 B
+站观看</a> | 在线听：</p>
+<iframe frameborder="no" width="100%" height="86" src="//music.163.com/outchain/player?type=2&amp;id=515455714&amp;auto=1&amp;height=66">
+</iframe>
+<p>这种歌词应该属于“意识流”。解读需要把自己代入主人公的视角。一千个读者心中有一千个哈姆雷特，我认为歌词写的是主人公内心的矛盾。</p>
+<p>歌词结构：</p>
+<p>主歌一-&gt;主歌二-&gt;导歌-&gt;副歌-&gt;</p>
+<p>主歌二-&gt;导歌-&gt;副歌-&gt;</p>
+<p>改词的副歌-&gt;副歌-&gt;重复副歌最后一句</p>
+<h2 id="歌名">歌名</h2>
+<p>很容易从歌名联想到“打草惊蛇”。</p>
+<p>我认为“草蛇惊一”的“一”是指打草的人。</p>
+<p>在这里，草、蛇和打草的人都是主人公自己——主人公自己惊动了自己。</p>
+<h2 id="主歌一">主歌一</h2>
+<blockquote>
+<p><em>羡慕风车 不必去四海漂泊 只要能在原地旋转便能体会风的快乐</em></p>
+</blockquote>
+<p>第一句最重要，是起因。</p>
+<p>主人公的内心独白。我们把主人公此时的视角记作“视角 A”。</p>
+<p>“风车”有三层意思：</p>
+<ol type="1">
+<li>指被“风”驱动的人或物。</li>
+<li>指《堂吉诃德》里的风车所指，即假想敌。</li>
+<li>指主人公自己。</li>
+</ol>
+<p>至于“风”这个意象（能指），可以结合以下几首歌理解：</p>
+<p>（原谅我开始报菜名，因为我还没法做到既简单、又准确的描述）</p>
+<blockquote>
+<ul>
+<li><p><del>庄子《逍遥游》：<em>“生物之以息相吹也”</em></del></p></li>
+<li><p>崔健《酷瓜树》</p></li>
+<li><p>草东没有派对《大风吹》</p></li>
+<li><p>唐朝《时间》</p></li>
+<li><p>ilem《风兮风兮》、《白鸟过河滩》、《斩草歌》、《石头歌》、《我没有歌能给你听》、《四风判词》</p></li>
+</ul>
+</blockquote>
+<p>“原地旋转”就是不作出改变，变成石头，最后变成流浪的风。</p>
+<blockquote>
+<p><em>及时行乐 外婆的故事里说因果报应乃白日见鬼</em></p>
+</blockquote>
+<p>视角 A 想要把自己的人生观向“风车”靠拢。</p>
+<blockquote>
+<p><em>转折 没曾想单木不林一丝不线如我 孤单的说书者也能偷乐</em></p>
+</blockquote>
+<p>主人公突然转换为上帝视角，把自己代入说书者。这样就像看电影一样，不用再担心各种现实问题了。</p>
+<blockquote>
+<p><em>相濡以沫不如相忘于江湖 外公总说这是他孤单的借口</em></p>
+</blockquote>
+<p>进一步妄想自己是“相忘于江湖”的鱼，逃避现实。</p>
+<h2 id="主歌二">主歌二</h2>
+<blockquote>
+<p><em>放轻松 压力别弄得太大 飘飘欲仙欲死不知是不是自己的风格</em></p>
+</blockquote>
+<p>主人公认为自己逃避现实是不对的，此时视角转换回了视角 A。</p>
+<p>前半部分是视角 A 对自己说的，后半部分是视角 A 对说书者说的。</p>
+<blockquote>
+<p><em>一语道破 下手斩草除根哭吧哭吧 无聊卑微笑话</em></p>
+</blockquote>
+<p>视角
+A“一语道破”了说书者的伪装，并否定掉了风车的人生观。认为有这种想法的自己是“无聊卑微笑话”。</p>
+<blockquote>
+<p><em>音色也在不知不觉中变得低沉 就像患了名为暴躁的病一样</em></p>
+</blockquote>
+<p>主人公在否定自己之后，风车的一面并没有消失，而是在反噬视角 A。</p>
+<blockquote>
+<p><em>快停止吧 那张顽固蠢蛋的终身证明我不想再去想念</em></p>
+</blockquote>
+<p>风车和视角 A
+在脑海里互相争斗。主人公希望自己不要再胡思乱想了，给自己开了“顽固蠢蛋的终身证明”。</p>
+<h2 id="导歌">导歌</h2>
+<blockquote>
+<p><em>一不做二不休自在风流 乐不思蜀子龙我就不走</em></p>
+</blockquote>
+<p>对于一件事，我要么不做，要么就做到最好，我觉得这样太酷啦；</p>
+<p>赵云救了刘禅最终导致乐不思蜀，这让我怎么做接下来每一步的决定呢？干脆不做了。</p>
+<blockquote>
+<p><em>过五关杀六将公子献头 金蝉脱壳孙老头八十二变我有</em></p>
+</blockquote>
+<p>主人公一会儿代入关羽，一会儿代入荆轲/太子丹。并预想了像他们一样做事之后的结果。</p>
+<p>“金蝉脱壳”指主人公抽离自己为说书者。</p>
+<p>“孙老头八十二变”指思想转换的复杂性。</p>
+<blockquote>
+<p><em>百闻不如一见来翻筋斗 福星高照五湖四海都随我漫步遨游
+山雨欲来风满楼</em></p>
+</blockquote>
+<p>终于要作决定了！但是在做出决定之前的继续妄想，构成了主人公脑海里的狂风。</p>
+<h2 id="副歌">副歌</h2>
+<blockquote>
+<p><em>再见吧 提线的傀儡师 耻笑咚咚跳的心脏和那不实际的憧憬</em></p>
+</blockquote>
+<p>傀儡是身体，傀儡师是幻想。主人公向对自己造成心惊肉跳的幻想作别。</p>
+<blockquote>
+<p><em>玩笑吧 我不想听假话 暴露皆大欢喜不攻自破不成熟的笑话</em></p>
+</blockquote>
+<p>主人公给自己的 EQ 开了低通滤波。</p>
+<blockquote>
+<p><em>怠慢吗 或许只是懈怠吧 嘁嘁咔咔咚咚咭咭再也不想它</em></p>
+</blockquote>
+<p>主人公认为，这都是由自己的“怠慢”或者“懈怠”造成的。在又一番思想斗争之后停止了思考。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>在Windows中安装Linux虚拟机</title>
+    <url>/blog/2023/%E5%9C%A8Windows%E4%B8%AD%E8%BF%90%E8%A1%8CLinux%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
     <content><![CDATA[<ul>
-<li>在 IEEE 754 标准下</li>
+<li>真机系统：Windows 10</li>
+<li>使用软件：VMware Workstation 17.0.2 Player</li>
+<li>虚拟机系统：Ubuntu 22.04.3 server</li>
 </ul>
 <span id="more"></span>
-<p>单精度浮点数，即 32 位二进制浮点数，包含：</p>
-<p>一位符号位 + 八位指数位 + 二十三位尾数位</p>
-<h2 id="例一">例一</h2>
-<p>以 <span class="math inline">\(0.1_{10}\)</span> 为例：</p>
-<ol type="1">
-<li><p>把十进制转换为二进制</p>
-<p><span class="math inline">\(0.1 _{10} = 0.0\dot{0}01\dot{1}...
-_{2}\)</span></p></li>
-<li><p>用以 <span class="math inline">\(2_{10}\)</span>
-为基数的科学计数法表示，并保证【尾数的小数点前是 <span
-class="math inline">\(1_{2}\)</span>】</p>
-<p><span class="math inline">\(= 1.\dot{1}00\dot{1}..._{2} \times
-(2^{-4})_{10}\)</span></p>
-<p>可以看到指数是 <span class="math inline">\(-4_{10}\)</span></p></li>
-<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
-class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
-<p>这里 <span class="math inline">\(e\)</span>
-等于【用于表示指数位的位数】 <span
-class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
-class="math inline">\(127_{10}\)</span></p>
-<p>则阶码为 <span class="math inline">\(-4_{10} + 127_{10} =
-123_{10}\)</span></p>
-<p>阶码的二进制为 <code>0111 1011</code>，注意
-<em>阶码始终为无符号整数</em></p></li>
-<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是无限的，所以要舍去一部分</p>
-<p>它的前二十位是：<code>1001 1001 1001 1001 1001</code></p>
-<p>二十一至二十八位是：<code>1001 1001</code></p>
-<p>所以二十一至二十三位，要么取 <code>100</code>，要么取
-<code>101</code>。</p>
-<p>通常是舍入到最接近的，一样接近则偶数（末尾为
-<code>0</code>）优先，这里 <code>101</code> 更接近。</p></li>
-<li><p>把符号位连同阶码、尾数位缝合起来</p>
-<p><code>0 | 0111 1011 | 1001 1001 1001 1001 1001 101</code></p></li>
-</ol>
-<h2 id="例二">例二</h2>
-<p>以 <span class="math inline">\(12_{10} = 1.5_{10} \times
-(2^{3})_{10}\)</span> 为例，和上面的步骤一样：</p>
-<ol type="1">
-<li><p>把十进制转换为二进制</p>
-<p><span class="math inline">\(12 _{10} = 1100 _{2}\)</span></p></li>
-<li><p>用以 <span class="math inline">\(2\)</span>
-为基数的科学计数法表示，并保证【尾数的小数点前是 <span
-class="math inline">\(1\)</span>】</p>
-<p><span class="math inline">\(= 1.1_{2} \times (2^3)_{10}\)</span></p>
-<p>可以看到指数是 <span class="math inline">\(3_{10}\)</span></p></li>
-<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
-class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
-<p>这里 <span class="math inline">\(e\)</span>
-等于【用于表示指数位的位数】 <span
-class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
-class="math inline">\(127_{10}\)</span></p>
-<p>则阶码为 <span class="math inline">\(3_{10} + 127_{10} =
-130_{10}\)</span></p>
-<p>阶码的二进制为 <code>1000 0010</code>，注意
-<em>阶码始终为无符号整数</em></p></li>
-<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是有限的，所以后面直接补零</p>
-<p>小数点后二十三位是：<code>1000 0000 0000 0000 000</code></p></li>
-<li><p>把符号位连同阶码、尾数位缝合起来</p>
-<p><code>0 | 1000 0010 | 1000 0000 0000 0000 000</code></p></li>
-</ol>
-<h2 id="特殊情况">特殊情况</h2>
+<p>也可以给硬盘分一个新的区，单独安装 Linux。不过没有必要。</p>
+<h2 id="下载安装-vmware-workstation-player">下载安装 VMware Workstation
+Player</h2>
+<blockquote>
+<p>使用 VMware Workstation Player 在 Windows 或 Linux PC
+上轻松地将多个操作系统作为虚拟机运行。——网站介绍</p>
+</blockquote>
 <p><a
-href="/blog/2023/单精度浮点数的五种形式/">单精度浮点数的五种形式</a></p>
-<p>对呀对呀……单精度浮点数有五种形式，你知道么？</p>
-<h2 id="如何验证">如何验证</h2>
+href="https://customerconnect.vmware.com/cn/downloads/info/slug/desktop_end_user_computing/vmware_workstation_player/">下载页面</a></p>
+<p>这里下载的是当前最新版
+<code>VMware Workstation 17.0.2 Player for Windows 64-bit Operating Systems</code>。</p>
+<p>安装过程略（“增强型键盘驱动程序”不知道有什么用，先勾上）。</p>
+<h2 id="下载-ubuntu-镜像">下载 Ubuntu 镜像</h2>
+<p>是一种 Linux 发行版操作系统。</p>
+<p><a
+href="https://launchpad.net/ubuntu/+cdmirrors">下载页面（仓库集合）</a>，找到
+China。</p>
+<p>这里下载的是<code>ubuntu-22.04.3-live-server-amd64.iso</code>。</p>
+<h2 id="在-vm-player-中新建虚拟机">在 VM Player 中新建虚拟机</h2>
+<ol type="1">
+<li><code>创建新虚拟机(N)</code></li>
+<li><code>安装程序光盘文件(iso)(M)</code></li>
+<li><code>浏览(R)</code>，选择下载的镜像文件，下一步。</li>
+<li>设置虚拟机名称和位置，下一步。（我这里设置的是<code>Ubuntu100</code>和<code>D:\VMachines\Ubuntu100</code>）</li>
+<li>指定磁盘容量，下一步。</li>
+<li>自定义硬件（我这里把 CPU 改成了 4 核）。完成。</li>
+</ol>
+<p>你会看到：</p>
+<p><img src="/blog/images/vm.png"></p>
+<p>按回车开始安装 Ubuntu。</p>
+<h2 id="安装-ubuntu">安装 Ubuntu</h2>
+<ol type="1">
+<li><p>语言选择，默认回车。</p></li>
+<li><p>键盘布局选择，默认回车。</p></li>
+<li><p>安装类型，默认回车。</p></li>
+<li><p>网络，默认回车。</p></li>
+<li><p>代理，默认回车。</p></li>
+<li><p>配置镜像源，如果网络不好，改成</p>
 <ul>
-<li><p><a
-href="https://baseconvert.com/ieee-754-floating-point">在线转换</a></p></li>
-<li><p><a href="/blog/2023/用GDB查看变量内存/">用 GDB
-查看变量内存</a></p></li>
-<li><p><a href="https://en.wikipedia.org/wiki/IEEE_754">Wikipedia</a> |
-<a href="https://zh.wikipedia.org/wiki/IEEE_754">维基百科</a></p></li>
-<li><p>获取国际标准文件</p>
-<p>IEEE 754 标准是电气与电子工程师协会（Institute of Electrical and
-Electronics Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <a
-href="https://standards.ieee.org/ieee/754/6210/">IEEE
-754-2019</a>，对应国际标准 <a
-href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/standard/08/09/80985.html">ISO/IEC
-60559:2020</a>，预计下一次在 2028 年修订。 http://snti.ru/
-这个网站分享了各种国际标准文件的磁力链接，但是可以免费下载的不全，IEC
-的只有 61xxx。据说可以给站长发邮件要
-<code>popov_al@perm.ru</code>，每个文件一刀乐。在 ISO 官网上下载需要 187
-瑞士法郎，合 1000 多人民币。</p></li>
-</ul>
+<li><p>清华源：<code>https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</code></p></li>
+<li><p>南京源：<code>https://mirror.nju.edu.cn/ubuntu/</code></p></li>
+<li><p>北邮源：<code>https://mirrors.bupt.edu.cn/ubuntu/</code></p>
+<p>等均可。</p></li>
+</ul></li>
+<li><p>配置存储布局，默认选择<code>Done</code>，回车。</p></li>
+<li><p>文件系统，<code>Done</code>，<code>Continue</code>。</p></li>
+<li><p>设置用户名密码等。</p></li>
+<li><p>是否升级到 Pro 版，默认不升级，<code>Continue</code>。</p></li>
+<li><p>是否安装 OpenSSH server，先不安装。</p></li>
+<li><p>是否安装其他东西，先都不选。</p></li>
+<li><p>等待安装系统。</p></li>
+<li><p>安装完成后，点击 VM Player
+下方的“我已完成安装”，然后<code>Reboot Now</code>。</p></li>
+</ol>
+<p>输入用户名和密码登录 Ubuntu。注意输入密码默认是不回显的。</p>
+<h2 id="设置虚拟机与真机的共享文件夹">设置虚拟机与真机的共享文件夹</h2>
+<p>VM
+的虚拟磁盘文件不好直接打开。有时候需要在虚拟机和真机之间互传文件，可以通过共享文件夹。</p>
+<p>在 VM Player 里打开虚拟机设置-&gt;选项-&gt;共享文件夹。</p>
+<p>我这里设置在<code>D:\VMachines\Shared</code>。</p>
+<p>在虚拟机里的位置是<code>/mnt/hgfs/Shared</code>。</p>
 ]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
   </entry>
   <entry>
     <title>在手机上搭建Web服务器</title>
@@ -1595,9 +1557,99 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </aside>
 ]]></content>
-      <categories>
-        <category>教程</category>
-      </categories>
+  </entry>
+  <entry>
+    <title>普通十进制数转单精度浮点数</title>
+    <url>/blog/2023/%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0/</url>
+    <content><![CDATA[<ul>
+<li>在 IEEE 754 标准下</li>
+</ul>
+<span id="more"></span>
+<p>单精度浮点数，即 32 位二进制浮点数，包含：</p>
+<p>一位符号位 + 八位指数位 + 二十三位尾数位</p>
+<h2 id="例一">例一</h2>
+<p>以 <span class="math inline">\(0.1_{10}\)</span> 为例：</p>
+<ol type="1">
+<li><p>把十进制转换为二进制</p>
+<p><span class="math inline">\(0.1 _{10} = 0.0\dot{0}01\dot{1}...
+_{2}\)</span></p></li>
+<li><p>用以 <span class="math inline">\(2_{10}\)</span>
+为基数的科学计数法表示，并保证【尾数的小数点前是 <span
+class="math inline">\(1_{2}\)</span>】</p>
+<p><span class="math inline">\(= 1.\dot{1}00\dot{1}..._{2} \times
+(2^{-4})_{10}\)</span></p>
+<p>可以看到指数是 <span class="math inline">\(-4_{10}\)</span></p></li>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
+class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<p>这里 <span class="math inline">\(e\)</span>
+等于【用于表示指数位的位数】 <span
+class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
+class="math inline">\(127_{10}\)</span></p>
+<p>则阶码为 <span class="math inline">\(-4_{10} + 127_{10} =
+123_{10}\)</span></p>
+<p>阶码的二进制为 <code>0111 1011</code>，注意
+<em>阶码始终为无符号整数</em></p></li>
+<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是无限的，所以要舍去一部分</p>
+<p>它的前二十位是：<code>1001 1001 1001 1001 1001</code></p>
+<p>二十一至二十八位是：<code>1001 1001</code></p>
+<p>所以二十一至二十三位，要么取 <code>100</code>，要么取
+<code>101</code>。</p>
+<p>通常是舍入到最接近的，一样接近则偶数（末尾为
+<code>0</code>）优先，这里 <code>101</code> 更接近。</p></li>
+<li><p>把符号位连同阶码、尾数位缝合起来</p>
+<p><code>0 | 0111 1011 | 1001 1001 1001 1001 1001 101</code></p></li>
+</ol>
+<h2 id="例二">例二</h2>
+<p>以 <span class="math inline">\(12_{10} = 1.5_{10} \times
+(2^{3})_{10}\)</span> 为例，和上面的步骤一样：</p>
+<ol type="1">
+<li><p>把十进制转换为二进制</p>
+<p><span class="math inline">\(12 _{10} = 1100 _{2}\)</span></p></li>
+<li><p>用以 <span class="math inline">\(2\)</span>
+为基数的科学计数法表示，并保证【尾数的小数点前是 <span
+class="math inline">\(1\)</span>】</p>
+<p><span class="math inline">\(= 1.1_{2} \times (2^3)_{10}\)</span></p>
+<p>可以看到指数是 <span class="math inline">\(3_{10}\)</span></p></li>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
+class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<p>这里 <span class="math inline">\(e\)</span>
+等于【用于表示指数位的位数】 <span
+class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
+class="math inline">\(127_{10}\)</span></p>
+<p>则阶码为 <span class="math inline">\(3_{10} + 127_{10} =
+130_{10}\)</span></p>
+<p>阶码的二进制为 <code>1000 0010</code>，注意
+<em>阶码始终为无符号整数</em></p></li>
+<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是有限的，所以后面直接补零</p>
+<p>小数点后二十三位是：<code>1000 0000 0000 0000 000</code></p></li>
+<li><p>把符号位连同阶码、尾数位缝合起来</p>
+<p><code>0 | 1000 0010 | 1000 0000 0000 0000 000</code></p></li>
+</ol>
+<h2 id="特殊情况">特殊情况</h2>
+<p><a
+href="/blog/2023/单精度浮点数的五种形式/">单精度浮点数的五种形式</a></p>
+<p>对呀对呀……单精度浮点数有五种形式，你知道么？</p>
+<h2 id="如何验证">如何验证</h2>
+<ul>
+<li><p><a
+href="https://baseconvert.com/ieee-754-floating-point">在线转换</a></p></li>
+<li><p><a href="/blog/2023/用GDB查看变量内存/">用 GDB
+查看变量内存</a></p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/IEEE_754">Wikipedia</a> |
+<a href="https://zh.wikipedia.org/wiki/IEEE_754">维基百科</a></p></li>
+<li><p>获取国际标准文件</p>
+<p>IEEE 754 标准是电气与电子工程师协会（Institute of Electrical and
+Electronics Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <a
+href="https://standards.ieee.org/ieee/754/6210/">IEEE
+754-2019</a>，对应国际标准 <a
+href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/standard/08/09/80985.html">ISO/IEC
+60559:2020</a>，预计下一次在 2028 年修订。 http://snti.ru/
+这个网站分享了各种国际标准文件的磁力链接，但是可以免费下载的不全，IEC
+的只有 61xxx。据说可以给站长发邮件要
+<code>popov_al@perm.ru</code>，每个文件一刀乐。在 ISO 官网上下载需要 187
+瑞士法郎，合 1000 多人民币。</p></li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>用GDB查看变量内存</title>
@@ -1640,281 +1692,6 @@ IEEE 754 浮点数的相互转换。</p>
 <p>输出四个字节，结果：</p>
 <p><code>0x61fe1c: 00111111110110011001100110011010</code></p>
 ]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>概率统计中几个容易混淆的概念</title>
-    <url>/blog/2023/%E6%A6%82%E7%8E%87%E7%BB%9F%E8%AE%A1%E4%B8%AD%E5%87%A0%E4%B8%AA%E5%AE%B9%E6%98%93%E6%B7%B7%E6%B7%86%E7%9A%84%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<p><span class="math inline">\(\alpha\)</span>分位点、置信度<span
-class="math inline">\(1-\alpha\)</span>、显著性水平<span
-class="math inline">\(\alpha\)</span>、区间估计的准确度与精确度、置信区间与假设检验的关系。</p>
-<span id="more"></span>
-<h2 id="alpha分位点"><span
-class="math inline">\(\alpha\)</span>分位点</h2>
-<p>简单地说，上<span class="math inline">\(\alpha\)</span>分位点<a
-href="#fn1" class="footnote-ref" id="fnref1"
-role="doc-noteref"><sup>1</sup></a>把随机变量的取值区间分成了两部分，随机变量取值落在右边的概率为<span
-class="math inline">\(\alpha\)</span>。</p>
-<p>即<span
-class="math inline">\(P\{X&gt;上\alpha分位点\}=\alpha\)</span></p>
-<p>从图像上看，比如：</p>
-<p><img src="/blog/images/alpha-point.webp"></p>
-<p>标准正态分布<span class="math inline">\(Z\sim
-N(0,1)\)</span>的概率密度函数，它的函数图像上<span
-class="math inline">\(\alpha\)</span>分位点(记作<span
-class="math inline">\(z_\alpha\)</span>)以右与<span
-class="math inline">\(x\)</span>轴围成的面积为<span
-class="math inline">\(\alpha\)</span>。</p>
-<p>相应地，下<span
-class="math inline">\(\alpha\)</span>分位点把随机变量的取值区间分成了两部分，随机变量取值落在左边的概率为<span
-class="math inline">\(\alpha\)</span>。</p>
-<h2 id="置信度1-alpha">置信度<span
-class="math inline">\(1-\alpha\)</span></h2>
-<p><strong>参数估计</strong></p>
-<p>总体的分布函数中有参数<span
-class="math inline">\(\theta\)</span>未知。抽样，用样本估计参数<span
-class="math inline">\(\theta\)</span>。</p>
-<p>例如总体<span class="math inline">\(X\)</span>服从参数为<span
-class="math inline">\(\theta\)</span>的指数分布，要估计<span
-class="math inline">\(\theta\)</span></p>
-<p><span
-class="math inline">\(\theta\)</span>正好是总体均值，可以用样本均值估计总体均值。</p>
-<p>抽三个样本<span
-class="math inline">\(X_1,X_2,X_3\)</span>，样本均值<span
-class="math inline">\(\bar{X}=\dfrac{X_1+X_2+X_3}{3}\)</span></p>
-<p><span class="math inline">\(\theta\)</span>的估计量<span
-class="math inline">\(\hat\theta=\dfrac{X_1+X_2+X_3}{3}\)</span></p>
-<p><strong>区间估计</strong></p>
-<p>总体的分布函数中有参数<span
-class="math inline">\(\theta\)</span>未知。抽样，用样本估计参数<span
-class="math inline">\(\theta\)</span>的<em>一个范围</em>。</p>
-<p>这个范围<em>是一个随机区间</em>。</p>
-<p>当这个随机区间包含<span
-class="math inline">\(\theta\)</span>真值的概率大于等于<span
-class="math inline">\(1-\alpha\)</span>时，这个区间是<span
-class="math inline">\(\theta\)</span>的置信度为<span
-class="math inline">\(1-\alpha\)</span>的置信区间。</p>
-<blockquote>
-<p>样本数目不变的情况下，做一百次试验，有95个置信区间包含了总体真值。置信度为95%<a
-href="#fn2" class="footnote-ref" id="fnref2"
-role="doc-noteref"><sup>2</sup></a></p>
-</blockquote>
-<h2
-id="区间估计的准确度可靠性与精确度">区间估计的准确度（可靠性）与精确度</h2>
-<p>置信度越大，置信区间越可靠，估计准确度越高。<a href="#fn3"
-class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
-<p>置信区间越短，估计精确度越高。</p>
-<h2 id="显著性水平alpha">显著性水平<span
-class="math inline">\(\alpha\)</span></h2>
-<p><strong>假设检验</strong></p>
-<p>总体的分布函数未知或有参数未知。做假设、抽样，用样本判断是否接收假设。</p>
-<p>例如正态总体<span
-class="math inline">\(N(\mu,\sigma^2)\)</span>，<span
-class="math inline">\(\mu\)</span>未知。做假设：</p>
-<p><span class="math inline">\(H_0:\mu=\mu_0\)</span> <span
-class="math inline">\(H_1:\mu\not=\mu_0\)</span></p>
-<p><span
-class="math inline">\(P\{拒绝H_0|H_0为真\}\le\alpha\)</span></p>
-<p><span class="math inline">\(\alpha\)</span>即为显著性水平。</p>
-<h2 id="置信区间与假设检验的关系">置信区间与假设检验的关系</h2>
-<p>（显著性水平为<span
-class="math inline">\(\alpha\)</span>的双边/单边假设检验问题的）<strong>接受域</strong></p>
-<p>就是（参数的置信度为<span
-class="math inline">\(1-\alpha\)</span>的双侧/单侧）<strong>置信区间</strong>。</p>
-<aside id="footnotes" class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1"><p><a
-href="https://www.zhihu.com/question/22420473/answer/1601002988">概率论分位点的含义？
-- 知乎用户的回答 - 知乎</a><a href="#fnref1" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p><a
-href="https://www.zhihu.com/question/20183513/answer/15023786">如何理解置信度？
-- 邹日佳的回答 - 知乎</a><a href="#fnref2" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p><a
-href="https://www.zhihu.com/question/42770047/answer/149729398">置信区间的准确度和精确度如何确定以及它们之间的联系？
-- 知乎</a><a href="#fnref3" class="footnote-back"
-role="doc-backlink">↩︎</a></p></li>
-</ol>
-</aside>
-]]></content>
-      <categories>
-        <category>概念</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>用browser-sync实现在文件内容改变后立即刷新页面</title>
-    <url>/blog/2023/%E7%94%A8browser-sync%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
-    <content><![CDATA[<p>起因是：</p>
-<p>不管是直接打开 html
-文件，还是用<code>python -m http.server 8000 --bind 127.0.0.1</code>，在修改保存
-html 文件后浏览器都不能立马刷新。</p>
-<span id="more"></span>
-<ol type="1">
-<li><p>安装</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install browser-sync</span><br></pre></td></tr></table></figure>
-<p>安装到想作为服务器根目录的文件夹。以前觉得全局安装好，现在暂时觉得本地安装好。（据说用
-Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p></li>
-<li><p>运行</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npx browser-sync start --server --files <span class="string">&quot;.&quot;</span></span><br></pre></td></tr></table></figure>
-<p><code>--files</code> 后指定要监视的文件。</p>
-<p><code>.</code> 表示监视当前目录以及子目录下的所有文件。</p>
-<p>可以改成 <code>*.html</code>，<code>public/*.*</code> 等。</p></li>
-</ol>
-<p>html
-文件里至少得有一对<code>&lt;body&gt;</code>标签，要么没法自动刷新。</p>
-<p>在没有修改文件内容，只 <code>Ctrl + S</code>
-保存时也会刷新，在命令行会输出
-<code>File event [change]</code>，只不过看不出来。</p>
-<p>好像和直接通过浏览器来刷新不一样，因为我在选项卡上没看到加载动画。</p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>踩坑记录（1）</title>
-    <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%881%EF%BC%89/</url>
-    <content><![CDATA[<p>做数据库课设时，我试图修改一个外键的删除规则和更新规则为<code>CASCADE</code>。</p>
-<p>SQL语句执行成功了，然而刷新后它的规则又都变回了<code>RESTRICT</code>。
-<span id="more"></span></p>
-<p>我使用的是 MySQL + DBeaver。</p>
-<p>建立外键时，选择的删除规则和更新规则是无动作（默认）。</p>
-<p>建立后，MySQL把它们设为了<code>RESTRICT</code>。</p>
-<p>由于一些麻烦的原因，我想把它们改成<code>CASCADE</code>，于是出现了上面的情况。</p>
-<p>DBeaver给出的SQL语句是把外键删了重建： <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dbkeshe.student <span class="keyword">DROP</span> <span class="keyword">FOREIGN</span> KEY student_FK;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> dbkeshe.student <span class="keyword">ADD</span> <span class="keyword">CONSTRAINT</span> student_FK <span class="keyword">FOREIGN</span> KEY (CLASS_NO) <span class="keyword">REFERENCES</span> dbkeshe.class(CLASS_NO) <span class="keyword">ON</span> <span class="keyword">DELETE</span> CASCADE <span class="keyword">ON</span> <span class="keyword">UPDATE</span> CASCADE;</span><br></pre></td></tr></table></figure>
-准确说不是刷新后变回，在当前的外键窗口刷新是不变的，关闭窗口后重新打开就变了。我以为是DBeaver的问题，又在命令行里执行了一遍，还是会变回<code>RESTRICT</code>。关键是MySQL还没报错。</p>
-<p>网上搜了一下，没有找到类似的情况发生过。</p>
-<p>我又尝试把所有的外键约束删了，然后再重建，还是不行。把所有的外键约束和索引删了，然后再重建，还是不行。到最后还是没有找到原因。</p>
-<p>我把旧数据库dump出来的sql文件外键约束后面全部加上<code>ON DELETE CASCADE ON UPDATE CASCADE</code>，再用sql文件重建一个数据库，这回成功了。然后...我数天后打开它又变回去了？？？并且重建后还是会变回去。</p>
-<p>除了手动重建数据库，最后有一个不得已而为之的方法：要想实现级联更新，暂时关闭外键约束</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span> foreign_key_checks <span class="operator">=</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-<p>然后把要级联更新的所有表都手动更新一遍，再打开约束...</p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>第一篇文章</title>
-    <url>/blog/2023/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<p>这是第一篇文章</p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>让博客commit前的工作更简单</title>
-    <url>/blog/2023/%E8%AE%A9%E5%8D%9A%E5%AE%A2commit%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9B%B4%E7%AE%80%E5%8D%95/</url>
-    <content><![CDATA[<p>起因是，我是把博客代码分两个仓库存的。需要做很多重复的工作。</p>
-<p>于是我写了两个 bat 文件。</p>
-<span id="more"></span>
-<p>起因是，我是把博客代码分两个仓库存的：</p>
-<ul>
-<li><p><code>blog-source</code>存 Hexo 框架源码，NexT
-主题源码和自己的部分（更改后的配置文件、md 文档、图片等）</p></li>
-<li><p><code>blog</code>存渲染之后的网页，分支是<code>gh-pages</code></p></li>
-</ul>
-<p>这就造成在 commit 前，我需要做以下工作：</p>
-<ol type="1">
-<li><p>在<code>blog-source</code>文件夹里先打开本地预览服务器。</p></li>
-<li><p>点击链接，在浏览器里打开。</p></li>
-<li><p>预览没问题，渲染网页。</p></li>
-<li><p>删除<code>blog</code>文件夹里除了<code>.git</code>外的所有文件和文件夹。</p></li>
-<li><p>把渲染的网页从<code>blog-source/public/</code>转移到<code>blog</code>文件夹里。</p></li>
-<li><p>清除<code>blog-source</code>文件夹里渲染的网页。</p></li>
-</ol>
-<p>手动操作了十几天后很烦，于是我写了两个 bat 文件：</p>
-<p><code>bs.bat</code> 做第 1-2 步</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d d:\repo\blog-source</span><br><span class="line"><span class="built_in">start</span> http://localhost:<span class="number">4000</span>/blog/</span><br><span class="line"><span class="keyword">call</span> npx hexo s</span><br></pre></td></tr></table></figure>
-<p><code>bg.bat</code> 做第 3-6 步</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">:: 删除旧文件</span><br><span class="line"><span class="built_in">cd</span> /d d:\repo\blog</span><br><span class="line">git rm -r *</span><br><span class="line">:: 渲染新文件</span><br><span class="line"><span class="built_in">cd</span> ..\blog-source</span><br><span class="line"><span class="keyword">call</span> npx hexo g</span><br><span class="line">:: 转移新文件</span><br><span class="line"><span class="built_in">xcopy</span> public ..\blog /s /e</span><br><span class="line"><span class="keyword">call</span> npx hexo clean</span><br></pre></td></tr></table></figure>
-<p>再建一个专门存 bat 的文件夹，把它添加到环境变量
-PATH。这样在任一文件夹下都可以做第 1-6 步了。</p>
-<p>commit 我用的是 GitHub Desktop，暂时没有换的必要。</p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>踩坑记录（2）</title>
-    <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%882%EF%BC%89/</url>
-    <content><![CDATA[<p>Web大作业要求提交网站代码，而博客的html在本地打开会加载不出来css和js。这是文件路径的问题。
-<span id="more"></span></p>
-<p>hexo生成的html文件，里面引用文件的路径是这样的：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;/blog/css/<span class="selector-tag">main</span><span class="selector-class">.css</span>&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>在线打开一切正常，因为这里的根目录是网站根目录。而用浏览器直接打开本地html文件时，浏览器会认为它是文件根目录：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">href=&quot;file:///blog/css/main.css<span class="string">&quot;</span></span><br></pre></td></tr></table></figure>
-<p>正确的预览方法是使用命令<code>hexo s</code>并在<code>http://localhost:4000/blog/</code>预览。</p>
-<p>不过作业是要提交的，为了能直接预览只能手动改路径了。把所有html里引用的文件地址都替换成相应的相对地址就行了。</p>
-<p>但是还有一个问题。这样引用的css和js正常了，页面跳转链接不正常：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;./2023/05/30/文章标题/&#x27;</span>&gt;</span>文章标题<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>在线打开，浏览器会从<code>/</code>自动跳转到<code>index.html</code>。而本地则不会，浏览器会打开<code>index.html</code>所在的文件夹。</p>
-<p><a
-href="https://chz613.github.io/post/hexo-next-url-html-suffix.html">这篇文章</a>给出了解决方法，就是修改配置文件里的<code>permalink:</code>使生成文章的链接带<code>.html</code>后缀。但是这样只有文章的结尾带后缀，其他页面还是不带。修改其他页面需要修改hexo和next组件里的脚本。而脚本已经更新过，不是当时的了。考虑到未来有可能还会更新，和页面路径的统一性，还是不改配置了。手动改html吧。</p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>踩坑记录（3）</title>
-    <url>/blog/2023/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%883%EF%BC%89/</url>
-    <content><![CDATA[<p>这里记录的是我用 hexo
-部署博客时踩的一些坑的正确解决方法。同类型的有<a
-href="https://ruofancooh.github.io/blog/2023/05/27/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95%EF%BC%882%EF%BC%89/">踩坑记录（2）</a>。</p>
-<span id="more"></span>
-<h2 id="node-模块安装路径问题">node 模块安装路径问题</h2>
-<p>npm 安装模块有两种安装方式：本地安装和全局安装。</p>
-<p>本地安装：<code>npm install &lt;pageName&gt;</code>，安装在当前文件夹下的
-node_modules 目录。</p>
-<p>全局安装：<code>npm install &lt;pageName&gt; -g</code>，默认安装在<code>C:\Users\用户名\AppData\Roaming\npm</code>下。这好吗，这不好。</p>
-<p>可使用<code>npm config get prefix</code>查看当前全局安装路径。</p>
-<p>使用<code>npm config set prefix "路径"</code>更改全局安装路径。</p>
-<p>设置完后不要忘了改环境变量。</p>
-<h2 id="把博客放在子文件夹blog-下">把博客放在子文件夹/blog 下：</h2>
-<ul>
-<li><p>github 新建一个名为 blog 的仓库，branch 为 gh-pages</p></li>
-<li><p>更改 hexo 的_config.yml 文件以下项：</p></li>
-</ul>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">https://ruofancooh.github.io/blog</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/blog/</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/ruofancooh/blog</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">gh-pages</span></span><br></pre></td></tr></table></figure>
-<h2 id="hexo-更换-next-主题">hexo 更换 next 主题</h2>
-<p>在博客目录下运行：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<p>更改站点配置文件中<code>theme</code>字段的值为<code>next</code></p>
-<h2 id="next-主题设置背景图片">next 主题设置背景图片</h2>
-<p><strong><em>现在我觉得没必要，简洁点好。</em></strong></p>
-<p>把主题配置文件中的<code>custom_file_path:</code>下的<code>style</code>取消注释</p>
-<p>在<code>next/source/</code>下新建<code>_data</code>目录，目录里新建<code>styles.styl</code>文件。</p>
-<p>在<code>styles.styl</code>文件中设置：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="comment">/*注意用相对路径，然后在相应的路径下放图片*/</span></span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">../images/background.png</span>);</span><br><span class="line">  <span class="attribute">background-repeat</span>: no-repeat; <span class="comment">/*不重复*/</span></span><br><span class="line">  <span class="attribute">background-attachment</span>: fixed; <span class="comment">/*不滚动*/</span></span><br><span class="line">  <span class="attribute">background-size</span>: cover; <span class="comment">/*图片尺寸不拉伸*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="在博客中插入图片">在博客中插入图片</h2>
-<p><strong><em>现在我觉得图片单独放一个文件夹，直接在 md
-文档里用<code>&lt;img&gt;</code>标签引入比较好。暂时没必要用图床。</em></strong></p>
-<p>hexo 配置文件中修改：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p><code>_posts</code>文件夹下新建与 md 文档同名的文件夹，放入图片。在
-md 文档中用</p>
-<p><code>&#123;% asset_img filename.png %&#125;</code>引入图片。</p>
-<h2 id="更换-markdown-渲染器">更换 markdown 渲染器</h2>
-<p>为使博客支持 latex，卸载自带渲染器并更换渲染器：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm un hexo-renderer-marked</span><br><span class="line">npm i hexo-renderer-pandoc</span><br></pre></td></tr></table></figure>
-<p>需要额外<a href="https://github.com/jgm/pandoc/releases/latest">安装
-pandoc</a></p>
-<p>更改 next 配置文件：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="attr">every_page:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p><strong><em>现在我会把<code>every_page</code>改成<code>flase</code>，需要用时在
-md 文档头部加上<code>mathjax: true</code>。</em></strong></p>
-]]></content>
-      <categories>
-        <category>探索</category>
-      </categories>
   </entry>
   <entry>
     <title>社保</title>
@@ -2005,36 +1782,114 @@ md 文档头部加上<code>mathjax: true</code>。</em></strong></p>
 <p>待补充</p>
 <h2 id="法律依据">法律依据</h2>
 <ul>
-<li><p>《中华人民共和国宪法》<a
+<li><p>《中华人民共和国宪法》（<a
 href="https://flk.npc.gov.cn/detail2.html?MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY1YTQ4MzAwNGI%3D">2018-03-11
-施行版</a></p>
-<ul>
-<li><p>第二章第四十二条（节选）</p>
-<blockquote>
-<p>中华人民共和国公民有劳动的权利和义务。国家通过各种途径，创造劳动就业条件，加强劳动保护，改善劳动条件，并在发展生产的基础上，提高劳动报酬和福利待遇。……</p>
-</blockquote></li>
-<li><p>第二章第四十五条（节选）</p>
-<blockquote>
-<p>中华人民共和国公民在年老、疾病或者丧失劳动能力的情况下，有从国家和社会获得物质帮助的权利。国家发展为公民享受这些权利所需要的社会保险、社会救济和医疗卫生事业。……</p>
-</blockquote></li>
-</ul></li>
-<li><p>《中华人民共和国劳动法》<a
+施行版</a>）第二章第四十五条</p></li>
+<li><p>《中华人民共和国劳动法》（<a
 href="https://flk.npc.gov.cn/detail2.html?ZmY4MDgwODE2ZjEzNWY0NjAxNmYyMGYxNmVlMTE3Mzc%3D">2018-12-29
-施行版</a></p>
-<ul>
-<li>第九章 社会保险和福利</li>
-</ul></li>
-<li><p>《中华人民共和国社会保险法》<a
+施行版</a>）第九章</p></li>
+<li><p>《中华人民共和国社会保险法》（<a
 href="https://flk.npc.gov.cn/detail2.html?ZmY4MDgwODE2ZjEzNWY0NjAxNmYyMTA5ODliOTE3OWE%3D">2018-12-29
-施行版</a></p>
-<ul>
-<li>全文</li>
-</ul></li>
+施行版</a>）全文</p></li>
 </ul>
 ]]></content>
-      <categories>
-        <category>概念</category>
-      </categories>
+  </entry>
+  <entry>
+    <title>能指和所指</title>
+    <url>/blog/2023/%E8%83%BD%E6%8C%87%E5%92%8C%E6%89%80%E6%8C%87/</url>
+    <content><![CDATA[<ul>
+<li>能指和所指</li>
+<li>C 语言中的指针</li>
+</ul>
+<span id="more"></span>
+<h2 id="能指和所指">能指和所指</h2>
+<p>能指就是符号，所指就是符号所指向的意义。</p>
+<p>能指是【生】，所指是【诞生、生物、生活、不成熟、不熟悉、从业者<code>-ist</code>……】。</p>
+<p>能指是变量名，所指是变量值。</p>
+<p>变量名可以被重新赋值，就是老子说的“非常名”。</p>
+<h2 id="c-语言中的指针">C 语言中的指针</h2>
+<h3 id="普通变量">普通变量</h3>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> num = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+<p>变量类型<code>int</code>，变量名<code>num</code>-&gt;变量值<code>100</code>。</p>
+<p>普通变量名已经有一层指向了。</p>
+<h3 id="指针变量">指针变量</h3>
+<p>用于专门存放内存地址（值的位置）的变量，叫指针。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>* ptr = &amp;num;</span><br></pre></td></tr></table></figure>
+<p>变量类型<code>int*</code>，变量名<code>ptr</code>-&gt;变量值<code>num-&gt;100的内存地址</code></p>
+<p><code>&amp;num</code>，就是获取<code>num</code>值的位置。</p>
+<ul>
+<li><p><code>&amp;</code>一个变量名，就是获取变量名的值的地址。简称取地址。</p></li>
+<li><p><code>*</code>一个变量名，就是获取变量名的值（只对指针有效）。简称访问地址。</p></li>
+<li><p><code>*&amp;</code>一个变量名就是先<code>&amp;</code>后<code>*</code>（两个运算符优先级相同，且都是右结合）。</p>
+<p>先取地址，后访问地址，和单独使用变量名效果一样。</p></li>
+<li><p><code>&amp;</code>一个指针变量名，就是获取指针变量值本身的位置（存放<code>num</code>地址值的地址）。</p></li>
+</ul>
+<p>还可以创建二级指针，就是指向指针的指针：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>** pptr = &amp;ptr;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>pptr</code>变量名指向某一个地址，这个地址处记录着<code>ptr</code>的地址</li>
+<li><code>ptr</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的地址</li>
+<li><code>num</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的值<code>100</code></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>用browser-sync实现在文件内容改变后立即刷新页面</title>
+    <url>/blog/2023/%E7%94%A8browser-sync%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
+    <content><![CDATA[<p>起因是：</p>
+<p>不管是直接打开 html
+文件，还是用<code>python -m http.server 8000 --bind 127.0.0.1</code>，在修改保存
+html 文件后浏览器都不能立马刷新。</p>
+<span id="more"></span>
+<ol type="1">
+<li><p>安装</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install browser-sync</span><br></pre></td></tr></table></figure>
+<p>安装到想作为服务器根目录的文件夹。以前觉得全局安装好，现在暂时觉得本地安装好。（据说用
+Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p></li>
+<li><p>运行</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npx browser-sync start --server --files <span class="string">&quot;.&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>--files</code> 后指定要监视的文件。</p>
+<p><code>.</code> 表示监视当前目录以及子目录下的所有文件。</p>
+<p>可以改成 <code>*.html</code>，<code>public/*.*</code> 等。</p></li>
+</ol>
+<p>html
+文件里至少得有一对<code>&lt;body&gt;</code>标签，要么没法自动刷新。</p>
+<p>在没有修改文件内容，只 <code>Ctrl + S</code>
+保存时也会刷新，在命令行会输出
+<code>File event [change]</code>，只不过看不出来。</p>
+<p>好像和直接通过浏览器来刷新不一样，因为我在选项卡上没看到加载动画。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>让博客commit前的工作更简单</title>
+    <url>/blog/2023/%E8%AE%A9%E5%8D%9A%E5%AE%A2commit%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9B%B4%E7%AE%80%E5%8D%95/</url>
+    <content><![CDATA[<p>起因是，我是把博客代码分两个仓库存的。需要做很多重复的工作。</p>
+<p>于是我写了两个 bat 文件。</p>
+<span id="more"></span>
+<p>起因是，我是把博客代码分两个仓库存的：</p>
+<ul>
+<li><p><code>blog-source</code>存 Hexo 框架源码，NexT
+主题源码和自己的部分（更改后的配置文件、md 文档、图片等）</p></li>
+<li><p><code>blog</code>存渲染之后的网页，分支是<code>gh-pages</code></p></li>
+</ul>
+<p>这就造成在 commit 前，我需要做以下工作：</p>
+<ol type="1">
+<li><p>在<code>blog-source</code>文件夹里先打开本地预览服务器。</p></li>
+<li><p>点击链接，在浏览器里打开。</p></li>
+<li><p>预览没问题，渲染网页。</p></li>
+<li><p>删除<code>blog</code>文件夹里除了<code>.git</code>外的所有文件和文件夹。</p></li>
+<li><p>把渲染的网页从<code>blog-source/public/</code>转移到<code>blog</code>文件夹里。</p></li>
+<li><p>清除<code>blog-source</code>文件夹里渲染的网页。</p></li>
+</ol>
+<p>手动操作了十几天后很烦，于是我写了两个 bat 文件：</p>
+<p><code>bs.bat</code> 做第 1-2 步</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d d:\repo\blog-source</span><br><span class="line"><span class="built_in">start</span> http://localhost:<span class="number">4000</span>/blog/</span><br><span class="line"><span class="keyword">call</span> npx hexo s</span><br></pre></td></tr></table></figure>
+<p><code>bg.bat</code> 做第 3-6 步</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">:: 删除旧文件</span><br><span class="line"><span class="built_in">cd</span> /d d:\repo\blog</span><br><span class="line">git rm -r *</span><br><span class="line">:: 渲染新文件</span><br><span class="line"><span class="built_in">cd</span> ..\blog-source</span><br><span class="line"><span class="keyword">call</span> npx hexo g</span><br><span class="line">:: 转移新文件</span><br><span class="line"><span class="built_in">xcopy</span> public ..\blog /s /e</span><br><span class="line"><span class="keyword">call</span> npx hexo clean</span><br></pre></td></tr></table></figure>
+<p>再建一个专门存 bat 的文件夹，把它添加到环境变量
+PATH。这样在任一文件夹下都可以做第 1-6 步了。</p>
+<p>commit 我用的是 GitHub Desktop，暂时没有换的必要。</p>
+]]></content>
   </entry>
   <entry>
     <title>计网-基础概念</title>
@@ -2142,203 +1997,7 @@ Comments）的文档，公开发布的互联网建议标准，请求公众评论
 <p>IP 在网络层</p>
 ]]></content>
       <categories>
-        <category>概念</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>《草蛇惊一》歌词解读</title>
-    <url>/blog/2023/%E3%80%8A%E8%8D%89%E8%9B%87%E6%83%8A%E4%B8%80%E3%80%8B%E6%AD%8C%E8%AF%8D%E8%A7%A3%E8%AF%BB/</url>
-    <content><![CDATA[<p>《草蛇惊一》收录于初音未来 V4C 专辑《初梦》，作词是<a
-href="https://space.bilibili.com/396967">麦当叔劳劳</a>。</p>
-<span id="more"></span>
-<p><a href="https://www.bilibili.com/video/BV1Px41177ht/">去 B
-站观看</a> | 在线听：</p>
-<iframe frameborder="no" width="100%" height="86" src="//music.163.com/outchain/player?type=2&amp;id=515455714&amp;auto=1&amp;height=66">
-</iframe>
-<p>这种歌词应该属于“意识流”。解读需要把自己代入主人公的视角。一千个读者心中有一千个哈姆雷特，我认为歌词写的是主人公内心的矛盾。</p>
-<p>歌词结构：</p>
-<p>主歌一-&gt;主歌二-&gt;导歌-&gt;副歌-&gt;</p>
-<p>主歌二-&gt;导歌-&gt;副歌-&gt;</p>
-<p>改词的副歌-&gt;副歌-&gt;重复副歌最后一句</p>
-<h2 id="歌名">歌名</h2>
-<p>很容易从歌名联想到“打草惊蛇”。</p>
-<p>我认为“草蛇惊一”的“一”是指打草的人。</p>
-<p>在这里，草、蛇和打草的人都是主人公自己——主人公自己惊动了自己。</p>
-<h2 id="主歌一">主歌一</h2>
-<blockquote>
-<p><em>羡慕风车 不必去四海漂泊 只要能在原地旋转便能体会风的快乐</em></p>
-</blockquote>
-<p>第一句最重要，是起因。</p>
-<p>主人公的内心独白。我们把主人公此时的视角记作“视角 A”。</p>
-<p>“风车”有三层意思：</p>
-<ol type="1">
-<li>指被“风”驱动的人或物。</li>
-<li>指《堂吉诃德》里的风车所指，即假想敌。</li>
-<li>指主人公自己。</li>
-</ol>
-<p>至于“风”这个意象（能指），可以结合以下几首歌理解：</p>
-<p>（原谅我开始报菜名，因为我还没法做到既简单、又准确的描述）</p>
-<blockquote>
-<ul>
-<li><p><del>庄子《逍遥游》：<em>“生物之以息相吹也”</em></del></p></li>
-<li><p>崔健《酷瓜树》</p></li>
-<li><p>草东没有派对《大风吹》</p></li>
-<li><p>唐朝《时间》</p></li>
-<li><p>ilem《风兮风兮》、《白鸟过河滩》、《斩草歌》、《石头歌》、《我没有歌能给你听》、《四风判词》</p></li>
-</ul>
-</blockquote>
-<p>“原地旋转”就是不作出改变，变成石头，最后变成流浪的风。</p>
-<blockquote>
-<p><em>及时行乐 外婆的故事里说因果报应乃白日见鬼</em></p>
-</blockquote>
-<p>视角 A 想要把自己的人生观向“风车”靠拢。</p>
-<blockquote>
-<p><em>转折 没曾想单木不林一丝不线如我 孤单的说书者也能偷乐</em></p>
-</blockquote>
-<p>主人公突然转换为上帝视角，把自己代入说书者。这样就像看电影一样，不用再担心各种现实问题了。</p>
-<blockquote>
-<p><em>相濡以沫不如相忘于江湖 外公总说这是他孤单的借口</em></p>
-</blockquote>
-<p>进一步妄想自己是“相忘于江湖”的鱼，逃避现实。</p>
-<h2 id="主歌二">主歌二</h2>
-<blockquote>
-<p><em>放轻松 压力别弄得太大 飘飘欲仙欲死不知是不是自己的风格</em></p>
-</blockquote>
-<p>主人公认为自己逃避现实是不对的，此时视角转换回了视角 A。</p>
-<p>前半部分是视角 A 对自己说的，后半部分是视角 A 对说书者说的。</p>
-<blockquote>
-<p><em>一语道破 下手斩草除根哭吧哭吧 无聊卑微笑话</em></p>
-</blockquote>
-<p>视角
-A“一语道破”了说书者的伪装，并否定掉了风车的人生观。认为有这种想法的自己是“无聊卑微笑话”。</p>
-<blockquote>
-<p><em>音色也在不知不觉中变得低沉 就像患了名为暴躁的病一样</em></p>
-</blockquote>
-<p>主人公在否定自己之后，风车的一面并没有消失，而是在反噬视角 A。</p>
-<blockquote>
-<p><em>快停止吧 那张顽固蠢蛋的终身证明我不想再去想念</em></p>
-</blockquote>
-<p>风车和视角 A
-在脑海里互相争斗。主人公希望自己不要再胡思乱想了，给自己开了“顽固蠢蛋的终身证明”。</p>
-<h2 id="导歌">导歌</h2>
-<blockquote>
-<p><em>一不做二不休自在风流 乐不思蜀子龙我就不走</em></p>
-</blockquote>
-<p>对于一件事，我要么不做，要么就做到最好，我觉得这样太酷啦；</p>
-<p>赵云救了刘禅最终导致乐不思蜀，这让我怎么做接下来每一步的决定呢？干脆不做了。</p>
-<blockquote>
-<p><em>过五关杀六将公子献头 金蝉脱壳孙老头八十二变我有</em></p>
-</blockquote>
-<p>主人公一会儿代入关羽，一会儿代入荆轲/太子丹。并预想了像他们一样做事之后的结果。</p>
-<p>“金蝉脱壳”指主人公抽离自己为说书者。</p>
-<p>“孙老头八十二变”指思想转换的复杂性。</p>
-<blockquote>
-<p><em>百闻不如一见来翻筋斗 福星高照五湖四海都随我漫步遨游
-山雨欲来风满楼</em></p>
-</blockquote>
-<p>终于要作决定了！但是在做出决定之前的继续妄想，构成了主人公脑海里的狂风。</p>
-<h2 id="副歌">副歌</h2>
-<blockquote>
-<p><em>再见吧 提线的傀儡师 耻笑咚咚跳的心脏和那不实际的憧憬</em></p>
-</blockquote>
-<p>傀儡是身体，傀儡师是幻想。主人公向对自己造成心惊肉跳的幻想作别。</p>
-<blockquote>
-<p><em>玩笑吧 我不想听假话 暴露皆大欢喜不攻自破不成熟的笑话</em></p>
-</blockquote>
-<p>主人公给自己的 EQ 开了低通滤波。</p>
-<blockquote>
-<p><em>怠慢吗 或许只是懈怠吧 嘁嘁咔咔咚咚咭咭再也不想它</em></p>
-</blockquote>
-<p>主人公认为，这都是由自己的“怠慢”或者“懈怠”造成的。在又一番思想斗争之后停止了思考。</p>
-]]></content>
-      <categories>
-        <category>共鸣</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>糊弄</title>
-    <url>/blog/2023/%E7%B3%8A%E5%BC%84/</url>
-    <content><![CDATA[<p>在粗略地、不系统地看了一些语词的解释后，我发现自己越来越会给自己找理由。</p>
-<span id="more"></span>
-<h2
-id="qs5yss55qe4occ6l6p6kb5rov4ocd">54qs5YSS55qE4oCc6L6p6K+B5rOV4oCd</h2>
-<p>5LiA5YiH6YO95piv5LqS55u45b2x5ZON55qE77yM5oiR5oqK5a6D5o2i5Liq6K+N5o+P6L+w5Li66Jab5a6a6LCU55qE6J206J225pWI5bqU44CCCgrmiJHov5nnr4fljZrlrqLlj5Hlh7rmnaXmiJbogIXkuI3lj5Hlh7rmnaXvvIzmnKrmnaXpg73kvJrlm6DmraTlj5fliLDlvbHlk43jgILvvIjlpoLmnpzkuI3lj5Hlh7rmnaXvvIzmiJHkvJrmhJ/op4nlv4Pph4zmhovlvpfmhYzvvIzpmr7lj5fvvIkKCuWmguS9oOaJgOinge+8jOi/meevh+WNmuWuouWPkeWHuuadpeS6hu+8jOacieS6uueci+aIluiAheayoeS6uueci++8jOacquadpemDveS8muWboOatpOWPl+WIsOW9seWTjeOAggoK5bm25LiU77yM6YO95Lya5pyJ4oCc5aW94oCd55qE5LiA6Z2i77yI5Y+N5oCdL+aJueWIpOWcsOaOpeWPl++8ieWSjOKAnOWdj+KAneeahOS4gOmdou+8iOaooeS7vy/kuI3liqDmibnliKTlnLDmjqXlj5fvvInvvIzkuI3nrqHmmK/lr7nmiJHoh6rlt7Hov5jmmK/lr7nlhbbku5bkurrjgIIKCueJueWIq+aYr+WvueaIkeiHquW3se+8jOaIkeS8muacieS4pOenjeWvueeri+e7n+S4gOeahOihjOWKqO+8iOaYr+ihjOWKqOWQl++8n++8ie+8mg==</p>
-<ol type="1">
-<li><p>6Ieq5bex5Zyo5oCd5oOz5re35Lmx5pe26IO95oOz5Yiw6L+Z56+H5Y2a5a6i77yM5Lul5byA5aeL5YGa4oCc5aW94oCd55qE5LqL44CC5aaC5p6c5Y+q5piv5oOz5oOz6ICM5rKh5pyJ5byA5aeL5YGa77yM5bCx6L2s5ZCRIDLjgII=</p></li>
-<li><p>6Ieq5bex5YGa4oCc5Y+N6Z2i5pWZ5p2Q4oCd77yM5Lul5b+D5a6J55CG5b6X5Zyw5YGa4oCc5Z2P4oCd55qE5LqL5p2l6K6p5Yir5Lq66I635b6X5Y+N5oCd44CC77yI5Zyo5YGa5Ye65Yaz5a6a55qE6YKj5LiA5Yi75piv6L+Z5qC355qE77yM5LqL5a6e5LiK77yM5Zyo5pyJ5LqG4oCc6L6p6K+B4oCd55qE5oOz5rOV5ZCO77yM5bCx5LiN5Y+v6IO95rC46L+c5b+D5a6J55CG5b6X77yM5Y+I5Lya6L2s5ZCRIDHvvIk=</p></li>
-</ol>
-<p>这种思想循环就是《草蛇惊一》的歌词“金蝉脱壳...山雨欲来风满楼”所描述的。心里想着塞翁失马，实际上是等待戈多。</p>
-<h2 id="u06kej5li75lmj">55u06KeJ5Li75LmJ</h2>
-<p>5Zyo5pyq5piO5a2Q55qE5L2T57O76YeM5pivIDEtMy0044CCCgrnirnorrDlvpfmiJHlnKjpq5jogIPlpI3kuaDml7bjgIHpq5jogIPliY3lpJzjgIHpq5jogIPml7bjgIHpq5jogIPlkI7pg73lrozlhajkuI3ntKflvKDvvIzov57llpzmgqbnmoTlv4Pmg4XkuZ/msqHmnInjgIIKCuaIkeWPquS4jei/h+aYr+eci+eUteW9seOAggoK6L+Z5piv5oiR5Lit5a2m5pe25a+55b6F5peg6Imv5pWZ5biI55qE5oOz5rOV44CC5Lmf6K645Zyo5LiN6L+c55qE5bCG5p2l5oiR6KKr56S+5Lya5q+S5omT5pe25oiR5Lya6YeN5paw5ou+6LW36L+Z56eN5oOz5rOV44CC</p>
-<h2 id="bga6zmq5ocn">5bGA6ZmQ5oCn</h2>
-<p>5oiR5pyA5Yid5LqO44CK5Lit5Zu96L+R546w5Luj5Y+y57qy6KaB44CL6K++5pys6YeM55yL5Yiw6L+Z5Liq6K+N44CCCgrmiJHpgYfliLDkuIDkuKrkuI3lpb3nmoTogIHluIjvvIzmvZzmhI/or4blnLDorqTkuLrkuYvlkI7miYDmnInogIHluIjpg73kuI3lpb3jgIIKCuaIkeaYr+S4gOS4quWxnuS6juWGnOadkeeahOWtqeWtkO+8jOacgOaXqeeahOiusOW/huWNtOaYr+WcqOW4guWMuumHjOeUn+a0u+OAguS4ieW5tOe6p+S5i+WJje+8jOaIkeWcqOW4guWMuuS4iuWtpu+8jOi9rOWIsOWOv+WfjuS5i+WQju+8jOmBjeWcsOeahOaWueiogOWSjOeyl+WPo+iuqeaIkeaEn+WIsOmdnuW4uOS4jemAguW6lOOAguWcqOWIneS4reWImuW8gOWni++8jOaIkeeUmuiHs+ato+Wlvei3n+WFqOePreacgOayoeaciee0oOi0qOOAgeaIkOe7qeacgOW3rueahOS6lOS4quS6uuWIhuWIsOS6huWQjOS4gOe7hOOAggoK6L+Z56eN5ri456a75LqO576k5L2T5LmL5aSW77yM6K6k5Li64oCc5piv5LiN5piv5Y+q5pyJ5oiR5LiA5Liq5Lq65a+54oCd55qE54q25oCB5LiA55u05Zyo5oyB57ut44CC5o2u5oiR54i25q+N6K+06YKj5Yeg5bm05oiR5Lmf5LiN5ZKM5LuW5Lus6K+06K+d44CCCgrmipHpg4Hnl4fjgILigJzmsqHmnInlgL7or4nlr7nosaHigJ3lr7zoh7TnmoTjgIIKCuagueacrOWwseS4jeaYr+aKkemDgeeXh++8jOWMu+eUn+mDveayoeeci+WHuuadpe+8jOWhq+WHoOS4qumXruWNt+WwseWIpOaWreaYr+eOieeOieOAguS9huaYr+S4uuS6huacieaEj+ivhuWcsOW/veeVpeekvuaBkOeahOS4gOmdou+8jOWNtOe7meiHquW3sei0tOS4iuS6huagh+etvu+8jOaKiuOAkOayoeacieWAvuivieWvueixoeeahOWkseiQveaEn+OAkeaYoOWwhOS4uuS6huOAkOaKkemDgeOAkeOAguaIkeiHquW3seiDveaEj+ivhuWIsO+8jOWNtOivtOS4jeWHuuaJgOS7peeEtuOAguaIkeaYr+eQhuenkeeUn++8jOWPquacieWcqOe9keS4iuaQnOWTsuWtpuWQjeivje+8jOaQnOWIsOS6huWUr+W/g+OAgeWUr+aIke+8jOWYm+W+t+i/mOaQnOWIsOS6huefpeS5juaHguWTpeiusueahOeUteWtkOWPjOe8neW5sua2ieWunumqjOOAgu+8iOaIkeS5n+aYr+aHguWTpe+8jOi/meS5n+aYr+aIkeiupOS4uuaIkeWNmuWuouWPr+iDveW4puadpeKAnOWdj+KAneeahOW9seWTjeeahOWOn+WboO+8iQoK5LqO5piv5ZyoIDIwMTcg5bm05pyr77yM5oiR5Li65LqG55yL5Yiw6L+Z5Zy655S15b2x55qE57uT5bGA77yM5YGa5LqG5LiA5Liq5aSW5Lq65peg5rOV55CG6Kej55qE5Yaz5a6a44CC6YeN5paw5LiK5a2m5ZCO5aW95LqG5LiA54K577yM5Zug5Li65oiR5b+D5oCB5Y+Y5LqG77yM5Yqg5LiK5oiR56e75oOF5Yiw5Lit5paHIFZPQ0FMT0lEIOekvuWMuuS4reS6huOAguS4iuWkp+WtpuWPiOaYr+S4gOS4quWdjuOAguaIkeS7juayoeacieWDjyAyMDIwIOW5tOmCo+S4gOagt+iOt+W+l+WmguatpOWkmueahOiupOWQjOaEn+KAlOKAlOWcqOe9kee7nOiZmuaLn+epuumXtOWGheOAgueEtuiAjOWcqOS4i+WNiuW5tOS4iuWtpuaXtu+8jOaIkeS7jeS4jeaEv+aEj+ekvuS6pO+8jOW5tuenu+aDhee7meS6hiBCIOermeeahOS4reaWhyBWT0NBTE9JRCDnmoTpn7PkuZDliLbkvZzkurrvvIjkv5fnp7AgUCDkuLvvvInvvIzlnKjmhI/or4bliLDlgZrlvpflpKrov4fml7bvvIzmiJHoh6rpl63kuobjgILnhLblkI7lj4jooaPplKbov5jkuaHkuobjgILnhLblkI7puL3lrZDlj5jlpKfkuobjgILnhLblkI7mmK/liKDnqL/vvIznhLblkI7pnZ7luLjnvp7mhKfnmoTkuLvliqjor7fmsYLmi5vlronjgILnhLblkI7mmK/ooajpnaLlkYrliKvjgIHml6DlsL3nmoTnvqTpmaTmiJHkvazlkozmvZzmsLTjgILmnIDlkI7lj5jmiJDosI7oqIDjgIIKCuWcqCAyMDIyIOW5tOWQrOS6huW5s+WFi+W8l+a0m+S8iuW+t+eahOOAilRoZSBXYWxs44CL77yMMjAyMyDlubTnnIvkuoYgSk9KTyDnn7PkuYvmtbfkuYvlkI7vvIzmiJHmm7TlgL7lkJHkuo7mmK/igJzosIHpg73msqHmnInplJnigJ3vvIzmiJbogIXigJzlpKfpg6jliIbkurrpg73msqHmnInplJnigJ3jgILnibnliKvmmK/miJHlr7njgIpUaGUgV2FsbOOAi+acieedgOmdnuW4uOW8uueDiOeahOWFseaDhe+8jOWQjOaXtuWPiOmAoOaIkOS6humdnuW4uOW8uueDiOeahOaXoOWKm+aEn+WSjOWQjumBl+eXh+OAgu+8iOi/meaXtuWAmeWPr+S7peWQrOS6jOaJi+eOq+eRsOeahOOAiuWFrOebiuatjOabsuOAi+OAiuept+WFieibi+OAi+etieS7peavkuaUu+avku+8iQoK4oCc5peg6Imv6ICB5biI4oCd5piv5Zug5Li64oCc5oiR5ZKM5YW25LuW5a2m55Sf5LiN5ZCM77yM5LiN5ZCs6K+d4oCd77yM6L2s5a2m5piv5Zug5Li654i25q+N5bel5L2c5Y6f5Zug6KaB5YW75rS75oiR44CC6LCB6YO95rKh5pyJ6ZSZ77yI5Zyo5q+P5Liq5Lq65YaF5b+D5b2T5pe255qE6K6k55+l5bGC6Z2i5LiK77yJ77yM55Sx5LqO4oCc6K6k55+l55qE5bGA6ZmQ5oCn4oCd77yM5pyA5ZCO5Y206YCg5oiQ5LqG5oKy5Ymn44CCCgrnhLblkI7vvIzmiJHlj4jlpJrkuobkuIDkuKrnkIbnlLHvvJrnjrDlnKjnmoTmiJHlgZrigJzplJnigJ3kuovvvIzmmK/lm6DkuLrmiJHkuI3nn6XpgZPlroPmmK/plJnkuovvvIzkv5fnp7DigJzluIjniLfov5jkuI3nn6XpgZPoh6rlt7HmmK/kuKroo4Xns4rmtoLnmoTlpKnmiY3igJ3jgII=</p>
-<p>6L+Z57uI56m25piv57OK5byE44CC5oiR5YaZ5pel6K6w77yM5omA5Lul5LiN5piv5q2j57uP5Lq644CC</p>
-]]></content>
-      <categories>
-        <category>共鸣</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>能指和所指</title>
-    <url>/blog/2023/%E8%83%BD%E6%8C%87%E5%92%8C%E6%89%80%E6%8C%87/</url>
-    <content><![CDATA[<ul>
-<li>能指和所指</li>
-<li>C 语言中的指针</li>
-</ul>
-<span id="more"></span>
-<h2 id="能指和所指">能指和所指</h2>
-<p>能指就是符号，所指就是符号所指向的意义。</p>
-<p>能指是【生】，所指是【诞生、生物、生活、不成熟、不熟悉、从业者<code>-ist</code>……】。</p>
-<p>能指是变量名，所指是变量值。</p>
-<p>变量名可以被重新赋值，就是老子说的“非常名”。</p>
-<h2 id="c-语言中的指针">C 语言中的指针</h2>
-<h3 id="普通变量">普通变量</h3>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> num = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
-<p>变量类型<code>int</code>，变量名<code>num</code>-&gt;变量值<code>100</code>。</p>
-<p>普通变量名已经有一层指向了。</p>
-<h3 id="指针变量">指针变量</h3>
-<p>用于专门存放内存地址（值的位置）的变量，叫指针。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>* ptr = &amp;num;</span><br></pre></td></tr></table></figure>
-<p>变量类型<code>int*</code>，变量名<code>ptr</code>-&gt;变量值<code>num-&gt;100的内存地址</code></p>
-<p><code>&amp;num</code>，就是获取<code>num</code>值的位置。</p>
-<ul>
-<li><p><code>&amp;</code>一个变量名，就是获取变量名的值的地址。简称取地址。</p></li>
-<li><p><code>*</code>一个变量名，就是获取变量名的值（只对指针有效）。简称访问地址。</p></li>
-<li><p><code>*&amp;</code>一个变量名就是先<code>&amp;</code>后<code>*</code>（两个运算符优先级相同，且都是右结合）。</p>
-<p>先取地址，后访问地址，和单独使用变量名效果一样。</p></li>
-<li><p><code>&amp;</code>一个指针变量名，就是获取指针变量值本身的位置（存放<code>num</code>地址值的地址）。</p></li>
-</ul>
-<p>还可以创建二级指针，就是指向指针的指针：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>** pptr = &amp;ptr;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>pptr</code>变量名指向某一个地址，这个地址处记录着<code>ptr</code>的地址</li>
-<li><code>ptr</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的地址</li>
-<li><code>num</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的值<code>100</code></li>
-</ul>
-]]></content>
-      <categories>
-        <category>概念</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>说的道理</title>
-    <url>/blog/2023/%E8%AF%B4%E7%9A%84%E9%81%93%E7%90%86/</url>
-    <content><![CDATA[<ul>
-<li>如何应对拖延</li>
-<li>常问 GPT</li>
-</ul>
-<span id="more"></span>
-<h2 id="如何应对拖延">如何应对拖延</h2>
-<p>5YWI5YaZ5pyA6YeN6KaB55qE6YOo5YiG77yM5LiN6KaB6L+35aSx5Zyo6K+t6KiA6KGo6L6+77yM5oOz5qKX5ZKM5oOz5qCH6aKY5LiK44CCCgrmnInmg7PlhpnnmoTpqazkuIrlhpnvvIzlj6/ku6XlhYjkuI3lj5HvvIzmiJbogIXlhYjlj5HkuIDpg6jliIbvvIzlkI7mnaXlho3mi7zotbfmnaXjgIIKCuacieaDs+WBmueahOmprOS4iuWBmu+8jOWPr+S7peWFiOWBmuS4gOmDqOWIhuOAggoK5pyJ5pe25YCZ6ISR5a2Q6YeM5oC75Zyo5oOz5LiA5Liq5qCH6aKY77yM5YW25a6e6Ieq5bex5qC55pys5a+56KaB5YaZ55qE5YaF5a656YO95rKh5pyJ5piO56Gu55qE55CG6Kej77yM5Y+q5piv6KeJ5b6X6L+Z5Liq5qCH6aKY54m55Yir5ZCK77yM5YWJ5oqK5pe26Ze055So5Yiw4oCc6aKE5oOz5YaZ5a6M5LmL5ZCO55qE57uT5p6c4oCd5LqG44CCCgrku45b6Ziu5LiA5bOw55qE5LiA56+H5paH56ugXShodHRwczovL3d3dy5ydWFueWlmZW5nLmNvbS9ibG9nLzIwMTkvMDgvd2Vla2x5LWlzc3VlLTY5Lmh0bWwp6YeM55yL5Yiw77yM5Y2a5a6i6ZyA6KaB5YWI5YaZ5b+r77yM5ZCO5YaZ5aW944CCCgrku45bQiDnq5nnmoTkuIDnr4fnrJTorrBdKGh0dHBzOi8vc3BhY2UuYmlsaWJpbGkuY29tLzIzMDcxMTc0NC9hcnRpY2xlKeeci+WIsO+8jOa7oei2s+assuacm+S4jeaYr+S7gOS5iOWdj+S6i+OAguWcqOayoeacieeJueWIq+mHjeimgeeahOS6i+aDheeahOaDheWGteS4i++8jOWFiOaKiuacgOaDs+WBmueahOWBmuS6huOAgg==</p>
-<iframe frameborder="no" width="100%" height="86" src="//music.163.com/outchain/player?type=2&amp;id=386830&amp;auto=1&amp;height=66">
-</iframe>
-<p>睡一觉起来发现海港没了。</p>
-<h2 id="常问-gpt">常问 GPT</h2>
-<p>55Sx5LqO5oiR57uP5bi45a+55LiA5Liq6Zeu6aKY77yM5LiA5Lya5oOz55So6L+Z56eN6Kej5Yaz5pa55rOV77yM5LiA5Lya5oOz55So6YKj56eN6Kej5Yaz5pa55rOV77yM57uT5p6c5oOz5p2l5oOz5Y676YO95piv5oqK5Lul5YmN5pyJ5Y2w6LGh55qE56KO54mH5ou85o6l6LW35p2l77yM5LiN5Lya5Yet56m65Yib6YCg5Ye65paw55qE6Kej5Yaz5pa55rOV44CCCgrmr5TlpoLlhpnku6PnoIHvvIzlj6rmmK/nnIvliLDku6PnoIHph4/lop7lpJrvvIzpgKDmiJDkuobmsqHmnInmhI/kuYnnmoTmraPlj43ppojvvIzlrp7pmYXnu5PmnoTlhpnlvpfpnZ7luLjmt7fkubHjgIIKCuaciemCo+S5iOWkmuWMheS4jeeUqO+8jOeUqCBQeXRob24g5bCx5b6X6LCD5YyF44CC5Zug5Li65oiR5oC75piv5oOz5oqK6Zeu6aKY5Lul546w5pyJ55qE57uP6aqM6Kej5Yaz44CCCgrliLDmnIDlkI7lj5HnjrDvvIzmnKzmnaXmmK/mg7Pop6PlhrPkuIDkuKrlsI/nmoTpl67popjvvIzmgLvmmK/mg7PmiorlroPlgZrlpKfmnaXop6PlhrPmm7TlpJrpl67popjjgILlgYfoiJ/mpavogIXpnZ7og73msLTkuZ/ogIznu53msZ/msrPvvIzmiJHmkIHpgqPnu4jml6XogIzmgJ3ljrvkuobjgIIKCuaIkemXriBHUFTvvJoKCnB5IOacieayoeacieS5kOeQhuebuOWFs+eahOW6k++8nwoK5a6D55u05o6l57uZ5LqG5oiR5Yeg5Liq5ZCN5a2X77yabXVzaWMyMeOAgW1pbmd1cwoK6L+Z6L+Y55So5b6X552A5oiR5Y675YaZ5ZCX77yf566X5rOV5LiN5Lya77yM6LCD5YyF5LiN5oS/5oSP77yM5bGe5LqO5LiK5Lmf5LiK5LiN5Y6777yM5LiL5Lmf5LiL5LiN5p2l44CCCgrnhLblkI7miJHlj5HnjrDmiJHnmoTms6jmhI/lipvlj4jovaznp7vkuobvvJrmnKzmnaXmg7PlrabkuZDnkIbvvIzlkI7mnaXmg7PovrnlrabkuZDnkIbovrnnu4MgcHl0aG9u77yM5ZCO5p2l5YWo57qg57uTIHB5dGhvbiDljrvkuobjgII=</p>
-<p>我不知道我对什么感兴趣。</p>
-]]></content>
-      <categories>
-        <category>共鸣</category>
+        <category>计算机网络</category>
       </categories>
   </entry>
 </search>
