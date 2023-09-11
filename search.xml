@@ -54,28 +54,6 @@ JDK 安装路径。</li>
       </categories>
   </entry>
   <entry>
-    <title>MongoDB - 00 - 准备</title>
-    <url>/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/</url>
-    <content><![CDATA[<ul>
-<li>Windows 10 环境配置</li>
-</ul>
-<span id="more"></span>
-<ol type="1">
-<li><a href="https://www.mongodb.com/try/download/community">下载
-MongoDB</a>，我下载的是<code>7.0.0 (current)</code>的<code>zip</code>格式。</li>
-<li>解压，右键用 PowerShell 运行<code>Install-Compass.ps1</code>，安装
-GUI。 默认会安装到 C 盘，安装完后手动移到 D 盘。</li>
-<li>建数据库文件夹，建一个空日志<code>test.log</code>。</li>
-<li><div class="sourceCode" id="cb1"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>   <span class="ex">mongod</span> <span class="at">--dbpath</span> <span class="pp">[</span><span class="ss">数据库文件夹路径</span><span class="pp">]</span> <span class="at">--logpath</span> <span class="pp">[</span><span class="ss">日志文件路径</span><span class="pp">]</span> <span class="at">--logappend</span></span></code></pre></div></li>
-<li>用 MongoDBCompass 连接。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>MongoDB</category>
-      </categories>
-  </entry>
-  <entry>
     <title>乐理-A0-频率与音程</title>
     <url>/blog/2023/%E4%B9%90%E7%90%86-A0-%E9%A2%91%E7%8E%87%E4%B8%8E%E9%9F%B3%E7%A8%8B/</url>
     <content><![CDATA[<ul>
@@ -281,6 +259,28 @@ class="math inline">\(\mathrm{A4=440Hz}\)</span>，白键不加升降号，黑�
 <p><a
 href="https://github.com/ruofancooh/utility-room/tree/main/learning/music">A0-main.py</a></p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>MongoDB - 00 - 准备</title>
+    <url>/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/</url>
+    <content><![CDATA[<ul>
+<li>Windows 10 环境配置</li>
+</ul>
+<span id="more"></span>
+<ol type="1">
+<li><a href="https://www.mongodb.com/try/download/community">下载
+MongoDB</a>，我下载的是<code>7.0.0 (current)</code>的<code>zip</code>格式。</li>
+<li>解压，右键用 PowerShell 运行<code>Install-Compass.ps1</code>，安装
+GUI。 默认会安装到 C 盘，安装完后手动移到 D 盘。</li>
+<li>建数据库文件夹，建一个空日志<code>test.log</code>。</li>
+<li><div class="sourceCode" id="cb1"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>   <span class="ex">mongod</span> <span class="at">--dbpath</span> <span class="pp">[</span><span class="ss">数据库文件夹路径</span><span class="pp">]</span> <span class="at">--logpath</span> <span class="pp">[</span><span class="ss">日志文件路径</span><span class="pp">]</span> <span class="at">--logappend</span></span></code></pre></div></li>
+<li>用 MongoDBCompass 连接。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>MongoDB</category>
+      </categories>
   </entry>
   <entry>
     <title>乐理-A♯0-音名与唱名、音阶与音级</title>
@@ -858,182 +858,6 @@ href="https://www.bilibili.com/read/cv3194623/">https://www.bilibili.com/read/cv
 ]]></content>
   </entry>
   <entry>
-    <title>root手机教程（使用Magisk）</title>
-    <url>/blog/2023/root%E6%89%8B%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%88%E4%BD%BF%E7%94%A8Magisk%EF%BC%89/</url>
-    <content><![CDATA[<p>你需要：</p>
-<ul>
-<li>一台系统为 Android 6.0 以上的手机</li>
-<li>一台能够正常使用 <a
-href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn">Android
-SDK Platform-Tools</a> 的电脑</li>
-</ul>
-<span id="more"></span>
-<p>另外，如果你手机的 Android kernel 版本在 5.10 以上，你也可以使用<a
-href="https://kernelsu.org/zh_CN/">KernelSU</a>——这不属于此教程的范围。</p>
-<h2 id="背景知识">背景知识</h2>
-<h3 id="linux-与-android">Linux 与 Android</h3>
-<p>Linux 是一种操作系统内核，由 Linus Torvalds 开发。<strong>基于 Linux
-内核</strong>，Android Inc.公司开发出了 Android 操作系统。</p>
-<p>2005 年，Google 收购 Android Inc.。2007 年，Google 将 Android
-的源代码公开，并创建了<a
-href="https://source.android.google.cn/?hl=zh-cn">AOSP</a>（Android Open
-Source Project）项目。</p>
-<p>许多手机厂商的定制系统，如 MIUI、Flyme、HarmonyOS 等都是<strong>基于
-AOSP 源码</strong>开发的。和 AOSP 对标的<a
-href="https://gitee.com/openharmony">OpenHarmony</a>也有用到 Linux
-内核。所以，如果你的手机不是苹果，它里面大概率就会有一个修改过的 Linux
-内核。</p>
-<h3 id="linux-与-android-中的用户权限">Linux 与 Android
-中的用户权限</h3>
-<p>Linux
-操作系统是多用户操作系统，用户<code>root</code>拥有最高权限——对系统的完全控制权。拥有
-root 权限的用户可以把其他用户添加到 root 用户组。在 root
-用户组里，每个用户都有 root 权限。</p>
-<p>在 Android
-操作系统中，<strong>每个应用（APP）都是一个独立的用户</strong>。如果没有<code>root</code>用户把
-APP 添加到 root 用户组，就没有 APP 能够获得 root 权限。</p>
-<p>而在正常情况下，你在手机上见到的所有画面都是 APP
-的进程（比如系统界面是<code>com.android.systemui</code>）。这时想要获得
-root 权限，就需要修改更底层的东西。</p>
-<h3 id="bootloader-锁">Bootloader 锁</h3>
-<p>Bootloader，即启动引导加载程序。它负责在计算机启动时，引导操作系统加载。</p>
-<p>在 bootloader
-执行的过程中，如果签名验证未通过，说明系统底层文件被修改。这时
-bootloader 会停止执行，<strong>无法进入系统</strong>。这被称为
-bootloader（BL）锁。</p>
-<h3 id="magisk">Magisk</h3>
-<p>The <strong>Magic Mask</strong> for Android，是一套用于定制 Android
-的开源软件。它可以为应用程序提供 root
-访问权限。后文简称<strong>面具</strong>。</p>
-<p>面具获取 root 权限的原理是通过修改 boot 分区，代理 linux
-内核的第一个进程 init。<a href="#fn1" class="footnote-ref" id="fnref1"
-role="doc-noteref"><sup>1</sup></a></p>
-<p>面具修改了系统分区。因此，使用面具的前提是解除 BL 锁。</p>
-<h2 id="准备工作">准备工作</h2>
-<h3 id="解除-bl-锁">解除 BL 锁</h3>
-<blockquote>
-<p>解锁 BootLoader 实际上就是让 BootLoader
-启动链上某些阶段的签名验证不生效。<a href="#fn2" class="footnote-ref"
-id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
-</blockquote>
-<p>你需要在你手机厂商的网站上申请解锁码，然后用他们提供的工具解锁。有一些厂商（华为等）已经不提供解锁码。</p>
-<p>注意：解锁 BL
-后会<strong>清除所有用户数据，恢复出厂设置</strong>。请提前做好你重要文件的备份。</p>
-<h3 id="提取-boot.img">提取 boot.img</h3>
-<p>在网上搜索，找到你手机的安装包。</p>
-<p>通常是一个<code>.zip</code>或.<code>tgz</code>格式的压缩包。确保手机型号一致、操作系统版本一致。</p>
-<p>解压后找到<code>boot.img</code>或者<code>init_boot.img（如果有）</code>。复制两份，分别保存到手机和电脑，备用。</p>
-<ul>
-<li>如果你找不到<code>boot.img</code>，而找到了<code>payload.bin</code>：参考<a
-href="https://magiskcn.com/payload-dumper-go-boot">这篇教程</a>。或者使用<a
-href="https://mt2.cn/">MT 管理器</a>提取。</li>
-<li>如果你的手机<em><strong>已经 root
-了</strong></em>：可以在<code>adb shell</code>下使用<code>ls -l /dev/block/by-name/</code>查看分区表。找到
-boot
-分区，比如<code>/dev/block/sdc41</code>。使用<code>dd if=/dev/block/sdc41 of=/sdcard/boot.img</code>提取
-boot 分区。</li>
-</ul>
-<h3 id="通过-usb-调试手机">通过 USB 调试手机</h3>
-<p>在手机设置里找到系统版本（比如 MIUI，是在“全部参数”里的“MIUI
-版本”）。连续点击，直到手机出现提示框“您现在处于开发者模式”。</p>
-<p>在手机设置里找到开发者选项，进入。找到<strong>USB
-调试</strong>选项并开启。</p>
-<p>下载<a
-href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn">Android
-SDK
-Platform-Tools</a>，解压到你喜欢的目录。比如<code>D:\platform-tools</code>。你会看到目录里有<code>adb.exe</code>和<code>fastboot.exe</code>等一些文件。</p>
-<p>打开命令行（Windows 下 win+R 输入 cmd，回车），你会看到：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">C:\Users\你的用户名\&gt;</span><br></pre></td></tr></table></figure>
-<p>这是你当前所在的目录。当你要执行一个<code>.exe</code>文件时，系统先从当前目录里寻找。如果找不到，就从环境变量里寻找。再找不到就打印错误信息。</p>
-<p>你刚才解压出来的<code>.exe</code>文件只能在它们所在的目录下运行。如果不想切换目录，想让它们在任意目录下都可以运行，需要把它们<strong>所在的目录</strong>添加到<strong>环境变量</strong>。</p>
-<p>Windows 10
-下，<code>Win + I</code>打开设置。系统-&gt;关于-&gt;高级系统设置-&gt;环境变量，双击系统变量<code>Path</code>，新建，把<code>D:\platform-tools</code>复制到列表，确定确定确定。这样环境变量就设置好了。</p>
-<p>用数据线连接手机和电脑。你可以尝试在<code>cmd</code>里使用命令</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure>
-<p>这时手机会弹出授权窗口。点击确定，你会在电脑上看到：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">List of devices attached</span><br><span class="line">你手机的序列号        device</span><br></pre></td></tr></table></figure>
-<p>说明 adb 连接成功。</p>
-<h2 id="戴上面具">戴上面具</h2>
-<p><a
-href="https://github.com/topjohnwu/Magisk/releases">下载面具</a>并安装打开，你将看到：</p>
-<p><img src="/blog/images/magisk.webp"></p>
-<p>如果 Ramdisk
-为<strong>否</strong>，或者你的手机品牌是<strong>华为</strong>或<strong>三星</strong>：参考
-<a
-href="https://jesse205.github.io/MagiskChineseDocument/install.html">Magisk
-中文文档</a>。</p>
-<p>点击“安装”按钮。如果你手机的安装包中有<code>vbmeta.img</code>，选中“修补
-boot 映像中的 vbmeta”选项。否则不选中。</p>
-<p>在方式中选择“选择并修补一个文件”。然后选择你提取出来的<code>boot.img</code>或<code>init_boot.img</code>。点击“安装”。</p>
-<p>面具会把修补后的文件<code>magisk_patched-[版本号_随机字符].img</code>存放到
-SD 卡的<code>Download</code>目录下。</p>
-<p>把修补后的文件复制到电脑：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb pull /sdcard/Download/magisk_patched-[版本号_随机字符].img 电脑上的一个文件夹路径</span><br></pre></td></tr></table></figure>
-<p>重启手机到<code>fastboot</code>模式：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb reboot bootloader</span><br></pre></td></tr></table></figure>
-<p>刷写新的<code>boot</code>分区：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot flash boot（或者init_boot） 电脑上的一个文件夹路径\magisk_patched-[版本号_随机字符].img</span><br></pre></td></tr></table></figure>
-<p>重启手机：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure>
-<p>打开面具。如果看到了 Magisk-&gt;当前的版本号，说明成功。</p>
-<ul>
-<li>如果你的手机打不开了：说明面具不适合你的手机，或者你有地方做错了。
-你需要长按【电源】键重启，然后马上同时按住【电源】键和【音量+】键（也有手机是【电源】键和【音量-】键）。这会把手机重启到<code>fastboot</code>模式。
-然后使用以下命令恢复 boot 分区： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot flash boot（或者init_boot） 电脑上的一个文件夹路径\你修补前的boot.img</span><br></pre></td></tr></table></figure></li>
-<li>在安装面具后：需要禁用系统自动更新。<a
-href="#后续处理更新系统时">后续处理——更新系统时</a></li>
-</ul>
-<h2 id="隐藏面具">隐藏面具</h2>
-<p>为了用户安全，一些银行类的 app 在检测到 root
-后会禁止用户使用。需要对这一类 app 隐藏 root。</p>
-<h3 id="使用-shamiko-隐藏-root">使用 Shamiko 隐藏 root</h3>
-<p>Shamiko 是一个面具模块，用于隐藏 root。</p>
-<ul>
-<li>如果使用的是<a
-href="https://github.com/magojohnji/Magisk-delta/blob/main/intro.md">Magisk
-Delta</a>，则不能安装此模块。可用其内置的 MagiskHide。</li>
-</ul>
-<p>在面具设置里：</p>
-<ul>
-<li><p>找到“Zygisk”，<strong>开启</strong>。</p></li>
-<li><p>找到“遵守排除列表”，<strong>关闭</strong>。</p></li>
-<li><p>找到“配置排除列表”，选择要对其隐藏 root
-的应用。点击，在展开的列表里全部打上勾，直到上方进度条满。</p></li>
-</ul>
-<p><a href="https://github.com/LSPosed/LSPosed.github.io/releases/">下载
-Shamiko</a>
-。打开面具-&gt;模块-&gt;从本地安装-&gt;选择下载的<code>shamiko-[版本号]-release.zip</code>-&gt;确定-&gt;重启手机。</p>
-<p>如果看到模块-&gt;Shamiko 的简介里露出了 😋，说明 Shamiko
-正常运行。</p>
-<h3 id="使用随机包名隐藏面具应用">使用随机包名隐藏面具应用</h3>
-<p>面具设置-&gt;隐藏 Magisk 应用</p>
-<h2 id="后续处理更新系统时">后续处理——更新系统时</h2>
-<p>系统更新前：先打开面具，选择“卸载
-Magisk”-&gt;<strong>还原原厂映像</strong>。然后更新系统。</p>
-<p>系统更新后：仍然使用提取 boot-&gt;修补 boot-&gt;刷入 boot
-的方式安装面具。</p>
-<ul>
-<li>如果希望在更新系统时保留面具：参考<a
-href="https://jesse205.github.io/MagiskChineseDocument/ota.html">这篇文档</a>。</li>
-</ul>
-<aside id="footnotes" class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1"><p><a
-href="https://mp.weixin.qq.com/s/eF9izvazeSZ1bVxOcxamQg">何为
-root？维术：https://mp.weixin.qq.com/s/eF9izvazeSZ1bVxOcxamQg</a><a
-href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p><a
-href="https://mp.weixin.qq.com/s/-9VKyraHq5Qt2PTzqVqZOg">当我们谈论解锁
-BootLoader
-时，我们在谈论什么？维术：https://mp.weixin.qq.com/s/-9VKyraHq5Qt2PTzqVqZOg</a><a
-href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</aside>
-]]></content>
-  </entry>
-  <entry>
     <title>《草蛇惊一》歌词解读</title>
     <url>/blog//holy-shit-grass-snake.html</url>
     <content><![CDATA[<p>《草蛇惊一》收录于初音未来 V4C 专辑《初梦》，作词是<a
@@ -1219,6 +1043,255 @@ href="https://www.bilibili.com/video/BV1nP4y1W7dr/">《石头歌》</a></li>
 ]]></content>
   </entry>
   <entry>
+    <title>root手机教程（使用Magisk）</title>
+    <url>/blog/2023/root%E6%89%8B%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%88%E4%BD%BF%E7%94%A8Magisk%EF%BC%89/</url>
+    <content><![CDATA[<p>你需要：</p>
+<ul>
+<li>一台系统为 Android 6.0 以上的手机</li>
+<li>一台能够正常使用 <a
+href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn">Android
+SDK Platform-Tools</a> 的电脑</li>
+</ul>
+<span id="more"></span>
+<p>另外，如果你手机的 Android kernel 版本在 5.10 以上，你也可以使用<a
+href="https://kernelsu.org/zh_CN/">KernelSU</a>——这不属于此教程的范围。</p>
+<h2 id="背景知识">背景知识</h2>
+<h3 id="linux-与-android">Linux 与 Android</h3>
+<p>Linux 是一种操作系统内核，由 Linus Torvalds 开发。<strong>基于 Linux
+内核</strong>，Android Inc.公司开发出了 Android 操作系统。</p>
+<p>2005 年，Google 收购 Android Inc.。2007 年，Google 将 Android
+的源代码公开，并创建了<a
+href="https://source.android.google.cn/?hl=zh-cn">AOSP</a>（Android Open
+Source Project）项目。</p>
+<p>许多手机厂商的定制系统，如 MIUI、Flyme、HarmonyOS 等都是<strong>基于
+AOSP 源码</strong>开发的。和 AOSP 对标的<a
+href="https://gitee.com/openharmony">OpenHarmony</a>也有用到 Linux
+内核。所以，如果你的手机不是苹果，它里面大概率就会有一个修改过的 Linux
+内核。</p>
+<h3 id="linux-与-android-中的用户权限">Linux 与 Android
+中的用户权限</h3>
+<p>Linux
+操作系统是多用户操作系统，用户<code>root</code>拥有最高权限——对系统的完全控制权。拥有
+root 权限的用户可以把其他用户添加到 root 用户组。在 root
+用户组里，每个用户都有 root 权限。</p>
+<p>在 Android
+操作系统中，<strong>每个应用（APP）都是一个独立的用户</strong>。如果没有<code>root</code>用户把
+APP 添加到 root 用户组，就没有 APP 能够获得 root 权限。</p>
+<p>而在正常情况下，你在手机上见到的所有画面都是 APP
+的进程（比如系统界面是<code>com.android.systemui</code>）。这时想要获得
+root 权限，就需要修改更底层的东西。</p>
+<h3 id="bootloader-锁">Bootloader 锁</h3>
+<p>Bootloader，即启动引导加载程序。它负责在计算机启动时，引导操作系统加载。</p>
+<p>在 bootloader
+执行的过程中，如果签名验证未通过，说明系统底层文件被修改。这时
+bootloader 会停止执行，<strong>无法进入系统</strong>。这被称为
+bootloader（BL）锁。</p>
+<h3 id="magisk">Magisk</h3>
+<p>The <strong>Magic Mask</strong> for Android，是一套用于定制 Android
+的开源软件。它可以为应用程序提供 root
+访问权限。后文简称<strong>面具</strong>。</p>
+<p>面具获取 root 权限的原理是通过修改 boot 分区，代理 linux
+内核的第一个进程 init。<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a></p>
+<p>面具修改了系统分区。因此，使用面具的前提是解除 BL 锁。</p>
+<h2 id="准备工作">准备工作</h2>
+<h3 id="解除-bl-锁">解除 BL 锁</h3>
+<blockquote>
+<p>解锁 BootLoader 实际上就是让 BootLoader
+启动链上某些阶段的签名验证不生效。<a href="#fn2" class="footnote-ref"
+id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+</blockquote>
+<p>你需要在你手机厂商的网站上申请解锁码，然后用他们提供的工具解锁。有一些厂商（华为等）已经不提供解锁码。</p>
+<p>注意：解锁 BL
+后会<strong>清除所有用户数据，恢复出厂设置</strong>。请提前做好你重要文件的备份。</p>
+<h3 id="提取-boot.img">提取 boot.img</h3>
+<p>在网上搜索，找到你手机的安装包。</p>
+<p>通常是一个<code>.zip</code>或.<code>tgz</code>格式的压缩包。确保手机型号一致、操作系统版本一致。</p>
+<p>解压后找到<code>boot.img</code>或者<code>init_boot.img（如果有）</code>。复制两份，分别保存到手机和电脑，备用。</p>
+<ul>
+<li>如果你找不到<code>boot.img</code>，而找到了<code>payload.bin</code>：参考<a
+href="https://magiskcn.com/payload-dumper-go-boot">这篇教程</a>。或者使用<a
+href="https://mt2.cn/">MT 管理器</a>提取。</li>
+<li>如果你的手机<em><strong>已经 root
+了</strong></em>：可以在<code>adb shell</code>下使用<code>ls -l /dev/block/by-name/</code>查看分区表。找到
+boot
+分区，比如<code>/dev/block/sdc41</code>。使用<code>dd if=/dev/block/sdc41 of=/sdcard/boot.img</code>提取
+boot 分区。</li>
+</ul>
+<h3 id="通过-usb-调试手机">通过 USB 调试手机</h3>
+<p>在手机设置里找到系统版本（比如 MIUI，是在“全部参数”里的“MIUI
+版本”）。连续点击，直到手机出现提示框“您现在处于开发者模式”。</p>
+<p>在手机设置里找到开发者选项，进入。找到<strong>USB
+调试</strong>选项并开启。</p>
+<p>下载<a
+href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn">Android
+SDK
+Platform-Tools</a>，解压到你喜欢的目录。比如<code>D:\platform-tools</code>。你会看到目录里有<code>adb.exe</code>和<code>fastboot.exe</code>等一些文件。</p>
+<p>打开命令行（Windows 下 win+R 输入 cmd，回车），你会看到：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">C:\Users\你的用户名\&gt;</span><br></pre></td></tr></table></figure>
+<p>这是你当前所在的目录。当你要执行一个<code>.exe</code>文件时，系统先从当前目录里寻找。如果找不到，就从环境变量里寻找。再找不到就打印错误信息。</p>
+<p>你刚才解压出来的<code>.exe</code>文件只能在它们所在的目录下运行。如果不想切换目录，想让它们在任意目录下都可以运行，需要把它们<strong>所在的目录</strong>添加到<strong>环境变量</strong>。</p>
+<p>Windows 10
+下，<code>Win + I</code>打开设置。系统-&gt;关于-&gt;高级系统设置-&gt;环境变量，双击系统变量<code>Path</code>，新建，把<code>D:\platform-tools</code>复制到列表，确定确定确定。这样环境变量就设置好了。</p>
+<p>用数据线连接手机和电脑。你可以尝试在<code>cmd</code>里使用命令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure>
+<p>这时手机会弹出授权窗口。点击确定，你会在电脑上看到：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">List of devices attached</span><br><span class="line">你手机的序列号        device</span><br></pre></td></tr></table></figure>
+<p>说明 adb 连接成功。</p>
+<h2 id="戴上面具">戴上面具</h2>
+<p><a
+href="https://github.com/topjohnwu/Magisk/releases">下载面具</a>并安装打开，你将看到：</p>
+<p><img src="/blog/images/magisk.webp"></p>
+<p>如果 Ramdisk
+为<strong>否</strong>，或者你的手机品牌是<strong>华为</strong>或<strong>三星</strong>：参考
+<a
+href="https://jesse205.github.io/MagiskChineseDocument/install.html">Magisk
+中文文档</a>。</p>
+<p>点击“安装”按钮。如果你手机的安装包中有<code>vbmeta.img</code>，选中“修补
+boot 映像中的 vbmeta”选项。否则不选中。</p>
+<p>在方式中选择“选择并修补一个文件”。然后选择你提取出来的<code>boot.img</code>或<code>init_boot.img</code>。点击“安装”。</p>
+<p>面具会把修补后的文件<code>magisk_patched-[版本号_随机字符].img</code>存放到
+SD 卡的<code>Download</code>目录下。</p>
+<p>把修补后的文件复制到电脑：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb pull /sdcard/Download/magisk_patched-[版本号_随机字符].img 电脑上的一个文件夹路径</span><br></pre></td></tr></table></figure>
+<p>重启手机到<code>fastboot</code>模式：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">adb reboot bootloader</span><br></pre></td></tr></table></figure>
+<p>刷写新的<code>boot</code>分区：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot flash boot（或者init_boot） 电脑上的一个文件夹路径\magisk_patched-[版本号_随机字符].img</span><br></pre></td></tr></table></figure>
+<p>重启手机：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure>
+<p>打开面具。如果看到了 Magisk-&gt;当前的版本号，说明成功。</p>
+<ul>
+<li>如果你的手机打不开了：说明面具不适合你的手机，或者你有地方做错了。
+你需要长按【电源】键重启，然后马上同时按住【电源】键和【音量+】键（也有手机是【电源】键和【音量-】键）。这会把手机重启到<code>fastboot</code>模式。
+然后使用以下命令恢复 boot 分区： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">fastboot flash boot（或者init_boot） 电脑上的一个文件夹路径\你修补前的boot.img</span><br></pre></td></tr></table></figure></li>
+<li>在安装面具后：需要禁用系统自动更新。<a
+href="#后续处理更新系统时">后续处理——更新系统时</a></li>
+</ul>
+<h2 id="隐藏面具">隐藏面具</h2>
+<p>为了用户安全，一些银行类的 app 在检测到 root
+后会禁止用户使用。需要对这一类 app 隐藏 root。</p>
+<h3 id="使用-shamiko-隐藏-root">使用 Shamiko 隐藏 root</h3>
+<p>Shamiko 是一个面具模块，用于隐藏 root。</p>
+<ul>
+<li>如果使用的是<a
+href="https://github.com/magojohnji/Magisk-delta/blob/main/intro.md">Magisk
+Delta</a>，则不能安装此模块。可用其内置的 MagiskHide。</li>
+</ul>
+<p>在面具设置里：</p>
+<ul>
+<li><p>找到“Zygisk”，<strong>开启</strong>。</p></li>
+<li><p>找到“遵守排除列表”，<strong>关闭</strong>。</p></li>
+<li><p>找到“配置排除列表”，选择要对其隐藏 root
+的应用。点击，在展开的列表里全部打上勾，直到上方进度条满。</p></li>
+</ul>
+<p><a href="https://github.com/LSPosed/LSPosed.github.io/releases/">下载
+Shamiko</a>
+。打开面具-&gt;模块-&gt;从本地安装-&gt;选择下载的<code>shamiko-[版本号]-release.zip</code>-&gt;确定-&gt;重启手机。</p>
+<p>如果看到模块-&gt;Shamiko 的简介里露出了 😋，说明 Shamiko
+正常运行。</p>
+<h3 id="使用随机包名隐藏面具应用">使用随机包名隐藏面具应用</h3>
+<p>面具设置-&gt;隐藏 Magisk 应用</p>
+<h2 id="后续处理更新系统时">后续处理——更新系统时</h2>
+<p>系统更新前：先打开面具，选择“卸载
+Magisk”-&gt;<strong>还原原厂映像</strong>。然后更新系统。</p>
+<p>系统更新后：仍然使用提取 boot-&gt;修补 boot-&gt;刷入 boot
+的方式安装面具。</p>
+<ul>
+<li>如果希望在更新系统时保留面具：参考<a
+href="https://jesse205.github.io/MagiskChineseDocument/ota.html">这篇文档</a>。</li>
+</ul>
+<aside id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a
+href="https://mp.weixin.qq.com/s/eF9izvazeSZ1bVxOcxamQg">何为
+root？维术：https://mp.weixin.qq.com/s/eF9izvazeSZ1bVxOcxamQg</a><a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a
+href="https://mp.weixin.qq.com/s/-9VKyraHq5Qt2PTzqVqZOg">当我们谈论解锁
+BootLoader
+时，我们在谈论什么？维术：https://mp.weixin.qq.com/s/-9VKyraHq5Qt2PTzqVqZOg</a><a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>
+]]></content>
+  </entry>
+  <entry>
+    <title>在Windows中安装Linux虚拟机</title>
+    <url>/blog/2023/%E5%9C%A8Windows%E4%B8%AD%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
+    <content><![CDATA[<ul>
+<li>真机系统：Windows 10</li>
+<li>使用软件：VMware Workstation 17.0.2 Player</li>
+<li>虚拟机系统：Ubuntu 22.04.3 server</li>
+</ul>
+<span id="more"></span>
+<p>也可以给硬盘分一个新的区，单独安装 Linux。不过没有必要。</p>
+<h2 id="下载安装-vmware-workstation-player">下载安装 VMware Workstation
+Player</h2>
+<blockquote>
+<p>使用 VMware Workstation Player 在 Windows 或 Linux PC
+上轻松地将多个操作系统作为虚拟机运行。——网站介绍</p>
+</blockquote>
+<p><a
+href="https://customerconnect.vmware.com/cn/downloads/info/slug/desktop_end_user_computing/vmware_workstation_player/">下载页面</a></p>
+<p>这里下载的是当前最新版
+<code>VMware Workstation 17.0.2 Player for Windows 64-bit Operating Systems</code>。</p>
+<p>安装过程略（“增强型键盘驱动程序”不知道有什么用，先勾上）。</p>
+<h2 id="下载-ubuntu-镜像">下载 Ubuntu 镜像</h2>
+<p>是一种 Linux 发行版操作系统。</p>
+<p><a
+href="https://launchpad.net/ubuntu/+cdmirrors">下载页面（仓库集合）</a>，找到
+China。</p>
+<p>这里下载的是<code>ubuntu-22.04.3-live-server-amd64.iso</code>。</p>
+<h2 id="在-vm-player-中新建虚拟机">在 VM Player 中新建虚拟机</h2>
+<ol type="1">
+<li><code>创建新虚拟机(N)</code></li>
+<li><code>安装程序光盘文件(iso)(M)</code></li>
+<li><code>浏览(R)</code>，选择下载的镜像文件，下一步。</li>
+<li>设置虚拟机名称和位置，下一步。（我这里设置的是<code>Ubuntu100</code>和<code>D:\VMachines\Ubuntu100</code>）</li>
+<li>指定磁盘容量，下一步。</li>
+<li>自定义硬件（我这里把 CPU 改成了 4 核）。完成。</li>
+</ol>
+<p>你会看到：</p>
+<p><img src="/blog/images/vm.png"></p>
+<p>按回车开始安装 Ubuntu。</p>
+<h2 id="安装-ubuntu">安装 Ubuntu</h2>
+<ol type="1">
+<li><p>语言选择，默认回车。</p></li>
+<li><p>键盘布局选择，默认回车。</p></li>
+<li><p>安装类型，默认回车。</p></li>
+<li><p>网络，默认回车。</p></li>
+<li><p>代理，默认回车。</p></li>
+<li><p>配置镜像源，如果网络不好，改成</p>
+<ul>
+<li><p>清华源：<code>https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</code></p></li>
+<li><p>南京源：<code>https://mirror.nju.edu.cn/ubuntu/</code></p></li>
+<li><p>北邮源：<code>https://mirrors.bupt.edu.cn/ubuntu/</code></p>
+<p>等均可。</p></li>
+</ul></li>
+<li><p>配置存储布局，默认选择<code>Done</code>，回车。</p></li>
+<li><p>文件系统，<code>Done</code>，<code>Continue</code>。</p></li>
+<li><p>设置用户名密码等。</p></li>
+<li><p>是否升级到 Pro 版，默认不升级，<code>Continue</code>。</p></li>
+<li><p>是否安装 OpenSSH server，先不安装。</p></li>
+<li><p>是否安装其他东西，先都不选。</p></li>
+<li><p>等待安装系统。</p></li>
+<li><p>安装完成后，点击 VM Player
+下方的“我已完成安装”，然后<code>Reboot Now</code>。</p></li>
+</ol>
+<p>报错不要紧，回车。</p>
+<p>输入用户名和密码登录 Ubuntu。注意输入密码默认是不回显的。</p>
+<h2 id="设置虚拟机与真机的共享文件夹">设置虚拟机与真机的共享文件夹</h2>
+<p>VM
+的虚拟磁盘文件不好直接打开。有时候需要在虚拟机和真机之间互传文件，可以通过共享文件夹。</p>
+<p>在 VM Player 里打开虚拟机设置-&gt;选项-&gt;共享文件夹。</p>
+<p>我这里设置在<code>D:\VMachines\Shared</code>。</p>
+<p>在虚拟机里的位置是<code>/mnt/hgfs/Shared</code>。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>十进制与K进制小数互转</title>
     <url>/blog/2023/%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8EK%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC/</url>
     <content><![CDATA[<ul>
@@ -1350,172 +1423,6 @@ _{16}\)</span></p>
 </tr>
 </tbody>
 </table>
-]]></content>
-  </entry>
-  <entry>
-    <title>在Windows中安装Linux虚拟机</title>
-    <url>/blog/2023/%E5%9C%A8Windows%E4%B8%AD%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
-    <content><![CDATA[<ul>
-<li>真机系统：Windows 10</li>
-<li>使用软件：VMware Workstation 17.0.2 Player</li>
-<li>虚拟机系统：Ubuntu 22.04.3 server</li>
-</ul>
-<span id="more"></span>
-<p>也可以给硬盘分一个新的区，单独安装 Linux。不过没有必要。</p>
-<h2 id="下载安装-vmware-workstation-player">下载安装 VMware Workstation
-Player</h2>
-<blockquote>
-<p>使用 VMware Workstation Player 在 Windows 或 Linux PC
-上轻松地将多个操作系统作为虚拟机运行。——网站介绍</p>
-</blockquote>
-<p><a
-href="https://customerconnect.vmware.com/cn/downloads/info/slug/desktop_end_user_computing/vmware_workstation_player/">下载页面</a></p>
-<p>这里下载的是当前最新版
-<code>VMware Workstation 17.0.2 Player for Windows 64-bit Operating Systems</code>。</p>
-<p>安装过程略（“增强型键盘驱动程序”不知道有什么用，先勾上）。</p>
-<h2 id="下载-ubuntu-镜像">下载 Ubuntu 镜像</h2>
-<p>是一种 Linux 发行版操作系统。</p>
-<p><a
-href="https://launchpad.net/ubuntu/+cdmirrors">下载页面（仓库集合）</a>，找到
-China。</p>
-<p>这里下载的是<code>ubuntu-22.04.3-live-server-amd64.iso</code>。</p>
-<h2 id="在-vm-player-中新建虚拟机">在 VM Player 中新建虚拟机</h2>
-<ol type="1">
-<li><code>创建新虚拟机(N)</code></li>
-<li><code>安装程序光盘文件(iso)(M)</code></li>
-<li><code>浏览(R)</code>，选择下载的镜像文件，下一步。</li>
-<li>设置虚拟机名称和位置，下一步。（我这里设置的是<code>Ubuntu100</code>和<code>D:\VMachines\Ubuntu100</code>）</li>
-<li>指定磁盘容量，下一步。</li>
-<li>自定义硬件（我这里把 CPU 改成了 4 核）。完成。</li>
-</ol>
-<p>你会看到：</p>
-<p><img src="/blog/images/vm.png"></p>
-<p>按回车开始安装 Ubuntu。</p>
-<h2 id="安装-ubuntu">安装 Ubuntu</h2>
-<ol type="1">
-<li><p>语言选择，默认回车。</p></li>
-<li><p>键盘布局选择，默认回车。</p></li>
-<li><p>安装类型，默认回车。</p></li>
-<li><p>网络，默认回车。</p></li>
-<li><p>代理，默认回车。</p></li>
-<li><p>配置镜像源，如果网络不好，改成</p>
-<ul>
-<li><p>清华源：<code>https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</code></p></li>
-<li><p>南京源：<code>https://mirror.nju.edu.cn/ubuntu/</code></p></li>
-<li><p>北邮源：<code>https://mirrors.bupt.edu.cn/ubuntu/</code></p>
-<p>等均可。</p></li>
-</ul></li>
-<li><p>配置存储布局，默认选择<code>Done</code>，回车。</p></li>
-<li><p>文件系统，<code>Done</code>，<code>Continue</code>。</p></li>
-<li><p>设置用户名密码等。</p></li>
-<li><p>是否升级到 Pro 版，默认不升级，<code>Continue</code>。</p></li>
-<li><p>是否安装 OpenSSH server，先不安装。</p></li>
-<li><p>是否安装其他东西，先都不选。</p></li>
-<li><p>等待安装系统。</p></li>
-<li><p>安装完成后，点击 VM Player
-下方的“我已完成安装”，然后<code>Reboot Now</code>。</p></li>
-</ol>
-<p>报错不要紧，回车。</p>
-<p>输入用户名和密码登录 Ubuntu。注意输入密码默认是不回显的。</p>
-<h2 id="设置虚拟机与真机的共享文件夹">设置虚拟机与真机的共享文件夹</h2>
-<p>VM
-的虚拟磁盘文件不好直接打开。有时候需要在虚拟机和真机之间互传文件，可以通过共享文件夹。</p>
-<p>在 VM Player 里打开虚拟机设置-&gt;选项-&gt;共享文件夹。</p>
-<p>我这里设置在<code>D:\VMachines\Shared</code>。</p>
-<p>在虚拟机里的位置是<code>/mnt/hgfs/Shared</code>。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>普通十进制数转单精度浮点数</title>
-    <url>/blog/2023/%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0/</url>
-    <content><![CDATA[<ul>
-<li>在 IEEE 754 标准下</li>
-</ul>
-<span id="more"></span>
-<p>单精度浮点数，即 32 位二进制浮点数，包含：</p>
-<p>一位符号位 + 八位指数位 + 二十三位尾数位</p>
-<h2 id="例一">例一</h2>
-<p>以 <span class="math inline">\(0.1_{10}\)</span> 为例：</p>
-<ol type="1">
-<li><p>把十进制转换为二进制</p>
-<p><span class="math inline">\(0.1 _{10} = 0.0\dot{0}01\dot{1}...
-_{2}\)</span></p></li>
-<li><p>用以 <span class="math inline">\(2_{10}\)</span>
-为基数的科学计数法表示，并保证【尾数的小数点前是 <span
-class="math inline">\(1_{2}\)</span>】</p>
-<p><span class="math inline">\(= 1.\dot{1}00\dot{1}..._{2} \times
-(2^{-4})_{10}\)</span></p>
-<p>可以看到指数是 <span class="math inline">\(-4_{10}\)</span></p></li>
-<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
-class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
-<p>这里 <span class="math inline">\(e\)</span>
-等于【用于表示指数位的位数】 <span
-class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
-class="math inline">\(127_{10}\)</span></p>
-<p>则阶码为 <span class="math inline">\(-4_{10} + 127_{10} =
-123_{10}\)</span></p>
-<p>阶码的二进制为 <code>0111 1011</code>，注意
-<em>阶码始终为无符号整数</em></p></li>
-<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是无限的，所以要舍去一部分</p>
-<p>它的前二十位是：<code>1001 1001 1001 1001 1001</code></p>
-<p>二十一至二十八位是：<code>1001 1001</code></p>
-<p>所以二十一至二十三位，要么取 <code>100</code>，要么取
-<code>101</code>。</p>
-<p>通常是舍入到最接近的，一样接近则偶数（末尾为
-<code>0</code>）优先，这里 <code>101</code> 更接近。</p></li>
-<li><p>把符号位连同阶码、尾数位缝合起来</p>
-<p><code>0 | 0111 1011 | 1001 1001 1001 1001 1001 101</code></p></li>
-</ol>
-<h2 id="例二">例二</h2>
-<p>以 <span class="math inline">\(12_{10} = 1.5_{10} \times
-(2^{3})_{10}\)</span> 为例，和上面的步骤一样：</p>
-<ol type="1">
-<li><p>把十进制转换为二进制</p>
-<p><span class="math inline">\(12 _{10} = 1100 _{2}\)</span></p></li>
-<li><p>用以 <span class="math inline">\(2\)</span>
-为基数的科学计数法表示，并保证【尾数的小数点前是 <span
-class="math inline">\(1\)</span>】</p>
-<p><span class="math inline">\(= 1.1_{2} \times (2^3)_{10}\)</span></p>
-<p>可以看到指数是 <span class="math inline">\(3_{10}\)</span></p></li>
-<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
-class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
-<p>这里 <span class="math inline">\(e\)</span>
-等于【用于表示指数位的位数】 <span
-class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
-class="math inline">\(127_{10}\)</span></p>
-<p>则阶码为 <span class="math inline">\(3_{10} + 127_{10} =
-130_{10}\)</span></p>
-<p>阶码的二进制为 <code>1000 0010</code>，注意
-<em>阶码始终为无符号整数</em></p></li>
-<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是有限的，所以后面直接补零</p>
-<p>小数点后二十三位是：<code>1000 0000 0000 0000 000</code></p></li>
-<li><p>把符号位连同阶码、尾数位缝合起来</p>
-<p><code>0 | 1000 0010 | 1000 0000 0000 0000 000</code></p></li>
-</ol>
-<h2 id="特殊情况">特殊情况</h2>
-<p><a
-href="/blog/2023/单精度浮点数的五种形式/">单精度浮点数的五种形式</a></p>
-<p>对呀对呀……单精度浮点数有五种形式，你知道么？</p>
-<h2 id="如何验证">如何验证</h2>
-<ul>
-<li><p><a
-href="https://baseconvert.com/ieee-754-floating-point">在线转换</a></p></li>
-<li><p><a href="/blog/2023/用GDB查看变量内存/">用 GDB
-查看变量内存</a></p></li>
-<li><p><a href="https://en.wikipedia.org/wiki/IEEE_754">Wikipedia</a> |
-<a href="https://zh.wikipedia.org/wiki/IEEE_754">维基百科</a></p></li>
-<li><p>获取国际标准文件</p>
-<p>IEEE 754 标准是电气与电子工程师协会（Institute of Electrical and
-Electronics Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <a
-href="https://standards.ieee.org/ieee/754/6210/">IEEE
-754-2019</a>，对应国际标准 <a
-href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/standard/08/09/80985.html">ISO/IEC
-60559:2020</a>，预计下一次在 2028 年修订。 http://snti.ru/
-这个网站分享了各种国际标准文件的磁力链接，但是可以免费下载的不全，IEC
-的只有 61xxx。据说可以给站长发邮件要
-<code>popov_al@perm.ru</code>，每个文件一刀乐。在 ISO 官网上下载需要 187
-瑞士法郎，合 1000 多人民币。</p></li>
-</ul>
 ]]></content>
   </entry>
   <entry>
@@ -1755,6 +1662,99 @@ Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p><
 保存时也会刷新，在命令行会输出
 <code>File event [change]</code>，只不过看不出来。</p>
 <p>好像和直接通过浏览器来刷新不一样，因为我在选项卡上没看到加载动画。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>普通十进制数转单精度浮点数</title>
+    <url>/blog/2023/%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0/</url>
+    <content><![CDATA[<ul>
+<li>在 IEEE 754 标准下</li>
+</ul>
+<span id="more"></span>
+<p>单精度浮点数，即 32 位二进制浮点数，包含：</p>
+<p>一位符号位 + 八位指数位 + 二十三位尾数位</p>
+<h2 id="例一">例一</h2>
+<p>以 <span class="math inline">\(0.1_{10}\)</span> 为例：</p>
+<ol type="1">
+<li><p>把十进制转换为二进制</p>
+<p><span class="math inline">\(0.1 _{10} = 0.0\dot{0}01\dot{1}...
+_{2}\)</span></p></li>
+<li><p>用以 <span class="math inline">\(2_{10}\)</span>
+为基数的科学计数法表示，并保证【尾数的小数点前是 <span
+class="math inline">\(1_{2}\)</span>】</p>
+<p><span class="math inline">\(= 1.\dot{1}00\dot{1}..._{2} \times
+(2^{-4})_{10}\)</span></p>
+<p>可以看到指数是 <span class="math inline">\(-4_{10}\)</span></p></li>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
+class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<p>这里 <span class="math inline">\(e\)</span>
+等于【用于表示指数位的位数】 <span
+class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
+class="math inline">\(127_{10}\)</span></p>
+<p>则阶码为 <span class="math inline">\(-4_{10} + 127_{10} =
+123_{10}\)</span></p>
+<p>阶码的二进制为 <code>0111 1011</code>，注意
+<em>阶码始终为无符号整数</em></p></li>
+<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是无限的，所以要舍去一部分</p>
+<p>它的前二十位是：<code>1001 1001 1001 1001 1001</code></p>
+<p>二十一至二十八位是：<code>1001 1001</code></p>
+<p>所以二十一至二十三位，要么取 <code>100</code>，要么取
+<code>101</code>。</p>
+<p>通常是舍入到最接近的，一样接近则偶数（末尾为
+<code>0</code>）优先，这里 <code>101</code> 更接近。</p></li>
+<li><p>把符号位连同阶码、尾数位缝合起来</p>
+<p><code>0 | 0111 1011 | 1001 1001 1001 1001 1001 101</code></p></li>
+</ol>
+<h2 id="例二">例二</h2>
+<p>以 <span class="math inline">\(12_{10} = 1.5_{10} \times
+(2^{3})_{10}\)</span> 为例，和上面的步骤一样：</p>
+<ol type="1">
+<li><p>把十进制转换为二进制</p>
+<p><span class="math inline">\(12 _{10} = 1100 _{2}\)</span></p></li>
+<li><p>用以 <span class="math inline">\(2\)</span>
+为基数的科学计数法表示，并保证【尾数的小数点前是 <span
+class="math inline">\(1\)</span>】</p>
+<p><span class="math inline">\(= 1.1_{2} \times (2^3)_{10}\)</span></p>
+<p>可以看到指数是 <span class="math inline">\(3_{10}\)</span></p></li>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
+class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<p>这里 <span class="math inline">\(e\)</span>
+等于【用于表示指数位的位数】 <span
+class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
+class="math inline">\(127_{10}\)</span></p>
+<p>则阶码为 <span class="math inline">\(3_{10} + 127_{10} =
+130_{10}\)</span></p>
+<p>阶码的二进制为 <code>1000 0010</code>，注意
+<em>阶码始终为无符号整数</em></p></li>
+<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是有限的，所以后面直接补零</p>
+<p>小数点后二十三位是：<code>1000 0000 0000 0000 000</code></p></li>
+<li><p>把符号位连同阶码、尾数位缝合起来</p>
+<p><code>0 | 1000 0010 | 1000 0000 0000 0000 000</code></p></li>
+</ol>
+<h2 id="特殊情况">特殊情况</h2>
+<p><a
+href="/blog/2023/单精度浮点数的五种形式/">单精度浮点数的五种形式</a></p>
+<p>对呀对呀……单精度浮点数有五种形式，你知道么？</p>
+<h2 id="如何验证">如何验证</h2>
+<ul>
+<li><p><a
+href="https://baseconvert.com/ieee-754-floating-point">在线转换</a></p></li>
+<li><p><a href="/blog/2023/用GDB查看变量内存/">用 GDB
+查看变量内存</a></p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/IEEE_754">Wikipedia</a> |
+<a href="https://zh.wikipedia.org/wiki/IEEE_754">维基百科</a></p></li>
+<li><p>获取国际标准文件</p>
+<p>IEEE 754 标准是电气与电子工程师协会（Institute of Electrical and
+Electronics Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <a
+href="https://standards.ieee.org/ieee/754/6210/">IEEE
+754-2019</a>，对应国际标准 <a
+href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/standard/08/09/80985.html">ISO/IEC
+60559:2020</a>，预计下一次在 2028 年修订。 http://snti.ru/
+这个网站分享了各种国际标准文件的磁力链接，但是可以免费下载的不全，IEC
+的只有 61xxx。据说可以给站长发邮件要
+<code>popov_al@perm.ru</code>，每个文件一刀乐。在 ISO 官网上下载需要 187
+瑞士法郎，合 1000 多人民币。</p></li>
+</ul>
 ]]></content>
   </entry>
   <entry>
@@ -2024,37 +2024,6 @@ href="https://flk.npc.gov.cn/detail2.html?ZmY4MDgwODE2ZjEzNWY0NjAxNmYyMTA5ODliOT
 ]]></content>
   </entry>
   <entry>
-    <title>让博客commit前的工作更简单</title>
-    <url>/blog/2023/%E8%AE%A9%E5%8D%9A%E5%AE%A2commit%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9B%B4%E7%AE%80%E5%8D%95/</url>
-    <content><![CDATA[<p>起因是，我是把博客代码分两个仓库存的。需要做很多重复的工作。</p>
-<p>于是我写了两个 bat 文件。</p>
-<span id="more"></span>
-<p>起因是，我是把博客代码分两个仓库存的：</p>
-<ul>
-<li><p><code>blog-source</code>存 Hexo 框架源码，NexT
-主题源码和自己的部分（更改后的配置文件、md 文档、图片等）</p></li>
-<li><p><code>blog</code>存渲染之后的网页，分支是<code>gh-pages</code></p></li>
-</ul>
-<p>这就造成在 commit 前，我需要做以下工作：</p>
-<ol type="1">
-<li><p>在<code>blog-source</code>文件夹里先打开本地预览服务器。</p></li>
-<li><p>点击链接，在浏览器里打开。</p></li>
-<li><p>预览没问题，渲染网页。</p></li>
-<li><p>删除<code>blog</code>文件夹里除了<code>.git</code>外的所有文件和文件夹。</p></li>
-<li><p>把渲染的网页从<code>blog-source/public/</code>转移到<code>blog</code>文件夹里。</p></li>
-<li><p>清除<code>blog-source</code>文件夹里渲染的网页。</p></li>
-</ol>
-<p>手动操作了十几天后很烦，于是我写了两个 bat 文件：</p>
-<p><code>bs.bat</code> 做第 1-2 步</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d d:\repo\blog-source</span><br><span class="line"><span class="built_in">start</span> http://localhost:<span class="number">4000</span>/blog/</span><br><span class="line"><span class="keyword">call</span> npx hexo s</span><br></pre></td></tr></table></figure>
-<p><code>bg.bat</code> 做第 3-6 步</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">:: 删除旧文件</span><br><span class="line"><span class="built_in">cd</span> /d d:\repo\blog</span><br><span class="line">git rm -r *</span><br><span class="line">:: 渲染新文件</span><br><span class="line"><span class="built_in">cd</span> ..\blog-source</span><br><span class="line"><span class="keyword">call</span> npx hexo g</span><br><span class="line">:: 转移新文件</span><br><span class="line"><span class="built_in">xcopy</span> public ..\blog /s /e</span><br><span class="line"><span class="keyword">call</span> npx hexo clean</span><br></pre></td></tr></table></figure>
-<p>再建一个专门存 bat 的文件夹，把它添加到环境变量
-PATH。这样在任一文件夹下都可以做第 1-6 步了。</p>
-<p>commit 我用的是 GitHub Desktop，暂时没有换的必要。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>计网-01-概述-性能指标</title>
     <url>/blog/2023/%E8%AE%A1%E7%BD%91-01-%E6%A6%82%E8%BF%B0-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/</url>
     <content><![CDATA[<ul>
@@ -2161,8 +2130,8 @@ km/s}\)</span></li>
     ……    :20,4s
 
     section 传播
-    从A到B传播    :0,10s
-    从B到A传播    :10,10s
+    从A到B传播    :1,8s
+    从B到A传播    :11,8s
 
     section B
     接收      :7,3s
@@ -2328,6 +2297,274 @@ IP……
 ]]></content>
       <categories>
         <category>计算机网络</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>让博客commit前的工作更简单</title>
+    <url>/blog/2023/%E8%AE%A9%E5%8D%9A%E5%AE%A2commit%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9B%B4%E7%AE%80%E5%8D%95/</url>
+    <content><![CDATA[<p>起因是，我是把博客代码分两个仓库存的。需要做很多重复的工作。</p>
+<p>于是我写了两个 bat 文件。</p>
+<span id="more"></span>
+<p>起因是，我是把博客代码分两个仓库存的：</p>
+<ul>
+<li><p><code>blog-source</code>存 Hexo 框架源码，NexT
+主题源码和自己的部分（更改后的配置文件、md 文档、图片等）</p></li>
+<li><p><code>blog</code>存渲染之后的网页，分支是<code>gh-pages</code></p></li>
+</ul>
+<p>这就造成在 commit 前，我需要做以下工作：</p>
+<ol type="1">
+<li><p>在<code>blog-source</code>文件夹里先打开本地预览服务器。</p></li>
+<li><p>点击链接，在浏览器里打开。</p></li>
+<li><p>预览没问题，渲染网页。</p></li>
+<li><p>删除<code>blog</code>文件夹里除了<code>.git</code>外的所有文件和文件夹。</p></li>
+<li><p>把渲染的网页从<code>blog-source/public/</code>转移到<code>blog</code>文件夹里。</p></li>
+<li><p>清除<code>blog-source</code>文件夹里渲染的网页。</p></li>
+</ol>
+<p>手动操作了十几天后很烦，于是我写了两个 bat 文件：</p>
+<p><code>bs.bat</code> 做第 1-2 步</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d d:\repo\blog-source</span><br><span class="line"><span class="built_in">start</span> http://localhost:<span class="number">4000</span>/blog/</span><br><span class="line"><span class="keyword">call</span> npx hexo s</span><br></pre></td></tr></table></figure>
+<p><code>bg.bat</code> 做第 3-6 步</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">:: 删除旧文件</span><br><span class="line"><span class="built_in">cd</span> /d d:\repo\blog</span><br><span class="line">git rm -r *</span><br><span class="line">:: 渲染新文件</span><br><span class="line"><span class="built_in">cd</span> ..\blog-source</span><br><span class="line"><span class="keyword">call</span> npx hexo g</span><br><span class="line">:: 转移新文件</span><br><span class="line"><span class="built_in">xcopy</span> public ..\blog /s /e</span><br><span class="line"><span class="keyword">call</span> npx hexo clean</span><br></pre></td></tr></table></figure>
+<p>再建一个专门存 bat 的文件夹，把它添加到环境变量
+PATH。这样在任一文件夹下都可以做第 1-6 步了。</p>
+<p>commit 我用的是 GitHub Desktop，暂时没有换的必要。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hadoop - 00 - 搭建环境</title>
+    <url>/blog/2023/Hadoop-00-%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<p>Hadoop 完全分布式模式环境配置：</p>
+<table>
+<colgroup>
+<col style="width: 61%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>用</th>
+<th>名</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>物理机系统</strong></td>
+<td>Windows 10</td>
+</tr>
+<tr class="even">
+<td><strong>虚拟机容器</strong></td>
+<td>VMware Workstation 17.0.2 Player（免费的）</td>
+</tr>
+<tr class="odd">
+<td><strong>虚拟机系统</strong></td>
+<td>Ubuntu 22.04.3 server</td>
+</tr>
+<tr class="even">
+<td><strong>主角</strong></td>
+<td>Hadoop 3.3.6</td>
+</tr>
+<tr class="odd">
+<td><strong>SSH
+连接虚拟机用的，不装直接操作也可以，装了比较方便可以复制粘贴</strong></td>
+<td>Xshell 7</td>
+</tr>
+<tr class="even">
+<td><strong>虚拟机与物理机互传文件用的</strong></td>
+<td>Xftp 7</td>
+</tr>
+</tbody>
+</table>
+<p>装了三台机器，名：master、worker1、worker2。</p>
+<span id="more"></span>
+<h2 id="在-windows-中安装-linux-虚拟机">在 Windows 中安装 Linux
+虚拟机</h2>
+<p><a href="/blog/2023/在Windows中安装Linux虚拟机">教程</a></p>
+<ul>
+<li>其中，【安装 Ubuntu】的第 4 步，我选的还是默认的
+DHCP，装好之后再改成静态 IP。</li>
+<li>第 11 步，要安装 OpenSSH server。</li>
+<li>不用设置共享文件夹，因为我们有 Xftp。</li>
+</ul>
+<h2 id="安装-xshell-和-xftp">安装 Xshell 和 Xftp</h2>
+<p><a
+href="https://www.xshell.com/zh/free-for-home-school/">下载地址</a></p>
+<h2 id="用-xftp-连接虚拟机">用 Xftp 连接虚拟机</h2>
+<p>查看虚拟机的 IP 地址：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo apt install net-tools</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+<p>然后用 Xftp 连接。</p>
+<h2 id="下载-hadoop">下载 Hadoop</h2>
+<p><a
+href="https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/">下载页面（清华源）</a></p>
+<p>我这里下载的是<code>hadoop-3.3.6.tar.gz</code>。</p>
+<p>用 Xftp 把压缩包传到虚拟机的家目录下，然后：</p>
+<h2
+id="安装软件及配置环境变量写脚本避免重复工作">安装软件及配置环境变量，写脚本避免重复工作</h2>
+<p>把脚本也传到家目录，然后执行：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">bash ha.sh</span><br></pre></td></tr></table></figure>
+<p>其中，安装 OpenJDK 是按照 <a
+href="https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions">https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions</a>
+里的说明，指向 <a
+href="https://github.com/apache/hadoop/blob/rel/release-3.2.1/dev-support/docker/Dockerfile#L92">https://github.com/apache/hadoop/blob/rel/release-3.2.1/dev-support/docker/Dockerfile#L92</a>
+里的命令。</p>
+<p><code>ha.sh</code>：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 JDK</span></span><br><span class="line">sudo apt-get update;</span><br><span class="line">sudo apt-get install openjdk-8-jdk libbcprov-java;</span><br><span class="line">sudo apt-get clean;</span><br><span class="line"><span class="comment"># 存放 Hadoop 压缩包的位置</span></span><br><span class="line"><span class="built_in">cd</span>;</span><br><span class="line"><span class="comment"># 解压，删除（这两句我执行的时候没执行上，重启后手动执行）</span></span><br><span class="line">sudo tar -zxvf hadoop-3.3.6.tar.gz -C /usr/local;</span><br><span class="line">sudo <span class="built_in">rm</span> hadoop-3.3.6.tar.gz;</span><br><span class="line"><span class="comment"># 写环境变量</span></span><br><span class="line"><span class="comment"># env 查看所有环境变量</span></span><br><span class="line"><span class="comment"># echo $NAME 查看某个</span></span><br><span class="line">JAVA_HOME=<span class="string">&quot;/lib/jvm/java-1.8.0-openjdk-amd64&quot;</span>;</span><br><span class="line">HADOOP_HOME=<span class="string">&quot;/usr/local/hadoop-3.3.6&quot;</span>;</span><br><span class="line">text=<span class="string">&quot;export JAVA_HOME=<span class="variable">$JAVA_HOME</span></span></span><br><span class="line"><span class="string">export HADOOP_HOME=<span class="variable">$HADOOP_HOME</span></span></span><br><span class="line"><span class="string">export PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin:<span class="variable">$HADOOP_HOME</span>/sbin:<span class="variable">$JAVA_HOME</span>/bin</span></span><br><span class="line"><span class="string">&quot;</span>;</span><br><span class="line">sudo <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$text</span>&quot;</span> &gt;&gt; .bashrc;</span><br><span class="line"><span class="comment"># 应用，重启</span></span><br><span class="line"><span class="built_in">source</span> .bashrc;</span><br><span class="line">reboot;</span><br></pre></td></tr></table></figure>
+<h2 id="改虚拟机内的文件">改虚拟机内的文件</h2>
+<p><a href="https://www.runoob.com/linux/linux-vim.html">Vim
+教程</a></p>
+<p>不用
+Vim，传到真机上修改也可，这样还方便传到其他机器上。注意行尾序列是<strong>LF</strong>，小心操作不当变成
+CRLF。</p>
+<p>（还可以写一个集群分发脚本，不过暂时没必要）</p>
+<p>把改好的文件存真机上一份，直接用 Xftp
+传（如果传输失败，就修改文件权限）。</p>
+<p>注意传之前把静态 IP 改了，不同机器设成不同静态 IP。</p>
+<h3
+id="改00-installer-config.yaml改成静态-ip">改<code>00-installer-config.yaml</code>，改成静态
+IP</h3>
+<p>编辑<code>/etc/netplan</code>下的<code>.yaml</code>文件：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/netplan</span><br><span class="line">ll</span><br><span class="line">sudo vi 00-installer-config.yaml</span><br></pre></td></tr></table></figure>
+<p>原来的文件：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># This is the network config written by &#x27;subiquity&#x27;</span></span><br><span class="line"><span class="attr">network:</span></span><br><span class="line">  <span class="attr">ethernets:</span></span><br><span class="line">    <span class="attr">ens33:</span></span><br><span class="line">      <span class="attr">dhcp4:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>修改后的文件：</p>
+<p>参考 <a
+href="https://netplan.readthedocs.io/en/stable/netplan-tutorial/">https://netplan.readthedocs.io/en/stable/netplan-tutorial/</a></p>
+<p>选择<code>192.168.78</code>的依据是：</p>
+<ul>
+<li>在真机使用<code>ipconfig</code>命令得到的【VMnet8】的 IPv4
+地址<code>192.168.78.1</code></li>
+<li>查看 <code>C:\ProgramData\VMware\vmnetnat.conf</code> 里的 NAT
+网关地址<code>192.168.78.2</code></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">network:</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">ethernets:</span></span><br><span class="line">    <span class="attr">ens33:</span></span><br><span class="line">      <span class="attr">dhcp4:</span> <span class="literal">false</span></span><br><span class="line">      <span class="attr">dhcp6:</span> <span class="literal">false</span></span><br><span class="line">      <span class="attr">addresses:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.101</span><span class="string">/24</span></span><br><span class="line">      <span class="attr">routes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">to:</span> <span class="string">default</span></span><br><span class="line">          <span class="attr">via:</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.2</span></span><br><span class="line">      <span class="attr">nameservers:</span></span><br><span class="line">        <span class="attr">addresses:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.2</span></span><br></pre></td></tr></table></figure>
+<p>每台机器的<code>ens33.addresses</code>要设置成不同的。</p>
+<p>测试：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo netplan try</span><br></pre></td></tr></table></figure>
+<p>回车以应用。</p>
+<h3 id="改-hosts">改 <code>hosts</code></h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo vi /etc/hosts</span><br></pre></td></tr></table></figure>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">192.168.78.101 master</span><br><span class="line">192.168.78.102 worker1</span><br><span class="line">192.168.78.103 worker2</span><br></pre></td></tr></table></figure>
+<p>注意，如果有：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">127.0.1.1 [主机名]</span><br></pre></td></tr></table></figure>
+<p>要把这一行删了，否则绑定不到<code>192.168.78.x</code>。暂时不知道有没有不良影响。</p>
+<h3
+id="改hadoop_homeetchadoophadoop-env.sh">改<code>$HADOOP_HOME/etc/hadoop/hadoop-env.sh</code></h3>
+<ul>
+<li><code>JAVA_HOME</code>：JAVA 主目录</li>
+<li><code>HDFS_NAMENODE_USER</code>：启动集群 NameNode 服务的用户</li>
+<li><code>HDFS_DATANODE_USER</code>：启动集群 DataNode 服务的用户</li>
+<li><code>HDFS_SECONDARYNAMENODE_USER</code>：启动集群 SecondaryNamenode
+服务的用户</li>
+<li><code>YARN_RESOURCEMANAGER_USER</code>：启动集群 ResourceManager
+服务的用户</li>
+<li><code>YARN_NODEMANAGER_USER</code>：启动集群 NodeManager
+服务的用户</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/lib/jvm/java-1.8.0-openjdk-amd64</span><br><span class="line"><span class="built_in">export</span> HDFS_NAMENODE_USER=rc</span><br><span class="line"><span class="built_in">export</span> HDFS_DATANODE_USER=rc</span><br><span class="line"><span class="built_in">export</span> HDFS_SECONDARYNAMENODE_USER=rc</span><br><span class="line"><span class="built_in">export</span> YARN_RESOURCEMANAGER_USER=rc</span><br><span class="line"><span class="built_in">export</span> YARN_NODEMANAGER_USER=rc</span><br></pre></td></tr></table></figure>
+<p>rc 是我每台机器的用户名。</p>
+<p><strong>下面的文件都是在<code>$HADOOP_HOME/etc/hadoop</code>目录里。</strong></p>
+<h3 id="改core-site.xml">改<code>core-site.xml</code></h3>
+<ul>
+<li><code>fs.defaultFS</code>：NameNode 的地址</li>
+<li><code>haoodp.tmp.dir</code>：HDFS 数据保存的临时目录</li>
+<li><code>hadoop.http.staticuser.user</code>：HDFS
+网页登录使用的静态用户</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://master:9820<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/local/hadoop-3.3.6/data<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.http.staticuser.user<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>rc<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="改hdfs-site.xml">改<code>hdfs-site.xml</code></h3>
+<ul>
+<li><code>dfs.namenode.http-address</code>：Web 方式访问 NameNode
+的主机和端口号</li>
+<li><code>dfs.namenode.secondary.http-address</code>：SecondaryNamenode
+部署的主机</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.http-address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>master:9870<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.secondary.http-address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>worker2:9868<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="改mapred-site.xml">改<code>mapred-site.xml</code></h3>
+<ul>
+<li><code>mapreduce.framework.name</code>：配置为 yarn 进行 MapReduce
+作业的调度</li>
+<li><code>mapreduce.jobhistory.address</code>：历史服务器端地址</li>
+<li><code>mapreduce.jobhistory.webapp.address</code>：历史服务器 web
+地址</li>
+<li>下面三个环境变量是 Hadoop 的目录。</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.jobhistory.address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>worker1:10020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.jobhistory.webapp.address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>worker1:19888<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.app.mapreduce.am.env<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>HADOOP_MAPRED_HOME=/usr/local/hadoop-3.3.6/<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.map.env<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>HADOOP_MAPRED_HOME=/usr/local/hadoop-3.3.6/<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.reduce.env<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>HADOOP_MAPRED_HOME=/usr/local/hadoop-3.3.6/<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="改yarn-site.xml">改<code>yarn-site.xml</code></h3>
+<ul>
+<li><code>yarn.resourcemanager.hostname</code>： ResourceManager
+的主机名</li>
+<li><code>yarn.nodemanager.aux-services</code>：NodeManager
+获取数据的方式</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>worker1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 环境变量的继承 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.env-whitelist<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HAD</span><br><span class="line">      OOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,</span><br><span class="line">      HADOOP_MAPRED_HOME<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 开启日志聚集功能 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.log-aggregation-enable<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 设置日志聚集服务器地址 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.log.server.url<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>http://worker1:19888/jobhistory/logs<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 设置日志保留时间 7 天 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.log-aggregation.retain-seconds<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>604800<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="改workers">改<code>workers</code></h3>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">worker1</span><br><span class="line">worker2</span><br></pre></td></tr></table></figure>
+<h2
+id="再建两个虚拟机-worker1-和-worker2配置好之后互相复制-ssh-key">再建两个虚拟机
+worker1 和 worker2，配置好之后，互相复制 SSH KEY</h2>
+<p>三台机器上都执行：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+<p>三台机器上都执行：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ssh-copy-id master</span><br><span class="line">ssh-copy-id worker1</span><br><span class="line">ssh-copy-id worker2</span><br></pre></td></tr></table></figure>
+<h2 id="格式化-hdfs">格式化 HDFS</h2>
+<p>只用在 master 执行一次：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hdfs namenode -format</span><br></pre></td></tr></table></figure>
+<p>如果以后遇到问题，需要重新格式化时，需停止进程，然后删除每台机器的
+<code>$HADOOP_HOME/data/</code> 和 <code>$HADOOP_HOME/logs/</code>。</p>
+<h2 id="启动-hadoop">启动 Hadoop</h2>
+<p>在 master 执行：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">start-all.sh</span><br></pre></td></tr></table></figure>
+<h2 id="启动历史服务器">启动历史服务器</h2>
+<p>在 worker1 执行：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">mapred --daemon start historyserver</span><br></pre></td></tr></table></figure>
+<h2 id="检查环境">检查环境</h2>
+<h3 id="查看相关进程">查看相关进程</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">jps</span><br></pre></td></tr></table></figure>
+<p>master 应该有：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">[PID] NameNode</span><br><span class="line">[PID] Jps</span><br></pre></td></tr></table></figure>
+<p>worker1 应该有：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">[PID] Jps</span><br><span class="line">[PID] JobHistoryServer</span><br><span class="line">[PID] DataNode</span><br><span class="line">[PID] NodeManager</span><br></pre></td></tr></table></figure>
+<p>worker2 应该有：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">[PID] NodeManager</span><br><span class="line">[PID] SecondaryNameNode</span><br><span class="line">[PID] Jps</span><br><span class="line">[PID] DataNode</span><br></pre></td></tr></table></figure>
+<h3 id="查看进程的-web-端口">查看进程的 Web 端口</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">netstat -tunlp</span><br></pre></td></tr></table></figure>
+<ul>
+<li>-t：显示 TCP 连接信息</li>
+<li>-u：显示 UDP 连接信息</li>
+<li>-n：以数字形式显示 IP 地址和端口号</li>
+<li>-l：仅显示监听状态的连接</li>
+<li>-p：显示与连接关联的进程信息</li>
+</ul>
+<h2
+id="改真机的hosts方便用浏览器访问">改真机的<code>hosts</code>，方便用浏览器访问</h2>
+<p><code>C:\Windows\System32\drivers\etc\hosts</code>：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">192.168.78.101 master</span><br><span class="line">192.168.78.102 worker1</span><br><span class="line">192.168.78.103 worker2</span><br></pre></td></tr></table></figure>
+<h2 id="用浏览器访问-namenode">用浏览器访问 Namenode</h2>
+<p>master:9870</p>
+<h2 id="测试进行-wordcount">测试进行 wordcount</h2>
+<h3 id="创建文件夹在-ubuntu">创建文件夹在 Ubuntu</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$HADOOP_HOME</span></span><br><span class="line"><span class="built_in">mkdir</span> wcinput</span><br></pre></td></tr></table></figure>
+<h3 id="创建文本文档在-ubuntu">创建文本文档在 Ubuntu</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> wcinput</span><br><span class="line">vi word.txt</span><br></pre></td></tr></table></figure>
+<p><code>word.txt</code>：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">ss ss</span><br><span class="line">cls cls</span><br><span class="line">aaabbbccc</span><br><span class="line">rf rf rfr</span><br></pre></td></tr></table></figure>
+<h3 id="创建文件夹到-hdfs">创建文件夹到 HDFS</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hadoop fs -<span class="built_in">mkdir</span> /wcinput</span><br></pre></td></tr></table></figure>
+<h3 id="上传文件到-hdfs">上传文件到 HDFS</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hadoop fs -put word.txt /wcinput</span><br></pre></td></tr></table></figure>
+<h3 id="测试进行-wordcount-1">测试进行 wordcount</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$HADOOP_HOME</span></span><br><span class="line">hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar wordcount /wcinput /wcoutput</span><br></pre></td></tr></table></figure>
+<p>如果成功，HDFS
+的<code>/wcoutput</code>目录里会有一个<code>_SUCCESS</code>文件和输出文件，可以通过浏览器查看：</p>
+<p>master:9870 -&gt; 菜单 -&gt; Utilities -&gt; Browse the file system
+-&gt; <code>/wcoutput/part-r-00000</code>：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">aaabbbccc	1</span><br><span class="line">cls	2</span><br><span class="line">rf	2</span><br><span class="line">rfr	1</span><br><span class="line">ss	2</span><br></pre></td></tr></table></figure>
+<h2 id="用浏览器访问-jobhistory">用浏览器访问 JobHistory</h2>
+<p>worker1:19888</p>
+<h2 id="停止-hadoop">停止 Hadoop</h2>
+<p>在 master 执行：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">stop-all.sh</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Hadoop</category>
       </categories>
   </entry>
 </search>
