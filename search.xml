@@ -1,23 +1,263 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java - 01 - 一些问题与回答</title>
-    <url>/blog/2023/Java-01-%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E4%B8%8E%E5%9B%9E%E7%AD%94/</url>
-    <content><![CDATA[<p>一些问题与回答</p>
+    <title>MongoDB - 00 - 准备</title>
+    <url>/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/</url>
+    <content><![CDATA[<ul>
+<li>Windows 10 环境配置</li>
+</ul>
 <span id="more"></span>
-<h2
-id="main函数不加static可以吗"><code>main</code>函数不加<code>static</code>可以吗？</h2>
-<p>不行。程序启动时实例还没有被创建，需要通过类名调用静态方法。</p>
-<h2
-id="当类名和文件名不一致时代码检查器会提示修改那么.java文件里只能写一个类吗">当类名和文件名不一致时，代码检查器会提示修改。那么<code>.java</code>文件里只能写一个类吗？</h2>
-<p>只能写一个与文件名相同的公共类。其他的类不加<code>public</code>。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test0</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;456&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Test0.fun();</span><br><span class="line">        <span class="type">Test1</span> <span class="variable">test1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test1</span>();</span><br><span class="line">        test1.fun();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="怎么获取键盘输入">怎么获取键盘输入？</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;<span class="comment">//注意要加分号</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Echo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建一个 String 对象</span></span><br><span class="line">        String str;</span><br><span class="line">        <span class="comment">// 创建一个 Scanner 对象，传参是标准输入流对象</span></span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scan</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="comment">// 读取一行，返回String</span></span><br><span class="line">        str = scan.nextLine();</span><br><span class="line">        <span class="comment">// println() 换行，print() 不换行</span></span><br><span class="line">        System.out.print(str);</span><br><span class="line">        System.out.println(str);</span><br><span class="line">        System.out.print(str);</span><br><span class="line">        System.out.println(str);</span><br><span class="line">        <span class="comment">// 别忘了关闭</span></span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="怎么获取文件输入">怎么获取文件输入？</h2>
+<ol type="1">
+<li><a href="https://www.mongodb.com/try/download/community">下载
+MongoDB</a>，我下载的是<code>7.0.0 (current)</code>的<code>zip</code>格式。</li>
+<li>解压，右键用 PowerShell 运行<code>Install-Compass.ps1</code>，安装
+GUI。 默认会安装到 C 盘，安装完后手动移到 D 盘。</li>
+<li>建数据库文件夹，建一个空日志<code>test.log</code>。</li>
+<li><div class="sourceCode" id="cb1"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>   <span class="ex">mongod</span> <span class="at">--dbpath</span> <span class="pp">[</span><span class="ss">数据库文件夹路径</span><span class="pp">]</span> <span class="at">--logpath</span> <span class="pp">[</span><span class="ss">日志文件路径</span><span class="pp">]</span> <span class="at">--logappend</span></span></code></pre></div></li>
+<li>用 MongoDBCompass 连接。</li>
+</ol>
 ]]></content>
       <categories>
-        <category>Java</category>
+        <category>MongoDB</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hadoop - 00 - 搭建环境</title>
+    <url>/blog/2023/Hadoop-00-%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/</url>
+    <content><![CDATA[<p>Hadoop 完全分布式模式环境配置：</p>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>用</th>
+<th>名</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>物理机系统</strong></td>
+<td>Windows 10</td>
+</tr>
+<tr class="even">
+<td><strong>虚拟机容器</strong></td>
+<td>VMware Workstation 17.0.2
+Player（免费的，但是不支持克隆虚拟机，需要手动装另外两台）</td>
+</tr>
+<tr class="odd">
+<td><strong>虚拟机系统</strong></td>
+<td>Ubuntu 22.04.3 server</td>
+</tr>
+<tr class="even">
+<td><strong>主角</strong></td>
+<td>Hadoop 3.3.6</td>
+</tr>
+<tr class="odd">
+<td><strong>SSH
+连接虚拟机用的，不装直接操作也可以，装了比较方便可以复制粘贴</strong></td>
+<td>Xshell 7</td>
+</tr>
+<tr class="even">
+<td><strong>虚拟机与物理机互传文件用的</strong></td>
+<td>Xftp 7</td>
+</tr>
+</tbody>
+</table>
+<p>装了三台机器，名：master、worker1、worker2。</p>
+<span id="more"></span>
+<h2 id="在-windows-中安装-linux-虚拟机">在 Windows 中安装 Linux
+虚拟机</h2>
+<p><a href="/blog/2023/在Windows中安装Linux虚拟机">教程</a></p>
+<ul>
+<li>其中，【安装 Ubuntu】的第 4 步，我选的还是默认的
+DHCP，装好之后再改成静态 IP。</li>
+<li>第 11 步，要安装 OpenSSH server。</li>
+<li>不用设置共享文件夹，因为我们有 Xftp。</li>
+</ul>
+<h2 id="安装-xshell-和-xftp">安装 Xshell 和 Xftp</h2>
+<p><a
+href="https://www.xshell.com/zh/free-for-home-school/">下载地址</a></p>
+<h2 id="用-xftp-连接虚拟机">用 Xftp 连接虚拟机</h2>
+<p>查看虚拟机的 IP 地址：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo apt install net-tools</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
+<p>然后用 Xftp 连接。</p>
+<h2 id="下载-hadoop">下载 Hadoop</h2>
+<p><a
+href="https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/">下载页面（清华源）</a></p>
+<p>我这里下载的是<code>hadoop-3.3.6.tar.gz</code>。</p>
+<p>用 Xftp 把压缩包传到虚拟机的家目录下，然后：</p>
+<h2
+id="安装软件及配置环境变量写脚本避免重复工作">安装软件及配置环境变量，写脚本避免重复工作</h2>
+<p>把脚本也传到家目录，然后执行：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">bash ha.sh</span><br></pre></td></tr></table></figure>
+<p>其中，安装 OpenJDK 是按照 <a
+href="https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions">https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions</a>
+里的说明，指向 <a
+href="https://github.com/apache/hadoop/blob/rel/release-3.2.1/dev-support/docker/Dockerfile#L92">https://github.com/apache/hadoop/blob/rel/release-3.2.1/dev-support/docker/Dockerfile#L92</a>
+里的命令。</p>
+<p><code>ha.sh</code>：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 JDK</span></span><br><span class="line">sudo apt-get update;</span><br><span class="line">sudo apt-get install openjdk-8-jdk libbcprov-java;</span><br><span class="line">sudo apt-get clean;</span><br><span class="line"><span class="comment"># 存放 Hadoop 压缩包的位置</span></span><br><span class="line"><span class="built_in">cd</span>;</span><br><span class="line"><span class="comment"># 解压，删除（这两句我执行的时候没执行上，重启后手动执行）</span></span><br><span class="line">sudo tar -zxvf hadoop-3.3.6.tar.gz -C /usr/local;</span><br><span class="line">sudo <span class="built_in">rm</span> hadoop-3.3.6.tar.gz;</span><br><span class="line"><span class="comment"># 写环境变量</span></span><br><span class="line"><span class="comment"># env 查看所有环境变量</span></span><br><span class="line"><span class="comment"># echo $NAME 查看某个</span></span><br><span class="line">JAVA_HOME=<span class="string">&quot;/lib/jvm/java-1.8.0-openjdk-amd64&quot;</span>;</span><br><span class="line">HADOOP_HOME=<span class="string">&quot;/usr/local/hadoop-3.3.6&quot;</span>;</span><br><span class="line">text=<span class="string">&quot;export JAVA_HOME=<span class="variable">$JAVA_HOME</span></span></span><br><span class="line"><span class="string">export HADOOP_HOME=<span class="variable">$HADOOP_HOME</span></span></span><br><span class="line"><span class="string">export PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin:<span class="variable">$HADOOP_HOME</span>/sbin:<span class="variable">$JAVA_HOME</span>/bin</span></span><br><span class="line"><span class="string">&quot;</span>;</span><br><span class="line">sudo <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$text</span>&quot;</span> &gt;&gt; .bashrc;</span><br><span class="line"><span class="comment"># 应用，重启</span></span><br><span class="line"><span class="built_in">source</span> .bashrc;</span><br><span class="line">reboot;</span><br></pre></td></tr></table></figure>
+<h2 id="改虚拟机内的文件">改虚拟机内的文件</h2>
+<p><a href="https://www.runoob.com/linux/linux-vim.html">Vim
+教程</a></p>
+<p>不用
+Vim，传到真机上修改也可，这样还方便传到其他机器上。注意行尾序列是<strong>LF</strong>，小心操作不当变成
+CRLF。</p>
+<p>（还可以写一个集群分发脚本，不过暂时没必要）</p>
+<p>把改好的文件存真机上一份，直接用 Xftp
+传（如果传输失败，就修改文件权限）。</p>
+<p>注意传之前把静态 IP 改了，不同机器设成不同静态 IP。</p>
+<h3
+id="改00-installer-config.yaml改成静态-ip">改<code>00-installer-config.yaml</code>，改成静态
+IP</h3>
+<p>编辑<code>/etc/netplan</code>下的<code>.yaml</code>文件：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/netplan</span><br><span class="line">ll</span><br><span class="line">sudo vi 00-installer-config.yaml</span><br></pre></td></tr></table></figure>
+<p>原来的文件：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># This is the network config written by &#x27;subiquity&#x27;</span></span><br><span class="line"><span class="attr">network:</span></span><br><span class="line">  <span class="attr">ethernets:</span></span><br><span class="line">    <span class="attr">ens33:</span></span><br><span class="line">      <span class="attr">dhcp4:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>修改后的文件：</p>
+<p>参考 <a
+href="https://netplan.readthedocs.io/en/stable/netplan-tutorial/">https://netplan.readthedocs.io/en/stable/netplan-tutorial/</a></p>
+<p>选择<code>192.168.78</code>的依据是：</p>
+<ul>
+<li>在真机使用<code>ipconfig</code>命令得到的【VMnet8】的 IPv4
+地址<code>192.168.78.1</code></li>
+<li>查看 <code>C:\ProgramData\VMware\vmnetnat.conf</code> 里的 NAT
+网关地址<code>192.168.78.2</code></li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">network:</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">ethernets:</span></span><br><span class="line">    <span class="attr">ens33:</span></span><br><span class="line">      <span class="attr">dhcp4:</span> <span class="literal">false</span></span><br><span class="line">      <span class="attr">dhcp6:</span> <span class="literal">false</span></span><br><span class="line">      <span class="attr">addresses:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.101</span><span class="string">/24</span></span><br><span class="line">      <span class="attr">routes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">to:</span> <span class="string">default</span></span><br><span class="line">          <span class="attr">via:</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.2</span></span><br><span class="line">      <span class="attr">nameservers:</span></span><br><span class="line">        <span class="attr">addresses:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.2</span></span><br></pre></td></tr></table></figure>
+<p>每台机器的<code>ens33.addresses</code>要设置成不同的。</p>
+<p>测试：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo netplan try</span><br></pre></td></tr></table></figure>
+<p>回车以应用。</p>
+<h3 id="改-hosts">改 <code>hosts</code></h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo vi /etc/hosts</span><br></pre></td></tr></table></figure>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">192.168.78.101 master</span><br><span class="line">192.168.78.102 worker1</span><br><span class="line">192.168.78.103 worker2</span><br></pre></td></tr></table></figure>
+<p>注意，如果有：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">127.0.1.1 [主机名]</span><br></pre></td></tr></table></figure>
+<p>要把这一行删了，否则绑定不到<code>192.168.78.x</code>。暂时不知道有没有不良影响。</p>
+<h3
+id="改hadoop_homeetchadoophadoop-env.sh">改<code>$HADOOP_HOME/etc/hadoop/hadoop-env.sh</code></h3>
+<ul>
+<li><code>JAVA_HOME</code>：JAVA 主目录</li>
+<li><code>HDFS_NAMENODE_USER</code>：启动集群 NameNode 服务的用户</li>
+<li><code>HDFS_DATANODE_USER</code>：启动集群 DataNode 服务的用户</li>
+<li><code>HDFS_SECONDARYNAMENODE_USER</code>：启动集群 SecondaryNamenode
+服务的用户</li>
+<li><code>YARN_RESOURCEMANAGER_USER</code>：启动集群 ResourceManager
+服务的用户</li>
+<li><code>YARN_NODEMANAGER_USER</code>：启动集群 NodeManager
+服务的用户</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/lib/jvm/java-1.8.0-openjdk-amd64</span><br><span class="line"><span class="built_in">export</span> HDFS_NAMENODE_USER=rc</span><br><span class="line"><span class="built_in">export</span> HDFS_DATANODE_USER=rc</span><br><span class="line"><span class="built_in">export</span> HDFS_SECONDARYNAMENODE_USER=rc</span><br><span class="line"><span class="built_in">export</span> YARN_RESOURCEMANAGER_USER=rc</span><br><span class="line"><span class="built_in">export</span> YARN_NODEMANAGER_USER=rc</span><br></pre></td></tr></table></figure>
+<p>rc 是我每台机器的用户名。</p>
+<p><strong>下面的文件都是在<code>$HADOOP_HOME/etc/hadoop</code>目录里。</strong></p>
+<h3 id="改core-site.xml">改<code>core-site.xml</code></h3>
+<ul>
+<li><code>fs.defaultFS</code>：NameNode 的地址</li>
+<li><code>haoodp.tmp.dir</code>：HDFS 数据保存的临时目录</li>
+<li><code>hadoop.http.staticuser.user</code>：HDFS
+网页登录使用的静态用户</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://master:9820<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/local/hadoop-3.3.6/data<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.http.staticuser.user<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>rc<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="改hdfs-site.xml">改<code>hdfs-site.xml</code></h3>
+<ul>
+<li><code>dfs.namenode.http-address</code>：Web 方式访问 NameNode
+的主机和端口号</li>
+<li><code>dfs.namenode.secondary.http-address</code>：SecondaryNamenode
+部署的主机</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.http-address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>master:9870<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.secondary.http-address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>worker2:9868<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="改mapred-site.xml">改<code>mapred-site.xml</code></h3>
+<ul>
+<li><code>mapreduce.framework.name</code>：配置为 yarn 进行 MapReduce
+作业的调度</li>
+<li><code>mapreduce.jobhistory.address</code>：历史服务器端地址</li>
+<li><code>mapreduce.jobhistory.webapp.address</code>：历史服务器 web
+地址</li>
+<li>下面三个环境变量是 Hadoop 的目录。</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.jobhistory.address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>worker1:10020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.jobhistory.webapp.address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>worker1:19888<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.app.mapreduce.am.env<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>HADOOP_MAPRED_HOME=/usr/local/hadoop-3.3.6/<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.map.env<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>HADOOP_MAPRED_HOME=/usr/local/hadoop-3.3.6/<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.reduce.env<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>HADOOP_MAPRED_HOME=/usr/local/hadoop-3.3.6/<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="改yarn-site.xml">改<code>yarn-site.xml</code></h3>
+<ul>
+<li><code>yarn.resourcemanager.hostname</code>： ResourceManager
+的主机名</li>
+<li><code>yarn.nodemanager.aux-services</code>：NodeManager
+获取数据的方式</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>worker1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 环境变量的继承 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.env-whitelist<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HAD</span><br><span class="line">      OOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,</span><br><span class="line">      HADOOP_MAPRED_HOME<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 开启日志聚集功能 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.log-aggregation-enable<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 设置日志聚集服务器地址 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.log.server.url<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>http://worker1:19888/jobhistory/logs<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 设置日志保留时间 7 天 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.log-aggregation.retain-seconds<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>604800<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="改workers">改<code>workers</code></h3>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">worker1</span><br><span class="line">worker2</span><br></pre></td></tr></table></figure>
+<h2
+id="再建两个虚拟机-worker1-和-worker2配置好之后互相复制-ssh-key">再建两个虚拟机
+worker1 和 worker2，配置好之后，互相复制 SSH KEY</h2>
+<p>三台机器上都执行：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+<p>三台机器上都执行：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ssh-copy-id master</span><br><span class="line">ssh-copy-id worker1</span><br><span class="line">ssh-copy-id worker2</span><br></pre></td></tr></table></figure>
+<h2 id="格式化-hdfs">格式化 HDFS</h2>
+<p>只用在 master 执行一次：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hdfs namenode -format</span><br></pre></td></tr></table></figure>
+<p>如果以后遇到问题，需要重新格式化时，需停止进程，然后删除每台机器的
+<code>$HADOOP_HOME/data/</code> 和 <code>$HADOOP_HOME/logs/</code>。</p>
+<h2 id="启动-hadoop">启动 Hadoop</h2>
+<p>在 master 执行：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">start-all.sh</span><br></pre></td></tr></table></figure>
+<h2 id="启动历史服务器">启动历史服务器</h2>
+<p>在 worker1 执行：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">mapred --daemon start historyserver</span><br></pre></td></tr></table></figure>
+<h2 id="检查环境">检查环境</h2>
+<h3 id="查看相关进程">查看相关进程</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">jps</span><br></pre></td></tr></table></figure>
+<p>master 应该有：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">[PID] NameNode</span><br><span class="line">[PID] Jps</span><br></pre></td></tr></table></figure>
+<p>worker1 应该有：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">[PID] Jps</span><br><span class="line">[PID] JobHistoryServer</span><br><span class="line">[PID] DataNode</span><br><span class="line">[PID] NodeManager</span><br></pre></td></tr></table></figure>
+<p>worker2 应该有：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">[PID] NodeManager</span><br><span class="line">[PID] SecondaryNameNode</span><br><span class="line">[PID] Jps</span><br><span class="line">[PID] DataNode</span><br></pre></td></tr></table></figure>
+<h3 id="查看进程的-web-端口">查看进程的 Web 端口</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">netstat -tunlp</span><br></pre></td></tr></table></figure>
+<ul>
+<li>-t：显示 TCP 连接信息</li>
+<li>-u：显示 UDP 连接信息</li>
+<li>-n：以数字形式显示 IP 地址和端口号</li>
+<li>-l：仅显示监听状态的连接</li>
+<li>-p：显示与连接关联的进程信息</li>
+</ul>
+<h2
+id="改真机的hosts方便用浏览器访问">改真机的<code>hosts</code>，方便用浏览器访问</h2>
+<p><code>C:\Windows\System32\drivers\etc\hosts</code>：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">192.168.78.101 master</span><br><span class="line">192.168.78.102 worker1</span><br><span class="line">192.168.78.103 worker2</span><br></pre></td></tr></table></figure>
+<h2 id="用浏览器访问-namenode">用浏览器访问 Namenode</h2>
+<p>master:9870</p>
+<h2 id="测试进行-wordcount">测试进行 wordcount</h2>
+<h3 id="创建文件夹在-ubuntu">创建文件夹在 Ubuntu</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$HADOOP_HOME</span></span><br><span class="line"><span class="built_in">mkdir</span> wcinput</span><br></pre></td></tr></table></figure>
+<h3 id="创建文本文档在-ubuntu">创建文本文档在 Ubuntu</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> wcinput</span><br><span class="line">vi word.txt</span><br></pre></td></tr></table></figure>
+<p><code>word.txt</code>：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">ss ss</span><br><span class="line">cls cls</span><br><span class="line">aaabbbccc</span><br><span class="line">rf rf rfr</span><br></pre></td></tr></table></figure>
+<h3 id="创建文件夹到-hdfs">创建文件夹到 HDFS</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hadoop fs -<span class="built_in">mkdir</span> /wcinput</span><br></pre></td></tr></table></figure>
+<h3 id="上传文件到-hdfs">上传文件到 HDFS</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hadoop fs -put word.txt /wcinput</span><br></pre></td></tr></table></figure>
+<h3 id="测试进行-wordcount-1">测试进行 wordcount</h3>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$HADOOP_HOME</span></span><br><span class="line">hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar wordcount /wcinput /wcoutput</span><br></pre></td></tr></table></figure>
+<p>如果成功，HDFS
+的<code>/wcoutput</code>目录里会有一个<code>_SUCCESS</code>文件和输出文件，可以通过浏览器查看：</p>
+<p>master:9870 -&gt; 菜单 -&gt; Utilities -&gt; Browse the file system
+-&gt; <code>/wcoutput/part-r-00000</code>：</p>
+<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">aaabbbccc	1</span><br><span class="line">cls	2</span><br><span class="line">rf	2</span><br><span class="line">rfr	1</span><br><span class="line">ss	2</span><br></pre></td></tr></table></figure>
+<h2 id="用浏览器访问-jobhistory">用浏览器访问 JobHistory</h2>
+<p>worker1:19888</p>
+<h2 id="停止-hadoop">停止 Hadoop</h2>
+<p>在 master 执行：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">stop-all.sh</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Hadoop</category>
       </categories>
   </entry>
   <entry>
@@ -48,6 +288,96 @@ JDK 安装路径。</li>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java Hello.java</span><br></pre></td></tr></table></figure>
 <p>或者终端：</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">javac Hello.java</span><br><span class="line">java Hello</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java - 01 - Q&amp;A</title>
+    <url>/blog/2023/Java-01-Q&amp;A/</url>
+    <content><![CDATA[<p>一些问题与回答</p>
+<span id="more"></span>
+<h2
+id="main函数不加static可以吗"><code>main</code>函数不加<code>static</code>可以吗？</h2>
+<p>不行。程序启动时实例还没有被创建，需要通过类名调用静态方法。</p>
+<h2
+id="当类名和文件名不一致时代码检查器会提示修改那么.java文件里只能写一个类吗">当类名和文件名不一致时，代码检查器会提示修改。那么<code>.java</code>文件里只能写一个类吗？</h2>
+<p>只能写一个与文件名相同的公共类。其他的类不加<code>public</code>。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test0</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;456&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Test0.fun();</span><br><span class="line">        <span class="type">Test1</span> <span class="variable">test1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test1</span>();</span><br><span class="line">        test1.fun();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="怎么获取键盘输入">怎么获取键盘输入？</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;<span class="comment">//注意要加分号</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Echo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建一个 String 对象</span></span><br><span class="line">        String str;</span><br><span class="line">        <span class="comment">// 创建一个 Scanner 对象，传参是标准输入流对象</span></span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scan</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="comment">// 读取一行，返回String</span></span><br><span class="line">        str = scan.nextLine();</span><br><span class="line">        <span class="comment">// println() 换行，print() 不换行</span></span><br><span class="line">        System.out.print(str);</span><br><span class="line">        System.out.println(str);</span><br><span class="line">        System.out.print(str);</span><br><span class="line">        System.out.println(str);</span><br><span class="line">        <span class="comment">// 别忘了关闭</span></span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java - 02 - Q&amp;A</title>
+    <url>/blog/2023/Java-02-Q&amp;A/</url>
+    <content><![CDATA[<p>一些问题与回答</p>
+<span id="more"></span>
+<h2 id="怎么读写文本文件">怎么读写文本文件？</h2>
+<p>Java：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Files;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> Files.readString(Path.of(<span class="string">&quot;input.txt&quot;</span>));</span><br><span class="line">        System.out.println(content);</span><br><span class="line">        Files.writeString(Path.of(<span class="string">&quot;output.txt&quot;</span>), <span class="string">&quot;啊啊啊&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对比 Python：</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">input_file_name = <span class="string">&quot;input.txt&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(input_file_name, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> input_file:</span><br><span class="line">    content = input_file.readlines()</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">output_file_name = <span class="string">&quot;output.txt&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(output_file_name, <span class="string">&quot;w&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> output_file:</span><br><span class="line">    output_file.write(<span class="string">&quot;啊啊啊&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="和-cc的运算符有什么不同">和 C/C++的运算符有什么不同？</h2>
+<p>先射箭后画靶，虽然可能永远都用不上：</p>
+<ul>
+<li><p>C/C++/Java 在对整型变量右移 <code>&gt;&gt;</code>
+时都会保持符号位不变（在操作无符号整数时补零）。</p></li>
+<li><p>Java 多了一个无符号右移
+<code>&gt;&gt;&gt;</code>，不管你整型变量的符号位是什么，都直接补零。</p></li>
+</ul>
+<p>在 Java 中，没有<code>unsigned</code>关键字。</p>
+<p>进一步：</p>
+<h2 id="java-中的基本数据类型">Java 中的基本数据类型？</h2>
+<h3 id="布尔-boolean">布尔 <code>boolean</code></h3>
+<p>值为 <code>true</code> 或者
+<code>false</code>。可以直接用，占一个字节。</p>
+<p>写 <code>if(3 == true)</code>
+时会报错，数据类型不同，不能直接比较。</p>
+<ul>
+<li>在 C 的 <code>&lt;stdbool.h&gt;</code> 中被 <code>#define</code>
+了为 <code>1</code> 和 <code>0</code>。
+<ul>
+<li>写 <code>if(3 == true)</code> 时会跳过分支。</li>
+</ul></li>
+<li>C++ 同 C，但是不用引头文件，可以直接用。</li>
+<li>在 Python 中是首字母大写的，也相当于 <code>0</code> 和
+<code>1</code>，但是数据类型不同。
+<ul>
+<li>写 <code>if(3 == True)</code> 时会按 <code>1</code> 比较。</li>
+<li>写 <code>if(3 is True)</code> 时会报错。</li>
+</ul></li>
+<li>在 JS 中也相当于 <code>0</code> 和
+<code>1</code>，但是数据类型不同。
+<ul>
+<li>写 <code>if(1 == true)</code> 时会执行分支。</li>
+<li>写 <code>if(1 === true)</code> 时会跳过分支。</li>
+</ul></li>
+</ul>
+<h3 id="字符-char">字符 <code>char</code></h3>
+<p>无符号的两个字节。在 C/C++ 里是一个字节。</p>
+<h3 id="整型都是有符号的">整型（都是有符号的）</h3>
+<ul>
+<li><code>byte</code>：一个字节</li>
+<li><code>short</code>：两个字节</li>
+<li><code>int</code>：四个字节</li>
+<li><code>long</code>：八个字节</li>
+</ul>
+<h3 id="浮点都是有符号的">浮点（都是有符号的）</h3>
+<p>和 C/C++ 一样。</p>
+<ul>
+<li><code>float</code>：四个字节</li>
+<li><code>double</code>：八个字节</li>
+</ul>
+<h2 id="茴字有几种写法">茴字有几种写法？</h2>
+<p>Java 和 Python、JS
+等一样，都可以在输出函数里直接写表达式（不用格式字符串的情况下）。以及
+Java 也可以格式化输出。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&#x27;a&#x27;</span> + <span class="number">1</span>);<span class="comment">// 98</span></span><br><span class="line">        System.out.println(<span class="string">&quot;a&quot;</span> + <span class="number">1</span>);<span class="comment">// a1</span></span><br><span class="line">        <span class="type">byte</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">3</span>, j = <span class="number">3</span>;</span><br><span class="line">        <span class="comment">// 没人会这么写</span></span><br><span class="line">        System.out.println(++i + i++);<span class="comment">// 8</span></span><br><span class="line">        System.out.println(j++ + ++j);<span class="comment">// 8</span></span><br><span class="line">        <span class="comment">// Java 也有 printf()</span></span><br><span class="line">        System.out.printf(<span class="string">&quot;%d, %d&quot;</span>, i, j);<span class="comment">// 5, 5</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -259,27 +589,8 @@ class="math inline">\(\mathrm{A4=440Hz}\)</span>，白键不加升降号，黑�
 <p><a
 href="https://github.com/ruofancooh/utility-room/tree/main/learning/music">A0-main.py</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>MongoDB - 00 - 准备</title>
-    <url>/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/</url>
-    <content><![CDATA[<ul>
-<li>Windows 10 环境配置</li>
-</ul>
-<span id="more"></span>
-<ol type="1">
-<li><a href="https://www.mongodb.com/try/download/community">下载
-MongoDB</a>，我下载的是<code>7.0.0 (current)</code>的<code>zip</code>格式。</li>
-<li>解压，右键用 PowerShell 运行<code>Install-Compass.ps1</code>，安装
-GUI。 默认会安装到 C 盘，安装完后手动移到 D 盘。</li>
-<li>建数据库文件夹，建一个空日志<code>test.log</code>。</li>
-<li><div class="sourceCode" id="cb1"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>   <span class="ex">mongod</span> <span class="at">--dbpath</span> <span class="pp">[</span><span class="ss">数据库文件夹路径</span><span class="pp">]</span> <span class="at">--logpath</span> <span class="pp">[</span><span class="ss">日志文件路径</span><span class="pp">]</span> <span class="at">--logappend</span></span></code></pre></div></li>
-<li>用 MongoDBCompass 连接。</li>
-</ol>
-]]></content>
       <categories>
-        <category>MongoDB</category>
+        <category>音乐</category>
       </categories>
   </entry>
   <entry>
@@ -401,6 +712,9 @@ href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </aside>
 ]]></content>
+      <categories>
+        <category>音乐</category>
+      </categories>
   </entry>
   <entry>
     <title>乐理-B0-中古调式</title>
@@ -604,6 +918,9 @@ class="math inline">\(\mathrm{V}\)</span>
 自然小调使用的琴键相同。</p></li>
 </ul>
 ]]></content>
+      <categories>
+        <category>音乐</category>
+      </categories>
   </entry>
   <entry>
     <title>乐理-C1-三分损益法与十二律</title>
@@ -821,7 +1138,7 @@ class="math inline">\(\mathbf{1=C}\)</span>，得到十二律的各个音：</p>
 <p><em>【索隱】水生木，故爲角。不用蕤賓者，以陰氣起，陽不用事，故去之也。</em></p>
 <p>夷則長五寸三分二，商。南呂長四寸分八，<strong>徴</strong>。無射長四寸四分三分二。應鐘長四寸二分三分二，<strong>羽</strong>。</p>
 </blockquote>
-<p>上面是维基文库的版本。【索隱】是后人对《史记》的注释，我看到有人引用【索隱黃鐘長八寸十分一】，估计是维基文库的编辑者没有改文字样式，我目前也改不了。这不重要，关键是上面有两个角、两个徵和两个羽。除此之外国家数字图书馆还有其他<strong>不同版本的古籍，宫、商、角、徵、羽对应的音名也不一样</strong>。纠结这些也没用，不是所有学乐理的人都有兴趣看古籍，就像学几何不用看《几何原本》，直接看教材。古籍经过一代一代人的传递，肯定会有人发现错误并修改，也肯定会有人延续错误。虽然是传统文化，但现在大众都用十二平均律了。不是看对不对，而是看适不适合，像鲁迅的猹字一样。</p>
+<p>上面是维基文库的版本。【索隱】是后人对《史记》的注释，我看到有人引用【索隱黃鐘長八寸十分一】，估计是维基文库的编辑者没有改文字样式，我目前也改不了。这不重要，关键是上面有两个角、两个徵和两个羽。除此之外国家数字图书馆还有其他<strong>不同版本的古籍，宫、商、角、徵、羽对应的音名也不一样</strong>。纠结这些也没用，不是所有学乐理的人都有兴趣看古籍，就像学几何不用看《几何原本》，直接看教材。古籍经过一代一代人的传递，肯定会有人发现错误并修改，也肯定会有人延续错误。虽然是传统文化，但现在大众都用十二平均律了。不是看对不对，有些对和错不是完全客观的，而是看适不适合，就像鲁迅的猹字和走的人多了便成了路一样。敲竹管是我臆想出来的，可能压根就不是敲的，而是吹的。</p>
 <p>我不是古籍考证内行，也不是乐理内行。但<strong>如果认为以下几点同时成立的话，便可以推出
 {宫,商,角,徵,羽} 对应 {黄钟,太簇,姑洗,林钟,南吕}</strong>：</p>
 <ol type="1">
@@ -844,6 +1161,9 @@ href="https://zh.wikisource.org/wiki/史記/卷025">https://zh.wikisource.org/wi
 <a
 href="https://www.bilibili.com/read/cv3194623/">https://www.bilibili.com/read/cv3194623</a>.</p>
 ]]></content>
+      <categories>
+        <category>音乐</category>
+      </categories>
   </entry>
   <entry>
     <title>JSON</title>
@@ -855,191 +1175,6 @@ href="https://www.bilibili.com/read/cv3194623/">https://www.bilibili.com/read/cv
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> json = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// js对象转json字符串</span></span><br><span class="line">json = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj);</span><br><span class="line"></span><br><span class="line"><span class="comment">// json字符串转js对象</span></span><br><span class="line">obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(json);</span><br></pre></td></tr></table></figure>
 <h2 id="使用-python-编解码-json">使用 Python 编解码 json</h2>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">dic = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编码</span></span><br><span class="line">string = json.dumps(dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解码</span></span><br><span class="line">dic = json.loads(string)</span><br></pre></td></tr></table></figure>
-]]></content>
-  </entry>
-  <entry>
-    <title>《草蛇惊一》歌词解读</title>
-    <url>/blog//holy-shit-grass-snake.html</url>
-    <content><![CDATA[<p>《草蛇惊一》收录于初音未来 V4C 专辑《初梦》，作词是<a
-href="https://space.bilibili.com/396967">麦当叔劳劳</a>。</p>
-<span id="more"></span>
-<p><a href="https://www.bilibili.com/video/BV1Px41177ht/">去 B
-站观看</a> | 在线听：</p>
-<iframe frameborder="no" width="100%" height="86" src="//music.163.com/outchain/player?type=2&amp;id=515455714&amp;auto=1&amp;height=66">
-</iframe>
-<p>歌词使用了“意识流”的写作手法，解读需要把自己代入主人公的视角。</p>
-<p>一千个读者心中有一千个哈姆雷特，我认为歌词写的是主人公内心的矛盾。</p>
-<p>还可以参考歌词的<a
-href="https://coolmikehatsune22.wordpress.com/2020/11/13/snake-in-the-grass/">英文翻译</a>，译者是
-coolmikehatsune22。里面有一些和我想的不一样，或者没想到的东西，会在下文说明。</p>
-<h2 id="歌名">歌名</h2>
-<p>很容易从歌名联想到“打草惊蛇”。</p>
-<p>我认为【草蛇惊一】的【一】是指打草的人。</p>
-<p>在这里，草、蛇和打草的人都是主人公自己——主人公自己惊动了自己。</p>
-<p>非得拆开的话，【草】是身，【蛇】是心，【惊】是内，【一】是外。</p>
-<h2 id="主歌一">主歌一</h2>
-<h3 id="羡慕风车">羡慕风车</h3>
-<blockquote>
-<p><em>羡慕风车 不必去四海漂泊 只要能在原地旋转便能体会风的快乐</em></p>
-</blockquote>
-<p>第一句最重要，是起因。</p>
-<p>主人公的内心独白。我们把主人公此时的视角记作“视角 A”。</p>
-<p>【风车】有三层意思：</p>
-<ol type="1">
-<li>指被【风】驱动的人或物。</li>
-<li>指<a
-href="https://book.douban.com/subject/34908576/">《堂吉诃德》</a>里的风车所指，即假想敌。</li>
-<li>指主人公自己。</li>
-</ol>
-<p>如果你对【风】这个字的想法和我一样，那你就能明白我在说什么。在网页底部列举了一些关于【风】的其他歌曲。</p>
-<p>【原地旋转】就是不作出改变，变成石头，最后变成流浪的风。</p>
-<h3 id="及时行乐">及时行乐</h3>
-<blockquote>
-<p><em>及时行乐 外婆的故事里说因果报应乃白日见鬼</em></p>
-</blockquote>
-<p>视角 A 想要把自己的人生观向【风车】靠拢。</p>
-<p>英文翻译是：“毕竟，奶奶在她的故事里总是在说，你不应该指望报应会降临到坏人身上”。</p>
-<h3 id="说书">说书</h3>
-<blockquote>
-<p><em>转折 没曾想单木不林一丝不线如我 孤单的说书者也能偷乐</em></p>
-</blockquote>
-<p>主人公突然转换为上帝视角，把自己代入说书者。这样就像<a
-href="https://movie.douban.com/subject/1292064/">看电影</a>一样，不用再担心各种现实问题了。</p>
-<h3 id="相忘于江湖">相忘于江湖</h3>
-<blockquote>
-<p><em>相濡以沫不如相忘于江湖 外公总说这是他孤单的借口</em></p>
-</blockquote>
-<p>进一步妄想自己是【相忘于江湖】的鱼，逃避现实。</p>
-<blockquote>
-<p>《庄子·内篇·大宗师》：</p>
-<ul>
-<li>泉涸，鱼相与处于陆，相呴以湿，相濡以沫，不如相忘于江湖。与其誉尧而非桀也，不如两忘而化其道。</li>
-</ul>
-<p>泉水干了，鱼聚集在陆地。与其用唾沫互相润湿对方，不如各自去往大江大湖，互相忘记。说尧好，说桀不好，和我有什么关系？</p>
-<p>《庄子·外篇·天运》：</p>
-<ul>
-<li>孔子见老聃而语仁义。老聃曰：“夫………………夫鹄不日浴而白，乌不日黔而黑。黑白之朴，不足以为辩，名誉之观，不足以为广。泉涸，鱼相与处于陆，相呴以湿，相濡以沫，不若相忘于江湖。”</li>
-</ul>
-<p>白天鹅不用每天沐浴，毛自然就是白的；黑乌鸦不用每天染色；毛自然就是黑的。乌鸦的黑和天鹅的白都是出于本然，不足以分辨谁优谁劣；名声和荣誉，更不用去散播张扬。</p>
-</blockquote>
-<p>英文翻译则非常直白：“与其帮助挽救我们能挽救的东西，不如完全忘记它，这是爷爷总是说的（他孤身一人的）借口”。</p>
-<h2 id="主歌二">主歌二</h2>
-<h3 id="放轻松">放轻松</h3>
-<blockquote>
-<p><em>放轻松 压力别弄得太大 飘飘欲仙欲死不知是不是自己的风格</em></p>
-</blockquote>
-<p>主人公认为自己逃避现实是不对的，此时视角转换回了视角 A。</p>
-<p>前半部分是视角 A 对自己说的：没事，放轻松一点。</p>
-<p>后半部分是视角 A 对说书者说的：这已经成为你的风格了吗？</p>
-<h3 id="除根">除根</h3>
-<blockquote>
-<p><em>一语道破 下手斩草除根哭吧哭吧 无聊卑微笑话</em></p>
-</blockquote>
-<p>视角 A【一语道破】了说书者的伪装，并否定掉了风车的人生观。</p>
-<p>认为有这种想法的自己是【无聊卑微笑话】，要把这种想法【斩草除根】。</p>
-<p>【风车】你就尽情去哭吧。</p>
-<h3 id="暴躁">暴躁</h3>
-<blockquote>
-<p><em>音色也在不知不觉中变得低沉 就像患了名为暴躁的病一样</em></p>
-</blockquote>
-<p>主人公在否定自己之后，【风车】的一面并没有消失，而是在反噬视角
-A。</p>
-<p>主人公的【音色】逐渐【低沉】，内心逐渐暴躁。</p>
-<h3 id="不回念">不回念</h3>
-<blockquote>
-<p><em>快停止吧 那张顽固蠢蛋的终身证明我不想再去想念</em></p>
-</blockquote>
-<p>风车和视角 A
-在脑海里互相争斗。主人公希望自己不要再胡思乱想了，给自己开了【顽固蠢蛋的终身证明】。</p>
-<p>有马原“否定之否定”规律的影子。<del>所以我说马克思是潜 ↘
-伏在西方的一个纯 ↗ 正的中国人。</del></p>
-<h2 id="导歌">导歌</h2>
-<h3 id="子龙我就不走">子龙我就不走</h3>
-<blockquote>
-<p><em>一不做二不休自在风流 乐不思蜀子龙我就不走</em></p>
-</blockquote>
-<p>对于一件事，我要么不做，要么就做到最好，我觉得这样太酷啦；</p>
-<p>赵子龙救了刘禅最终导致乐不思蜀，这让我怎么做接下来每一步的决定呢？干脆不做了。</p>
-<p>不管怎么断句都可以：</p>
-<ul>
-<li>乐不思蜀/子龙我/就不走</li>
-<li>乐不思蜀子龙/我就不走</li>
-</ul>
-<p>都是讲主人公不想去走赵云的【乐不思蜀】这一条路。</p>
-<p>英文注释【子龙】：‘child dragon’, the eponymous snake。</p>
-<p>正好呼应歌名，不管是【赵子龙】还是【蛇】都能代指主人公。</p>
-<h3 id="金蝉脱壳">金蝉脱壳</h3>
-<blockquote>
-<p><em>过五关杀六将公子献头 金蝉脱壳孙老头八十二变我有</em></p>
-</blockquote>
-<p>主人公一会儿代入关羽，一会儿代入荆轲/太子丹。并预想了像他们一样做事之后的结果。</p>
-<p>（但是在荆轲刺秦的故事中，是荆轲带着樊於期的头，公子不是带的，也不是被带的。也可能不是这个典故，百度搜【公子献头】出自漫画《火凤燎原》。也可能压根没有典故，只是一种代指）</p>
-<p>【金蝉脱壳】指主人公抽离自己为说书者。</p>
-<p>【孙老头】就是孙猴子，【八十二变】指思想转换的复杂性。</p>
-<p>不管怎么断句都可以：</p>
-<ul>
-<li>金蝉脱壳/孙老头八十二变我有</li>
-<li>金蝉脱壳孙老头/八十二变我有</li>
-<li>金蝉脱壳孙老头八十二变/我有</li>
-</ul>
-<p>我认为是第一种，【金蝉脱壳】和前半句【过五关杀六将公子献头】是连在一起的，用【孙老头八十二变】来修饰主人公想法的混乱程度。</p>
-<p>歌手断句是第二种——当然不是初音未来自己发挥的，是作者设计的，可能会听起来更舒服。</p>
-<p>英文翻译则是第三种，用【孙老头八十二变】来修饰【我有】很多种【金蝉脱壳】的行动。</p>
-<h3 id="翻筋斗">翻筋斗</h3>
-<blockquote>
-<p><em>百闻不如一见来翻筋斗 福星高照五湖四海都随我漫步遨游 山雨欲来风满楼</em></p>
-</blockquote>
-<p>终于要作决定了！但是在做出决定之前的继续妄想，构成了主人公脑海里的狂风。</p>
-<p>【百闻不如一见】【翻筋斗】指【孙老头】想要做出决定。</p>
-<p>至于是决定行动，还是决定继续妄想，不得而知。</p>
-<h2 id="副歌">副歌</h2>
-<h3 id="再见">再见</h3>
-<blockquote>
-<p><em>再见吧 提线的傀儡师 耻笑咚咚跳的心脏和那不实际的憧憬</em></p>
-</blockquote>
-<p>傀儡是身体，傀儡师是幻想。主人公向对自己造成心惊肉跳的幻想作别。</p>
-<p>英文翻译【不实际的憧憬】为 lofty ideals（远大的理想）。</p>
-<h3 id="暴露">暴露</h3>
-<blockquote>
-<p><em>玩笑吧 我不想听假话 暴露皆大欢喜不攻自破不成熟的笑话</em></p>
-</blockquote>
-<p>英文翻译：“你想开什么玩笑就开什么玩笑，但我不会再屈服于你的谎言，我会把你一直在快乐地兜售的所有那些毫无实质意义、脆弱的垃圾都吹出来。”</p>
-<p>我对前半句的翻译有点不认同，但认为后半句翻译得非常好。</p>
-<p>我认为这写的是主人公【不想听假话】的想法和【暴露笑话】的行为，是指主人公给自己的
-EQ 开了低通滤波。</p>
-<h3 id="再次不回念">再次不回念</h3>
-<blockquote>
-<p><em>怠慢吗 或许只是懈怠吧 嘁嘁咔咔咚咚咭咭再也不想它</em></p>
-</blockquote>
-<p>主人公认为，这都是由自己的【怠慢】或者【懈怠】造成的。在又一番思想斗争之后停止了思考。</p>
-<p>前半句的英文翻译是：Am I being a poor service? Or rather, have I left
-something out?</p>
-<p>我有点不理解“poor
-service”是什么意思。如果“service”不能翻译成“行动”的话，那么【怠慢】的对象是谁？</p>
-<h2 id="报菜名时间">报菜名时间</h2>
-<p>歌词里含有【风】的：</p>
-<ul>
-<li><del>《庄子·内篇·逍遥游》：<em>“生物之以息相吹也”</em></del></li>
-<li><a
-href="https://www.bilibili.com/video/BV1WR4y147x4">《我没有歌能给你听》</a></li>
-<li><a
-href="https://www.bilibili.com/video/BV1YW411K7K2/?p=5">《酷瓜树》</a></li>
-<li><a
-href="https://music.163.com/#/song?id=411314657">《大风吹》</a></li>
-<li><a href="https://music.163.com/#/song?id=381872">《时间》</a></li>
-<li><a
-href="https://music.163.com/#/program?id=2492186574">《风兮风兮》</a></li>
-<li><a
-href="https://www.bilibili.com/video/BV1wT4y1k7Pw">《白鸟过河滩》</a></li>
-<li><a
-href="https://www.bilibili.com/video/BV1Lw411d7vS">《斩草歌》</a></li>
-<li><a
-href="https://www.bilibili.com/video/BV1Rp4y1P7Qe">《四风判词》</a></li>
-<li><a href="https://www.dizzylab.net/d/Conformity/">《大风歌
-20XX》</a></li>
-<li><a
-href="https://www.bilibili.com/video/BV1nP4y1W7dr/">《石头歌》</a></li>
-</ul>
 ]]></content>
   </entry>
   <entry>
@@ -1219,77 +1354,188 @@ href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 ]]></content>
   </entry>
   <entry>
-    <title>在Windows中安装Linux虚拟机</title>
-    <url>/blog/2023/%E5%9C%A8Windows%E4%B8%AD%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
-    <content><![CDATA[<ul>
-<li>真机系统：Windows 10</li>
-<li>使用软件：VMware Workstation 17.0.2 Player</li>
-<li>虚拟机系统：Ubuntu 22.04.3 server</li>
-</ul>
+    <title>《草蛇惊一》歌词解读</title>
+    <url>/blog//holy-shit-grass-snake.html</url>
+    <content><![CDATA[<p>《草蛇惊一》收录于初音未来 V4C 专辑《初梦》，作词是<a
+href="https://space.bilibili.com/396967">麦当叔劳劳</a>。</p>
 <span id="more"></span>
-<p>也可以给硬盘分一个新的区，单独安装 Linux。不过没有必要。</p>
-<h2 id="下载安装-vmware-workstation-player">下载安装 VMware Workstation
-Player</h2>
+<p><a href="https://www.bilibili.com/video/BV1Px41177ht/">去 B
+站观看</a> | 在线听：</p>
+<iframe frameborder="no" width="100%" height="86" src="//music.163.com/outchain/player?type=2&amp;id=515455714&amp;auto=1&amp;height=66">
+</iframe>
+<p>歌词使用了“意识流”的写作手法，解读需要把自己代入主人公的视角。</p>
+<p>一千个读者心中有一千个哈姆雷特，我认为歌词写的是主人公内心的矛盾。</p>
+<p>还可以参考歌词的<a
+href="https://coolmikehatsune22.wordpress.com/2020/11/13/snake-in-the-grass/">英文翻译</a>，译者是
+coolmikehatsune22。里面有一些和我想的不一样，或者没想到的东西，会在下文说明。</p>
+<h2 id="歌名">歌名</h2>
+<p>很容易从歌名联想到“打草惊蛇”。</p>
+<p>我认为【草蛇惊一】的【一】是指打草的人。</p>
+<p>在这里，草、蛇和打草的人都是主人公自己——主人公自己惊动了自己。</p>
+<p>非得拆开的话，【草】是身，【蛇】是心，【惊】是内，【一】是外。</p>
+<h2 id="主歌一">主歌一</h2>
+<h3 id="羡慕风车">羡慕风车</h3>
 <blockquote>
-<p>使用 VMware Workstation Player 在 Windows 或 Linux PC
-上轻松地将多个操作系统作为虚拟机运行。——网站介绍</p>
+<p><em>羡慕风车 不必去四海漂泊 只要能在原地旋转便能体会风的快乐</em></p>
 </blockquote>
-<p><a
-href="https://customerconnect.vmware.com/cn/downloads/info/slug/desktop_end_user_computing/vmware_workstation_player/">下载页面</a></p>
-<p>这里下载的是当前最新版
-<code>VMware Workstation 17.0.2 Player for Windows 64-bit Operating Systems</code>。</p>
-<p>安装过程略（“增强型键盘驱动程序”不知道有什么用，先勾上）。</p>
-<h2 id="下载-ubuntu-镜像">下载 Ubuntu 镜像</h2>
-<p>是一种 Linux 发行版操作系统。</p>
-<p><a
-href="https://launchpad.net/ubuntu/+cdmirrors">下载页面（仓库集合）</a>，找到
-China。</p>
-<p>这里下载的是<code>ubuntu-22.04.3-live-server-amd64.iso</code>。</p>
-<h2 id="在-vm-player-中新建虚拟机">在 VM Player 中新建虚拟机</h2>
+<p>第一句最重要，是起因。</p>
+<p>主人公的内心独白。我们把主人公此时的视角记作“视角 A”。</p>
+<p>【风车】有三层意思：</p>
 <ol type="1">
-<li><code>创建新虚拟机(N)</code></li>
-<li><code>安装程序光盘文件(iso)(M)</code></li>
-<li><code>浏览(R)</code>，选择下载的镜像文件，下一步。</li>
-<li>设置虚拟机名称和位置，下一步。（我这里设置的是<code>Ubuntu100</code>和<code>D:\VMachines\Ubuntu100</code>）</li>
-<li>指定磁盘容量，下一步。</li>
-<li>自定义硬件（我这里把 CPU 改成了 4 核）。完成。</li>
+<li>指被【风】驱动的人或物。</li>
+<li>指<a
+href="https://book.douban.com/subject/34908576/">《堂吉诃德》</a>里的风车所指，即假想敌。</li>
+<li>指主人公自己。</li>
 </ol>
-<p>你会看到：</p>
-<p><img src="/blog/images/vm.png"></p>
-<p>按回车开始安装 Ubuntu。</p>
-<h2 id="安装-ubuntu">安装 Ubuntu</h2>
-<ol type="1">
-<li><p>语言选择，默认回车。</p></li>
-<li><p>键盘布局选择，默认回车。</p></li>
-<li><p>安装类型，默认回车。</p></li>
-<li><p>网络，默认回车。</p></li>
-<li><p>代理，默认回车。</p></li>
-<li><p>配置镜像源，如果网络不好，改成</p>
+<p>如果你对【风】这个字的想法和我一样，那你就能明白我在说什么。在网页底部列举了一些关于【风】的其他歌曲。</p>
+<p>【原地旋转】就是不作出改变，变成石头，最后变成流浪的风。</p>
+<h3 id="及时行乐">及时行乐</h3>
+<blockquote>
+<p><em>及时行乐 外婆的故事里说因果报应乃白日见鬼</em></p>
+</blockquote>
+<p>视角 A 想要把自己的人生观向【风车】靠拢。</p>
+<p>英文翻译是：“毕竟，奶奶在她的故事里总是在说，你不应该指望报应会降临到坏人身上”。</p>
+<h3 id="说书">说书</h3>
+<blockquote>
+<p><em>转折 没曾想单木不林一丝不线如我 孤单的说书者也能偷乐</em></p>
+</blockquote>
+<p>主人公突然转换为上帝视角，把自己代入说书者。这样就像<a
+href="https://movie.douban.com/subject/1292064/">看电影</a>一样，不用再担心各种现实问题了。</p>
+<h3 id="相忘于江湖">相忘于江湖</h3>
+<blockquote>
+<p><em>相濡以沫不如相忘于江湖 外公总说这是他孤单的借口</em></p>
+</blockquote>
+<p>进一步妄想自己是【相忘于江湖】的鱼，逃避现实。</p>
+<blockquote>
+<p>《庄子·内篇·大宗师》：</p>
 <ul>
-<li><p>清华源：<code>https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</code></p></li>
-<li><p>南京源：<code>https://mirror.nju.edu.cn/ubuntu/</code></p></li>
-<li><p>北邮源：<code>https://mirrors.bupt.edu.cn/ubuntu/</code></p>
-<p>等均可。</p></li>
-</ul></li>
-<li><p>配置存储布局，默认选择<code>Done</code>，回车。</p></li>
-<li><p>文件系统，<code>Done</code>，<code>Continue</code>。</p></li>
-<li><p>设置用户名密码等。</p></li>
-<li><p>是否升级到 Pro 版，默认不升级，<code>Continue</code>。</p></li>
-<li><p>是否安装 OpenSSH server，先不安装。</p></li>
-<li><p>是否安装其他东西，先都不选。</p></li>
-<li><p>等待安装系统。</p></li>
-<li><p>安装完成后，点击 VM Player
-下方的“我已完成安装”，然后<code>Reboot Now</code>。</p></li>
-</ol>
-<p>报错不要紧，回车。</p>
-<p>输入用户名和密码登录 Ubuntu。注意输入密码默认是不回显的。</p>
-<h2 id="设置虚拟机与真机的共享文件夹">设置虚拟机与真机的共享文件夹</h2>
-<p>VM
-的虚拟磁盘文件不好直接打开。有时候需要在虚拟机和真机之间互传文件，可以通过共享文件夹。</p>
-<p>在 VM Player 里打开虚拟机设置-&gt;选项-&gt;共享文件夹。</p>
-<p>我这里设置在<code>D:\VMachines\Shared</code>。</p>
-<p>在虚拟机里的位置是<code>/mnt/hgfs/Shared</code>。</p>
+<li>泉涸，鱼相与处于陆，相呴以湿，相濡以沫，不如相忘于江湖。与其誉尧而非桀也，不如两忘而化其道。</li>
+</ul>
+<p>泉水干了，鱼聚集在陆地。与其用唾沫互相润湿对方，不如各自去往大江大湖，互相忘记。说尧好，说桀不好，和我有什么关系？</p>
+<p>《庄子·外篇·天运》：</p>
+<ul>
+<li>孔子见老聃而语仁义。老聃曰：“夫………………夫鹄不日浴而白，乌不日黔而黑。黑白之朴，不足以为辩，名誉之观，不足以为广。泉涸，鱼相与处于陆，相呴以湿，相濡以沫，不若相忘于江湖。”</li>
+</ul>
+<p>白天鹅不用每天沐浴，毛自然就是白的；黑乌鸦不用每天染色；毛自然就是黑的。乌鸦的黑和天鹅的白都是出于本然，不足以分辨谁优谁劣；名声和荣誉，更不用去散播张扬。</p>
+</blockquote>
+<p>英文翻译则非常直白：“与其帮助挽救我们能挽救的东西，不如完全忘记它，这是爷爷总是说的（他孤身一人的）借口”。</p>
+<h2 id="主歌二">主歌二</h2>
+<h3 id="放轻松">放轻松</h3>
+<blockquote>
+<p><em>放轻松 压力别弄得太大 飘飘欲仙欲死不知是不是自己的风格</em></p>
+</blockquote>
+<p>主人公认为自己逃避现实是不对的，此时视角转换回了视角 A。</p>
+<p>前半部分是视角 A 对自己说的：没事，放轻松一点。</p>
+<p>后半部分是视角 A 对说书者说的：这已经成为你的风格了吗？</p>
+<h3 id="除根">除根</h3>
+<blockquote>
+<p><em>一语道破 下手斩草除根哭吧哭吧 无聊卑微笑话</em></p>
+</blockquote>
+<p>视角 A【一语道破】了说书者的伪装，并否定掉了风车的人生观。</p>
+<p>认为有这种想法的自己是【无聊卑微笑话】，要把这种想法【斩草除根】。</p>
+<p>【风车】你就尽情去哭吧。</p>
+<h3 id="暴躁">暴躁</h3>
+<blockquote>
+<p><em>音色也在不知不觉中变得低沉 就像患了名为暴躁的病一样</em></p>
+</blockquote>
+<p>主人公在否定自己之后，【风车】的一面并没有消失，而是在反噬视角
+A。</p>
+<p>主人公的【音色】逐渐【低沉】，内心逐渐暴躁。</p>
+<h3 id="不回念">不回念</h3>
+<blockquote>
+<p><em>快停止吧 那张顽固蠢蛋的终身证明我不想再去想念</em></p>
+</blockquote>
+<p>风车和视角 A
+在脑海里互相争斗。主人公希望自己不要再胡思乱想了，给自己开了【顽固蠢蛋的终身证明】。</p>
+<p>有马原“否定之否定”规律的影子。<del>所以我说马克思是潜 ↘
+伏在西方的一个纯 ↗ 正的中国人。</del></p>
+<h2 id="导歌">导歌</h2>
+<h3 id="子龙我就不走">子龙我就不走</h3>
+<blockquote>
+<p><em>一不做二不休自在风流 乐不思蜀子龙我就不走</em></p>
+</blockquote>
+<p>对于一件事，我要么不做，要么就做到最好，我觉得这样太酷啦；</p>
+<p>赵子龙救了刘禅最终导致乐不思蜀，这让我怎么做接下来每一步的决定呢？干脆不做了。</p>
+<p>不管怎么断句都可以：</p>
+<ul>
+<li>乐不思蜀/子龙我/就不走</li>
+<li>乐不思蜀子龙/我就不走</li>
+</ul>
+<p>都是讲主人公不想去走赵云的【乐不思蜀】这一条路。</p>
+<p>英文注释【子龙】：‘child dragon’, the eponymous snake。</p>
+<p>正好呼应歌名，不管是【赵子龙】还是【蛇】都能代指主人公。</p>
+<h3 id="金蝉脱壳">金蝉脱壳</h3>
+<blockquote>
+<p><em>过五关杀六将公子献头 金蝉脱壳孙老头八十二变我有</em></p>
+</blockquote>
+<p>主人公一会儿代入关羽，一会儿代入荆轲/太子丹。并预想了像他们一样做事之后的结果。</p>
+<p>（但是在荆轲刺秦的故事中，是荆轲带着樊於期的头，公子不是带的，也不是被带的。也可能不是这个典故，百度搜【公子献头】出自漫画《火凤燎原》。也可能压根没有典故，只是一种代指）</p>
+<p>【金蝉脱壳】指主人公抽离自己为说书者。</p>
+<p>【孙老头】就是孙猴子，【八十二变】指思想转换的复杂性。</p>
+<p>不管怎么断句都可以：</p>
+<ul>
+<li>金蝉脱壳/孙老头八十二变我有</li>
+<li>金蝉脱壳孙老头/八十二变我有</li>
+<li>金蝉脱壳孙老头八十二变/我有</li>
+</ul>
+<p>我认为是第一种，【金蝉脱壳】和前半句【过五关杀六将公子献头】是连在一起的，用【孙老头八十二变】来修饰主人公想法的混乱程度。</p>
+<p>歌手断句是第二种——当然不是初音未来自己发挥的，是作者设计的，可能会听起来更舒服。</p>
+<p>英文翻译则是第三种，用【孙老头八十二变】来修饰【我有】很多种【金蝉脱壳】的行动。</p>
+<h3 id="翻筋斗">翻筋斗</h3>
+<blockquote>
+<p><em>百闻不如一见来翻筋斗 福星高照五湖四海都随我漫步遨游 山雨欲来风满楼</em></p>
+</blockquote>
+<p>终于要作决定了！但是在做出决定之前的继续妄想，构成了主人公脑海里的狂风。</p>
+<p>【百闻不如一见】【翻筋斗】指【孙老头】想要做出决定。</p>
+<p>至于是决定行动，还是决定继续妄想，不得而知。</p>
+<h2 id="副歌">副歌</h2>
+<h3 id="再见">再见</h3>
+<blockquote>
+<p><em>再见吧 提线的傀儡师 耻笑咚咚跳的心脏和那不实际的憧憬</em></p>
+</blockquote>
+<p>傀儡是身体，傀儡师是幻想。主人公向对自己造成心惊肉跳的幻想作别。</p>
+<p>英文翻译【不实际的憧憬】为 lofty ideals（远大的理想）。</p>
+<h3 id="暴露">暴露</h3>
+<blockquote>
+<p><em>玩笑吧 我不想听假话 暴露皆大欢喜不攻自破不成熟的笑话</em></p>
+</blockquote>
+<p>英文翻译：“你想开什么玩笑就开什么玩笑，但我不会再屈服于你的谎言，我会把你一直在快乐地兜售的所有那些毫无实质意义、脆弱的垃圾都吹出来。”</p>
+<p>我对前半句的翻译有点不认同，但认为后半句翻译得非常好。</p>
+<p>我认为这写的是主人公【不想听假话】的想法和【暴露笑话】的行为，是指主人公给自己的
+EQ 开了低通滤波。</p>
+<h3 id="再次不回念">再次不回念</h3>
+<blockquote>
+<p><em>怠慢吗 或许只是懈怠吧 嘁嘁咔咔咚咚咭咭再也不想它</em></p>
+</blockquote>
+<p>主人公认为，这都是由自己的【怠慢】或者【懈怠】造成的。在又一番思想斗争之后停止了思考——然后进入第二段主歌。</p>
+<h2 id="报菜名时间">报菜名时间</h2>
+<p>歌词里含有【风】的：</p>
+<ul>
+<li><del><em>“生物之以息相吹也”</em></del></li>
+<li><a
+href="https://www.bilibili.com/video/BV1WR4y147x4">《我没有歌能给你听》</a></li>
+<li><a
+href="https://www.bilibili.com/video/BV1YW411K7K2/?p=5">《酷瓜树》</a></li>
+<li><a
+href="https://music.163.com/#/song?id=411314657">《大风吹》</a></li>
+<li><a href="https://music.163.com/#/song?id=381872">《时间》</a></li>
+<li><a
+href="https://music.163.com/#/program?id=2492186574">《风兮风兮》</a></li>
+<li><a
+href="https://www.bilibili.com/video/BV1wT4y1k7Pw">《白鸟过河滩》</a></li>
+<li><a
+href="https://www.bilibili.com/video/BV1Lw411d7vS">《斩草歌》</a></li>
+<li><a
+href="https://www.bilibili.com/video/BV1Rp4y1P7Qe">《四风判词》</a></li>
+<li><a href="https://www.dizzylab.net/d/Conformity/">《大风歌
+20XX》</a></li>
+<li><a
+href="https://www.bilibili.com/video/BV1nP4y1W7dr/">《石头歌》</a></li>
+</ul>
 ]]></content>
+      <categories>
+        <category>音乐</category>
+      </categories>
   </entry>
   <entry>
     <title>十进制与K进制小数互转</title>
@@ -1423,6 +1669,79 @@ _{16}\)</span></p>
 </tr>
 </tbody>
 </table>
+]]></content>
+  </entry>
+  <entry>
+    <title>在Windows中安装Linux虚拟机</title>
+    <url>/blog/2023/%E5%9C%A8Windows%E4%B8%AD%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
+    <content><![CDATA[<ul>
+<li>真机系统：Windows 10</li>
+<li>使用软件：VMware Workstation 17.0.2 Player</li>
+<li>虚拟机系统：Ubuntu 22.04.3 server</li>
+</ul>
+<span id="more"></span>
+<p>也可以给硬盘分一个新的区，单独安装 Linux。不过没有必要。</p>
+<h2 id="下载安装-vmware-workstation-player">下载安装 VMware Workstation
+Player</h2>
+<blockquote>
+<p>使用 VMware Workstation Player 在 Windows 或 Linux PC
+上轻松地将多个操作系统作为虚拟机运行。——网站介绍</p>
+</blockquote>
+<p><a
+href="https://customerconnect.vmware.com/cn/downloads/info/slug/desktop_end_user_computing/vmware_workstation_player/">下载页面</a></p>
+<p>这里下载的是当前最新版
+<code>VMware Workstation 17.0.2 Player for Windows 64-bit Operating Systems</code>。</p>
+<p>安装过程略（“增强型键盘驱动程序”不知道有什么用，先勾上）。</p>
+<h2 id="下载-ubuntu-镜像">下载 Ubuntu 镜像</h2>
+<p>是一种 Linux 发行版操作系统。</p>
+<p><a
+href="https://launchpad.net/ubuntu/+cdmirrors">下载页面（仓库集合）</a>，找到
+China。</p>
+<p>这里下载的是<code>ubuntu-22.04.3-live-server-amd64.iso</code>。</p>
+<h2 id="在-vm-player-中新建虚拟机">在 VM Player 中新建虚拟机</h2>
+<ol type="1">
+<li><code>创建新虚拟机(N)</code></li>
+<li><code>安装程序光盘文件(iso)(M)</code></li>
+<li><code>浏览(R)</code>，选择下载的镜像文件，下一步。</li>
+<li>设置虚拟机名称和位置，下一步。（我这里设置的是<code>Ubuntu100</code>和<code>D:\VMachines\Ubuntu100</code>）</li>
+<li>指定磁盘容量，下一步。</li>
+<li>自定义硬件（我这里把 CPU 改成了 4 核）。完成。</li>
+</ol>
+<p>你会看到：</p>
+<p><img src="/blog/images/vm.png"></p>
+<p>按回车开始安装 Ubuntu。</p>
+<h2 id="安装-ubuntu">安装 Ubuntu</h2>
+<ol type="1">
+<li><p>语言选择，默认回车。</p></li>
+<li><p>键盘布局选择，默认回车。</p></li>
+<li><p>安装类型，默认回车。</p></li>
+<li><p>网络，默认回车。</p></li>
+<li><p>代理，默认回车。</p></li>
+<li><p>配置镜像源，如果网络不好，改成</p>
+<ul>
+<li><p>清华源：<code>https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</code></p></li>
+<li><p>南京源：<code>https://mirror.nju.edu.cn/ubuntu/</code></p></li>
+<li><p>北邮源：<code>https://mirrors.bupt.edu.cn/ubuntu/</code></p>
+<p>等均可。</p></li>
+</ul></li>
+<li><p>配置存储布局，默认选择<code>Done</code>，回车。</p></li>
+<li><p>文件系统，<code>Done</code>，<code>Continue</code>。</p></li>
+<li><p>设置用户名密码等。</p></li>
+<li><p>是否升级到 Pro 版，默认不升级，<code>Continue</code>。</p></li>
+<li><p>是否安装 OpenSSH server，先不安装。</p></li>
+<li><p>是否安装其他东西，先都不选。</p></li>
+<li><p>等待安装系统。</p></li>
+<li><p>安装完成后，点击 VM Player
+下方的“我已完成安装”，然后<code>Reboot Now</code>。</p></li>
+</ol>
+<p>报错不要紧，回车。</p>
+<p>输入用户名和密码登录 Ubuntu。注意输入密码默认是不回显的。</p>
+<h2 id="设置虚拟机与真机的共享文件夹">设置虚拟机与真机的共享文件夹</h2>
+<p>VM
+的虚拟磁盘文件不好直接打开。有时候需要在虚拟机和真机之间互传文件，可以通过共享文件夹。</p>
+<p>在 VM Player 里打开虚拟机设置-&gt;选项-&gt;共享文件夹。</p>
+<p>我这里设置在<code>D:\VMachines\Shared</code>。</p>
+<p>在虚拟机里的位置是<code>/mnt/hgfs/Shared</code>。</p>
 ]]></content>
   </entry>
   <entry>
@@ -1638,33 +1957,6 @@ class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 ]]></content>
   </entry>
   <entry>
-    <title>用browser-sync实现在文件内容改变后立即刷新页面</title>
-    <url>/blog/2023/%E7%94%A8browser-sync%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
-    <content><![CDATA[<p>起因是：</p>
-<p>不管是直接打开 html
-文件，还是用<code>python -m http.server 8000 --bind 127.0.0.1</code>，在修改保存
-html 文件后浏览器都不能立马刷新。</p>
-<span id="more"></span>
-<ol type="1">
-<li><p>安装</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install browser-sync</span><br></pre></td></tr></table></figure>
-<p>安装到想作为服务器根目录的文件夹。以前觉得全局安装好，现在暂时觉得本地安装好。（据说用
-Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p></li>
-<li><p>运行</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npx browser-sync start --server --files <span class="string">&quot;.&quot;</span></span><br></pre></td></tr></table></figure>
-<p><code>--files</code> 后指定要监视的文件。</p>
-<p><code>.</code> 表示监视当前目录以及子目录下的所有文件。</p>
-<p>可以改成 <code>*.html</code>，<code>public/*.*</code> 等。</p></li>
-</ol>
-<p>html
-文件里至少得有一对<code>&lt;body&gt;</code>标签，要么没法自动刷新。</p>
-<p>在没有修改文件内容，只 <code>Ctrl + S</code>
-保存时也会刷新，在命令行会输出
-<code>File event [change]</code>，只不过看不出来。</p>
-<p>好像和直接通过浏览器来刷新不一样，因为我在选项卡上没看到加载动画。</p>
-]]></content>
-  </entry>
-  <entry>
     <title>普通十进制数转单精度浮点数</title>
     <url>/blog/2023/%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0/</url>
     <content><![CDATA[<ul>
@@ -1758,6 +2050,33 @@ href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/stand
 ]]></content>
   </entry>
   <entry>
+    <title>用browser-sync实现在文件内容改变后立即刷新页面</title>
+    <url>/blog/2023/%E7%94%A8browser-sync%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
+    <content><![CDATA[<p>起因是：</p>
+<p>不管是直接打开 html
+文件，还是用<code>python -m http.server 8000 --bind 127.0.0.1</code>，在修改保存
+html 文件后浏览器都不能立马刷新。</p>
+<span id="more"></span>
+<ol type="1">
+<li><p>安装</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install browser-sync</span><br></pre></td></tr></table></figure>
+<p>安装到想作为服务器根目录的文件夹。以前觉得全局安装好，现在暂时觉得本地安装好。（据说用
+Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p></li>
+<li><p>运行</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npx browser-sync start --server --files <span class="string">&quot;.&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>--files</code> 后指定要监视的文件。</p>
+<p><code>.</code> 表示监视当前目录以及子目录下的所有文件。</p>
+<p>可以改成 <code>*.html</code>，<code>public/*.*</code> 等。</p></li>
+</ol>
+<p>html
+文件里至少得有一对<code>&lt;body&gt;</code>标签，要么没法自动刷新。</p>
+<p>在没有修改文件内容，只 <code>Ctrl + S</code>
+保存时也会刷新，在命令行会输出
+<code>File event [change]</code>，只不过看不出来。</p>
+<p>好像和直接通过浏览器来刷新不一样，因为我在选项卡上没看到加载动画。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>用GDB查看变量内存</title>
     <url>/blog/2023/%E7%94%A8GDB%E6%9F%A5%E7%9C%8B%E5%8F%98%E9%87%8F%E5%86%85%E5%AD%98/</url>
     <content><![CDATA[<p>起因是想验证浮点数的存储方式。</p>
@@ -1797,6 +2116,177 @@ IEEE 754 浮点数的相互转换。</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/tw &amp;num</span><br></pre></td></tr></table></figure>
 <p>输出四个字节，结果：</p>
 <p><code>0x61fe1c: 00111111110110011001100110011010</code></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>社保</title>
+    <url>/blog/2023/%E7%A4%BE%E4%BF%9D/</url>
+    <content><![CDATA[<ul>
+<li>社保是什么</li>
+<li>城镇职工社保和城乡居民社保
+<ul>
+<li>城镇职工社保-&gt;五险</li>
+<li>城乡居民社保-&gt;两险</li>
+</ul></li>
+<li>法律依据是什么</li>
+</ul>
+<span id="more"></span>
+<h2 id="社保是什么">社保是什么</h2>
+<p>社保是社会保险。再往前问一步，保险是什么？</p>
+<p>你交钱给一个<strong>组织</strong>，并和他们签订<strong>契约</strong>。当你出事且符合<strong>出事的条件</strong>时，这个组织会根据契约的条文返还你对应比例的钱。</p>
+<table>
+<thead>
+<tr class="header">
+<th>保险类型</th>
+<th>组织</th>
+<th>契约</th>
+<th>出事的条件</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>商业保险</td>
+<td>保险公司</td>
+<td>保险合同、法律、法规</td>
+<td>由契约规定</td>
+</tr>
+<tr class="even">
+<td>社会保险</td>
+<td>国家</td>
+<td>法律、法规</td>
+<td>由契约规定</td>
+</tr>
+</tbody>
+</table>
+<p>保险是一种投资，当然可以选择不交——如果你不担心：</p>
+<ul>
+<li>老了，没钱用</li>
+<li>看病，没钱用</li>
+<li>工作受伤，没钱用</li>
+<li>工作没了，没钱用</li>
+<li>生孩子，没钱用</li>
+</ul>
+<p>这五大问题的话。它们分别对应社保的：</p>
+<ul>
+<li>基本养老保险</li>
+<li>基本医疗保险</li>
+<li>工伤保险</li>
+<li>失业保险</li>
+<li>生育保险</li>
+</ul>
+<h2 id="城镇职工社保和城乡居民社保">城镇职工社保和城乡居民社保</h2>
+<p>它们都属于社会保险。</p>
+<ul>
+<li>城镇职工社保，包括上面的五险。</li>
+<li>城乡居民社保，只包括医疗保险和养老保险。</li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 25%" />
+<col style="width: 43%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>社会保险类型</th>
+<th>谁交</th>
+<th>交的前提</th>
+<th>交的时间</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>职工社保</td>
+<td>职工和雇佣者分担</td>
+<td>职工与雇佣者签订<strong>劳动合同</strong></td>
+<td>按月</td>
+</tr>
+</tbody>
+</table>
+<p>待补充</p>
+<h2 id="法律依据">法律依据</h2>
+<ul>
+<li><p>《中华人民共和国宪法》（<a
+href="https://flk.npc.gov.cn/detail2.html?MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY1YTQ4MzAwNGI%3D">2018-03-11
+施行版</a>）第二章第四十五条</p></li>
+<li><p>《中华人民共和国劳动法》（<a
+href="https://flk.npc.gov.cn/detail2.html?ZmY4MDgwODE2ZjEzNWY0NjAxNmYyMGYxNmVlMTE3Mzc%3D">2018-12-29
+施行版</a>）第九章</p></li>
+<li><p>《中华人民共和国社会保险法》（<a
+href="https://flk.npc.gov.cn/detail2.html?ZmY4MDgwODE2ZjEzNWY0NjAxNmYyMTA5ODliOTE3OWE%3D">2018-12-29
+施行版</a>）全文</p></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>能指和所指</title>
+    <url>/blog/2023/%E8%83%BD%E6%8C%87%E5%92%8C%E6%89%80%E6%8C%87/</url>
+    <content><![CDATA[<ul>
+<li>能指和所指</li>
+<li>C 语言中的指针</li>
+</ul>
+<span id="more"></span>
+<h2 id="能指和所指">能指和所指</h2>
+<p>能指就是符号，所指就是符号所指向的意义。</p>
+<p>能指是【生】，所指是【诞生、生物、生活、不成熟、不熟悉、从业者<code>-ist</code>……】。</p>
+<p>能指是变量名，所指是变量值。</p>
+<p>变量名可以被重新赋值，就是老子说的“非常名”。</p>
+<h2 id="c-语言中的指针">C 语言中的指针</h2>
+<h3 id="普通变量">普通变量</h3>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> num = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+<p>变量类型<code>int</code>，变量名<code>num</code>-&gt;变量值<code>100</code>。</p>
+<p>普通变量名已经有一层指向了。</p>
+<h3 id="指针变量">指针变量</h3>
+<p>用于专门存放内存地址（值的位置）的变量，叫指针。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>* ptr = &amp;num;</span><br></pre></td></tr></table></figure>
+<p>变量类型<code>int*</code>，变量名<code>ptr</code>-&gt;变量值<code>num-&gt;100的内存地址</code></p>
+<p><code>&amp;num</code>，就是获取<code>num</code>值的位置。</p>
+<ul>
+<li><p><code>&amp;</code>一个变量名，就是获取变量名的值的地址。简称取地址。</p></li>
+<li><p><code>*</code>一个变量名，就是获取变量名的值（只对指针有效）。简称访问地址。</p></li>
+<li><p><code>*&amp;</code>一个变量名就是先<code>&amp;</code>后<code>*</code>（两个运算符优先级相同，且都是右结合）。</p>
+<p>先取地址，后访问地址，和单独使用变量名效果一样。</p></li>
+<li><p><code>&amp;</code>一个指针变量名，就是获取指针变量值本身的位置（存放<code>num</code>地址值的地址）。</p></li>
+</ul>
+<p>还可以创建二级指针，就是指向指针的指针：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>** pptr = &amp;ptr;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>pptr</code>变量名指向某一个地址，这个地址处记录着<code>ptr</code>的地址</li>
+<li><code>ptr</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的地址</li>
+<li><code>num</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的值<code>100</code></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>让博客commit前的工作更简单</title>
+    <url>/blog/2023/%E8%AE%A9%E5%8D%9A%E5%AE%A2commit%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9B%B4%E7%AE%80%E5%8D%95/</url>
+    <content><![CDATA[<p>起因是，我是把博客代码分两个仓库存的。需要做很多重复的工作。</p>
+<p>于是我写了两个 bat 文件。</p>
+<span id="more"></span>
+<p>起因是，我是把博客代码分两个仓库存的：</p>
+<ul>
+<li><p><code>blog-source</code>存 Hexo 框架源码，NexT
+主题源码和自己的部分（更改后的配置文件、md 文档、图片等）</p></li>
+<li><p><code>blog</code>存渲染之后的网页，分支是<code>gh-pages</code></p></li>
+</ul>
+<p>这就造成在 commit 前，我需要做以下工作：</p>
+<ol type="1">
+<li><p>在<code>blog-source</code>文件夹里先打开本地预览服务器。</p></li>
+<li><p>点击链接，在浏览器里打开。</p></li>
+<li><p>预览没问题，渲染网页。</p></li>
+<li><p>删除<code>blog</code>文件夹里除了<code>.git</code>外的所有文件和文件夹。</p></li>
+<li><p>把渲染的网页从<code>blog-source/public/</code>转移到<code>blog</code>文件夹里。</p></li>
+<li><p>清除<code>blog-source</code>文件夹里渲染的网页。</p></li>
+</ol>
+<p>手动操作了十几天后很烦，于是我写了两个 bat 文件：</p>
+<p><code>bs.bat</code> 做第 1-2 步</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d d:\repo\blog-source</span><br><span class="line"><span class="built_in">start</span> http://localhost:<span class="number">4000</span>/blog/</span><br><span class="line"><span class="keyword">call</span> npx hexo s</span><br></pre></td></tr></table></figure>
+<p><code>bg.bat</code> 做第 3-6 步</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">:: 删除旧文件</span><br><span class="line"><span class="built_in">cd</span> /d d:\repo\blog</span><br><span class="line">git rm -r *</span><br><span class="line">:: 渲染新文件</span><br><span class="line"><span class="built_in">cd</span> ..\blog-source</span><br><span class="line"><span class="keyword">call</span> npx hexo g</span><br><span class="line">:: 转移新文件</span><br><span class="line"><span class="built_in">xcopy</span> public ..\blog /s /e</span><br><span class="line"><span class="keyword">call</span> npx hexo clean</span><br></pre></td></tr></table></figure>
+<p>再建一个专门存 bat 的文件夹，把它添加到环境变量
+PATH。这样在任一文件夹下都可以做第 1-6 步了。</p>
+<p>commit 我用的是 GitHub Desktop，暂时没有换的必要。</p>
 ]]></content>
   </entry>
   <entry>
@@ -1923,105 +2413,114 @@ Comments）的文档，公开发布的互联网建议标准，请求公众评论
       </categories>
   </entry>
   <entry>
-    <title>社保</title>
-    <url>/blog/2023/%E7%A4%BE%E4%BF%9D/</url>
+    <title>计网-02-概述-体系结构</title>
+    <url>/blog/2023/%E8%AE%A1%E7%BD%91-02-%E6%A6%82%E8%BF%B0-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<ul>
-<li>社保是什么</li>
-<li>城镇职工社保和城乡居民社保
-<ul>
-<li>城镇职工社保-&gt;五险</li>
-<li>城乡居民社保-&gt;两险</li>
-</ul></li>
-<li>法律依据是什么</li>
+<li>OSI 七层协议</li>
+<li>TCP/IP 四层协议</li>
+<li>讲述原理的五层协议</li>
 </ul>
+<p>对应谢希仁《计算机网络》第八版 1.7.3</p>
 <span id="more"></span>
-<h2 id="社保是什么">社保是什么</h2>
-<p>社保是社会保险。再往前问一步，保险是什么？</p>
-<p>你交钱给一个<strong>组织</strong>，并和他们签订<strong>契约</strong>。当你出事且符合<strong>出事的条件</strong>时，这个组织会根据契约的条文返还你对应比例的钱。</p>
-<table>
-<thead>
-<tr class="header">
-<th>保险类型</th>
-<th>组织</th>
-<th>契约</th>
-<th>出事的条件</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>商业保险</td>
-<td>保险公司</td>
-<td>保险合同、法律、法规</td>
-<td>由契约规定</td>
-</tr>
-<tr class="even">
-<td>社会保险</td>
-<td>国家</td>
-<td>法律、法规</td>
-<td>由契约规定</td>
-</tr>
-</tbody>
-</table>
-<p>保险是一种投资，当然可以选择不交——如果你不担心：</p>
 <ul>
-<li>老了，没钱用</li>
-<li>看病，没钱用</li>
-<li>工作受伤，没钱用</li>
-<li>工作没了，没钱用</li>
-<li>生孩子，没钱用</li>
-</ul>
-<p>这五大问题的话。它们分别对应社保的：</p>
-<ul>
-<li>基本养老保险</li>
-<li>基本医疗保险</li>
-<li>工伤保险</li>
-<li>失业保险</li>
-<li>生育保险</li>
-</ul>
-<h2 id="城镇职工社保和城乡居民社保">城镇职工社保和城乡居民社保</h2>
-<p>它们都属于社会保险。</p>
-<ul>
-<li>城镇职工社保，包括上面的五险。</li>
-<li>城乡居民社保，只包括医疗保险和养老保险。</li>
+<li>七层协议：参考模型</li>
+<li>四层协议：实际用到的</li>
+<li>五层协议：上课用到的</li>
 </ul>
 <table>
-<colgroup>
-<col style="width: 18%" />
-<col style="width: 25%" />
-<col style="width: 43%" />
-<col style="width: 12%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>社会保险类型</th>
-<th>谁交</th>
-<th>交的前提</th>
-<th>交的时间</th>
+<tr>
+<td>
+应用层
+</td>
+<td rowspan="3">
+应用层
+</td>
+<td rowspan="3">
+应用层
+</td>
+<td rowspan="3">
+HTTP、DNS……
+</td>
 </tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>职工社保</td>
-<td>职工和雇佣者分担</td>
-<td>职工与雇佣者签订<strong>劳动合同</strong></td>
-<td>按月</td>
+<tr>
+<td>
+表示层
+</td>
 </tr>
-</tbody>
+<tr>
+<td>
+会话层
+</td>
+</tr>
+<tr>
+<td>
+运输层
+</td>
+<td>
+运输层
+</td>
+<td>
+运输层
+</td>
+<td>
+TCP、UDP……
+</td>
+</tr>
+<tr>
+<td>
+网络层
+</td>
+<td>
+网际层
+</td>
+<td>
+网络层
+</td>
+<td>
+IP……
+</td>
+</tr>
+<tr>
+<td>
+数据链路层
+</td>
+<td rowspan="2">
+链路层
+</td>
+<td>
+数据链路层
+</td>
+<td rowspan="2">
+……
+</td>
+</tr>
+<tr>
+<td>
+物理层
+</td>
+<td>
+物理层
+</td>
+</tr>
+<tr>
+<th>
+七层
+</th>
+<th>
+四层
+</th>
+<th>
+五层
+</th>
+<th>
+协议
+</th>
+</tr>
 </table>
-<p>待补充</p>
-<h2 id="法律依据">法律依据</h2>
-<ul>
-<li><p>《中华人民共和国宪法》（<a
-href="https://flk.npc.gov.cn/detail2.html?MmM5MDlmZGQ2NzhiZjE3OTAxNjc4YmY1YTQ4MzAwNGI%3D">2018-03-11
-施行版</a>）第二章第四十五条</p></li>
-<li><p>《中华人民共和国劳动法》（<a
-href="https://flk.npc.gov.cn/detail2.html?ZmY4MDgwODE2ZjEzNWY0NjAxNmYyMGYxNmVlMTE3Mzc%3D">2018-12-29
-施行版</a>）第九章</p></li>
-<li><p>《中华人民共和国社会保险法》（<a
-href="https://flk.npc.gov.cn/detail2.html?ZmY4MDgwODE2ZjEzNWY0NjAxNmYyMTA5ODliOTE3OWE%3D">2018-12-29
-施行版</a>）全文</p></li>
-</ul>
 ]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
   </entry>
   <entry>
     <title>计网-01-概述-性能指标</title>
@@ -2148,423 +2647,6 @@ km/s}\)</span></li>
 ]]></content>
       <categories>
         <category>计算机网络</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>能指和所指</title>
-    <url>/blog/2023/%E8%83%BD%E6%8C%87%E5%92%8C%E6%89%80%E6%8C%87/</url>
-    <content><![CDATA[<ul>
-<li>能指和所指</li>
-<li>C 语言中的指针</li>
-</ul>
-<span id="more"></span>
-<h2 id="能指和所指">能指和所指</h2>
-<p>能指就是符号，所指就是符号所指向的意义。</p>
-<p>能指是【生】，所指是【诞生、生物、生活、不成熟、不熟悉、从业者<code>-ist</code>……】。</p>
-<p>能指是变量名，所指是变量值。</p>
-<p>变量名可以被重新赋值，就是老子说的“非常名”。</p>
-<h2 id="c-语言中的指针">C 语言中的指针</h2>
-<h3 id="普通变量">普通变量</h3>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> num = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
-<p>变量类型<code>int</code>，变量名<code>num</code>-&gt;变量值<code>100</code>。</p>
-<p>普通变量名已经有一层指向了。</p>
-<h3 id="指针变量">指针变量</h3>
-<p>用于专门存放内存地址（值的位置）的变量，叫指针。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>* ptr = &amp;num;</span><br></pre></td></tr></table></figure>
-<p>变量类型<code>int*</code>，变量名<code>ptr</code>-&gt;变量值<code>num-&gt;100的内存地址</code></p>
-<p><code>&amp;num</code>，就是获取<code>num</code>值的位置。</p>
-<ul>
-<li><p><code>&amp;</code>一个变量名，就是获取变量名的值的地址。简称取地址。</p></li>
-<li><p><code>*</code>一个变量名，就是获取变量名的值（只对指针有效）。简称访问地址。</p></li>
-<li><p><code>*&amp;</code>一个变量名就是先<code>&amp;</code>后<code>*</code>（两个运算符优先级相同，且都是右结合）。</p>
-<p>先取地址，后访问地址，和单独使用变量名效果一样。</p></li>
-<li><p><code>&amp;</code>一个指针变量名，就是获取指针变量值本身的位置（存放<code>num</code>地址值的地址）。</p></li>
-</ul>
-<p>还可以创建二级指针，就是指向指针的指针：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>** pptr = &amp;ptr;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>pptr</code>变量名指向某一个地址，这个地址处记录着<code>ptr</code>的地址</li>
-<li><code>ptr</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的地址</li>
-<li><code>num</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的值<code>100</code></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
-    <title>计网-02-概述-体系结构</title>
-    <url>/blog/2023/%E8%AE%A1%E7%BD%91-02-%E6%A6%82%E8%BF%B0-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<ul>
-<li>OSI 七层协议</li>
-<li>TCP/IP 四层协议</li>
-<li>讲述原理的五层协议</li>
-</ul>
-<p>对应谢希仁《计算机网络》第八版 1.7.3</p>
-<span id="more"></span>
-<ul>
-<li>七层协议：参考模型</li>
-<li>四层协议：实际用到的</li>
-<li>五层协议：上课用到的</li>
-</ul>
-<table>
-<tr>
-<td>
-应用层
-</td>
-<td rowspan="3">
-应用层
-</td>
-<td rowspan="3">
-应用层
-</td>
-<td rowspan="3">
-HTTP、DNS……
-</td>
-</tr>
-<tr>
-<td>
-表示层
-</td>
-</tr>
-<tr>
-<td>
-会话层
-</td>
-</tr>
-<tr>
-<td>
-运输层
-</td>
-<td>
-运输层
-</td>
-<td>
-运输层
-</td>
-<td>
-TCP、UDP……
-</td>
-</tr>
-<tr>
-<td>
-网络层
-</td>
-<td>
-网际层
-</td>
-<td>
-网络层
-</td>
-<td>
-IP……
-</td>
-</tr>
-<tr>
-<td>
-数据链路层
-</td>
-<td rowspan="2">
-链路层
-</td>
-<td>
-数据链路层
-</td>
-<td rowspan="2">
-……
-</td>
-</tr>
-<tr>
-<td>
-物理层
-</td>
-<td>
-物理层
-</td>
-</tr>
-<tr>
-<th>
-七层
-</th>
-<th>
-四层
-</th>
-<th>
-五层
-</th>
-<th>
-协议
-</th>
-</tr>
-</table>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>让博客commit前的工作更简单</title>
-    <url>/blog/2023/%E8%AE%A9%E5%8D%9A%E5%AE%A2commit%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9B%B4%E7%AE%80%E5%8D%95/</url>
-    <content><![CDATA[<p>起因是，我是把博客代码分两个仓库存的。需要做很多重复的工作。</p>
-<p>于是我写了两个 bat 文件。</p>
-<span id="more"></span>
-<p>起因是，我是把博客代码分两个仓库存的：</p>
-<ul>
-<li><p><code>blog-source</code>存 Hexo 框架源码，NexT
-主题源码和自己的部分（更改后的配置文件、md 文档、图片等）</p></li>
-<li><p><code>blog</code>存渲染之后的网页，分支是<code>gh-pages</code></p></li>
-</ul>
-<p>这就造成在 commit 前，我需要做以下工作：</p>
-<ol type="1">
-<li><p>在<code>blog-source</code>文件夹里先打开本地预览服务器。</p></li>
-<li><p>点击链接，在浏览器里打开。</p></li>
-<li><p>预览没问题，渲染网页。</p></li>
-<li><p>删除<code>blog</code>文件夹里除了<code>.git</code>外的所有文件和文件夹。</p></li>
-<li><p>把渲染的网页从<code>blog-source/public/</code>转移到<code>blog</code>文件夹里。</p></li>
-<li><p>清除<code>blog-source</code>文件夹里渲染的网页。</p></li>
-</ol>
-<p>手动操作了十几天后很烦，于是我写了两个 bat 文件：</p>
-<p><code>bs.bat</code> 做第 1-2 步</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d d:\repo\blog-source</span><br><span class="line"><span class="built_in">start</span> http://localhost:<span class="number">4000</span>/blog/</span><br><span class="line"><span class="keyword">call</span> npx hexo s</span><br></pre></td></tr></table></figure>
-<p><code>bg.bat</code> 做第 3-6 步</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">:: 删除旧文件</span><br><span class="line"><span class="built_in">cd</span> /d d:\repo\blog</span><br><span class="line">git rm -r *</span><br><span class="line">:: 渲染新文件</span><br><span class="line"><span class="built_in">cd</span> ..\blog-source</span><br><span class="line"><span class="keyword">call</span> npx hexo g</span><br><span class="line">:: 转移新文件</span><br><span class="line"><span class="built_in">xcopy</span> public ..\blog /s /e</span><br><span class="line"><span class="keyword">call</span> npx hexo clean</span><br></pre></td></tr></table></figure>
-<p>再建一个专门存 bat 的文件夹，把它添加到环境变量
-PATH。这样在任一文件夹下都可以做第 1-6 步了。</p>
-<p>commit 我用的是 GitHub Desktop，暂时没有换的必要。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hadoop - 00 - 搭建环境</title>
-    <url>/blog/2023/Hadoop-00-%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[<p>Hadoop 完全分布式模式环境配置：</p>
-<table>
-<colgroup>
-<col style="width: 61%" />
-<col style="width: 38%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>用</th>
-<th>名</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>物理机系统</strong></td>
-<td>Windows 10</td>
-</tr>
-<tr class="even">
-<td><strong>虚拟机容器</strong></td>
-<td>VMware Workstation 17.0.2 Player（免费的）</td>
-</tr>
-<tr class="odd">
-<td><strong>虚拟机系统</strong></td>
-<td>Ubuntu 22.04.3 server</td>
-</tr>
-<tr class="even">
-<td><strong>主角</strong></td>
-<td>Hadoop 3.3.6</td>
-</tr>
-<tr class="odd">
-<td><strong>SSH
-连接虚拟机用的，不装直接操作也可以，装了比较方便可以复制粘贴</strong></td>
-<td>Xshell 7</td>
-</tr>
-<tr class="even">
-<td><strong>虚拟机与物理机互传文件用的</strong></td>
-<td>Xftp 7</td>
-</tr>
-</tbody>
-</table>
-<p>装了三台机器，名：master、worker1、worker2。</p>
-<span id="more"></span>
-<h2 id="在-windows-中安装-linux-虚拟机">在 Windows 中安装 Linux
-虚拟机</h2>
-<p><a href="/blog/2023/在Windows中安装Linux虚拟机">教程</a></p>
-<ul>
-<li>其中，【安装 Ubuntu】的第 4 步，我选的还是默认的
-DHCP，装好之后再改成静态 IP。</li>
-<li>第 11 步，要安装 OpenSSH server。</li>
-<li>不用设置共享文件夹，因为我们有 Xftp。</li>
-</ul>
-<h2 id="安装-xshell-和-xftp">安装 Xshell 和 Xftp</h2>
-<p><a
-href="https://www.xshell.com/zh/free-for-home-school/">下载地址</a></p>
-<h2 id="用-xftp-连接虚拟机">用 Xftp 连接虚拟机</h2>
-<p>查看虚拟机的 IP 地址：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo apt install net-tools</span><br><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
-<p>然后用 Xftp 连接。</p>
-<h2 id="下载-hadoop">下载 Hadoop</h2>
-<p><a
-href="https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/">下载页面（清华源）</a></p>
-<p>我这里下载的是<code>hadoop-3.3.6.tar.gz</code>。</p>
-<p>用 Xftp 把压缩包传到虚拟机的家目录下，然后：</p>
-<h2
-id="安装软件及配置环境变量写脚本避免重复工作">安装软件及配置环境变量，写脚本避免重复工作</h2>
-<p>把脚本也传到家目录，然后执行：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">bash ha.sh</span><br></pre></td></tr></table></figure>
-<p>其中，安装 OpenJDK 是按照 <a
-href="https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions">https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions</a>
-里的说明，指向 <a
-href="https://github.com/apache/hadoop/blob/rel/release-3.2.1/dev-support/docker/Dockerfile#L92">https://github.com/apache/hadoop/blob/rel/release-3.2.1/dev-support/docker/Dockerfile#L92</a>
-里的命令。</p>
-<p><code>ha.sh</code>：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 JDK</span></span><br><span class="line">sudo apt-get update;</span><br><span class="line">sudo apt-get install openjdk-8-jdk libbcprov-java;</span><br><span class="line">sudo apt-get clean;</span><br><span class="line"><span class="comment"># 存放 Hadoop 压缩包的位置</span></span><br><span class="line"><span class="built_in">cd</span>;</span><br><span class="line"><span class="comment"># 解压，删除（这两句我执行的时候没执行上，重启后手动执行）</span></span><br><span class="line">sudo tar -zxvf hadoop-3.3.6.tar.gz -C /usr/local;</span><br><span class="line">sudo <span class="built_in">rm</span> hadoop-3.3.6.tar.gz;</span><br><span class="line"><span class="comment"># 写环境变量</span></span><br><span class="line"><span class="comment"># env 查看所有环境变量</span></span><br><span class="line"><span class="comment"># echo $NAME 查看某个</span></span><br><span class="line">JAVA_HOME=<span class="string">&quot;/lib/jvm/java-1.8.0-openjdk-amd64&quot;</span>;</span><br><span class="line">HADOOP_HOME=<span class="string">&quot;/usr/local/hadoop-3.3.6&quot;</span>;</span><br><span class="line">text=<span class="string">&quot;export JAVA_HOME=<span class="variable">$JAVA_HOME</span></span></span><br><span class="line"><span class="string">export HADOOP_HOME=<span class="variable">$HADOOP_HOME</span></span></span><br><span class="line"><span class="string">export PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin:<span class="variable">$HADOOP_HOME</span>/sbin:<span class="variable">$JAVA_HOME</span>/bin</span></span><br><span class="line"><span class="string">&quot;</span>;</span><br><span class="line">sudo <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$text</span>&quot;</span> &gt;&gt; .bashrc;</span><br><span class="line"><span class="comment"># 应用，重启</span></span><br><span class="line"><span class="built_in">source</span> .bashrc;</span><br><span class="line">reboot;</span><br></pre></td></tr></table></figure>
-<h2 id="改虚拟机内的文件">改虚拟机内的文件</h2>
-<p><a href="https://www.runoob.com/linux/linux-vim.html">Vim
-教程</a></p>
-<p>不用
-Vim，传到真机上修改也可，这样还方便传到其他机器上。注意行尾序列是<strong>LF</strong>，小心操作不当变成
-CRLF。</p>
-<p>（还可以写一个集群分发脚本，不过暂时没必要）</p>
-<p>把改好的文件存真机上一份，直接用 Xftp
-传（如果传输失败，就修改文件权限）。</p>
-<p>注意传之前把静态 IP 改了，不同机器设成不同静态 IP。</p>
-<h3
-id="改00-installer-config.yaml改成静态-ip">改<code>00-installer-config.yaml</code>，改成静态
-IP</h3>
-<p>编辑<code>/etc/netplan</code>下的<code>.yaml</code>文件：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/netplan</span><br><span class="line">ll</span><br><span class="line">sudo vi 00-installer-config.yaml</span><br></pre></td></tr></table></figure>
-<p>原来的文件：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># This is the network config written by &#x27;subiquity&#x27;</span></span><br><span class="line"><span class="attr">network:</span></span><br><span class="line">  <span class="attr">ethernets:</span></span><br><span class="line">    <span class="attr">ens33:</span></span><br><span class="line">      <span class="attr">dhcp4:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<p>修改后的文件：</p>
-<p>参考 <a
-href="https://netplan.readthedocs.io/en/stable/netplan-tutorial/">https://netplan.readthedocs.io/en/stable/netplan-tutorial/</a></p>
-<p>选择<code>192.168.78</code>的依据是：</p>
-<ul>
-<li>在真机使用<code>ipconfig</code>命令得到的【VMnet8】的 IPv4
-地址<code>192.168.78.1</code></li>
-<li>查看 <code>C:\ProgramData\VMware\vmnetnat.conf</code> 里的 NAT
-网关地址<code>192.168.78.2</code></li>
-</ul>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">network:</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">ethernets:</span></span><br><span class="line">    <span class="attr">ens33:</span></span><br><span class="line">      <span class="attr">dhcp4:</span> <span class="literal">false</span></span><br><span class="line">      <span class="attr">dhcp6:</span> <span class="literal">false</span></span><br><span class="line">      <span class="attr">addresses:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.101</span><span class="string">/24</span></span><br><span class="line">      <span class="attr">routes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">to:</span> <span class="string">default</span></span><br><span class="line">          <span class="attr">via:</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.2</span></span><br><span class="line">      <span class="attr">nameservers:</span></span><br><span class="line">        <span class="attr">addresses:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.2</span></span><br></pre></td></tr></table></figure>
-<p>每台机器的<code>ens33.addresses</code>要设置成不同的。</p>
-<p>测试：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo netplan try</span><br></pre></td></tr></table></figure>
-<p>回车以应用。</p>
-<h3 id="改-hosts">改 <code>hosts</code></h3>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo vi /etc/hosts</span><br></pre></td></tr></table></figure>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">192.168.78.101 master</span><br><span class="line">192.168.78.102 worker1</span><br><span class="line">192.168.78.103 worker2</span><br></pre></td></tr></table></figure>
-<p>注意，如果有：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">127.0.1.1 [主机名]</span><br></pre></td></tr></table></figure>
-<p>要把这一行删了，否则绑定不到<code>192.168.78.x</code>。暂时不知道有没有不良影响。</p>
-<h3
-id="改hadoop_homeetchadoophadoop-env.sh">改<code>$HADOOP_HOME/etc/hadoop/hadoop-env.sh</code></h3>
-<ul>
-<li><code>JAVA_HOME</code>：JAVA 主目录</li>
-<li><code>HDFS_NAMENODE_USER</code>：启动集群 NameNode 服务的用户</li>
-<li><code>HDFS_DATANODE_USER</code>：启动集群 DataNode 服务的用户</li>
-<li><code>HDFS_SECONDARYNAMENODE_USER</code>：启动集群 SecondaryNamenode
-服务的用户</li>
-<li><code>YARN_RESOURCEMANAGER_USER</code>：启动集群 ResourceManager
-服务的用户</li>
-<li><code>YARN_NODEMANAGER_USER</code>：启动集群 NodeManager
-服务的用户</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/lib/jvm/java-1.8.0-openjdk-amd64</span><br><span class="line"><span class="built_in">export</span> HDFS_NAMENODE_USER=rc</span><br><span class="line"><span class="built_in">export</span> HDFS_DATANODE_USER=rc</span><br><span class="line"><span class="built_in">export</span> HDFS_SECONDARYNAMENODE_USER=rc</span><br><span class="line"><span class="built_in">export</span> YARN_RESOURCEMANAGER_USER=rc</span><br><span class="line"><span class="built_in">export</span> YARN_NODEMANAGER_USER=rc</span><br></pre></td></tr></table></figure>
-<p>rc 是我每台机器的用户名。</p>
-<p><strong>下面的文件都是在<code>$HADOOP_HOME/etc/hadoop</code>目录里。</strong></p>
-<h3 id="改core-site.xml">改<code>core-site.xml</code></h3>
-<ul>
-<li><code>fs.defaultFS</code>：NameNode 的地址</li>
-<li><code>haoodp.tmp.dir</code>：HDFS 数据保存的临时目录</li>
-<li><code>hadoop.http.staticuser.user</code>：HDFS
-网页登录使用的静态用户</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://master:9820<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/usr/local/hadoop-3.3.6/data<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.http.staticuser.user<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>rc<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="改hdfs-site.xml">改<code>hdfs-site.xml</code></h3>
-<ul>
-<li><code>dfs.namenode.http-address</code>：Web 方式访问 NameNode
-的主机和端口号</li>
-<li><code>dfs.namenode.secondary.http-address</code>：SecondaryNamenode
-部署的主机</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.http-address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>master:9870<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.secondary.http-address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>worker2:9868<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="改mapred-site.xml">改<code>mapred-site.xml</code></h3>
-<ul>
-<li><code>mapreduce.framework.name</code>：配置为 yarn 进行 MapReduce
-作业的调度</li>
-<li><code>mapreduce.jobhistory.address</code>：历史服务器端地址</li>
-<li><code>mapreduce.jobhistory.webapp.address</code>：历史服务器 web
-地址</li>
-<li>下面三个环境变量是 Hadoop 的目录。</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.jobhistory.address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>worker1:10020<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.jobhistory.webapp.address<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>worker1:19888<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.app.mapreduce.am.env<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>HADOOP_MAPRED_HOME=/usr/local/hadoop-3.3.6/<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.map.env<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>HADOOP_MAPRED_HOME=/usr/local/hadoop-3.3.6/<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.reduce.env<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>HADOOP_MAPRED_HOME=/usr/local/hadoop-3.3.6/<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="改yarn-site.xml">改<code>yarn-site.xml</code></h3>
-<ul>
-<li><code>yarn.resourcemanager.hostname</code>： ResourceManager
-的主机名</li>
-<li><code>yarn.nodemanager.aux-services</code>：NodeManager
-获取数据的方式</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.resourcemanager.hostname<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>worker1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 环境变量的继承 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.env-whitelist<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HAD</span><br><span class="line">      OOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,</span><br><span class="line">      HADOOP_MAPRED_HOME<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 开启日志聚集功能 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.log-aggregation-enable<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 设置日志聚集服务器地址 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.log.server.url<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>http://worker1:19888/jobhistory/logs<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 设置日志保留时间 7 天 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.log-aggregation.retain-seconds<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>604800<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="改workers">改<code>workers</code></h3>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">worker1</span><br><span class="line">worker2</span><br></pre></td></tr></table></figure>
-<h2
-id="再建两个虚拟机-worker1-和-worker2配置好之后互相复制-ssh-key">再建两个虚拟机
-worker1 和 worker2，配置好之后，互相复制 SSH KEY</h2>
-<p>三台机器上都执行：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
-<p>三台机器上都执行：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ssh-copy-id master</span><br><span class="line">ssh-copy-id worker1</span><br><span class="line">ssh-copy-id worker2</span><br></pre></td></tr></table></figure>
-<h2 id="格式化-hdfs">格式化 HDFS</h2>
-<p>只用在 master 执行一次：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hdfs namenode -format</span><br></pre></td></tr></table></figure>
-<p>如果以后遇到问题，需要重新格式化时，需停止进程，然后删除每台机器的
-<code>$HADOOP_HOME/data/</code> 和 <code>$HADOOP_HOME/logs/</code>。</p>
-<h2 id="启动-hadoop">启动 Hadoop</h2>
-<p>在 master 执行：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">start-all.sh</span><br></pre></td></tr></table></figure>
-<h2 id="启动历史服务器">启动历史服务器</h2>
-<p>在 worker1 执行：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">mapred --daemon start historyserver</span><br></pre></td></tr></table></figure>
-<h2 id="检查环境">检查环境</h2>
-<h3 id="查看相关进程">查看相关进程</h3>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">jps</span><br></pre></td></tr></table></figure>
-<p>master 应该有：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">[PID] NameNode</span><br><span class="line">[PID] Jps</span><br></pre></td></tr></table></figure>
-<p>worker1 应该有：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">[PID] Jps</span><br><span class="line">[PID] JobHistoryServer</span><br><span class="line">[PID] DataNode</span><br><span class="line">[PID] NodeManager</span><br></pre></td></tr></table></figure>
-<p>worker2 应该有：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">[PID] NodeManager</span><br><span class="line">[PID] SecondaryNameNode</span><br><span class="line">[PID] Jps</span><br><span class="line">[PID] DataNode</span><br></pre></td></tr></table></figure>
-<h3 id="查看进程的-web-端口">查看进程的 Web 端口</h3>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">netstat -tunlp</span><br></pre></td></tr></table></figure>
-<ul>
-<li>-t：显示 TCP 连接信息</li>
-<li>-u：显示 UDP 连接信息</li>
-<li>-n：以数字形式显示 IP 地址和端口号</li>
-<li>-l：仅显示监听状态的连接</li>
-<li>-p：显示与连接关联的进程信息</li>
-</ul>
-<h2
-id="改真机的hosts方便用浏览器访问">改真机的<code>hosts</code>，方便用浏览器访问</h2>
-<p><code>C:\Windows\System32\drivers\etc\hosts</code>：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">192.168.78.101 master</span><br><span class="line">192.168.78.102 worker1</span><br><span class="line">192.168.78.103 worker2</span><br></pre></td></tr></table></figure>
-<h2 id="用浏览器访问-namenode">用浏览器访问 Namenode</h2>
-<p>master:9870</p>
-<h2 id="测试进行-wordcount">测试进行 wordcount</h2>
-<h3 id="创建文件夹在-ubuntu">创建文件夹在 Ubuntu</h3>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$HADOOP_HOME</span></span><br><span class="line"><span class="built_in">mkdir</span> wcinput</span><br></pre></td></tr></table></figure>
-<h3 id="创建文本文档在-ubuntu">创建文本文档在 Ubuntu</h3>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> wcinput</span><br><span class="line">vi word.txt</span><br></pre></td></tr></table></figure>
-<p><code>word.txt</code>：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">ss ss</span><br><span class="line">cls cls</span><br><span class="line">aaabbbccc</span><br><span class="line">rf rf rfr</span><br></pre></td></tr></table></figure>
-<h3 id="创建文件夹到-hdfs">创建文件夹到 HDFS</h3>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hadoop fs -<span class="built_in">mkdir</span> /wcinput</span><br></pre></td></tr></table></figure>
-<h3 id="上传文件到-hdfs">上传文件到 HDFS</h3>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hadoop fs -put word.txt /wcinput</span><br></pre></td></tr></table></figure>
-<h3 id="测试进行-wordcount-1">测试进行 wordcount</h3>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$HADOOP_HOME</span></span><br><span class="line">hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar wordcount /wcinput /wcoutput</span><br></pre></td></tr></table></figure>
-<p>如果成功，HDFS
-的<code>/wcoutput</code>目录里会有一个<code>_SUCCESS</code>文件和输出文件，可以通过浏览器查看：</p>
-<p>master:9870 -&gt; 菜单 -&gt; Utilities -&gt; Browse the file system
--&gt; <code>/wcoutput/part-r-00000</code>：</p>
-<figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">aaabbbccc	1</span><br><span class="line">cls	2</span><br><span class="line">rf	2</span><br><span class="line">rfr	1</span><br><span class="line">ss	2</span><br></pre></td></tr></table></figure>
-<h2 id="用浏览器访问-jobhistory">用浏览器访问 JobHistory</h2>
-<p>worker1:19888</p>
-<h2 id="停止-hadoop">停止 Hadoop</h2>
-<p>在 master 执行：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">stop-all.sh</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Hadoop</category>
       </categories>
   </entry>
 </search>

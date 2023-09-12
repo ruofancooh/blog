@@ -17,25 +17,25 @@
 
     <meta name="description" content="一些问题与回答">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java - 01 - 一些问题与回答">
-<meta property="og:url" content="https://hrfis.me/blog/2023/Java-01-%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E4%B8%8E%E5%9B%9E%E7%AD%94/index.html">
+<meta property="og:title" content="Java - 01 - Q&amp;A">
+<meta property="og:url" content="https://hrfis.me/blog/2023/Java-01-Q&A/index.html">
 <meta property="og:site_name" content="若凡的笔记">
 <meta property="og:description" content="一些问题与回答">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-06T08:31:00.000Z">
-<meta property="article:modified_time" content="2023-09-06T15:09:23.435Z">
+<meta property="article:modified_time" content="2023-09-11T10:39:59.156Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://hrfis.me/blog/2023/Java-01-%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E4%B8%8E%E5%9B%9E%E7%AD%94/">
+<link rel="canonical" href="https://hrfis.me/blog/2023/Java-01-Q&A/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/2023/Java-01-%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E4%B8%8E%E5%9B%9E%E7%AD%94/","path":"2023/Java-01-一些问题与回答/","title":"Java - 01 - 一些问题与回答"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/2023/Java-01-Q&A/","path":"2023/Java-01-Q&A/","title":"Java - 01 - Q&A"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Java - 01 - 一些问题与回答 | 若凡的笔记</title>
+<title>Java - 01 - Q&A | 若凡的笔记</title>
   
 
 
@@ -134,7 +134,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#main%E5%87%BD%E6%95%B0%E4%B8%8D%E5%8A%A0static%E5%8F%AF%E4%BB%A5%E5%90%97"><span class="nav-number">1.</span> <span class="nav-text">main函数不加static可以吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93%E7%B1%BB%E5%90%8D%E5%92%8C%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%8D%E4%B8%80%E8%87%B4%E6%97%B6%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E5%99%A8%E4%BC%9A%E6%8F%90%E7%A4%BA%E4%BF%AE%E6%94%B9%E9%82%A3%E4%B9%88.java%E6%96%87%E4%BB%B6%E9%87%8C%E5%8F%AA%E8%83%BD%E5%86%99%E4%B8%80%E4%B8%AA%E7%B1%BB%E5%90%97"><span class="nav-number">2.</span> <span class="nav-text">当类名和文件名不一致时，代码检查器会提示修改。那么.java文件里只能写一个类吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E8%8E%B7%E5%8F%96%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5"><span class="nav-number">3.</span> <span class="nav-text">怎么获取键盘输入？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E8%8E%B7%E5%8F%96%E6%96%87%E4%BB%B6%E8%BE%93%E5%85%A5"><span class="nav-number">4.</span> <span class="nav-text">怎么获取文件输入？</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#main%E5%87%BD%E6%95%B0%E4%B8%8D%E5%8A%A0static%E5%8F%AF%E4%BB%A5%E5%90%97"><span class="nav-number">1.</span> <span class="nav-text">main函数不加static可以吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93%E7%B1%BB%E5%90%8D%E5%92%8C%E6%96%87%E4%BB%B6%E5%90%8D%E4%B8%8D%E4%B8%80%E8%87%B4%E6%97%B6%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E5%99%A8%E4%BC%9A%E6%8F%90%E7%A4%BA%E4%BF%AE%E6%94%B9%E9%82%A3%E4%B9%88.java%E6%96%87%E4%BB%B6%E9%87%8C%E5%8F%AA%E8%83%BD%E5%86%99%E4%B8%80%E4%B8%AA%E7%B1%BB%E5%90%97"><span class="nav-number">2.</span> <span class="nav-text">当类名和文件名不一致时，代码检查器会提示修改。那么.java文件里只能写一个类吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E8%8E%B7%E5%8F%96%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5"><span class="nav-number">3.</span> <span class="nav-text">怎么获取键盘输入？</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -147,13 +147,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">笔记</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/blog/categories/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -180,7 +180,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/2023/Java-01-%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E4%B8%8E%E5%9B%9E%E7%AD%94/">
+    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/2023/Java-01-Q&A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -193,12 +193,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Java - 01 - 一些问题与回答 | 若凡的笔记">
+      <meta itemprop="name" content="Java - 01 - Q&A | 若凡的笔记">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Java - 01 - 一些问题与回答
+          Java - 01 - Q&A
         </h1>
 
         <div class="post-meta-container">
@@ -233,7 +233,6 @@ id="当类名和文件名不一致时代码检查器会提示修改那么.java�
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test0</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;456&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Test0.fun();</span><br><span class="line">        <span class="type">Test1</span> <span class="variable">test1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test1</span>();</span><br><span class="line">        test1.fun();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="怎么获取键盘输入">怎么获取键盘输入？</h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;<span class="comment">//注意要加分号</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Echo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建一个 String 对象</span></span><br><span class="line">        String str;</span><br><span class="line">        <span class="comment">// 创建一个 Scanner 对象，传参是标准输入流对象</span></span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scan</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="comment">// 读取一行，返回String</span></span><br><span class="line">        str = scan.nextLine();</span><br><span class="line">        <span class="comment">// println() 换行，print() 不换行</span></span><br><span class="line">        System.out.print(str);</span><br><span class="line">        System.out.println(str);</span><br><span class="line">        System.out.print(str);</span><br><span class="line">        System.out.println(str);</span><br><span class="line">        <span class="comment">// 别忘了关闭</span></span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="怎么获取文件输入">怎么获取文件输入？</h2>
 
     </div>
 
@@ -325,7 +324,7 @@ id="当类名和文件名不一致时代码检查器会提示修改那么.java�
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/2023/Java-01-%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98%E4%B8%8E%E5%9B%9E%E7%AD%94/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/2023/Java-01-Q&A/"}</script>
   <script src="/blog/js/third-party/quicklink.js"></script>
 
 </body>

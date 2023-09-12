@@ -15,15 +15,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="Hadoop 完全分布式模式环境配置：        用 名     物理机系统 Windows 10   虚拟机容器 VMware Workstation 17.0.2 Player（免费的）   虚拟机系统 Ubuntu 22.04.3 server   主角 Hadoop 3.3.6   SSH 连接虚拟机用的，不装直接操作也可以">
+    <meta name="description" content="Hadoop 完全分布式模式环境配置：        用 名     物理机系统 Windows 10   虚拟机容器 VMware Workstation 17.0.2 Player（免费的，但是不支持克隆虚拟机，需要手动装另外两台）   虚拟机系统 Ubuntu 22.04.3 server   主角 Hadoop 3.3.6">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hadoop - 00 - 搭建环境">
 <meta property="og:url" content="https://hrfis.me/blog/2023/Hadoop-00-%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/index.html">
 <meta property="og:site_name" content="若凡的笔记">
-<meta property="og:description" content="Hadoop 完全分布式模式环境配置：        用 名     物理机系统 Windows 10   虚拟机容器 VMware Workstation 17.0.2 Player（免费的）   虚拟机系统 Ubuntu 22.04.3 server   主角 Hadoop 3.3.6   SSH 连接虚拟机用的，不装直接操作也可以">
+<meta property="og:description" content="Hadoop 完全分布式模式环境配置：        用 名     物理机系统 Windows 10   虚拟机容器 VMware Workstation 17.0.2 Player（免费的，但是不支持克隆虚拟机，需要手动装另外两台）   虚拟机系统 Ubuntu 22.04.3 server   主角 Hadoop 3.3.6">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-11T09:45:00.000Z">
-<meta property="article:modified_time" content="2023-09-11T09:45:59.625Z">
+<meta property="article:modified_time" content="2023-09-12T11:21:39.371Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
@@ -150,13 +150,13 @@ worker1 和 worker2，配置好之后，互相复制 SSH KEY</span></a></li><li 
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">笔记</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/blog/categories/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
@@ -228,8 +228,8 @@ worker1 和 worker2，配置好之后，互相复制 SSH KEY</span></a></li><li 
     <div class="post-body" itemprop="articleBody"><p>Hadoop 完全分布式模式环境配置：</p>
 <table>
 <colgroup>
-<col style="width: 61%" />
-<col style="width: 38%" />
+<col style="width: 47%" />
+<col style="width: 52%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -244,7 +244,8 @@ worker1 和 worker2，配置好之后，互相复制 SSH KEY</span></a></li><li 
 </tr>
 <tr class="even">
 <td><strong>虚拟机容器</strong></td>
-<td>VMware Workstation 17.0.2 Player（免费的）</td>
+<td>VMware Workstation 17.0.2
+Player（免费的，但是不支持克隆虚拟机，需要手动装另外两台）</td>
 </tr>
 <tr class="odd">
 <td><strong>虚拟机系统</strong></td>
@@ -472,6 +473,9 @@ id="改真机的hosts方便用浏览器访问">改真机的<code>hosts</code>，
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/blog/2023/Java-02-Q&A/" rel="next" title="Java - 02 - Q&A">
+                  Java - 02 - Q&A <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
