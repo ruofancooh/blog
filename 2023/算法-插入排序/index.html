@@ -15,23 +15,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="若凡的笔记">
-<meta property="og:url" content="https://hrfis.me/blog/archives/2023/07/index.html">
+    <meta name="description" content="插入排序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法-插入排序">
+<meta property="og:url" content="https://hrfis.me/blog/2023/%E7%AE%97%E6%B3%95-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/index.html">
 <meta property="og:site_name" content="若凡的笔记">
+<meta property="og:description" content="插入排序">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-14T15:24:25.000Z">
+<meta property="article:modified_time" content="2023-09-14T15:27:10.211Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://hrfis.me/blog/archives/2023/07/">
+<link rel="canonical" href="https://hrfis.me/blog/2023/%E7%AE%97%E6%B3%95-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/2023/07/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/2023/%E7%AE%97%E6%B3%95-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/","path":"2023/算法-插入排序/","title":"算法-插入排序"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>归档 | 若凡的笔记</title>
+<title>算法-插入排序 | 若凡的笔记</title>
   
 
 
@@ -64,7 +68,7 @@
 
     <a href="/blog/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">若凡的笔记</h1>
+      <p class="site-title">若凡的笔记</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -117,7 +121,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -130,6 +134,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">源码</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,64 +169,108 @@
 
     </div>
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/2023/%E7%AE%97%E6%B3%95-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Ruofan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="若凡的笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法-插入排序 | 若凡的笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法-插入排序
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>插入排序</p>
+<span id="more"></span>
+<h2 id="介绍">介绍</h2>
+<p>插入排序就像一张一张地接扑克牌，接到第一张扑克牌时什么也不做，接到第二张扑克牌时要与第一张作比较，看插入到第一张的前面还是后面，……，接到第
+n 张扑克牌时要与前 n - 1 张比较，看插入到手牌的哪个位置。</p>
+<p>我们的手牌就是从文件读取的数据集中的每一个 Array。对于每一个
+Array，每张牌就是一个元素，下标记为 <code>i</code>（index），牌面记作
+<code>data[i]</code>。在接到新牌的过程中，<code>i</code> 会从
+<code>1</code> 开始变大，作为外层循环的变量。</p>
+<p>对于内层循环，就是每一次接到新牌时与旧牌作比较，然后插入某个位置。对于每一次内层循环，手牌从左到右为从小到大，且最后一张牌是未经排序的，这张牌会与它的前一张牌作比较，如果比前一张牌小就交换它们的位置。</p>
+<p>交换之后，原来最后一张牌的位置变了，相当于多了一个偏移量
+<code>o</code>（offset），把 <code>o</code> 作为内层循环的变量，则
+<code>data[i - o]</code>
+就是原来的最后一张牌，它与前一张牌交换位置的行为记作<code>[data[i - o], data[i - o - 1]] = [data[i - o - 1], data[i - o]];</code>。当
+<code>data[i - o]</code>
+比前一张牌大时，或者已经交换到了第一张的位置时，退出内层循环（当前牌插入完成），进行下一次外层循环（接新牌）。反过来说，内层循环继续的条件就是，原来的最后一张牌
+<code>data[i - o]</code> 比它当前位置的前一个位置的牌
+<code>data[i - o - 1]</code> 小，且没有移动到第一个位置（
+<code>i - o != 0</code>，即 <code>i != o</code> ）。</p>
+<h2 id="源码">源码</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">insertionSort</span>(<span class="params">data</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> len = data.<span class="property">length</span>;</span><br><span class="line">  <span class="keyword">if</span> (len &lt; <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> o = <span class="number">0</span>; o != i &amp;&amp; data[i - o] &lt; data[i - o - <span class="number">1</span>]; o++) &#123;</span><br><span class="line">      [data[i - o], data[i - o - <span class="number">1</span>]] = [data[i - o - <span class="number">1</span>], data[i - o]];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-07-19T13:45:00+08:00"
-              content="2023-07-19">
-          07-19
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/blog/2023/%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E6%90%AD%E5%BB%BAWeb%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">
-            <span itemprop="name">在手机上搭建Web服务器</span>
-          </a>
-      </div>
+    <footer class="post-footer">
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2023/Hadoop-02-ZooKeeper-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/" rel="prev" title="Hadoop - 02 - ZooKeeper - 安装和配置">
+                  <i class="fa fa-chevron-left"></i> Hadoop - 02 - ZooKeeper - 安装和配置
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-07-08T22:24:00+08:00"
-              content="2023-07-08">
-          07-08
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/blog/2023/root%E6%89%8B%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%88%E4%BD%BF%E7%94%A8Magisk%EF%BC%89/" itemprop="url">
-            <span itemprop="name">root手机教程（使用Magisk）</span>
-          </a>
-      </div>
 
-      
-    </header>
-  </article>
 
-    </div>
-  </div>
-  
-  
-  
+
 
 </div>
   </main>
@@ -282,7 +331,7 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":false,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/archives/2023/07/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/2023/%E7%AE%97%E6%B3%95-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"}</script>
   <script src="/blog/js/third-party/quicklink.js"></script>
 
 </body>
