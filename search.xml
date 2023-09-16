@@ -1,39 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java - 00 - 准备</title>
-    <url>/blog/2023/Java-00-%E5%87%86%E5%A4%87/</url>
-    <content><![CDATA[<ul>
-<li>Windows 10 + VSCode 环境配置</li>
-<li><code>Hello.java</code></li>
-</ul>
-<span id="more"></span>
-<h2 id="windows-10-vscode-环境配置">Windows 10 + VSCode 环境配置</h2>
-<ol type="1">
-<li>VSCode 里安装 <code>Extension Pack for Java</code> 扩展。
-它会提示你下载安装 JDK。安。</li>
-<li>设置环境变量
-<ul>
-<li><code>JAVA_HOME</code>：JDK 安装路径</li>
-<li><code>PATH</code>：<code>%JAVA_HOME%\bin</code></li>
-</ul></li>
-<li>终端输入： <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure> 输出： <figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">openjdk version &quot;17.0.8.1&quot; 2023-08-24</span><br><span class="line">OpenJDK Runtime Environment Temurin-17.0.8.1+1 (build 17.0.8.1+1)</span><br><span class="line">OpenJDK 64-Bit Server VM Temurin-17.0.8.1+1 (build 17.0.8.1+1, mixed mode, sharing)</span><br></pre></td></tr></table></figure></li>
-<li>VSCode
-设置搜<code>java.jdt.ls.java.home</code>，在<code>settings.json</code>里改成
-JDK 安装路径。</li>
-</ol>
-<h2 id="hello.java">Hello.java</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>按钮运行，或者终端：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java Hello.java</span><br></pre></td></tr></table></figure>
-<p>或者终端：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">javac Hello.java</span><br><span class="line">java Hello</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Java - 01 - Q&amp;A</title>
     <url>/blog/2023/Java-01-Q&amp;A/</url>
     <content><![CDATA[<p>一些问题与回答</p>
@@ -131,6 +98,39 @@ Java 也可以格式化输出。</p>
 <p>对于 Array，可以先初始化，再赋值：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>[] arr = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">100</span>];</span><br><span class="line"><span class="type">int</span> <span class="variable">arrayLength</span> <span class="operator">=</span> arr.length;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arrayLength; i++) &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">randomNum</span> <span class="operator">=</span> (<span class="type">int</span>) (<span class="number">100</span> * Math.random());</span><br><span class="line">    arr[i] = randomNum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>注意，如果用 <code>for-each</code> 循环是给数组元素赋不了值的。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java - 00 - 准备</title>
+    <url>/blog/2023/Java-00-%E5%87%86%E5%A4%87/</url>
+    <content><![CDATA[<ul>
+<li>Windows 10 + VSCode 环境配置</li>
+<li><code>Hello.java</code></li>
+</ul>
+<span id="more"></span>
+<h2 id="windows-10-vscode-环境配置">Windows 10 + VSCode 环境配置</h2>
+<ol type="1">
+<li>VSCode 里安装 <code>Extension Pack for Java</code> 扩展。
+它会提示你下载安装 JDK。安。</li>
+<li>设置环境变量
+<ul>
+<li><code>JAVA_HOME</code>：JDK 安装路径</li>
+<li><code>PATH</code>：<code>%JAVA_HOME%\bin</code></li>
+</ul></li>
+<li>终端输入： <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure> 输出： <figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">openjdk version &quot;17.0.8.1&quot; 2023-08-24</span><br><span class="line">OpenJDK Runtime Environment Temurin-17.0.8.1+1 (build 17.0.8.1+1)</span><br><span class="line">OpenJDK 64-Bit Server VM Temurin-17.0.8.1+1 (build 17.0.8.1+1, mixed mode, sharing)</span><br></pre></td></tr></table></figure></li>
+<li>VSCode
+设置搜<code>java.jdt.ls.java.home</code>，在<code>settings.json</code>里改成
+JDK 安装路径。</li>
+</ol>
+<h2 id="hello.java">Hello.java</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>按钮运行，或者终端：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java Hello.java</span><br></pre></td></tr></table></figure>
+<p>或者终端：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">javac Hello.java</span><br><span class="line">java Hello</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -375,6 +375,111 @@ id="改真机的hosts方便用浏览器访问">改真机的<code>hosts</code>，
       </categories>
   </entry>
   <entry>
+    <title>MongoDB - 00 - 准备</title>
+    <url>/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/</url>
+    <content><![CDATA[<ul>
+<li>Windows 10 环境配置</li>
+</ul>
+<span id="more"></span>
+<ol type="1">
+<li><a href="https://www.mongodb.com/try/download/community">下载
+MongoDB</a>，我下载的是<code>7.0.0 (current)</code>的<code>zip</code>格式。</li>
+<li>解压，右键用 PowerShell 运行<code>Install-Compass.ps1</code>，安装
+GUI。 默认会安装到 C 盘，安装完后手动移到 D 盘。</li>
+<li>建数据库文件夹，建一个空日志<code>test.log</code>。</li>
+<li><div class="sourceCode" id="cb1"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>   <span class="ex">mongod</span> <span class="at">--dbpath</span> <span class="pp">[</span><span class="ss">数据库文件夹路径</span><span class="pp">]</span> <span class="at">--logpath</span> <span class="pp">[</span><span class="ss">日志文件路径</span><span class="pp">]</span> <span class="at">--logappend</span></span></code></pre></div></li>
+<li>用 MongoDBCompass 连接。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>MongoDB</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>算法-00-插入排序</title>
+    <url>/blog/2023/%E7%AE%97%E6%B3%95-00-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>插入排序就是接扑克牌。</p>
+<span id="more"></span>
+<h2 id="介绍">介绍</h2>
+<p>插入排序就像一张一张地接扑克牌，接到第一张扑克牌时什么也不做，接到第二张扑克牌时要与第一张作比较，看插入到第一张的前面还是后面，……，接到第
+n 张扑克牌时要与前 n - 1 张比较，看插入到手牌的哪个位置。</p>
+<p>我们的手牌就是从文件读取的数据集中的每一个 Array。对于每一个
+Array，每张牌就是一个元素，下标记为 <code>i</code>（index），牌面记作
+<code>data[i]</code>。在接到新牌的过程中，<code>i</code> 会从
+<code>1</code> 开始变大，作为外层循环的变量。</p>
+<p>对于内层循环，就是每一次接到新牌时与旧牌作比较，然后插入某个位置。对于每一次内层循环，手牌从左到右为从小到大，且最后一张牌（新接的牌）是未经排序的，这张牌会与它的前一张牌作比较，如果比前一张牌小就交换它们的位置。</p>
+<p>交换之后，原来最后一张牌的位置变了，相当于多了一个偏移量
+<code>o</code>（offset），把 <code>o</code> 作为内层循环的变量，从
+<code>0</code> 开始，则 <code>data[i - o]</code>
+就是原来的最后一张牌，它与前一张牌交换位置的行为记作<code>[data[i - o], data[i - o - 1]] = [data[i - o - 1], data[i - o]];</code>。当
+<code>data[i - o]</code>
+比前一张牌大时，或者已经交换到了第一张的位置时，退出内层循环（当前牌插入完成），进行下一次外层循环（接新牌）。反过来说，内层循环继续的条件就是，原来的最后一张牌
+<code>data[i - o]</code> 比它当前位置的前一个位置的牌
+<code>data[i - o - 1]</code> 小，且没有移动到第一个位置（
+<code>i - o != 0</code>，即 <code>i != o</code> ）。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">insertionSort</span>(<span class="params">data</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> len = data.<span class="property">length</span>;</span><br><span class="line">  <span class="keyword">if</span> (len &lt; <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> o = <span class="number">0</span>; o != i &amp;&amp; data[i - o] &lt; data[i - o - <span class="number">1</span>]; o++) &#123;</span><br><span class="line">      [data[i - o], data[i - o - <span class="number">1</span>]] = [data[i - o - <span class="number">1</span>], data[i - o]];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>算法-01-选择排序</title>
+    <url>/blog/2023/%E7%AE%97%E6%B3%95-01-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>选择排序，就是拿到一手混乱的扑克牌之后，一眼盯到最小的那张，并把它和最左边的那张（下标为
+0）交换位置。</p>
+<p>然后忽略第一张，再对后面的一眼盯小，把最小的和第二张（下标为
+1）交换位置。</p>
+<p>然后忽略前两张，再次一眼盯小，和下标为 2 的交换位置……</p>
+<p>【牢骚警告】</p>
+<span id="more"></span>
+<h2 id="介绍">介绍</h2>
+<p>程序做不到一眼盯小（假设我们不知道有算法库），所以要用一个变量
+<code>min</code> 存放未排序部分的最小值。用 <code>mi</code> （min
+index）存放未排序部分最小值的索引，用 <code>fi</code> （first
+index）存放未排序部分的第一张牌的索引，用 <code>li</code> （later
+index）存放后面元素的索引。</p>
+<p>对于外层循环，<code>fi</code> 从 <code>0</code> 到
+<code>len - 2</code>。对于内层循环，<code>li</code> 从
+<code>fi + 1</code> 到
+<code>len - 1</code>。对于每一次内层循环，把当前位置的值
+<code>data[li]</code> 与临时的最小值 <code>min</code> 比较，如果
+<code>data[li] &lt; min</code>，则
+<code>min = data[li]; mi = li;</code>。对于临时的最小值，先取
+<code>min = data[li]</code>——这时内层循环变量 <code>li</code> 应该从
+<code>fi + 2</code> 开始取了，在两层循环的夹缝里令
+<code>min = data[fi + 1]</code>，然后内层循环变量 <code>li</code> 从
+<code>fi + 2</code> 到
+<code>len - 1</code>。内层循环结束之后，再在两层循环的夹缝里交换未排序部分的最小值和未排序部分的第一张牌，即
+<code>[data[mi], data[fi]] = [data[fi], data[mi]];</code>。</p>
+<ul>
+<li><p>写完之后发现 <code>mi</code>
+还没定义，它是用来存放未排序部分最小值的索引的，所以应该在两层循环的夹缝里令
+<code>mi = fi + 1</code>。</p></li>
+<li><p>运行之后发现错了，应该在夹缝里令
+<code>min = data[fi]; mi = fi;</code>，内层循环一开始令
+<code>li = fi + 1</code>。再次运行之后成功了。</p></li>
+</ul>
+<h2 id="代码">代码</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">selectionSort</span>(<span class="params">data</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> len = data.<span class="property">length</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> fi = <span class="number">0</span>; fi &lt; len - <span class="number">1</span>; fi++) &#123;</span><br><span class="line">    <span class="keyword">let</span> min = data[fi];</span><br><span class="line">    <span class="keyword">let</span> mi = fi;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> li = fi + <span class="number">1</span>; li &lt; len; li++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (data[li] &lt; min) &#123;</span><br><span class="line">        min = data[li];</span><br><span class="line">        mi = li;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    [data[mi], data[fi]] = [data[fi], data[mi]];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="牢骚">牢骚</h2>
+<p>看着非常乱，但至少是我看完选择排序的动画之后独立写的，但是写完之后让我再写一遍，又要从头开始想。</p>
+<p>还是那句话，为什么不直接调库，我犯的错误前人都犯过了，那是无数前人智慧的结晶。总会有一版代码是经过无数人检验的，不用你再去造了。但是为了代码的<strong><em>传承</em></strong>（用同一语言或者不同语言实现），不至于让后人看不懂，还是得有人学习。</p>
+<p>但是那个人不是我，因为我记性不好，背都背不来。真的背的话就要花大量的时间练习、刷题、重现，不能光把时间花在这一个学科上——这是我的理由，因为我不自信能学好算法。</p>
+<p>不是聪不聪明的问题，有的人聪明，是因为它们从<a
+href="https://github.com/tanpero/JavaScript-Art-Tour">【十年前】</a>就开始<a
+href="https://kevinz.cn/lyricbook/author/1/lyric/92">【学】</a>了（指的是自己愿意学）。而我输出第一个“Hello
+World”是在三年前，还没有算上更早之前使用电脑，和网上冲浪的经验。</p>
+<p>我在很久之前就发现，我压根不会写作文，但是看到别人写的作文感到非常难受，总是想把它当中的一些句子改了。我还尝试从每篇课文里都挑出一句话，组成一篇有逻辑的文章。</p>
+<p>和【阴天的早晨这床像个船，我坐在船头向最远的地方看；眼底映出一阵浓烟，前已无通路后不见归途】差不多。所以我适合当“码农”，而不是“程序员”。前提是先毕业。</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Hadoop - 01 - Linux - 集群分发脚本配置</title>
     <url>/blog/2023/Hadoop-01-Linux-%E9%9B%86%E7%BE%A4%E5%88%86%E5%8F%91%E8%84%9A%E6%9C%AC%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p>改配置文件后，用 Xftp
@@ -491,37 +596,153 @@ Apache ZooKeeper 3.8.2(asc, sha512)，文件名带 bin
       </categories>
   </entry>
   <entry>
-    <title>MongoDB - 00 - 准备</title>
-    <url>/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/</url>
-    <content><![CDATA[<ul>
-<li>Windows 10 环境配置</li>
-</ul>
+    <title>算法-FF-用于测试算法的代码</title>
+    <url>/blog/2023/%E7%AE%97%E6%B3%95-FF-%E7%94%A8%E4%BA%8E%E6%B5%8B%E8%AF%95%E7%AE%97%E6%B3%95%E7%9A%84%E4%BB%A3%E7%A0%81/</url>
+    <content><![CDATA[<p>从文件读取数据集，输出运行时间和运行结果。</p>
 <span id="more"></span>
-<ol type="1">
-<li><a href="https://www.mongodb.com/try/download/community">下载
-MongoDB</a>，我下载的是<code>7.0.0 (current)</code>的<code>zip</code>格式。</li>
-<li>解压，右键用 PowerShell 运行<code>Install-Compass.ps1</code>，安装
-GUI。 默认会安装到 C 盘，安装完后手动移到 D 盘。</li>
-<li>建数据库文件夹，建一个空日志<code>test.log</code>。</li>
-<li><div class="sourceCode" id="cb1"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>   <span class="ex">mongod</span> <span class="at">--dbpath</span> <span class="pp">[</span><span class="ss">数据库文件夹路径</span><span class="pp">]</span> <span class="at">--logpath</span> <span class="pp">[</span><span class="ss">日志文件路径</span><span class="pp">]</span> <span class="at">--logappend</span></span></code></pre></div></li>
-<li>用 MongoDBCompass 连接。</li>
-</ol>
+<h2 id="排序算法的测试">排序算法的测试</h2>
+<h3 id="数据集">数据集</h3>
+<p><code>dataSet.json</code></p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">[</span><span class="number">-1</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">[</span><span class="number">3</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">5</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">[</span><span class="number">-3</span><span class="punctuation">,</span> <span class="number">9999991247561</span><span class="punctuation">,</span> <span class="number">3456</span><span class="punctuation">,</span> <span class="number">-111</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">7</span><span class="punctuation">,</span> <span class="number">9</span><span class="punctuation">,</span> <span class="number">23</span><span class="punctuation">,</span> <span class="number">6</span><span class="punctuation">,</span> <span class="number">0</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">[</span><span class="number">-1.23</span><span class="punctuation">,</span> <span class="number">3.14</span><span class="punctuation">,</span> <span class="number">3.14</span><span class="punctuation">,</span> <span class="number">2.71</span><span class="punctuation">,</span> <span class="number">0</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">-4</span><span class="punctuation">,</span> <span class="number">-2</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+<h3 id="测试代码">测试代码</h3>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">readDataSet</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">JSON</span>.<span class="title function_">parse</span>(fs.<span class="title function_">readFileSync</span>(<span class="string">&quot;dataSet.json&quot;</span>));</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;读取数据集时出错：&quot;</span>, error);</span><br><span class="line">    <span class="keyword">return</span> [];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">printResult</span>(<span class="params">algorithmName, dataSet</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;algorithmName&#125;</span> 后的结果：`</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(dataSet);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">testAlgorithm</span>(<span class="params">algorithm, dataSet</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> dataSetCopy = dataSet.<span class="title function_">slice</span>();</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">time</span>(<span class="string">&quot;executionTime&quot;</span>);</span><br><span class="line">  dataSetCopy.<span class="title function_">forEach</span>(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">algorithm</span>(data);</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">timeEnd</span>(<span class="string">&quot;executionTime&quot;</span>);</span><br><span class="line">  <span class="title function_">printResult</span>(algorithm.<span class="property">name</span>, dataSetCopy);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">mySort</span>(<span class="params">data</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dataSet = <span class="title function_">readDataSet</span>();</span><br><span class="line"><span class="title function_">testAlgorithm</span>(mySort, dataSet);</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>MongoDB</category>
+        <category>算法</category>
       </categories>
   </entry>
   <entry>
-    <title>JSON</title>
-    <url>/blog/2023/JSON/</url>
-    <content><![CDATA[<p>JSON(JavaScript Object Notation，JavaScript
-对象表示法)是一种轻量级的数据交换格式。</p>
+    <title>十进制与K进制小数互转</title>
+    <url>/blog/2023/%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8EK%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC/</url>
+    <content><![CDATA[<ul>
+<li>K 转 10：和整数进制转换的方法一样</li>
+<li>10 转 K：乘 K 取整</li>
+</ul>
 <span id="more"></span>
-<h2 id="json-与-js-对象互转">json 与 js 对象互转</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> json = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// js对象转json字符串</span></span><br><span class="line">json = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj);</span><br><span class="line"></span><br><span class="line"><span class="comment">// json字符串转js对象</span></span><br><span class="line">obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(json);</span><br></pre></td></tr></table></figure>
-<h2 id="使用-python-编解码-json">使用 Python 编解码 json</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">dic = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编码</span></span><br><span class="line">string = json.dumps(dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解码</span></span><br><span class="line">dic = json.loads(string)</span><br></pre></td></tr></table></figure>
+<h2 id="k-转-10和整数进制转换的方法一样">K 转
+10：和整数进制转换的方法一样</h2>
+<p>每一位分别乘上 K 的次方，再相加。</p>
+<h3 id="转-10">2 转 10</h3>
+<h4 id="有限小数">有限小数</h4>
+<p><span class="math inline">\(11.1011_{2} = 3.6875_{10}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>项</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{1}\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1\times2^{0}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{-1}\)</span></td>
+<td><span class="math inline">\(0.5\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0\times2^{-2}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{-3}\)</span></td>
+<td><span class="math inline">\(0.125\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1\times2^{-4}\)</span></td>
+<td><span class="math inline">\(0.0625\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>总和</strong></td>
+<td><span class="math inline">\(3.6875\)</span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="无限循环小数">无限循环小数</h4>
+<p><span class="math inline">\(1.1 \dot{0} 11 \dot{0} ... _{2} =
+1.7_{10}\)</span></p>
+<p>可以转换成分数计算：</p>
+<p><span class="math display">\[
+\begin{aligned}
+1.1 \dot{0} 11 \dot{0} ... _{2} &amp; = x \\
+11.\dot{0} 11 \dot{0} ... _{2} &amp; = 2_{10}x \\
+110110. \dot{0} 11 \dot{0} ... _{2} &amp; = 32_{10}x \\
+两式相减，110011_{2} &amp; = 30_{10}x \\
+x &amp; = \frac{110011_{2}}{30_{10}} = \frac{51_{10}}{30_{10}} =
+1.7_{10}
+\end{aligned}
+\]</span></p>
+<h3 id="转-10-1">16 转 10</h3>
+<p>同上略。</p>
+<h2 id="转-k乘-k-取整">10 转 K：乘 K 取整</h2>
+<p>整数部分仍然除 K 取余，小数部分乘 K 取整，然后相加。</p>
+<h3 id="转-2">10 转 2</h3>
+<p><span class="math inline">\(0.7 _{10} = 0.1 \dot{0} 11 \dot{0} ...
+_{2}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>小数部分乘 2</th>
+<th>取整数部分</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0.7 \times 2 = 1.4\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.4 \times 2 = 0.8\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(0.8 \times 2 = 1.6\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.6 \times 2 = 1.2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(0.2 \times 2 = 0.4\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<h3 id="转-16">10 转 16</h3>
+<p><span class="math inline">\(0.7 _{10} = 0.\mathrm{B} \dot{3} ...
+_{16}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>小数部分乘 16</th>
+<th>取整数部分</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0.7 \times 16 = 11.2\)</span></td>
+<td><span class="math inline">\(\mathrm{B}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.2 \times 16 = 3.2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+</tr>
+<tr class="odd">
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
   </entry>
   <entry>
@@ -701,137 +922,15 @@ href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 ]]></content>
   </entry>
   <entry>
-    <title>十进制与K进制小数互转</title>
-    <url>/blog/2023/%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8EK%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC/</url>
-    <content><![CDATA[<ul>
-<li>K 转 10：和整数进制转换的方法一样</li>
-<li>10 转 K：乘 K 取整</li>
-</ul>
+    <title>JSON</title>
+    <url>/blog/2023/JSON/</url>
+    <content><![CDATA[<p>JSON(JavaScript Object Notation，JavaScript
+对象表示法)是一种轻量级的数据交换格式。</p>
 <span id="more"></span>
-<h2 id="k-转-10和整数进制转换的方法一样">K 转
-10：和整数进制转换的方法一样</h2>
-<p>每一位分别乘上 K 的次方，再相加。</p>
-<h3 id="转-10">2 转 10</h3>
-<h4 id="有限小数">有限小数</h4>
-<p><span class="math inline">\(11.1011_{2} = 3.6875_{10}\)</span></p>
-<table>
-<thead>
-<tr class="header">
-<th>项</th>
-<th>值</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(1\times2^{1}\)</span></td>
-<td><span class="math inline">\(2\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(1\times2^{0}\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(1\times2^{-1}\)</span></td>
-<td><span class="math inline">\(0.5\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0\times2^{-2}\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(1\times2^{-3}\)</span></td>
-<td><span class="math inline">\(0.125\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(1\times2^{-4}\)</span></td>
-<td><span class="math inline">\(0.0625\)</span></td>
-</tr>
-<tr class="odd">
-<td><strong>总和</strong></td>
-<td><span class="math inline">\(3.6875\)</span></td>
-</tr>
-</tbody>
-</table>
-<h4 id="无限循环小数">无限循环小数</h4>
-<p><span class="math inline">\(1.1 \dot{0} 11 \dot{0} ... _{2} =
-1.7_{10}\)</span></p>
-<p>可以转换成分数计算：</p>
-<p><span class="math display">\[
-\begin{aligned}
-1.1 \dot{0} 11 \dot{0} ... _{2} &amp; = x \\
-11.\dot{0} 11 \dot{0} ... _{2} &amp; = 2_{10}x \\
-110110. \dot{0} 11 \dot{0} ... _{2} &amp; = 32_{10}x \\
-两式相减，110011_{2} &amp; = 30_{10}x \\
-x &amp; = \frac{110011_{2}}{30_{10}} = \frac{51_{10}}{30_{10}} =
-1.7_{10}
-\end{aligned}
-\]</span></p>
-<h3 id="转-10-1">16 转 10</h3>
-<p>同上略。</p>
-<h2 id="转-k乘-k-取整">10 转 K：乘 K 取整</h2>
-<p>整数部分仍然除 K 取余，小数部分乘 K 取整，然后相加。</p>
-<h3 id="转-2">10 转 2</h3>
-<p><span class="math inline">\(0.7 _{10} = 0.1 \dot{0} 11 \dot{0} ...
-_{2}\)</span></p>
-<table>
-<thead>
-<tr class="header">
-<th>小数部分乘 2</th>
-<th>取整数部分</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(0.7 \times 2 = 1.4\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0.4 \times 2 = 0.8\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(0.8 \times 2 = 1.6\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0.6 \times 2 = 1.2\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(0.2 \times 2 = 0.4\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-</tr>
-<tr class="even">
-<td>...</td>
-<td>...</td>
-</tr>
-</tbody>
-</table>
-<h3 id="转-16">10 转 16</h3>
-<p><span class="math inline">\(0.7 _{10} = 0.\mathrm{B} \dot{3} ...
-_{16}\)</span></p>
-<table>
-<thead>
-<tr class="header">
-<th>小数部分乘 16</th>
-<th>取整数部分</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(0.7 \times 16 = 11.2\)</span></td>
-<td><span class="math inline">\(\mathrm{B}\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0.2 \times 16 = 3.2\)</span></td>
-<td><span class="math inline">\(3\)</span></td>
-</tr>
-<tr class="odd">
-<td>...</td>
-<td>...</td>
-</tr>
-</tbody>
-</table>
+<h2 id="json-与-js-对象互转">json 与 js 对象互转</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> json = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// js对象转json字符串</span></span><br><span class="line">json = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj);</span><br><span class="line"></span><br><span class="line"><span class="comment">// json字符串转js对象</span></span><br><span class="line">obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(json);</span><br></pre></td></tr></table></figure>
+<h2 id="使用-python-编解码-json">使用 Python 编解码 json</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">dic = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编码</span></span><br><span class="line">string = json.dumps(dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解码</span></span><br><span class="line">dic = json.loads(string)</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
@@ -1282,6 +1381,45 @@ Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p><
 ]]></content>
   </entry>
   <entry>
+    <title>能指和所指</title>
+    <url>/blog/2023/%E8%83%BD%E6%8C%87%E5%92%8C%E6%89%80%E6%8C%87/</url>
+    <content><![CDATA[<ul>
+<li>能指和所指</li>
+<li>C 语言中的指针</li>
+</ul>
+<span id="more"></span>
+<h2 id="能指和所指">能指和所指</h2>
+<p>能指就是符号，所指就是符号所指向的意义。</p>
+<p>能指是【生】，所指是【诞生、生物、生活、不成熟、不熟悉、从业者<code>-ist</code>……】。</p>
+<p>能指是变量名，所指是变量值。</p>
+<p>变量名可以被重新赋值，就是老子说的“非常名”。</p>
+<h2 id="c-语言中的指针">C 语言中的指针</h2>
+<h3 id="普通变量">普通变量</h3>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> num = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+<p>变量类型<code>int</code>，变量名<code>num</code>-&gt;变量值<code>100</code>。</p>
+<p>普通变量名已经有一层指向了。</p>
+<h3 id="指针变量">指针变量</h3>
+<p>用于专门存放内存地址（值的位置）的变量，叫指针。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>* ptr = &amp;num;</span><br></pre></td></tr></table></figure>
+<p>变量类型<code>int*</code>，变量名<code>ptr</code>-&gt;变量值<code>num-&gt;100的内存地址</code></p>
+<p><code>&amp;num</code>，就是获取<code>num</code>值的位置。</p>
+<ul>
+<li><p><code>&amp;</code>一个变量名，就是获取变量名的值的地址。简称取地址。</p></li>
+<li><p><code>*</code>一个变量名，就是获取变量名的值（只对指针有效）。简称访问地址。</p></li>
+<li><p><code>*&amp;</code>一个变量名就是先<code>&amp;</code>后<code>*</code>（两个运算符优先级相同，且都是右结合）。</p>
+<p>先取地址，后访问地址，和单独使用变量名效果一样。</p></li>
+<li><p><code>&amp;</code>一个指针变量名，就是获取指针变量值本身的位置（存放<code>num</code>地址值的地址）。</p></li>
+</ul>
+<p>还可以创建二级指针，就是指向指针的指针：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>** pptr = &amp;ptr;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>pptr</code>变量名指向某一个地址，这个地址处记录着<code>ptr</code>的地址</li>
+<li><code>ptr</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的地址</li>
+<li><code>num</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的值<code>100</code></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>社保</title>
     <url>/blog/2023/%E7%A4%BE%E4%BF%9D/</url>
     <content><![CDATA[<ul>
@@ -1383,45 +1521,6 @@ href="https://flk.npc.gov.cn/detail2.html?ZmY4MDgwODE2ZjEzNWY0NjAxNmYyMTA5ODliOT
 ]]></content>
   </entry>
   <entry>
-    <title>能指和所指</title>
-    <url>/blog/2023/%E8%83%BD%E6%8C%87%E5%92%8C%E6%89%80%E6%8C%87/</url>
-    <content><![CDATA[<ul>
-<li>能指和所指</li>
-<li>C 语言中的指针</li>
-</ul>
-<span id="more"></span>
-<h2 id="能指和所指">能指和所指</h2>
-<p>能指就是符号，所指就是符号所指向的意义。</p>
-<p>能指是【生】，所指是【诞生、生物、生活、不成熟、不熟悉、从业者<code>-ist</code>……】。</p>
-<p>能指是变量名，所指是变量值。</p>
-<p>变量名可以被重新赋值，就是老子说的“非常名”。</p>
-<h2 id="c-语言中的指针">C 语言中的指针</h2>
-<h3 id="普通变量">普通变量</h3>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> num = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
-<p>变量类型<code>int</code>，变量名<code>num</code>-&gt;变量值<code>100</code>。</p>
-<p>普通变量名已经有一层指向了。</p>
-<h3 id="指针变量">指针变量</h3>
-<p>用于专门存放内存地址（值的位置）的变量，叫指针。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>* ptr = &amp;num;</span><br></pre></td></tr></table></figure>
-<p>变量类型<code>int*</code>，变量名<code>ptr</code>-&gt;变量值<code>num-&gt;100的内存地址</code></p>
-<p><code>&amp;num</code>，就是获取<code>num</code>值的位置。</p>
-<ul>
-<li><p><code>&amp;</code>一个变量名，就是获取变量名的值的地址。简称取地址。</p></li>
-<li><p><code>*</code>一个变量名，就是获取变量名的值（只对指针有效）。简称访问地址。</p></li>
-<li><p><code>*&amp;</code>一个变量名就是先<code>&amp;</code>后<code>*</code>（两个运算符优先级相同，且都是右结合）。</p>
-<p>先取地址，后访问地址，和单独使用变量名效果一样。</p></li>
-<li><p><code>&amp;</code>一个指针变量名，就是获取指针变量值本身的位置（存放<code>num</code>地址值的地址）。</p></li>
-</ul>
-<p>还可以创建二级指针，就是指向指针的指针：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>** pptr = &amp;ptr;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>pptr</code>变量名指向某一个地址，这个地址处记录着<code>ptr</code>的地址</li>
-<li><code>ptr</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的地址</li>
-<li><code>num</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的值<code>100</code></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>让提交的照片作业更清晰</title>
     <url>/blog/2023/%E8%AE%A9%E6%8F%90%E4%BA%A4%E7%9A%84%E7%85%A7%E7%89%87%E4%BD%9C%E4%B8%9A%E6%9B%B4%E6%B8%85%E6%99%B0/</url>
     <content><![CDATA[<p>这里的【照片作业】指的是用手机拍摄写在纸上的字。具体步骤：</p>
@@ -1513,762 +1612,6 @@ MB，用<code>10</code>质量导出有 2MB 左右，再转成 PDF 能在 1MB
 PATH。这样在任一文件夹下都可以做第 1-6 步了。</p>
 <p>commit 我用的是 GitHub Desktop，暂时没有换的必要。</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>计网-01-概述-性能指标</title>
-    <url>/blog/2023/%E8%AE%A1%E7%BD%91-01-%E6%A6%82%E8%BF%B0-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/</url>
-    <content><![CDATA[<ul>
-<li><span class="math inline">\(\mathrm{K,M,G...}\)</span>
-的不同含义</li>
-<li>速率、带宽、吞吐量</li>
-<li>发送时延、传播时延、处理时延、排队时延</li>
-<li>时延带宽积</li>
-<li>每比特宽度</li>
-<li>RTT 和有效数据（速）率</li>
-<li>（网络）利用率</li>
-</ul>
-<p>对应谢希仁《计算机网络》第八版 1.6.1</p>
-<span id="more"></span>
-<h2 id="mathrmkmg...-的不同含义"><span
-class="math inline">\(\mathrm{K,M,G...}\)</span> 的不同含义</h2>
-<p>基数不同：</p>
-<ul>
-<li><p>在计算机领域，<span class="math inline">\(\mathrm{K =
-2^{10}}\)</span>，<span class="math inline">\(\mathrm{M =
-2^{10}K}\)</span>……</p></li>
-<li><p>在通信的领域，<span class="math inline">\(\mathrm{K =
-10^{3}}\)</span>，<span class="math inline">\(\mathrm{M =
-10^{3}K}\)</span>……</p></li>
-</ul>
-<p>数据通过网线或空气传播时，是在通信的领域。</p>
-<p>一般 <span class="math inline">\(\mathrm{MB}\)</span> 指 <span
-class="math inline">\(\mathrm{2^{10} \times 2^{10} \times 8
-bit}\)</span>，</p>
-<p><span class="math inline">\(\mathrm{Mbit}\)</span> 指 <span
-class="math inline">\(\mathrm{10^{3} \times 10^{3} bit}\)</span>，</p>
-<p>具体问题具体分析。如果追求准确的话，<span
-class="math inline">\(\mathrm{2^{10} \times 2^{10} \times 8
-bit}\)</span> 用 <span class="math inline">\(\mathrm{MiB}\)</span>
-表示。</p>
-<h2 id="速率">速率</h2>
-<p><span class="math inline">\(\mathrm{bit/s}\)</span></p>
-<p><strong>通常</strong>指额定速率。</p>
-<h2 id="带宽">带宽</h2>
-<h3 id="频域上的mathrmhz">频域上的：<span
-class="math inline">\(\mathrm{Hz}\)</span></h3>
-<p>信号频率范围 <span class="math inline">\(\mathrm{200Hz \sim
-300Hz}\)</span>，</p>
-<p>带宽为 <span class="math inline">\(\mathrm{300Hz - 200Hz =
-100Hz}\)</span>。</p>
-<h3 id="时域上的mathrmbits">时域上的：<span
-class="math inline">\(\mathrm{bit/s}\)</span></h3>
-<p><strong>通常</strong>指某信道的最高速率。</p>
-<h2 id="吞吐量">吞吐量</h2>
-<p>指实际速率 <span class="math inline">\(\mathrm{bit/s}\)</span>，进量
-+ 出量。</p>
-<p>有多条链路时，吞吐量由瓶颈链路决定。</p>
-<h2 id="时延">时延</h2>
-<p>单位都是时间单位。</p>
-<h3 id="发送时延">发送时延</h3>
-<p>网卡发送数据的时间。<strong>与信道长度无关</strong>。不要使用【传输时延】这个词。</p>
-<p><span class="math inline">\(\mathrm{s = \dfrac{bit}{bit/s}} =
-\dfrac{数据长度}{发送速率}\)</span></p>
-<h3 id="传播时延">传播时延</h3>
-<p>电磁波在网线或空气中传播的时间。<strong>与信道长度有关</strong>。</p>
-<p><span class="math inline">\(\mathrm{s = \dfrac{m}{m/s} =
-\dfrac{信道长度}{信号传播速率}}\)</span></p>
-<ul>
-<li>光速：<span class="math inline">\(\mathrm{3.0 \times 10^5
-km/s}\)</span></li>
-<li>铜线：<span class="math inline">\(\mathrm{2.3 \times 10^5
-km/s}\)</span></li>
-<li>光纤：<span class="math inline">\(\mathrm{2.0 \times 10^5
-km/s}\)</span></li>
-</ul>
-<p>发送时延和传播时延没啥关系。</p>
-<h3 id="处理时延">处理时延</h3>
-<p>主机或路由器收到分组后，对分组进行处理的时间。</p>
-<h3 id="排队时延">排队时延</h3>
-<p>分组在路由器输入队列和输出队列里排队的时间。</p>
-<h3 id="过程">过程</h3>
-<p>……-&gt;输出排队-&gt;发送-&gt;传播-&gt;输入排队-&gt;处理-&gt;输出排队……</p>
-<h2 id="时延带宽积">时延带宽积</h2>
-<p><span class="math inline">\(\mathrm{bit = s \times bit/s = 传播时延
-\times 带宽}\)</span></p>
-<p>已经从发送端发出，但尚未到达接收端的比特数。又叫<strong>以比特为单位的链路长度</strong>。</p>
-<h2 id="每比特宽度">每比特宽度</h2>
-<p>（两行式子都存疑）</p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;\mathrm{m/bit = \dfrac{m}{bit} = \dfrac{信道长}{比特数}} \\
-&amp;\mathrm{m/bit = \dfrac{m/s}{bit/s} =
-\dfrac{信道传播速率}{信道当前带宽（或者网卡发送速率？）}}
-\end{aligned}
-\]</span></p>
-<h2 id="rtt">RTT</h2>
-<p>往返时间（Round-Trip Time）</p>
-<pre class="mermaid">gantt
-    title RTT（甘特图）
-    dateFormat s
-    axisFormat %S
-
-    section RTT
-    RTT :3,17s
-
-    section A
-    发送           :0,3s
-    接收    :17,3s
-    ……    :20,4s
-
-    section 传播
-    从A到B传播    :1,8s
-    从B到A传播    :11,8s
-
-    section B
-    接收      :7,3s
-    发送    :10,3s</pre>
-<p>其中排队时间和处理时间在接收和发送之间，这里忽略了。</p>
-<h2 id="有效数据率">有效数据率</h2>
-<p><span class="math inline">\(\mathrm{bit/s = \dfrac{bit}{s} =
-\dfrac{数据长度}{发送时间+RTT}}\)</span></p>
-<p>是有效的数据<strong>速率</strong>。</p>
-<h2 id="利用率">利用率</h2>
-<p><span class="math inline">\(网络利用率 = 1 -
-\dfrac{空闲时延}{当前时延}\)</span></p>
-<p>利用率越高，当前时延越大（堵车）。</p>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>计网-00-概述-杂项概念</title>
-    <url>/blog/2023/%E8%AE%A1%E7%BD%91-00-%E6%A6%82%E8%BF%B0-%E6%9D%82%E9%A1%B9%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<ul>
-<li>概述：计算机网络、互 Lian 网、ISP、IXP、RFC 文档</li>
-<li>组成及通信
-<ul>
-<li>边缘部分的通信：C/S、P2P</li>
-<li>核心部分的通信：电路交换、分组交换、报文交换</li>
-</ul></li>
-<li>类别</li>
-</ul>
-<p>对应谢希仁《计算机网络》第八版 1.2~1.5</p>
-<span id="more"></span>
-<h2 id="概述">概述</h2>
-<p>什么叫计算机网络？</p>
-<p>一些通用的、可编程的（含
-CPU）硬件连接起来，可以传输多种不同类型的数据。</p>
-<ul>
-<li>互连网 internet：通用名词，一群计算机连起来。</li>
-<li>互联网 Internet：专用名词，全球计算机连起来。</li>
-</ul>
-<p>世界上第一个网页：<a
-href="http://info.cern.ch">http://info.cern.ch</a></p>
-<p><strong>ISP</strong></p>
-<p>互联网服务提供者（Internet Service
-Provider），可以是移动联通电信公司，也可以是非营利组织。</p>
-<ul>
-<li>主干 ISP：国</li>
-<li>地区 ISP：省</li>
-<li>本地 ISP：省以下</li>
-</ul>
-<p>内容提供者可以连接各级 ISP 和 IXP。</p>
-<p><strong>IXP</strong></p>
-<p>互联网交换点（Internet eXchange Point），让两个 ISP 直接相连。</p>
-<p>比如两个同级 ISP 交换信息时，可以通过 IXP，而不必通过上级 ISP。</p>
-<p><strong>RFC 文档</strong></p>
-<p>“请求评论”（Request For
-Comments）的文档，公开发布的互联网建议标准，请求公众评论。</p>
-<p>最后制定互联网标准 STD。</p>
-<h2 id="组成及通信">组成及通信</h2>
-<ul>
-<li>边缘部分：所有用户直接使用的主机。又叫端系统。</li>
-<li>核心部分：大量网络和连接网络的路由器。</li>
-</ul>
-<h3 id="边缘部分的通信">边缘部分的通信</h3>
-<p>计算机通信，实际上是进程间通过端口号通信。</p>
-<h4 id="cs">C/S</h4>
-<p>客户-服务器</p>
-<p>客户和服务器都是指进程。</p>
-<h4 id="p2p">P2P</h4>
-<p>peer to peer，peer：平等的。</p>
-<p>本质是 C/S，每台主机既是 C 又是 S。</p>
-<h3 id="核心部分的通信">核心部分的通信</h3>
-<h4 id="电路交换">电路交换</h4>
-<p>三步走：建立连接-&gt;占线通信-&gt;释放连接</p>
-<ul>
-<li>占线，两台机器间通信完了才能接受与其他机器通信</li>
-<li>效率低（时间利用密度低，占线过程中会有不收发信息的时候）</li>
-</ul>
-<h4 id="分组交换">分组交换</h4>
-<p>存储转发，类比快递收寄</p>
-<ol type="1">
-<li><p>把报文分组，每组写上头部信息。（包裹大包分成小包，写上序号、寄出地和目的地等）</p></li>
-<li><p>通过路由器一级一级地转发到目的地。</p>
-<pre class="mermaid">   gantt
-    title 分组交换（甘特图）
-    dateFormat s
-    axisFormat %S
-
-    section 1号包
-    从A到B    :0, 5s
-    从B到C    :5, 5s
-    从C到D    :10, 5s
-
-    section 2号包
-    从A到B    :5, 5s
-    从B到C    :10, 5s
-    从C到D    :15, 5s
-
-    section 3号包
-    从A到B    :10, 5s
-    从B到C    :15, 5s
-    从C到D    :20, 5s</pre>
-<ul>
-<li>0-5 时间 1 号包裹从 A 站到 B 站</li>
-<li>5-10 时间 1 号包裹从 B 站到 C 站、2 号包裹从 A 站到 B 站</li>
-<li>10-15 时间 1 号包裹从 C 站到 D 站、2 号包裹从 B 站到 C 站、3
-号包裹从 A 站到 B 站</li>
-<li>……</li>
-<li>（书上的图是以空间为横轴，以时间为纵轴）</li>
-</ul></li>
-<li><p>把各个包裹合并。</p></li>
-</ol>
-<ul>
-<li>不会占线，速度比报文交换快</li>
-<li>排队等路由器转发</li>
-<li>动态分配线路，不保证带宽</li>
-<li>增加开销（合并的时候）</li>
-</ul>
-<h4 id="报文交换">报文交换</h4>
-<p>也是存储转发，但是不分组，直接发完整的。</p>
-<h2 id="类别">类别</h2>
-<h3 id="按作用范围">按作用范围</h3>
-<ul>
-<li>WAN：广域网，几十到几千公里</li>
-<li>MAN：城域网，5~50km</li>
-<li>LAN：局域网，1km</li>
-<li>PAN：个人局域网，10m</li>
-</ul>
-<h3 id="按使用者">按使用者</h3>
-<ul>
-<li>公用网</li>
-<li>专用网</li>
-</ul>
-<h3 id="接入网-an">接入网 AN</h3>
-<p>不是核心部分，也不是边缘部分。</p>
-<p><a href="">宽带接入技术</a></p>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>计网-02-概述-体系结构</title>
-    <url>/blog/2023/%E8%AE%A1%E7%BD%91-02-%E6%A6%82%E8%BF%B0-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<ul>
-<li>OSI 七层协议</li>
-<li>TCP/IP 四层协议</li>
-<li>讲述原理的五层协议</li>
-</ul>
-<p>对应谢希仁《计算机网络》第八版 1.7.3</p>
-<span id="more"></span>
-<ul>
-<li>七层协议：参考模型</li>
-<li>四层协议：实际用到的</li>
-<li>五层协议：上课用到的</li>
-</ul>
-<table>
-<tr>
-<td>
-应用层
-</td>
-<td rowspan="3">
-应用层
-</td>
-<td rowspan="3">
-应用层
-</td>
-<td rowspan="3">
-HTTP、DNS……
-</td>
-</tr>
-<tr>
-<td>
-表示层
-</td>
-</tr>
-<tr>
-<td>
-会话层
-</td>
-</tr>
-<tr>
-<td>
-运输层
-</td>
-<td>
-运输层
-</td>
-<td>
-运输层
-</td>
-<td>
-TCP、UDP……
-</td>
-</tr>
-<tr>
-<td>
-网络层
-</td>
-<td>
-网际层
-</td>
-<td>
-网络层
-</td>
-<td>
-IP……
-</td>
-</tr>
-<tr>
-<td>
-数据链路层
-</td>
-<td rowspan="2">
-链路层
-</td>
-<td>
-数据链路层
-</td>
-<td rowspan="2">
-……
-</td>
-</tr>
-<tr>
-<td>
-物理层
-</td>
-<td>
-物理层
-</td>
-</tr>
-<tr>
-<th>
-七层
-</th>
-<th>
-四层
-</th>
-<th>
-五层
-</th>
-<th>
-协议
-</th>
-</tr>
-</table>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>计网-03-物理层-通信基础概念</title>
-    <url>/blog/2023/%E8%AE%A1%E7%BD%91-03-%E7%89%A9%E7%90%86%E5%B1%82-%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<ul>
-<li>物理层</li>
-<li>通信双方的交互方式：单向通信、双向交替通信、双向同时通信</li>
-<li>编码和调制</li>
-<li>编码方式：不归零制、归零制、曼彻斯特编码、差分曼彻斯特编码</li>
-<li>基带调制、带通调制、正交振幅调制</li>
-</ul>
-<p>对应谢希仁《计算机网络》第八版 2.1~2.2.2</p>
-<span id="more"></span>
-<h2 id="物理层">物理层</h2>
-<p>物理层讨论的是如何传比特的，用什么协议。</p>
-<p>它尽量隔开了传输媒体（铜线、光纤等）和上一层（数据链路层）之间的关系。</p>
-<p>物理层的协议也叫规程。</p>
-<h2 id="通信双方的交互方式">通信双方的交互方式</h2>
-<h3 id="单向通信单工">单向通信（单工）</h3>
-<p>一段单行道。电视、广播。</p>
-<h3 id="双向交替通信半双工">双向交替通信（半双工）</h3>
-<p>一段有两个车道的马路，但是规定在一边的车道有车正在走时，另一边（相反方向）的车道不能有车走。对讲机。</p>
-<h3 id="双向同时通信全双工">双向同时通信（全双工）</h3>
-<p>一段正常的两个车道的马路。</p>
-<h2 id="编码和调制">编码和调制</h2>
-<ul>
-<li><p>把信号（数或者模）转换为数字信号，叫编码。</p></li>
-<li><p>把信号（数或者模）转换为模拟信号，叫调制。</p></li>
-</ul>
-<p>上面的抽象成了简单的情况，还是要根据语义判断。</p>
-<h2 id="编码方式">编码方式</h2>
-<h3 id="不归零制">不归零制</h3>
-<ul>
-<li>正电平，<code>‾</code>，<code>1</code></li>
-<li>负电平，<code>_</code>，<code>0</code></li>
-</ul>
-<h3 id="归零制">归零制</h3>
-<ul>
-<li>正脉冲，凸（<code>-‾-</code>），<code>1</code></li>
-<li>负脉冲，凹（<code>-_-</code>），<code>0</code></li>
-</ul>
-<h3 id="曼彻斯特编码">曼彻斯特编码</h3>
-<ul>
-<li>中心向下跳变，<code>‾_</code>，<code>1</code></li>
-<li>中心向上跳变，<code>_‾</code>，<code>0</code></li>
-<li>简记：下 1</li>
-</ul>
-<h3 id="差分曼彻斯特编码">差分曼彻斯特编码</h3>
-<ul>
-<li>中心始终跳变</li>
-<li>左边界无跳变，<code>1</code>
-<ul>
-<li><code>_|_‾</code></li>
-<li><code>‾|‾_</code></li>
-</ul></li>
-<li>左边界有跳变，<code>0</code>
-<ul>
-<li><code>_|‾_</code></li>
-<li><code>‾|_‾</code></li>
-</ul></li>
-<li>简记：遇 0 跳变</li>
-</ul>
-<p>（忽略竖线，是用来当分隔符的）</p>
-<h3 id="对比">对比</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> 1  1  0  0  1</span><br><span class="line"></span><br><span class="line">‾‾‾‾‾‾______‾‾‾    #不归零制</span><br><span class="line"></span><br><span class="line">-‾--‾--_--_--‾-    #归零制</span><br><span class="line"></span><br><span class="line">‾_|‾_|_‾|_‾|‾_|    #曼彻斯特编码（忽略竖线，是用来当分隔符的）</span><br><span class="line"></span><br><span class="line">‾_|_‾|_‾|_‾|‾_|    #差分曼彻斯特编码（忽略竖线，是用来当分隔符的）</span><br></pre></td></tr></table></figure>
-<h2 id="基带调制">基带调制</h2>
-<p>基带信号就是原始的数字信号，把基带信号转换成另一种数字信号就叫基带调制。也叫编码。</p>
-<h2 id="带通调制">带通调制</h2>
-<p>使用载波的。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">‾‾‾‾‾‾______‾‾‾    #基带信号</span><br><span class="line"></span><br><span class="line">MWMWMW------MWM    #调幅（AM）</span><br><span class="line"></span><br><span class="line">MWMWMWПUПUПUMWM    #调频（FM）</span><br><span class="line"></span><br><span class="line">MWMWMWWMWMWMMWM    #调相（PM）</span><br></pre></td></tr></table></figure>
-<h2 id="正交振幅调制qam">正交振幅调制（QAM）</h2>
-<p>简单地理解就是：</p>
-<p><span class="math display">\[
-\begin{aligned}
-调制后的信号 &amp; = 振幅 \times 载波(相位) \\
-y &amp; = A\sin(\omega x + \phi) \\
-\end{aligned}
-\]</span></p>
-<p>用不同的<strong>振幅</strong>和<strong>相位</strong>排列组合，来表示（承载）不同的基带信号，比只调幅/只调频/只调相的信息密度高。</p>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>计网-04-物理层-信道的极限容量</title>
-    <url>/blog/2023/%E8%AE%A1%E7%BD%91-04-%E7%89%A9%E7%90%86%E5%B1%82-%E4%BF%A1%E9%81%93%E7%9A%84%E6%9E%81%E9%99%90%E5%AE%B9%E9%87%8F/</url>
-    <content><![CDATA[<ul>
-<li>码元</li>
-<li>奈氏准则：无噪声信道中码元传输最高速率
-<ul>
-<li><span class="math inline">\(W\)</span>：信道的频域带宽</li>
-<li><span class="math inline">\(\mathrm{码元/s} = 码元单位 \times
-两倍频域带宽\)</span></li>
-</ul></li>
-<li>信噪比
-<ul>
-<li>用 <span class="math inline">\(\dfrac{S}{N}\)</span> 表示</li>
-<li>用 <span class="math inline">\(\mathrm{dB} = 10
-\lg\dfrac{S}{N}\)</span> 表示</li>
-</ul></li>
-<li>香农公式：信道极限速率
-<ul>
-<li><span class="math inline">\(\mathrm{bit/s} = W \log_2 (1 +
-\dfrac{S}{N})\)</span></li>
-</ul></li>
-<li>奈氏准则和香农公式的意义</li>
-</ul>
-<p>对应谢希仁《计算机网络》第八版 2.2.3</p>
-<span id="more"></span>
-<h2 id="码元">码元</h2>
-<p>码元，就是用来表示【码】的单个【元】。</p>
-<ul>
-<li>【码】就是串 <code>010100...</code></li>
-<li>【元】就是符号（x 元 x 次方程）。</li>
-<li>【码元】就是用来表示长串的众多符号中的单个符号。</li>
-</ul>
-<p>比如串 <code>1001 1111</code>，可以分隔成前后两部分，记作
-<code>9F</code>。</p>
-<p><code>9</code> 和 <code>F</code>
-都是码元，是不同的码元，它们分别一一对应（双射）了一个四位二进制数。</p>
-<p>如果分隔成八个部分，那 <code>0</code> 和 <code>1</code>
-也是码元。</p>
-<p>类比信号，码就是波形，码元就是在发送和解读波形时，可以分辨的最小单位波形。</p>
-<h2
-id="奈氏准则奈奎斯特香农采样定理的一部分">奈氏准则（奈奎斯特—香农采样定理的一部分）</h2>
-<p>奈奎斯特这个人推导出的准则：</p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp; 信道中码元传输的最高速率（码元/\mathrm{s}） \\
-= \ &amp; 两倍频域带宽（\mathrm{Hz，即 s^{-1}}）\times 码元的单位
-\end{aligned}
-\]</span></p>
-<p>是在理想的、信道内无噪声的情况下。这里的最高速率指的是，保证接收方接收符号（码元）不出错（码间串扰）时的速率上限。符号速率也叫波特（Baud）。</p>
-<p>频域带宽用 <span class="math inline">\(W\)</span> 表示。</p>
-<h2 id="信噪比">信噪比</h2>
-<p>就是信比噪，两种表示方式：</p>
-<ul>
-<li><span class="math inline">\(\dfrac{S}{N} =
-\dfrac{信号平均功率}{噪声平均功率}\)</span></li>
-<li><span class="math inline">\(\mathrm{dB} = 10
-\lg\dfrac{S}{N}\)</span></li>
-</ul>
-<p>前者没有单位，也可以看成是 <span
-class="math inline">\(\dfrac{瓦特}{瓦特}\)</span>。后者是无量纲单位
-<span class="math inline">\(\mathrm{dB}\)</span>。</p>
-<h2 id="香农公式香农哈特莱容量定理">香农公式（香农—哈特莱容量定理）</h2>
-<p>考虑到了信道有噪声：</p>
-<p><span class="math display">\[
-\begin{aligned}
-信道极限速率 &amp; = \mathrm{bit/s = Hz \times bit} \\
-&amp; = W \log_2(1 + \dfrac{S}{N}) \\
-\end{aligned}
-\]</span></p>
-<p>后面那一坨为什么是 <span
-class="math inline">\(\mathrm{bit}\)</span>，是通信专业要学的。<span
-class="math inline">\(\mathrm{bit}\)</span> 也是无量纲单位（？）。</p>
-<h2 id="奈氏准则和香农公式的意义">奈氏准则和香农公式的意义</h2>
-<p>信噪比越大，接收方接收到的信息失真越少。</p>
-<p>奈氏准则直接假定噪声为 <span
-class="math inline">\(0\)</span>，信噪比无穷大，速率只取决于带宽。这鼓励了人们研究更好的编码技术，一次传更多的东西。</p>
-<p>香农公式告诉我们：信噪比越大，极限速率越高，但是信噪比不可能无限大，所以速率也有极限。</p>
-<p>计算传输速率时，取奈氏准则和香农公式的结果小的。</p>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>算法-00-插入排序</title>
-    <url>/blog/2023/%E7%AE%97%E6%B3%95-00-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>插入排序就是接扑克牌。</p>
-<span id="more"></span>
-<h2 id="介绍">介绍</h2>
-<p>插入排序就像一张一张地接扑克牌，接到第一张扑克牌时什么也不做，接到第二张扑克牌时要与第一张作比较，看插入到第一张的前面还是后面，……，接到第
-n 张扑克牌时要与前 n - 1 张比较，看插入到手牌的哪个位置。</p>
-<p>我们的手牌就是从文件读取的数据集中的每一个 Array。对于每一个
-Array，每张牌就是一个元素，下标记为 <code>i</code>（index），牌面记作
-<code>data[i]</code>。在接到新牌的过程中，<code>i</code> 会从
-<code>1</code> 开始变大，作为外层循环的变量。</p>
-<p>对于内层循环，就是每一次接到新牌时与旧牌作比较，然后插入某个位置。对于每一次内层循环，手牌从左到右为从小到大，且最后一张牌（新接的牌）是未经排序的，这张牌会与它的前一张牌作比较，如果比前一张牌小就交换它们的位置。</p>
-<p>交换之后，原来最后一张牌的位置变了，相当于多了一个偏移量
-<code>o</code>（offset），把 <code>o</code> 作为内层循环的变量，从
-<code>0</code> 开始，则 <code>data[i - o]</code>
-就是原来的最后一张牌，它与前一张牌交换位置的行为记作<code>[data[i - o], data[i - o - 1]] = [data[i - o - 1], data[i - o]];</code>。当
-<code>data[i - o]</code>
-比前一张牌大时，或者已经交换到了第一张的位置时，退出内层循环（当前牌插入完成），进行下一次外层循环（接新牌）。反过来说，内层循环继续的条件就是，原来的最后一张牌
-<code>data[i - o]</code> 比它当前位置的前一个位置的牌
-<code>data[i - o - 1]</code> 小，且没有移动到第一个位置（
-<code>i - o != 0</code>，即 <code>i != o</code> ）。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">insertionSort</span>(<span class="params">data</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> len = data.<span class="property">length</span>;</span><br><span class="line">  <span class="keyword">if</span> (len &lt; <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> o = <span class="number">0</span>; o != i &amp;&amp; data[i - o] &lt; data[i - o - <span class="number">1</span>]; o++) &#123;</span><br><span class="line">      [data[i - o], data[i - o - <span class="number">1</span>]] = [data[i - o - <span class="number">1</span>], data[i - o]];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>算法-FF-用于测试算法的代码</title>
-    <url>/blog/2023/%E7%AE%97%E6%B3%95-FF-%E7%94%A8%E4%BA%8E%E6%B5%8B%E8%AF%95%E7%AE%97%E6%B3%95%E7%9A%84%E4%BB%A3%E7%A0%81/</url>
-    <content><![CDATA[<p>从文件读取数据集，输出运行时间和运行结果。</p>
-<span id="more"></span>
-<h2 id="排序算法的测试">排序算法的测试</h2>
-<h3 id="数据集">数据集</h3>
-<p><code>dataSet.json</code></p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">[</span><span class="number">-1</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">[</span><span class="number">3</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">5</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">[</span><span class="number">-3</span><span class="punctuation">,</span> <span class="number">9999991247561</span><span class="punctuation">,</span> <span class="number">3456</span><span class="punctuation">,</span> <span class="number">-111</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">7</span><span class="punctuation">,</span> <span class="number">9</span><span class="punctuation">,</span> <span class="number">23</span><span class="punctuation">,</span> <span class="number">6</span><span class="punctuation">,</span> <span class="number">0</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">[</span><span class="number">-1.23</span><span class="punctuation">,</span> <span class="number">3.14</span><span class="punctuation">,</span> <span class="number">3.14</span><span class="punctuation">,</span> <span class="number">2.71</span><span class="punctuation">,</span> <span class="number">0</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">-4</span><span class="punctuation">,</span> <span class="number">-2</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
-<h3 id="测试代码">测试代码</h3>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">readDataSet</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">JSON</span>.<span class="title function_">parse</span>(fs.<span class="title function_">readFileSync</span>(<span class="string">&quot;dataSet.json&quot;</span>));</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;读取数据集时出错：&quot;</span>, error);</span><br><span class="line">    <span class="keyword">return</span> [];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">printResult</span>(<span class="params">algorithmName, dataSet</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;algorithmName&#125;</span> 后的结果：`</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(dataSet);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">testAlgorithm</span>(<span class="params">algorithm, dataSet</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> dataSetCopy = dataSet.<span class="title function_">slice</span>();</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">time</span>(<span class="string">&quot;executionTime&quot;</span>);</span><br><span class="line">  dataSetCopy.<span class="title function_">forEach</span>(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">algorithm</span>(data);</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">timeEnd</span>(<span class="string">&quot;executionTime&quot;</span>);</span><br><span class="line">  <span class="title function_">printResult</span>(algorithm.<span class="property">name</span>, dataSetCopy);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">mySort</span>(<span class="params">data</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dataSet = <span class="title function_">readDataSet</span>();</span><br><span class="line"><span class="title function_">testAlgorithm</span>(mySort, dataSet);</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>《草蛇惊一》歌词解读</title>
-    <url>/blog//holy-shit-grass-snake.html</url>
-    <content><![CDATA[<p>《草蛇惊一》收录于初音未来 V4C 专辑《初梦》，作词是<a
-href="https://space.bilibili.com/396967">麦当叔劳劳</a>。</p>
-<span id="more"></span>
-<p><a href="https://www.bilibili.com/video/BV1Px41177ht/">去 B
-站观看</a> | 在线听：</p>
-<iframe frameborder="no" width="100%" height="86" src="//music.163.com/outchain/player?type=2&amp;id=515455714&amp;auto=1&amp;height=66">
-</iframe>
-<p>歌词使用了“意识流”的写作手法，解读需要把自己代入主人公的视角。</p>
-<p>一千个读者心中有一千个哈姆雷特，我认为歌词写的是主人公内心的矛盾。</p>
-<p>还可以参考歌词的<a
-href="https://coolmikehatsune22.wordpress.com/2020/11/13/snake-in-the-grass/">英文翻译</a>，译者是
-coolmikehatsune22。里面有一些和我想的不一样，或者没想到的东西，会在下文说明。</p>
-<h2 id="歌名">歌名</h2>
-<p>很容易从歌名联想到“打草惊蛇”。</p>
-<p>我认为【草蛇惊一】的【一】是指打草的人。</p>
-<p>在这里，草、蛇和打草的人都是主人公自己——主人公自己惊动了自己。</p>
-<p>非得拆开的话，【草】是身，【蛇】是心，【惊】是内，【一】是外。</p>
-<h2 id="主歌一">主歌一</h2>
-<h3 id="羡慕风车">羡慕风车</h3>
-<blockquote>
-<p><em>羡慕风车 不必去四海漂泊 只要能在原地旋转便能体会风的快乐</em></p>
-</blockquote>
-<p>第一句最重要，是起因。</p>
-<p>主人公的内心独白。我们把主人公此时的视角记作“视角 A”。</p>
-<p>【风车】有三层意思：</p>
-<ol type="1">
-<li>指被【风】驱动的人或物。</li>
-<li>指<a
-href="https://book.douban.com/subject/34908576/">《堂吉诃德》</a>里的风车所指，即假想敌。</li>
-<li>指主人公自己。</li>
-</ol>
-<p>如果你对【风】这个字的想法和我一样，那你就能明白我在说什么。在网页底部列举了一些关于【风】的其他歌曲。</p>
-<p>【原地旋转】就是不作出改变，变成石头，最后变成流浪的风。</p>
-<h3 id="及时行乐">及时行乐</h3>
-<blockquote>
-<p><em>及时行乐 外婆的故事里说因果报应乃白日见鬼</em></p>
-</blockquote>
-<p>视角 A 想要把自己的人生观向【风车】靠拢。</p>
-<p>英文翻译是：“毕竟，奶奶在她的故事里总是在说，你不应该指望报应会降临到坏人身上”。</p>
-<h3 id="说书">说书</h3>
-<blockquote>
-<p><em>转折 没曾想单木不林一丝不线如我 孤单的说书者也能偷乐</em></p>
-</blockquote>
-<p>主人公突然转换为上帝视角，把自己代入说书者。这样就像<a
-href="https://movie.douban.com/subject/1292064/">看电影</a>一样，不用再担心各种现实问题了。</p>
-<h3 id="相忘于江湖">相忘于江湖</h3>
-<blockquote>
-<p><em>相濡以沫不如相忘于江湖 外公总说这是他孤单的借口</em></p>
-</blockquote>
-<p>进一步妄想自己是【相忘于江湖】的鱼，逃避现实。</p>
-<blockquote>
-<p>《庄子·内篇·大宗师》：</p>
-<ul>
-<li>泉涸，鱼相与处于陆，相呴以湿，相濡以沫，不如相忘于江湖。与其誉尧而非桀也，不如两忘而化其道。</li>
-</ul>
-<p>泉水干了，鱼聚集在陆地。与其用唾沫互相润湿对方，不如各自去往大江大湖，互相忘记。说尧好，说桀不好，和我有什么关系？</p>
-<p>《庄子·外篇·天运》：</p>
-<ul>
-<li>孔子见老聃而语仁义。老聃曰：“夫………………夫鹄不日浴而白，乌不日黔而黑。黑白之朴，不足以为辩，名誉之观，不足以为广。泉涸，鱼相与处于陆，相呴以湿，相濡以沫，不若相忘于江湖。”</li>
-</ul>
-<p>白天鹅不用每天沐浴，毛自然就是白的；黑乌鸦不用每天染色；毛自然就是黑的。乌鸦的黑和天鹅的白都是出于本然，不足以分辨谁优谁劣；名声和荣誉，更不用去散播张扬。</p>
-</blockquote>
-<p>英文翻译则非常直白：“与其帮助挽救我们能挽救的东西，不如完全忘记它，这是爷爷总是说的（他孤身一人的）借口”。</p>
-<h2 id="主歌二">主歌二</h2>
-<h3 id="放轻松">放轻松</h3>
-<blockquote>
-<p><em>放轻松 压力别弄得太大 飘飘欲仙欲死不知是不是自己的风格</em></p>
-</blockquote>
-<p>主人公认为自己逃避现实是不对的，此时视角转换回了视角 A。</p>
-<p>前半部分是视角 A 对自己说的：没事，放轻松一点。</p>
-<p>后半部分是视角 A 对说书者说的：这已经成为你的风格了吗？</p>
-<h3 id="除根">除根</h3>
-<blockquote>
-<p><em>一语道破 下手斩草除根哭吧哭吧 无聊卑微笑话</em></p>
-</blockquote>
-<p>视角 A【一语道破】了说书者的伪装，并否定掉了风车的人生观。</p>
-<p>认为有这种想法的自己是【无聊卑微笑话】，要把这种想法【斩草除根】。</p>
-<p>【风车】你就尽情去哭吧。</p>
-<h3 id="暴躁">暴躁</h3>
-<blockquote>
-<p><em>音色也在不知不觉中变得低沉 就像患了名为暴躁的病一样</em></p>
-</blockquote>
-<p>主人公在否定自己之后，【风车】的一面并没有消失，而是在反噬视角
-A。</p>
-<p>主人公的【音色】逐渐【低沉】，内心逐渐暴躁。</p>
-<h3 id="不回念">不回念</h3>
-<blockquote>
-<p><em>快停止吧 那张顽固蠢蛋的终身证明我不想再去想念</em></p>
-</blockquote>
-<p>风车和视角 A
-在脑海里互相争斗。主人公希望自己不要再胡思乱想了，给自己开了【顽固蠢蛋的终身证明】。</p>
-<p>有马原“否定之否定”规律的影子。<del>所以我说马克思是潜 ↘
-伏在西方的一个纯 ↗ 正的中国人。</del></p>
-<h2 id="导歌">导歌</h2>
-<h3 id="子龙我就不走">子龙我就不走</h3>
-<blockquote>
-<p><em>一不做二不休自在风流 乐不思蜀子龙我就不走</em></p>
-</blockquote>
-<p>对于一件事，我要么不做，要么就做到最好，我觉得这样太酷啦；</p>
-<p>赵子龙救了刘禅最终导致乐不思蜀，这让我怎么做接下来每一步的决定呢？干脆不做了。</p>
-<p>不管怎么断句都可以：</p>
-<ul>
-<li>乐不思蜀/子龙我/就不走</li>
-<li>乐不思蜀子龙/我就不走</li>
-</ul>
-<p>都是讲主人公不想去走赵云的【乐不思蜀】这一条路，然而这两件事隔了好几十年。</p>
-<p>英文注释【子龙】：‘child dragon’, the eponymous snake。</p>
-<p>正好呼应歌名，不管是【赵子龙】还是【蛇】都能代指主人公。</p>
-<h3 id="金蝉脱壳">金蝉脱壳</h3>
-<blockquote>
-<p><em>过五关杀六将公子献头 金蝉脱壳孙老头八十二变我有</em></p>
-</blockquote>
-<p>主人公一会儿代入关羽，一会儿代入荆轲/太子丹。并预想了像他们一样做事之后的结果。</p>
-<p>（但是在荆轲刺秦的故事中，是荆轲带着樊於期的头，公子不是带的，也不是被带的。也可能不是这个典故，百度搜【公子献头】出自漫画《火凤燎原》。也可能压根没有典故，只是一种代指）</p>
-<p>【金蝉脱壳】指主人公抽离自己为说书者。</p>
-<p>【孙老头】就是孙猴子，【八十二变】指思想转换的复杂性。</p>
-<p>不管怎么断句都可以：</p>
-<ul>
-<li>金蝉脱壳/孙老头八十二变我有</li>
-<li>金蝉脱壳孙老头/八十二变我有</li>
-<li>金蝉脱壳孙老头八十二变/我有</li>
-</ul>
-<p>我认为是第一种，【金蝉脱壳】和前半句【过五关杀六将公子献头】是连在一起的，用【孙老头八十二变】来修饰主人公想法的混乱程度。</p>
-<p>歌手断句是第二种——当然不是初音未来现场发挥的，是作者设计的，可能会听起来更舒服。另外，选择【八十二变】的原因还可能有，【头——八】两个字的连接处确实比【头——七】不管是唱起来还是听起来都更舒服。以及【我】比【孙老头】还多十变。</p>
-<p>英文翻译则是第三种，用【孙老头八十二变】来修饰【我有】很多种【金蝉脱壳】的行动。</p>
-<h3 id="翻筋斗">翻筋斗</h3>
-<blockquote>
-<p><em>百闻不如一见来翻筋斗 福星高照五湖四海都随我漫步遨游 山雨欲来风满楼</em></p>
-</blockquote>
-<p>终于要作决定了！但是在做出决定之前的继续妄想，构成了主人公脑海里的狂风。</p>
-<p>【百闻不如一见】【翻筋斗】指【孙老头】想要做出决定。</p>
-<p>至于是决定行动，还是决定继续妄想，不得而知。</p>
-<h2 id="副歌">副歌</h2>
-<h3 id="再见">再见</h3>
-<blockquote>
-<p><em>再见吧 提线的傀儡师 耻笑咚咚跳的心脏和那不实际的憧憬</em></p>
-</blockquote>
-<p>傀儡是身体，傀儡师是幻想。主人公向对自己造成心惊肉跳的幻想作别。</p>
-<p>英文翻译【不实际的憧憬】为 lofty ideals（远大的理想）。</p>
-<h3 id="暴露">暴露</h3>
-<blockquote>
-<p><em>玩笑吧 我不想听假话 暴露皆大欢喜不攻自破不成熟的笑话</em></p>
-</blockquote>
-<p>英文翻译：“你想开什么玩笑就开什么玩笑，但我不会再屈服于你的谎言，我会把你一直在快乐地兜售的所有那些毫无实质意义、脆弱的垃圾都吹出来。”</p>
-<p>我对前半句的翻译有点不认同，但认为后半句翻译得非常好。</p>
-<p>我认为这写的是主人公【不想听假话】的想法和【暴露笑话】的行为，是指主人公给自己的
-EQ 开了低通滤波。</p>
-<h3 id="再次不回念">再次不回念</h3>
-<blockquote>
-<p><em>怠慢吗 或许只是懈怠吧 嘁嘁咔咔咚咚咭咭再也不想它</em></p>
-</blockquote>
-<p>主人公认为，这都是由自己的【怠慢】或者【懈怠】造成的。在又一番思想斗争之后停止了思考——然后进入第二段主歌。</p>
-<h2 id="报菜名时间">报菜名时间</h2>
-<p>歌词里含有【风】的：</p>
-<ul>
-<li><del><em>“野马也，尘埃也，生物之以息相吹也”</em></del></li>
-<li><a
-href="https://www.bilibili.com/video/BV1WR4y147x4">《我没有歌能给你听》</a></li>
-<li><a
-href="https://www.bilibili.com/video/BV1YW411K7K2/?p=5">《酷瓜树》</a></li>
-<li><a
-href="https://music.163.com/#/song?id=411314657">《大风吹》</a></li>
-<li><a href="https://music.163.com/#/song?id=381872">《时间》</a></li>
-<li><a
-href="https://music.163.com/#/program?id=2492186574">《风兮风兮》</a></li>
-<li><a
-href="https://www.bilibili.com/video/BV1wT4y1k7Pw">《白鸟过河滩》</a></li>
-<li><a
-href="https://www.bilibili.com/video/BV1Lw411d7vS">《斩草歌》</a></li>
-<li><a
-href="https://www.bilibili.com/video/BV1Rp4y1P7Qe">《四风判词》</a></li>
-<li><a href="https://www.dizzylab.net/d/Conformity/">《大风歌
-20XX》</a></li>
-<li><a
-href="https://www.bilibili.com/video/BV1nP4y1W7dr/">《石头歌》</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>音乐</category>
-      </categories>
   </entry>
   <entry>
     <title>乐理-A0-频率与音程</title>
@@ -2478,6 +1821,313 @@ href="https://github.com/ruofancooh/utility-room/tree/main/learning/music">A0-ma
 ]]></content>
       <categories>
         <category>音乐</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>《草蛇惊一》歌词解读</title>
+    <url>/blog//holy-shit-grass-snake.html</url>
+    <content><![CDATA[<p>《草蛇惊一》收录于初音未来 V4C 专辑《初梦》，作词是<a
+href="https://space.bilibili.com/396967">麦当叔劳劳</a>。</p>
+<span id="more"></span>
+<p><a href="https://www.bilibili.com/video/BV1Px41177ht/">去 B
+站观看</a> | 在线听：</p>
+<iframe frameborder="no" width="100%" height="86" src="//music.163.com/outchain/player?type=2&amp;id=515455714&amp;auto=1&amp;height=66">
+</iframe>
+<p>歌词使用了“意识流”的写作手法，解读需要把自己代入主人公的视角。</p>
+<p>一千个读者心中有一千个哈姆雷特，我认为歌词写的是主人公内心的矛盾。</p>
+<p>还可以参考歌词的<a
+href="https://coolmikehatsune22.wordpress.com/2020/11/13/snake-in-the-grass/">英文翻译</a>，译者是
+coolmikehatsune22。里面有一些和我想的不一样，或者没想到的东西，会在下文说明。</p>
+<h2 id="歌名">歌名</h2>
+<p>很容易从歌名联想到“打草惊蛇”。</p>
+<p>我认为【草蛇惊一】的【一】是指打草的人。</p>
+<p>在这里，草、蛇和打草的人都是主人公自己——主人公自己惊动了自己。</p>
+<p>非得拆开的话，【草】是身，【蛇】是心，【惊】是内，【一】是外。</p>
+<h2 id="主歌一">主歌一</h2>
+<h3 id="羡慕风车">羡慕风车</h3>
+<blockquote>
+<p><em>羡慕风车 不必去四海漂泊 只要能在原地旋转便能体会风的快乐</em></p>
+</blockquote>
+<p>第一句最重要，是起因。</p>
+<p>主人公的内心独白。我们把主人公此时的视角记作“视角 A”。</p>
+<p>【风车】有三层意思：</p>
+<ol type="1">
+<li>指被【风】驱动的人或物。</li>
+<li>指<a
+href="https://book.douban.com/subject/34908576/">《堂吉诃德》</a>里的风车所指，即假想敌。</li>
+<li>指主人公自己。</li>
+</ol>
+<p>如果你对【风】这个字的想法和我一样，那你就能明白我在说什么。在网页底部列举了一些关于【风】的其他歌曲。</p>
+<p>【原地旋转】就是不作出改变，变成石头，最后变成流浪的风。</p>
+<h3 id="及时行乐">及时行乐</h3>
+<blockquote>
+<p><em>及时行乐 外婆的故事里说因果报应乃白日见鬼</em></p>
+</blockquote>
+<p>视角 A 想要把自己的人生观向【风车】靠拢。</p>
+<p>英文翻译是：“毕竟，奶奶在她的故事里总是在说，你不应该指望报应会降临到坏人身上”。</p>
+<h3 id="说书">说书</h3>
+<blockquote>
+<p><em>转折 没曾想单木不林一丝不线如我 孤单的说书者也能偷乐</em></p>
+</blockquote>
+<p>主人公突然转换为上帝视角，把自己代入说书者。这样就像<a
+href="https://movie.douban.com/subject/1292064/">看电影</a>一样，不用再担心各种现实问题了。</p>
+<h3 id="相忘于江湖">相忘于江湖</h3>
+<blockquote>
+<p><em>相濡以沫不如相忘于江湖 外公总说这是他孤单的借口</em></p>
+</blockquote>
+<p>进一步妄想自己是【相忘于江湖】的鱼，逃避现实。</p>
+<blockquote>
+<p>《庄子·内篇·大宗师》：</p>
+<ul>
+<li>泉涸，鱼相与处于陆，相呴以湿，相濡以沫，不如相忘于江湖。与其誉尧而非桀也，不如两忘而化其道。</li>
+</ul>
+<p>泉水干了，鱼聚集在陆地。与其用唾沫互相润湿对方，不如各自去往大江大湖，互相忘记。说尧好，说桀不好，和我有什么关系？</p>
+<p>《庄子·外篇·天运》：</p>
+<ul>
+<li>孔子见老聃而语仁义。老聃曰：“夫………………夫鹄不日浴而白，乌不日黔而黑。黑白之朴，不足以为辩，名誉之观，不足以为广。泉涸，鱼相与处于陆，相呴以湿，相濡以沫，不若相忘于江湖。”</li>
+</ul>
+<p>白天鹅不用每天沐浴，毛自然就是白的；黑乌鸦不用每天染色；毛自然就是黑的。乌鸦的黑和天鹅的白都是出于本然，不足以分辨谁优谁劣；名声和荣誉，更不用去散播张扬。</p>
+</blockquote>
+<p>英文翻译则非常直白：“与其帮助挽救我们能挽救的东西，不如完全忘记它，这是爷爷总是说的（他孤身一人的）借口”。</p>
+<h2 id="主歌二">主歌二</h2>
+<h3 id="放轻松">放轻松</h3>
+<blockquote>
+<p><em>放轻松 压力别弄得太大 飘飘欲仙欲死不知是不是自己的风格</em></p>
+</blockquote>
+<p>主人公认为自己逃避现实是不对的，此时视角转换回了视角 A。</p>
+<p>前半部分是视角 A 对自己说的：没事，放轻松一点。</p>
+<p>后半部分是视角 A 对说书者说的：这已经成为你的风格了吗？</p>
+<h3 id="除根">除根</h3>
+<blockquote>
+<p><em>一语道破 下手斩草除根哭吧哭吧 无聊卑微笑话</em></p>
+</blockquote>
+<p>视角 A【一语道破】了说书者的伪装，并否定掉了风车的人生观。</p>
+<p>认为有这种想法的自己是【无聊卑微笑话】，要把这种想法【斩草除根】。</p>
+<p>【风车】你就尽情去哭吧。</p>
+<h3 id="暴躁">暴躁</h3>
+<blockquote>
+<p><em>音色也在不知不觉中变得低沉 就像患了名为暴躁的病一样</em></p>
+</blockquote>
+<p>主人公在否定自己之后，【风车】的一面并没有消失，而是在反噬视角
+A。</p>
+<p>主人公的【音色】逐渐【低沉】，内心逐渐暴躁。</p>
+<h3 id="不回念">不回念</h3>
+<blockquote>
+<p><em>快停止吧 那张顽固蠢蛋的终身证明我不想再去想念</em></p>
+</blockquote>
+<p>风车和视角 A
+在脑海里互相争斗。主人公希望自己不要再胡思乱想了，给自己开了【顽固蠢蛋的终身证明】。</p>
+<p>有马原“否定之否定”规律的影子。<del>所以我说马克思是潜 ↘
+伏在西方的一个纯 ↗ 正的中国人。</del></p>
+<h2 id="导歌">导歌</h2>
+<h3 id="子龙我就不走">子龙我就不走</h3>
+<blockquote>
+<p><em>一不做二不休自在风流 乐不思蜀子龙我就不走</em></p>
+</blockquote>
+<p>对于一件事，我要么不做，要么就做到最好，我觉得这样太酷啦；</p>
+<p>赵子龙救了刘禅最终导致乐不思蜀，这让我怎么做接下来每一步的决定呢？干脆不做了。</p>
+<p>不管怎么断句都可以：</p>
+<ul>
+<li>乐不思蜀/子龙我/就不走</li>
+<li>乐不思蜀子龙/我就不走</li>
+</ul>
+<p>都是讲主人公不想去走赵云的【乐不思蜀】这一条路，然而这两件事隔了好几十年。</p>
+<p>英文注释【子龙】：‘child dragon’, the eponymous snake。</p>
+<p>正好呼应歌名，不管是【赵子龙】还是【蛇】都能代指主人公。</p>
+<h3 id="金蝉脱壳">金蝉脱壳</h3>
+<blockquote>
+<p><em>过五关杀六将公子献头 金蝉脱壳孙老头八十二变我有</em></p>
+</blockquote>
+<p>主人公一会儿代入关羽，一会儿代入荆轲/太子丹。并预想了像他们一样做事之后的结果。</p>
+<p>（但是在荆轲刺秦的故事中，是荆轲带着樊於期的头，公子不是带的，也不是被带的。也可能不是这个典故，百度搜【公子献头】出自漫画《火凤燎原》。也可能压根没有典故，只是一种代指）</p>
+<p>【金蝉脱壳】指主人公抽离自己为说书者。</p>
+<p>【孙老头】就是孙猴子，【八十二变】指思想转换的复杂性。</p>
+<p>不管怎么断句都可以：</p>
+<ul>
+<li>金蝉脱壳/孙老头八十二变我有</li>
+<li>金蝉脱壳孙老头/八十二变我有</li>
+<li>金蝉脱壳孙老头八十二变/我有</li>
+</ul>
+<p>我认为是第一种，【金蝉脱壳】和前半句【过五关杀六将公子献头】是连在一起的，用【孙老头八十二变】来修饰主人公想法的混乱程度。</p>
+<p>歌手断句是第二种——当然不是初音未来现场发挥的，是作者设计的，可能会听起来更舒服。另外，选择【八十二变】的原因还可能有，【头——八】两个字的连接处确实比【头——七】不管是唱起来还是听起来都更舒服。以及【我】比【孙老头】还多十变。</p>
+<p>英文翻译则是第三种，用【孙老头八十二变】来修饰【我有】很多种【金蝉脱壳】的行动。</p>
+<h3 id="翻筋斗">翻筋斗</h3>
+<blockquote>
+<p><em>百闻不如一见来翻筋斗 福星高照五湖四海都随我漫步遨游 山雨欲来风满楼</em></p>
+</blockquote>
+<p>终于要作决定了！但是在做出决定之前的继续妄想，构成了主人公脑海里的狂风。</p>
+<p>【百闻不如一见】【翻筋斗】指【孙老头】想要做出决定。</p>
+<p>至于是决定行动，还是决定继续妄想，不得而知。</p>
+<h2 id="副歌">副歌</h2>
+<h3 id="再见">再见</h3>
+<blockquote>
+<p><em>再见吧 提线的傀儡师 耻笑咚咚跳的心脏和那不实际的憧憬</em></p>
+</blockquote>
+<p>傀儡是身体，傀儡师是幻想。主人公向对自己造成心惊肉跳的幻想作别。</p>
+<p>英文翻译【不实际的憧憬】为 lofty ideals（远大的理想）。</p>
+<h3 id="暴露">暴露</h3>
+<blockquote>
+<p><em>玩笑吧 我不想听假话 暴露皆大欢喜不攻自破不成熟的笑话</em></p>
+</blockquote>
+<p>英文翻译：“你想开什么玩笑就开什么玩笑，但我不会再屈服于你的谎言，我会把你一直在快乐地兜售的所有那些毫无实质意义、脆弱的垃圾都吹出来。”</p>
+<p>我对前半句的翻译有点不认同，但认为后半句翻译得非常好。</p>
+<p>我认为这写的是主人公【不想听假话】的想法和【暴露笑话】的行为，是指主人公给自己的
+EQ 开了低通滤波。</p>
+<h3 id="再次不回念">再次不回念</h3>
+<blockquote>
+<p><em>怠慢吗 或许只是懈怠吧 嘁嘁咔咔咚咚咭咭再也不想它</em></p>
+</blockquote>
+<p>主人公认为，这都是由自己的【怠慢】或者【懈怠】造成的。在又一番思想斗争之后停止了思考——然后进入第二段主歌。</p>
+<h2 id="报菜名时间">报菜名时间</h2>
+<p>歌词里含有【风】的：</p>
+<ul>
+<li><del><em>“野马也，尘埃也，生物之以息相吹也”</em></del></li>
+<li><a
+href="https://www.bilibili.com/video/BV1WR4y147x4">《我没有歌能给你听》</a></li>
+<li><a
+href="https://www.bilibili.com/video/BV1YW411K7K2/?p=5">《酷瓜树》</a></li>
+<li><a
+href="https://music.163.com/#/song?id=411314657">《大风吹》</a></li>
+<li><a href="https://music.163.com/#/song?id=381872">《时间》</a></li>
+<li><a
+href="https://music.163.com/#/program?id=2492186574">《风兮风兮》</a></li>
+<li><a
+href="https://www.bilibili.com/video/BV1wT4y1k7Pw">《白鸟过河滩》</a></li>
+<li><a
+href="https://www.bilibili.com/video/BV1Lw411d7vS">《斩草歌》</a></li>
+<li><a
+href="https://www.bilibili.com/video/BV1Rp4y1P7Qe">《四风判词》</a></li>
+<li><a href="https://www.dizzylab.net/d/Conformity/">《大风歌
+20XX》</a></li>
+<li><a
+href="https://www.bilibili.com/video/BV1nP4y1W7dr/">《石头歌》</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>音乐</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计网-00-概述-杂项概念</title>
+    <url>/blog/2023/%E8%AE%A1%E7%BD%91-00-%E6%A6%82%E8%BF%B0-%E6%9D%82%E9%A1%B9%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<ul>
+<li>概述：计算机网络、互 Lian 网、ISP、IXP、RFC 文档</li>
+<li>组成及通信
+<ul>
+<li>边缘部分的通信：C/S、P2P</li>
+<li>核心部分的通信：电路交换、分组交换、报文交换</li>
+</ul></li>
+<li>类别</li>
+</ul>
+<p>对应谢希仁《计算机网络》第八版 1.2~1.5</p>
+<span id="more"></span>
+<h2 id="概述">概述</h2>
+<p>什么叫计算机网络？</p>
+<p>一些通用的、可编程的（含
+CPU）硬件连接起来，可以传输多种不同类型的数据。</p>
+<ul>
+<li>互连网 internet：通用名词，一群计算机连起来。</li>
+<li>互联网 Internet：专用名词，全球计算机连起来。</li>
+</ul>
+<p>世界上第一个网页：<a
+href="http://info.cern.ch">http://info.cern.ch</a></p>
+<p><strong>ISP</strong></p>
+<p>互联网服务提供者（Internet Service
+Provider），可以是移动联通电信公司，也可以是非营利组织。</p>
+<ul>
+<li>主干 ISP：国</li>
+<li>地区 ISP：省</li>
+<li>本地 ISP：省以下</li>
+</ul>
+<p>内容提供者可以连接各级 ISP 和 IXP。</p>
+<p><strong>IXP</strong></p>
+<p>互联网交换点（Internet eXchange Point），让两个 ISP 直接相连。</p>
+<p>比如两个同级 ISP 交换信息时，可以通过 IXP，而不必通过上级 ISP。</p>
+<p><strong>RFC 文档</strong></p>
+<p>“请求评论”（Request For
+Comments）的文档，公开发布的互联网建议标准，请求公众评论。</p>
+<p>最后制定互联网标准 STD。</p>
+<h2 id="组成及通信">组成及通信</h2>
+<ul>
+<li>边缘部分：所有用户直接使用的主机。又叫端系统。</li>
+<li>核心部分：大量网络和连接网络的路由器。</li>
+</ul>
+<h3 id="边缘部分的通信">边缘部分的通信</h3>
+<p>计算机通信，实际上是进程间通过端口号通信。</p>
+<h4 id="cs">C/S</h4>
+<p>客户-服务器</p>
+<p>客户和服务器都是指进程。</p>
+<h4 id="p2p">P2P</h4>
+<p>peer to peer，peer：平等的。</p>
+<p>本质是 C/S，每台主机既是 C 又是 S。</p>
+<h3 id="核心部分的通信">核心部分的通信</h3>
+<h4 id="电路交换">电路交换</h4>
+<p>三步走：建立连接-&gt;占线通信-&gt;释放连接</p>
+<ul>
+<li>占线，两台机器间通信完了才能接受与其他机器通信</li>
+<li>效率低（时间利用密度低，占线过程中会有不收发信息的时候）</li>
+</ul>
+<h4 id="分组交换">分组交换</h4>
+<p>存储转发，类比快递收寄</p>
+<ol type="1">
+<li><p>把报文分组，每组写上头部信息。（包裹大包分成小包，写上序号、寄出地和目的地等）</p></li>
+<li><p>通过路由器一级一级地转发到目的地。</p>
+<pre class="mermaid">   gantt
+    title 分组交换（甘特图）
+    dateFormat s
+    axisFormat %S
+
+    section 1号包
+    从A到B    :0, 5s
+    从B到C    :5, 5s
+    从C到D    :10, 5s
+
+    section 2号包
+    从A到B    :5, 5s
+    从B到C    :10, 5s
+    从C到D    :15, 5s
+
+    section 3号包
+    从A到B    :10, 5s
+    从B到C    :15, 5s
+    从C到D    :20, 5s</pre>
+<ul>
+<li>0-5 时间 1 号包裹从 A 站到 B 站</li>
+<li>5-10 时间 1 号包裹从 B 站到 C 站、2 号包裹从 A 站到 B 站</li>
+<li>10-15 时间 1 号包裹从 C 站到 D 站、2 号包裹从 B 站到 C 站、3
+号包裹从 A 站到 B 站</li>
+<li>……</li>
+<li>（书上的图是以空间为横轴，以时间为纵轴）</li>
+</ul></li>
+<li><p>把各个包裹合并。</p></li>
+</ol>
+<ul>
+<li>不会占线，速度比报文交换快</li>
+<li>排队等路由器转发</li>
+<li>动态分配线路，不保证带宽</li>
+<li>增加开销（合并的时候）</li>
+</ul>
+<h4 id="报文交换">报文交换</h4>
+<p>也是存储转发，但是不分组，直接发完整的。</p>
+<h2 id="类别">类别</h2>
+<h3 id="按作用范围">按作用范围</h3>
+<ul>
+<li>WAN：广域网，几十到几千公里</li>
+<li>MAN：城域网，5~50km</li>
+<li>LAN：局域网，1km</li>
+<li>PAN：个人局域网，10m</li>
+</ul>
+<h3 id="按使用者">按使用者</h3>
+<ul>
+<li>公用网</li>
+<li>专用网</li>
+</ul>
+<h3 id="接入网-an">接入网 AN</h3>
+<p>不是核心部分，也不是边缘部分。</p>
+<p><a href="">宽带接入技术</a></p>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
       </categories>
   </entry>
   <entry>
@@ -3050,6 +2700,410 @@ href="https://www.bilibili.com/read/cv3194623/">https://www.bilibili.com/read/cv
 ]]></content>
       <categories>
         <category>音乐</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计网-01-概述-性能指标</title>
+    <url>/blog/2023/%E8%AE%A1%E7%BD%91-01-%E6%A6%82%E8%BF%B0-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/</url>
+    <content><![CDATA[<ul>
+<li><span class="math inline">\(\mathrm{K,M,G...}\)</span>
+的不同含义</li>
+<li>速率、带宽、吞吐量</li>
+<li>发送时延、传播时延、处理时延、排队时延</li>
+<li>时延带宽积</li>
+<li>每比特宽度</li>
+<li>RTT 和有效数据（速）率</li>
+<li>（网络）利用率</li>
+</ul>
+<p>对应谢希仁《计算机网络》第八版 1.6.1</p>
+<span id="more"></span>
+<h2 id="mathrmkmg...-的不同含义"><span
+class="math inline">\(\mathrm{K,M,G...}\)</span> 的不同含义</h2>
+<p>基数不同：</p>
+<ul>
+<li><p>在计算机领域，<span class="math inline">\(\mathrm{K =
+2^{10}}\)</span>，<span class="math inline">\(\mathrm{M =
+2^{10}K}\)</span>……</p></li>
+<li><p>在通信的领域，<span class="math inline">\(\mathrm{K =
+10^{3}}\)</span>，<span class="math inline">\(\mathrm{M =
+10^{3}K}\)</span>……</p></li>
+</ul>
+<p>数据通过网线或空气传播时，是在通信的领域。</p>
+<p>一般 <span class="math inline">\(\mathrm{MB}\)</span> 指 <span
+class="math inline">\(\mathrm{2^{10} \times 2^{10} \times 8
+bit}\)</span>，</p>
+<p><span class="math inline">\(\mathrm{Mbit}\)</span> 指 <span
+class="math inline">\(\mathrm{10^{3} \times 10^{3} bit}\)</span>，</p>
+<p>具体问题具体分析。如果追求准确的话，<span
+class="math inline">\(\mathrm{2^{10} \times 2^{10} \times 8
+bit}\)</span> 用 <span class="math inline">\(\mathrm{MiB}\)</span>
+表示。</p>
+<h2 id="速率">速率</h2>
+<p><span class="math inline">\(\mathrm{bit/s}\)</span></p>
+<p><strong>通常</strong>指额定速率。</p>
+<h2 id="带宽">带宽</h2>
+<h3 id="频域上的mathrmhz">频域上的：<span
+class="math inline">\(\mathrm{Hz}\)</span></h3>
+<p>信号频率范围 <span class="math inline">\(\mathrm{200Hz \sim
+300Hz}\)</span>，</p>
+<p>带宽为 <span class="math inline">\(\mathrm{300Hz - 200Hz =
+100Hz}\)</span>。</p>
+<h3 id="时域上的mathrmbits">时域上的：<span
+class="math inline">\(\mathrm{bit/s}\)</span></h3>
+<p><strong>通常</strong>指某信道的最高速率。</p>
+<h2 id="吞吐量">吞吐量</h2>
+<p>指实际速率 <span class="math inline">\(\mathrm{bit/s}\)</span>，进量
++ 出量。</p>
+<p>有多条链路时，吞吐量由瓶颈链路决定。</p>
+<h2 id="时延">时延</h2>
+<p>单位都是时间单位。</p>
+<h3 id="发送时延">发送时延</h3>
+<p>网卡发送数据的时间。<strong>与信道长度无关</strong>。不要使用【传输时延】这个词。</p>
+<p><span class="math inline">\(\mathrm{s = \dfrac{bit}{bit/s}} =
+\dfrac{数据长度}{发送速率}\)</span></p>
+<h3 id="传播时延">传播时延</h3>
+<p>电磁波在网线或空气中传播的时间。<strong>与信道长度有关</strong>。</p>
+<p><span class="math inline">\(\mathrm{s = \dfrac{m}{m/s} =
+\dfrac{信道长度}{信号传播速率}}\)</span></p>
+<ul>
+<li>光速：<span class="math inline">\(\mathrm{3.0 \times 10^5
+km/s}\)</span></li>
+<li>铜线：<span class="math inline">\(\mathrm{2.3 \times 10^5
+km/s}\)</span></li>
+<li>光纤：<span class="math inline">\(\mathrm{2.0 \times 10^5
+km/s}\)</span></li>
+</ul>
+<p>发送时延和传播时延没啥关系。</p>
+<h3 id="处理时延">处理时延</h3>
+<p>主机或路由器收到分组后，对分组进行处理的时间。</p>
+<h3 id="排队时延">排队时延</h3>
+<p>分组在路由器输入队列和输出队列里排队的时间。</p>
+<h3 id="过程">过程</h3>
+<p>……-&gt;输出排队-&gt;发送-&gt;传播-&gt;输入排队-&gt;处理-&gt;输出排队……</p>
+<h2 id="时延带宽积">时延带宽积</h2>
+<p><span class="math inline">\(\mathrm{bit = s \times bit/s = 传播时延
+\times 带宽}\)</span></p>
+<p>已经从发送端发出，但尚未到达接收端的比特数。又叫<strong>以比特为单位的链路长度</strong>。</p>
+<h2 id="每比特宽度">每比特宽度</h2>
+<p>（两行式子都存疑）</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\mathrm{m/bit = \dfrac{m}{bit} = \dfrac{信道长}{比特数}} \\
+&amp;\mathrm{m/bit = \dfrac{m/s}{bit/s} =
+\dfrac{信道传播速率}{信道当前带宽（或者网卡发送速率？）}}
+\end{aligned}
+\]</span></p>
+<h2 id="rtt">RTT</h2>
+<p>往返时间（Round-Trip Time）</p>
+<pre class="mermaid">gantt
+    title RTT（甘特图）
+    dateFormat s
+    axisFormat %S
+
+    section RTT
+    RTT :3,17s
+
+    section A
+    发送           :0,3s
+    接收    :17,3s
+    ……    :20,4s
+
+    section 传播
+    从A到B传播    :1,8s
+    从B到A传播    :11,8s
+
+    section B
+    接收      :7,3s
+    发送    :10,3s</pre>
+<p>其中排队时间和处理时间在接收和发送之间，这里忽略了。</p>
+<h2 id="有效数据率">有效数据率</h2>
+<p><span class="math inline">\(\mathrm{bit/s = \dfrac{bit}{s} =
+\dfrac{数据长度}{发送时间+RTT}}\)</span></p>
+<p>是有效的数据<strong>速率</strong>。</p>
+<h2 id="利用率">利用率</h2>
+<p><span class="math inline">\(网络利用率 = 1 -
+\dfrac{空闲时延}{当前时延}\)</span></p>
+<p>利用率越高，当前时延越大（堵车）。</p>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计网-03-物理层-通信基础概念</title>
+    <url>/blog/2023/%E8%AE%A1%E7%BD%91-03-%E7%89%A9%E7%90%86%E5%B1%82-%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<ul>
+<li>物理层</li>
+<li>通信双方的交互方式：单向通信、双向交替通信、双向同时通信</li>
+<li>编码和调制</li>
+<li>编码方式：不归零制、归零制、曼彻斯特编码、差分曼彻斯特编码</li>
+<li>基带调制、带通调制、正交振幅调制</li>
+</ul>
+<p>对应谢希仁《计算机网络》第八版 2.1~2.2.2</p>
+<span id="more"></span>
+<h2 id="物理层">物理层</h2>
+<p>物理层讨论的是如何传比特的，用什么协议。</p>
+<p>它尽量隔开了传输媒体（铜线、光纤等）和上一层（数据链路层）之间的关系。</p>
+<p>物理层的协议也叫规程。</p>
+<h2 id="通信双方的交互方式">通信双方的交互方式</h2>
+<h3 id="单向通信单工">单向通信（单工）</h3>
+<p>一段单行道。电视、广播。</p>
+<h3 id="双向交替通信半双工">双向交替通信（半双工）</h3>
+<p>一段有两个车道的马路，但是规定在一边的车道有车正在走时，另一边（相反方向）的车道不能有车走。对讲机。</p>
+<h3 id="双向同时通信全双工">双向同时通信（全双工）</h3>
+<p>一段正常的两个车道的马路。</p>
+<h2 id="编码和调制">编码和调制</h2>
+<ul>
+<li><p>把信号（数或者模）转换为数字信号，叫编码。</p></li>
+<li><p>把信号（数或者模）转换为模拟信号，叫调制。</p></li>
+</ul>
+<p>上面的抽象成了简单的情况，还是要根据语义判断。</p>
+<h2 id="编码方式">编码方式</h2>
+<h3 id="不归零制">不归零制</h3>
+<ul>
+<li>正电平，<code>‾</code>，<code>1</code></li>
+<li>负电平，<code>_</code>，<code>0</code></li>
+</ul>
+<h3 id="归零制">归零制</h3>
+<ul>
+<li>正脉冲，凸（<code>-‾-</code>），<code>1</code></li>
+<li>负脉冲，凹（<code>-_-</code>），<code>0</code></li>
+</ul>
+<h3 id="曼彻斯特编码">曼彻斯特编码</h3>
+<ul>
+<li>中心向下跳变，<code>‾_</code>，<code>1</code></li>
+<li>中心向上跳变，<code>_‾</code>，<code>0</code></li>
+<li>简记：下 1</li>
+</ul>
+<h3 id="差分曼彻斯特编码">差分曼彻斯特编码</h3>
+<ul>
+<li>中心始终跳变</li>
+<li>左边界无跳变，<code>1</code>
+<ul>
+<li><code>_|_‾</code></li>
+<li><code>‾|‾_</code></li>
+</ul></li>
+<li>左边界有跳变，<code>0</code>
+<ul>
+<li><code>_|‾_</code></li>
+<li><code>‾|_‾</code></li>
+</ul></li>
+<li>简记：遇 0 跳变</li>
+</ul>
+<p>（忽略竖线，是用来当分隔符的）</p>
+<h3 id="对比">对比</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> 1  1  0  0  1</span><br><span class="line"></span><br><span class="line">‾‾‾‾‾‾______‾‾‾    #不归零制</span><br><span class="line"></span><br><span class="line">-‾--‾--_--_--‾-    #归零制</span><br><span class="line"></span><br><span class="line">‾_|‾_|_‾|_‾|‾_|    #曼彻斯特编码（忽略竖线，是用来当分隔符的）</span><br><span class="line"></span><br><span class="line">‾_|_‾|_‾|_‾|‾_|    #差分曼彻斯特编码（忽略竖线，是用来当分隔符的）</span><br></pre></td></tr></table></figure>
+<h2 id="基带调制">基带调制</h2>
+<p>基带信号就是原始的数字信号，把基带信号转换成另一种数字信号就叫基带调制。也叫编码。</p>
+<h2 id="带通调制">带通调制</h2>
+<p>使用载波的。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">‾‾‾‾‾‾______‾‾‾    #基带信号</span><br><span class="line"></span><br><span class="line">MWMWMW------MWM    #调幅（AM）</span><br><span class="line"></span><br><span class="line">MWMWMWПUПUПUMWM    #调频（FM）</span><br><span class="line"></span><br><span class="line">MWMWMWWMWMWMMWM    #调相（PM）</span><br></pre></td></tr></table></figure>
+<h2 id="正交振幅调制qam">正交振幅调制（QAM）</h2>
+<p>简单地理解就是：</p>
+<p><span class="math display">\[
+\begin{aligned}
+调制后的信号 &amp; = 振幅 \times 载波(相位) \\
+y &amp; = A\sin(\omega x + \phi) \\
+\end{aligned}
+\]</span></p>
+<p>用不同的<strong>振幅</strong>和<strong>相位</strong>排列组合，来表示（承载）不同的基带信号，比只调幅/只调频/只调相的信息密度高。</p>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计网-04-物理层-信道的极限容量</title>
+    <url>/blog/2023/%E8%AE%A1%E7%BD%91-04-%E7%89%A9%E7%90%86%E5%B1%82-%E4%BF%A1%E9%81%93%E7%9A%84%E6%9E%81%E9%99%90%E5%AE%B9%E9%87%8F/</url>
+    <content><![CDATA[<ul>
+<li>码元</li>
+<li>奈氏准则：无噪声信道中码元传输最高速率
+<ul>
+<li><span class="math inline">\(W\)</span>：信道的频域带宽</li>
+<li><span class="math inline">\(\mathrm{码元/s} = 码元单位 \times
+两倍频域带宽\)</span></li>
+</ul></li>
+<li>信噪比
+<ul>
+<li>用 <span class="math inline">\(\dfrac{S}{N}\)</span> 表示</li>
+<li>用 <span class="math inline">\(\mathrm{dB} = 10
+\lg\dfrac{S}{N}\)</span> 表示</li>
+</ul></li>
+<li>香农公式：信道极限速率
+<ul>
+<li><span class="math inline">\(\mathrm{bit/s} = W \log_2 (1 +
+\dfrac{S}{N})\)</span></li>
+</ul></li>
+<li>奈氏准则和香农公式的意义</li>
+</ul>
+<p>对应谢希仁《计算机网络》第八版 2.2.3</p>
+<span id="more"></span>
+<h2 id="码元">码元</h2>
+<p>码元，就是用来表示【码】的单个【元】。</p>
+<ul>
+<li>【码】就是串 <code>010100...</code></li>
+<li>【元】就是符号（x 元 x 次方程）。</li>
+<li>【码元】就是用来表示长串的众多符号中的单个符号。</li>
+</ul>
+<p>比如串 <code>1001 1111</code>，可以分隔成前后两部分，记作
+<code>9F</code>。</p>
+<p><code>9</code> 和 <code>F</code>
+都是码元，是不同的码元，它们分别一一对应（双射）了一个四位二进制数。</p>
+<p>如果分隔成八个部分，那 <code>0</code> 和 <code>1</code>
+也是码元。</p>
+<p>类比信号，码就是波形，码元就是在发送和解读波形时，可以分辨的最小单位波形。</p>
+<h2
+id="奈氏准则奈奎斯特香农采样定理的一部分">奈氏准则（奈奎斯特—香农采样定理的一部分）</h2>
+<p>奈奎斯特这个人推导出的准则：</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; 信道中码元传输的最高速率（码元/\mathrm{s}） \\
+= \ &amp; 两倍频域带宽（\mathrm{Hz，即 s^{-1}}）\times 码元的单位
+\end{aligned}
+\]</span></p>
+<p>是在理想的、信道内无噪声的情况下。这里的最高速率指的是，保证接收方接收符号（码元）不出错（码间串扰）时的速率上限。符号速率也叫波特（Baud）。</p>
+<p>频域带宽用 <span class="math inline">\(W\)</span> 表示。</p>
+<h2 id="信噪比">信噪比</h2>
+<p>就是信比噪，两种表示方式：</p>
+<ul>
+<li><span class="math inline">\(\dfrac{S}{N} =
+\dfrac{信号平均功率}{噪声平均功率}\)</span></li>
+<li><span class="math inline">\(\mathrm{dB} = 10
+\lg\dfrac{S}{N}\)</span></li>
+</ul>
+<p>前者没有单位，也可以看成是 <span
+class="math inline">\(\dfrac{瓦特}{瓦特}\)</span>。后者是无量纲单位
+<span class="math inline">\(\mathrm{dB}\)</span>。</p>
+<h2 id="香农公式香农哈特莱容量定理">香农公式（香农—哈特莱容量定理）</h2>
+<p>考虑到了信道有噪声：</p>
+<p><span class="math display">\[
+\begin{aligned}
+信道极限速率 &amp; = \mathrm{bit/s = Hz \times bit} \\
+&amp; = W \log_2(1 + \dfrac{S}{N}) \\
+\end{aligned}
+\]</span></p>
+<p>后面那一坨为什么是 <span
+class="math inline">\(\mathrm{bit}\)</span>，是通信专业要学的。<span
+class="math inline">\(\mathrm{bit}\)</span> 也是无量纲单位（？）。</p>
+<h2 id="奈氏准则和香农公式的意义">奈氏准则和香农公式的意义</h2>
+<p>信噪比越大，接收方接收到的信息失真越少。</p>
+<p>奈氏准则直接假定噪声为 <span
+class="math inline">\(0\)</span>，信噪比无穷大，速率只取决于带宽。这鼓励了人们研究更好的编码技术，一次传更多的东西。</p>
+<p>香农公式告诉我们：信噪比越大，极限速率越高，但是信噪比不可能无限大，所以速率也有极限。</p>
+<p>计算传输速率时，取奈氏准则和香农公式的结果小的。</p>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计网-02-概述-体系结构</title>
+    <url>/blog/2023/%E8%AE%A1%E7%BD%91-02-%E6%A6%82%E8%BF%B0-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<ul>
+<li>OSI 七层协议</li>
+<li>TCP/IP 四层协议</li>
+<li>讲述原理的五层协议</li>
+</ul>
+<p>对应谢希仁《计算机网络》第八版 1.7.3</p>
+<span id="more"></span>
+<ul>
+<li>七层协议：参考模型</li>
+<li>四层协议：实际用到的</li>
+<li>五层协议：上课用到的</li>
+</ul>
+<table>
+<tr>
+<td>
+应用层
+</td>
+<td rowspan="3">
+应用层
+</td>
+<td rowspan="3">
+应用层
+</td>
+<td rowspan="3">
+HTTP、DNS……
+</td>
+</tr>
+<tr>
+<td>
+表示层
+</td>
+</tr>
+<tr>
+<td>
+会话层
+</td>
+</tr>
+<tr>
+<td>
+运输层
+</td>
+<td>
+运输层
+</td>
+<td>
+运输层
+</td>
+<td>
+TCP、UDP……
+</td>
+</tr>
+<tr>
+<td>
+网络层
+</td>
+<td>
+网际层
+</td>
+<td>
+网络层
+</td>
+<td>
+IP……
+</td>
+</tr>
+<tr>
+<td>
+数据链路层
+</td>
+<td rowspan="2">
+链路层
+</td>
+<td>
+数据链路层
+</td>
+<td rowspan="2">
+……
+</td>
+</tr>
+<tr>
+<td>
+物理层
+</td>
+<td>
+物理层
+</td>
+</tr>
+<tr>
+<th>
+七层
+</th>
+<th>
+四层
+</th>
+<th>
+五层
+</th>
+<th>
+协议
+</th>
+</tr>
+</table>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
       </categories>
   </entry>
 </search>
