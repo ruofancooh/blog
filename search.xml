@@ -85,6 +85,8 @@ href="https://github.com/apache/hadoop/blob/rel/release-3.2.1/dev-support/docker
 Vim，传到真机上修改也可，这样还方便传到其他机器上。注意行尾序列是<strong>LF</strong>，小心操作不当变成
 CRLF。</p>
 <p>（还可以写一个集群分发脚本，不过暂时没必要）</p>
+<p>（<a href="/blog/2023/Hadoop-01-Linux-集群分发脚本配置">Hadoop - 01 -
+Linux - 集群分发脚本配置</a>）</p>
 <p>把改好的文件存真机上一份，直接用 Xftp
 传（如果传输失败，就修改文件权限）。</p>
 <p>注意传之前把静态 IP 改了，不同机器设成不同静态 IP。</p>
@@ -300,39 +302,6 @@ master 修改。</li>
       </categories>
   </entry>
   <entry>
-    <title>Java - 00 - 准备</title>
-    <url>/blog/2023/Java-00-%E5%87%86%E5%A4%87/</url>
-    <content><![CDATA[<ul>
-<li>Windows 10 + VSCode 环境配置</li>
-<li><code>Hello.java</code></li>
-</ul>
-<span id="more"></span>
-<h2 id="windows-10-vscode-环境配置">Windows 10 + VSCode 环境配置</h2>
-<ol type="1">
-<li>VSCode 里安装 <code>Extension Pack for Java</code> 扩展。
-它会提示你下载安装 JDK。安。</li>
-<li>设置环境变量
-<ul>
-<li><code>JAVA_HOME</code>：JDK 安装路径</li>
-<li><code>PATH</code>：<code>%JAVA_HOME%\bin</code></li>
-</ul></li>
-<li>终端输入： <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure> 输出： <figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">openjdk version &quot;17.0.8.1&quot; 2023-08-24</span><br><span class="line">OpenJDK Runtime Environment Temurin-17.0.8.1+1 (build 17.0.8.1+1)</span><br><span class="line">OpenJDK 64-Bit Server VM Temurin-17.0.8.1+1 (build 17.0.8.1+1, mixed mode, sharing)</span><br></pre></td></tr></table></figure></li>
-<li>VSCode
-设置搜<code>java.jdt.ls.java.home</code>，在<code>settings.json</code>里改成
-JDK 安装路径。</li>
-</ol>
-<h2 id="hello.java">Hello.java</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>按钮运行，或者终端：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java Hello.java</span><br></pre></td></tr></table></figure>
-<p>或者终端：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">javac Hello.java</span><br><span class="line">java Hello</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Hadoop - 02 - ZooKeeper - 安装和配置</title>
     <url>/blog/2023/Hadoop-02-ZooKeeper-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/</url>
     <content><![CDATA[<p>ZooKeeper，顾名思义，就是管动物园的。因为 Hadoop
@@ -385,131 +354,6 @@ Apache ZooKeeper 3.8.2(asc, sha512)，文件名带 bin
 ]]></content>
       <categories>
         <category>Hadoop</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Java - 01 - Q&amp;A</title>
-    <url>/blog/2023/Java-01-Q&amp;A/</url>
-    <content><![CDATA[<p>一些问题与回答</p>
-<span id="more"></span>
-<h2
-id="main函数不加static可以吗"><code>main</code>函数不加<code>static</code>可以吗？</h2>
-<p>不行。程序启动时实例还没有被创建，需要通过类名调用静态方法。</p>
-<h2
-id="当类名和文件名不一致时代码检查器会提示修改那么.java文件里只能写一个类吗">当类名和文件名不一致时，代码检查器会提示修改。那么<code>.java</code>文件里只能写一个类吗？</h2>
-<p>只能写一个与文件名相同的公共类。其他的类不加<code>public</code>。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test0</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;456&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Test0.fun();</span><br><span class="line">        <span class="type">Test1</span> <span class="variable">test1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test1</span>();</span><br><span class="line">        test1.fun();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="怎么获取键盘输入">怎么获取键盘输入？</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;<span class="comment">//注意要加分号</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Echo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建一个 String 对象</span></span><br><span class="line">        String str;</span><br><span class="line">        <span class="comment">// 创建一个 Scanner 对象，传参是标准输入流对象</span></span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scan</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="comment">// 读取一行，返回String</span></span><br><span class="line">        str = scan.nextLine();</span><br><span class="line">        <span class="comment">// println() 换行，print() 不换行</span></span><br><span class="line">        System.out.print(str);</span><br><span class="line">        System.out.println(str);</span><br><span class="line">        System.out.print(str);</span><br><span class="line">        System.out.println(str);</span><br><span class="line">        <span class="comment">// 别忘了关闭</span></span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="怎么读写文本文件">怎么读写文本文件？</h2>
-<p>Java：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Files;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> Files.readString(Path.of(<span class="string">&quot;input.txt&quot;</span>));</span><br><span class="line">        System.out.println(content);</span><br><span class="line">        Files.writeString(Path.of(<span class="string">&quot;output.txt&quot;</span>), <span class="string">&quot;啊啊啊&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对比 Python：</p>
-<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">input_file_name = <span class="string">&quot;input.txt&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(input_file_name, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> input_file:</span><br><span class="line">    content = input_file.readlines()</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">output_file_name = <span class="string">&quot;output.txt&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(output_file_name, <span class="string">&quot;w&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> output_file:</span><br><span class="line">    output_file.write(<span class="string">&quot;啊啊啊&quot;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="和-cc的运算符有什么不同">和 C/C++的运算符有什么不同？</h2>
-<p>先射箭后画靶：</p>
-<ul>
-<li><p>C/C++/Java 在对整型变量右移 <code>&gt;&gt;</code> 时：</p>
-<ul>
-<li>正整数前面全补 <code>0</code></li>
-<li>负整数前面全补 <code>1</code></li>
-<li>无符号整数前面全补 <code>0</code>（Java 没有无符号整数）</li>
-<li>作用相当于除以 2</li>
-</ul></li>
-<li><p>Java 多了一个无符号右移
-<code>&gt;&gt;&gt;</code>，不管你整型变量是正是负，前面都直接补零。</p></li>
-</ul>
-<p>在 Java 中，没有<code>unsigned</code>关键字。</p>
-<p>进一步：</p>
-<h2 id="java-中的基本数据类型">Java 中的基本数据类型？</h2>
-<h3 id="布尔-boolean">布尔 <code>boolean</code></h3>
-<p>值为 <code>true</code> 或者
-<code>false</code>。可以直接用，占一个字节。</p>
-<p>写 <code>if(3 == true)</code>
-时会报错，数据类型不同，不能直接比较。</p>
-<ul>
-<li>在 C 的 <code>&lt;stdbool.h&gt;</code> 中被 <code>#define</code>
-了为 <code>1</code> 和 <code>0</code>。
-<ul>
-<li>写 <code>if(3 == true)</code> 时会跳过分支。</li>
-</ul></li>
-<li>C++ 同 C，但是不用引头文件，可以直接用。</li>
-<li>在 Python 中是首字母大写的，也相当于 <code>0</code> 和
-<code>1</code>，但是数据类型不同。
-<ul>
-<li>写 <code>if(3 == True)</code> 时会按 <code>1</code> 比较。</li>
-<li>写 <code>if(3 is True)</code> 时会报错。</li>
-</ul></li>
-<li>在 JS 中也相当于 <code>0</code> 和
-<code>1</code>，但是数据类型不同。
-<ul>
-<li>写 <code>if(1 == true)</code> 时会执行分支。</li>
-<li>写 <code>if(1 === true)</code> 时会跳过分支。</li>
-</ul></li>
-</ul>
-<h3 id="字符-char">字符 <code>char</code></h3>
-<p>无符号的两个字节。在 C/C++ 里是一个字节。</p>
-<h3 id="整型都是有符号的">整型（都是有符号的）</h3>
-<ul>
-<li><code>byte</code>：一个字节</li>
-<li><code>short</code>：两个字节</li>
-<li><code>int</code>：四个字节</li>
-<li><code>long</code>：八个字节</li>
-</ul>
-<h3 id="浮点都是有符号的">浮点（都是有符号的）</h3>
-<p>和 C/C++ 一样。</p>
-<ul>
-<li><code>float</code>：四个字节</li>
-<li><code>double</code>：八个字节</li>
-</ul>
-<h2 id="茴字有几种写法">茴字有几种写法？</h2>
-<p>Java 和 Python、JS
-等一样，都可以在输出函数里直接写表达式（不用格式字符串的情况下）。以及
-Java 也可以格式化输出。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&#x27;a&#x27;</span> + <span class="number">1</span>);<span class="comment">// 98</span></span><br><span class="line">        System.out.println(<span class="string">&quot;a&quot;</span> + <span class="number">1</span>);<span class="comment">// a1</span></span><br><span class="line">        <span class="type">byte</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">3</span>, j = <span class="number">3</span>;</span><br><span class="line">        <span class="comment">// 没人会这么写</span></span><br><span class="line">        System.out.println(++i + i++);<span class="comment">// 8</span></span><br><span class="line">        System.out.println(j++ + ++j);<span class="comment">// 8</span></span><br><span class="line">        <span class="comment">// Java 也有 printf()</span></span><br><span class="line">        System.out.printf(<span class="string">&quot;%d, %d&quot;</span>, i, j);<span class="comment">// 5, 5</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Java - 02 - 数组Q&amp;A</title>
-    <url>/blog/2023/Java-02-%E6%95%B0%E7%BB%84Q&amp;A/</url>
-    <content><![CDATA[<p>一些问题与回答</p>
-<span id="more"></span>
-<h2 id="java-数组怎么定义">Java 数组怎么定义？</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> arr1[];</span><br><span class="line"><span class="type">int</span>[] arr2;<span class="comment">// 效果一样</span></span><br></pre></td></tr></table></figure>
-<p>注意在定义时，<code>[]</code>里不能加数字。</p>
-<h2 id="怎么向数组里加元素">怎么向数组里加元素？</h2>
-<p>Array 不能动态加元素，ArrayList 可以。</p>
-<p>对于 Array，可以先初始化，再赋值：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>[] arr = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">100</span>];</span><br><span class="line"><span class="type">int</span> <span class="variable">arrayLength</span> <span class="operator">=</span> arr.length;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arrayLength; i++) &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">randomNum</span> <span class="operator">=</span> (<span class="type">int</span>) (<span class="number">100</span> * Math.random());</span><br><span class="line">    arr[i] = randomNum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意，如果用 <code>for-each</code> 循环是给数组元素赋不了值的。</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>MongoDB - 00 - 准备</title>
-    <url>/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/</url>
-    <content><![CDATA[<ul>
-<li>Windows 10 环境配置</li>
-</ul>
-<span id="more"></span>
-<ol type="1">
-<li><a href="https://www.mongodb.com/try/download/community">下载
-MongoDB</a>，我下载的是<code>7.0.0 (current)</code>的<code>zip</code>格式。</li>
-<li>解压，右键用 PowerShell 运行<code>Install-Compass.ps1</code>，安装
-GUI。 默认会安装到 C 盘，安装完后手动移到 D 盘。</li>
-<li>建数据库文件夹，建一个空日志<code>test.log</code>。</li>
-<li><div class="sourceCode" id="cb1"><pre
-class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>   <span class="ex">mongod</span> <span class="at">--dbpath</span> <span class="pp">[</span><span class="ss">数据库文件夹路径</span><span class="pp">]</span> <span class="at">--logpath</span> <span class="pp">[</span><span class="ss">日志文件路径</span><span class="pp">]</span> <span class="at">--logappend</span></span></code></pre></div></li>
-<li>用 MongoDBCompass 连接。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>MongoDB</category>
       </categories>
   </entry>
   <entry>
@@ -694,89 +538,16 @@ href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
   <entry>
     <title>JSON</title>
     <url>/blog/2023/JSON/</url>
-    <content><![CDATA[<p>JSON(JavaScript Object Notation，JavaScript
-对象表示法)是一种轻量级的数据交换格式。</p>
+    <content><![CDATA[<p>JSON（JavaScript Object Notation，JavaScript
+对象表示法）是一种轻量级的数据交换格式，可以看成是字符串。</p>
+<p>和 JavaScript 没什么关系，就像 JavaScript 和 Java
+没什么关系一样。</p>
 <span id="more"></span>
-<h2 id="json-与-js-对象互转">json 与 js 对象互转</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> json = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// js对象转json字符串</span></span><br><span class="line">json = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj);</span><br><span class="line"></span><br><span class="line"><span class="comment">// json字符串转js对象</span></span><br><span class="line">obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(json);</span><br></pre></td></tr></table></figure>
-<h2 id="使用-python-编解码-json">使用 Python 编解码 json</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">dic = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编码</span></span><br><span class="line">string = json.dumps(dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解码</span></span><br><span class="line">dic = json.loads(string)</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>无分类</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>在Windows中安装Linux虚拟机</title>
-    <url>/blog/2023/%E5%9C%A8Windows%E4%B8%AD%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
-    <content><![CDATA[<ul>
-<li>真机系统：Windows 10</li>
-<li>使用软件：VMware Workstation 17.0.2 Player</li>
-<li>虚拟机系统：Ubuntu 22.04.3 server</li>
-</ul>
-<span id="more"></span>
-<p>也可以给硬盘分一个新的区，单独安装 Linux。不过没有必要。</p>
-<h2 id="下载安装-vmware-workstation-player">下载安装 VMware Workstation
-Player</h2>
-<blockquote>
-<p>使用 VMware Workstation Player 在 Windows 或 Linux PC
-上轻松地将多个操作系统作为虚拟机运行。——网站介绍</p>
-</blockquote>
-<p><a
-href="https://customerconnect.vmware.com/cn/downloads/info/slug/desktop_end_user_computing/vmware_workstation_player/">下载页面</a></p>
-<p>这里下载的是当前最新版
-<code>VMware Workstation 17.0.2 Player for Windows 64-bit Operating Systems</code>。</p>
-<p>安装过程略（“增强型键盘驱动程序”不知道有什么用，先勾上）。</p>
-<h2 id="下载-ubuntu-镜像">下载 Ubuntu 镜像</h2>
-<p>是一种 Linux 发行版操作系统。</p>
-<p><a
-href="https://launchpad.net/ubuntu/+cdmirrors">下载页面（仓库集合）</a>，找到
-China。</p>
-<p>这里下载的是<code>ubuntu-22.04.3-live-server-amd64.iso</code>。</p>
-<h2 id="在-vm-player-中新建虚拟机">在 VM Player 中新建虚拟机</h2>
-<ol type="1">
-<li><code>创建新虚拟机(N)</code></li>
-<li><code>安装程序光盘文件(iso)(M)</code></li>
-<li><code>浏览(R)</code>，选择下载的镜像文件，下一步。</li>
-<li>设置虚拟机名称和位置，下一步。（我这里设置的是<code>Ubuntu100</code>和<code>D:\VMachines\Ubuntu100</code>）</li>
-<li>指定磁盘容量，下一步。</li>
-<li>自定义硬件（我这里把 CPU 改成了 4 核）。完成。</li>
-</ol>
-<p>你会看到：</p>
-<p><img src="/blog/images/vm.png"></p>
-<p>按回车开始安装 Ubuntu。</p>
-<h2 id="安装-ubuntu">安装 Ubuntu</h2>
-<ol type="1">
-<li><p>语言选择，默认回车。</p></li>
-<li><p>键盘布局选择，默认回车。</p></li>
-<li><p>安装类型，默认回车。</p></li>
-<li><p>网络，默认回车。</p></li>
-<li><p>代理，默认回车。</p></li>
-<li><p>配置镜像源，如果网络不好，改成</p>
-<ul>
-<li><p>清华源：<code>https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</code></p></li>
-<li><p>南京源：<code>https://mirror.nju.edu.cn/ubuntu/</code></p></li>
-<li><p>北邮源：<code>https://mirrors.bupt.edu.cn/ubuntu/</code></p>
-<p>等均可。</p></li>
-</ul></li>
-<li><p>配置存储布局，默认选择<code>Done</code>，回车。</p></li>
-<li><p>文件系统，<code>Done</code>，<code>Continue</code>。</p></li>
-<li><p>设置用户名密码等。</p></li>
-<li><p>是否升级到 Pro 版，默认不升级，<code>Continue</code>。</p></li>
-<li><p>是否安装 OpenSSH server，先不安装。</p></li>
-<li><p>是否安装其他东西，先都不选。</p></li>
-<li><p>等待安装系统。</p></li>
-<li><p>安装完成后，点击 VM Player
-下方的“我已完成安装”，然后<code>Reboot Now</code>。</p></li>
-</ol>
-<p>报错不要紧，回车。</p>
-<p>输入用户名和密码登录 Ubuntu。注意输入密码默认是不回显的。</p>
-<h2 id="设置虚拟机与真机的共享文件夹">设置虚拟机与真机的共享文件夹</h2>
-<p>VM
-的虚拟磁盘文件不好直接打开。有时候需要在虚拟机和真机之间互传文件，可以通过共享文件夹。</p>
-<p>在 VM Player 里打开虚拟机设置-&gt;选项-&gt;共享文件夹。</p>
-<p>我这里设置在<code>D:\VMachines\Shared</code>。</p>
-<p>在虚拟机里的位置是<code>/mnt/hgfs/Shared</code>。</p>
+<h2 id="json-字符串-与-js-对象互转">JSON 字符串 与 JS 对象互转</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> jsonStr = <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> jsObj = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">3</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// JS 对象转 JSON 字符串</span></span><br><span class="line">jsonStr = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(jsObj);</span><br><span class="line"></span><br><span class="line"><span class="comment">// JSON 字符串转 JS 对象</span></span><br><span class="line">jsObj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(jsonStr);</span><br></pre></td></tr></table></figure>
+<h2 id="json-字符串与-python-字典互转">JSON 字符串与 Python
+字典互转</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">py_dic = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>, <span class="string">&#x27;c&#x27;</span>: <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Python 字典转 JSON 字符串</span></span><br><span class="line">json_str = json.dumps(py_dic)</span><br><span class="line"></span><br><span class="line"><span class="comment"># JSON 字符串转 Python 字典</span></span><br><span class="line">py_dic = json.loads(json_str)</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>无分类</category>
@@ -920,96 +691,78 @@ _{16}\)</span></p>
       </categories>
   </entry>
   <entry>
-    <title>普通十进制数转单精度浮点数</title>
-    <url>/blog/2023/%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0/</url>
+    <title>在Windows中安装Linux虚拟机</title>
+    <url>/blog/2023/%E5%9C%A8Windows%E4%B8%AD%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
     <content><![CDATA[<ul>
-<li>在 IEEE 754 标准下</li>
+<li>真机系统：Windows 10</li>
+<li>使用软件：VMware Workstation 17.0.2 Player</li>
+<li>虚拟机系统：Ubuntu 22.04.3 server</li>
 </ul>
 <span id="more"></span>
-<p>单精度浮点数，即 32 位二进制浮点数，包含：</p>
-<p>一位符号位 + 八位指数位 + 二十三位尾数位</p>
-<h2 id="例一">例一</h2>
-<p>以 <span class="math inline">\(0.1_{10}\)</span> 为例：</p>
-<ol type="1">
-<li><p>把十进制转换为二进制</p>
-<p><span class="math inline">\(0.1 _{10} = 0.0\dot{0}01\dot{1}...
-_{2}\)</span></p></li>
-<li><p>用以 <span class="math inline">\(2_{10}\)</span>
-为基数的科学计数法表示，并保证【尾数的小数点前是 <span
-class="math inline">\(1_{2}\)</span>】</p>
-<p><span class="math inline">\(= 1.\dot{1}00\dot{1}..._{2} \times
-(2^{-4})_{10}\)</span></p>
-<p>可以看到指数是 <span class="math inline">\(-4_{10}\)</span></p></li>
-<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
-class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
-<p>这里 <span class="math inline">\(e\)</span>
-等于【用于表示指数位的位数】 <span
-class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
-class="math inline">\(127_{10}\)</span></p>
-<p>则阶码为 <span class="math inline">\(-4_{10} + 127_{10} =
-123_{10}\)</span></p>
-<p>阶码的二进制为 <code>0111 1011</code>，注意
-<em>阶码始终为无符号整数</em></p></li>
-<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是无限的，所以要舍去一部分</p>
-<p>它的前二十位是：<code>1001 1001 1001 1001 1001</code></p>
-<p>二十一至二十八位是：<code>1001 1001</code></p>
-<p>所以二十一至二十三位，要么取 <code>100</code>，要么取
-<code>101</code>。</p>
-<p>通常是舍入到最接近的，一样接近则偶数（末尾为
-<code>0</code>）优先，这里 <code>101</code> 更接近。</p></li>
-<li><p>把符号位连同阶码、尾数位缝合起来</p>
-<p><code>0 | 0111 1011 | 1001 1001 1001 1001 1001 101</code></p></li>
-</ol>
-<h2 id="例二">例二</h2>
-<p>以 <span class="math inline">\(12_{10} = 1.5_{10} \times
-(2^{3})_{10}\)</span> 为例，和上面的步骤一样：</p>
-<ol type="1">
-<li><p>把十进制转换为二进制</p>
-<p><span class="math inline">\(12 _{10} = 1100 _{2}\)</span></p></li>
-<li><p>用以 <span class="math inline">\(2\)</span>
-为基数的科学计数法表示，并保证【尾数的小数点前是 <span
-class="math inline">\(1\)</span>】</p>
-<p><span class="math inline">\(= 1.1_{2} \times (2^3)_{10}\)</span></p>
-<p>可以看到指数是 <span class="math inline">\(3_{10}\)</span></p></li>
-<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
-class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
-<p>这里 <span class="math inline">\(e\)</span>
-等于【用于表示指数位的位数】 <span
-class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
-class="math inline">\(127_{10}\)</span></p>
-<p>则阶码为 <span class="math inline">\(3_{10} + 127_{10} =
-130_{10}\)</span></p>
-<p>阶码的二进制为 <code>1000 0010</code>，注意
-<em>阶码始终为无符号整数</em></p></li>
-<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是有限的，所以后面直接补零</p>
-<p>小数点后二十三位是：<code>1000 0000 0000 0000 000</code></p></li>
-<li><p>把符号位连同阶码、尾数位缝合起来</p>
-<p><code>0 | 1000 0010 | 1000 0000 0000 0000 000</code></p></li>
-</ol>
-<h2 id="特殊情况">特殊情况</h2>
+<p>也可以给硬盘分一个新的区，单独安装 Linux。不过没有必要。</p>
+<h2 id="下载安装-vmware-workstation-player">下载安装 VMware Workstation
+Player</h2>
+<blockquote>
+<p>使用 VMware Workstation Player 在 Windows 或 Linux PC
+上轻松地将多个操作系统作为虚拟机运行。——网站介绍</p>
+</blockquote>
 <p><a
-href="/blog/2023/单精度浮点数的五种形式/">单精度浮点数的五种形式</a></p>
-<p>对呀对呀……单精度浮点数有五种形式，你知道么？</p>
-<h2 id="如何验证">如何验证</h2>
+href="https://customerconnect.vmware.com/cn/downloads/info/slug/desktop_end_user_computing/vmware_workstation_player/">下载页面</a></p>
+<p>这里下载的是当前最新版
+<code>VMware Workstation 17.0.2 Player for Windows 64-bit Operating Systems</code>。</p>
+<p>安装过程略（“增强型键盘驱动程序”不知道有什么用，先勾上）。</p>
+<h2 id="下载-ubuntu-镜像">下载 Ubuntu 镜像</h2>
+<p>是一种 Linux 发行版操作系统。</p>
+<p><a
+href="https://launchpad.net/ubuntu/+cdmirrors">下载页面（仓库集合）</a>，找到
+China。</p>
+<p>这里下载的是<code>ubuntu-22.04.3-live-server-amd64.iso</code>。</p>
+<h2 id="在-vm-player-中新建虚拟机">在 VM Player 中新建虚拟机</h2>
+<ol type="1">
+<li><code>创建新虚拟机(N)</code></li>
+<li><code>安装程序光盘文件(iso)(M)</code></li>
+<li><code>浏览(R)</code>，选择下载的镜像文件，下一步。</li>
+<li>设置虚拟机名称和位置，下一步。（我这里设置的是<code>Ubuntu100</code>和<code>D:\VMachines\Ubuntu100</code>）</li>
+<li>指定磁盘容量，下一步。</li>
+<li>自定义硬件（我这里把 CPU 改成了 4 核）。完成。</li>
+</ol>
+<p>你会看到：</p>
+<p><img src="/blog/images/vm.png"></p>
+<p>按回车开始安装 Ubuntu。</p>
+<h2 id="安装-ubuntu">安装 Ubuntu</h2>
+<ol type="1">
+<li><p>语言选择，默认回车。</p></li>
+<li><p>键盘布局选择，默认回车。</p></li>
+<li><p>安装类型，默认回车。</p></li>
+<li><p>网络，默认回车。</p></li>
+<li><p>代理，默认回车。</p></li>
+<li><p>配置镜像源，如果网络不好，改成</p>
 <ul>
-<li><p><a
-href="https://baseconvert.com/ieee-754-floating-point">在线转换</a></p></li>
-<li><p><a href="/blog/2023/用GDB查看变量内存/">用 GDB
-查看变量内存</a></p></li>
-<li><p><a href="https://en.wikipedia.org/wiki/IEEE_754">Wikipedia</a> |
-<a href="https://zh.wikipedia.org/wiki/IEEE_754">维基百科</a></p></li>
-<li><p>获取国际标准文件</p>
-<p>IEEE 754 标准是电气与电子工程师协会（Institute of Electrical and
-Electronics Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <a
-href="https://standards.ieee.org/ieee/754/6210/">IEEE
-754-2019</a>，对应国际标准 <a
-href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/standard/08/09/80985.html">ISO/IEC
-60559:2020</a>，预计下一次在 2028 年修订。 http://snti.ru/
-这个网站分享了各种国际标准文件的磁力链接，但是可以免费下载的不全，IEC
-的只有 61xxx。据说可以给站长发邮件要
-<code>popov_al@perm.ru</code>，每个文件一刀乐。在 ISO 官网上下载需要 187
-瑞士法郎，合 1000 多人民币。</p></li>
-</ul>
+<li><p>清华源：<code>https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</code></p></li>
+<li><p>南京源：<code>https://mirror.nju.edu.cn/ubuntu/</code></p></li>
+<li><p>北邮源：<code>https://mirrors.bupt.edu.cn/ubuntu/</code></p>
+<p>等均可。</p></li>
+</ul></li>
+<li><p>配置存储布局，默认选择<code>Done</code>，回车。</p></li>
+<li><p>文件系统，<code>Done</code>，<code>Continue</code>。</p></li>
+<li><p>设置用户名密码等。</p></li>
+<li><p>是否升级到 Pro 版，默认不升级，<code>Continue</code>。</p></li>
+<li><p>是否安装 OpenSSH server，先不安装。</p></li>
+<li><p>是否安装其他东西，先都不选。</p></li>
+<li><p>等待安装系统。</p></li>
+<li><p>安装完成后，点击 VM Player
+下方的“我已完成安装”，然后<code>Reboot Now</code>。</p></li>
+</ol>
+<p>报错不要紧，回车。</p>
+<p>输入用户名和密码登录 Ubuntu。注意输入密码默认是不回显的。</p>
+<h2 id="设置虚拟机与真机的共享文件夹">设置虚拟机与真机的共享文件夹</h2>
+<p>VM
+的虚拟磁盘文件不好直接打开。有时候需要在虚拟机和真机之间互传文件，可以通过共享文件夹。</p>
+<p>（还可以通过<a href="https://wangdoc.com/ssh/">SSH</a>和<a
+href="https://www.xshell.com/zh/free-for-home-school/">Xftp</a>）</p>
+<p>在 VM Player 里打开虚拟机设置-&gt;选项-&gt;共享文件夹。</p>
+<p>我这里设置在<code>D:\VMachines\Shared</code>。</p>
+<p>在虚拟机里的位置是<code>/mnt/hgfs/Shared</code>。</p>
 ]]></content>
       <categories>
         <category>无分类</category>
@@ -1276,6 +1029,102 @@ IEEE 754 浮点数的相互转换。</p>
       </categories>
   </entry>
   <entry>
+    <title>普通十进制数转单精度浮点数</title>
+    <url>/blog/2023/%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0/</url>
+    <content><![CDATA[<ul>
+<li>在 IEEE 754 标准下</li>
+</ul>
+<span id="more"></span>
+<p>单精度浮点数，即 32 位二进制浮点数，包含：</p>
+<p>一位符号位 + 八位指数位 + 二十三位尾数位</p>
+<h2 id="例一">例一</h2>
+<p>以 <span class="math inline">\(0.1_{10}\)</span> 为例：</p>
+<ol type="1">
+<li><p>把十进制转换为二进制</p>
+<p><span class="math inline">\(0.1 _{10} = 0.0\dot{0}01\dot{1}...
+_{2}\)</span></p></li>
+<li><p>用以 <span class="math inline">\(2_{10}\)</span>
+为基数的科学计数法表示，并保证【尾数的小数点前是 <span
+class="math inline">\(1_{2}\)</span>】</p>
+<p><span class="math inline">\(= 1.\dot{1}00\dot{1}..._{2} \times
+(2^{-4})_{10}\)</span></p>
+<p>可以看到指数是 <span class="math inline">\(-4_{10}\)</span></p></li>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
+class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<p>这里 <span class="math inline">\(e\)</span>
+等于【用于表示指数位的位数】 <span
+class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
+class="math inline">\(127_{10}\)</span></p>
+<p>则阶码为 <span class="math inline">\(-4_{10} + 127_{10} =
+123_{10}\)</span></p>
+<p>阶码的二进制为 <code>0111 1011</code>，注意
+<em>阶码始终为无符号整数</em></p></li>
+<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是无限的，所以要舍去一部分</p>
+<p>它的前二十位是：<code>1001 1001 1001 1001 1001</code></p>
+<p>二十一至二十八位是：<code>1001 1001</code></p>
+<p>所以二十一至二十三位，要么取 <code>100</code>，要么取
+<code>101</code>。</p>
+<p>通常是舍入到最接近的，一样接近则偶数（末尾为
+<code>0</code>）优先，这里 <code>101</code> 更接近。</p></li>
+<li><p>把符号位连同阶码、尾数位缝合起来</p>
+<p><code>0 | 0111 1011 | 1001 1001 1001 1001 1001 101</code></p></li>
+</ol>
+<h2 id="例二">例二</h2>
+<p>以 <span class="math inline">\(12_{10} = 1.5_{10} \times
+(2^{3})_{10}\)</span> 为例，和上面的步骤一样：</p>
+<ol type="1">
+<li><p>把十进制转换为二进制</p>
+<p><span class="math inline">\(12 _{10} = 1100 _{2}\)</span></p></li>
+<li><p>用以 <span class="math inline">\(2\)</span>
+为基数的科学计数法表示，并保证【尾数的小数点前是 <span
+class="math inline">\(1\)</span>】</p>
+<p><span class="math inline">\(= 1.1_{2} \times (2^3)_{10}\)</span></p>
+<p>可以看到指数是 <span class="math inline">\(3_{10}\)</span></p></li>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
+class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<p>这里 <span class="math inline">\(e\)</span>
+等于【用于表示指数位的位数】 <span
+class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
+class="math inline">\(127_{10}\)</span></p>
+<p>则阶码为 <span class="math inline">\(3_{10} + 127_{10} =
+130_{10}\)</span></p>
+<p>阶码的二进制为 <code>1000 0010</code>，注意
+<em>阶码始终为无符号整数</em></p></li>
+<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是有限的，所以后面直接补零</p>
+<p>小数点后二十三位是：<code>1000 0000 0000 0000 000</code></p></li>
+<li><p>把符号位连同阶码、尾数位缝合起来</p>
+<p><code>0 | 1000 0010 | 1000 0000 0000 0000 000</code></p></li>
+</ol>
+<h2 id="特殊情况">特殊情况</h2>
+<p><a
+href="/blog/2023/单精度浮点数的五种形式/">单精度浮点数的五种形式</a></p>
+<p>对呀对呀……单精度浮点数有五种形式，你知道么？</p>
+<h2 id="如何验证">如何验证</h2>
+<ul>
+<li><p><a
+href="https://baseconvert.com/ieee-754-floating-point">在线转换</a></p></li>
+<li><p><a href="/blog/2023/用GDB查看变量内存/">用 GDB
+查看变量内存</a></p></li>
+<li><p><a href="https://en.wikipedia.org/wiki/IEEE_754">Wikipedia</a> |
+<a href="https://zh.wikipedia.org/wiki/IEEE_754">维基百科</a></p></li>
+<li><p>获取国际标准文件</p>
+<p>IEEE 754 标准是电气与电子工程师协会（Institute of Electrical and
+Electronics Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <a
+href="https://standards.ieee.org/ieee/754/6210/">IEEE
+754-2019</a>，对应国际标准 <a
+href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/standard/08/09/80985.html">ISO/IEC
+60559:2020</a>，预计下一次在 2028 年修订。 http://snti.ru/
+这个网站分享了各种国际标准文件的磁力链接，但是可以免费下载的不全，IEC
+的只有 61xxx。据说可以给站长发邮件要
+<code>popov_al@perm.ru</code>，每个文件一刀乐。在 ISO 官网上下载需要 187
+瑞士法郎，合 1000 多人民币。</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>无分类</category>
+      </categories>
+  </entry>
+  <entry>
     <title>用browser-sync实现在文件内容改变后立即刷新页面</title>
     <url>/blog/2023/%E7%94%A8browser-sync%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
     <content><![CDATA[<p>起因是：</p>
@@ -1452,40 +1301,6 @@ href="https://flk.npc.gov.cn/detail2.html?ZmY4MDgwODE2ZjEzNWY0NjAxNmYyMTA5ODliOT
       </categories>
   </entry>
   <entry>
-    <title>让博客commit前的工作更简单</title>
-    <url>/blog/2023/%E8%AE%A9%E5%8D%9A%E5%AE%A2commit%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9B%B4%E7%AE%80%E5%8D%95/</url>
-    <content><![CDATA[<p>起因是，我是把博客代码分两个仓库存的。需要做很多重复的工作。</p>
-<p>于是我写了两个 bat 文件。</p>
-<span id="more"></span>
-<p>起因是，我是把博客代码分两个仓库存的：</p>
-<ul>
-<li><p><code>blog-source</code>存 Hexo 框架源码，NexT
-主题源码和自己的部分（更改后的配置文件、md 文档、图片等）</p></li>
-<li><p><code>blog</code>存渲染之后的网页，分支是<code>gh-pages</code></p></li>
-</ul>
-<p>这就造成在 commit 前，我需要做以下工作：</p>
-<ol type="1">
-<li><p>在<code>blog-source</code>文件夹里先打开本地预览服务器。</p></li>
-<li><p>点击链接，在浏览器里打开。</p></li>
-<li><p>预览没问题，渲染网页。</p></li>
-<li><p>删除<code>blog</code>文件夹里除了<code>.git</code>外的所有文件和文件夹。</p></li>
-<li><p>把渲染的网页从<code>blog-source/public/</code>转移到<code>blog</code>文件夹里。</p></li>
-<li><p>清除<code>blog-source</code>文件夹里渲染的网页。</p></li>
-</ol>
-<p>手动操作了十几天后很烦，于是我写了两个 bat 文件：</p>
-<p><code>bs.bat</code> 做第 1-2 步</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d d:\repo\blog-source</span><br><span class="line"><span class="built_in">start</span> http://localhost:<span class="number">4000</span>/blog/</span><br><span class="line"><span class="keyword">call</span> npx hexo s</span><br></pre></td></tr></table></figure>
-<p><code>bg.bat</code> 做第 3-6 步</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">:: 删除旧文件</span><br><span class="line"><span class="built_in">cd</span> /d d:\repo\blog</span><br><span class="line">git rm -r *</span><br><span class="line">:: 渲染新文件</span><br><span class="line"><span class="built_in">cd</span> ..\blog-source</span><br><span class="line"><span class="keyword">call</span> npx hexo g</span><br><span class="line">:: 转移新文件</span><br><span class="line"><span class="built_in">xcopy</span> public ..\blog /s /e</span><br><span class="line"><span class="keyword">call</span> npx hexo clean</span><br></pre></td></tr></table></figure>
-<p>再建一个专门存 bat 的文件夹，把它添加到环境变量
-PATH。这样在任一文件夹下都可以做第 1-6 步了。</p>
-<p>commit 我用的是 GitHub Desktop，暂时没有换的必要。</p>
-]]></content>
-      <categories>
-        <category>无分类</category>
-      </categories>
-  </entry>
-  <entry>
     <title>让提交的照片作业更清晰</title>
     <url>/blog/2023/%E8%AE%A9%E6%8F%90%E4%BA%A4%E7%9A%84%E7%85%A7%E7%89%87%E4%BD%9C%E4%B8%9A%E6%9B%B4%E6%B8%85%E6%99%B0/</url>
     <content><![CDATA[<p>这里的【照片作业】指的是用手机拍摄写在纸上的字。具体步骤：</p>
@@ -1551,6 +1366,198 @@ MB，用<code>10</code>质量导出有 2MB 左右，再转成 PDF 能在 1MB
       </categories>
   </entry>
   <entry>
+    <title>让博客commit前的工作更简单</title>
+    <url>/blog/2023/%E8%AE%A9%E5%8D%9A%E5%AE%A2commit%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9B%B4%E7%AE%80%E5%8D%95/</url>
+    <content><![CDATA[<p>起因是，我是把博客代码分两个仓库存的。需要做很多重复的工作。</p>
+<p>于是我写了两个 bat 文件。</p>
+<span id="more"></span>
+<p>起因是，我是把博客代码分两个仓库存的：</p>
+<ul>
+<li><p><code>blog-source</code>存 Hexo 框架源码，NexT
+主题源码和自己的部分（更改后的配置文件、md 文档、图片等）</p></li>
+<li><p><code>blog</code>存渲染之后的网页，分支是<code>gh-pages</code></p></li>
+</ul>
+<p>这就造成在 commit 前，我需要做以下工作：</p>
+<ol type="1">
+<li><p>在<code>blog-source</code>文件夹里先打开本地预览服务器。</p></li>
+<li><p>点击链接，在浏览器里打开。</p></li>
+<li><p>预览没问题，渲染网页。</p></li>
+<li><p>删除<code>blog</code>文件夹里除了<code>.git</code>外的所有文件和文件夹。</p></li>
+<li><p>把渲染的网页从<code>blog-source/public/</code>转移到<code>blog</code>文件夹里。</p></li>
+<li><p>清除<code>blog-source</code>文件夹里渲染的网页。</p></li>
+</ol>
+<p>手动操作了十几天后很烦，于是我写了两个 bat 文件：</p>
+<p><code>bs.bat</code> 做第 1-2 步</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d d:\repo\blog-source</span><br><span class="line"><span class="built_in">start</span> http://localhost:<span class="number">4000</span>/blog/</span><br><span class="line"><span class="keyword">call</span> npx hexo s</span><br></pre></td></tr></table></figure>
+<p><code>bg.bat</code> 做第 3-6 步</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">:: 删除旧文件</span><br><span class="line"><span class="built_in">cd</span> /d d:\repo\blog</span><br><span class="line">git rm -r *</span><br><span class="line">:: 渲染新文件</span><br><span class="line"><span class="built_in">cd</span> ..\blog-source</span><br><span class="line"><span class="keyword">call</span> npx hexo g</span><br><span class="line">:: 转移新文件</span><br><span class="line"><span class="built_in">xcopy</span> public ..\blog /s /e</span><br><span class="line"><span class="keyword">call</span> npx hexo clean</span><br></pre></td></tr></table></figure>
+<p>再建一个专门存 bat 的文件夹，把它添加到环境变量
+PATH。这样在任一文件夹下都可以做第 1-6 步了。</p>
+<p>commit 我用的是 GitHub Desktop，暂时没有换的必要。</p>
+]]></content>
+      <categories>
+        <category>无分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java - 00 - 准备</title>
+    <url>/blog/2023/Java-00-%E5%87%86%E5%A4%87/</url>
+    <content><![CDATA[<ul>
+<li>Windows 10 + VSCode 环境配置</li>
+<li><code>Hello.java</code></li>
+</ul>
+<span id="more"></span>
+<h2 id="windows-10-vscode-环境配置">Windows 10 + VSCode 环境配置</h2>
+<ol type="1">
+<li>VSCode 里安装 <code>Extension Pack for Java</code> 扩展。
+它会提示你下载安装 JDK。安。</li>
+<li>设置环境变量
+<ul>
+<li><code>JAVA_HOME</code>：JDK 安装路径</li>
+<li><code>PATH</code>：<code>%JAVA_HOME%\bin</code></li>
+</ul></li>
+<li>终端输入： <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure> 输出： <figure class="highlight txt"><table><tr><td class="code"><pre><span class="line">openjdk version &quot;17.0.8.1&quot; 2023-08-24</span><br><span class="line">OpenJDK Runtime Environment Temurin-17.0.8.1+1 (build 17.0.8.1+1)</span><br><span class="line">OpenJDK 64-Bit Server VM Temurin-17.0.8.1+1 (build 17.0.8.1+1, mixed mode, sharing)</span><br></pre></td></tr></table></figure></li>
+<li>VSCode
+设置搜<code>java.jdt.ls.java.home</code>，在<code>settings.json</code>里改成
+JDK 安装路径。</li>
+</ol>
+<h2 id="hello.java">Hello.java</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>按钮运行，或者终端：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">java Hello.java</span><br></pre></td></tr></table></figure>
+<p>或者终端：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">javac Hello.java</span><br><span class="line">java Hello</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java - 01 - Q&amp;A</title>
+    <url>/blog/2023/Java-01-Q&amp;A/</url>
+    <content><![CDATA[<p>一些问题与回答</p>
+<span id="more"></span>
+<h2
+id="main函数不加static可以吗"><code>main</code>函数不加<code>static</code>可以吗？</h2>
+<p>不行。程序启动时实例还没有被创建，需要通过类名调用静态方法。</p>
+<h2
+id="当类名和文件名不一致时代码检查器会提示修改那么.java文件里只能写一个类吗">当类名和文件名不一致时，代码检查器会提示修改。那么<code>.java</code>文件里只能写一个类吗？</h2>
+<p>只能写一个与文件名相同的公共类。其他的类不加<code>public</code>。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Test0</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;123&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Test1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fun</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;456&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        Test0.fun();</span><br><span class="line">        <span class="type">Test1</span> <span class="variable">test1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Test1</span>();</span><br><span class="line">        test1.fun();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="怎么获取键盘输入">怎么获取键盘输入？</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;<span class="comment">//注意要加分号</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Echo</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 创建一个 String 对象</span></span><br><span class="line">        String str;</span><br><span class="line">        <span class="comment">// 创建一个 Scanner 对象，传参是标准输入流对象</span></span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">scan</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="comment">// 读取一行，返回String</span></span><br><span class="line">        str = scan.nextLine();</span><br><span class="line">        <span class="comment">// println() 换行，print() 不换行</span></span><br><span class="line">        System.out.print(str);</span><br><span class="line">        System.out.println(str);</span><br><span class="line">        System.out.print(str);</span><br><span class="line">        System.out.println(str);</span><br><span class="line">        <span class="comment">// 别忘了关闭</span></span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="怎么读写文本文件">怎么读写文本文件？</h2>
+<p>Java：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Files;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">content</span> <span class="operator">=</span> Files.readString(Path.of(<span class="string">&quot;input.txt&quot;</span>));</span><br><span class="line">        System.out.println(content);</span><br><span class="line">        Files.writeString(Path.of(<span class="string">&quot;output.txt&quot;</span>), <span class="string">&quot;啊啊啊&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对比 Python：</p>
+<figure class="highlight py"><table><tr><td class="code"><pre><span class="line">input_file_name = <span class="string">&quot;input.txt&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(input_file_name, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> input_file:</span><br><span class="line">    content = input_file.readlines()</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">output_file_name = <span class="string">&quot;output.txt&quot;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(output_file_name, <span class="string">&quot;w&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> output_file:</span><br><span class="line">    output_file.write(<span class="string">&quot;啊啊啊&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="和-cc的运算符有什么不同">和 C/C++的运算符有什么不同？</h2>
+<p>先射箭后画靶：</p>
+<ul>
+<li><p>C/C++/Java 在对整型变量右移 <code>&gt;&gt;</code> 时：</p>
+<ul>
+<li>正整数前面全补 <code>0</code></li>
+<li>负整数前面全补 <code>1</code></li>
+<li>无符号整数前面全补 <code>0</code>（Java 没有无符号整数）</li>
+<li>作用相当于除以 2</li>
+</ul></li>
+<li><p>Java 多了一个无符号右移
+<code>&gt;&gt;&gt;</code>，不管你整型变量是正是负，前面都直接补零。</p></li>
+</ul>
+<p>在 Java 中，没有<code>unsigned</code>关键字。</p>
+<p>进一步：</p>
+<h2 id="java-中的基本数据类型">Java 中的基本数据类型？</h2>
+<h3 id="布尔-boolean">布尔 <code>boolean</code></h3>
+<p>值为 <code>true</code> 或者
+<code>false</code>。可以直接用，占一个字节。</p>
+<p>写 <code>if(3 == true)</code>
+时会报错，数据类型不同，不能直接比较。</p>
+<ul>
+<li>在 C 的 <code>&lt;stdbool.h&gt;</code> 中被 <code>#define</code>
+了为 <code>1</code> 和 <code>0</code>。
+<ul>
+<li>写 <code>if(3 == true)</code> 时会跳过分支。</li>
+</ul></li>
+<li>C++ 同 C，但是不用引头文件，可以直接用。</li>
+<li>在 Python 中是首字母大写的，也相当于 <code>0</code> 和
+<code>1</code>，但是数据类型不同。
+<ul>
+<li>写 <code>if(3 == True)</code> 时会按 <code>1</code> 比较。</li>
+<li>写 <code>if(3 is True)</code> 时会报错。</li>
+</ul></li>
+<li>在 JS 中也相当于 <code>0</code> 和
+<code>1</code>，但是数据类型不同。
+<ul>
+<li>写 <code>if(1 == true)</code> 时会执行分支。</li>
+<li>写 <code>if(1 === true)</code> 时会跳过分支。</li>
+</ul></li>
+</ul>
+<h3 id="字符-char">字符 <code>char</code></h3>
+<p>无符号的两个字节。在 C/C++ 里是一个字节。</p>
+<h3 id="整型都是有符号的">整型（都是有符号的）</h3>
+<ul>
+<li><code>byte</code>：一个字节</li>
+<li><code>short</code>：两个字节</li>
+<li><code>int</code>：四个字节</li>
+<li><code>long</code>：八个字节</li>
+</ul>
+<h3 id="浮点都是有符号的">浮点（都是有符号的）</h3>
+<p>和 C/C++ 一样。</p>
+<ul>
+<li><code>float</code>：四个字节</li>
+<li><code>double</code>：八个字节</li>
+</ul>
+<h2 id="茴字有几种写法">茴字有几种写法？</h2>
+<p>Java 和 Python、JS
+等一样，都可以在输出函数里直接写表达式（不用格式字符串的情况下）。以及
+Java 也可以格式化输出。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&#x27;a&#x27;</span> + <span class="number">1</span>);<span class="comment">// 98</span></span><br><span class="line">        System.out.println(<span class="string">&quot;a&quot;</span> + <span class="number">1</span>);<span class="comment">// a1</span></span><br><span class="line">        <span class="type">byte</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">3</span>, j = <span class="number">3</span>;</span><br><span class="line">        <span class="comment">// 没人会这么写</span></span><br><span class="line">        System.out.println(++i + i++);<span class="comment">// 8</span></span><br><span class="line">        System.out.println(j++ + ++j);<span class="comment">// 8</span></span><br><span class="line">        <span class="comment">// Java 也有 printf()</span></span><br><span class="line">        System.out.printf(<span class="string">&quot;%d, %d&quot;</span>, i, j);<span class="comment">// 5, 5</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java - 02 - 数组Q&amp;A</title>
+    <url>/blog/2023/Java-02-%E6%95%B0%E7%BB%84Q&amp;A/</url>
+    <content><![CDATA[<p>一些问题与回答</p>
+<span id="more"></span>
+<h2 id="java-数组怎么定义">Java 数组怎么定义？</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> arr1[];</span><br><span class="line"><span class="type">int</span>[] arr2;<span class="comment">// 效果一样</span></span><br></pre></td></tr></table></figure>
+<p>注意在定义时，<code>[]</code>里不能加数字。</p>
+<h2 id="怎么向数组里加元素">怎么向数组里加元素？</h2>
+<p>Array 不能动态加元素，ArrayList 可以。</p>
+<p>对于 Array，可以先初始化，再赋值：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>[] arr = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">100</span>];</span><br><span class="line"><span class="type">int</span> <span class="variable">arrayLength</span> <span class="operator">=</span> arr.length;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arrayLength; i++) &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">randomNum</span> <span class="operator">=</span> (<span class="type">int</span>) (<span class="number">100</span> * Math.random());</span><br><span class="line">    arr[i] = randomNum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，如果用 <code>for-each</code> 循环是给数组元素赋不了值的。</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>MongoDB - 00 - 准备</title>
+    <url>/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/</url>
+    <content><![CDATA[<ul>
+<li>Windows 10 环境配置</li>
+</ul>
+<span id="more"></span>
+<ol type="1">
+<li><a href="https://www.mongodb.com/try/download/community">下载
+MongoDB</a>，我下载的是<code>7.0.0 (current)</code>的<code>zip</code>格式。</li>
+<li>解压，右键用 PowerShell 运行<code>Install-Compass.ps1</code>，安装
+GUI。 默认会安装到 C 盘，安装完后手动移到 D 盘。</li>
+<li>建数据库文件夹，建一个空日志<code>test.log</code>。</li>
+<li><div class="sourceCode" id="cb1"><pre
+class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>   <span class="ex">mongod</span> <span class="at">--dbpath</span> <span class="pp">[</span><span class="ss">数据库文件夹路径</span><span class="pp">]</span> <span class="at">--logpath</span> <span class="pp">[</span><span class="ss">日志文件路径</span><span class="pp">]</span> <span class="at">--logappend</span></span></code></pre></div></li>
+<li>用 MongoDBCompass 连接。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>MongoDB</category>
+      </categories>
+  </entry>
+  <entry>
     <title>算法-00-插入排序</title>
     <url>/blog/2023/%E7%AE%97%E6%B3%95-00-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<p>插入排序就是接扑克牌。</p>
@@ -1574,6 +1581,76 @@ Array，每张牌就是一个元素，下标记为 <code>i</code>（index），�
 <code>i - o != 0</code>，即 <code>i != o</code> ）。</p>
 <h2 id="代码">代码</h2>
 <figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">insertionSort</span>(<span class="params">data</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> len = data.<span class="property">length</span>;</span><br><span class="line">  <span class="keyword">if</span> (len &lt; <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> o = <span class="number">0</span>; o != i &amp;&amp; data[i - o] &lt; data[i - o - <span class="number">1</span>]; o++) &#123;</span><br><span class="line">      [data[i - o], data[i - o - <span class="number">1</span>]] = [data[i - o - <span class="number">1</span>], data[i - o]];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>算法-01-选择排序</title>
+    <url>/blog/2023/%E7%AE%97%E6%B3%95-01-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>选择排序，就是拿到一手混乱的扑克牌之后，一眼盯到最小的那张，并把它和最左边的那张（下标为
+0）交换位置。</p>
+<p>然后忽略第一张，再对后面的一眼盯小，把最小的和第二张（下标为
+1）交换位置。</p>
+<p>然后忽略前两张，再次一眼盯小，和下标为 2 的交换位置……</p>
+<p>【牢骚警告】</p>
+<span id="more"></span>
+<h2 id="介绍">介绍</h2>
+<p>程序做不到一眼盯小（假设我们不知道有算法库），所以要用一个变量
+<code>min</code> 存放未排序部分的最小值。用 <code>mi</code> （min
+index）存放未排序部分最小值的索引，用 <code>fi</code> （first
+index）存放未排序部分的第一张牌的索引，用 <code>li</code> （later
+index）存放后面元素的索引。</p>
+<p>对于外层循环，<code>fi</code> 从 <code>0</code> 到
+<code>len - 2</code>。对于内层循环，<code>li</code> 从
+<code>fi + 1</code> 到
+<code>len - 1</code>。对于每一次内层循环，把当前位置的值
+<code>data[li]</code> 与临时的最小值 <code>min</code> 比较，如果
+<code>data[li] &lt; min</code>，则
+<code>min = data[li]; mi = li;</code>。对于临时的最小值，先取
+<code>min = data[li]</code>——这时内层循环变量 <code>li</code> 应该从
+<code>fi + 2</code> 开始取了，在两层循环的夹缝里令
+<code>min = data[fi + 1]</code>，然后内层循环变量 <code>li</code> 从
+<code>fi + 2</code> 到
+<code>len - 1</code>。内层循环结束之后，再在两层循环的夹缝里交换未排序部分的最小值和未排序部分的第一张牌，即
+<code>[data[mi], data[fi]] = [data[fi], data[mi]];</code>。</p>
+<ul>
+<li><p>写完之后发现 <code>mi</code>
+还没定义，它是用来存放未排序部分最小值的索引的，所以应该在两层循环的夹缝里令
+<code>mi = fi + 1</code>。</p></li>
+<li><p>运行之后发现错了，应该在夹缝里令
+<code>min = data[fi]; mi = fi;</code>，内层循环一开始令
+<code>li = fi + 1</code>。再次运行之后成功了。</p></li>
+</ul>
+<h2 id="代码">代码</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">selectionSort</span>(<span class="params">data</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> len = data.<span class="property">length</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> fi = <span class="number">0</span>; fi &lt; len - <span class="number">1</span>; fi++) &#123;</span><br><span class="line">    <span class="keyword">let</span> min = data[fi];</span><br><span class="line">    <span class="keyword">let</span> mi = fi;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> li = fi + <span class="number">1</span>; li &lt; len; li++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (data[li] &lt; min) &#123;</span><br><span class="line">        min = data[li];</span><br><span class="line">        mi = li;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    [data[mi], data[fi]] = [data[fi], data[mi]];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="牢骚">牢骚</h2>
+<p>看着非常乱，但至少是我看完选择排序的动画之后独立写的，但是写完之后让我再写一遍，又要从头开始想。</p>
+<p>还是那句话，为什么不直接调库，我犯的错误前人都犯过了，那是无数前人智慧的结晶。总会有一版代码是经过无数人检验的，不用你再去造了。但是为了代码的<strong><em>传承</em></strong>（用同一语言或者不同语言实现），不至于让后人看不懂，还是得有人学习。</p>
+<p>但是那个人不是我，因为我记性不好，背都背不来。真的背的话就要花大量的时间练习、刷题、重现，不能光把时间花在这一个学科上——这是我的理由，因为我不自信能学好算法。</p>
+<p>不是聪不聪明的问题，有的人聪明，是因为他们从<a
+href="https://github.com/tanpero/JavaScript-Art-Tour">【十年前】</a>就开始<a
+href="https://kevinz.cn/lyricbook/author/1/lyric/92">【学】</a>了（指的是自己愿意学）。而我输出第一个“Hello
+World”是在三年前，还没有算上更早之前使用电脑，和网上冲浪的经验。</p>
+<p>我在很久之前就发现，我压根不会写作文，但是看到别人写的作文感到非常难受，总是想把它当中的一些句子改了。我还尝试从每篇课文里都挑出一句话，组成一篇有逻辑的文章。</p>
+<p>和【阴天的早晨这床像个船，我坐在船头向最远的地方看；眼底映出一阵浓烟，前已无通路后不见归途】差不多。所以我适合当“码农”，而不是“程序员”。前提是先毕业。</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>算法-FF-用于测试算法的代码</title>
+    <url>/blog/2023/%E7%AE%97%E6%B3%95-FF-%E7%94%A8%E4%BA%8E%E6%B5%8B%E8%AF%95%E7%AE%97%E6%B3%95%E7%9A%84%E4%BB%A3%E7%A0%81/</url>
+    <content><![CDATA[<p>从文件读取数据集，输出运行时间和运行结果。</p>
+<span id="more"></span>
+<h2 id="排序算法的测试">排序算法的测试</h2>
+<h3 id="数据集">数据集</h3>
+<p><code>dataSet.json</code></p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">[</span><span class="number">-1</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">[</span><span class="number">3</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">5</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">[</span><span class="number">-3</span><span class="punctuation">,</span> <span class="number">9999991247561</span><span class="punctuation">,</span> <span class="number">3456</span><span class="punctuation">,</span> <span class="number">-111</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">7</span><span class="punctuation">,</span> <span class="number">9</span><span class="punctuation">,</span> <span class="number">23</span><span class="punctuation">,</span> <span class="number">6</span><span class="punctuation">,</span> <span class="number">0</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">[</span><span class="number">-1.23</span><span class="punctuation">,</span> <span class="number">3.14</span><span class="punctuation">,</span> <span class="number">3.14</span><span class="punctuation">,</span> <span class="number">2.71</span><span class="punctuation">,</span> <span class="number">0</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">-4</span><span class="punctuation">,</span> <span class="number">-2</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+<h3 id="测试代码">测试代码</h3>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">readDataSet</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">JSON</span>.<span class="title function_">parse</span>(fs.<span class="title function_">readFileSync</span>(<span class="string">&quot;dataSet.json&quot;</span>));</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;读取数据集时出错：&quot;</span>, error);</span><br><span class="line">    <span class="keyword">return</span> [];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">printResult</span>(<span class="params">algorithmName, dataSet</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;algorithmName&#125;</span> 后的结果：`</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(dataSet);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">testAlgorithm</span>(<span class="params">algorithm, dataSet</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> dataSetCopy = dataSet.<span class="title function_">slice</span>();</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">time</span>(<span class="string">&quot;executionTime&quot;</span>);</span><br><span class="line">  dataSetCopy.<span class="title function_">forEach</span>(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">algorithm</span>(data);</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">timeEnd</span>(<span class="string">&quot;executionTime&quot;</span>);</span><br><span class="line">  <span class="title function_">printResult</span>(algorithm.<span class="property">name</span>, dataSetCopy);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">mySort</span>(<span class="params">data</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dataSet = <span class="title function_">readDataSet</span>();</span><br><span class="line"><span class="title function_">testAlgorithm</span>(mySort, dataSet);</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>算法</category>
@@ -1703,73 +1780,86 @@ Comments）的文档，公开发布的互联网建议标准，请求公众评论
       </categories>
   </entry>
   <entry>
-    <title>算法-01-选择排序</title>
-    <url>/blog/2023/%E7%AE%97%E6%B3%95-01-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>选择排序，就是拿到一手混乱的扑克牌之后，一眼盯到最小的那张，并把它和最左边的那张（下标为
-0）交换位置。</p>
-<p>然后忽略第一张，再对后面的一眼盯小，把最小的和第二张（下标为
-1）交换位置。</p>
-<p>然后忽略前两张，再次一眼盯小，和下标为 2 的交换位置……</p>
-<p>【牢骚警告】</p>
-<span id="more"></span>
-<h2 id="介绍">介绍</h2>
-<p>程序做不到一眼盯小（假设我们不知道有算法库），所以要用一个变量
-<code>min</code> 存放未排序部分的最小值。用 <code>mi</code> （min
-index）存放未排序部分最小值的索引，用 <code>fi</code> （first
-index）存放未排序部分的第一张牌的索引，用 <code>li</code> （later
-index）存放后面元素的索引。</p>
-<p>对于外层循环，<code>fi</code> 从 <code>0</code> 到
-<code>len - 2</code>。对于内层循环，<code>li</code> 从
-<code>fi + 1</code> 到
-<code>len - 1</code>。对于每一次内层循环，把当前位置的值
-<code>data[li]</code> 与临时的最小值 <code>min</code> 比较，如果
-<code>data[li] &lt; min</code>，则
-<code>min = data[li]; mi = li;</code>。对于临时的最小值，先取
-<code>min = data[li]</code>——这时内层循环变量 <code>li</code> 应该从
-<code>fi + 2</code> 开始取了，在两层循环的夹缝里令
-<code>min = data[fi + 1]</code>，然后内层循环变量 <code>li</code> 从
-<code>fi + 2</code> 到
-<code>len - 1</code>。内层循环结束之后，再在两层循环的夹缝里交换未排序部分的最小值和未排序部分的第一张牌，即
-<code>[data[mi], data[fi]] = [data[fi], data[mi]];</code>。</p>
-<ul>
-<li><p>写完之后发现 <code>mi</code>
-还没定义，它是用来存放未排序部分最小值的索引的，所以应该在两层循环的夹缝里令
-<code>mi = fi + 1</code>。</p></li>
-<li><p>运行之后发现错了，应该在夹缝里令
-<code>min = data[fi]; mi = fi;</code>，内层循环一开始令
-<code>li = fi + 1</code>。再次运行之后成功了。</p></li>
+    <title>计网-03-物理层-通信基础概念</title>
+    <url>/blog/2023/%E8%AE%A1%E7%BD%91-03-%E7%89%A9%E7%90%86%E5%B1%82-%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<ul>
+<li>物理层</li>
+<li>通信双方的交互方式：单向通信、双向交替通信、双向同时通信</li>
+<li>编码和调制</li>
+<li>编码方式：不归零制、归零制、曼彻斯特编码、差分曼彻斯特编码</li>
+<li>基带调制、带通调制、正交振幅调制</li>
 </ul>
-<h2 id="代码">代码</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">selectionSort</span>(<span class="params">data</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> len = data.<span class="property">length</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> fi = <span class="number">0</span>; fi &lt; len - <span class="number">1</span>; fi++) &#123;</span><br><span class="line">    <span class="keyword">let</span> min = data[fi];</span><br><span class="line">    <span class="keyword">let</span> mi = fi;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> li = fi + <span class="number">1</span>; li &lt; len; li++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (data[li] &lt; min) &#123;</span><br><span class="line">        min = data[li];</span><br><span class="line">        mi = li;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    [data[mi], data[fi]] = [data[fi], data[mi]];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="牢骚">牢骚</h2>
-<p>看着非常乱，但至少是我看完选择排序的动画之后独立写的，但是写完之后让我再写一遍，又要从头开始想。</p>
-<p>还是那句话，为什么不直接调库，我犯的错误前人都犯过了，那是无数前人智慧的结晶。总会有一版代码是经过无数人检验的，不用你再去造了。但是为了代码的<strong><em>传承</em></strong>（用同一语言或者不同语言实现），不至于让后人看不懂，还是得有人学习。</p>
-<p>但是那个人不是我，因为我记性不好，背都背不来。真的背的话就要花大量的时间练习、刷题、重现，不能光把时间花在这一个学科上——这是我的理由，因为我不自信能学好算法。</p>
-<p>不是聪不聪明的问题，有的人聪明，是因为它们从<a
-href="https://github.com/tanpero/JavaScript-Art-Tour">【十年前】</a>就开始<a
-href="https://kevinz.cn/lyricbook/author/1/lyric/92">【学】</a>了（指的是自己愿意学）。而我输出第一个“Hello
-World”是在三年前，还没有算上更早之前使用电脑，和网上冲浪的经验。</p>
-<p>我在很久之前就发现，我压根不会写作文，但是看到别人写的作文感到非常难受，总是想把它当中的一些句子改了。我还尝试从每篇课文里都挑出一句话，组成一篇有逻辑的文章。</p>
-<p>和【阴天的早晨这床像个船，我坐在船头向最远的地方看；眼底映出一阵浓烟，前已无通路后不见归途】差不多。所以我适合当“码农”，而不是“程序员”。前提是先毕业。</p>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>算法-FF-用于测试算法的代码</title>
-    <url>/blog/2023/%E7%AE%97%E6%B3%95-FF-%E7%94%A8%E4%BA%8E%E6%B5%8B%E8%AF%95%E7%AE%97%E6%B3%95%E7%9A%84%E4%BB%A3%E7%A0%81/</url>
-    <content><![CDATA[<p>从文件读取数据集，输出运行时间和运行结果。</p>
+<p>对应谢希仁《计算机网络》第八版 2.1~2.2.2</p>
 <span id="more"></span>
-<h2 id="排序算法的测试">排序算法的测试</h2>
-<h3 id="数据集">数据集</h3>
-<p><code>dataSet.json</code></p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">[</span><span class="number">-1</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">[</span><span class="number">3</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">5</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">[</span><span class="number">-3</span><span class="punctuation">,</span> <span class="number">9999991247561</span><span class="punctuation">,</span> <span class="number">3456</span><span class="punctuation">,</span> <span class="number">-111</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">7</span><span class="punctuation">,</span> <span class="number">9</span><span class="punctuation">,</span> <span class="number">23</span><span class="punctuation">,</span> <span class="number">6</span><span class="punctuation">,</span> <span class="number">0</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">[</span><span class="number">-1.23</span><span class="punctuation">,</span> <span class="number">3.14</span><span class="punctuation">,</span> <span class="number">3.14</span><span class="punctuation">,</span> <span class="number">2.71</span><span class="punctuation">,</span> <span class="number">0</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">-4</span><span class="punctuation">,</span> <span class="number">-2</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
-<h3 id="测试代码">测试代码</h3>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">readDataSet</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">JSON</span>.<span class="title function_">parse</span>(fs.<span class="title function_">readFileSync</span>(<span class="string">&quot;dataSet.json&quot;</span>));</span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;读取数据集时出错：&quot;</span>, error);</span><br><span class="line">    <span class="keyword">return</span> [];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">printResult</span>(<span class="params">algorithmName, dataSet</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`<span class="subst">$&#123;algorithmName&#125;</span> 后的结果：`</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(dataSet);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">testAlgorithm</span>(<span class="params">algorithm, dataSet</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> dataSetCopy = dataSet.<span class="title function_">slice</span>();</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">time</span>(<span class="string">&quot;executionTime&quot;</span>);</span><br><span class="line">  dataSetCopy.<span class="title function_">forEach</span>(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="title function_">algorithm</span>(data);</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">timeEnd</span>(<span class="string">&quot;executionTime&quot;</span>);</span><br><span class="line">  <span class="title function_">printResult</span>(algorithm.<span class="property">name</span>, dataSetCopy);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">mySort</span>(<span class="params">data</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> dataSet = <span class="title function_">readDataSet</span>();</span><br><span class="line"><span class="title function_">testAlgorithm</span>(mySort, dataSet);</span><br></pre></td></tr></table></figure>
+<h2 id="物理层">物理层</h2>
+<p>物理层讨论的是如何传比特的，用什么协议。</p>
+<p>它尽量隔开了传输媒体（铜线、光纤等）和上一层（数据链路层）之间的关系。</p>
+<p>物理层的协议也叫规程。</p>
+<h2 id="通信双方的交互方式">通信双方的交互方式</h2>
+<h3 id="单向通信单工">单向通信（单工）</h3>
+<p>一段单行道。电视、广播。</p>
+<h3 id="双向交替通信半双工">双向交替通信（半双工）</h3>
+<p>一段有两个车道的马路，但是规定在一边的车道有车正在走时，另一边（相反方向）的车道不能有车走。对讲机。</p>
+<h3 id="双向同时通信全双工">双向同时通信（全双工）</h3>
+<p>一段正常的两个车道的马路。</p>
+<h2 id="编码和调制">编码和调制</h2>
+<ul>
+<li><p>把信号（数或者模）转换为数字信号，叫编码。</p></li>
+<li><p>把信号（数或者模）转换为模拟信号，叫调制。</p></li>
+</ul>
+<p>上面的抽象成了简单的情况，还是要根据语义判断。</p>
+<h2 id="编码方式">编码方式</h2>
+<h3 id="不归零制">不归零制</h3>
+<ul>
+<li>正电平，<code>‾</code>，<code>1</code></li>
+<li>负电平，<code>_</code>，<code>0</code></li>
+</ul>
+<h3 id="归零制">归零制</h3>
+<ul>
+<li>正脉冲，凸（<code>-‾-</code>），<code>1</code></li>
+<li>负脉冲，凹（<code>-_-</code>），<code>0</code></li>
+</ul>
+<h3 id="曼彻斯特编码">曼彻斯特编码</h3>
+<ul>
+<li>中心向下跳变，<code>‾_</code>，<code>1</code></li>
+<li>中心向上跳变，<code>_‾</code>，<code>0</code></li>
+<li>简记：下 1</li>
+</ul>
+<h3 id="差分曼彻斯特编码">差分曼彻斯特编码</h3>
+<ul>
+<li>中心始终跳变</li>
+<li>左边界无跳变，<code>1</code>
+<ul>
+<li><code>_|_‾</code></li>
+<li><code>‾|‾_</code></li>
+</ul></li>
+<li>左边界有跳变，<code>0</code>
+<ul>
+<li><code>_|‾_</code></li>
+<li><code>‾|_‾</code></li>
+</ul></li>
+<li>简记：边界遇 0 跳变</li>
+</ul>
+<p>（忽略竖线，是用来当分隔符的）</p>
+<h3 id="对比">对比</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> 1  1  0  0  1</span><br><span class="line"></span><br><span class="line">‾‾‾‾‾‾______‾‾‾    #不归零制</span><br><span class="line"></span><br><span class="line">-‾--‾--_--_--‾-    #归零制</span><br><span class="line"></span><br><span class="line">‾_|‾_|_‾|_‾|‾_|    #曼彻斯特编码（忽略竖线，是用来当分隔符的）</span><br><span class="line"></span><br><span class="line">‾_|_‾|_‾|_‾|‾_|    #差分曼彻斯特编码（忽略竖线，是用来当分隔符的）</span><br></pre></td></tr></table></figure>
+<h2 id="基带调制">基带调制</h2>
+<p>基带信号就是原始的数字信号，把基带信号转换成另一种数字信号就叫基带调制。也叫编码。</p>
+<h2 id="带通调制">带通调制</h2>
+<p>使用载波的。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">‾‾‾‾‾‾______‾‾‾    #基带信号</span><br><span class="line"></span><br><span class="line">MWMWMW------MWM    #调幅（AM）</span><br><span class="line"></span><br><span class="line">MWMWMWПUПUПUMWM    #调频（FM）</span><br><span class="line"></span><br><span class="line">MWMWMWWMWMWMMWM    #调相（PM）</span><br></pre></td></tr></table></figure>
+<h2 id="正交振幅调制qam">正交振幅调制（QAM）</h2>
+<p>简单地理解就是：</p>
+<p><span class="math display">\[
+\begin{aligned}
+调制后的信号 &amp; = 振幅 \times 载波(相位) \\
+y &amp; = A\sin(\omega x + \phi) \\
+\end{aligned}
+\]</span></p>
+<p>用不同的<strong>振幅</strong>和<strong>相位</strong>排列组合，来表示（承载）不同的基带信号，比只调幅/只调频/只调相的信息密度高。</p>
 ]]></content>
       <categories>
-        <category>算法</category>
+        <category>计算机网络</category>
       </categories>
   </entry>
   <entry>
@@ -1894,6 +1984,200 @@ km/s}\)</span></li>
 <p><span class="math inline">\(网络利用率 = 1 -
 \dfrac{空闲时延}{当前时延}\)</span></p>
 <p>利用率越高，当前时延越大（堵车）。</p>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计网-02-概述-体系结构</title>
+    <url>/blog/2023/%E8%AE%A1%E7%BD%91-02-%E6%A6%82%E8%BF%B0-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<ul>
+<li>OSI 七层协议</li>
+<li>TCP/IP 四层协议</li>
+<li>讲述原理的五层协议</li>
+</ul>
+<p>对应谢希仁《计算机网络》第八版 1.7.3</p>
+<span id="more"></span>
+<ul>
+<li>七层协议：参考模型</li>
+<li>四层协议：实际用到的</li>
+<li>五层协议：上课用到的</li>
+</ul>
+<table>
+<tr>
+<td>
+应用层
+</td>
+<td rowspan="3">
+应用层
+</td>
+<td rowspan="3">
+应用层
+</td>
+<td rowspan="3">
+HTTP、DNS……
+</td>
+</tr>
+<tr>
+<td>
+表示层
+</td>
+</tr>
+<tr>
+<td>
+会话层
+</td>
+</tr>
+<tr>
+<td>
+运输层
+</td>
+<td>
+运输层
+</td>
+<td>
+运输层
+</td>
+<td>
+TCP、UDP……
+</td>
+</tr>
+<tr>
+<td>
+网络层
+</td>
+<td>
+网际层
+</td>
+<td>
+网络层
+</td>
+<td>
+IP……
+</td>
+</tr>
+<tr>
+<td>
+数据链路层
+</td>
+<td rowspan="2">
+链路层
+</td>
+<td>
+数据链路层
+</td>
+<td rowspan="2">
+……
+</td>
+</tr>
+<tr>
+<td>
+物理层
+</td>
+<td>
+物理层
+</td>
+</tr>
+<tr>
+<th>
+七层
+</th>
+<th>
+四层
+</th>
+<th>
+五层
+</th>
+<th>
+协议
+</th>
+</tr>
+</table>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计网-04-物理层-信道的极限容量</title>
+    <url>/blog/2023/%E8%AE%A1%E7%BD%91-04-%E7%89%A9%E7%90%86%E5%B1%82-%E4%BF%A1%E9%81%93%E7%9A%84%E6%9E%81%E9%99%90%E5%AE%B9%E9%87%8F/</url>
+    <content><![CDATA[<ul>
+<li>码元</li>
+<li>奈氏准则：无噪声信道中码元传输最高速率
+<ul>
+<li><span class="math inline">\(W\)</span>：信道的频域带宽</li>
+<li><span class="math inline">\(\mathrm{码元/s} = 码元单位 \times
+两倍频域带宽\)</span></li>
+</ul></li>
+<li>信噪比
+<ul>
+<li>用 <span class="math inline">\(\dfrac{S}{N}\)</span> 表示</li>
+<li>用 <span class="math inline">\(\mathrm{dB} = 10
+\lg\dfrac{S}{N}\)</span> 表示</li>
+</ul></li>
+<li>香农公式：信道极限速率
+<ul>
+<li><span class="math inline">\(\mathrm{bit/s} = W \log_2 (1 +
+\dfrac{S}{N})\)</span></li>
+</ul></li>
+<li>奈氏准则和香农公式的意义</li>
+</ul>
+<p>对应谢希仁《计算机网络》第八版 2.2.3</p>
+<span id="more"></span>
+<h2 id="码元">码元</h2>
+<p>码元，就是用来表示【码】的单个【元】。</p>
+<ul>
+<li>【码】就是串 <code>010100...</code></li>
+<li>【元】就是符号（x 元 x 次方程）。</li>
+<li>【码元】就是用来表示长串的众多符号中的单个符号。</li>
+</ul>
+<p>比如串 <code>1001 1111</code>，可以分隔成前后两部分，记作
+<code>9F</code>。</p>
+<p><code>9</code> 和 <code>F</code>
+都是码元，是不同的码元，它们分别一一对应（双射）了一个四位二进制数。</p>
+<p>如果分隔成八个部分，那 <code>0</code> 和 <code>1</code>
+也是码元。</p>
+<p>类比信号，码就是波形，码元就是在发送和解读波形时，可以分辨的最小单位波形。</p>
+<h2
+id="奈氏准则奈奎斯特香农采样定理的一部分">奈氏准则（奈奎斯特—香农采样定理的一部分）</h2>
+<p>奈奎斯特这个人推导出的准则：</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; 信道中码元传输的最高速率（码元/\mathrm{s}） \\
+= \ &amp; 两倍频域带宽（\mathrm{Hz，即 s^{-1}}）\times 码元的单位
+\end{aligned}
+\]</span></p>
+<p>是在理想的、信道内无噪声的情况下。这里的最高速率指的是，保证接收方接收符号（码元）不出错（码间串扰）时的速率上限。符号速率也叫波特（Baud）。</p>
+<p>频域带宽用 <span class="math inline">\(W\)</span> 表示。</p>
+<h2 id="信噪比">信噪比</h2>
+<p>就是信比噪，两种表示方式：</p>
+<ul>
+<li><span class="math inline">\(\dfrac{S}{N} =
+\dfrac{信号平均功率}{噪声平均功率}\)</span></li>
+<li><span class="math inline">\(\mathrm{dB} = 10
+\lg\dfrac{S}{N}\)</span></li>
+</ul>
+<p>前者没有单位，也可以看成是 <span
+class="math inline">\(\dfrac{瓦特}{瓦特}\)</span>。后者是无量纲单位
+<span class="math inline">\(\mathrm{dB}\)</span>。</p>
+<h2 id="香农公式香农哈特莱容量定理">香农公式（香农—哈特莱容量定理）</h2>
+<p>考虑到了信道有噪声：</p>
+<p><span class="math display">\[
+\begin{aligned}
+信道极限速率 &amp; = \mathrm{bit/s = Hz \times bit} \\
+&amp; = W \log_2(1 + \dfrac{S}{N}) \\
+\end{aligned}
+\]</span></p>
+<p>后面那一坨为什么是 <span
+class="math inline">\(\mathrm{bit}\)</span>，是通信专业要学的。<span
+class="math inline">\(\mathrm{bit}\)</span> 也是无量纲单位（？）。</p>
+<h2 id="奈氏准则和香农公式的意义">奈氏准则和香农公式的意义</h2>
+<p>信噪比越大，接收方接收到的信息失真越少。</p>
+<p>奈氏准则直接假定噪声为 <span
+class="math inline">\(0\)</span>，信噪比无穷大，速率只取决于带宽。这鼓励了人们研究更好的编码技术，一次传更多的东西。</p>
+<p>香农公式告诉我们：信噪比越大，极限速率越高，但是信噪比不可能无限大，所以速率也有极限。</p>
+<p>计算传输速率时，取奈氏准则和香农公式的结果小的。</p>
 ]]></content>
       <categories>
         <category>计算机网络</category>
@@ -2081,283 +2365,6 @@ href="https://www.bilibili.com/video/BV1nP4y1W7dr/">《石头歌》</a></li>
 ]]></content>
       <categories>
         <category>音乐</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>计网-02-概述-体系结构</title>
-    <url>/blog/2023/%E8%AE%A1%E7%BD%91-02-%E6%A6%82%E8%BF%B0-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<ul>
-<li>OSI 七层协议</li>
-<li>TCP/IP 四层协议</li>
-<li>讲述原理的五层协议</li>
-</ul>
-<p>对应谢希仁《计算机网络》第八版 1.7.3</p>
-<span id="more"></span>
-<ul>
-<li>七层协议：参考模型</li>
-<li>四层协议：实际用到的</li>
-<li>五层协议：上课用到的</li>
-</ul>
-<table>
-<tr>
-<td>
-应用层
-</td>
-<td rowspan="3">
-应用层
-</td>
-<td rowspan="3">
-应用层
-</td>
-<td rowspan="3">
-HTTP、DNS……
-</td>
-</tr>
-<tr>
-<td>
-表示层
-</td>
-</tr>
-<tr>
-<td>
-会话层
-</td>
-</tr>
-<tr>
-<td>
-运输层
-</td>
-<td>
-运输层
-</td>
-<td>
-运输层
-</td>
-<td>
-TCP、UDP……
-</td>
-</tr>
-<tr>
-<td>
-网络层
-</td>
-<td>
-网际层
-</td>
-<td>
-网络层
-</td>
-<td>
-IP……
-</td>
-</tr>
-<tr>
-<td>
-数据链路层
-</td>
-<td rowspan="2">
-链路层
-</td>
-<td>
-数据链路层
-</td>
-<td rowspan="2">
-……
-</td>
-</tr>
-<tr>
-<td>
-物理层
-</td>
-<td>
-物理层
-</td>
-</tr>
-<tr>
-<th>
-七层
-</th>
-<th>
-四层
-</th>
-<th>
-五层
-</th>
-<th>
-协议
-</th>
-</tr>
-</table>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>计网-03-物理层-通信基础概念</title>
-    <url>/blog/2023/%E8%AE%A1%E7%BD%91-03-%E7%89%A9%E7%90%86%E5%B1%82-%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<ul>
-<li>物理层</li>
-<li>通信双方的交互方式：单向通信、双向交替通信、双向同时通信</li>
-<li>编码和调制</li>
-<li>编码方式：不归零制、归零制、曼彻斯特编码、差分曼彻斯特编码</li>
-<li>基带调制、带通调制、正交振幅调制</li>
-</ul>
-<p>对应谢希仁《计算机网络》第八版 2.1~2.2.2</p>
-<span id="more"></span>
-<h2 id="物理层">物理层</h2>
-<p>物理层讨论的是如何传比特的，用什么协议。</p>
-<p>它尽量隔开了传输媒体（铜线、光纤等）和上一层（数据链路层）之间的关系。</p>
-<p>物理层的协议也叫规程。</p>
-<h2 id="通信双方的交互方式">通信双方的交互方式</h2>
-<h3 id="单向通信单工">单向通信（单工）</h3>
-<p>一段单行道。电视、广播。</p>
-<h3 id="双向交替通信半双工">双向交替通信（半双工）</h3>
-<p>一段有两个车道的马路，但是规定在一边的车道有车正在走时，另一边（相反方向）的车道不能有车走。对讲机。</p>
-<h3 id="双向同时通信全双工">双向同时通信（全双工）</h3>
-<p>一段正常的两个车道的马路。</p>
-<h2 id="编码和调制">编码和调制</h2>
-<ul>
-<li><p>把信号（数或者模）转换为数字信号，叫编码。</p></li>
-<li><p>把信号（数或者模）转换为模拟信号，叫调制。</p></li>
-</ul>
-<p>上面的抽象成了简单的情况，还是要根据语义判断。</p>
-<h2 id="编码方式">编码方式</h2>
-<h3 id="不归零制">不归零制</h3>
-<ul>
-<li>正电平，<code>‾</code>，<code>1</code></li>
-<li>负电平，<code>_</code>，<code>0</code></li>
-</ul>
-<h3 id="归零制">归零制</h3>
-<ul>
-<li>正脉冲，凸（<code>-‾-</code>），<code>1</code></li>
-<li>负脉冲，凹（<code>-_-</code>），<code>0</code></li>
-</ul>
-<h3 id="曼彻斯特编码">曼彻斯特编码</h3>
-<ul>
-<li>中心向下跳变，<code>‾_</code>，<code>1</code></li>
-<li>中心向上跳变，<code>_‾</code>，<code>0</code></li>
-<li>简记：下 1</li>
-</ul>
-<h3 id="差分曼彻斯特编码">差分曼彻斯特编码</h3>
-<ul>
-<li>中心始终跳变</li>
-<li>左边界无跳变，<code>1</code>
-<ul>
-<li><code>_|_‾</code></li>
-<li><code>‾|‾_</code></li>
-</ul></li>
-<li>左边界有跳变，<code>0</code>
-<ul>
-<li><code>_|‾_</code></li>
-<li><code>‾|_‾</code></li>
-</ul></li>
-<li>简记：遇 0 跳变</li>
-</ul>
-<p>（忽略竖线，是用来当分隔符的）</p>
-<h3 id="对比">对比</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> 1  1  0  0  1</span><br><span class="line"></span><br><span class="line">‾‾‾‾‾‾______‾‾‾    #不归零制</span><br><span class="line"></span><br><span class="line">-‾--‾--_--_--‾-    #归零制</span><br><span class="line"></span><br><span class="line">‾_|‾_|_‾|_‾|‾_|    #曼彻斯特编码（忽略竖线，是用来当分隔符的）</span><br><span class="line"></span><br><span class="line">‾_|_‾|_‾|_‾|‾_|    #差分曼彻斯特编码（忽略竖线，是用来当分隔符的）</span><br></pre></td></tr></table></figure>
-<h2 id="基带调制">基带调制</h2>
-<p>基带信号就是原始的数字信号，把基带信号转换成另一种数字信号就叫基带调制。也叫编码。</p>
-<h2 id="带通调制">带通调制</h2>
-<p>使用载波的。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">‾‾‾‾‾‾______‾‾‾    #基带信号</span><br><span class="line"></span><br><span class="line">MWMWMW------MWM    #调幅（AM）</span><br><span class="line"></span><br><span class="line">MWMWMWПUПUПUMWM    #调频（FM）</span><br><span class="line"></span><br><span class="line">MWMWMWWMWMWMMWM    #调相（PM）</span><br></pre></td></tr></table></figure>
-<h2 id="正交振幅调制qam">正交振幅调制（QAM）</h2>
-<p>简单地理解就是：</p>
-<p><span class="math display">\[
-\begin{aligned}
-调制后的信号 &amp; = 振幅 \times 载波(相位) \\
-y &amp; = A\sin(\omega x + \phi) \\
-\end{aligned}
-\]</span></p>
-<p>用不同的<strong>振幅</strong>和<strong>相位</strong>排列组合，来表示（承载）不同的基带信号，比只调幅/只调频/只调相的信息密度高。</p>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>计网-04-物理层-信道的极限容量</title>
-    <url>/blog/2023/%E8%AE%A1%E7%BD%91-04-%E7%89%A9%E7%90%86%E5%B1%82-%E4%BF%A1%E9%81%93%E7%9A%84%E6%9E%81%E9%99%90%E5%AE%B9%E9%87%8F/</url>
-    <content><![CDATA[<ul>
-<li>码元</li>
-<li>奈氏准则：无噪声信道中码元传输最高速率
-<ul>
-<li><span class="math inline">\(W\)</span>：信道的频域带宽</li>
-<li><span class="math inline">\(\mathrm{码元/s} = 码元单位 \times
-两倍频域带宽\)</span></li>
-</ul></li>
-<li>信噪比
-<ul>
-<li>用 <span class="math inline">\(\dfrac{S}{N}\)</span> 表示</li>
-<li>用 <span class="math inline">\(\mathrm{dB} = 10
-\lg\dfrac{S}{N}\)</span> 表示</li>
-</ul></li>
-<li>香农公式：信道极限速率
-<ul>
-<li><span class="math inline">\(\mathrm{bit/s} = W \log_2 (1 +
-\dfrac{S}{N})\)</span></li>
-</ul></li>
-<li>奈氏准则和香农公式的意义</li>
-</ul>
-<p>对应谢希仁《计算机网络》第八版 2.2.3</p>
-<span id="more"></span>
-<h2 id="码元">码元</h2>
-<p>码元，就是用来表示【码】的单个【元】。</p>
-<ul>
-<li>【码】就是串 <code>010100...</code></li>
-<li>【元】就是符号（x 元 x 次方程）。</li>
-<li>【码元】就是用来表示长串的众多符号中的单个符号。</li>
-</ul>
-<p>比如串 <code>1001 1111</code>，可以分隔成前后两部分，记作
-<code>9F</code>。</p>
-<p><code>9</code> 和 <code>F</code>
-都是码元，是不同的码元，它们分别一一对应（双射）了一个四位二进制数。</p>
-<p>如果分隔成八个部分，那 <code>0</code> 和 <code>1</code>
-也是码元。</p>
-<p>类比信号，码就是波形，码元就是在发送和解读波形时，可以分辨的最小单位波形。</p>
-<h2
-id="奈氏准则奈奎斯特香农采样定理的一部分">奈氏准则（奈奎斯特—香农采样定理的一部分）</h2>
-<p>奈奎斯特这个人推导出的准则：</p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp; 信道中码元传输的最高速率（码元/\mathrm{s}） \\
-= \ &amp; 两倍频域带宽（\mathrm{Hz，即 s^{-1}}）\times 码元的单位
-\end{aligned}
-\]</span></p>
-<p>是在理想的、信道内无噪声的情况下。这里的最高速率指的是，保证接收方接收符号（码元）不出错（码间串扰）时的速率上限。符号速率也叫波特（Baud）。</p>
-<p>频域带宽用 <span class="math inline">\(W\)</span> 表示。</p>
-<h2 id="信噪比">信噪比</h2>
-<p>就是信比噪，两种表示方式：</p>
-<ul>
-<li><span class="math inline">\(\dfrac{S}{N} =
-\dfrac{信号平均功率}{噪声平均功率}\)</span></li>
-<li><span class="math inline">\(\mathrm{dB} = 10
-\lg\dfrac{S}{N}\)</span></li>
-</ul>
-<p>前者没有单位，也可以看成是 <span
-class="math inline">\(\dfrac{瓦特}{瓦特}\)</span>。后者是无量纲单位
-<span class="math inline">\(\mathrm{dB}\)</span>。</p>
-<h2 id="香农公式香农哈特莱容量定理">香农公式（香农—哈特莱容量定理）</h2>
-<p>考虑到了信道有噪声：</p>
-<p><span class="math display">\[
-\begin{aligned}
-信道极限速率 &amp; = \mathrm{bit/s = Hz \times bit} \\
-&amp; = W \log_2(1 + \dfrac{S}{N}) \\
-\end{aligned}
-\]</span></p>
-<p>后面那一坨为什么是 <span
-class="math inline">\(\mathrm{bit}\)</span>，是通信专业要学的。<span
-class="math inline">\(\mathrm{bit}\)</span> 也是无量纲单位（？）。</p>
-<h2 id="奈氏准则和香农公式的意义">奈氏准则和香农公式的意义</h2>
-<p>信噪比越大，接收方接收到的信息失真越少。</p>
-<p>奈氏准则直接假定噪声为 <span
-class="math inline">\(0\)</span>，信噪比无穷大，速率只取决于带宽。这鼓励了人们研究更好的编码技术，一次传更多的东西。</p>
-<p>香农公式告诉我们：信噪比越大，极限速率越高，但是信噪比不可能无限大，所以速率也有极限。</p>
-<p>计算传输速率时，取奈氏准则和香农公式的结果小的。</p>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
       </categories>
   </entry>
   <entry>
