@@ -23,7 +23,7 @@
 <meta property="og:description" content="ZooKeeper，顾名思义，就是管动物园的。因为 Hadoop 的形象是大象，名字是它的兄弟起的（Hadoop 是其开发者儿子的玩具名），加上 Hadoop 许多周边项目的形象都是动物，ZooKeeper 就是协调它们工作的。 除了官方文档之外，还有个网站：大象教程。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-14T08:48:00.000Z">
-<meta property="article:modified_time" content="2023-09-14T08:48:29.629Z">
+<meta property="article:modified_time" content="2023-09-19T10:51:26.945Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
@@ -231,18 +231,14 @@ target="_blank" rel="noopener" href="https://www.hadoopdoc.com/">大象教程</a
 <span id="more"></span>
 <h2 id="下载-zookeeper">下载 ZooKeeper</h2>
 <p><a target="_blank" rel="noopener" href="https://zookeeper.apache.org/releases.html">下载地址</a></p>
-<p>最新稳定版是 3.8.2，于两个月之前发布。但是课堂和教材使用的是
-3.5.7，于 2020 年情人节发布。</p>
-<p>特别地：</p>
+<p>最新稳定版是 3.8.2，于两个月之前发布。特别地：</p>
 <ul>
 <li>ZooKeeper 3.5 已经在 2022 年儿童节结束生命周期。</li>
 <li>ZooKeeper 3.6 已经在 2022 年倒数第二天结束生命周期。</li>
 </ul>
 <p>结束生命周期不是不能用了，Windows XP
 现在照样有人用。要考虑到实际情况，企业不可能那么快的换软件，有新的变化时所有人都需要花时间学习试错。但是要有点探索精神，还是选择下
-Apache ZooKeeper 3.8.2(asc, sha512)，文件名带 bin
-的那一个。因为我连能不能顺利毕业都不知道，更别谈找工作。有百分之一的概率真的干这行的话，软件可能都出到
-4 了，被淘汰了都有可能。</p>
+Apache ZooKeeper 3.8.2(asc, sha512)，文件名带 bin 的那一个。</p>
 <p>ZooKeeper
 特点是只要有半数以上的节点正常工作，整个集群就能正常工作，所以适合装到奇数台服务器上。</p>
 <h2 id="安装-zookeeper">安装 ZooKeeper</h2>
@@ -268,7 +264,7 @@ Apache ZooKeeper 3.8.2(asc, sha512)，文件名带 bin
 <p>会有一个 leader 和两个 follower。</p>
 <h2 id="停止-zookeeper">停止 ZooKeeper</h2>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zkServer.sh stop;</span><br></pre></td></tr></table></figure>
-<p>获取这些命令，可以通过直接看脚本里有什么内容。</p>
+<p>（获取这些命令，可以通过直接看脚本里有什么内容）</p>
 
     </div>
 

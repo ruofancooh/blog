@@ -1,99 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>MongoDB - 00 - 准备</title>
-    <url>/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/</url>
-    <content><![CDATA[<ul>
-<li>Windows 10 环境配置</li>
-<li>启动脚本</li>
-</ul>
-<span id="more"></span>
-<h2 id="windows-10-环境配置">Windows 10 环境配置</h2>
-<ol type="1">
-<li><a href="https://www.mongodb.com/try/download/community">下载
-MongoDB</a>，我下载的是<code>7.0.0 (current)</code>的<code>zip</code>格式。</li>
-<li>解压，右键用 PowerShell 运行<code>Install-Compass.ps1</code>，安装
-GUI。 默认会安装到 C 盘，安装完后手动移到 D 盘。</li>
-<li>建数据库文件夹，建一个空日志<code>test.log</code>。</li>
-<li>```sh mongod --dbpath [数据库文件夹路径] --logpath [日志文件路径]
---logappend <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">5. 用 MongoDBCompass 连接。</span><br><span class="line"></span><br><span class="line">## 启动脚本</span><br><span class="line"></span><br><span class="line">`mo.bat`</span><br><span class="line"></span><br><span class="line">```bat</span><br><span class="line">cd /d D:\ProgramData\MongoDBCompass</span><br><span class="line">MongoDBCompass</span><br><span class="line">cd /d D:\ProgramData\mongodb-win32-x86_64-windows-7.0.0\bin</span><br><span class="line">call mongod --dbpath D:\ProgramData\mongodb-win32-x86_64-windows-7.0.0\db --logpath D:\ProgramData\mongodb-win32-x86_64-windows-7.0.0\test.log --logappend</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>脚本会 <code>call mongod</code>，停止则断开连接。</p>
-]]></content>
-      <categories>
-        <category>MongoDB</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>MongoDB - 01 - 基本操作</title>
-    <url>/blog/2023/MongoDB-01-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>装好软件后的基本操作。</p>
-<span id="more"></span>
-<h2 id="展示所有数据库名">展示所有数据库名</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">show dbs</span><br></pre></td></tr></table></figure>
-<h2 id="创建切换数据库">创建/切换数据库</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">use dbname</span><br></pre></td></tr></table></figure>
-<h2 id="删除某个数据库">删除某个数据库</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">use dbname</span><br><span class="line">db.<span class="title function_">dropDatabase</span>()</span><br></pre></td></tr></table></figure>
-<h2 id="向数据库里加集合">向数据库里加集合</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="title function_">createCollection</span>(<span class="string">&quot;c1&quot;</span>);</span><br><span class="line">db.<span class="title function_">createCollection</span>(<span class="string">&quot;c2&quot;</span>);</span><br><span class="line">db.<span class="title function_">createCollection</span>(<span class="string">&quot;c3&quot;</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="删除数据库的某个集合">删除数据库的某个集合</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">drop</span>();</span><br></pre></td></tr></table></figure>
-<h2 id="展示数据库里的所有集合名">展示数据库里的所有集合名</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">show collections</span><br></pre></td></tr></table></figure>
-<h2 id="向集合里加文档">向集合里加文档</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">insertOne</span>(&#123; <span class="attr">aaa</span>: <span class="number">123</span> &#125;);</span><br><span class="line">db.<span class="property">c1</span>.<span class="title function_">insertMany</span>([</span><br><span class="line">  &#123; <span class="attr">aaa</span>: <span class="number">123</span>, <span class="attr">bbb</span>: <span class="number">456</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">aaa</span>: <span class="number">123</span>, <span class="attr">ccc</span>: <span class="number">789</span> &#125;,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
-<h2 id="查询集合里的所有文档">查询集合里的所有文档</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">find</span>();</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>MongoDB</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>MongoDB - 02 - 按条件查询文档</title>
-    <url>/blog/2023/MongoDB-02-%E6%8C%89%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2%E6%96%87%E6%A1%A3/</url>
-    <content><![CDATA[<p>查询某数据库某集合中的文档。</p>
-<p>我这里键加不加引号效果一样。</p>
-<span id="more"></span>
-<h2 id="查询包含一个多个键值对的文档">查询包含一个/多个键值对的文档</h2>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">find</span>(&#123; <span class="attr">aaa</span>: <span class="number">123</span> &#125;);</span><br><span class="line">db.<span class="property">c1</span>.<span class="title function_">find</span>(&#123; <span class="attr">aaa</span>: <span class="number">123</span>, <span class="attr">bbb</span>: <span class="number">456</span> &#125;);</span><br></pre></td></tr></table></figure>
-<p>应该大概也许和与操作符的效果一样：</p>
-<ul>
-<li><code>$and: []</code></li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">find</span>(&#123;</span><br><span class="line">  <span class="attr">$and</span>: [&#123; <span class="attr">aaa</span>: <span class="number">123</span> &#125;, &#123; <span class="attr">bbb</span>: <span class="number">456</span> &#125;],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2
-id="查询包含键值对列表中的一个的文档">查询包含键值对列表中的一个的文档</h2>
-<ul>
-<li><code>$or: []</code></li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">find</span>(&#123;</span><br><span class="line">  <span class="attr">$or</span>: [&#123; <span class="attr">aaa</span>: <span class="number">123</span> &#125;, &#123; <span class="attr">bbb</span>: <span class="number">456</span> &#125;],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2
-id="查询某个键的值大于小于某个值的文档">查询某个键的值大于/小于某个值的文档</h2>
-<ul>
-<li><code>$gt:</code> 大于（greater than）</li>
-<li><code>$lt:</code> 小于（less than）</li>
-<li><code>$gte:</code> 大于等于（greater than or equal to）</li>
-<li><code>$lte:</code> 小于等于（less than or equal to）</li>
-<li><code>$ne:</code> 不等于（not equal to）</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">find</span>(&#123;</span><br><span class="line">  <span class="attr">aaa</span>: &#123; <span class="attr">$gt</span>: <span class="number">100</span> &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>可以和前面的套娃：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">find</span>(&#123;</span><br><span class="line">  <span class="attr">$and</span>: [&#123; <span class="attr">aaa</span>: &#123; <span class="attr">$gt</span>: <span class="number">100</span> &#125; &#125;, &#123; <span class="attr">bbb</span>: &#123; <span class="attr">$lt</span>: <span class="number">500</span> &#125; &#125;],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2
-id="查询某个键的值在不在某个值列表内的文档">查询某个键的值在/不在某个值列表内的文档</h2>
-<ul>
-<li><code>$in: []</code> 在</li>
-<li><code>$nin: []</code> 不在</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">find</span>(&#123;</span><br><span class="line">  <span class="attr">aaa</span>: &#123; <span class="attr">$in</span>: [<span class="number">123</span>, <span class="number">456</span>] &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>MongoDB</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Hadoop - 00 - 搭建环境</title>
     <url>/blog/2023/Hadoop-00-%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83/</url>
     <content><![CDATA[<p>Hadoop 完全分布式模式环境配置：</p>
@@ -406,18 +313,14 @@ href="https://www.hadoopdoc.com/">大象教程</a>。</p>
 <span id="more"></span>
 <h2 id="下载-zookeeper">下载 ZooKeeper</h2>
 <p><a href="https://zookeeper.apache.org/releases.html">下载地址</a></p>
-<p>最新稳定版是 3.8.2，于两个月之前发布。但是课堂和教材使用的是
-3.5.7，于 2020 年情人节发布。</p>
-<p>特别地：</p>
+<p>最新稳定版是 3.8.2，于两个月之前发布。特别地：</p>
 <ul>
 <li>ZooKeeper 3.5 已经在 2022 年儿童节结束生命周期。</li>
 <li>ZooKeeper 3.6 已经在 2022 年倒数第二天结束生命周期。</li>
 </ul>
 <p>结束生命周期不是不能用了，Windows XP
 现在照样有人用。要考虑到实际情况，企业不可能那么快的换软件，有新的变化时所有人都需要花时间学习试错。但是要有点探索精神，还是选择下
-Apache ZooKeeper 3.8.2(asc, sha512)，文件名带 bin
-的那一个。因为我连能不能顺利毕业都不知道，更别谈找工作。有百分之一的概率真的干这行的话，软件可能都出到
-4 了，被淘汰了都有可能。</p>
+Apache ZooKeeper 3.8.2(asc, sha512)，文件名带 bin 的那一个。</p>
 <p>ZooKeeper
 特点是只要有半数以上的节点正常工作，整个集群就能正常工作，所以适合装到奇数台服务器上。</p>
 <h2 id="安装-zookeeper">安装 ZooKeeper</h2>
@@ -443,7 +346,7 @@ Apache ZooKeeper 3.8.2(asc, sha512)，文件名带 bin
 <p>会有一个 leader 和两个 follower。</p>
 <h2 id="停止-zookeeper">停止 ZooKeeper</h2>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">bin/zkServer.sh stop;</span><br></pre></td></tr></table></figure>
-<p>获取这些命令，可以通过直接看脚本里有什么内容。</p>
+<p>（获取这些命令，可以通过直接看脚本里有什么内容）</p>
 ]]></content>
       <categories>
         <category>Hadoop</category>
@@ -523,31 +426,30 @@ JDK 安装路径。</li>
       </categories>
   </entry>
   <entry>
-    <title>Java - 03 - 调库侠入门</title>
-    <url>/blog/2023/Java-03-%E8%B0%83%E5%BA%93%E4%BE%A0%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<ul>
-<li>如何在 VSCode 里调 jar 包</li>
-<li>FASTJSON2 库的下载和使用</li>
-</ul>
+    <title>Java - 02 - 数组Q&amp;A</title>
+    <url>/blog/2023/Java-02-%E6%95%B0%E7%BB%84Q&amp;A/</url>
+    <content><![CDATA[<p>一些问题与回答</p>
 <span id="more"></span>
-<h2 id="如何在-vscode-里调-jar-包">如何在 VSCode 里调 jar 包</h2>
-<ol type="1">
-<li><code>Ctrl + Shift + P</code></li>
-<li>进入 <code>java:Configure Classpath</code></li>
-<li>找到 <code>Referenced Libraries</code></li>
-<li>点击 <code>Add</code></li>
-<li>选择下载的 jar 包</li>
-</ol>
-<h2 id="fastjson2">FASTJSON2</h2>
-<blockquote>
-<p><code>FASTJSON 2</code> 是一个性能极致并且简单易用的 Java JSON 库。——
-alibaba/fastjson2</p>
-</blockquote>
-<p><a href="https://github.com/alibaba/fastjson2">Github 仓库</a> | <a
-href="https://repo1.maven.org/maven2/com/alibaba/fastjson2/fastjson2/">下载地址</a></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> com.alibaba.fastjson2.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">objText</span> <span class="operator">=</span> <span class="string">&quot;&#123;&#x27;a&#x27;:1,&#x27;b&#x27;:2&#125;&quot;</span>;</span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">data0</span> <span class="operator">=</span> JSON.parseObject(objText);</span><br><span class="line">        <span class="type">String</span> <span class="variable">arrText</span> <span class="operator">=</span> <span class="string">&quot;[5,4,3,1,2]&quot;</span>;</span><br><span class="line">        <span class="type">JSONArray</span> <span class="variable">data1</span> <span class="operator">=</span> JSON.parseArray(arrText);</span><br><span class="line">        System.out.println(data0);</span><br><span class="line">        System.out.println(data1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a
-href="/blog/2023/Java-01-Q&amp;A/#怎么读写文本文件">怎么读写文本文件？</a></p>
+<h2 id="java-数组怎么定义">Java 数组怎么定义？</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> arr1[];</span><br><span class="line"><span class="type">int</span>[] arr2;<span class="comment">// 效果一样</span></span><br></pre></td></tr></table></figure>
+<p>注意在定义时，<code>[]</code> 里不能加数字。</p>
+<p>使用 <code>new</code> 时则必须加。</p>
+<h2 id="怎么向数组里加元素">怎么向数组里加元素？</h2>
+<p>Array 不能动态加元素，ArrayList 可以。</p>
+<p>对于 Array，可以先初始化，再赋值：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>[] arr = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">100</span>];</span><br><span class="line"><span class="type">int</span> <span class="variable">arrayLength</span> <span class="operator">=</span> arr.length;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arrayLength; i++) &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">randomNum</span> <span class="operator">=</span> (<span class="type">int</span>) (<span class="number">100</span> * Math.random());</span><br><span class="line">    arr[i] = randomNum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，如果用 <code>for-each</code> 循环是给数组元素赋不了值的。</p>
+<h2 id="怎么打印数组">怎么打印数组？</h2>
+<p>除了 <code>for</code> 循环之外：</p>
+<h3 id="for-each-循环"><code>for-each</code> 循环</h3>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> element : arr) &#123;</span><br><span class="line">    System.out.print(element + <span class="string">&quot;,&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="arrays.tostring">Arrays.toString()</h3>
+<p>需要 <code>import java.util.Arrays;</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(Arrays.toString(arr));</span><br></pre></td></tr></table></figure>
+<h2 id="怎么复制数组">怎么复制数组？</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>[] arr1 = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;;</span><br><span class="line"><span class="type">int</span>[] arr2 = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">3</span>];</span><br><span class="line">System.arraycopy(arr1, <span class="number">0</span>, arr2, <span class="number">0</span>, arr1.length);</span><br></pre></td></tr></table></figure>
+<p><code>System.arraycopy()</code>
+五个参数分别为：源数组、源数组的起始位置、目标数组、目标数组的起始位置、要复制的元素数量。</p>
 ]]></content>
       <categories>
         <category>Java</category>
@@ -639,38 +541,6 @@ Java 也可以格式化输出。</p>
       </categories>
   </entry>
   <entry>
-    <title>Java - 02 - 数组Q&amp;A</title>
-    <url>/blog/2023/Java-02-%E6%95%B0%E7%BB%84Q&amp;A/</url>
-    <content><![CDATA[<p>一些问题与回答</p>
-<span id="more"></span>
-<h2 id="java-数组怎么定义">Java 数组怎么定义？</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> arr1[];</span><br><span class="line"><span class="type">int</span>[] arr2;<span class="comment">// 效果一样</span></span><br></pre></td></tr></table></figure>
-<p>注意在定义时，<code>[]</code> 里不能加数字。</p>
-<p>使用 <code>new</code> 时则必须加。</p>
-<h2 id="怎么向数组里加元素">怎么向数组里加元素？</h2>
-<p>Array 不能动态加元素，ArrayList 可以。</p>
-<p>对于 Array，可以先初始化，再赋值：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>[] arr = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">100</span>];</span><br><span class="line"><span class="type">int</span> <span class="variable">arrayLength</span> <span class="operator">=</span> arr.length;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; arrayLength; i++) &#123;</span><br><span class="line">    <span class="type">int</span> <span class="variable">randomNum</span> <span class="operator">=</span> (<span class="type">int</span>) (<span class="number">100</span> * Math.random());</span><br><span class="line">    arr[i] = randomNum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意，如果用 <code>for-each</code> 循环是给数组元素赋不了值的。</p>
-<h2 id="怎么打印数组">怎么打印数组？</h2>
-<p>除了 <code>for</code> 循环之外：</p>
-<h3 id="for-each-循环"><code>for-each</code> 循环</h3>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> element : arr) &#123;</span><br><span class="line">    System.out.print(element + <span class="string">&quot;,&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="arrays.tostring">Arrays.toString()</h3>
-<p>需要 <code>import java.util.Arrays;</code></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.println(Arrays.toString(arr));</span><br></pre></td></tr></table></figure>
-<h2 id="怎么复制数组">怎么复制数组？</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>[] arr1 = &#123; <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span> &#125;;</span><br><span class="line"><span class="type">int</span>[] arr2 = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">3</span>];</span><br><span class="line">System.arraycopy(arr1, <span class="number">0</span>, arr2, <span class="number">0</span>, arr1.length);</span><br></pre></td></tr></table></figure>
-<p><code>System.arraycopy()</code>
-五个参数分别为：源数组、源数组的起始位置、目标数组、目标数组的起始位置、要复制的元素数量。</p>
-<p>（VSCode 扩展商店 的 <code>intellsmi.comment-translate</code>
-可以把函数文档翻成中文）</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-  </entry>
-  <entry>
     <title>JSON</title>
     <url>/blog/2023/JSON/</url>
     <content><![CDATA[<p>JSON（JavaScript Object Notation，JavaScript
@@ -689,218 +559,34 @@ Java 也可以格式化输出。</p>
       </categories>
   </entry>
   <entry>
-    <title>在Windows中安装Linux虚拟机</title>
-    <url>/blog/2023/%E5%9C%A8Windows%E4%B8%AD%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
+    <title>Java - 03 - 调库入门</title>
+    <url>/blog/2023/Java-03-%E8%B0%83%E5%BA%93%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<ul>
-<li>真机系统：Windows 10</li>
-<li>使用软件：VMware Workstation 17.0.2 Player</li>
-<li>虚拟机系统：Ubuntu 22.04.3 server</li>
+<li>如何在 VSCode 里调 jar 包</li>
+<li>FASTJSON2 库的下载和使用</li>
 </ul>
 <span id="more"></span>
-<p>也可以给硬盘分一个新的区，单独安装 Linux。不过没有必要。</p>
-<h2 id="下载安装-vmware-workstation-player">下载安装 VMware Workstation
-Player</h2>
+<h2 id="如何在-vscode-里调-jar-包">如何在 VSCode 里调 jar 包</h2>
+<ol type="1">
+<li><code>Ctrl + Shift + P</code></li>
+<li>进入 <code>java:Configure Classpath</code></li>
+<li>找到 <code>Referenced Libraries</code></li>
+<li>点击 <code>Add</code></li>
+<li>选择下载的 jar 包</li>
+</ol>
+<h2 id="fastjson2">FASTJSON2</h2>
 <blockquote>
-<p>使用 VMware Workstation Player 在 Windows 或 Linux PC
-上轻松地将多个操作系统作为虚拟机运行。——网站介绍</p>
+<p><code>FASTJSON 2</code> 是一个性能极致并且简单易用的 Java JSON 库。——
+alibaba/fastjson2</p>
 </blockquote>
+<p><a href="https://github.com/alibaba/fastjson2">Github 仓库</a> | <a
+href="https://repo1.maven.org/maven2/com/alibaba/fastjson2/fastjson2/">下载地址</a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> com.alibaba.fastjson2.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">objText</span> <span class="operator">=</span> <span class="string">&quot;&#123;&#x27;a&#x27;:1,&#x27;b&#x27;:2&#125;&quot;</span>;</span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">data0</span> <span class="operator">=</span> JSON.parseObject(objText);</span><br><span class="line">        <span class="type">String</span> <span class="variable">arrText</span> <span class="operator">=</span> <span class="string">&quot;[5,4,3,1,2]&quot;</span>;</span><br><span class="line">        <span class="type">JSONArray</span> <span class="variable">data1</span> <span class="operator">=</span> JSON.parseArray(arrText);</span><br><span class="line">        System.out.println(data0);</span><br><span class="line">        System.out.println(data1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a
-href="https://customerconnect.vmware.com/cn/downloads/info/slug/desktop_end_user_computing/vmware_workstation_player/">下载页面</a></p>
-<p>这里下载的是当前最新版
-<code>VMware Workstation 17.0.2 Player for Windows 64-bit Operating Systems</code>。</p>
-<p>安装过程略（“增强型键盘驱动程序”不知道有什么用，先勾上）。</p>
-<h2 id="下载-ubuntu-镜像">下载 Ubuntu 镜像</h2>
-<p>是一种 Linux 发行版操作系统。</p>
-<p><a
-href="https://launchpad.net/ubuntu/+cdmirrors">下载页面（仓库集合）</a>，找到
-China。</p>
-<p>这里下载的是<code>ubuntu-22.04.3-live-server-amd64.iso</code>。</p>
-<h2 id="在-vm-player-中新建虚拟机">在 VM Player 中新建虚拟机</h2>
-<ol type="1">
-<li><code>创建新虚拟机(N)</code></li>
-<li><code>安装程序光盘文件(iso)(M)</code></li>
-<li><code>浏览(R)</code>，选择下载的镜像文件，下一步。</li>
-<li>设置虚拟机名称和位置，下一步。（我这里设置的是<code>Ubuntu100</code>和<code>D:\VMachines\Ubuntu100</code>）</li>
-<li>指定磁盘容量，下一步。</li>
-<li>自定义硬件（我这里把 CPU 改成了 4 核）。完成。</li>
-</ol>
-<p>你会看到：</p>
-<p><img src="/blog/images/vm.png"></p>
-<p>按回车开始安装 Ubuntu。</p>
-<h2 id="安装-ubuntu">安装 Ubuntu</h2>
-<ol type="1">
-<li><p>语言选择，默认回车。</p></li>
-<li><p>键盘布局选择，默认回车。</p></li>
-<li><p>安装类型，默认回车。</p></li>
-<li><p>网络，默认回车。</p></li>
-<li><p>代理，默认回车。</p></li>
-<li><p>配置镜像源，如果网络不好，改成</p>
-<ul>
-<li><p>清华源：<code>https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</code></p></li>
-<li><p>南京源：<code>https://mirror.nju.edu.cn/ubuntu/</code></p></li>
-<li><p>北邮源：<code>https://mirrors.bupt.edu.cn/ubuntu/</code></p>
-<p>等均可。</p></li>
-</ul></li>
-<li><p>配置存储布局，默认选择<code>Done</code>，回车。</p></li>
-<li><p>文件系统，<code>Done</code>，<code>Continue</code>。</p></li>
-<li><p>设置用户名密码等。</p></li>
-<li><p>是否升级到 Pro 版，默认不升级，<code>Continue</code>。</p></li>
-<li><p>是否安装 OpenSSH server，先不安装。</p></li>
-<li><p>是否安装其他东西，先都不选。</p></li>
-<li><p>等待安装系统。</p></li>
-<li><p>安装完成后，点击 VM Player
-下方的“我已完成安装”，然后<code>Reboot Now</code>。</p></li>
-</ol>
-<p>报错不要紧，回车。</p>
-<p>输入用户名和密码登录 Ubuntu。注意输入密码默认是不回显的。</p>
-<h2 id="设置虚拟机与真机的共享文件夹">设置虚拟机与真机的共享文件夹</h2>
-<p>VM
-的虚拟磁盘文件不好直接打开。有时候需要在虚拟机和真机之间互传文件，可以通过共享文件夹。</p>
-<p>（还可以通过<a href="https://wangdoc.com/ssh/">SSH</a>和<a
-href="https://www.xshell.com/zh/free-for-home-school/">Xftp</a>）</p>
-<p>在 VM Player 里打开虚拟机设置-&gt;选项-&gt;共享文件夹。</p>
-<p>我这里设置在<code>D:\VMachines\Shared</code>。</p>
-<p>在虚拟机里的位置是<code>/mnt/hgfs/Shared</code>。</p>
+href="/blog/2023/Java-01-Q&amp;A/#怎么读写文本文件">怎么读写文本文件？</a></p>
 ]]></content>
       <categories>
-        <category>无分类</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>十进制与K进制小数互转</title>
-    <url>/blog/2023/%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8EK%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC/</url>
-    <content><![CDATA[<ul>
-<li>K 转 10：和整数进制转换的方法一样</li>
-<li>10 转 K：乘 K 取整</li>
-</ul>
-<span id="more"></span>
-<h2 id="k-转-10和整数进制转换的方法一样">K 转
-10：和整数进制转换的方法一样</h2>
-<p>每一位分别乘上 K 的次方，再相加。</p>
-<h3 id="转-10">2 转 10</h3>
-<h4 id="有限小数">有限小数</h4>
-<p><span class="math inline">\(11.1011_{2} = 3.6875_{10}\)</span></p>
-<table>
-<thead>
-<tr class="header">
-<th>项</th>
-<th>值</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(1\times2^{1}\)</span></td>
-<td><span class="math inline">\(2\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(1\times2^{0}\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(1\times2^{-1}\)</span></td>
-<td><span class="math inline">\(0.5\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0\times2^{-2}\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(1\times2^{-3}\)</span></td>
-<td><span class="math inline">\(0.125\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(1\times2^{-4}\)</span></td>
-<td><span class="math inline">\(0.0625\)</span></td>
-</tr>
-<tr class="odd">
-<td><strong>总和</strong></td>
-<td><span class="math inline">\(3.6875\)</span></td>
-</tr>
-</tbody>
-</table>
-<h4 id="无限循环小数">无限循环小数</h4>
-<p><span class="math inline">\(1.1 \dot{0} 11 \dot{0} ... _{2} =
-1.7_{10}\)</span></p>
-<p>可以转换成分数计算：</p>
-<p><span class="math display">\[
-\begin{aligned}
-1.1 \dot{0} 11 \dot{0} ... _{2} &amp; = x \\
-11.\dot{0} 11 \dot{0} ... _{2} &amp; = 2_{10}x \\
-110110. \dot{0} 11 \dot{0} ... _{2} &amp; = 32_{10}x \\
-两式相减，110011_{2} &amp; = 30_{10}x \\
-x &amp; = \frac{110011_{2}}{30_{10}} = \frac{51_{10}}{30_{10}} =
-1.7_{10}
-\end{aligned}
-\]</span></p>
-<h3 id="转-10-1">16 转 10</h3>
-<p>同上略。</p>
-<h2 id="转-k乘-k-取整">10 转 K：乘 K 取整</h2>
-<p>整数部分仍然除 K 取余，小数部分乘 K 取整，然后相加。</p>
-<h3 id="转-2">10 转 2</h3>
-<p><span class="math inline">\(0.7 _{10} = 0.1 \dot{0} 11 \dot{0} ...
-_{2}\)</span></p>
-<table>
-<thead>
-<tr class="header">
-<th>小数部分乘 2</th>
-<th>取整数部分</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(0.7 \times 2 = 1.4\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0.4 \times 2 = 0.8\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(0.8 \times 2 = 1.6\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0.6 \times 2 = 1.2\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(0.2 \times 2 = 0.4\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-</tr>
-<tr class="even">
-<td>...</td>
-<td>...</td>
-</tr>
-</tbody>
-</table>
-<h3 id="转-16">10 转 16</h3>
-<p><span class="math inline">\(0.7 _{10} = 0.\mathrm{B} \dot{3} ...
-_{16}\)</span></p>
-<table>
-<thead>
-<tr class="header">
-<th>小数部分乘 16</th>
-<th>取整数部分</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(0.7 \times 16 = 11.2\)</span></td>
-<td><span class="math inline">\(\mathrm{B}\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0.2 \times 16 = 3.2\)</span></td>
-<td><span class="math inline">\(3\)</span></td>
-</tr>
-<tr class="odd">
-<td>...</td>
-<td>...</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-      <categories>
-        <category>无分类</category>
+        <category>Java</category>
       </categories>
   </entry>
   <entry>
@@ -1077,6 +763,143 @@ BootLoader
 href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </aside>
+]]></content>
+      <categories>
+        <category>无分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>十进制与K进制小数互转</title>
+    <url>/blog/2023/%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8EK%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC/</url>
+    <content><![CDATA[<ul>
+<li>K 转 10：和整数进制转换的方法一样</li>
+<li>10 转 K：乘 K 取整</li>
+</ul>
+<span id="more"></span>
+<h2 id="k-转-10和整数进制转换的方法一样">K 转
+10：和整数进制转换的方法一样</h2>
+<p>每一位分别乘上 K 的次方，再相加。</p>
+<h3 id="转-10">2 转 10</h3>
+<h4 id="有限小数">有限小数</h4>
+<p><span class="math inline">\(11.1011_{2} = 3.6875_{10}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>项</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{1}\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1\times2^{0}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{-1}\)</span></td>
+<td><span class="math inline">\(0.5\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0\times2^{-2}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{-3}\)</span></td>
+<td><span class="math inline">\(0.125\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1\times2^{-4}\)</span></td>
+<td><span class="math inline">\(0.0625\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>总和</strong></td>
+<td><span class="math inline">\(3.6875\)</span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="无限循环小数">无限循环小数</h4>
+<p><span class="math inline">\(1.1 \dot{0} 11 \dot{0} ... _{2} =
+1.7_{10}\)</span></p>
+<p>可以转换成分数计算：</p>
+<p><span class="math display">\[
+\begin{aligned}
+1.1 \dot{0} 11 \dot{0} ... _{2} &amp; = x \\
+11.\dot{0} 11 \dot{0} ... _{2} &amp; = 2_{10}x \\
+110110. \dot{0} 11 \dot{0} ... _{2} &amp; = 32_{10}x \\
+两式相减，110011_{2} &amp; = 30_{10}x \\
+x &amp; = \frac{110011_{2}}{30_{10}} = \frac{51_{10}}{30_{10}} =
+1.7_{10}
+\end{aligned}
+\]</span></p>
+<h3 id="转-10-1">16 转 10</h3>
+<p>同上略。</p>
+<h2 id="转-k乘-k-取整">10 转 K：乘 K 取整</h2>
+<p>整数部分仍然除 K 取余，小数部分乘 K 取整，然后相加。</p>
+<h3 id="转-2">10 转 2</h3>
+<p><span class="math inline">\(0.7 _{10} = 0.1 \dot{0} 11 \dot{0} ...
+_{2}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>小数部分乘 2</th>
+<th>取整数部分</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0.7 \times 2 = 1.4\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.4 \times 2 = 0.8\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(0.8 \times 2 = 1.6\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.6 \times 2 = 1.2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(0.2 \times 2 = 0.4\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<h3 id="转-16">10 转 16</h3>
+<p><span class="math inline">\(0.7 _{10} = 0.\mathrm{B} \dot{3} ...
+_{16}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>小数部分乘 16</th>
+<th>取整数部分</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0.7 \times 16 = 11.2\)</span></td>
+<td><span class="math inline">\(\mathrm{B}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.2 \times 16 = 3.2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+</tr>
+<tr class="odd">
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
       <categories>
         <category>无分类</category>
@@ -1394,30 +1217,78 @@ href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/stand
       </categories>
   </entry>
   <entry>
-    <title>用browser-sync实现在文件内容改变后立即刷新页面</title>
-    <url>/blog/2023/%E7%94%A8browser-sync%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
-    <content><![CDATA[<p>起因是：</p>
-<p>不管是直接打开 html
-文件，还是用<code>python -m http.server 8000 --bind 127.0.0.1</code>，在修改保存
-html 文件后浏览器都不能立马刷新。</p>
+    <title>在Windows中安装Linux虚拟机</title>
+    <url>/blog/2023/%E5%9C%A8Windows%E4%B8%AD%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/</url>
+    <content><![CDATA[<ul>
+<li>真机系统：Windows 10</li>
+<li>使用软件：VMware Workstation 17.0.2 Player</li>
+<li>虚拟机系统：Ubuntu 22.04.3 server</li>
+</ul>
 <span id="more"></span>
+<p>也可以给硬盘分一个新的区，单独安装 Linux。不过没有必要。</p>
+<h2 id="下载安装-vmware-workstation-player">下载安装 VMware Workstation
+Player</h2>
+<blockquote>
+<p>使用 VMware Workstation Player 在 Windows 或 Linux PC
+上轻松地将多个操作系统作为虚拟机运行。——网站介绍</p>
+</blockquote>
+<p><a
+href="https://customerconnect.vmware.com/cn/downloads/info/slug/desktop_end_user_computing/vmware_workstation_player/">下载页面</a></p>
+<p>这里下载的是当前最新版
+<code>VMware Workstation 17.0.2 Player for Windows 64-bit Operating Systems</code>。</p>
+<p>安装过程略（“增强型键盘驱动程序”不知道有什么用，先勾上）。</p>
+<h2 id="下载-ubuntu-镜像">下载 Ubuntu 镜像</h2>
+<p>是一种 Linux 发行版操作系统。</p>
+<p><a
+href="https://launchpad.net/ubuntu/+cdmirrors">下载页面（仓库集合）</a>，找到
+China。</p>
+<p>这里下载的是<code>ubuntu-22.04.3-live-server-amd64.iso</code>。</p>
+<h2 id="在-vm-player-中新建虚拟机">在 VM Player 中新建虚拟机</h2>
 <ol type="1">
-<li><p>安装</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install browser-sync</span><br></pre></td></tr></table></figure>
-<p>安装到想作为服务器根目录的文件夹。以前觉得全局安装好，现在暂时觉得本地安装好。（据说用
-Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p></li>
-<li><p>运行</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npx browser-sync start --server --files <span class="string">&quot;.&quot;</span></span><br></pre></td></tr></table></figure>
-<p><code>--files</code> 后指定要监视的文件。</p>
-<p><code>.</code> 表示监视当前目录以及子目录下的所有文件。</p>
-<p>可以改成 <code>*.html</code>，<code>public/*.*</code> 等。</p></li>
+<li><code>创建新虚拟机(N)</code></li>
+<li><code>安装程序光盘文件(iso)(M)</code></li>
+<li><code>浏览(R)</code>，选择下载的镜像文件，下一步。</li>
+<li>设置虚拟机名称和位置，下一步。（我这里设置的是<code>Ubuntu100</code>和<code>D:\VMachines\Ubuntu100</code>）</li>
+<li>指定磁盘容量，下一步。</li>
+<li>自定义硬件（我这里把 CPU 改成了 4 核）。完成。</li>
 </ol>
-<p>html
-文件里至少得有一对<code>&lt;body&gt;</code>标签，要么没法自动刷新。</p>
-<p>在没有修改文件内容，只 <code>Ctrl + S</code>
-保存时也会刷新，在命令行会输出
-<code>File event [change]</code>，只不过看不出来。</p>
-<p>好像和直接通过浏览器来刷新不一样，因为我在选项卡上没看到加载动画。</p>
+<p>你会看到：</p>
+<p><img src="/blog/images/vm.png"></p>
+<p>按回车开始安装 Ubuntu。</p>
+<h2 id="安装-ubuntu">安装 Ubuntu</h2>
+<ol type="1">
+<li><p>语言选择，默认回车。</p></li>
+<li><p>键盘布局选择，默认回车。</p></li>
+<li><p>安装类型，默认回车。</p></li>
+<li><p>网络，默认回车。</p></li>
+<li><p>代理，默认回车。</p></li>
+<li><p>配置镜像源，如果网络不好，改成</p>
+<ul>
+<li><p>清华源：<code>https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</code></p></li>
+<li><p>南京源：<code>https://mirror.nju.edu.cn/ubuntu/</code></p></li>
+<li><p>北邮源：<code>https://mirrors.bupt.edu.cn/ubuntu/</code></p>
+<p>等均可。</p></li>
+</ul></li>
+<li><p>配置存储布局，默认选择<code>Done</code>，回车。</p></li>
+<li><p>文件系统，<code>Done</code>，<code>Continue</code>。</p></li>
+<li><p>设置用户名密码等。</p></li>
+<li><p>是否升级到 Pro 版，默认不升级，<code>Continue</code>。</p></li>
+<li><p>是否安装 OpenSSH server，先不安装。</p></li>
+<li><p>是否安装其他东西，先都不选。</p></li>
+<li><p>等待安装系统。</p></li>
+<li><p>安装完成后，点击 VM Player
+下方的“我已完成安装”，然后<code>Reboot Now</code>。</p></li>
+</ol>
+<p>报错不要紧，回车。</p>
+<p>输入用户名和密码登录 Ubuntu。注意输入密码默认是不回显的。</p>
+<h2 id="设置虚拟机与真机的共享文件夹">设置虚拟机与真机的共享文件夹</h2>
+<p>VM
+的虚拟磁盘文件不好直接打开。有时候需要在虚拟机和真机之间互传文件，可以通过共享文件夹。</p>
+<p>（还可以通过<a href="https://wangdoc.com/ssh/">SSH</a>和<a
+href="https://www.xshell.com/zh/free-for-home-school/">Xftp</a>）</p>
+<p>在 VM Player 里打开虚拟机设置-&gt;选项-&gt;共享文件夹。</p>
+<p>我这里设置在<code>D:\VMachines\Shared</code>。</p>
+<p>在虚拟机里的位置是<code>/mnt/hgfs/Shared</code>。</p>
 ]]></content>
       <categories>
         <category>无分类</category>
@@ -1463,6 +1334,36 @@ IEEE 754 浮点数的相互转换。</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/tw &amp;num</span><br></pre></td></tr></table></figure>
 <p>输出四个字节，结果：</p>
 <p><code>0x61fe1c: 00111111110110011001100110011010</code></p>
+]]></content>
+      <categories>
+        <category>无分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>用browser-sync实现在文件内容改变后立即刷新页面</title>
+    <url>/blog/2023/%E7%94%A8browser-sync%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2/</url>
+    <content><![CDATA[<p>起因是：</p>
+<p>不管是直接打开 html
+文件，还是用<code>python -m http.server 8000 --bind 127.0.0.1</code>，在修改保存
+html 文件后浏览器都不能立马刷新。</p>
+<span id="more"></span>
+<ol type="1">
+<li><p>安装</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install browser-sync</span><br></pre></td></tr></table></figure>
+<p>安装到想作为服务器根目录的文件夹。以前觉得全局安装好，现在暂时觉得本地安装好。（据说用
+Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p></li>
+<li><p>运行</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npx browser-sync start --server --files <span class="string">&quot;.&quot;</span></span><br></pre></td></tr></table></figure>
+<p><code>--files</code> 后指定要监视的文件。</p>
+<p><code>.</code> 表示监视当前目录以及子目录下的所有文件。</p>
+<p>可以改成 <code>*.html</code>，<code>public/*.*</code> 等。</p></li>
+</ol>
+<p>html
+文件里至少得有一对<code>&lt;body&gt;</code>标签，要么没法自动刷新。</p>
+<p>在没有修改文件内容，只 <code>Ctrl + S</code>
+保存时也会刷新，在命令行会输出
+<code>File event [change]</code>，只不过看不出来。</p>
+<p>好像和直接通过浏览器来刷新不一样，因为我在选项卡上没看到加载动画。</p>
 ]]></content>
       <categories>
         <category>无分类</category>
@@ -1573,6 +1474,82 @@ href="https://flk.npc.gov.cn/detail2.html?ZmY4MDgwODE2ZjEzNWY0NjAxNmYyMTA5ODliOT
       </categories>
   </entry>
   <entry>
+    <title>让博客commit前的工作更简单</title>
+    <url>/blog/2023/%E8%AE%A9%E5%8D%9A%E5%AE%A2commit%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9B%B4%E7%AE%80%E5%8D%95/</url>
+    <content><![CDATA[<p>起因是，我是把博客代码分两个仓库存的。需要做很多重复的工作。</p>
+<p>于是我写了两个 bat 文件。</p>
+<span id="more"></span>
+<p>起因是，我是把博客代码分两个仓库存的：</p>
+<ul>
+<li><p><code>blog-source</code>存 Hexo 框架源码，NexT
+主题源码和自己的部分（更改后的配置文件、md 文档、图片等）</p></li>
+<li><p><code>blog</code>存渲染之后的网页，分支是<code>gh-pages</code></p></li>
+</ul>
+<p>这就造成在 commit 前，我需要做以下工作：</p>
+<ol type="1">
+<li><p>在<code>blog-source</code>文件夹里先打开本地预览服务器。</p></li>
+<li><p>点击链接，在浏览器里打开。</p></li>
+<li><p>预览没问题，渲染网页。</p></li>
+<li><p>删除<code>blog</code>文件夹里除了<code>.git</code>外的所有文件和文件夹。</p></li>
+<li><p>把渲染的网页从<code>blog-source/public/</code>转移到<code>blog</code>文件夹里。</p></li>
+<li><p>清除<code>blog-source</code>文件夹里渲染的网页。</p></li>
+</ol>
+<p>手动操作了十几天后很烦，于是我写了两个 bat 文件：</p>
+<p><code>bs.bat</code> 做第 1-2 步</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d d:\repo\blog-source</span><br><span class="line"><span class="built_in">start</span> http://localhost:<span class="number">4000</span>/blog/</span><br><span class="line"><span class="keyword">call</span> npx hexo s</span><br></pre></td></tr></table></figure>
+<p><code>bg.bat</code> 做第 3-6 步</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">:: 删除旧文件</span><br><span class="line"><span class="built_in">cd</span> /d d:\repo\blog</span><br><span class="line">git rm -r *</span><br><span class="line">:: 渲染新文件</span><br><span class="line"><span class="built_in">cd</span> ..\blog-source</span><br><span class="line"><span class="keyword">call</span> npx hexo g</span><br><span class="line">:: 转移新文件</span><br><span class="line"><span class="built_in">xcopy</span> public ..\blog /s /e</span><br><span class="line"><span class="keyword">call</span> npx hexo clean</span><br></pre></td></tr></table></figure>
+<p>再建一个专门存 bat 的文件夹，把它添加到环境变量
+PATH。这样在任一文件夹下都可以做第 1-6 步了。</p>
+<p>commit 我用的是 GitHub Desktop，暂时没有换的必要。</p>
+]]></content>
+      <categories>
+        <category>无分类</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>能指和所指</title>
+    <url>/blog/2023/%E8%83%BD%E6%8C%87%E5%92%8C%E6%89%80%E6%8C%87/</url>
+    <content><![CDATA[<ul>
+<li>能指和所指</li>
+<li>C 语言中的指针</li>
+</ul>
+<span id="more"></span>
+<h2 id="能指和所指">能指和所指</h2>
+<p>能指就是符号，所指就是符号所指向的意义。</p>
+<p>能指是【生】，所指是【诞生、生物、生活、不成熟、不熟悉、从业者<code>-ist</code>……】。</p>
+<p>能指是变量名，所指是变量值。</p>
+<p>变量名可以被重新赋值，就是老子说的“非常名”。</p>
+<h2 id="c-语言中的指针">C 语言中的指针</h2>
+<h3 id="普通变量">普通变量</h3>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> num = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
+<p>变量类型<code>int</code>，变量名<code>num</code>-&gt;变量值<code>100</code>。</p>
+<p>普通变量名已经有一层指向了。</p>
+<h3 id="指针变量">指针变量</h3>
+<p>用于专门存放内存地址（值的位置）的变量，叫指针。</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>* ptr = &amp;num;</span><br></pre></td></tr></table></figure>
+<p>变量类型<code>int*</code>，变量名<code>ptr</code>-&gt;变量值<code>num-&gt;100的内存地址</code></p>
+<p><code>&amp;num</code>，就是获取<code>num</code>值的位置。</p>
+<ul>
+<li><p><code>&amp;</code>一个变量名，就是获取变量名的值的地址。简称取地址。</p></li>
+<li><p><code>*</code>一个变量名，就是获取变量名的值（只对指针有效）。简称访问地址。</p></li>
+<li><p><code>*&amp;</code>一个变量名就是先<code>&amp;</code>后<code>*</code>（两个运算符优先级相同，且都是右结合）。</p>
+<p>先取地址，后访问地址，和单独使用变量名效果一样。</p></li>
+<li><p><code>&amp;</code>一个指针变量名，就是获取指针变量值本身的位置（存放<code>num</code>地址值的地址）。</p></li>
+</ul>
+<p>还可以创建二级指针，就是指向指针的指针：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>** pptr = &amp;ptr;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>pptr</code>变量名指向某一个地址，这个地址处记录着<code>ptr</code>的地址</li>
+<li><code>ptr</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的地址</li>
+<li><code>num</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的值<code>100</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>无分类</category>
+      </categories>
+  </entry>
+  <entry>
     <title>让提交的照片作业更清晰</title>
     <url>/blog/2023/%E8%AE%A9%E6%8F%90%E4%BA%A4%E7%9A%84%E7%85%A7%E7%89%87%E4%BD%9C%E4%B8%9A%E6%9B%B4%E6%B8%85%E6%99%B0/</url>
     <content><![CDATA[<p>这里的【照片作业】指的是用手机拍摄写在纸上的字。具体步骤：</p>
@@ -1638,82 +1615,6 @@ MB，用<code>10</code>质量导出有 2MB 左右，再转成 PDF 能在 1MB
       </categories>
   </entry>
   <entry>
-    <title>能指和所指</title>
-    <url>/blog/2023/%E8%83%BD%E6%8C%87%E5%92%8C%E6%89%80%E6%8C%87/</url>
-    <content><![CDATA[<ul>
-<li>能指和所指</li>
-<li>C 语言中的指针</li>
-</ul>
-<span id="more"></span>
-<h2 id="能指和所指">能指和所指</h2>
-<p>能指就是符号，所指就是符号所指向的意义。</p>
-<p>能指是【生】，所指是【诞生、生物、生活、不成熟、不熟悉、从业者<code>-ist</code>……】。</p>
-<p>能指是变量名，所指是变量值。</p>
-<p>变量名可以被重新赋值，就是老子说的“非常名”。</p>
-<h2 id="c-语言中的指针">C 语言中的指针</h2>
-<h3 id="普通变量">普通变量</h3>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> num = <span class="number">100</span>;</span><br></pre></td></tr></table></figure>
-<p>变量类型<code>int</code>，变量名<code>num</code>-&gt;变量值<code>100</code>。</p>
-<p>普通变量名已经有一层指向了。</p>
-<h3 id="指针变量">指针变量</h3>
-<p>用于专门存放内存地址（值的位置）的变量，叫指针。</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>* ptr = &amp;num;</span><br></pre></td></tr></table></figure>
-<p>变量类型<code>int*</code>，变量名<code>ptr</code>-&gt;变量值<code>num-&gt;100的内存地址</code></p>
-<p><code>&amp;num</code>，就是获取<code>num</code>值的位置。</p>
-<ul>
-<li><p><code>&amp;</code>一个变量名，就是获取变量名的值的地址。简称取地址。</p></li>
-<li><p><code>*</code>一个变量名，就是获取变量名的值（只对指针有效）。简称访问地址。</p></li>
-<li><p><code>*&amp;</code>一个变量名就是先<code>&amp;</code>后<code>*</code>（两个运算符优先级相同，且都是右结合）。</p>
-<p>先取地址，后访问地址，和单独使用变量名效果一样。</p></li>
-<li><p><code>&amp;</code>一个指针变量名，就是获取指针变量值本身的位置（存放<code>num</code>地址值的地址）。</p></li>
-</ul>
-<p>还可以创建二级指针，就是指向指针的指针：</p>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span>** pptr = &amp;ptr;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>pptr</code>变量名指向某一个地址，这个地址处记录着<code>ptr</code>的地址</li>
-<li><code>ptr</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的地址</li>
-<li><code>num</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的值<code>100</code></li>
-</ul>
-]]></content>
-      <categories>
-        <category>无分类</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>让博客commit前的工作更简单</title>
-    <url>/blog/2023/%E8%AE%A9%E5%8D%9A%E5%AE%A2commit%E5%89%8D%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9B%B4%E7%AE%80%E5%8D%95/</url>
-    <content><![CDATA[<p>起因是，我是把博客代码分两个仓库存的。需要做很多重复的工作。</p>
-<p>于是我写了两个 bat 文件。</p>
-<span id="more"></span>
-<p>起因是，我是把博客代码分两个仓库存的：</p>
-<ul>
-<li><p><code>blog-source</code>存 Hexo 框架源码，NexT
-主题源码和自己的部分（更改后的配置文件、md 文档、图片等）</p></li>
-<li><p><code>blog</code>存渲染之后的网页，分支是<code>gh-pages</code></p></li>
-</ul>
-<p>这就造成在 commit 前，我需要做以下工作：</p>
-<ol type="1">
-<li><p>在<code>blog-source</code>文件夹里先打开本地预览服务器。</p></li>
-<li><p>点击链接，在浏览器里打开。</p></li>
-<li><p>预览没问题，渲染网页。</p></li>
-<li><p>删除<code>blog</code>文件夹里除了<code>.git</code>外的所有文件和文件夹。</p></li>
-<li><p>把渲染的网页从<code>blog-source/public/</code>转移到<code>blog</code>文件夹里。</p></li>
-<li><p>清除<code>blog-source</code>文件夹里渲染的网页。</p></li>
-</ol>
-<p>手动操作了十几天后很烦，于是我写了两个 bat 文件：</p>
-<p><code>bs.bat</code> 做第 1-2 步</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d d:\repo\blog-source</span><br><span class="line"><span class="built_in">start</span> http://localhost:<span class="number">4000</span>/blog/</span><br><span class="line"><span class="keyword">call</span> npx hexo s</span><br></pre></td></tr></table></figure>
-<p><code>bg.bat</code> 做第 3-6 步</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">:: 删除旧文件</span><br><span class="line"><span class="built_in">cd</span> /d d:\repo\blog</span><br><span class="line">git rm -r *</span><br><span class="line">:: 渲染新文件</span><br><span class="line"><span class="built_in">cd</span> ..\blog-source</span><br><span class="line"><span class="keyword">call</span> npx hexo g</span><br><span class="line">:: 转移新文件</span><br><span class="line"><span class="built_in">xcopy</span> public ..\blog /s /e</span><br><span class="line"><span class="keyword">call</span> npx hexo clean</span><br></pre></td></tr></table></figure>
-<p>再建一个专门存 bat 的文件夹，把它添加到环境变量
-PATH。这样在任一文件夹下都可以做第 1-6 步了。</p>
-<p>commit 我用的是 GitHub Desktop，暂时没有换的必要。</p>
-]]></content>
-      <categories>
-        <category>无分类</category>
-      </categories>
-  </entry>
-  <entry>
     <title>算法-00-总纲</title>
     <url>/blog/2023/%E7%AE%97%E6%B3%95-00-%E6%80%BB%E7%BA%B2/</url>
     <content><![CDATA[<p>总纲就是学别人的写法，给别人的代码加注释。</p>
@@ -1735,6 +1636,235 @@ href="https://github.com/hustcc/JS-Sorting-Algorithm">JS-Sorting-Algorithm</a></
 ]]></content>
       <categories>
         <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>算法-01-插入排序</title>
+    <url>/blog/2023/%E7%AE%97%E6%B3%95-01-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<p>插入排序就是接扑克牌。</p>
+<span id="more"></span>
+<p>插入排序就像一张一张地接扑克牌，接到第一张扑克牌时什么也不做，接到第二张扑克牌时要与第一张作比较，看插入到第一张的前面还是后面，……，接到第
+n 张扑克牌时要与前 n - 1 张比较，看插入到手牌的哪个位置。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">insertionSort</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="comment">// 插入排序（从小到大）</span></span><br><span class="line">  <span class="keyword">const</span> len = arr.<span class="property">length</span>; <span class="comment">// 数组长度</span></span><br><span class="line">  <span class="keyword">let</span> preIndex, current; <span class="comment">// 当前元素的前一个元素的索引，和当前元素的值</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="comment">// i 相当于是一个指针，指向当前新接的牌</span></span><br><span class="line">    <span class="comment">// 只有一张或零张牌时不用排序，此时 len == 1 || len == 0，不满足循环条件，直接退出</span></span><br><span class="line">    preIndex = i - <span class="number">1</span>; <span class="comment">// 刚开始是新接的牌的前一张牌的索引，后来向左扫描</span></span><br><span class="line">    current = arr[i]; <span class="comment">// 新接的牌牌面</span></span><br><span class="line">    <span class="keyword">while</span> (preIndex &gt;= <span class="number">0</span> &amp;&amp; arr[preIndex] &gt; current) &#123;</span><br><span class="line">      <span class="comment">// 游标 preIndex 向左扫描，当每找到一张比当前新接的牌大的牌时，把游标当前指向的值覆盖给它右面的元素</span></span><br><span class="line">      <span class="comment">// 能进到这层循环，说明牌有两张或以上</span></span><br><span class="line">      <span class="comment">// 如果 preIndex 当前指向的牌比 current 大，把 preIndex 右边的值用 arr[preIndex] 覆盖</span></span><br><span class="line">      <span class="comment">// 由于 preIndex 是从新接的牌的左边一张牌开始取的，所以会把“插入位置”之后的牌都覆盖了，相当于整体向右挪了一位</span></span><br><span class="line">      <span class="comment">// 包括新接的牌也被覆盖了，所以前面才要单独用一个 current 变量保存新接的牌</span></span><br><span class="line">      <span class="comment">// 当 preIndex 指向的牌比 current 小，说明 preIndex 和 preIndex + 1 “之间” 就是应插入的位置</span></span><br><span class="line">      <span class="comment">// 由于是用覆盖的形式，所以真正的插入位置是 preIndex，在 preIndex 原来位置的牌覆盖给右面了</span></span><br><span class="line">      <span class="comment">// 又由于每次循环 preIndex 都要自减，退出循环之后往插入位置的左边偏了一位，所以退出之后插入位置变成了 preIndex + 1</span></span><br><span class="line">      <span class="comment">// 结束条件是 preIndex 指向的牌比 current 小，找到“插入位置”了</span></span><br><span class="line">      <span class="comment">// 结束条件或者是已经把第 0 张牌覆盖给了第 1 张牌，preIndex 自减之后变成了 -1</span></span><br><span class="line">      <span class="comment">// 所以反过来说，循环继续的条件是 preIndex &gt;= 0 &amp;&amp; arr[preIndex] &gt; current</span></span><br><span class="line">      <span class="comment">// 当 preIndex &lt; 0 时，arr[preIndex] 会越界，所以把 preIndex &gt;= 0 的条件写在前面，短路退出</span></span><br><span class="line">      arr[preIndex + <span class="number">1</span>] = arr[preIndex]; <span class="comment">// 把游标当前指向的值覆盖给它右面的元素</span></span><br><span class="line">      preIndex--; <span class="comment">//向左扫描</span></span><br><span class="line">    &#125;</span><br><span class="line">    arr[preIndex + <span class="number">1</span>] = current; <span class="comment">// “插入”牌</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>MongoDB - 01 - 基本操作</title>
+    <url>/blog/2023/MongoDB-01-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>装好软件后的基本操作。</p>
+<span id="more"></span>
+<h2 id="展示所有数据库名">展示所有数据库名</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">show dbs</span><br></pre></td></tr></table></figure>
+<h2 id="创建切换数据库">创建/切换数据库</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">use dbname</span><br></pre></td></tr></table></figure>
+<h2 id="删除某个数据库">删除某个数据库</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">use dbname</span><br><span class="line">db.<span class="title function_">dropDatabase</span>()</span><br></pre></td></tr></table></figure>
+<h2 id="向数据库里加集合">向数据库里加集合</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="title function_">createCollection</span>(<span class="string">&quot;c1&quot;</span>);</span><br><span class="line">db.<span class="title function_">createCollection</span>(<span class="string">&quot;c2&quot;</span>);</span><br><span class="line">db.<span class="title function_">createCollection</span>(<span class="string">&quot;c3&quot;</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="删除数据库的某个集合">删除数据库的某个集合</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">drop</span>();</span><br></pre></td></tr></table></figure>
+<h2 id="展示数据库里的所有集合名">展示数据库里的所有集合名</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">show collections</span><br></pre></td></tr></table></figure>
+<h2 id="向集合里加文档">向集合里加文档</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">insertOne</span>(&#123; <span class="attr">aaa</span>: <span class="number">123</span> &#125;);</span><br><span class="line">db.<span class="property">c1</span>.<span class="title function_">insertMany</span>([</span><br><span class="line">  &#123; <span class="attr">aaa</span>: <span class="number">123</span>, <span class="attr">bbb</span>: <span class="number">456</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">aaa</span>: <span class="number">123</span>, <span class="attr">ccc</span>: <span class="number">789</span> &#125;,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+<h2 id="查询集合里的所有文档">查询集合里的所有文档</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">find</span>();</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>MongoDB</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>MongoDB - 00 - 准备</title>
+    <url>/blog/2023/MongoDB-00-%E5%87%86%E5%A4%87/</url>
+    <content><![CDATA[<ul>
+<li>Windows 10 环境配置</li>
+<li>启动脚本</li>
+</ul>
+<span id="more"></span>
+<h2 id="windows-10-环境配置">Windows 10 环境配置</h2>
+<ol type="1">
+<li><a href="https://www.mongodb.com/try/download/community">下载
+MongoDB</a>，我下载的是<code>7.0.0 (current)</code>的<code>zip</code>格式。</li>
+<li>解压，右键用 PowerShell 运行<code>Install-Compass.ps1</code>，安装
+GUI。 默认会安装到 C 盘，安装完后手动移到 D 盘。</li>
+<li>建数据库文件夹，建一个空日志<code>test.log</code>。</li>
+<li>```sh mongod --dbpath [数据库文件夹路径] --logpath [日志文件路径]
+--logappend <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">5. 用 MongoDBCompass 连接。</span><br><span class="line"></span><br><span class="line">## 启动脚本</span><br><span class="line"></span><br><span class="line">`mo.bat`</span><br><span class="line"></span><br><span class="line">```bat</span><br><span class="line">cd /d D:\ProgramData\MongoDBCompass</span><br><span class="line">MongoDBCompass</span><br><span class="line">cd /d D:\ProgramData\mongodb-win32-x86_64-windows-7.0.0\bin</span><br><span class="line">call mongod --dbpath D:\ProgramData\mongodb-win32-x86_64-windows-7.0.0\db --logpath D:\ProgramData\mongodb-win32-x86_64-windows-7.0.0\test.log --logappend</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>脚本会 <code>call mongod</code>，停止则断开连接。</p>
+]]></content>
+      <categories>
+        <category>MongoDB</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>MongoDB - 02 - 按条件查询文档</title>
+    <url>/blog/2023/MongoDB-02-%E6%8C%89%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[<p>查询某数据库某集合中的文档。</p>
+<p>我这里键加不加引号效果一样。</p>
+<span id="more"></span>
+<h2 id="查询包含一个多个键值对的文档">查询包含一个/多个键值对的文档</h2>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">find</span>(&#123; <span class="attr">aaa</span>: <span class="number">123</span> &#125;);</span><br><span class="line">db.<span class="property">c1</span>.<span class="title function_">find</span>(&#123; <span class="attr">aaa</span>: <span class="number">123</span>, <span class="attr">bbb</span>: <span class="number">456</span> &#125;);</span><br></pre></td></tr></table></figure>
+<p>应该大概也许和与操作符的效果一样：</p>
+<ul>
+<li><code>$and: []</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">find</span>(&#123;</span><br><span class="line">  <span class="attr">$and</span>: [&#123; <span class="attr">aaa</span>: <span class="number">123</span> &#125;, &#123; <span class="attr">bbb</span>: <span class="number">456</span> &#125;],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2
+id="查询包含键值对列表中的一个多个的文档">查询包含键值对列表中的一个/多个的文档</h2>
+<ul>
+<li><code>$or: []</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">find</span>(&#123;</span><br><span class="line">  <span class="attr">$or</span>: [&#123; <span class="attr">aaa</span>: <span class="number">123</span> &#125;, &#123; <span class="attr">bbb</span>: <span class="number">456</span> &#125;],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2
+id="查询某个键的值大于小于某个值的文档">查询某个键的值大于/小于某个值的文档</h2>
+<ul>
+<li><code>$gt:</code> 大于（greater than）</li>
+<li><code>$lt:</code> 小于（less than）</li>
+<li><code>$gte:</code> 大于等于（greater than or equal to）</li>
+<li><code>$lte:</code> 小于等于（less than or equal to）</li>
+<li><code>$ne:</code> 不等于（not equal to）</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">find</span>(&#123;</span><br><span class="line">  <span class="attr">aaa</span>: &#123; <span class="attr">$gt</span>: <span class="number">100</span> &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>可以和前面的套娃：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">find</span>(&#123;</span><br><span class="line">  <span class="attr">$and</span>: [&#123; <span class="attr">aaa</span>: &#123; <span class="attr">$gt</span>: <span class="number">100</span> &#125; &#125;, &#123; <span class="attr">bbb</span>: &#123; <span class="attr">$lt</span>: <span class="number">500</span> &#125; &#125;],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2
+id="查询某个键的值在不在某个值列表内的文档">查询某个键的值在/不在某个值列表内的文档</h2>
+<ul>
+<li><code>$in: []</code> 在</li>
+<li><code>$nin: []</code> 不在</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">db.<span class="property">c1</span>.<span class="title function_">find</span>(&#123;</span><br><span class="line">  <span class="attr">aaa</span>: &#123; <span class="attr">$in</span>: [<span class="number">123</span>, <span class="number">456</span>] &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>MongoDB</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计网-00-概述-杂项概念</title>
+    <url>/blog/2023/%E8%AE%A1%E7%BD%91-00-%E6%A6%82%E8%BF%B0-%E6%9D%82%E9%A1%B9%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<ul>
+<li>概述：计算机网络、互 Lian 网、ISP、IXP、RFC 文档</li>
+<li>组成及通信
+<ul>
+<li>边缘部分的通信：C/S、P2P</li>
+<li>核心部分的通信：电路交换、分组交换、报文交换</li>
+</ul></li>
+<li>类别</li>
+</ul>
+<p>对应谢希仁《计算机网络》第八版 1.2~1.5</p>
+<span id="more"></span>
+<h2 id="概述">概述</h2>
+<p>什么叫计算机网络？</p>
+<p>一些通用的、可编程的（含
+CPU）硬件连接起来，可以传输多种不同类型的数据。</p>
+<ul>
+<li>互连网 internet：通用名词，一群计算机连起来。</li>
+<li>互联网 Internet：专用名词，全球计算机连起来。</li>
+</ul>
+<p>世界上第一个网页：<a
+href="http://info.cern.ch">http://info.cern.ch</a></p>
+<p><strong>ISP</strong></p>
+<p>互联网服务提供者（Internet Service
+Provider），可以是移动联通电信公司，也可以是非营利组织。</p>
+<ul>
+<li>主干 ISP：国</li>
+<li>地区 ISP：省</li>
+<li>本地 ISP：省以下</li>
+</ul>
+<p>内容提供者可以连接各级 ISP 和 IXP。</p>
+<p><strong>IXP</strong></p>
+<p>互联网交换点（Internet eXchange Point），让两个 ISP 直接相连。</p>
+<p>比如两个同级 ISP 交换信息时，可以通过 IXP，而不必通过上级 ISP。</p>
+<p><strong>RFC 文档</strong></p>
+<p>“请求评论”（Request For
+Comments）的文档，公开发布的互联网建议标准，请求公众评论。</p>
+<p>最后制定互联网标准 STD。</p>
+<h2 id="组成及通信">组成及通信</h2>
+<ul>
+<li>边缘部分：所有用户直接使用的主机。又叫端系统。</li>
+<li>核心部分：大量网络和连接网络的路由器。</li>
+</ul>
+<h3 id="边缘部分的通信">边缘部分的通信</h3>
+<p>计算机通信，实际上是进程间通过端口号通信。</p>
+<h4 id="cs">C/S</h4>
+<p>客户-服务器</p>
+<p>客户和服务器都是指进程。</p>
+<h4 id="p2p">P2P</h4>
+<p>peer to peer，peer：平等的。</p>
+<p>本质是 C/S，每台主机既是 C 又是 S。</p>
+<h3 id="核心部分的通信">核心部分的通信</h3>
+<h4 id="电路交换">电路交换</h4>
+<p>三步走：建立连接-&gt;占线通信-&gt;释放连接</p>
+<ul>
+<li>占线，两台机器间通信完了才能接受与其他机器通信</li>
+<li>效率低（时间利用密度低，占线过程中会有不收发信息的时候）</li>
+</ul>
+<h4 id="分组交换">分组交换</h4>
+<p>存储转发，类比快递收寄</p>
+<ol type="1">
+<li><p>把报文分组，每组写上头部信息。（包裹大包分成小包，写上序号、寄出地和目的地等）</p></li>
+<li><p>通过路由器一级一级地转发到目的地。</p>
+<pre class="mermaid">   gantt
+    title 分组交换（甘特图）
+    dateFormat s
+    axisFormat %S
+
+    section 1号包
+    从A到B    :0, 5s
+    从B到C    :5, 5s
+    从C到D    :10, 5s
+
+    section 2号包
+    从A到B    :5, 5s
+    从B到C    :10, 5s
+    从C到D    :15, 5s
+
+    section 3号包
+    从A到B    :10, 5s
+    从B到C    :15, 5s
+    从C到D    :20, 5s</pre>
+<ul>
+<li>0-5 时间 1 号包裹从 A 站到 B 站</li>
+<li>5-10 时间 1 号包裹从 B 站到 C 站、2 号包裹从 A 站到 B 站</li>
+<li>10-15 时间 1 号包裹从 C 站到 D 站、2 号包裹从 B 站到 C 站、3
+号包裹从 A 站到 B 站</li>
+<li>……</li>
+<li>（书上的图是以空间为横轴，以时间为纵轴）</li>
+</ul></li>
+<li><p>把各个包裹合并。</p></li>
+</ol>
+<ul>
+<li>不会占线，速度比报文交换快</li>
+<li>排队等路由器转发</li>
+<li>动态分配线路，不保证带宽</li>
+<li>增加开销（合并的时候）</li>
+</ul>
+<h4 id="报文交换">报文交换</h4>
+<p>也是存储转发，但是不分组，直接发完整的。</p>
+<h2 id="类别">类别</h2>
+<h3 id="按作用范围">按作用范围</h3>
+<ul>
+<li>WAN：广域网，几十到几千公里</li>
+<li>MAN：城域网，5~50km</li>
+<li>LAN：局域网，1km</li>
+<li>PAN：个人局域网，10m</li>
+</ul>
+<h3 id="按使用者">按使用者</h3>
+<ul>
+<li>公用网</li>
+<li>专用网</li>
+</ul>
+<h3 id="接入网-an">接入网 AN</h3>
+<p>不是核心部分，也不是边缘部分。</p>
+<p><a href="">宽带接入技术</a></p>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
       </categories>
   </entry>
   <entry>
@@ -1865,142 +1995,6 @@ km/s}\)</span></li>
       </categories>
   </entry>
   <entry>
-    <title>计网-00-概述-杂项概念</title>
-    <url>/blog/2023/%E8%AE%A1%E7%BD%91-00-%E6%A6%82%E8%BF%B0-%E6%9D%82%E9%A1%B9%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<ul>
-<li>概述：计算机网络、互 Lian 网、ISP、IXP、RFC 文档</li>
-<li>组成及通信
-<ul>
-<li>边缘部分的通信：C/S、P2P</li>
-<li>核心部分的通信：电路交换、分组交换、报文交换</li>
-</ul></li>
-<li>类别</li>
-</ul>
-<p>对应谢希仁《计算机网络》第八版 1.2~1.5</p>
-<span id="more"></span>
-<h2 id="概述">概述</h2>
-<p>什么叫计算机网络？</p>
-<p>一些通用的、可编程的（含
-CPU）硬件连接起来，可以传输多种不同类型的数据。</p>
-<ul>
-<li>互连网 internet：通用名词，一群计算机连起来。</li>
-<li>互联网 Internet：专用名词，全球计算机连起来。</li>
-</ul>
-<p>世界上第一个网页：<a
-href="http://info.cern.ch">http://info.cern.ch</a></p>
-<p><strong>ISP</strong></p>
-<p>互联网服务提供者（Internet Service
-Provider），可以是移动联通电信公司，也可以是非营利组织。</p>
-<ul>
-<li>主干 ISP：国</li>
-<li>地区 ISP：省</li>
-<li>本地 ISP：省以下</li>
-</ul>
-<p>内容提供者可以连接各级 ISP 和 IXP。</p>
-<p><strong>IXP</strong></p>
-<p>互联网交换点（Internet eXchange Point），让两个 ISP 直接相连。</p>
-<p>比如两个同级 ISP 交换信息时，可以通过 IXP，而不必通过上级 ISP。</p>
-<p><strong>RFC 文档</strong></p>
-<p>“请求评论”（Request For
-Comments）的文档，公开发布的互联网建议标准，请求公众评论。</p>
-<p>最后制定互联网标准 STD。</p>
-<h2 id="组成及通信">组成及通信</h2>
-<ul>
-<li>边缘部分：所有用户直接使用的主机。又叫端系统。</li>
-<li>核心部分：大量网络和连接网络的路由器。</li>
-</ul>
-<h3 id="边缘部分的通信">边缘部分的通信</h3>
-<p>计算机通信，实际上是进程间通过端口号通信。</p>
-<h4 id="cs">C/S</h4>
-<p>客户-服务器</p>
-<p>客户和服务器都是指进程。</p>
-<h4 id="p2p">P2P</h4>
-<p>peer to peer，peer：平等的。</p>
-<p>本质是 C/S，每台主机既是 C 又是 S。</p>
-<h3 id="核心部分的通信">核心部分的通信</h3>
-<h4 id="电路交换">电路交换</h4>
-<p>三步走：建立连接-&gt;占线通信-&gt;释放连接</p>
-<ul>
-<li>占线，两台机器间通信完了才能接受与其他机器通信</li>
-<li>效率低（时间利用密度低，占线过程中会有不收发信息的时候）</li>
-</ul>
-<h4 id="分组交换">分组交换</h4>
-<p>存储转发，类比快递收寄</p>
-<ol type="1">
-<li><p>把报文分组，每组写上头部信息。（包裹大包分成小包，写上序号、寄出地和目的地等）</p></li>
-<li><p>通过路由器一级一级地转发到目的地。</p>
-<pre class="mermaid">   gantt
-    title 分组交换（甘特图）
-    dateFormat s
-    axisFormat %S
-
-    section 1号包
-    从A到B    :0, 5s
-    从B到C    :5, 5s
-    从C到D    :10, 5s
-
-    section 2号包
-    从A到B    :5, 5s
-    从B到C    :10, 5s
-    从C到D    :15, 5s
-
-    section 3号包
-    从A到B    :10, 5s
-    从B到C    :15, 5s
-    从C到D    :20, 5s</pre>
-<ul>
-<li>0-5 时间 1 号包裹从 A 站到 B 站</li>
-<li>5-10 时间 1 号包裹从 B 站到 C 站、2 号包裹从 A 站到 B 站</li>
-<li>10-15 时间 1 号包裹从 C 站到 D 站、2 号包裹从 B 站到 C 站、3
-号包裹从 A 站到 B 站</li>
-<li>……</li>
-<li>（书上的图是以空间为横轴，以时间为纵轴）</li>
-</ul></li>
-<li><p>把各个包裹合并。</p></li>
-</ol>
-<ul>
-<li>不会占线，速度比报文交换快</li>
-<li>排队等路由器转发</li>
-<li>动态分配线路，不保证带宽</li>
-<li>增加开销（合并的时候）</li>
-</ul>
-<h4 id="报文交换">报文交换</h4>
-<p>也是存储转发，但是不分组，直接发完整的。</p>
-<h2 id="类别">类别</h2>
-<h3 id="按作用范围">按作用范围</h3>
-<ul>
-<li>WAN：广域网，几十到几千公里</li>
-<li>MAN：城域网，5~50km</li>
-<li>LAN：局域网，1km</li>
-<li>PAN：个人局域网，10m</li>
-</ul>
-<h3 id="按使用者">按使用者</h3>
-<ul>
-<li>公用网</li>
-<li>专用网</li>
-</ul>
-<h3 id="接入网-an">接入网 AN</h3>
-<p>不是核心部分，也不是边缘部分。</p>
-<p><a href="">宽带接入技术</a></p>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>算法-01-插入排序</title>
-    <url>/blog/2023/%E7%AE%97%E6%B3%95-01-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<p>插入排序就是接扑克牌。</p>
-<span id="more"></span>
-<p>插入排序就像一张一张地接扑克牌，接到第一张扑克牌时什么也不做，接到第二张扑克牌时要与第一张作比较，看插入到第一张的前面还是后面，……，接到第
-n 张扑克牌时要与前 n - 1 张比较，看插入到手牌的哪个位置。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">insertionSort</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="comment">// 插入排序（从小到大）</span></span><br><span class="line">  <span class="keyword">const</span> len = arr.<span class="property">length</span>; <span class="comment">// 数组长度</span></span><br><span class="line">  <span class="keyword">let</span> preIndex, current; <span class="comment">// 当前元素的前一个元素的索引，和当前元素的值</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="comment">// i 相当于是一个指针，指向当前新接的牌</span></span><br><span class="line">    <span class="comment">// 只有一张或零张牌时不用排序，此时 len == 1 || len == 0，不满足循环条件，直接退出</span></span><br><span class="line">    preIndex = i - <span class="number">1</span>; <span class="comment">// 刚开始是新接的牌的前一张牌的索引，后来向左扫描</span></span><br><span class="line">    current = arr[i]; <span class="comment">// 新接的牌牌面</span></span><br><span class="line">    <span class="keyword">while</span> (preIndex &gt;= <span class="number">0</span> &amp;&amp; arr[preIndex] &gt; current) &#123;</span><br><span class="line">      <span class="comment">// 游标 preIndex 向左扫描，当每找到一张比当前新接的牌大的牌时，把游标当前指向的值覆盖给它右面的元素</span></span><br><span class="line">      <span class="comment">// 能进到这层循环，说明牌有两张或以上</span></span><br><span class="line">      <span class="comment">// 如果 preIndex 当前指向的牌比 current 大，把 preIndex 右边的值用 arr[preIndex] 覆盖</span></span><br><span class="line">      <span class="comment">// 由于 preIndex 是从新接的牌的左边一张牌开始取的，所以会把“插入位置”之后的牌都覆盖了，相当于整体向右挪了一位</span></span><br><span class="line">      <span class="comment">// 包括新接的牌也被覆盖了，所以前面才要单独用一个 current 变量保存新接的牌</span></span><br><span class="line">      <span class="comment">// 当 preIndex 指向的牌比 current 小，说明 preIndex 和 preIndex + 1 “之间” 就是应插入的位置</span></span><br><span class="line">      <span class="comment">// 由于是用覆盖的形式，所以真正的插入位置是 preIndex，在 preIndex 原来位置的牌覆盖给右面了</span></span><br><span class="line">      <span class="comment">// 又由于每次循环 preIndex 都要自减，退出循环之后往插入位置的左边偏了一位，所以退出之后插入位置变成了 preIndex + 1</span></span><br><span class="line">      <span class="comment">// 结束条件是 preIndex 指向的牌比 current 小，找到“插入位置”了</span></span><br><span class="line">      <span class="comment">// 结束条件或者是已经把第 0 张牌覆盖给了第 1 张牌，preIndex 自减之后变成了 -1</span></span><br><span class="line">      <span class="comment">// 所以反过来说，循环继续的条件是 preIndex &gt;= 0 &amp;&amp; arr[preIndex] &gt; current</span></span><br><span class="line">      <span class="comment">// 当 preIndex &lt; 0 时，arr[preIndex] 会越界，所以把 preIndex &gt;= 0 的条件写在前面，短路退出</span></span><br><span class="line">      arr[preIndex + <span class="number">1</span>] = arr[preIndex]; <span class="comment">// 把游标当前指向的值覆盖给它右面的元素</span></span><br><span class="line">      preIndex--; <span class="comment">//向左扫描</span></span><br><span class="line">    &#125;</span><br><span class="line">    arr[preIndex + <span class="number">1</span>] = current; <span class="comment">// “插入”牌</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-  </entry>
-  <entry>
     <title>计网-02-概述-体系结构</title>
     <url>/blog/2023/%E8%AE%A1%E7%BD%91-02-%E6%A6%82%E8%BF%B0-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<ul>
@@ -2111,6 +2105,173 @@ IP……
       </categories>
   </entry>
   <entry>
+    <title>计网-03-物理层-通信基础概念</title>
+    <url>/blog/2023/%E8%AE%A1%E7%BD%91-03-%E7%89%A9%E7%90%86%E5%B1%82-%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</url>
+    <content><![CDATA[<ul>
+<li>物理层</li>
+<li>通信双方的交互方式：单向通信、双向交替通信、双向同时通信</li>
+<li>编码和调制</li>
+<li>编码方式：不归零制、归零制、曼彻斯特编码、差分曼彻斯特编码</li>
+<li>基带调制、带通调制、正交振幅调制</li>
+</ul>
+<p>对应谢希仁《计算机网络》第八版 2.1~2.2.2</p>
+<span id="more"></span>
+<h2 id="物理层">物理层</h2>
+<p>物理层讨论的是如何传比特的，用什么协议。</p>
+<p>它尽量隔开了传输媒体（铜线、光纤等）和上一层（数据链路层）之间的关系。</p>
+<p>物理层的协议也叫规程。</p>
+<h2 id="通信双方的交互方式">通信双方的交互方式</h2>
+<h3 id="单向通信单工">单向通信（单工）</h3>
+<p>一段单行道。电视、广播。</p>
+<h3 id="双向交替通信半双工">双向交替通信（半双工）</h3>
+<p>一段有两个车道的马路，但是规定在一边的车道有车正在走时，另一边（相反方向）的车道不能有车走。对讲机。</p>
+<h3 id="双向同时通信全双工">双向同时通信（全双工）</h3>
+<p>一段正常的两个车道的马路。</p>
+<h2 id="编码和调制">编码和调制</h2>
+<ul>
+<li><p>把信号（数或者模）转换为数字信号，叫编码。</p></li>
+<li><p>把信号（数或者模）转换为模拟信号，叫调制。</p></li>
+</ul>
+<p>上面的抽象成了简单的情况，还是要根据语义判断。</p>
+<h2 id="编码方式">编码方式</h2>
+<h3 id="不归零制">不归零制</h3>
+<ul>
+<li>正电平，<code>‾</code>，<code>1</code></li>
+<li>负电平，<code>_</code>，<code>0</code></li>
+</ul>
+<h3 id="归零制">归零制</h3>
+<ul>
+<li>正脉冲，凸（<code>-‾-</code>），<code>1</code></li>
+<li>负脉冲，凹（<code>-_-</code>），<code>0</code></li>
+</ul>
+<h3 id="曼彻斯特编码">曼彻斯特编码</h3>
+<ul>
+<li>中心向下跳变，<code>‾_</code>，<code>1</code></li>
+<li>中心向上跳变，<code>_‾</code>，<code>0</code></li>
+<li>简记：下 1</li>
+</ul>
+<h3 id="差分曼彻斯特编码">差分曼彻斯特编码</h3>
+<ul>
+<li>中心始终跳变</li>
+<li>左边界无跳变，<code>1</code>
+<ul>
+<li><code>_|_‾</code></li>
+<li><code>‾|‾_</code></li>
+</ul></li>
+<li>左边界有跳变，<code>0</code>
+<ul>
+<li><code>_|‾_</code></li>
+<li><code>‾|_‾</code></li>
+</ul></li>
+<li>简记：边界遇 0 跳变</li>
+</ul>
+<p>（忽略竖线，是用来当分隔符的）</p>
+<h3 id="对比">对比</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> 1  1  0  0  1</span><br><span class="line"></span><br><span class="line">‾‾‾‾‾‾______‾‾‾    #不归零制</span><br><span class="line"></span><br><span class="line">-‾--‾--_--_--‾-    #归零制</span><br><span class="line"></span><br><span class="line">‾_|‾_|_‾|_‾|‾_|    #曼彻斯特编码（忽略竖线，是用来当分隔符的）</span><br><span class="line"></span><br><span class="line">‾_|_‾|_‾|_‾|‾_|    #差分曼彻斯特编码（忽略竖线，是用来当分隔符的）</span><br></pre></td></tr></table></figure>
+<h2 id="基带调制">基带调制</h2>
+<p>基带信号就是原始的数字信号，把基带信号转换成另一种数字信号就叫基带调制。也叫编码。</p>
+<h2 id="带通调制">带通调制</h2>
+<p>使用载波的。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">‾‾‾‾‾‾______‾‾‾    #基带信号</span><br><span class="line"></span><br><span class="line">MWMWMW------MWM    #调幅（AM）</span><br><span class="line"></span><br><span class="line">MWMWMWПUПUПUMWM    #调频（FM）</span><br><span class="line"></span><br><span class="line">MWMWMWWMWMWMMWM    #调相（PM）</span><br></pre></td></tr></table></figure>
+<h2 id="正交振幅调制qam">正交振幅调制（QAM）</h2>
+<p>简单地理解就是：</p>
+<p><span class="math display">\[
+\begin{aligned}
+调制后的信号 &amp; = 振幅 \times 载波(相位) \\
+y &amp; = A\sin(\omega x + \phi) \\
+\end{aligned}
+\]</span></p>
+<p>用不同的<strong>振幅</strong>和<strong>相位</strong>排列组合，来表示（承载）不同的基带信号，比只调幅/只调频/只调相的信息密度高。</p>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>计网-04-物理层-信道的极限容量</title>
+    <url>/blog/2023/%E8%AE%A1%E7%BD%91-04-%E7%89%A9%E7%90%86%E5%B1%82-%E4%BF%A1%E9%81%93%E7%9A%84%E6%9E%81%E9%99%90%E5%AE%B9%E9%87%8F/</url>
+    <content><![CDATA[<ul>
+<li>码元</li>
+<li>奈氏准则：无噪声信道中码元传输最高速率
+<ul>
+<li><span class="math inline">\(W\)</span>：信道的频域带宽</li>
+<li><span class="math inline">\(\mathrm{码元/s} = 码元单位 \times
+两倍频域带宽\)</span></li>
+</ul></li>
+<li>信噪比
+<ul>
+<li>用 <span class="math inline">\(\dfrac{S}{N}\)</span> 表示</li>
+<li>用 <span class="math inline">\(\mathrm{dB} = 10
+\lg\dfrac{S}{N}\)</span> 表示</li>
+</ul></li>
+<li>香农公式：信道极限速率
+<ul>
+<li><span class="math inline">\(\mathrm{bit/s} = W \log_2 (1 +
+\dfrac{S}{N})\)</span></li>
+</ul></li>
+<li>奈氏准则和香农公式的意义</li>
+</ul>
+<p>对应谢希仁《计算机网络》第八版 2.2.3</p>
+<span id="more"></span>
+<h2 id="码元">码元</h2>
+<p>码元，就是用来表示【码】的单个【元】。</p>
+<ul>
+<li>【码】就是串 <code>010100...</code></li>
+<li>【元】就是符号（x 元 x 次方程）。</li>
+<li>【码元】就是用来表示长串的众多符号中的单个符号。</li>
+</ul>
+<p>比如串 <code>1001 1111</code>，可以分隔成前后两部分，记作
+<code>9F</code>。</p>
+<p><code>9</code> 和 <code>F</code>
+都是码元，是不同的码元，它们分别一一对应（双射）了一个四位二进制数。</p>
+<p>如果分隔成八个部分，那 <code>0</code> 和 <code>1</code>
+也是码元。</p>
+<p>类比信号，码就是波形，码元就是在发送和解读波形时，可以分辨的最小单位波形。</p>
+<h2
+id="奈氏准则奈奎斯特香农采样定理的一部分">奈氏准则（奈奎斯特—香农采样定理的一部分）</h2>
+<p>奈奎斯特这个人推导出的准则：</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; 信道中码元传输的最高速率（码元/\mathrm{s}） \\
+= \ &amp; 两倍频域带宽（\mathrm{Hz，即 s^{-1}}）\times 码元的单位
+\end{aligned}
+\]</span></p>
+<p>是在理想的、信道内无噪声的情况下。这里的最高速率指的是，保证接收方接收符号（码元）不出错（码间串扰）时的速率上限。符号速率也叫波特（Baud）。</p>
+<p>频域带宽用 <span class="math inline">\(W\)</span> 表示。</p>
+<h2 id="信噪比">信噪比</h2>
+<p>就是信比噪，两种表示方式：</p>
+<ul>
+<li><span class="math inline">\(\dfrac{S}{N} =
+\dfrac{信号平均功率}{噪声平均功率}\)</span></li>
+<li><span class="math inline">\(\mathrm{dB} = 10
+\lg\dfrac{S}{N}\)</span></li>
+</ul>
+<p>前者没有单位，也可以看成是 <span
+class="math inline">\(\dfrac{瓦特}{瓦特}\)</span>。后者是无量纲单位
+<span class="math inline">\(\mathrm{dB}\)</span>。</p>
+<h2 id="香农公式香农哈特莱容量定理">香农公式（香农—哈特莱容量定理）</h2>
+<p>考虑到了信道有噪声：</p>
+<p><span class="math display">\[
+\begin{aligned}
+信道极限速率 &amp; = \mathrm{bit/s = Hz \times bit} \\
+&amp; = W \log_2(1 + \dfrac{S}{N}) \\
+\end{aligned}
+\]</span></p>
+<p>后面那一坨为什么是 <span
+class="math inline">\(\mathrm{bit}\)</span>，是通信专业要学的。<span
+class="math inline">\(\mathrm{bit}\)</span> 也是无量纲单位（？）。</p>
+<h2 id="奈氏准则和香农公式的意义">奈氏准则和香农公式的意义</h2>
+<p>信噪比越大，接收方接收到的信息失真越少。</p>
+<p>奈氏准则直接假定噪声为 <span
+class="math inline">\(0\)</span>，信噪比无穷大，速率只取决于带宽。这鼓励了人们研究更好的编码技术，一次传更多的东西。</p>
+<p>香农公式告诉我们：信噪比越大，极限速率越高，但是信噪比不可能无限大，所以速率也有极限。</p>
+<p>计算传输速率时，取奈氏准则和香农公式的结果小的。</p>
+]]></content>
+      <categories>
+        <category>计算机网络</category>
+      </categories>
+  </entry>
+  <entry>
     <title>《草蛇惊一》歌词解读</title>
     <url>/blog//holy-shit-grass-snake.html</url>
     <content><![CDATA[<p>《草蛇惊一》收录于初音未来 V4C 专辑《初梦》，作词是<a
@@ -2204,8 +2365,7 @@ A。</p>
 </blockquote>
 <p>风车和视角 A
 在脑海里互相争斗。主人公希望自己不要再胡思乱想了，给自己开了【顽固蠢蛋的终身证明】。</p>
-<p>有马原“否定之否定”规律的影子。<del>所以我说马克思是潜 ↘
-伏在西方的一个纯 ↗ 正的中国人。</del></p>
+<p>有马原“否定之否定”规律的影子。</p>
 <h2 id="导歌">导歌</h2>
 <h3 id="子龙我就不走">子龙我就不走</h3>
 <blockquote>
@@ -2292,173 +2452,6 @@ href="https://www.bilibili.com/video/BV1nP4y1W7dr/">《石头歌》</a></li>
 ]]></content>
       <categories>
         <category>音乐</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>计网-04-物理层-信道的极限容量</title>
-    <url>/blog/2023/%E8%AE%A1%E7%BD%91-04-%E7%89%A9%E7%90%86%E5%B1%82-%E4%BF%A1%E9%81%93%E7%9A%84%E6%9E%81%E9%99%90%E5%AE%B9%E9%87%8F/</url>
-    <content><![CDATA[<ul>
-<li>码元</li>
-<li>奈氏准则：无噪声信道中码元传输最高速率
-<ul>
-<li><span class="math inline">\(W\)</span>：信道的频域带宽</li>
-<li><span class="math inline">\(\mathrm{码元/s} = 码元单位 \times
-两倍频域带宽\)</span></li>
-</ul></li>
-<li>信噪比
-<ul>
-<li>用 <span class="math inline">\(\dfrac{S}{N}\)</span> 表示</li>
-<li>用 <span class="math inline">\(\mathrm{dB} = 10
-\lg\dfrac{S}{N}\)</span> 表示</li>
-</ul></li>
-<li>香农公式：信道极限速率
-<ul>
-<li><span class="math inline">\(\mathrm{bit/s} = W \log_2 (1 +
-\dfrac{S}{N})\)</span></li>
-</ul></li>
-<li>奈氏准则和香农公式的意义</li>
-</ul>
-<p>对应谢希仁《计算机网络》第八版 2.2.3</p>
-<span id="more"></span>
-<h2 id="码元">码元</h2>
-<p>码元，就是用来表示【码】的单个【元】。</p>
-<ul>
-<li>【码】就是串 <code>010100...</code></li>
-<li>【元】就是符号（x 元 x 次方程）。</li>
-<li>【码元】就是用来表示长串的众多符号中的单个符号。</li>
-</ul>
-<p>比如串 <code>1001 1111</code>，可以分隔成前后两部分，记作
-<code>9F</code>。</p>
-<p><code>9</code> 和 <code>F</code>
-都是码元，是不同的码元，它们分别一一对应（双射）了一个四位二进制数。</p>
-<p>如果分隔成八个部分，那 <code>0</code> 和 <code>1</code>
-也是码元。</p>
-<p>类比信号，码就是波形，码元就是在发送和解读波形时，可以分辨的最小单位波形。</p>
-<h2
-id="奈氏准则奈奎斯特香农采样定理的一部分">奈氏准则（奈奎斯特—香农采样定理的一部分）</h2>
-<p>奈奎斯特这个人推导出的准则：</p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp; 信道中码元传输的最高速率（码元/\mathrm{s}） \\
-= \ &amp; 两倍频域带宽（\mathrm{Hz，即 s^{-1}}）\times 码元的单位
-\end{aligned}
-\]</span></p>
-<p>是在理想的、信道内无噪声的情况下。这里的最高速率指的是，保证接收方接收符号（码元）不出错（码间串扰）时的速率上限。符号速率也叫波特（Baud）。</p>
-<p>频域带宽用 <span class="math inline">\(W\)</span> 表示。</p>
-<h2 id="信噪比">信噪比</h2>
-<p>就是信比噪，两种表示方式：</p>
-<ul>
-<li><span class="math inline">\(\dfrac{S}{N} =
-\dfrac{信号平均功率}{噪声平均功率}\)</span></li>
-<li><span class="math inline">\(\mathrm{dB} = 10
-\lg\dfrac{S}{N}\)</span></li>
-</ul>
-<p>前者没有单位，也可以看成是 <span
-class="math inline">\(\dfrac{瓦特}{瓦特}\)</span>。后者是无量纲单位
-<span class="math inline">\(\mathrm{dB}\)</span>。</p>
-<h2 id="香农公式香农哈特莱容量定理">香农公式（香农—哈特莱容量定理）</h2>
-<p>考虑到了信道有噪声：</p>
-<p><span class="math display">\[
-\begin{aligned}
-信道极限速率 &amp; = \mathrm{bit/s = Hz \times bit} \\
-&amp; = W \log_2(1 + \dfrac{S}{N}) \\
-\end{aligned}
-\]</span></p>
-<p>后面那一坨为什么是 <span
-class="math inline">\(\mathrm{bit}\)</span>，是通信专业要学的。<span
-class="math inline">\(\mathrm{bit}\)</span> 也是无量纲单位（？）。</p>
-<h2 id="奈氏准则和香农公式的意义">奈氏准则和香农公式的意义</h2>
-<p>信噪比越大，接收方接收到的信息失真越少。</p>
-<p>奈氏准则直接假定噪声为 <span
-class="math inline">\(0\)</span>，信噪比无穷大，速率只取决于带宽。这鼓励了人们研究更好的编码技术，一次传更多的东西。</p>
-<p>香农公式告诉我们：信噪比越大，极限速率越高，但是信噪比不可能无限大，所以速率也有极限。</p>
-<p>计算传输速率时，取奈氏准则和香农公式的结果小的。</p>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>计网-03-物理层-通信基础概念</title>
-    <url>/blog/2023/%E8%AE%A1%E7%BD%91-03-%E7%89%A9%E7%90%86%E5%B1%82-%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</url>
-    <content><![CDATA[<ul>
-<li>物理层</li>
-<li>通信双方的交互方式：单向通信、双向交替通信、双向同时通信</li>
-<li>编码和调制</li>
-<li>编码方式：不归零制、归零制、曼彻斯特编码、差分曼彻斯特编码</li>
-<li>基带调制、带通调制、正交振幅调制</li>
-</ul>
-<p>对应谢希仁《计算机网络》第八版 2.1~2.2.2</p>
-<span id="more"></span>
-<h2 id="物理层">物理层</h2>
-<p>物理层讨论的是如何传比特的，用什么协议。</p>
-<p>它尽量隔开了传输媒体（铜线、光纤等）和上一层（数据链路层）之间的关系。</p>
-<p>物理层的协议也叫规程。</p>
-<h2 id="通信双方的交互方式">通信双方的交互方式</h2>
-<h3 id="单向通信单工">单向通信（单工）</h3>
-<p>一段单行道。电视、广播。</p>
-<h3 id="双向交替通信半双工">双向交替通信（半双工）</h3>
-<p>一段有两个车道的马路，但是规定在一边的车道有车正在走时，另一边（相反方向）的车道不能有车走。对讲机。</p>
-<h3 id="双向同时通信全双工">双向同时通信（全双工）</h3>
-<p>一段正常的两个车道的马路。</p>
-<h2 id="编码和调制">编码和调制</h2>
-<ul>
-<li><p>把信号（数或者模）转换为数字信号，叫编码。</p></li>
-<li><p>把信号（数或者模）转换为模拟信号，叫调制。</p></li>
-</ul>
-<p>上面的抽象成了简单的情况，还是要根据语义判断。</p>
-<h2 id="编码方式">编码方式</h2>
-<h3 id="不归零制">不归零制</h3>
-<ul>
-<li>正电平，<code>‾</code>，<code>1</code></li>
-<li>负电平，<code>_</code>，<code>0</code></li>
-</ul>
-<h3 id="归零制">归零制</h3>
-<ul>
-<li>正脉冲，凸（<code>-‾-</code>），<code>1</code></li>
-<li>负脉冲，凹（<code>-_-</code>），<code>0</code></li>
-</ul>
-<h3 id="曼彻斯特编码">曼彻斯特编码</h3>
-<ul>
-<li>中心向下跳变，<code>‾_</code>，<code>1</code></li>
-<li>中心向上跳变，<code>_‾</code>，<code>0</code></li>
-<li>简记：下 1</li>
-</ul>
-<h3 id="差分曼彻斯特编码">差分曼彻斯特编码</h3>
-<ul>
-<li>中心始终跳变</li>
-<li>左边界无跳变，<code>1</code>
-<ul>
-<li><code>_|_‾</code></li>
-<li><code>‾|‾_</code></li>
-</ul></li>
-<li>左边界有跳变，<code>0</code>
-<ul>
-<li><code>_|‾_</code></li>
-<li><code>‾|_‾</code></li>
-</ul></li>
-<li>简记：边界遇 0 跳变</li>
-</ul>
-<p>（忽略竖线，是用来当分隔符的）</p>
-<h3 id="对比">对比</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> 1  1  0  0  1</span><br><span class="line"></span><br><span class="line">‾‾‾‾‾‾______‾‾‾    #不归零制</span><br><span class="line"></span><br><span class="line">-‾--‾--_--_--‾-    #归零制</span><br><span class="line"></span><br><span class="line">‾_|‾_|_‾|_‾|‾_|    #曼彻斯特编码（忽略竖线，是用来当分隔符的）</span><br><span class="line"></span><br><span class="line">‾_|_‾|_‾|_‾|‾_|    #差分曼彻斯特编码（忽略竖线，是用来当分隔符的）</span><br></pre></td></tr></table></figure>
-<h2 id="基带调制">基带调制</h2>
-<p>基带信号就是原始的数字信号，把基带信号转换成另一种数字信号就叫基带调制。也叫编码。</p>
-<h2 id="带通调制">带通调制</h2>
-<p>使用载波的。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">‾‾‾‾‾‾______‾‾‾    #基带信号</span><br><span class="line"></span><br><span class="line">MWMWMW------MWM    #调幅（AM）</span><br><span class="line"></span><br><span class="line">MWMWMWПUПUПUMWM    #调频（FM）</span><br><span class="line"></span><br><span class="line">MWMWMWWMWMWMMWM    #调相（PM）</span><br></pre></td></tr></table></figure>
-<h2 id="正交振幅调制qam">正交振幅调制（QAM）</h2>
-<p>简单地理解就是：</p>
-<p><span class="math display">\[
-\begin{aligned}
-调制后的信号 &amp; = 振幅 \times 载波(相位) \\
-y &amp; = A\sin(\omega x + \phi) \\
-\end{aligned}
-\]</span></p>
-<p>用不同的<strong>振幅</strong>和<strong>相位</strong>排列组合，来表示（承载）不同的基带信号，比只调幅/只调频/只调相的信息密度高。</p>
-]]></content>
-      <categories>
-        <category>计算机网络</category>
       </categories>
   </entry>
   <entry>
@@ -2659,342 +2652,6 @@ C5}\)</span>。<code>B#4 = C5</code></p>
 为降号（flat），用于把一个音降低半音。</p>
 <p>比如 <span class="math inline">\(\mathrm{D \flat 4 = C \sharp
 4}\)</span>。<code>Db4 = C#4</code></p>
-<h2 id="作业">作业</h2>
-<p>用 Python 写一个程序，输入 88
-键钢琴的任一音名，输出对应的频率。当输入<code>all</code>时，输出所有音的频率。（<span
-class="math inline">\(\mathrm{A4=440Hz}\)</span>，白键不加升降号，黑键始终为升号，保留三位小数）</p>
-<p><strong>暂时能跑的答案：</strong></p>
-<p><a
-href="https://github.com/ruofancooh/utility-room/tree/main/learning/music">A0-main.py</a></p>
-]]></content>
-      <categories>
-        <category>音乐</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>乐理-A♯0-音名与唱名、音阶与音级</title>
-    <url>/blog/2023/%E4%B9%90%E7%90%86-A%E2%99%AF0-%E9%9F%B3%E5%90%8D%E4%B8%8E%E5%94%B1%E5%90%8D%E3%80%81%E9%9F%B3%E9%98%B6%E4%B8%8E%E9%9F%B3%E7%BA%A7/</url>
-    <content><![CDATA[<ul>
-<li>音名与唱名</li>
-<li>七声音阶及音级</li>
-</ul>
-<span id="more"></span>
-<p><em>英文并不一定是正确的专业名词，只是用来作变量名。同时解释也不一定准确，只是为了方便程序编码时的应用。</em></p>
-<h2 id="音名和唱名">音名和唱名</h2>
-<ul>
-<li><p>音名（pitch name，音高名称）</p>
-<ul>
-<li><p><code>C4</code>、<code>C#4</code>、<code>D4</code>等是音名，对应<strong>绝对音高</strong>。</p></li>
-<li><p>比如 <span class="math inline">\(\mathrm{C4 = 220 \times
-\sqrt[4]{2} Hz}\)</span>。</p></li>
-</ul></li>
-</ul>
-<p><img src="/blog/images/piano.webp"></p>
-<ul>
-<li><p>唱名（sol-fa note，唱名表示法<a href="#fn1" class="footnote-ref"
-id="fnref1" role="doc-noteref"><sup>1</sup></a>中的音符）</p>
-<ul>
-<li><p><code>do</code>、<code>re</code>、<code>mi</code>、<code>fa</code>、<code>sol</code>、<code>la</code>、<code>ti</code>
-是唱名，对应<strong>相对音高</strong>。</p></li>
-<li><p>在简谱里记作
-<code>1</code>、<code>2</code>、<code>3</code>、<code>4</code>、<code>5</code>、<code>6</code>、<code>7</code>。</p></li>
-<li><p>我们可以<strong>规定</strong> <code>1</code> 至 <code>7</code>
-分别<strong>对应</strong>七个白键 <code>C4</code> 至
-<code>B4</code>。这时简谱头部会有 <span class="math inline">\(\mathrm{1
-= C}\)</span>。</p></li>
-<li><p>在简谱里，如果用 <span class="math inline">\(1\)</span> 表示
-<span class="math inline">\(\mathrm{C4}\)</span>，那么 <span
-class="math inline">\(\mathrm{\dot{1}}\)</span> 就表示 <span
-class="math inline">\(\mathrm{C5}\)</span>。<span
-class="math inline">\(\mathrm{\dot{\dot{1}}}\)</span> 表示 <span
-class="math inline">\(\mathrm{C6}\)</span>，<span
-class="math inline">\(\underset{·}{1}\)</span> 表示 <span
-class="math inline">\(\mathrm{C3}\)</span>，以此类推。</p></li>
-</ul></li>
-</ul>
-<h2 id="音阶">音阶</h2>
-<blockquote>
-<p>在音乐理论中，音阶（scale，尺度）是按基本频率或音高排序的任何一组音符。按音高递增排序的音阶是升序音阶，按音高递减排序的音阶是降序音阶。<a
-href="#fn2" class="footnote-ref" id="fnref2"
-role="doc-noteref"><sup>2</sup></a></p>
-</blockquote>
-<p><code>A0 B0 C1 D1 E1 F1 G1 A1 B1 ... C4 D4 E4 F4 G4 A4 B4 ... C7 D7 E7 F7 G7 A7 B7 C8</code>
-就是一组升序音阶，对应钢琴的所有白键。</p>
-<p>在上面的例子中，每个八度里用到了七个音名<code>C D E F G A B</code>（不包括区间右端点），这被称为<strong>七声音阶</strong>（heptatonic
-scale）。</p>
-<h2 id="音级">音级</h2>
-<p>七声音阶里有七个音级（degree，刻度）：</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">音级</th>
-<th>名称</th>
-<th>英文名称</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(Ⅰ\)</span></td>
-<td>主音</td>
-<td>tonic</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(Ⅱ\)</span></td>
-<td>上主音</td>
-<td>supertonic</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(Ⅲ\)</span></td>
-<td>中音</td>
-<td>mediant</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(Ⅳ\)</span></td>
-<td>下属音</td>
-<td>subdominant</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(Ⅴ\)</span></td>
-<td>属音</td>
-<td>dominant</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><span
-class="math inline">\(Ⅵ\)</span></td>
-<td>下中音</td>
-<td>submediant</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><span
-class="math inline">\(Ⅶ\)</span></td>
-<td>导音</td>
-<td>subtonic / leading note</td>
-</tr>
-</tbody>
-</table>
-<aside id="footnotes" class="footnotes footnotes-end-of-document"
-role="doc-endnotes">
-<hr />
-<ol>
-<li id="fn1"><p><a
-href="https://en.wikipedia.org/wiki/Solmization">https://en.wikipedia.org/wiki/Solmization</a><a
-href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p><a
-href="https://en.wikipedia.org/wiki/Scale_(music)">https://en.wikipedia.org/wiki/Scale_(music)</a><a
-href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</aside>
-]]></content>
-      <categories>
-        <category>音乐</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>乐理-B0-中古调式</title>
-    <url>/blog/2023/%E4%B9%90%E7%90%86-B0-%E4%B8%AD%E5%8F%A4%E8%B0%83%E5%BC%8F/</url>
-    <content><![CDATA[<ul>
-<li>【音阶相同】是什么意思</li>
-<li>调式与移调</li>
-<li><span class="math inline">\(7 \times 12\)</span> 种中古调式</li>
-<li>不同的中古调式可能使用相同的琴键</li>
-</ul>
-<span id="more"></span>
-<h2 id="音阶相同是什么意思">【音阶相同】是什么意思</h2>
-<p><span class="math inline">\(\mathrm{C-D-E-F-G-A-B}\)</span> 和</p>
-<p><span class="math inline">\(\mathrm{A-B-C-D-E-F-G}\)</span>
-音阶相同吗？</p>
-<p>这两组音阶分别都是同一个八度里的音（不包括右端点）。</p>
-<p>如果把“音阶”理解为【无限扩展到多个八度后，所有音的绝对音高】的话，得到的答案是相同的，因为【它们都使用了钢琴的所有白键】。</p>
-<p>但是看别人网上的回答，这两组音阶是不同的。</p>
-<p>原因在于：</p>
-<ul>
-<li><p>首先，主音不同。 前者以 <span
-class="math inline">\(\mathrm{C}\)</span> 为主音，后者以 <span
-class="math inline">\(\mathrm{A}\)</span> 为主音。</p></li>
-<li><p>其次，音级之间的音程关系（相隔的半音数）不同。</p>
-<p>前者为 <span class="math inline">\(2-2-1-2-2-2-1\)</span>，</p>
-<p>后者为 <span
-class="math inline">\(2-1-2-2-1-2-2\)</span>。（算上下一个八度里的主音）</p></li>
-</ul>
-<p>我们说两组音阶相同，意思是<strong>它们的主音、音程关系都相同</strong>。</p>
-<h2 id="调式">调式</h2>
-<p>狭义的调式（mode） = 主音 + 音程关系</p>
-<ol type="1">
-<li>确定一个起始音（主音）。</li>
-<li>从主音开始，往后（高音方向）取不同的音级。这些不同的音相隔的半音数可能不同，直到取完一个八度。</li>
-<li>再往前、往后取，直到取完所有八度。</li>
-</ol>
-<p>比如：</p>
-<ul>
-<li>以 <span class="math inline">\(\mathrm{C}\)</span>
-为主音，音程关系为 <span class="math inline">\((2-2-1-2-2-2-1)\)</span>
-的调式，称为 <span class="math inline">\(\mathrm{C}\)</span>
-<strong>自然大调</strong>。<code>C Major</code> 用到的音名为： <span
-class="math display">\[
-\mathrm{...B3-C4-D4-E4-F4-G4-A4-B4-C5...}
-\]</span></li>
-<li>以 <span class="math inline">\(\mathrm{A}\)</span>
-为主音，音程关系为 <span class="math inline">\((2-2-1-2-2-2-1)\)</span>
-的调式，称为 <span class="math inline">\(\mathrm{A}\)</span>
-<strong>自然大调</strong>。<code>A Major</code> 用到的音名为： <span
-class="math display">\[
-\mathrm{...G\sharp3-A4-B4-C\sharp4-D4-E4-F\sharp4-G4\sharp-A5...}
-\]</span></li>
-<li>以 <span class="math inline">\(\mathrm{A}\)</span>
-为主音，音程关系为 <span class="math inline">\((2-1-2-2-1-2-2)\)</span>
-的调式，称为 <span class="math inline">\(\mathrm{A}\)</span>
-<strong>自然小调</strong>。<code>A Minor</code> 用到的音名为： <span
-class="math display">\[
-\mathrm{...G3-A4-B4-C4-D4-E4-F4-G4-A5...}
-\]</span></li>
-</ul>
-<h2 id="移调">移调</h2>
-<p>移调（transpose）就是把所有音同时升高或降低相同的半音数。</p>
-<p>移调前后，所有音的相对间隔不变。即音程关系不变。</p>
-<h2 id="中古调式">中古调式</h2>
-<p>7 种中古调式（church
-mode，教会调式）是指广义的调式，只确定了音程关系，还没确定主音。</p>
-<p>即确定了<code>主音-上主音-中音-下属音-属音-下中音-导音-主音</code>之间相隔的半音数。</p>
-<table>
-<colgroup>
-<col style="width: 38%" />
-<col style="width: 44%" />
-<col style="width: 16%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>调式名</th>
-<th>别名/结构相同的调式</th>
-<th>相隔的半音数</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>伊奥尼亚调式<br/>Ionian mode</td>
-<td><strong>自然大调</strong><code>Major</code><br/>中国七声清乐宫调</td>
-<td><code>2-2-1-2-2-2-1</code></td>
-</tr>
-<tr class="even">
-<td>多利亚调式<br/>Dorian mode</td>
-<td>中国七声清乐商调</td>
-<td><code>2-1-2-2-2-1-2</code></td>
-</tr>
-<tr class="odd">
-<td>弗里几亚调式<br/>Phrygian mode</td>
-<td>中国七声清乐角调</td>
-<td><code>1-2-2-2-1-2-2</code></td>
-</tr>
-<tr class="even">
-<td>利底亚调式<br/>Lydian mode</td>
-<td></td>
-<td><code>2-2-2-1-2-2-1</code></td>
-</tr>
-<tr class="odd">
-<td>混合利底亚调式<br/>Mixolydian mode</td>
-<td>中国七声清乐徵调</td>
-<td><code>2-2-1-2-2-1-2</code></td>
-</tr>
-<tr class="even">
-<td>爱奥尼亚调式<br/>Aeolian mode</td>
-<td><strong>自然小调</strong><code>Minor</code><br/>中国七声清乐羽调</td>
-<td><code>2-1-2-2-1-2-2</code></td>
-</tr>
-<tr class="odd">
-<td>洛克里亚调式<br/>Iocrian mode</td>
-<td></td>
-<td><code>1-2-2-1-2-2-2</code></td>
-</tr>
-</tbody>
-</table>
-<p>在确定了主音之后，就是狭义的 <span class="math inline">\(7 \times
-12\)</span> 种调式。因为一个八度里的 <span
-class="math inline">\(12\)</span> 个音每一个都可以作为主音。</p>
-<p>比如以 <span class="math inline">\(\mathrm{C}\)</span>
-为主音的伊奥尼亚调式，就叫 <code>C Ionian</code>、
-<code>C Major</code>、“<span class="math inline">\(\mathrm{C}\)</span>
-自然大调” 或者 “<span class="math inline">\(\mathrm{C}\)</span>
-大调”。</p>
-<h2
-id="不同的中古调式可能使用相同的琴键">不同的中古调式可能使用相同的琴键</h2>
-<p>仔细观察 7 种中古调式，你会发现【相邻音级之间相隔的半音数】在这 7
-种调式里是一个循环。</p>
-<ul id="colored">
-<li>
-2-2-1-2-2-2-1
-</li>
-<li>
-2-1-2-2-2-1-2
-</li>
-<li>
-1-2-2-2-1-2-2
-</li>
-<li>
-2-2-2-1-2-2-1
-</li>
-<li>
-2-2-1-2-2-1-2
-</li>
-<li>
-2-1-2-2-1-2-2
-</li>
-<li>
-1-2-2-1-2-2-2
-</li>
-</ul>
-<style>
-    .shadow {
-        text-shadow: 1px 1px 2px #000;
-    }
-</style>
-<script>
-    const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple'];
-    const modes = ['Ionian', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian', 'Iocrian'];
-    const ul = document.getElementById("colored");
-    const lis = ul.getElementsByTagName("li");
-
-    Array.from(lis).forEach((li, index) => {
-        let digits = li.innerHTML.split('-');
-        let coloredDigits = digits.map((digit, i) => {
-            let colorIndex = (index + i) % colors.length;
-            let ret = `<span class="shadow" style="color: ${colors[colorIndex]};">${digit}</span>`;
-            return ret;
-        });
-        li.innerHTML = coloredDigits.join(' - ') + ' ：' + modes[index];
-    });
-</script>
-<p>因此，如果以 <span class="math inline">\(\mathrm{X}\)</span>
-为主音，构造自然大调音阶的话（加数字表示升高半音数）：</p>
-<ul>
-<li><p>以 <span class="math inline">\(\mathrm{Y=(X+2)}\)</span>
-为主音，构造出多利亚调式的音阶，与 <span
-class="math inline">\(\mathrm{X}\)</span>
-自然大调使用的琴键相同。</p></li>
-<li><p>以 <span class="math inline">\(\mathrm{Z=(X+2+2)}\)</span>
-为主音，构造出弗里几亚调式的音阶，与 <span
-class="math inline">\(\mathrm{X}\)</span> 自然大调、<span
-class="math inline">\(\mathrm{Y}\)</span>
-多利亚调使用的琴键相同。</p></li>
-<li><p>……</p></li>
-<li><p>以 <span class="math inline">\(\mathrm{V=(X+2+2+1+2+2)}\)</span>
-为主音，构造出自然小调的音阶，与 <span
-class="math inline">\(\mathrm{X}\)</span> 自然大调、<span
-class="math inline">\(\mathrm{Y}\)</span> 多利亚调、<span
-class="math inline">\(\mathrm{Z}\)</span> 弗里几亚调……
-使用的琴键相同。</p></li>
-<li><p>以 <span
-class="math inline">\(\mathrm{W=(X+2+2+1+2+2+2)}\)</span>
-为主音，构造出洛克里亚调式的音阶，与 <span
-class="math inline">\(\mathrm{X}\)</span> 大调、<span
-class="math inline">\(\mathrm{Y}\)</span> 多利亚调、<span
-class="math inline">\(\mathrm{Z}\)</span> 弗里几亚调…… <span
-class="math inline">\(\mathrm{V}\)</span>
-自然小调使用的琴键相同。</p></li>
-</ul>
 ]]></content>
       <categories>
         <category>音乐</category>
@@ -3238,6 +2895,335 @@ href="https://zh.wikisource.org/wiki/史記/卷025">https://zh.wikisource.org/wi
 【科普向】中国古代的十二律以及十二平均律[EB/OL].(2019-07-30)[2023-09-02].
 <a
 href="https://www.bilibili.com/read/cv3194623/">https://www.bilibili.com/read/cv3194623</a>.</p>
+]]></content>
+      <categories>
+        <category>音乐</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>乐理-B0-中古调式</title>
+    <url>/blog/2023/%E4%B9%90%E7%90%86-B0-%E4%B8%AD%E5%8F%A4%E8%B0%83%E5%BC%8F/</url>
+    <content><![CDATA[<ul>
+<li>【音阶相同】是什么意思</li>
+<li>调式与移调</li>
+<li><span class="math inline">\(7 \times 12\)</span> 种中古调式</li>
+<li>不同的中古调式可能使用相同的琴键</li>
+</ul>
+<span id="more"></span>
+<h2 id="音阶相同是什么意思">【音阶相同】是什么意思</h2>
+<p><span class="math inline">\(\mathrm{C-D-E-F-G-A-B}\)</span> 和</p>
+<p><span class="math inline">\(\mathrm{A-B-C-D-E-F-G}\)</span>
+音阶相同吗？</p>
+<p>这两组音阶分别都是同一个八度里的音（不包括右端点）。</p>
+<p>如果把“音阶”理解为【无限扩展到多个八度后，所有音的绝对音高】的话，得到的答案是相同的，因为【它们都使用了钢琴的所有白键】。</p>
+<p>但是看别人网上的回答，这两组音阶是不同的。</p>
+<p>原因在于：</p>
+<ul>
+<li><p>首先，主音不同。 前者以 <span
+class="math inline">\(\mathrm{C}\)</span> 为主音，后者以 <span
+class="math inline">\(\mathrm{A}\)</span> 为主音。</p></li>
+<li><p>其次，音级之间的音程关系（相隔的半音数）不同。</p>
+<p>前者为 <span class="math inline">\(2-2-1-2-2-2-1\)</span>，</p>
+<p>后者为 <span
+class="math inline">\(2-1-2-2-1-2-2\)</span>。（算上下一个八度里的主音）</p></li>
+</ul>
+<p>我们说两组音阶相同，意思是<strong>它们的主音、音程关系都相同</strong>。</p>
+<h2 id="调式">调式</h2>
+<p>狭义的调式（mode） = 主音 + 音程关系</p>
+<ol type="1">
+<li>确定一个起始音（主音）。</li>
+<li>从主音开始，往后（高音方向）取不同的音级。这些不同的音相隔的半音数可能不同，直到取完一个八度。</li>
+<li>再往前、往后取，直到取完所有八度。</li>
+</ol>
+<p>比如：</p>
+<ul>
+<li>以 <span class="math inline">\(\mathrm{C}\)</span>
+为主音，音程关系为 <span class="math inline">\((2-2-1-2-2-2-1)\)</span>
+的调式，称为 <span class="math inline">\(\mathrm{C}\)</span>
+<strong>自然大调</strong>。<code>C Major</code> 用到的音名为： <span
+class="math display">\[
+\mathrm{...B3-C4-D4-E4-F4-G4-A4-B4-C5...}
+\]</span></li>
+<li>以 <span class="math inline">\(\mathrm{A}\)</span>
+为主音，音程关系为 <span class="math inline">\((2-2-1-2-2-2-1)\)</span>
+的调式，称为 <span class="math inline">\(\mathrm{A}\)</span>
+<strong>自然大调</strong>。<code>A Major</code> 用到的音名为： <span
+class="math display">\[
+\mathrm{...G\sharp3-A4-B4-C\sharp4-D4-E4-F\sharp4-G4\sharp-A5...}
+\]</span></li>
+<li>以 <span class="math inline">\(\mathrm{A}\)</span>
+为主音，音程关系为 <span class="math inline">\((2-1-2-2-1-2-2)\)</span>
+的调式，称为 <span class="math inline">\(\mathrm{A}\)</span>
+<strong>自然小调</strong>。<code>A Minor</code> 用到的音名为： <span
+class="math display">\[
+\mathrm{...G3-A4-B4-C4-D4-E4-F4-G4-A5...}
+\]</span></li>
+</ul>
+<h2 id="移调">移调</h2>
+<p>移调（transpose）就是把所有音同时升高或降低相同的半音数。</p>
+<p>移调前后，所有音的相对间隔不变。即音程关系不变。</p>
+<h2 id="中古调式">中古调式</h2>
+<p>7 种中古调式（church
+mode，教会调式）是指广义的调式，只确定了音程关系，还没确定主音。</p>
+<p>即确定了<code>主音-上主音-中音-下属音-属音-下中音-导音-主音</code>之间相隔的半音数。</p>
+<table>
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 44%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>调式名</th>
+<th>别名/结构相同的调式</th>
+<th>相隔的半音数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>伊奥尼亚调式<br/>Ionian mode</td>
+<td><strong>自然大调</strong><code>Major</code><br/>中国七声清乐宫调</td>
+<td><code>2-2-1-2-2-2-1</code></td>
+</tr>
+<tr class="even">
+<td>多利亚调式<br/>Dorian mode</td>
+<td>中国七声清乐商调</td>
+<td><code>2-1-2-2-2-1-2</code></td>
+</tr>
+<tr class="odd">
+<td>弗里几亚调式<br/>Phrygian mode</td>
+<td>中国七声清乐角调</td>
+<td><code>1-2-2-2-1-2-2</code></td>
+</tr>
+<tr class="even">
+<td>利底亚调式<br/>Lydian mode</td>
+<td></td>
+<td><code>2-2-2-1-2-2-1</code></td>
+</tr>
+<tr class="odd">
+<td>混合利底亚调式<br/>Mixolydian mode</td>
+<td>中国七声清乐徵调</td>
+<td><code>2-2-1-2-2-1-2</code></td>
+</tr>
+<tr class="even">
+<td>爱奥尼亚调式<br/>Aeolian mode</td>
+<td><strong>自然小调</strong><code>Minor</code><br/>中国七声清乐羽调</td>
+<td><code>2-1-2-2-1-2-2</code></td>
+</tr>
+<tr class="odd">
+<td>洛克里亚调式<br/>Iocrian mode</td>
+<td></td>
+<td><code>1-2-2-1-2-2-2</code></td>
+</tr>
+</tbody>
+</table>
+<p>在确定了主音之后，就是狭义的 <span class="math inline">\(7 \times
+12\)</span> 种调式。因为一个八度里的 <span
+class="math inline">\(12\)</span> 个音每一个都可以作为主音。</p>
+<p>比如以 <span class="math inline">\(\mathrm{C}\)</span>
+为主音的伊奥尼亚调式，就叫 <code>C Ionian</code>、
+<code>C Major</code>、“<span class="math inline">\(\mathrm{C}\)</span>
+自然大调” 或者 “<span class="math inline">\(\mathrm{C}\)</span>
+大调”。</p>
+<h2
+id="不同的中古调式可能使用相同的琴键">不同的中古调式可能使用相同的琴键</h2>
+<p>仔细观察 7 种中古调式，你会发现【相邻音级之间相隔的半音数】在这 7
+种调式里是一个循环。</p>
+<ul id="colored">
+<li>
+2-2-1-2-2-2-1
+</li>
+<li>
+2-1-2-2-2-1-2
+</li>
+<li>
+1-2-2-2-1-2-2
+</li>
+<li>
+2-2-2-1-2-2-1
+</li>
+<li>
+2-2-1-2-2-1-2
+</li>
+<li>
+2-1-2-2-1-2-2
+</li>
+<li>
+1-2-2-1-2-2-2
+</li>
+</ul>
+<style>
+    .shadow {
+        text-shadow: 1px 1px 2px #000;
+    }
+</style>
+<script>
+    const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple'];
+    const modes = ['Ionian', 'Dorian', 'Phrygian', 'Lydian', 'Mixolydian', 'Aeolian', 'Iocrian'];
+    const ul = document.getElementById("colored");
+    const lis = ul.getElementsByTagName("li");
+
+    Array.from(lis).forEach((li, index) => {
+        let digits = li.innerHTML.split('-');
+        let coloredDigits = digits.map((digit, i) => {
+            let colorIndex = (index + i) % colors.length;
+            let ret = `<span class="shadow" style="color: ${colors[colorIndex]};">${digit}</span>`;
+            return ret;
+        });
+        li.innerHTML = coloredDigits.join(' - ') + ' ：' + modes[index];
+    });
+</script>
+<p>因此，如果以 <span class="math inline">\(\mathrm{X}\)</span>
+为主音，构造自然大调音阶的话（加数字表示升高半音数）：</p>
+<ul>
+<li><p>以 <span class="math inline">\(\mathrm{Y=(X+2)}\)</span>
+为主音，构造出多利亚调式的音阶，与 <span
+class="math inline">\(\mathrm{X}\)</span>
+自然大调使用的琴键相同。</p></li>
+<li><p>以 <span class="math inline">\(\mathrm{Z=(X+2+2)}\)</span>
+为主音，构造出弗里几亚调式的音阶，与 <span
+class="math inline">\(\mathrm{X}\)</span> 自然大调、<span
+class="math inline">\(\mathrm{Y}\)</span>
+多利亚调使用的琴键相同。</p></li>
+<li><p>……</p></li>
+<li><p>以 <span class="math inline">\(\mathrm{V=(X+2+2+1+2+2)}\)</span>
+为主音，构造出自然小调的音阶，与 <span
+class="math inline">\(\mathrm{X}\)</span> 自然大调、<span
+class="math inline">\(\mathrm{Y}\)</span> 多利亚调、<span
+class="math inline">\(\mathrm{Z}\)</span> 弗里几亚调……
+使用的琴键相同。</p></li>
+<li><p>以 <span
+class="math inline">\(\mathrm{W=(X+2+2+1+2+2+2)}\)</span>
+为主音，构造出洛克里亚调式的音阶，与 <span
+class="math inline">\(\mathrm{X}\)</span> 大调、<span
+class="math inline">\(\mathrm{Y}\)</span> 多利亚调、<span
+class="math inline">\(\mathrm{Z}\)</span> 弗里几亚调…… <span
+class="math inline">\(\mathrm{V}\)</span>
+自然小调使用的琴键相同。</p></li>
+</ul>
+]]></content>
+      <categories>
+        <category>音乐</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>乐理-A♯0-音名与唱名、音阶与音级</title>
+    <url>/blog/2023/%E4%B9%90%E7%90%86-A%E2%99%AF0-%E9%9F%B3%E5%90%8D%E4%B8%8E%E5%94%B1%E5%90%8D%E3%80%81%E9%9F%B3%E9%98%B6%E4%B8%8E%E9%9F%B3%E7%BA%A7/</url>
+    <content><![CDATA[<ul>
+<li>音名与唱名</li>
+<li>七声音阶及音级</li>
+</ul>
+<span id="more"></span>
+<p><em>英文并不一定是正确的专业名词</em></p>
+<h2 id="音名和唱名">音名和唱名</h2>
+<ul>
+<li><p>音名（pitch name，音高名称）</p>
+<ul>
+<li><p><code>C4</code>、<code>C#4</code>、<code>D4</code>等是音名，对应<strong>绝对音高</strong>。</p></li>
+<li><p>比如 <span class="math inline">\(\mathrm{C4 = 220 \times
+\sqrt[4]{2} Hz}\)</span>。</p></li>
+</ul></li>
+</ul>
+<p><img src="/blog/images/piano.webp"></p>
+<ul>
+<li><p>唱名（sol-fa note，唱名表示法<a href="#fn1" class="footnote-ref"
+id="fnref1" role="doc-noteref"><sup>1</sup></a>中的音符）</p>
+<ul>
+<li><p><code>do</code>、<code>re</code>、<code>mi</code>、<code>fa</code>、<code>sol</code>、<code>la</code>、<code>ti</code>
+是唱名，对应<strong>相对音高</strong>。</p></li>
+<li><p>在简谱里记作
+<code>1</code>、<code>2</code>、<code>3</code>、<code>4</code>、<code>5</code>、<code>6</code>、<code>7</code>。</p></li>
+<li><p>我们可以<strong>规定</strong> <code>1</code> 至 <code>7</code>
+分别<strong>对应</strong>七个白键 <code>C4</code> 至
+<code>B4</code>。这时简谱头部会有 <span class="math inline">\(\mathrm{1
+= C}\)</span>。</p></li>
+<li><p>在简谱里，如果用 <span class="math inline">\(1\)</span> 表示
+<span class="math inline">\(\mathrm{C4}\)</span>，那么 <span
+class="math inline">\(\mathrm{\dot{1}}\)</span> 就表示 <span
+class="math inline">\(\mathrm{C5}\)</span>。<span
+class="math inline">\(\mathrm{\dot{\dot{1}}}\)</span> 表示 <span
+class="math inline">\(\mathrm{C6}\)</span>，<span
+class="math inline">\(\underset{·}{1}\)</span> 表示 <span
+class="math inline">\(\mathrm{C3}\)</span>，以此类推。</p></li>
+</ul></li>
+</ul>
+<h2 id="音阶">音阶</h2>
+<blockquote>
+<p>在音乐理论中，音阶（scale，尺度）是按基本频率或音高排序的任何一组音符。按音高递增排序的音阶是升序音阶，按音高递减排序的音阶是降序音阶。<a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a></p>
+</blockquote>
+<p><code>A0 B0 C1 D1 E1 F1 G1 A1 B1 ... C4 D4 E4 F4 G4 A4 B4 ... C7 D7 E7 F7 G7 A7 B7 C8</code>
+就是一组升序音阶，对应钢琴的所有白键。</p>
+<p>在上面的例子中，每个八度里用到了七个音名<code>C D E F G A B</code>（不包括区间右端点），这被称为<strong>七声音阶</strong>（heptatonic
+scale）。</p>
+<h2 id="音级">音级</h2>
+<p>七声音阶里有七个音级（degree，刻度）：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">音级</th>
+<th>名称</th>
+<th>英文名称</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(Ⅰ\)</span></td>
+<td>主音</td>
+<td>tonic</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(Ⅱ\)</span></td>
+<td>上主音</td>
+<td>supertonic</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(Ⅲ\)</span></td>
+<td>中音</td>
+<td>mediant</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(Ⅳ\)</span></td>
+<td>下属音</td>
+<td>subdominant</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(Ⅴ\)</span></td>
+<td>属音</td>
+<td>dominant</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span
+class="math inline">\(Ⅵ\)</span></td>
+<td>下中音</td>
+<td>submediant</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span
+class="math inline">\(Ⅶ\)</span></td>
+<td>导音</td>
+<td>subtonic / leading note</td>
+</tr>
+</tbody>
+</table>
+<aside id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a
+href="https://en.wikipedia.org/wiki/Solmization">https://en.wikipedia.org/wiki/Solmization</a><a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a
+href="https://en.wikipedia.org/wiki/Scale_(music)">https://en.wikipedia.org/wiki/Scale_(music)</a><a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>
 ]]></content>
       <categories>
         <category>音乐</category>
