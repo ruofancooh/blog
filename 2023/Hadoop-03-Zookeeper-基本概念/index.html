@@ -15,23 +15,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="若凡的笔记">
-<meta property="og:url" content="https://hrfis.me/blog/categories/%E6%97%A0%E5%88%86%E7%B1%BB/page/2/index.html">
+    <meta name="description" content="基本概念（草稿）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hadoop - 03 - Zookeeper - 基本概念">
+<meta property="og:url" content="https://hrfis.me/blog/2023/Hadoop-03-Zookeeper-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/index.html">
 <meta property="og:site_name" content="若凡的笔记">
+<meta property="og:description" content="基本概念（草稿）">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-19T05:50:00.000Z">
+<meta property="article:modified_time" content="2023-09-19T05:56:28.223Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://hrfis.me/blog/categories/%E6%97%A0%E5%88%86%E7%B1%BB/page/2/">
+<link rel="canonical" href="https://hrfis.me/blog/2023/Hadoop-03-Zookeeper-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"categories/无分类/page/2/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/2023/Hadoop-03-Zookeeper-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/","path":"2023/Hadoop-03-Zookeeper-基本概念/","title":"Hadoop - 03 - Zookeeper - 基本概念"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>分类: 无分类 | 若凡的笔记</title>
+<title>Hadoop - 03 - Zookeeper - 基本概念 | 若凡的笔记</title>
   
 
 
@@ -117,7 +121,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -130,6 +134,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#leader"><span class="nav-number">1.</span> <span class="nav-text">Leader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#follower"><span class="nav-number">2.</span> <span class="nav-text">Follower</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#znode"><span class="nav-number">3.</span> <span class="nav-text">znode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ticktime"><span class="nav-number">4.</span> <span class="nav-text">tickTime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#initlimit"><span class="nav-number">5.</span> <span class="nav-text">initLimit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#synclimit"><span class="nav-number">6.</span> <span class="nav-text">syncLimit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%86%E5%AF%BC%E9%80%89%E4%B8%BE"><span class="nav-number">7.</span> <span class="nav-text">领导选举</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,73 +169,119 @@
 
     </div>
 
-    <div class="main-inner category posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">无分类
-          <small>分类</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/2023/Hadoop-03-Zookeeper-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Ruofan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="若凡的笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hadoop - 03 - Zookeeper - 基本概念 | 若凡的笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hadoop - 03 - Zookeeper - 基本概念
         </h1>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/Hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>基本概念（草稿）</p>
+<span id="more"></span>
+<h2 id="leader">Leader</h2>
+<p>领导者。接收客户端的写请求，并同步给各个 Follower。</p>
+<p>后面简称 L。</p>
+<h2 id="follower">Follower</h2>
+<p>追随者，只能读不能写。</p>
+<p>后面简称 F。</p>
+<h2 id="znode">znode</h2>
+<h2 id="ticktime">tickTime</h2>
+<p>心跳时间，单位毫秒。</p>
+<p>每隔一个心跳时间，节点之间互相发信息检测对方是否存活。</p>
+<h2 id="initlimit">initLimit</h2>
+<p>初始化时限。</p>
+<p>L 与 F 初始连接时，如果等待时间超过了 <code>initLimit</code>
+个心跳时间，判断连接失败。</p>
+<h2 id="synclimit">syncLimit</h2>
+<p>同步通信时限。</p>
+<p>L 与 F 通信时，如果等待时间超过了 <code>syncLimit</code>
+个心跳时间，L 会删 F。</p>
+<h2 id="领导选举">领导选举</h2>
+<p>第一台启动的服务器先投自己一票，如果票数没有超过服务器的半数，LOOKING。</p>
+<p>第二、三、四……台启动的服务器，每加入一台，都是先投自己一票。之后把所有服务器的票转移到
+<code>myid</code> 最大的服务器上。</p>
+<p>每加入一台新的服务器时：如果票数没有超过服务器的半数，所有服务器都
+LOOKING；如果票数超过半数了，<code>myid</code> 最大的服务器就被选为
+L。后续加入的服务器全都是 F。</p>
+<p>如果 L 挂了，会重新选举。</p>
+<p>如何重新选举？</p>
+<p>sid</p>
+<p>zxid</p>
+<p>Epoch 每个 Leader 任期的代号，秦始皇，唐太宗</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-07-08T22:24:00+08:00"
-              content="2023-07-08">
-          07-08
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/blog/2023/root%E6%89%8B%E6%9C%BA%E6%95%99%E7%A8%8B%EF%BC%88%E4%BD%BF%E7%94%A8Magisk%EF%BC%89/" itemprop="url">
-            <span itemprop="name">root手机教程（使用Magisk）</span>
-          </a>
-      </div>
+    <footer class="post-footer">
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2023/MongoDB-02-%E6%8C%89%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2%E6%96%87%E6%A1%A3/" rel="prev" title="MongoDB - 02 - 按条件查询文档">
+                  <i class="fa fa-chevron-left"></i> MongoDB - 02 - 按条件查询文档
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-05-26T18:21:43+08:00"
-              content="2023-05-26">
-          05-26
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/blog/2023/JSON/" itemprop="url">
-            <span itemprop="name">JSON</span>
-          </a>
-      </div>
 
-      
-    </header>
-  </article>
 
-    </div>
-  </div>
-  
-  
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/blog/categories/%E6%97%A0%E5%88%86%E7%B1%BB/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/categories/%E6%97%A0%E5%88%86%E7%B1%BB/">1</a><span class="page-number current">2</span>
-  </nav>
+
 
 </div>
   </main>
@@ -291,7 +342,7 @@
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/categories/%E6%97%A0%E5%88%86%E7%B1%BB/page/2/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/2023/Hadoop-03-Zookeeper-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"}</script>
   <script src="/blog/js/third-party/quicklink.js"></script>
 
 </body>

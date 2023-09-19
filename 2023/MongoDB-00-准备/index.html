@@ -23,7 +23,7 @@
 <meta property="og:description" content="Windows 10 环境配置 启动脚本">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-05T09:51:00.000Z">
-<meta property="article:modified_time" content="2023-09-18T10:48:13.062Z">
+<meta property="article:modified_time" content="2023-09-19T05:45:29.363Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">笔记</span>
         </a>
       </div>
@@ -237,6 +237,7 @@ GUI。 默认会安装到 C 盘，安装完后手动移到 D 盘。</li>
 <li>```sh mongod --dbpath [数据库文件夹路径] --logpath [日志文件路径]
 --logappend <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">5. 用 MongoDBCompass 连接。</span><br><span class="line"></span><br><span class="line">## 启动脚本</span><br><span class="line"></span><br><span class="line">`mo.bat`</span><br><span class="line"></span><br><span class="line">```bat</span><br><span class="line">cd /d D:\ProgramData\MongoDBCompass</span><br><span class="line">MongoDBCompass</span><br><span class="line">cd /d D:\ProgramData\mongodb-win32-x86_64-windows-7.0.0\bin</span><br><span class="line">call mongod --dbpath D:\ProgramData\mongodb-win32-x86_64-windows-7.0.0\db --logpath D:\ProgramData\mongodb-win32-x86_64-windows-7.0.0\test.log --logappend</span><br></pre></td></tr></table></figure></li>
 </ol>
+<p>脚本会 <code>call mongod</code>，停止则断开连接。</p>
 
     </div>
 
