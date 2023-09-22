@@ -23,7 +23,7 @@
 <meta property="og:description" content="Windows 10 环境配置 启动脚本">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-05T09:51:00.000Z">
-<meta property="article:modified_time" content="2023-09-19T05:45:29.363Z">
+<meta property="article:modified_time" content="2023-09-21T06:18:46.850Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
@@ -134,7 +134,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#windows-10-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Windows 10 环境配置</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#windows-10-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Windows 10 环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC"><span class="nav-number">2.</span> <span class="nav-text">启动脚本</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">笔记</span>
         </a>
       </div>
@@ -234,9 +234,12 @@ MongoDB</a>，我下载的是<code>7.0.0 (current)</code>的<code>zip</code>格�
 <li>解压，右键用 PowerShell 运行<code>Install-Compass.ps1</code>，安装
 GUI。 默认会安装到 C 盘，安装完后手动移到 D 盘。</li>
 <li>建数据库文件夹，建一个空日志<code>test.log</code>。</li>
-<li>```sh mongod --dbpath [数据库文件夹路径] --logpath [日志文件路径]
---logappend <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">5. 用 MongoDBCompass 连接。</span><br><span class="line"></span><br><span class="line">## 启动脚本</span><br><span class="line"></span><br><span class="line">`mo.bat`</span><br><span class="line"></span><br><span class="line">```bat</span><br><span class="line">cd /d D:\ProgramData\MongoDBCompass</span><br><span class="line">MongoDBCompass</span><br><span class="line">cd /d D:\ProgramData\mongodb-win32-x86_64-windows-7.0.0\bin</span><br><span class="line">call mongod --dbpath D:\ProgramData\mongodb-win32-x86_64-windows-7.0.0\db --logpath D:\ProgramData\mongodb-win32-x86_64-windows-7.0.0\test.log --logappend</span><br></pre></td></tr></table></figure></li>
+<li>启动 <code>mongod</code> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --dbpath [数据库文件夹路径] --logpath [日志文件路径] --logappend</span><br></pre></td></tr></table></figure></li>
+<li>用 MongoDBCompass 连接。</li>
 </ol>
+<h2 id="启动脚本">启动脚本</h2>
+<p><code>mo.bat</code></p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> MONGODB_HOME=D:\ProgramData\mongodb-win32-x86_64-windows-<span class="number">7</span>.<span class="number">0</span>.<span class="number">0</span>\</span><br><span class="line"><span class="built_in">cd</span> /d <span class="variable">%MONGODB_HOME%</span>\bin</span><br><span class="line"><span class="keyword">call</span> mongod --dbpath <span class="variable">%MONGODB_HOME%</span>\db^</span><br><span class="line">           --logpath <span class="variable">%MONGODB_HOME%</span>\test.log --logappend</span><br></pre></td></tr></table></figure>
 <p>脚本会 <code>call mongod</code>，停止则断开连接。</p>
 
     </div>

@@ -15,15 +15,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="码元 奈氏准则：无噪声信道中码元传输最高速率  \(W\)：信道的频域带宽 \(\mathrm{码元&#x2F;s} &#x3D; 码元单位 \times 两倍频域带宽\)  信噪比  用 \(\dfrac{S}{N}\) 表示 用 \(\mathrm{dB} &#x3D; 10 \lg\dfrac{S}{N}\) 表示  香农公式：信道极限速率  \(\mathrm{bit&#x2F;s} &#x3D; W \">
+    <meta name="description" content="码元 奈氏准则：无噪声低通信道中码元传输最高速率  \(W\)：信道的频域带宽 \(\mathrm{码元&#x2F;s} &#x3D; 码元单位 \times 两倍频域带宽\)  信噪比  用 \(\dfrac{S}{N}\) 表示 用 \(\mathrm{dB} &#x3D; 10 \lg\dfrac{S}{N}\) 表示  香农公式：信道极限速率  \(\mathrm{bit&#x2F;s} &#x3D; W">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计网-04-物理层-信道的极限容量">
 <meta property="og:url" content="https://hrfis.me/blog/2023/%E8%AE%A1%E7%BD%91-04-%E7%89%A9%E7%90%86%E5%B1%82-%E4%BF%A1%E9%81%93%E7%9A%84%E6%9E%81%E9%99%90%E5%AE%B9%E9%87%8F/index.html">
 <meta property="og:site_name" content="若凡的笔记">
-<meta property="og:description" content="码元 奈氏准则：无噪声信道中码元传输最高速率  \(W\)：信道的频域带宽 \(\mathrm{码元&#x2F;s} &#x3D; 码元单位 \times 两倍频域带宽\)  信噪比  用 \(\dfrac{S}{N}\) 表示 用 \(\mathrm{dB} &#x3D; 10 \lg\dfrac{S}{N}\) 表示  香农公式：信道极限速率  \(\mathrm{bit&#x2F;s} &#x3D; W \">
+<meta property="og:description" content="码元 奈氏准则：无噪声低通信道中码元传输最高速率  \(W\)：信道的频域带宽 \(\mathrm{码元&#x2F;s} &#x3D; 码元单位 \times 两倍频域带宽\)  信噪比  用 \(\dfrac{S}{N}\) 表示 用 \(\mathrm{dB} &#x3D; 10 \lg\dfrac{S}{N}\) 表示  香农公式：信道极限速率  \(\mathrm{bit&#x2F;s} &#x3D; W">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-15T06:14:00.000Z">
-<meta property="article:modified_time" content="2023-09-15T06:22:23.380Z">
+<meta property="article:modified_time" content="2023-09-22T03:03:19.186Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">笔记</span>
         </a>
       </div>
@@ -224,7 +224,7 @@
     
     <div class="post-body" itemprop="articleBody"><ul>
 <li>码元</li>
-<li>奈氏准则：无噪声信道中码元传输最高速率
+<li>奈氏准则：无噪声低通信道中码元传输最高速率
 <ul>
 <li><span class="math inline">\(W\)</span>：信道的频域带宽</li>
 <li><span class="math inline">\(\mathrm{码元/s} = 码元单位 \times
@@ -243,7 +243,6 @@
 </ul></li>
 <li>奈氏准则和香农公式的意义</li>
 </ul>
-<p>对应谢希仁《计算机网络》第八版 2.2.3</p>
 <span id="more"></span>
 <h2 id="码元">码元</h2>
 <p>码元，就是用来表示【码】的单个【元】。</p>
@@ -264,7 +263,7 @@ id="奈氏准则奈奎斯特香农采样定理的一部分">奈氏准则（奈�
 <p>奈奎斯特这个人推导出的准则：</p>
 <p><span class="math display">\[
 \begin{aligned}
-&amp; 信道中码元传输的最高速率（码元/\mathrm{s}） \\
+&amp; 低通信道中码元传输的最高速率（码元/\mathrm{s}） \\
 = \ &amp; 两倍频域带宽（\mathrm{Hz，即 s^{-1}}）\times 码元的单位
 \end{aligned}
 \]</span></p>
@@ -289,9 +288,10 @@ class="math inline">\(\dfrac{瓦特}{瓦特}\)</span>。后者是无量纲单位
 &amp; = W \log_2(1 + \dfrac{S}{N}) \\
 \end{aligned}
 \]</span></p>
-<p>后面那一坨为什么是 <span
+<p><span class="math inline">\(\mathrm{W}\)</span> 后面的部分为什么是
+<span
 class="math inline">\(\mathrm{bit}\)</span>，是通信专业要学的。<span
-class="math inline">\(\mathrm{bit}\)</span> 也是无量纲单位（？）。</p>
+class="math inline">\(\mathrm{bit}\)</span> 也是无量纲单位。</p>
 <h2 id="奈氏准则和香农公式的意义">奈氏准则和香农公式的意义</h2>
 <p>信噪比越大，接收方接收到的信息失真越少。</p>
 <p>奈氏准则直接假定噪声为 <span

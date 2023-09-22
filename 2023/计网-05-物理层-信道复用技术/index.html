@@ -15,15 +15,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="频分复用、时分复用、统计时分复用、波分复用、码分复用。 对应谢希仁《计算机网络》第八版 2.4">
+    <meta name="description" content="频分复用（FDM） 时分复用（TDM） 统计时分复用（STDM） 波分复用（WDM） 码分复用（CDM） 频分多址&#x2F;时分多址&#x2F;码分多址（FDMA&#x2F;TDMA&#x2F;CDMA）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计网-05-物理层-信道复用技术">
 <meta property="og:url" content="https://hrfis.me/blog/2023/%E8%AE%A1%E7%BD%91-05-%E7%89%A9%E7%90%86%E5%B1%82-%E4%BF%A1%E9%81%93%E5%A4%8D%E7%94%A8%E6%8A%80%E6%9C%AF/index.html">
 <meta property="og:site_name" content="若凡的笔记">
-<meta property="og:description" content="频分复用、时分复用、统计时分复用、波分复用、码分复用。 对应谢希仁《计算机网络》第八版 2.4">
+<meta property="og:description" content="频分复用（FDM） 时分复用（TDM） 统计时分复用（STDM） 波分复用（WDM） 码分复用（CDM） 频分多址&#x2F;时分多址&#x2F;码分多址（FDMA&#x2F;TDMA&#x2F;CDMA）">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-20T06:14:00.000Z">
-<meta property="article:modified_time" content="2023-09-20T14:40:35.147Z">
+<meta property="article:modified_time" content="2023-09-22T03:05:16.825Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">笔记</span>
         </a>
       </div>
@@ -222,8 +222,14 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>频分复用、时分复用、统计时分复用、波分复用、码分复用。</p>
-<p>对应谢希仁《计算机网络》第八版 2.4</p>
+    <div class="post-body" itemprop="articleBody"><ul>
+<li>频分复用（FDM）</li>
+<li>时分复用（TDM）</li>
+<li>统计时分复用（STDM）</li>
+<li>波分复用（WDM）</li>
+<li>码分复用（CDM）</li>
+<li>频分多址/时分多址/码分多址（FDMA/TDMA/CDMA）</li>
+</ul>
 <span id="more"></span>
 <h2 id="频分复用fdm">频分复用（FDM）</h2>
 <ul>
@@ -275,9 +281,9 @@ class="math inline">\(\mathrm{11-12kHz}\)</span>……把它们一起发出去�
 <li>那么 <code>0</code> 必须用上面的反码 <code>1110 0100</code>
 表示。</li>
 </ul>
-<p>为了方便，把码片 <code>0</code> 记作 <span
-class="math inline">\(-1\)</span>，码片 <code>1</code> 记作 <span
-class="math inline">\(+1\)</span>。那么：</p>
+<p>为了方便，把 <strong>码片</strong> <code>0</code> 记作 <span
+class="math inline">\(-1\)</span>，<strong>码片</strong> <code>1</code>
+记作 <span class="math inline">\(+1\)</span>。那么：</p>
 <table>
 <thead>
 <tr class="header">

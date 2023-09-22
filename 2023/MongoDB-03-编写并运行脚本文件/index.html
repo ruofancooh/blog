@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+
+    <meta name="description" content="在 MongoDBCompass 里内嵌的 _MONGOSH 里不能运行 js 文件。 可使用 MongoDB for VS Code 扩展。文档  前者适合执行简短的命令，后者适合批处理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MongoDB - 03 - 编写并运行脚本文件">
+<meta property="og:url" content="https://hrfis.me/blog/2023/MongoDB-03-%E7%BC%96%E5%86%99%E5%B9%B6%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/index.html">
+<meta property="og:site_name" content="若凡的笔记">
+<meta property="og:description" content="在 MongoDBCompass 里内嵌的 _MONGOSH 里不能运行 js 文件。 可使用 MongoDB for VS Code 扩展。文档  前者适合执行简短的命令，后者适合批处理。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-22T04:41:00.000Z">
+<meta property="article:modified_time" content="2023-09-22T04:46:41.804Z">
+<meta property="article:author" content="Ruofan">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hrfis.me/blog/2023/MongoDB-03-%E7%BC%96%E5%86%99%E5%B9%B6%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/2023/MongoDB-03-%E7%BC%96%E5%86%99%E5%B9%B6%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/","path":"2023/MongoDB-03-编写并运行脚本文件/","title":"MongoDB - 03 - 编写并运行脚本文件"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>MongoDB - 03 - 编写并运行脚本文件 | 若凡的笔记</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">若凡的笔记</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8-vscode-%E8%BF%9E%E6%8E%A5%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">用 VSCode 连接数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">扩展配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%91%E9%9B%86%E5%90%88%E9%87%8C%E6%8F%92%E5%85%A5%E6%96%87%E6%A1%A3"><span class="nav-number">4.1.</span> <span class="nav-text">向集合里插入文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E9%9B%86%E5%90%88%E9%87%8C%E7%9A%84%E6%96%87%E6%A1%A3"><span class="nav-number">4.2.</span> <span class="nav-text">查询集合里的文档</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Ruofan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-name">笔记</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/blog/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/2023/MongoDB-03-%E7%BC%96%E5%86%99%E5%B9%B6%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Ruofan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="若凡的笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MongoDB - 03 - 编写并运行脚本文件 | 若凡的笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MongoDB - 03 - 编写并运行脚本文件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><ul>
+<li><p>在 MongoDBCompass 里内嵌的 <code>_MONGOSH</code> 里不能运行 js
+文件。</p></li>
+<li><p>可使用 MongoDB for VS Code 扩展。<a
+target="_blank" rel="noopener" href="https://www.mongodb.com/docs/mongodb-vscode/">文档</a></p></li>
+</ul>
+<p>前者适合执行简短的命令，后者适合批处理。</p>
+<span id="more"></span>
+<h2 id="用-vscode-连接数据库">用 VSCode 连接数据库</h2>
+<ol type="1">
+<li>VSCode 里安装 MongoDB for VS Code 扩展。在最左边活动栏会有一片
+🍃。</li>
+<li><a href="/blog/2023/MongoDB-00-准备/#启动脚本">启动
+mongod</a>。</li>
+<li>在扩展里连接。</li>
+</ol>
+<h2 id="扩展配置">扩展配置</h2>
+<ul>
+<li>把 <code>Mdb: Confirm Run All</code> 取消勾选，这样每次 ▶️
+时不用额外确认。</li>
+</ul>
+<h2 id="测试">测试</h2>
+<ol type="1">
+<li><p>🍃 -&gt; <code>Create New Playground</code>。</p></li>
+<li><p>右上角 ▶️，会出现一个 <code>Playground Result</code>
+窗口。</p></li>
+<li><p>🍃 -&gt; <code>CONNECTIONS</code> -&gt; 主机名上右击
+<code>REFRESH</code> 刷新。会多一个
+<code>mongodbVSCodePlaygroundDB</code> 数据库。</p>
+<p>这是由刚才那个脚本 <code>playground-1.mongodb.js</code>
+创建的。</p></li>
+<li><p>写一个后缀为 <strong><code>.mongodb.js</code></strong>
+的文件。</p></li>
+<li><p>打开文件后即可 ▶️。</p></li>
+</ol>
+<h2 id="示例">示例</h2>
+<p><strong>注意</strong>：<code>Playground Result</code>
+窗口只输出了最后一次操作的结果。</p>
+<p>如果一次进行多个操作，可以把每个操作的结果分别输出到控制台：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">db.<span class="property">collection0</span>.<span class="title function_">find</span>().<span class="title function_">forEach</span>(<span class="function">(<span class="params">doc</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(doc, <span class="literal">null</span>, <span class="number">2</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">db.<span class="property">collection1</span></span><br><span class="line">  .<span class="title function_">find</span>(&#123;</span><br><span class="line">    <span class="attr">name</span>: &#123; <span class="attr">$regex</span>: <span class="regexp">/abc/</span> &#125;,</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">forEach</span>(<span class="function">(<span class="params">doc</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(doc, <span class="literal">null</span>, <span class="number">2</span>));</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="向集合里插入文档">向集合里插入文档</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">use</span>(<span class="string">&quot;gooddb&quot;</span>);</span><br><span class="line"></span><br><span class="line">db.<span class="title function_">createCollection</span>(<span class="string">&quot;goodsbaseinf&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> goodsbaseinf = db.<span class="title function_">getCollection</span>(<span class="string">&quot;goodsbaseinf&quot;</span>);</span><br><span class="line"></span><br><span class="line">goodsbaseinf.<span class="title function_">insertOne</span>(&#123;</span><br><span class="line">  <span class="attr">_id</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&quot;&lt;c语言&gt;&quot;</span>,</span><br><span class="line">  <span class="attr">bookprice</span>: <span class="number">33.2</span>,</span><br><span class="line">  <span class="attr">adddate</span>: <span class="number">2006</span>,</span><br><span class="line">  <span class="attr">allow</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">baseinf</span>: &#123; <span class="attr">ISBN</span>: <span class="number">183838388</span>, <span class="attr">press</span>: <span class="string">&quot;清华大学出版社&quot;</span> &#125;,</span><br><span class="line">  <span class="attr">tags</span>: [<span class="string">&quot;good&quot;</span>, <span class="string">&quot;book&quot;</span>, <span class="string">&quot;it&quot;</span>, <span class="string">&quot;Program&quot;</span>],</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">goodsbaseinf.<span class="title function_">insertMany</span>([</span><br><span class="line">  &#123; <span class="attr">_id</span>: <span class="number">2</span>, <span class="attr">item</span>: <span class="string">&quot;小学生教材&quot;</span>, <span class="attr">name</span>: <span class="string">&quot;《小学一年级语文（上册）》&quot;</span>, <span class="attr">price</span>: <span class="number">12</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">_id</span>: <span class="number">3</span>, <span class="attr">item</span>: <span class="string">&quot;初中生教材&quot;</span>, <span class="attr">name</span>: <span class="string">&quot;《初中一年级语文（上册）》&quot;</span>, <span class="attr">price</span>: <span class="number">15</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">_id</span>: <span class="number">4</span>, <span class="attr">item</span>: <span class="string">&quot;高中生教材&quot;</span>, <span class="attr">name</span>: <span class="string">&quot;《高中一年级语文（上册）》&quot;</span>, <span class="attr">price</span>: <span class="number">20</span> &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">_id</span>: <span class="number">5</span>,</span><br><span class="line">    <span class="attr">item</span>: <span class="string">&quot;外语教材&quot;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;《英语全解\nABC（五年级上）》&quot;</span>,</span><br><span class="line">    <span class="attr">price</span>: <span class="number">30</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+<h3 id="查询集合里的文档">查询集合里的文档</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">use</span>(<span class="string">&quot;gooddb&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> goodsbaseinf = db.<span class="title function_">getCollection</span>(<span class="string">&quot;goodsbaseinf&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;查看集合 goodsbaseinf 中的所有文档：&quot;</span>);</span><br><span class="line">goodsbaseinf.<span class="title function_">find</span>().<span class="title function_">forEach</span>(<span class="function">(<span class="params">doc</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(doc, <span class="literal">null</span>, <span class="number">2</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;查看集合 goodsbaseinf 中 name 为小学一年级语文（上册）的文档：&quot;</span>);</span><br><span class="line">goodsbaseinf.<span class="title function_">find</span>(&#123; <span class="attr">name</span>: <span class="string">&quot;《小学一年级语文（上册）》&quot;</span> &#125;).<span class="title function_">forEach</span>(<span class="function">(<span class="params">doc</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(doc, <span class="literal">null</span>, <span class="number">2</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;查看集合 goodsbaseinf 中的中小学生教材：&quot;</span>);</span><br><span class="line">goodsbaseinf</span><br><span class="line">  .<span class="title function_">find</span>(&#123;</span><br><span class="line">    <span class="attr">name</span>: &#123; <span class="attr">$regex</span>: <span class="regexp">/年级/</span> &#125;,</span><br><span class="line">  &#125;)</span><br><span class="line">  .<span class="title function_">forEach</span>(<span class="function">(<span class="params">doc</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(doc, <span class="literal">null</span>, <span class="number">2</span>));</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;\n&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/2023/%E7%AE%97%E6%B3%95-02-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/" rel="prev" title="算法-02-选择排序">
+                  <i class="fa fa-chevron-left"></i> 算法-02-选择排序
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruofan</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+  <script src="/blog/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/blog/js/third-party/math/mathjax.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/2023/MongoDB-03-%E7%BC%96%E5%86%99%E5%B9%B6%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/"}</script>
+  <script src="/blog/js/third-party/quicklink.js"></script>
+
+</body>
+</html>

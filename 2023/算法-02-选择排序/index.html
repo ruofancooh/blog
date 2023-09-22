@@ -15,27 +15,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="如何在 VSCode 里调 jar 包 FASTJSON2 库的下载和使用">
+    <meta name="description" content="拿到一手混乱的牌，从中选取最小的，与第 0 张交换位置。 之后忽略第 0 张，从剩余的牌里选取最小的，与第 1 张交换位置。 之后忽略第 0、1 张，从剩余的牌里选取最小的，与第 2 张交换位置。 以此类推。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java - 03 - 调库入门">
-<meta property="og:url" content="https://hrfis.me/blog/2023/Java-03-%E8%B0%83%E5%BA%93%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:title" content="算法-02-选择排序">
+<meta property="og:url" content="https://hrfis.me/blog/2023/%E7%AE%97%E6%B3%95-02-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/index.html">
 <meta property="og:site_name" content="若凡的笔记">
-<meta property="og:description" content="如何在 VSCode 里调 jar 包 FASTJSON2 库的下载和使用">
+<meta property="og:description" content="拿到一手混乱的牌，从中选取最小的，与第 0 张交换位置。 之后忽略第 0 张，从剩余的牌里选取最小的，与第 1 张交换位置。 之后忽略第 0、1 张，从剩余的牌里选取最小的，与第 2 张交换位置。 以此类推。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-09-18T11:55:00.000Z">
-<meta property="article:modified_time" content="2023-09-19T10:52:14.409Z">
+<meta property="article:published_time" content="2023-09-22T04:40:00.000Z">
+<meta property="article:modified_time" content="2023-09-22T04:45:13.902Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://hrfis.me/blog/2023/Java-03-%E8%B0%83%E5%BA%93%E5%85%A5%E9%97%A8/">
+<link rel="canonical" href="https://hrfis.me/blog/2023/%E7%AE%97%E6%B3%95-02-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/2023/Java-03-%E8%B0%83%E5%BA%93%E5%85%A5%E9%97%A8/","path":"2023/Java-03-调库入门/","title":"Java - 03 - 调库入门"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/2023/%E7%AE%97%E6%B3%95-02-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/","path":"2023/算法-02-选择排序/","title":"算法-02-选择排序"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Java - 03 - 调库入门 | 若凡的笔记</title>
+<title>算法-02-选择排序 | 若凡的笔记</title>
   
 
 
@@ -121,7 +121,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -134,7 +134,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8-vscode-%E9%87%8C%E8%B0%83-jar-%E5%8C%85"><span class="nav-number">1.</span> <span class="nav-text">如何在 VSCode 里调 jar 包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fastjson2"><span class="nav-number">2.</span> <span class="nav-text">FASTJSON2</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -180,7 +179,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/2023/Java-03-%E8%B0%83%E5%BA%93%E5%85%A5%E9%97%A8/">
+    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/2023/%E7%AE%97%E6%B3%95-02-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -193,12 +192,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Java - 03 - 调库入门 | 若凡的笔记">
+      <meta itemprop="name" content="算法-02-选择排序 | 若凡的笔记">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Java - 03 - 调库入门
+          算法-02-选择排序
         </h1>
 
         <div class="post-meta-container">
@@ -209,7 +208,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+          <a href="/blog/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
         </span>
     </span>
 
@@ -222,29 +221,12 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><ul>
-<li>如何在 VSCode 里调 jar 包</li>
-<li>FASTJSON2 库的下载和使用</li>
-</ul>
+    <div class="post-body" itemprop="articleBody"><p>拿到一手混乱的牌，从中选取最小的，与第 0 张交换位置。</p>
+<p>之后忽略第 0 张，从剩余的牌里选取最小的，与第 1 张交换位置。</p>
+<p>之后忽略第 0、1 张，从剩余的牌里选取最小的，与第 2 张交换位置。</p>
+<p>以此类推。</p>
 <span id="more"></span>
-<h2 id="如何在-vscode-里调-jar-包">如何在 VSCode 里调 jar 包</h2>
-<ol type="1">
-<li><code>Ctrl + Shift + P</code></li>
-<li>进入 <code>java:Configure Classpath</code></li>
-<li>找到 <code>Referenced Libraries</code></li>
-<li>点击 <code>Add</code></li>
-<li>选择下载的 jar 包</li>
-</ol>
-<h2 id="fastjson2">FASTJSON2</h2>
-<blockquote>
-<p><code>FASTJSON 2</code> 是一个性能极致并且简单易用的 Java JSON 库。——
-alibaba/fastjson2</p>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="https://github.com/alibaba/fastjson2">Github 仓库</a> | <a
-target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/alibaba/fastjson2/fastjson2/">下载地址</a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.alibaba.fastjson2.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">objText</span> <span class="operator">=</span> <span class="string">&quot;&#123;&#x27;a&#x27;:1,&#x27;b&#x27;:2&#125;&quot;</span>;</span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">data0</span> <span class="operator">=</span> JSON.parseObject(objText);</span><br><span class="line">        <span class="type">String</span> <span class="variable">arrText</span> <span class="operator">=</span> <span class="string">&quot;[5,4,3,1,2]&quot;</span>;</span><br><span class="line">        <span class="type">JSONArray</span> <span class="variable">data1</span> <span class="operator">=</span> JSON.parseArray(arrText);</span><br><span class="line">        System.out.println(data0);</span><br><span class="line">        System.out.println(data1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a
-href="/blog/2023/Java-01-Q&amp;A/#怎么读写文本文件">怎么读写文本文件？</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123; selectionSort &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">selectionSort</span>(<span class="params">arr</span>) &#123;</span><br><span class="line">  <span class="comment">// 选择排序（从小到大）</span></span><br><span class="line">  <span class="keyword">const</span> len = arr.<span class="property">length</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// 有零张或一张牌时，不会进入这层循环</span></span><br><span class="line">    <span class="comment">// 两个指针 i 和 j，i 指向每次外层循环的第一个元素。内层循环开始时，j 在 i 的后一位</span></span><br><span class="line">    <span class="comment">// i &lt; len - 1，说明外层 i 只循环到倒数第二位。每次内层循环，j 都要到最后一位</span></span><br><span class="line">    <span class="keyword">let</span> minIndex = i; <span class="comment">// 最小值索引</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> j = i + <span class="number">1</span>; j &lt; len; j++) &#123;</span><br><span class="line">      <span class="comment">// j 向右扫描，寻找后面牌的最小值</span></span><br><span class="line">      <span class="keyword">if</span> (arr[j] &lt; arr[minIndex]) &#123;</span><br><span class="line">        <span class="comment">// 如果找到更小的了，更新最小值索引</span></span><br><span class="line">        minIndex = j;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 把外层循环的第一张牌与后面的最小值交换位置</span></span><br><span class="line">    [arr[minIndex], arr[i]] = [arr[i], arr[minIndex]];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -258,13 +240,13 @@ href="/blog/2023/Java-01-Q&amp;A/#怎么读写文本文件">怎么读写文本�
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/blog/2023/%E7%AE%97%E6%B3%95-01-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/" rel="prev" title="算法-01-插入排序">
-                  <i class="fa fa-chevron-left"></i> 算法-01-插入排序
+                <a href="/blog/2023/Java-04-%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%97%AE%E7%AD%94/" rel="prev" title="Java - 04 - 字符串问答">
+                  <i class="fa fa-chevron-left"></i> Java - 04 - 字符串问答
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/blog/2023/MongoDB-01-%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" rel="next" title="MongoDB - 01 - 基本操作">
-                  MongoDB - 01 - 基本操作 <i class="fa fa-chevron-right"></i>
+                <a href="/blog/2023/MongoDB-03-%E7%BC%96%E5%86%99%E5%B9%B6%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6/" rel="next" title="MongoDB - 03 - 编写并运行脚本文件">
+                  MongoDB - 03 - 编写并运行脚本文件 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -336,7 +318,7 @@ href="/blog/2023/Java-01-Q&amp;A/#怎么读写文本文件">怎么读写文本�
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/2023/Java-03-%E8%B0%83%E5%BA%93%E5%85%A5%E9%97%A8/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/2023/%E7%AE%97%E6%B3%95-02-%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"}</script>
   <script src="/blog/js/third-party/quicklink.js"></script>
 
 </body>
