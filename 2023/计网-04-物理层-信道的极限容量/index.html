@@ -15,15 +15,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="码元  \(1\) 码元对应 \(x \mathrm{bit}\) 时 码元种类数（信号状态数） \(n &#x3D; 2^x\) 码元对应的比特数 \(x &#x3D; \log_2(n)\)  奈氏准则：无噪声低通信道中码元传输最高速率  \(波特 &#x3D; \mathrm{码元&#x2F;s} &#x3D; 2W \times 【码元单位】\) \(W\)：信道的频域带宽 \(\mathrm{Hz}\) \">
+    <meta name="description" content="码元  \(1\) 码元对应 \(x \mathrm{bit}\) 时（\(x &gt; 1\)）： 码元种类数（信号状态数） \(n &#x3D; 2^x\) 码元对应的比特数 \(x &#x3D; \log_2(n)\) 当 \(0 &lt; x &lt; 1\)时，一个比特由多个码元表示  奈氏准则：无噪声低通信道中码元传输最高速率  \(波特 &#x3D; \mathrm{码元&#x2F;s} &#x3D; 2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计网-04-物理层-信道的极限容量">
 <meta property="og:url" content="https://hrfis.me/blog/2023/%E8%AE%A1%E7%BD%91-04-%E7%89%A9%E7%90%86%E5%B1%82-%E4%BF%A1%E9%81%93%E7%9A%84%E6%9E%81%E9%99%90%E5%AE%B9%E9%87%8F/index.html">
 <meta property="og:site_name" content="若凡的笔记">
-<meta property="og:description" content="码元  \(1\) 码元对应 \(x \mathrm{bit}\) 时 码元种类数（信号状态数） \(n &#x3D; 2^x\) 码元对应的比特数 \(x &#x3D; \log_2(n)\)  奈氏准则：无噪声低通信道中码元传输最高速率  \(波特 &#x3D; \mathrm{码元&#x2F;s} &#x3D; 2W \times 【码元单位】\) \(W\)：信道的频域带宽 \(\mathrm{Hz}\) \">
+<meta property="og:description" content="码元  \(1\) 码元对应 \(x \mathrm{bit}\) 时（\(x &gt; 1\)）： 码元种类数（信号状态数） \(n &#x3D; 2^x\) 码元对应的比特数 \(x &#x3D; \log_2(n)\) 当 \(0 &lt; x &lt; 1\)时，一个比特由多个码元表示  奈氏准则：无噪声低通信道中码元传输最高速率  \(波特 &#x3D; \mathrm{码元&#x2F;s} &#x3D; 2">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-15T06:14:00.000Z">
-<meta property="article:modified_time" content="2023-09-23T11:14:03.692Z">
+<meta property="article:modified_time" content="2023-09-23T14:29:21.454Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
@@ -226,11 +226,14 @@
 <li>码元
 <ul>
 <li><span class="math inline">\(1\)</span> 码元对应 <span
-class="math inline">\(x \mathrm{bit}\)</span> 时</li>
+class="math inline">\(x \mathrm{bit}\)</span> 时（<span
+class="math inline">\(x &gt; 1\)</span>）：</li>
 <li>码元种类数（信号状态数） <span class="math inline">\(n =
 2^x\)</span></li>
 <li>码元对应的比特数 <span class="math inline">\(x =
 \log_2(n)\)</span></li>
+<li>当 <span class="math inline">\(0 &lt; x &lt;
+1\)</span>时，一个比特由多个码元表示</li>
 </ul></li>
 <li>奈氏准则：无噪声低通信道中码元传输最高速率
 <ul>
@@ -255,7 +258,17 @@ class="math inline">\(\mathrm{Hz}\)</span></li>
 \dfrac{S}{N})\)</span></li>
 </ul></li>
 <li>奈氏准则和香农公式的意义</li>
-<li>信号传播速度（电磁波在介质中的传播速度）不会影响信道数据的传输速率</li>
+<li>影响数据在信道中传输速率的因素有：
+<ul>
+<li>信道长度</li>
+<li>信道带宽</li>
+<li>信噪比</li>
+<li><a
+href="/blog/2023/计网-03-物理层-通信基础概念/#编码方式">编码方式</a></li>
+<li><a
+href="/blog/2023/计网-05-物理层-信道复用技术">信道复用方式</a></li>
+<li>信号传播速度（电磁波在介质中的传播速度）<strong>不会影响</strong>信道数据的传输速率</li>
+</ul></li>
 </ul>
 <span id="more"></span>
 <h2 id="码元">码元</h2>
@@ -271,6 +284,8 @@ class="math inline">\(\mathrm{Hz}\)</span></li>
 都是码元，是不同的码元，它们分别一一对应（双射）了一个四位二进制数。</p>
 <p>如果分隔成八个部分，那 <code>0</code> 和 <code>1</code>
 也是码元。</p>
+<p><span class="math inline">\(\{一，壹，Ⅰ，①，...\}\)</span>
+都是码元，这是多个码元对应一个比特 <code>1</code> 的情况。</p>
 <p>类比信号，码就是波形，码元就是在发送和解读波形时，可以分辨的最小单位波形。</p>
 <h2
 id="奈氏准则奈奎斯特香农采样定理的一部分">奈氏准则（奈奎斯特—香农采样定理的一部分）</h2>
@@ -316,8 +331,12 @@ class="math inline">\(\mathrm{dB}\)</span>。（是单位，这里为了方便�
 <h2 id="奈氏准则和香农公式的意义">奈氏准则和香农公式的意义</h2>
 <p>信噪比越大，接收方接收到的信息失真越少。</p>
 <p>奈氏准则直接假定噪声为 <span
-class="math inline">\(0\)</span>，信噪比无穷大，速率只取决于带宽。这鼓励了人们研究更好的编码技术，一次传更多的东西。</p>
-<p>香农公式告诉我们：信噪比越大，极限速率越高，但是信噪比不可能无限大，所以速率也有极限。</p>
+class="math inline">\(0\)</span>，信噪比无穷大。这鼓励了人们研究更好的编码技术，一次传更多的东西。</p>
+<p>香农公式告诉我们：</p>
+<ul>
+<li>信噪比越大，极限速率越高，但是信噪比不可能无限大，所以速率也有极限。</li>
+<li>只要信息传输速率低于极限速率，就一定能找到某种方法实现无差错的传输。</li>
+</ul>
 <p>计算传输速率时，取奈氏准则和香农公式的结果小的。</p>
 
     </div>

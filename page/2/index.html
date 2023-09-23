@@ -298,11 +298,14 @@
 <li>码元
 <ul>
 <li><span class="math inline">\(1\)</span> 码元对应 <span
-class="math inline">\(x \mathrm{bit}\)</span> 时</li>
+class="math inline">\(x \mathrm{bit}\)</span> 时（<span
+class="math inline">\(x &gt; 1\)</span>）：</li>
 <li>码元种类数（信号状态数） <span class="math inline">\(n =
 2^x\)</span></li>
 <li>码元对应的比特数 <span class="math inline">\(x =
 \log_2(n)\)</span></li>
+<li>当 <span class="math inline">\(0 &lt; x &lt;
+1\)</span>时，一个比特由多个码元表示</li>
 </ul></li>
 <li>奈氏准则：无噪声低通信道中码元传输最高速率
 <ul>
@@ -327,7 +330,17 @@ class="math inline">\(\mathrm{Hz}\)</span></li>
 \dfrac{S}{N})\)</span></li>
 </ul></li>
 <li>奈氏准则和香农公式的意义</li>
-<li>信号传播速度（电磁波在介质中的传播速度）不会影响信道数据的传输速率</li>
+<li>影响数据在信道中传输速率的因素有：
+<ul>
+<li>信道长度</li>
+<li>信道带宽</li>
+<li>信噪比</li>
+<li><a
+href="/blog/2023/计网-03-物理层-通信基础概念/#编码方式">编码方式</a></li>
+<li><a
+href="/blog/2023/计网-05-物理层-信道复用技术">信道复用方式</a></li>
+<li>信号传播速度（电磁波在介质中的传播速度）<strong>不会影响</strong>信道数据的传输速率</li>
+</ul></li>
 </ul>
           <!--noindex-->
             <div class="post-button">
