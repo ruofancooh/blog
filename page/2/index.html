@@ -142,7 +142,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">笔记</span>
         </a>
       </div>
@@ -165,6 +165,83 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/2023/%E7%AE%97%E6%B3%95-00-%E6%80%BB%E7%BA%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Ruofan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="若凡的笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 若凡的笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2023/%E7%AE%97%E6%B3%95-00-%E6%80%BB%E7%BA%B2/" class="post-title-link" itemprop="url">算法-00-总纲</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>总纲就是学别人的写法，给别人的代码加注释。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2023/%E7%AE%97%E6%B3%95-00-%E6%80%BB%E7%BA%B2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -218,18 +295,31 @@
     
     <div class="post-body" itemprop="articleBody">
           <ul>
-<li>码元</li>
+<li>码元
+<ul>
+<li><span class="math inline">\(1\)</span> 码元对应 <span
+class="math inline">\(x \mathrm{bit}\)</span> 时</li>
+<li>码元种类数（信号状态数） <span class="math inline">\(n =
+2^x\)</span></li>
+<li>码元对应的比特数 <span class="math inline">\(x =
+\log_2(n)\)</span></li>
+</ul></li>
 <li>奈氏准则：无噪声低通信道中码元传输最高速率
 <ul>
-<li><span class="math inline">\(W\)</span>：信道的频域带宽</li>
-<li><span class="math inline">\(\mathrm{码元/s} = 码元单位 \times
-两倍频域带宽\)</span></li>
+<li><span class="math inline">\(波特 = \mathrm{码元/s} = 2W \times
+【码元单位】\)</span></li>
+<li><span class="math inline">\(W\)</span>：信道的频域带宽 <span
+class="math inline">\(\mathrm{Hz}\)</span></li>
+<li><span class="math inline">\(比特率 = \mathrm{bit/s} = 2Wx =
+2W\log_2(n)\)</span></li>
 </ul></li>
 <li>信噪比
 <ul>
 <li>用 <span class="math inline">\(\dfrac{S}{N}\)</span> 表示</li>
-<li>用 <span class="math inline">\(\mathrm{dB} = 10
-\lg\dfrac{S}{N}\)</span> 表示</li>
+<li>用 <span class="math inline">\(\mathrm{dB} = 10 \log_{10}
+\dfrac{S}{N}\)</span> 表示</li>
+<li><span class="math inline">\(\dfrac{S}{N} =
+10^{\mathrm{dB}/10}\)</span></li>
 </ul></li>
 <li>香农公式：信道极限速率
 <ul>
@@ -237,6 +327,7 @@
 \dfrac{S}{N})\)</span></li>
 </ul></li>
 <li>奈氏准则和香农公式的意义</li>
+<li>信号传播速度（电磁波在介质中的传播速度）不会影响信道数据的传输速率</li>
 </ul>
           <!--noindex-->
             <div class="post-button">
@@ -641,7 +732,8 @@ target="_blank" rel="noopener" href="https://www.hadoopdoc.com/">大象教程</a
           <ul>
 <li>通信双方的交互方式：单向通信、双向交替通信、双向同时通信</li>
 <li>编码和调制</li>
-<li>编码方式：不归零制（NRZ）、归零制（RZ）、曼彻斯特编码、差分曼彻斯特编码</li>
+<li>编码方式：极性不归零电平（Polar NRZL）、极性不归零反转（Polar
+NRZI）、极性归零（Polar RZ）、曼彻斯特编码、差分曼彻斯特编码</li>
 <li>基带调制、带通调制、正交振幅调制（QAM）</li>
 </ul>
           <!--noindex-->
@@ -840,7 +932,7 @@ Player（免费的，但是不支持克隆虚拟机，需要手动装另外两�
     <div class="post-body" itemprop="articleBody">
           <ul>
 <li>OSI 七层协议：参考模型</li>
-<li>TCP/IP 四层协议：实际用到的</li>
+<li>TCP/IP 四层协议：即 Internet protocol suite，实际用到的</li>
 <li>五层协议：教学模型</li>
 </ul>
           <!--noindex-->
@@ -932,83 +1024,6 @@ Player（免费的，但是不支持克隆虚拟机，需要手动装另外两�
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/blog/2023/%E8%AE%A1%E7%BD%91-01-%E6%A6%82%E8%BF%B0-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/2023/Java-01-%E9%97%AE%E7%AD%94/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="Ruofan">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="若凡的笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 若凡的笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/blog/2023/Java-01-%E9%97%AE%E7%AD%94/" class="post-title-link" itemprop="url">Java - 01 - 问答</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>一些问题与回答</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/blog/2023/Java-01-%E9%97%AE%E7%AD%94/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

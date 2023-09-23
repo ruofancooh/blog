@@ -23,7 +23,7 @@
 <meta property="og:description" content="能指和所指 C 语言中的指针">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-05T09:50:00.000Z">
-<meta property="article:modified_time" content="2023-09-16T07:49:45.703Z">
+<meta property="article:modified_time" content="2023-09-23T07:00:52.263Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">笔记</span>
         </a>
       </div>
@@ -243,11 +243,13 @@
 <p>变量类型<code>int*</code>，变量名<code>ptr</code>-&gt;变量值<code>num-&gt;100的内存地址</code></p>
 <p><code>&amp;num</code>，就是获取<code>num</code>值的位置。</p>
 <ul>
-<li><p><code>&amp;</code>一个变量名，就是获取变量名的值的地址。简称取地址。</p></li>
-<li><p><code>*</code>一个变量名，就是获取变量名的值（只对指针有效）。简称访问地址。</p></li>
-<li><p><code>*&amp;</code>一个变量名就是先<code>&amp;</code>后<code>*</code>（两个运算符优先级相同，且都是右结合）。</p>
-<p>先取地址，后访问地址，和单独使用变量名效果一样。</p></li>
-<li><p><code>&amp;</code>一个指针变量名，就是获取指针变量值本身的位置（存放<code>num</code>地址值的地址）。</p></li>
+<li><code>&amp;</code>一个变量名，就是获取变量名的值的地址。简称取地址。</li>
+<li><code>*</code>一个变量名，就是获取变量名的值（只对指针有效）。简称访问地址。</li>
+<li><code>*&amp;</code>一个变量名就是先<code>&amp;</code>后<code>*</code>（两个运算符优先级相同，且都是右结合）。
+<ul>
+<li>先取地址，后访问地址，和单独使用变量名效果一样。</li>
+</ul></li>
+<li><code>&amp;</code>一个指针变量名，就是获取指针变量值本身的位置（存放<code>num</code>地址值的地址）。</li>
 </ul>
 <p>还可以创建二级指针，就是指向指针的指针：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>** pptr = &amp;ptr;</span><br></pre></td></tr></table></figure>

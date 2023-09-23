@@ -23,7 +23,7 @@
 <meta property="og:description" content="起因是，我是把博客代码分两个仓库存的。需要做很多重复的工作。 于是我写了两个 bat 文件。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-08-27T12:38:00.000Z">
-<meta property="article:modified_time" content="2023-09-16T07:49:36.701Z">
+<meta property="article:modified_time" content="2023-09-23T07:03:12.861Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
@@ -146,7 +146,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">笔记</span>
         </a>
       </div>
@@ -226,18 +226,18 @@
 <span id="more"></span>
 <p>起因是，我是把博客代码分两个仓库存的：</p>
 <ul>
-<li><p><code>blog-source</code>存 Hexo 框架源码，NexT
-主题源码和自己的部分（更改后的配置文件、md 文档、图片等）</p></li>
-<li><p><code>blog</code>存渲染之后的网页，分支是<code>gh-pages</code></p></li>
+<li><code>blog-source</code>存 Hexo 框架源码，NexT
+主题源码和自己的部分（更改后的配置文件、md 文档、图片等）</li>
+<li><code>blog</code>存渲染之后的网页，分支是<code>gh-pages</code></li>
 </ul>
 <p>这就造成在 commit 前，我需要做以下工作：</p>
 <ol type="1">
-<li><p>在<code>blog-source</code>文件夹里先打开本地预览服务器。</p></li>
-<li><p>点击链接，在浏览器里打开。</p></li>
-<li><p>预览没问题，渲染网页。</p></li>
-<li><p>删除<code>blog</code>文件夹里除了<code>.git</code>外的所有文件和文件夹。</p></li>
-<li><p>把渲染的网页从<code>blog-source/public/</code>转移到<code>blog</code>文件夹里。</p></li>
-<li><p>清除<code>blog-source</code>文件夹里渲染的网页。</p></li>
+<li>在<code>blog-source</code>文件夹里先打开本地预览服务器。</li>
+<li>点击链接，在浏览器里打开。</li>
+<li>预览没问题，渲染网页。</li>
+<li>删除<code>blog</code>文件夹里除了<code>.git</code>外的所有文件和文件夹。</li>
+<li>把渲染的网页从<code>blog-source/public/</code>转移到<code>blog</code>文件夹里。</li>
+<li>清除<code>blog-source</code>文件夹里渲染的网页。</li>
 </ol>
 <p>手动操作了十几天后很烦，于是我写了两个 bat 文件：</p>
 <p><code>bs.bat</code> 做第 1-2 步</p>
