@@ -23,7 +23,7 @@
 <meta property="og:description" content="基本概念">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-19T05:50:00.000Z">
-<meta property="article:modified_time" content="2023-09-20T15:17:07.075Z">
+<meta property="article:modified_time" content="2023-09-26T04:57:33.672Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
@@ -134,7 +134,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#leader"><span class="nav-number">1.</span> <span class="nav-text">Leader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#follower"><span class="nav-number">2.</span> <span class="nav-text">Follower</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#znode"><span class="nav-number">3.</span> <span class="nav-text">ZNode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ticktime"><span class="nav-number">4.</span> <span class="nav-text">tickTime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#initlimit"><span class="nav-number">5.</span> <span class="nav-text">initLimit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#synclimit"><span class="nav-number">6.</span> <span class="nav-text">syncLimit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%86%E5%AF%BC%E9%80%89%E4%B8%BE"><span class="nav-number">7.</span> <span class="nav-text">领导选举</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#leader"><span class="nav-number">1.</span> <span class="nav-text">Leader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#follower"><span class="nav-number">2.</span> <span class="nav-text">Follower</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sid"><span class="nav-number">3.</span> <span class="nav-text">SID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zxid"><span class="nav-number">4.</span> <span class="nav-text">ZXID</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#epoch"><span class="nav-number">5.</span> <span class="nav-text">Epoch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#znode"><span class="nav-number">6.</span> <span class="nav-text">ZNode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ticktime"><span class="nav-number">7.</span> <span class="nav-text">tickTime</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#initlimit"><span class="nav-number">8.</span> <span class="nav-text">initLimit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#synclimit"><span class="nav-number">9.</span> <span class="nav-text">syncLimit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%86%E5%AF%BC%E9%80%89%E4%B8%BE"><span class="nav-number">10.</span> <span class="nav-text">领导选举</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -147,7 +147,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">笔记</span>
         </a>
       </div>
@@ -230,6 +230,12 @@
 <h2 id="follower">Follower</h2>
 <p>追随者，接收客户端的读请求。</p>
 <p>后面简称 F。</p>
+<h2 id="sid">SID</h2>
+<p>服务器 ID，和 myid 一致。</p>
+<h2 id="zxid">ZXID</h2>
+<p>事务 ID。操作的次数。</p>
+<h2 id="epoch">Epoch</h2>
+<p>任期代号（秦始皇、唐太宗）</p>
 <h2 id="znode">ZNode</h2>
 <h2 id="ticktime">tickTime</h2>
 <p>心跳时间，单位毫秒。</p>
@@ -249,8 +255,8 @@
 <p>每加入一台新的服务器时：如果票数没有超过服务器的半数，所有服务器都
 LOOKING（？）；如果票数超过半数了，<code>myid</code>
 最大的服务器就被选为 L。后续加入的服务器全都是 F。</p>
-<p>如果 L 挂了，会重新选举。</p>
-<p>如何重新选举？</p>
+<p>如果 L 挂了，会重新选举。按照 Epoch -&gt; ZXID -&gt; SID
+的顺序，谁大谁当选。</p>
 
     </div>
 
