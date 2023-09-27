@@ -15,27 +15,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 
-    <meta name="description" content="K 转 10：和整数进制转换的方法一样 10 转 K：乘 K 取整">
+    <meta name="description" content="韶：一种乐曲，后引申为“美好的”。 赋：一种文体，用于描写和抒情。  词作者是战场原妖精。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="十进制与K进制小数互转">
-<meta property="og:url" content="https://hrfis.me/blog/2023/%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8EK%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC/index.html">
+<meta property="og:title" content="《韶音赋》歌词注解">
+<meta property="og:url" content="https://hrfis.me/blog/shao-yin-fu.html">
 <meta property="og:site_name" content="若凡的笔记">
-<meta property="og:description" content="K 转 10：和整数进制转换的方法一样 10 转 K：乘 K 取整">
+<meta property="og:description" content="韶：一种乐曲，后引申为“美好的”。 赋：一种文体，用于描写和抒情。  词作者是战场原妖精。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-08-19T12:56:00.000Z">
-<meta property="article:modified_time" content="2023-09-16T07:49:20.216Z">
+<meta property="article:published_time" content="2023-09-27T11:09:00.000Z">
+<meta property="article:modified_time" content="2023-09-27T11:09:41.993Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://hrfis.me/blog/2023/%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8EK%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC/">
+<link rel="canonical" href="https://hrfis.me/blog/shao-yin-fu">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/2023/%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8EK%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC/","path":"2023/十进制与K进制小数互转/","title":"十进制与K进制小数互转"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/shao-yin-fu.html","path":"/shao-yin-fu.html","title":"《韶音赋》歌词注解"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>十进制与K进制小数互转 | 若凡的笔记</title>
+<title>《韶音赋》歌词注解 | 若凡的笔记</title>
   
 
 
@@ -134,8 +134,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#k-%E8%BD%AC-10%E5%92%8C%E6%95%B4%E6%95%B0%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E7%9A%84%E6%96%B9%E6%B3%95%E4%B8%80%E6%A0%B7"><span class="nav-number">1.</span> <span class="nav-text">K 转
-10：和整数进制转换的方法一样</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-10"><span class="nav-number">1.1.</span> <span class="nav-text">2 转 10</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%89%E9%99%90%E5%B0%8F%E6%95%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">有限小数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%A0%E9%99%90%E5%BE%AA%E7%8E%AF%E5%B0%8F%E6%95%B0"><span class="nav-number">1.1.2.</span> <span class="nav-text">无限循环小数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-10-1"><span class="nav-number">1.2.</span> <span class="nav-text">16 转 10</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC-k%E4%B9%98-k-%E5%8F%96%E6%95%B4"><span class="nav-number">2.</span> <span class="nav-text">10 转 K：乘 K 取整</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-2"><span class="nav-number">2.1.</span> <span class="nav-text">10 转 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-16"><span class="nav-number">2.2.</span> <span class="nav-text">10 转 16</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%8D"><span class="nav-number">1.</span> <span class="nav-text">词</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A3%B9"><span class="nav-number">1.1.</span> <span class="nav-text">壹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%B0"><span class="nav-number">1.2.</span> <span class="nav-text">贰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%81"><span class="nav-number">1.3.</span> <span class="nav-text">叁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%82%86"><span class="nav-number">1.4.</span> <span class="nav-text">肆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%8D"><span class="nav-number">1.5.</span> <span class="nav-text">伍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%86"><span class="nav-number">1.6.</span> <span class="nav-text">陆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%92"><span class="nav-number">1.7.</span> <span class="nav-text">柒</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B2"><span class="nav-number">2.</span> <span class="nav-text">曲</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -181,7 +180,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/2023/%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8EK%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC/">
+    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/shao-yin-fu.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/blog/images/avatar.gif">
@@ -194,12 +193,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="十进制与K进制小数互转 | 若凡的笔记">
+      <meta itemprop="name" content="《韶音赋》歌词注解 | 若凡的笔记">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          十进制与K进制小数互转
+          《韶音赋》歌词注解
         </h1>
 
         <div class="post-meta-container">
@@ -210,7 +209,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/%E6%97%A0%E5%88%86%E7%B1%BB/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
+          <a href="/blog/categories/%E9%9F%B3%E4%B9%90/" itemprop="url" rel="index"><span itemprop="name">音乐</span></a>
         </span>
     </span>
 
@@ -224,134 +223,110 @@
     
     
     <div class="post-body" itemprop="articleBody"><ul>
-<li>K 转 10：和整数进制转换的方法一样</li>
-<li>10 转 K：乘 K 取整</li>
+<li>韶：一种乐曲，后引申为“美好的”。</li>
+<li>赋：一种文体，用于描写和抒情。</li>
 </ul>
+<p>词作者是<a
+target="_blank" rel="noopener" href="https://space.bilibili.com/109564">战场原妖精</a>。</p>
 <span id="more"></span>
-<h2 id="k-转-10和整数进制转换的方法一样">K 转
-10：和整数进制转换的方法一样</h2>
-<p>每一位分别乘上 K 的次方，再相加。</p>
-<h3 id="转-10">2 转 10</h3>
-<h4 id="有限小数">有限小数</h4>
-<p><span class="math inline">\(11.1011_{2} = 3.6875_{10}\)</span></p>
-<table>
-<thead>
-<tr class="header">
-<th>项</th>
-<th>值</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(1\times2^{1}\)</span></td>
-<td><span class="math inline">\(2\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(1\times2^{0}\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(1\times2^{-1}\)</span></td>
-<td><span class="math inline">\(0.5\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0\times2^{-2}\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(1\times2^{-3}\)</span></td>
-<td><span class="math inline">\(0.125\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(1\times2^{-4}\)</span></td>
-<td><span class="math inline">\(0.0625\)</span></td>
-</tr>
-<tr class="odd">
-<td><strong>总和</strong></td>
-<td><span class="math inline">\(3.6875\)</span></td>
-</tr>
-</tbody>
-</table>
-<h4 id="无限循环小数">无限循环小数</h4>
-<p><span class="math inline">\(1.1 \dot{0} 11 \dot{0} ... _{2} =
-1.7_{10}\)</span></p>
-<p>可以转换成分数计算：</p>
-<p><span class="math display">\[
-\begin{aligned}
-1.1 \dot{0} 11 \dot{0} ... _{2} &amp; = x \\
-11.\dot{0} 11 \dot{0} ... _{2} &amp; = 2_{10}x \\
-110110. \dot{0} 11 \dot{0} ... _{2} &amp; = 32_{10}x \\
-两式相减，110011_{2} &amp; = 30_{10}x \\
-x &amp; = \frac{110011_{2}}{30_{10}} = \frac{51_{10}}{30_{10}} =
-1.7_{10}
-\end{aligned}
-\]</span></p>
-<h3 id="转-10-1">16 转 10</h3>
-<p>同上略。</p>
-<h2 id="转-k乘-k-取整">10 转 K：乘 K 取整</h2>
-<p>整数部分仍然除 K 取余，小数部分乘 K 取整，然后相加。</p>
-<h3 id="转-2">10 转 2</h3>
-<p><span class="math inline">\(0.7 _{10} = 0.1 \dot{0} 11 \dot{0} ...
-_{2}\)</span></p>
-<table>
-<thead>
-<tr class="header">
-<th>小数部分乘 2</th>
-<th>取整数部分</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(0.7 \times 2 = 1.4\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0.4 \times 2 = 0.8\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(0.8 \times 2 = 1.6\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0.6 \times 2 = 1.2\)</span></td>
-<td><span class="math inline">\(1\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(0.2 \times 2 = 0.4\)</span></td>
-<td><span class="math inline">\(0\)</span></td>
-</tr>
-<tr class="even">
-<td>...</td>
-<td>...</td>
-</tr>
-</tbody>
-</table>
-<h3 id="转-16">10 转 16</h3>
-<p><span class="math inline">\(0.7 _{10} = 0.\mathrm{B} \dot{3} ...
-_{16}\)</span></p>
-<table>
-<thead>
-<tr class="header">
-<th>小数部分乘 16</th>
-<th>取整数部分</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(0.7 \times 16 = 11.2\)</span></td>
-<td><span class="math inline">\(\mathrm{B}\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(0.2 \times 16 = 3.2\)</span></td>
-<td><span class="math inline">\(3\)</span></td>
-</tr>
-<tr class="odd">
-<td>...</td>
-<td>...</td>
-</tr>
-</tbody>
-</table>
+<h2 id="词">词</h2>
+<h3 id="壹">壹</h3>
+<blockquote>
+<p><i>浮黎元始开天地 诸神创世天各一</i><br/>
+<i>三清六御轮回助 神界人间满紫气</i><br/></p>
+</blockquote>
+<ul>
+<li><p><strong>浮黎元始</strong>：浮黎元始天尊，指盘古。</p>
+<p>——也有说指玉皇大帝的，而盘古是祂的长子【玉清元始天尊】。</p>
+<p>这不重要，只需要知道祂是神仙，是创世者，是对自然的想象，是一种信仰。</p>
+<p>【三清六御】同理，也有三清四御的说法。可能是出于字形和音韵美，选择【浮黎】比【玉清】好，【三清六御】比【三清四御】好。（应该没有道长能找到这）</p></li>
+<li><p><strong>紫气</strong>：祥瑞之气。</p></li>
+</ul>
+<h3 id="贰">贰</h3>
+<blockquote>
+<p><i>天边远山泛青光 忽而花落花满殇</i><br/>
+<i>我从雾中乘风来 只为伴君不思量</i><br/></p>
+</blockquote>
+<ul>
+<li><strong>青光</strong>：绿色的光。也指光阴、时光。</li>
+<li><strong>殇</strong>：非“正常”死亡：未成年而死、战死、为国捐躯。</li>
+</ul>
+<p>【我】是一名来自世界之外的旁观者：什么东西都不想，主打一个陪伴。</p>
+<h3 id="叁">叁</h3>
+<blockquote>
+<p><i>伏羲女娲神农氏 江河淮济育生灵</i><br/>
+<i>南宫北斗映贤尚 天涯海角随君行</i><br/></p>
+</blockquote>
+<ul>
+<li><strong>伏羲女娲神农氏</strong>：用三位代指多位。神农就是“炎黄子孙”的炎帝。</li>
+<li><strong>江河淮济</strong>：长江、黄河、淮河、济水。四条流入大海的河。</li>
+<li><strong>南宫北斗</strong>：星辰。</li>
+<li><strong>贤尚</strong>：尚：尊崇。可以把【贤尚】空想成【人】的意思。</li>
+</ul>
+<p>【我】是一个仙儿，天涯海角随【君】行。</p>
+<h3 id="肆">肆</h3>
+<blockquote>
+<p><i>生来无欲享富贵 但求为君咏思绪</i><br/>
+<i>若夫德行无领会 自退远方乘浪归</i><br/></p>
+</blockquote>
+<ul>
+<li>【若夫】：句首语气词，“至于……的话”。</li>
+</ul>
+<p>要是【我】没有【领会】到【君】的【德行】，那【我】就要回去了。——这是其中一种理解方式。</p>
+<h3 id="伍">伍</h3>
+<blockquote>
+<p><i>我带着梦想 带着希望 带着力量</i><br/>
+<i>探寻人间的感伤</i><br/></p>
+</blockquote>
+<h3 id="陆">陆</h3>
+<blockquote>
+<p><i>请赋予我理想 请赋予我希望</i><br/>
+<i>请赋予我一颗炽热的心房</i><br/> <i>让这情感释放</i><br/></p>
+</blockquote>
+<ul>
+<li>【赋予】和【赋】是紧密相关的。</li>
+<li>【一颗心房】并不是量词使用不当。即使在生物学上也有心房、心室的概念，比如：</li>
+</ul>
+<style>
+   .r{
+      color: red;
+   }
+   .b{
+      color: blue;
+   }
+</style>
+<p><span class="r">动脉血</span>从【左心室】流入<span
+class="r">主动脉</span>，途经心肺之外的全身毛细血管消耗氧，变成<span
+class="b">静脉血</span>，经<span
+class="b">上腔、下腔静脉</span>流回【右心房】。这被称为【体循环】。</p>
+<p><span class="b">静脉血</span>从【右心室】流入<span
+class="r">肺动脉</span>，途径肺里的毛细血管吸收氧，变成<span
+class="r">动脉血</span>，经<span
+class="b">肺静脉</span>流回【左心房】。这被称为【肺循环】。</p>
+<h3 id="柒">柒</h3>
+<blockquote>
+<p><i>泪水模糊了眼眶 为何这般闪亮</i><br/>
+<i>就算我终会消亡 终会迷茫</i><br/> <i>请让我带走这份熵</i><br/></p>
+</blockquote>
+<ul>
+<li>【熵】是物理学的一个概念，用于描述系统的混乱程度。</li>
+</ul>
+<p>对于一个孤立的（不与外界交换能量和质量的）系统，其熵会一直增加。这被称为热力学第二定律。</p>
+<p>浅显不恰当的例子就是：如果不整理耳机线，它总是会缠起来。</p>
+<h2 id="曲">曲</h2>
+<p>曲子有三个发布版本：</p>
+<ul>
+<li>初版由洛天依演唱，战场原妖精词曲调，2012 年发布于<a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ax411F7z2/">哔哩哔哩</a>。</li>
+<li>2014 年作者重调重混，由洛天依演唱，收录于专辑<a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/av1042693/">《平行四界Quadimension》</a>。</li>
+<li>2016 年作者重调重混，由星尘演唱，发布于<a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1us41167ww/">哔哩哔哩</a>。</li>
+</ul>
+<p>曲子结构并没有什么大变化。这是第二个版本：</p>
+<iframe frameborder="no" width="100%" height="86" src="//music.163.com/outchain/player?type=2&amp;id=429460265&amp;auto=1&amp;height=66">
+</iframe>
+<p>曲风属于（旋律金属/民谣金属）（根据专辑宣传视频里的介绍）。</p>
 
     </div>
 
@@ -365,13 +340,13 @@ _{16}\)</span></p>
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/blog/2023/%E5%9C%A8Windows%E4%B8%AD%E5%AE%89%E8%A3%85Linux%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="prev" title="在Windows中安装Linux虚拟机">
-                  <i class="fa fa-chevron-left"></i> 在Windows中安装Linux虚拟机
+                <a href="/blog/2023/%E8%AE%A1%E7%BD%91-06-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82-%E5%9F%BA%E6%9C%AC%E9%97%AE%E9%A2%98/" rel="prev" title="计网-06-数据链路层-基本问题">
+                  <i class="fa fa-chevron-left"></i> 计网-06-数据链路层-基本问题
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/blog/2023/%E7%94%A8GDB%E6%9F%A5%E7%9C%8B%E5%8F%98%E9%87%8F%E5%86%85%E5%AD%98/" rel="next" title="用GDB查看变量内存">
-                  用GDB查看变量内存 <i class="fa fa-chevron-right"></i>
+                <a href="/blog/2023/Java-05-Maven%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="next" title="Java - 05 - Maven环境配置">
+                  Java - 05 - Maven环境配置 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -438,12 +413,12 @@ _{16}\)</span></p>
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/2023/%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8EK%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/shao-yin-fu.html"}</script>
   <script src="/blog/js/third-party/quicklink.js"></script>
 
 </body>
