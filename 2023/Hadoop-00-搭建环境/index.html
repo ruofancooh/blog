@@ -23,7 +23,7 @@
 <meta property="og:description" content="Hadoop 完全分布式模式环境配置：        用 名     物理机系统 Windows 10   虚拟机容器 VMware Workstation 17.0.2 Player（免费的，但是不支持克隆虚拟机，需要手动装另外两台）   虚拟机系统 Ubuntu 22.04.3 server   主角 Hadoop 3.3.6">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-11T09:45:00.000Z">
-<meta property="article:modified_time" content="2023-09-16T10:00:11.887Z">
+<meta property="article:modified_time" content="2023-09-28T05:12:07.117Z">
 <meta property="article:author" content="Ruofan">
 <meta name="twitter:card" content="summary">
 
@@ -150,7 +150,7 @@ worker1 和 worker2，配置好之后，互相复制 SSH KEY</span></a></li><li 
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">46</span>
           <span class="site-state-item-name">笔记</span>
         </a>
       </div>
@@ -228,8 +228,8 @@ worker1 和 worker2，配置好之后，互相复制 SSH KEY</span></a></li><li 
     <div class="post-body" itemprop="articleBody"><p>Hadoop 完全分布式模式环境配置：</p>
 <table>
 <colgroup>
-<col style="width: 47%" />
-<col style="width: 52%" />
+<col style="width: 44%" />
+<col style="width: 55%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -267,6 +267,8 @@ Player（免费的，但是不支持克隆虚拟机，需要手动装另外两�
 </tbody>
 </table>
 <p>装了三台机器，名：master、worker1、worker2。</p>
+<p>（<a href="/blog/2023/编写ZooKeeper服务器集群控制脚本">后来</a>又改成
+ubuntu101、ubuntu102、ubuntu103 了）</p>
 <span id="more"></span>
 <h2 id="在-windows-中安装-linux-虚拟机">在 Windows 中安装 Linux
 虚拟机</h2>
@@ -307,8 +309,8 @@ target="_blank" rel="noopener" href="https://github.com/apache/hadoop/blob/rel/r
 Vim，传到真机上修改也可，这样还方便传到其他机器上。注意行尾序列是<strong>LF</strong>，小心操作不当变成
 CRLF。</p>
 <p>（还可以写一个集群分发脚本，不过暂时没必要）</p>
-<p>（<a href="/blog/2023/Hadoop-01-Linux-集群分发脚本配置">Hadoop - 01 -
-Linux - 集群分发脚本配置</a>）</p>
+<p>（<a href="/blog/2023/Hadoop-01-编写Linux集群分发脚本">Hadoop - 01 -
+编写 Linux 集群分发脚本</a>）</p>
 <p>把改好的文件存真机上一份，直接用 Xftp
 传（如果传输失败，就修改文件权限）。</p>
 <p>注意传之前把静态 IP 改了，不同机器设成不同静态 IP。</p>
