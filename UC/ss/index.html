@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
+<link href="/blog/css/main.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" rel="stylesheet"/>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+<meta content="能指和所指
+ C 语言中的指针" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="能指和所指" property="og:title"/>
+<meta content="https://hrfis.me/blog/UC/ss/index.html" property="og:url"/>
+<meta content="若凡的笔记" property="og:site_name"/>
+<meta content="能指和所指
+ C 语言中的指针" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="2023-09-05T09:50:00.000Z" property="article:published_time"/>
+<meta content="2023-09-29T13:06:50.282Z" property="article:modified_time"/>
+<meta content="Ruofan" property="article:author"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://hrfis.me/blog/UC/ss/" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/UC/ss/","path":"/UC/ss/","title":"能指和所指"}</script>
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>能指和所指 | 若凡的笔记</title>
+<noscript>
+<link href="/blog/css/noscript.css" rel="stylesheet"/>
+</noscript>
+</head>
+<body class="use-motion" itemscope="" itemtype="http://schema.org/WebPage">
+<div class="headband"></div>
+<main class="main">
+<div class="column">
+<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+<div class="site-nav-toggle">
+<div aria-label="切换导航栏" class="toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+</div>
+</div>
+<div class="site-meta">
+<a class="brand" href="/blog/" rel="start">
+<i class="logo-line"></i>
+<p class="site-title">若凡的笔记</p>
+<i class="logo-line"></i>
+</a>
+</div>
+<div class="site-nav-right">
+<div aria-label="搜索" class="toggle popup-trigger" role="button">
+<i class="fa fa-search fa-fw fa-lg"></i>
+</div>
+</div>
+</div>
+<nav class="site-nav">
+<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+<li class="menu-item menu-item-search">
+<a class="popup-trigger" role="button"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+</li>
+</ul>
+</nav>
+<div class="search-pop-overlay">
+<div class="popup search-popup"><div class="search-header">
+<span class="search-icon">
+<i class="fa fa-search"></i>
+</span>
+<div class="search-input-container">
+<input autocapitalize="off" autocomplete="off" class="search-input" maxlength="80" placeholder="搜索..." spellcheck="false" type="search"/>
+</div>
+<span class="popup-btn-close" role="button">
+<i class="fa fa-times-circle"></i>
+</span>
+</div>
+<div class="search-result-container no-result">
+<div class="search-result-icon">
+<i class="fa fa-spinner fa-pulse fa-5x"></i>
+</div>
+</div>
+</div>
+</div>
+</header>
+<aside class="sidebar">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<ul class="sidebar-nav">
+<li class="sidebar-nav-toc">
+          文章目录
+        </li>
+<li class="sidebar-nav-overview">
+          站点概览
+        </li>
+</ul>
+<div class="sidebar-panel-container">
+<!--noindex-->
+<div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%BD%E6%8C%87%E5%92%8C%E6%89%80%E6%8C%87"><span class="nav-number">1.</span> <span class="nav-text">能指和所指</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88"><span class="nav-number">2.</span> <span class="nav-text">C 语言中的指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E5%8F%98%E9%87%8F"><span class="nav-number">2.1.</span> <span class="nav-text">普通变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E5%8F%98%E9%87%8F"><span class="nav-number">2.2.</span> <span class="nav-text">指针变量</span></a></li></ol></li></ol></div>
+</div>
+<!--/noindex-->
+<div class="site-overview-wrap sidebar-panel">
+<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<p class="site-author-name" itemprop="name">Ruofan</p>
+<div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+<nav class="site-state">
+<div class="site-state-item site-state-posts">
+<a href="/blog/archives/">
+<span class="site-state-item-count">42</span>
+<span class="site-state-item-name">笔记</span>
+</a>
+</div>
+<div class="site-state-item site-state-categories">
+<a href="/blog/categories/">
+<span class="site-state-item-count">7</span>
+<span class="site-state-item-name">分类</span></a>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<div class="main-inner post posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/UC/ss/" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="能指和所指 | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h1 class="post-title" itemprop="name headline">
+          能指和所指
+        </h1>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/UC/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody"><ul>
+<li>能指和所指</li>
+<li>C 语言中的指针</li>
+</ul>
+<span id="more"></span>
+<h2 id="能指和所指">能指和所指</h2>
+<p>能指就是符号，所指就是符号所指向的意义。</p>
+<p>能指是【生】，所指是【诞生、生物、生活、不成熟、不熟悉、从业者<code>-ist</code>……】。</p>
+<p>能指是变量名，所指是变量值。</p>
+<p>变量名可以被重新赋值，就是老子说的“非常名”。</p>
+<h2 id="c-语言中的指针">C 语言中的指针</h2>
+<h3 id="普通变量">普通变量</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> num = <span class="number">100</span>;</span><br/></pre></td></tr></table></figure>
+<p>变量类型<code>int</code>，变量名<code>num</code>-&gt;变量值<code>100</code>。</p>
+<p>普通变量名已经有一层指向了。</p>
+<h3 id="指针变量">指针变量</h3>
+<p>用于专门存放内存地址（值的位置）的变量，叫指针。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* ptr = &amp;num;</span><br/></pre></td></tr></table></figure>
+<p>变量类型<code>int*</code>，变量名<code>ptr</code>-&gt;变量值<code>num-&gt;100的内存地址</code></p>
+<p><code>&amp;num</code>，就是获取<code>num</code>值的位置。</p>
+<ul>
+<li><code>&amp;</code>一个变量名，就是获取变量名的值的地址。简称取地址。</li>
+<li><code>*</code>一个变量名，就是获取变量名的值（只对指针有效）。简称访问地址。</li>
+<li><code>*&amp;</code>一个变量名就是先<code>&amp;</code>后<code>*</code>（两个运算符优先级相同，且都是右结合）。
+<ul>
+<li>先取地址，后访问地址，和单独使用变量名效果一样。</li>
+</ul></li>
+<li><code>&amp;</code>一个指针变量名，就是获取指针变量值本身的位置（存放<code>num</code>地址值的地址）。</li>
+</ul>
+<p>还可以创建二级指针，就是指向指针的指针：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>** pptr = &amp;ptr;</span><br/></pre></td></tr></table></figure>
+<ul>
+<li><code>pptr</code>变量名指向某一个地址，这个地址处记录着<code>ptr</code>的地址</li>
+<li><code>ptr</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的地址</li>
+<li><code>num</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的值<code>100</code></li>
+</ul>
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/JA/00/" rel="prev" title="JA00 - 准备">
+<i class="fa fa-chevron-left"></i> JA00 - 准备
+                </a>
+</div>
+<div class="post-nav-item">
+<a href="/blog/MD/00/" rel="next" title="MD00 - 准备与基本操作">
+                  MD00 - 准备与基本操作 <i class="fa fa-chevron-right"></i>
+</a>
+</div>
+</div>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
+<div class="copyright">
+<span itemprop="copyrightYear">2023</span>
+<span class="with-love">
+<i class="fa fa-heart"></i>
+</span>
+<span class="author" itemprop="copyrightHolder">Ruofan</span>
+</div>
+</div>
+</footer>
+<div aria-label="返回顶部" class="back-to-top" role="button">
+<i class="fa fa-arrow-up fa-lg"></i>
+<span>0%</span>
+</div>
+<div class="reading-progress-bar"></div>
+<noscript>
+<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/next-boot.js"></script>
+<script crossorigin="anonymous" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+<script src="/blog/js/third-party/tags/mermaid.js"></script>
+<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/blog/js/third-party/math/mathjax.js"></script>
+<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/UC/ss/"}</script>
+<script src="/blog/js/third-party/quicklink.js"></script>
+</body>
+</html>

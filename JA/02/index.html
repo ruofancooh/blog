@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
+<link href="/blog/css/main.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" rel="stylesheet"/>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+<meta content="Maven（行家）是一个工具，用于构建和管理 Java 工程。
+ 
+ 构建，就是把生菜做成熟菜。
+ 管理，就是指出使用了哪些别人种的菜。
+ 
+ Windows 10 + VSCode 环境配置。" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="JA02 - Maven环境配置" property="og:title"/>
+<meta content="https://hrfis.me/blog/JA/02/index.html" property="og:url"/>
+<meta content="若凡的笔记" property="og:site_name"/>
+<meta content="Maven（行家）是一个工具，用于构建和管理 Java 工程。
+ 
+ 构建，就是把生菜做成熟菜。
+ 管理，就是指出使用了哪些别人种的菜。
+ 
+ Windows 10 + VSCode 环境配置。" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="2023-09-27T11:10:00.000Z" property="article:published_time"/>
+<meta content="2023-09-29T06:58:26.690Z" property="article:modified_time"/>
+<meta content="Ruofan" property="article:author"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://hrfis.me/blog/JA/02/" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/JA/02/","path":"/JA/02/","title":"JA02 - Maven环境配置"}</script>
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JA02 - Maven环境配置 | 若凡的笔记</title>
+<noscript>
+<link href="/blog/css/noscript.css" rel="stylesheet"/>
+</noscript>
+</head>
+<body class="use-motion" itemscope="" itemtype="http://schema.org/WebPage">
+<div class="headband"></div>
+<main class="main">
+<div class="column">
+<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+<div class="site-nav-toggle">
+<div aria-label="切换导航栏" class="toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+</div>
+</div>
+<div class="site-meta">
+<a class="brand" href="/blog/" rel="start">
+<i class="logo-line"></i>
+<p class="site-title">若凡的笔记</p>
+<i class="logo-line"></i>
+</a>
+</div>
+<div class="site-nav-right">
+<div aria-label="搜索" class="toggle popup-trigger" role="button">
+<i class="fa fa-search fa-fw fa-lg"></i>
+</div>
+</div>
+</div>
+<nav class="site-nav">
+<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+<li class="menu-item menu-item-search">
+<a class="popup-trigger" role="button"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+</li>
+</ul>
+</nav>
+<div class="search-pop-overlay">
+<div class="popup search-popup"><div class="search-header">
+<span class="search-icon">
+<i class="fa fa-search"></i>
+</span>
+<div class="search-input-container">
+<input autocapitalize="off" autocomplete="off" class="search-input" maxlength="80" placeholder="搜索..." spellcheck="false" type="search"/>
+</div>
+<span class="popup-btn-close" role="button">
+<i class="fa fa-times-circle"></i>
+</span>
+</div>
+<div class="search-result-container no-result">
+<div class="search-result-icon">
+<i class="fa fa-spinner fa-pulse fa-5x"></i>
+</div>
+</div>
+</div>
+</div>
+</header>
+<aside class="sidebar">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<ul class="sidebar-nav">
+<li class="sidebar-nav-toc">
+          文章目录
+        </li>
+<li class="sidebar-nav-overview">
+          站点概览
+        </li>
+</ul>
+<div class="sidebar-panel-container">
+<!--noindex-->
+<div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD-maven"><span class="nav-number">1.</span> <span class="nav-text">下载 Maven</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">配置环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-maven_homeconfsettings.xml"><span class="nav-number">3.</span> <span class="nav-text">配置
+%MAVEN_HOME%\conf\settings.xml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-vscode-%E6%89%A9%E5%B1%95"><span class="nav-number">4.</span> <span class="nav-text">配置 VSCode 扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%9D%E8%AF%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE"><span class="nav-number">5.</span> <span class="nav-text">尝试创建一个项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#demo-%E7%9B%AE%E5%BD%95%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">6.</span> <span class="nav-text">demo 目录的结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E8%BF%90%E8%A1%8C"><span class="nav-number">7.</span> <span class="nav-text">测试运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E8%B0%83%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93"><span class="nav-number">8.</span> <span class="nav-text">测试调第三方库</span></a></li></ol></div>
+</div>
+<!--/noindex-->
+<div class="site-overview-wrap sidebar-panel">
+<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<p class="site-author-name" itemprop="name">Ruofan</p>
+<div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+<nav class="site-state">
+<div class="site-state-item site-state-posts">
+<a href="/blog/archives/">
+<span class="site-state-item-count">42</span>
+<span class="site-state-item-name">笔记</span>
+</a>
+</div>
+<div class="site-state-item site-state-categories">
+<a href="/blog/categories/">
+<span class="site-state-item-count">7</span>
+<span class="site-state-item-name">分类</span></a>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<div class="main-inner post posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/JA/02/" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="JA02 - Maven环境配置 | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h1 class="post-title" itemprop="name headline">
+          JA02 - Maven环境配置
+        </h1>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/JA/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody"><p>Maven（行家）是一个工具，用于构建和管理 Java 工程。</p>
+<ul>
+<li>构建，就是把生菜做成熟菜。</li>
+<li>管理，就是指出使用了哪些别人种的菜。</li>
+</ul>
+<p>Windows 10 + VSCode 环境配置。</p>
+<span id="more"></span>
+<h2 id="下载-maven">下载 Maven</h2>
+<p><a href="https://dlcdn.apache.org/maven/" rel="noopener" target="_blank">下载地址</a></p>
+<p>我下载的是 <code>apache-maven-3.9.4-bin.zip</code></p>
+<h2 id="配置环境变量">配置环境变量</h2>
+<ul>
+<li><code>MAVEN_HOME</code>：解压后的目录</li>
+<li><code>Path</code>：<code>%MAVEN_HOME%\bin</code></li>
+</ul>
+<h2 id="配置-maven_homeconfsettings.xml">配置
+<code>%MAVEN_HOME%\conf\settings.xml</code></h2>
+<ul>
+<li><p>本地仓库路径，存放下载的 jar 包：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>D:\ProgramData\maven-local-repo<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></span><br/></pre></td></tr></table></figure></li>
+<li><p>镜像仓库源（<a href="https://developer.aliyun.com/mvn/guide" rel="noopener" target="_blank">阿里云</a>），从这里下载到本地：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">id</span>&gt;</span>aliyunmaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>阿里云公共仓库<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br/></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="配置-vscode-扩展">配置 VSCode 扩展</h2>
+<p><code>@ext:vscjava.vscode-maven</code>：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"><span class="attr">"maven.settingsFile"</span><span class="punctuation">:</span> <span class="string">"%MAVEN_HOME%\\conf\\settings.xml"</span><span class="punctuation">,</span></span><br/><span class="line"><span class="attr">"maven.executable.path"</span><span class="punctuation">:</span> <span class="string">"%MAVEN_HOME%\\bin\\mvn.cmd"</span><span class="punctuation">,</span></span><br/><span class="line"><span class="attr">"maven.executable.preferMavenWrapper"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br/></pre></td></tr></table></figure>
+<p>MavenWrapper 先不用。</p>
+<h2 id="尝试创建一个项目">尝试创建一个项目</h2>
+<ol type="1">
+<li><p>在 VSCode 的资源管理器空白处右键 -&gt; 从 Maven
+原型创建新项目。</p></li>
+<li><p>选择
+<code>maven-archetype-quickstart</code>。（archetype：原型）</p></li>
+<li><p>选择示例项目版本（当前最新是 1.4）。</p></li>
+<li><p>输入项目的 <code>groupId</code>，类似包名。比如
+<code>com.example</code>。</p></li>
+<li><p>输入项目的
+<code>artfactId</code>（artfact：人工制品），就是项目名。比如
+<code>demo</code>。</p></li>
+<li><p>选择项目的父文件夹，Maven 会在这个文件夹里建一个与
+<code>artfactId</code> 同名的文件夹，用于保存工程文件。</p></li>
+<li><p>▶️</p></li>
+</ol>
+<p>VSCode 会开始执行命令：</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/></pre></td><td class="code"><pre><span class="line">"<span class="variable">%MAVEN_HOME%</span>\bin\mvn.<span class="built_in">cmd</span>"^</span><br/><span class="line"><span class="function">    org.apache.maven.plugins:<span class="title">maven</span>-<span class="title">archetype</span>-<span class="title">plugin</span>:3.1.2:<span class="title">generate</span>^</span></span><br/><span class="line"><span class="function">        -<span class="title">DarchetypeArtifactId</span>="<span class="title">maven</span>-<span class="title">archetype</span>-<span class="title">quickstart</span>"^</span></span><br/><span class="line"><span class="function">        -<span class="title">DarchetypeGroupId</span>="<span class="title">org.apache.maven.archetypes</span>"^</span></span><br/><span class="line"><span class="function">        -<span class="title">DarchetypeVersion</span>="1.4"^</span></span><br/><span class="line"><span class="function">        -<span class="title">DgroupId</span>="<span class="title">com.example</span>"^</span></span><br/><span class="line"><span class="function">        -<span class="title">DartifactId</span>="<span class="title">demo</span>"^</span></span><br/><span class="line"><span class="function">        -<span class="title">s</span> "%<span class="title">MAVEN_HOME</span>%\<span class="title">conf</span>\<span class="title">settings.xml</span>"</span></span><br/></pre></td></tr></table></figure>
+<p>Maven 会开始下载一些文件，保存到 <code>localRepository</code>。</p>
+<p>下载完之后：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">[INFO] Using property: groupId = com.example</span><br/><span class="line">[INFO] Using property: artifactId = demo</span><br/><span class="line">Define value for property 'version' 1.0-SNAPSHOT: :</span><br/></pre></td></tr></table></figure>
+<p>让你输入一个版本号。直接回车：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line">[INFO] Using property: package = com.example</span><br/><span class="line">Confirm properties configuration:</span><br/><span class="line">groupId: com.example</span><br/><span class="line">artifactId: demo</span><br/><span class="line">version: 1.0-SNAPSHOT</span><br/><span class="line">package: com.example</span><br/><span class="line"> Y: :</span><br/></pre></td></tr></table></figure>
+<p>让你确认。回车。会输出 <code>BUILD SUCCESS</code> 和所用时间。</p>
+<h2 id="demo-目录的结构">demo 目录的结构</h2>
+<ul>
+<li>src
+<ul>
+<li>main\java\com\example\App.java</li>
+<li>test\java\com\example\AppTest.java</li>
+</ul></li>
+<li>target
+<ul>
+<li>classes\com\example\App.class</li>
+<li>test-classes\com\example\AppTest.class</li>
+</ul></li>
+<li>pom.xml</li>
+</ul>
+<p>在 <code>AppTest.java</code> 里导入了 <code>junit</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.assertTrue;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br/><span class="line"></span><br/><span class="line"><span class="comment">//...</span></span><br/></pre></td></tr></table></figure>
+<p>查看 <code>pom.xml</code>：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- ... --&gt;</span></span><br/><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br/><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br/><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br/><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.11<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br/><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br/><span class="line"><span class="comment">&lt;!-- ... --&gt;</span></span><br/></pre></td></tr></table></figure>
+<h2 id="测试运行">测试运行</h2>
+<p>VSCode 会执行命令：</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="function">d: &amp;&amp; <span class="title">cd</span> <span class="title">d</span>:\<span class="title">school</span>\<span class="title">demo</span> &amp;&amp; <span class="title">cmd</span> /<span class="title">C</span> "命令字符串"</span></span><br/></pre></td></tr></table></figure>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"><span class="function">D:\<span class="title">ProgramData</span>\<span class="title">Java</span>\<span class="title">jdk</span>-17.0.8.101-<span class="title">hotspot</span>\<span class="title">bin</span>\<span class="title">java.exe</span>^</span></span><br/><span class="line"><span class="function">    -<span class="title">XX</span>:+<span class="title">ShowCodeDetailsInExceptionMessages</span>^</span></span><br/><span class="line"><span class="function">    -<span class="title">cp</span> <span class="title">D</span>:\<span class="title">school</span>\<span class="title">demo</span>\<span class="title">target</span>\<span class="title">classes</span> <span class="title">com.example.App</span></span></span><br/></pre></td></tr></table></figure>
+<h2 id="测试调第三方库">测试调第三方库</h2>
+<p><a href="https://github.com/alibaba/fastjson2" rel="noopener" target="_blank">fastjson2</a></p>
+<ol type="1">
+<li><p>在 <code>pom.xml</code> 里的一对
+<code>&lt;dependencies&gt;</code> 标签之间增加：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.fastjson2<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.40<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br/></pre></td></tr></table></figure>
+<p>然后：</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">mvn install</span><br/></pre></td></tr></table></figure>
+<p>Maven 会下载依赖到本地。</p></li>
+<li><p>修改 <code>App.java</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> com.alibaba.fastjson2.*;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">App</span> {</span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> {</span><br/><span class="line">        <span class="type">JSONArray</span> <span class="variable">a</span> <span class="operator">=</span> JSON.parseArray(<span class="string">"[1,2,3]"</span>);</span><br/><span class="line">        System.out.println(a);</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure></li>
+<li><p>改<code>pom.xml</code>里的 JDK 版本：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>17<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>17<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br/></pre></td></tr></table></figure></li>
+<li><p>▶️</p></li>
+</ol>
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/shao-yin-fu.html" rel="prev" title="《韶音赋》歌词注解">
+<i class="fa fa-chevron-left"></i> 《韶音赋》歌词注解
+                </a>
+</div>
+<div class="post-nav-item">
+<a href="/blog/HD/04/" rel="next" title="HD04 - 编写ZooKeeper集群控制脚本">
+                  HD04 - 编写ZooKeeper集群控制脚本 <i class="fa fa-chevron-right"></i>
+</a>
+</div>
+</div>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
+<div class="copyright">
+<span itemprop="copyrightYear">2023</span>
+<span class="with-love">
+<i class="fa fa-heart"></i>
+</span>
+<span class="author" itemprop="copyrightHolder">Ruofan</span>
+</div>
+</div>
+</footer>
+<div aria-label="返回顶部" class="back-to-top" role="button">
+<i class="fa fa-arrow-up fa-lg"></i>
+<span>0%</span>
+</div>
+<div class="reading-progress-bar"></div>
+<noscript>
+<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/next-boot.js"></script>
+<script crossorigin="anonymous" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+<script src="/blog/js/third-party/tags/mermaid.js"></script>
+<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/blog/js/third-party/math/mathjax.js"></script>
+<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/JA/02/"}</script>
+<script src="/blog/js/third-party/quicklink.js"></script>
+</body>
+</html>
