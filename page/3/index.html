@@ -101,7 +101,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">42</span>
+<span class="site-state-item-count">43</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -118,6 +118,97 @@
 </aside>
 </div>
 <div class="main-inner index posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
+<link href="https://hrfis.me/blog/HD/00/" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="undefined | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h2 class="post-title" itemprop="name headline">
+<a class="post-title-link" href="/blog/HD/00/" itemprop="url">HD00 - 搭建Hadoop环境</a>
+</h2>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody">
+<p>Hadoop 完全分布式模式环境配置：</p>
+<table>
+<colgroup>
+<col style="width: 44%"/>
+<col style="width: 55%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>用</th>
+<th>名</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>物理机系统</strong></td>
+<td>Windows 10</td>
+</tr>
+<tr class="even">
+<td><strong>虚拟机容器</strong></td>
+<td>VMware Workstation 17.0.2
+Player（免费的，但是不支持克隆虚拟机，需要手动装另外两台）</td>
+</tr>
+<tr class="odd">
+<td><strong>虚拟机系统</strong></td>
+<td>Ubuntu 22.04.3 server</td>
+</tr>
+<tr class="even">
+<td><strong>主角</strong></td>
+<td>Hadoop 3.3.6</td>
+</tr>
+<tr class="odd">
+<td><strong>SSH
+连接虚拟机用的，不装直接操作也可以，装了比较方便可以复制粘贴</strong></td>
+<td>Xshell 7</td>
+</tr>
+<tr class="even">
+<td><strong>虚拟机与物理机互传文件用的</strong></td>
+<td>Xftp 7</td>
+</tr>
+</tbody>
+</table>
+<p>装了三台机器，名：master、worker1、worker2。</p>
+<p>（<a href="/blog/HD/04">后来</a>又改成
+ubuntu101、ubuntu102、ubuntu103 了）</p>
+<!--noindex-->
+<div class="post-button">
+<a class="btn" href="/blog/HD/00/#more" rel="contents">
+                阅读全文 »
+              </a>
+</div>
+<!--/noindex-->
+</div>
+<footer class="post-footer">
+<div class="post-eof"></div>
+</footer>
+</article>
+</div>
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
 <link href="https://hrfis.me/blog/CN/02/" itemprop="mainEntityOfPage"/>
@@ -584,59 +675,6 @@
 <!--noindex-->
 <div class="post-button">
 <a class="btn" href="/blog/M/C1/#more" rel="contents">
-                阅读全文 »
-              </a>
-</div>
-<!--/noindex-->
-</div>
-<footer class="post-footer">
-<div class="post-eof"></div>
-</footer>
-</article>
-</div>
-<div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
-<link href="https://hrfis.me/blog/M/B0/" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="undefined | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h2 class="post-title" itemprop="name headline">
-<a class="post-title-link" href="/blog/M/B0/" itemprop="url">乐理-B0-中古调式</a>
-</h2>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/M/" itemprop="url" rel="index"><span itemprop="name">音乐</span></a>
-</span>
-</span>
-</div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody">
-<ul>
-<li>【音阶相同】是什么意思</li>
-<li>调式与移调</li>
-<li><span class="math inline">\(7 \times 12\)</span> 种中古调式</li>
-<li>不同的中古调式可能使用相同的琴键</li>
-</ul>
-<!--noindex-->
-<div class="post-button">
-<a class="btn" href="/blog/M/B0/#more" rel="contents">
                 阅读全文 »
               </a>
 </div>
