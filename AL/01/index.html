@@ -9,21 +9,31 @@
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
-<meta content="插入排序就是接扑克牌。" name="description"/>
+<meta content="二分查找就是翻书。
+ 有一本 200 页的书，我想翻到 124 页，一下就翻到的概率是很小的。
+ 我会先翻到中间，发现是 100 页。
+ 然后翻到 100~200 页的中间，发现是 150 页。
+ 然后翻到 100~150 页的中间，发现是 125 页。
+ 以此类推。" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="AL01 - 插入排序" property="og:title"/>
+<meta content="AL01 - 二分查找" property="og:title"/>
 <meta content="https://hrfis.me/blog/AL/01/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="插入排序就是接扑克牌。" property="og:description"/>
+<meta content="二分查找就是翻书。
+ 有一本 200 页的书，我想翻到 124 页，一下就翻到的概率是很小的。
+ 我会先翻到中间，发现是 100 页。
+ 然后翻到 100~200 页的中间，发现是 150 页。
+ 然后翻到 100~150 页的中间，发现是 125 页。
+ 以此类推。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-09-18T05:00:00.000Z" property="article:published_time"/>
-<meta content="2023-10-01T06:49:44.964Z" property="article:modified_time"/>
+<meta content="2023-10-10T13:40:00.000Z" property="article:published_time"/>
+<meta content="2023-10-10T13:41:55.558Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/AL/01/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/AL/01/","path":"/AL/01/","title":"AL01 - 插入排序"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/AL/01/","path":"/AL/01/","title":"AL01 - 二分查找"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>AL01 - 插入排序 | 若凡的笔记</title>
+<title>AL01 - 二分查找 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -82,7 +92,7 @@
 </div>
 </header>
 <aside class="sidebar">
-<div class="sidebar-inner sidebar-overview-active">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
 <ul class="sidebar-nav">
 <li class="sidebar-nav-toc">
           文章目录
@@ -94,6 +104,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E9%80%92%E5%BD%92%E7%89%88"><span class="nav-number">1.</span> <span class="nav-text">非递归版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E7%89%88"><span class="nav-number">2.</span> <span class="nav-text">递归版</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -105,7 +116,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">43</span>
+<span class="site-state-item-count">42</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -134,12 +145,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="AL01 - 插入排序 | 若凡的笔记" itemprop="name"/>
+<meta content="AL01 - 二分查找 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          AL01 - 插入排序
+          AL01 - 二分查找
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -155,22 +166,31 @@
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>插入排序就是接扑克牌。</p>
+<div class="post-body" itemprop="articleBody"><p>二分查找就是翻书。</p>
+<p>有一本 200 页的书，我想翻到 124 页，一下就翻到的概率是很小的。</p>
+<p>我会先翻到中间，发现是 100 页。</p>
+<p>然后翻到 100~200 页的中间，发现是 150 页。</p>
+<p>然后翻到 100~150 页的中间，发现是 125 页。</p>
+<p>以此类推。</p>
 <span id="more"></span>
-<p>插入排序就像一张一张地接扑克牌，接到第一张扑克牌时什么也不做，接到第二张扑克牌时要与第一张作比较，看插入到第一张的前面还是后面，……，接到第
-n 张扑克牌时要与前 n - 1 张比较，看插入到手牌的哪个位置。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/><span class="line">33</span><br/></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br/><span class="line"><span class="comment"> * 插入排序</span></span><br/><span class="line"><span class="comment"> * <span class="doctag">@param</span> {<span class="type">number[]</span>} arr 待排序数组</span></span><br/><span class="line"><span class="comment"> * <span class="doctag">@returns</span> 原地排序后的数组</span></span><br/><span class="line"><span class="comment"> */</span></span><br/><span class="line"><span class="keyword">function</span> <span class="title function_">insertionSort</span>(<span class="params">arr</span>) {</span><br/><span class="line">  <span class="keyword">const</span> len = arr.<span class="property">length</span>; <span class="comment">// 数组长度</span></span><br/><span class="line">  <span class="keyword">let</span> preIndex, current; <span class="comment">// 当前元素的前一个元素的索引，和当前元素的值</span></span><br/><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) {</span><br/><span class="line">    <span class="comment">// i 相当于是一个指针，指向当前新接的牌</span></span><br/><span class="line">    <span class="comment">// 只有一张或零张牌时不用排序，此时 len == 1 || len == 0，不满足循环条件，直接退出</span></span><br/><span class="line">    preIndex = i - <span class="number">1</span>; <span class="comment">// 刚开始是新接的牌的前一张牌的索引，后来向左扫描</span></span><br/><span class="line">    current = arr[i]; <span class="comment">// 新接的牌牌面</span></span><br/><span class="line">    <span class="keyword">while</span> (preIndex &gt;= <span class="number">0</span> &amp;&amp; arr[preIndex] &gt; current) {</span><br/><span class="line">      <span class="comment">// 游标 preIndex 向左扫描，当每找到一张比当前新接的牌大的牌时，把游标当前指向的值覆盖给它右面的元素</span></span><br/><span class="line">      <span class="comment">// 能进到这层循环，说明牌有两张或以上</span></span><br/><span class="line">      <span class="comment">// 如果 preIndex 当前指向的牌比 current 大，把 preIndex 右边的值用 arr[preIndex] 覆盖</span></span><br/><span class="line">      <span class="comment">// 由于 preIndex 是从新接的牌的左边一张牌开始取的，所以会把“插入位置”之后的牌都覆盖了，相当于整体向右挪了一位</span></span><br/><span class="line">      <span class="comment">// 包括新接的牌也被覆盖了，所以前面才要单独用一个 current 变量保存新接的牌</span></span><br/><span class="line">      <span class="comment">// 当 preIndex 指向的牌比 current 小，说明 preIndex 和 preIndex + 1 “之间” 就是应插入的位置</span></span><br/><span class="line">      <span class="comment">// 由于是用覆盖的形式，所以真正的插入位置是 preIndex，在 preIndex 原来位置的牌覆盖给右面了</span></span><br/><span class="line">      <span class="comment">// 又由于每次循环 preIndex 都要自减，退出循环之后往插入位置的左边偏了一位，所以退出之后插入位置变成了 preIndex + 1</span></span><br/><span class="line">      <span class="comment">// 结束条件是 preIndex 指向的牌比 current 小，找到“插入位置”了</span></span><br/><span class="line">      <span class="comment">// 结束条件或者是已经把第 0 张牌覆盖给了第 1 张牌，preIndex 自减之后变成了 -1</span></span><br/><span class="line">      <span class="comment">// 所以反过来说，循环继续的条件是 preIndex &gt;= 0 &amp;&amp; arr[preIndex] &gt; current</span></span><br/><span class="line">      <span class="comment">// 当 preIndex &lt; 0 时，arr[preIndex] 会越界，所以把 preIndex &gt;= 0 的条件写在前面，短路退出</span></span><br/><span class="line">      arr[preIndex + <span class="number">1</span>] = arr[preIndex]; <span class="comment">// 把游标当前指向的值覆盖给它右面的元素</span></span><br/><span class="line">      preIndex--; <span class="comment">//向左扫描</span></span><br/><span class="line">    }</span><br/><span class="line">    arr[preIndex + <span class="number">1</span>] = current; <span class="comment">// “插入”牌</span></span><br/><span class="line">  }</span><br/><span class="line">  <span class="keyword">return</span> arr;</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
+<p>二分查找就是从列表里查找一个值，前提列表是有序的，这样可以比较大小，在二分之后仍然是有序的。如果要查找的值比列表的中间值小，就在列表的左半部分找，这就是二分。这时需要变换查找范围的右边界，到中间值的左边一个位置。</p>
+<p>然后对查找范围继续二分，与中间值作比较，如果要查找的值比中间值大，就在查找范围的右半部分找，这时需要变换查找范围的左边界到中间值的右一个位置。</p>
+<p>以此类推，如果找到了，就返回目标元素的索引。找不到就返回-1。</p>
+<h2 id="非递归版">非递归版</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">binary_search</span>(<span class="params">lis: <span class="built_in">list</span>[<span class="built_in">int</span> | <span class="built_in">float</span>], key: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br/><span class="line">    <span class="string">'''</span></span><br/><span class="line"><span class="string">    二分查找（非递归版），传列表和要查找的值。返回目标值的索引。</span></span><br/><span class="line"><span class="string">    前提列表是有序的，有多个相同值时不一定返回哪个索引。</span></span><br/><span class="line"><span class="string">    '''</span></span><br/><span class="line">    left = <span class="number">0</span></span><br/><span class="line">    right = <span class="built_in">len</span>(lis) - <span class="number">1</span>  <span class="comment"># 左边界和右边界，刚开始的查找范围是整个列表。</span></span><br/><span class="line">    <span class="keyword">while</span> left &lt;= right:  <span class="comment"># 二分，与中间值作比较，变换边界。</span></span><br/><span class="line">        mid = (left + right) // <span class="number">2</span></span><br/><span class="line">        <span class="keyword">if</span> key &lt; lis[mid]:</span><br/><span class="line">            right = mid - <span class="number">1</span></span><br/><span class="line">        <span class="keyword">elif</span> key &gt; lis[mid]:</span><br/><span class="line">            left = mid + <span class="number">1</span></span><br/><span class="line">        <span class="keyword">else</span>:</span><br/><span class="line">            <span class="keyword">return</span> mid</span><br/><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>  <span class="comment"># 如果找不到，返回-1</span></span><br/></pre></td></tr></table></figure>
+<h2 id="递归版">递归版</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">binary_search1</span>(<span class="params">lis: <span class="built_in">list</span>[<span class="built_in">int</span> | <span class="built_in">float</span>], key: <span class="built_in">int</span>, left: <span class="built_in">int</span>, right: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br/><span class="line">    <span class="string">'''</span></span><br/><span class="line"><span class="string">    二分查找（递归版），调用时传列表、要查找的值、0、列表长度减一。返回目标值的索引。</span></span><br/><span class="line"><span class="string">    前提列表是有序的，有多个相同值时不一定返回哪个索引。</span></span><br/><span class="line"><span class="string">    '''</span></span><br/><span class="line">    <span class="keyword">if</span> left &gt; right:  <span class="comment"># 没有找到，递归结束</span></span><br/><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br/><span class="line">    mid = (left + right) // <span class="number">2</span>  <span class="comment"># 中间值的索引</span></span><br/><span class="line">    <span class="keyword">if</span> key &lt; lis[mid]:  <span class="comment"># 要查找的值比中间值小时，递归调用自身查找，并变换右边界</span></span><br/><span class="line">        <span class="keyword">return</span> binary_search1(lis, key, left, mid - <span class="number">1</span>)</span><br/><span class="line">    <span class="keyword">elif</span> key &gt; lis[mid]:</span><br/><span class="line">        <span class="keyword">return</span> binary_search1(lis, key, mid + <span class="number">1</span>, right)</span><br/><span class="line">    <span class="keyword">else</span>:</span><br/><span class="line">        <span class="keyword">return</span> mid</span><br/></pre></td></tr></table></figure>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/AL/00/" rel="prev" title="AL00 - 总纲">
-<i class="fa fa-chevron-left"></i> AL00 - 总纲
+<a href="/blog/UC/e1/" rel="prev" title="把文章链接折腾得简单点">
+<i class="fa fa-chevron-left"></i> 把文章链接折腾得简单点
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/MD/01/" rel="next" title="MD01 - 按条件查询文档">
-                  MD01 - 按条件查询文档 <i class="fa fa-chevron-right"></i>
+<a href="/blog/AL/02/" rel="next" title="AL02 - 排序">
+                  AL02 - 排序 <i class="fa fa-chevron-right"></i>
 </a>
 </div>
 </div>

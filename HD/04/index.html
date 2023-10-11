@@ -17,7 +17,7 @@
 <meta content="在此之前，我重新修改了三台机器的主机名。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-09-28T05:30:00.000Z" property="article:published_time"/>
-<meta content="2023-09-29T06:57:49.807Z" property="article:modified_time"/>
+<meta content="2023-10-10T01:01:11.631Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/HD/04/" rel="canonical"/>
@@ -94,7 +94,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E6%AD%A4%E4%B9%8B%E5%89%8D"><span class="nav-number">1.</span> <span class="nav-text">在此之前</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%9A%84"><span class="nav-number">2.</span> <span class="nav-text">服务端的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.1.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84"><span class="nav-number">3.</span> <span class="nav-text">客户端的</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E6%AD%A4%E4%B9%8B%E5%89%8D"><span class="nav-number">1.</span> <span class="nav-text">在此之前</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%9A%84"><span class="nav-number">2.</span> <span class="nav-text">服务端的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.1.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84"><span class="nav-number">3.</span> <span class="nav-text">客户端的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-1"><span class="nav-number">3.1.</span> <span class="nav-text">示例</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -106,7 +106,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">43</span>
+<span class="site-state-item-count">42</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -206,6 +206,10 @@ ubuntu101、ubuntu102、ubuntu103</strong>，对应 IP 地址。</p>
 <h2 id="客户端的">客户端的</h2>
 <p>就是把自带的脚本 <code>zkCli.sh</code> 再封装一层，取名
 <code>zkc.sh</code>：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br/><span class="line"></span><br/><span class="line">ZK_HOME=<span class="string">"/usr/local/zookeeper-3.8.2"</span></span><br/><span class="line">ZKC_SH=<span class="string">"<span class="variable">$ZK_HOME</span>/bin/zkCli.sh"</span></span><br/><span class="line">servers=<span class="string">"ubuntu101 ubuntu102 ubuntu103"</span></span><br/><span class="line"></span><br/><span class="line"><span class="string">"<span class="variable">$ZKC_SH</span>"</span> -server $(hostname)</span><br/></pre></td></tr></table></figure>
+<p>同样加执行权限，去后缀并移动位置。</p>
+<h3 id="示例-1">示例</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">zkc</span><br/></pre></td></tr></table></figure>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
