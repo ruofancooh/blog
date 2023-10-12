@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
+<link href="/blog/css/main.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" rel="stylesheet"/>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+<meta content="r3.3.6
+ 
+ FileSystem
+ Shell
+ FileSystem
+ API
+ FileUtil
+ API
+ FileStatus
+ API" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="HD06 - HDFS的Shell命令和JavaAPI操作" property="og:title"/>
+<meta content="https://hrfis.me/blog/HD/06/index.html" property="og:url"/>
+<meta content="若凡的笔记" property="og:site_name"/>
+<meta content="r3.3.6
+ 
+ FileSystem
+ Shell
+ FileSystem
+ API
+ FileUtil
+ API
+ FileStatus
+ API" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="2023-10-12T13:58:00.000Z" property="article:published_time"/>
+<meta content="2023-10-12T13:58:04.355Z" property="article:modified_time"/>
+<meta content="Ruofan" property="article:author"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://hrfis.me/blog/HD/06/" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/HD/06/","path":"/HD/06/","title":"HD06 - HDFS的Shell命令和JavaAPI操作"}</script>
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>HD06 - HDFS的Shell命令和JavaAPI操作 | 若凡的笔记</title>
+<noscript>
+<link href="/blog/css/noscript.css" rel="stylesheet"/>
+</noscript>
+</head>
+<body class="use-motion" itemscope="" itemtype="http://schema.org/WebPage">
+<div class="headband"></div>
+<main class="main">
+<div class="column">
+<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+<div class="site-nav-toggle">
+<div aria-label="切换导航栏" class="toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+</div>
+</div>
+<div class="site-meta">
+<a class="brand" href="/blog/" rel="start">
+<i class="logo-line"></i>
+<p class="site-title">若凡的笔记</p>
+<i class="logo-line"></i>
+</a>
+</div>
+<div class="site-nav-right">
+<div aria-label="搜索" class="toggle popup-trigger" role="button">
+<i class="fa fa-search fa-fw fa-lg"></i>
+</div>
+</div>
+</div>
+<nav class="site-nav">
+<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+<li class="menu-item menu-item-search">
+<a class="popup-trigger" role="button"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+</li>
+</ul>
+</nav>
+<div class="search-pop-overlay">
+<div class="popup search-popup"><div class="search-header">
+<span class="search-icon">
+<i class="fa fa-search"></i>
+</span>
+<div class="search-input-container">
+<input autocapitalize="off" autocomplete="off" class="search-input" maxlength="80" placeholder="搜索..." spellcheck="false" type="search"/>
+</div>
+<span class="popup-btn-close" role="button">
+<i class="fa fa-times-circle"></i>
+</span>
+</div>
+<div class="search-result-container no-result">
+<div class="search-result-icon">
+<i class="fa fa-spinner fa-pulse fa-5x"></i>
+</div>
+</div>
+</div>
+</div>
+</header>
+<aside class="sidebar">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<ul class="sidebar-nav">
+<li class="sidebar-nav-toc">
+          文章目录
+        </li>
+<li class="sidebar-nav-overview">
+          站点概览
+        </li>
+</ul>
+<div class="sidebar-panel-container">
+<!--noindex-->
+<div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#shell-%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">shell 命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#javaapi-%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">JavaAPI 操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E7%A8%8B%E5%88%9B%E5%BB%BA"><span class="nav-number">2.1.</span> <span class="nav-text">工程创建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E7%89%A9%E7%90%86%E6%9C%BA%E4%B8%8A%E7%BC%96%E7%A8%8B%E6%B5%8B%E8%AF%95%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BAwindows-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F---hdfs"><span class="nav-number">2.2.</span> <span class="nav-text">在物理机上编程测试，连接虚拟机（Windows
+文件系统 -&gt; HDFS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E7%89%A9%E7%90%86%E6%9C%BA%E4%B8%8A%E7%BC%96%E7%A8%8B%E6%89%93%E5%8C%85%E4%BC%A0%E5%88%B0%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8A%E6%89%A7%E8%A1%8Cubuntu-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F---hdfs"><span class="nav-number">2.3.</span> <span class="nav-text">在物理机上编程打包，传到虚拟机上执行（ubuntu
+文件系统 &lt;-&gt; HDFS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%98%E5%8F%AF%E4%BB%A5%E7%94%A8-vscode-%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9B%B4%E6%8E%A5%E5%9C%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%BC%96%E7%A8%8B"><span class="nav-number">2.4.</span> <span class="nav-text">还可以用
+VSCode 连接虚拟机，直接在虚拟机的文件系统上编程</span></a></li></ol></li></ol></div>
+</div>
+<!--/noindex-->
+<div class="site-overview-wrap sidebar-panel">
+<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<p class="site-author-name" itemprop="name">Ruofan</p>
+<div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+<nav class="site-state">
+<div class="site-state-item site-state-posts">
+<a href="/blog/archives/">
+<span class="site-state-item-count">43</span>
+<span class="site-state-item-name">笔记</span>
+</a>
+</div>
+<div class="site-state-item site-state-categories">
+<a href="/blog/categories/">
+<span class="site-state-item-count">7</span>
+<span class="site-state-item-name">分类</span></a>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<div class="main-inner post posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/HD/06/" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="HD06 - HDFS的Shell命令和JavaAPI操作 | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h1 class="post-title" itemprop="name headline">
+          HD06 - HDFS的Shell命令和JavaAPI操作
+        </h1>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody"><p>r3.3.6</p>
+<ul>
+<li><a href="https://hadoop.apache.org/docs/r3.3.6/hadoop-project-dist/hadoop-common/FileSystemShell.html" rel="noopener" target="_blank">FileSystem
+Shell</a></li>
+<li><a href="https://hadoop.apache.org/docs/r3.3.6/api/org/apache/hadoop/fs/FileSystem.html" rel="noopener" target="_blank">FileSystem
+API</a></li>
+<li><a href="https://hadoop.apache.org/docs/r3.3.6/api/org/apache/hadoop/fs/FileUtil.html" rel="noopener" target="_blank">FileUtil
+API</a></li>
+<li><a href="https://hadoop.apache.org/docs/r3.3.6/api/org/apache/hadoop/fs/FileStatus.html" rel="noopener" target="_blank">FileStatus
+API</a></li>
+</ul>
+<span id="more"></span>
+<h2 id="shell-命令">shell 命令</h2>
+<iframe height="500" src="https://hadoop.apache.org/docs/r3.3.6/hadoop-project-dist/hadoop-common/FileSystemShell.html" width="100%">
+</iframe>
+<h2 id="javaapi-操作">JavaAPI 操作</h2>
+<p>注意分清三个文件系统：</p>
+<ul>
+<li>虚拟机里的 HDFS</li>
+<li>虚拟机操作系统的文件系统</li>
+<li>物理机操作系统的文件系统</li>
+</ul>
+<h3 id="工程创建">工程创建</h3>
+<ol type="1">
+<li><p>VSCode -&gt; 从 Maven 原型创建新项目 -&gt; No Archetype</p></li>
+<li><p>groupId 设为 <code>test.hrf.hd</code>，artifactId 设为
+<code>hdtest</code></p></li>
+<li><p>pom.xml 里加：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br/><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br/><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.junit.jupiter<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br/><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit-jupiter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br/><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.10.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br/><span class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br/><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br/><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br/><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.logging.log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br/><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br/><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.20.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br/><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br/><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br/><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hadoop<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br/><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hadoop-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br/><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br/><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br/></pre></td></tr></table></figure></li>
+<li><p>pom.xml 里的 <code>&lt;maven.compiler.source&gt;</code> 和
+<code>&lt;maven.compiler.target&gt;</code> 的 JDK 版本从
+<code>1.8</code> 改成 <code>17</code>。</p></li>
+<li><p><code>mvn install</code></p></li>
+<li><p><code>src/main/resources</code> 里加
+<code>log4j.properties</code> 配置文件：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/></pre></td><td class="code"><pre><span class="line"><span class="attr">log4j.rootLogger</span>=<span class="string">INFO, stdout</span></span><br/><span class="line"><span class="attr">log4j.appender.stdout</span>=<span class="string">org.apache.log4j.ConsoleAppender</span></span><br/><span class="line"><span class="attr">log4j.appender.stdout.layout</span>=<span class="string">org.apache.log4j.PatternLayout</span></span><br/><span class="line"><span class="attr">log4j.appender.stdout.layout.ConversionPattern</span>=<span class="string">%d %p [%c] - %m%n</span></span><br/><span class="line"><span class="attr">log4j.appender.logfile</span>=<span class="string">org.apache.log4j.FileAppender</span></span><br/><span class="line"><span class="attr">log4j.appender.logfile.File</span>=<span class="string">target/spring.log</span></span><br/><span class="line"><span class="attr">log4j.appender.logfile.layout</span>=<span class="string">org.apache.log4j.PatternLayout</span></span><br/><span class="line"><span class="attr">log4j.appender.logfile.layout.ConversionPattern</span>=<span class="string">%d %p [%c] - %m%n</span></span><br/></pre></td></tr></table></figure></li>
+<li><p>在 <code>src/test/java</code> 下建
+<code>HdfsClient.java</code></p></li>
+</ol>
+<h3 id="在物理机上编程测试连接虚拟机windows-文件系统---hdfs">在物理机上编程测试，连接虚拟机（Windows
+文件系统 -&gt; HDFS）</h3>
+<p>或许在物理机上测试需要 <a href="https://github.com/cdarlint/winutils" rel="noopener" target="_blank">winutils</a>，这个作者还没有编译
+3.3.6 版本的。每一次测试，调试控制台都会报缺 winutils：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">WARN [org.apache.hadoop.util.Shell] - Did not find winutils.exe: {}</span><br/><span class="line">java.io.FileNotFoundException: java.io.FileNotFoundException: HADOOP_HOME and hadoop.home.dir are unset. -see https://wiki.apache.org/hadoop/WindowsProblems</span><br/><span class="line">WARN [org.apache.hadoop.util.NativeCodeLoader] - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br/></pre></td></tr></table></figure>
+<p>关于下载文件：</p>
+<ul>
+<li>用 <code>FileSystem.copyToLocalFile(Path src, Path dst)</code>
+向物理机复制文件为空。（测试结果报错）</li>
+<li>用
+<code>FileUtil.copy(FileSystem srcFS, Path src, File dst, boolean deleteSource, Configuration conf)</code>
+就可以向物理机复制文件。（测试结果不报错，调试控制台还是报缺的）</li>
+</ul>
+<p>关于上传文件：</p>
+<ul>
+<li>用
+<code>FileUtil.copy(File src, FileSystem dstFS, Path dst, boolean deleteSource, Configuration conf)</code>
+和
+<code>FileSystem.copyFromLocalFile(boolean delSrc, boolean overwrite, Path src, Path dst)</code>
+均可。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/><span class="line">33</span><br/><span class="line">34</span><br/><span class="line">35</span><br/><span class="line">36</span><br/><span class="line">37</span><br/><span class="line">38</span><br/><span class="line">39</span><br/><span class="line">40</span><br/><span class="line">41</span><br/><span class="line">42</span><br/><span class="line">43</span><br/><span class="line">44</span><br/><span class="line">45</span><br/><span class="line">46</span><br/><span class="line">47</span><br/><span class="line">48</span><br/><span class="line">49</span><br/><span class="line">50</span><br/><span class="line">51</span><br/><span class="line">52</span><br/><span class="line">53</span><br/><span class="line">54</span><br/><span class="line">55</span><br/><span class="line">56</span><br/><span class="line">57</span><br/><span class="line">58</span><br/><span class="line">59</span><br/><span class="line">60</span><br/><span class="line">61</span><br/><span class="line">62</span><br/><span class="line">63</span><br/><span class="line">64</span><br/><span class="line">65</span><br/><span class="line">66</span><br/><span class="line">67</span><br/><span class="line">68</span><br/><span class="line">69</span><br/><span class="line">70</span><br/><span class="line">71</span><br/><span class="line">72</span><br/><span class="line">73</span><br/><span class="line">74</span><br/><span class="line">75</span><br/><span class="line">76</span><br/><span class="line">77</span><br/><span class="line">78</span><br/><span class="line">79</span><br/><span class="line">80</span><br/><span class="line">81</span><br/><span class="line">82</span><br/><span class="line">83</span><br/><span class="line">84</span><br/><span class="line">85</span><br/><span class="line">86</span><br/><span class="line">87</span><br/><span class="line">88</span><br/><span class="line">89</span><br/><span class="line">90</span><br/><span class="line">91</span><br/><span class="line">92</span><br/><span class="line">93</span><br/><span class="line">94</span><br/><span class="line">95</span><br/><span class="line">96</span><br/><span class="line">97</span><br/><span class="line">98</span><br/><span class="line">99</span><br/><span class="line">100</span><br/><span class="line">101</span><br/><span class="line">102</span><br/><span class="line">103</span><br/><span class="line">104</span><br/><span class="line">105</span><br/><span class="line">106</span><br/><span class="line">107</span><br/><span class="line">108</span><br/><span class="line">109</span><br/><span class="line">110</span><br/><span class="line">111</span><br/><span class="line">112</span><br/><span class="line">113</span><br/><span class="line">114</span><br/><span class="line">115</span><br/><span class="line">116</span><br/><span class="line">117</span><br/><span class="line">118</span><br/><span class="line">119</span><br/><span class="line">120</span><br/><span class="line">121</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br/><span class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</span><br/><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br/><span class="line"><span class="keyword">import</span> java.net.URI;</span><br/><span class="line"><span class="keyword">import</span> java.net.URISyntaxException;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FSDataInputStream;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FSDataOutputStream;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FileStatus;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FileSystem;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FileUtil;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IOUtils;</span><br/><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.AfterAll;</span><br/><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.BeforeAll;</span><br/><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.Test;</span><br/><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.TestInstance;</span><br/><span class="line"><span class="keyword">import</span> org.junit.jupiter.api.TestInstance.Lifecycle;</span><br/><span class="line"></span><br/><span class="line"><span class="meta">@TestInstance(Lifecycle.PER_CLASS)</span></span><br/><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HdfsClient</span> {</span><br/><span class="line"></span><br/><span class="line">    <span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br/><span class="line">    <span class="type">FileSystem</span> <span class="variable">fs</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br/><span class="line"></span><br/><span class="line">    <span class="meta">@BeforeAll</span></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">connect</span><span class="params">()</span> <span class="keyword">throws</span> IOException, URISyntaxException, InterruptedException {</span><br/><span class="line">        fs = FileSystem.get(<span class="keyword">new</span> <span class="title class_">URI</span>(<span class="string">"hdfs://ubuntu101:9820"</span>), conf, <span class="string">"rc"</span>);</span><br/><span class="line">    }</span><br/><span class="line"></span><br/><span class="line">    <span class="meta">@AfterAll</span></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exit</span><span class="params">()</span> <span class="keyword">throws</span> IOException {</span><br/><span class="line">        fs.close();</span><br/><span class="line">    }</span><br/><span class="line"></span><br/><span class="line">    <span class="meta">@Test</span></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testPrint</span><span class="params">()</span> {</span><br/><span class="line">        System.out.println(<span class="string">"1234567"</span>);</span><br/><span class="line">    }</span><br/><span class="line"></span><br/><span class="line">    <span class="meta">@Test</span></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testMkdir</span><span class="params">()</span> <span class="keyword">throws</span> IllegalArgumentException, IOException {</span><br/><span class="line">        fs.mkdirs(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"/test/path"</span>));</span><br/><span class="line">    }</span><br/><span class="line"></span><br/><span class="line">    <span class="meta">@Test</span></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testMkfile</span><span class="params">()</span> <span class="keyword">throws</span> IllegalArgumentException, IOException {</span><br/><span class="line">        <span class="type">Path</span> <span class="variable">filePath</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"/test/1.txt"</span>);</span><br/><span class="line">        <span class="type">FSDataOutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> fs.create(filePath);</span><br/><span class="line">        outputStream.writeUTF(<span class="string">"你好abc\n"</span>);</span><br/><span class="line">        outputStream.close();</span><br/><span class="line">    }</span><br/><span class="line"></span><br/><span class="line">    <span class="meta">@Test</span></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testReadFile</span><span class="params">()</span> <span class="keyword">throws</span> UnsupportedOperationException, IOException {</span><br/><span class="line">        <span class="type">Path</span> <span class="variable">filePath</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"/test/1.txt"</span>);</span><br/><span class="line">        <span class="type">FSDataInputStream</span> <span class="variable">inputStream</span> <span class="operator">=</span> fs.open(filePath);</span><br/><span class="line">        IOUtils.copyBytes(inputStream, System.out, <span class="number">4096</span>, <span class="literal">false</span>);</span><br/><span class="line">        inputStream.close();</span><br/><span class="line">    }</span><br/><span class="line"></span><br/><span class="line">    <span class="meta">@Test</span></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testDeleteFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException {</span><br/><span class="line">        <span class="type">Path</span> <span class="variable">filePath</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"/test"</span>);</span><br/><span class="line">        fs.delete(filePath, <span class="literal">true</span>);</span><br/><span class="line">    }</span><br/><span class="line"></span><br/><span class="line">    <span class="meta">@Test</span></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testUploadFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException {</span><br/><span class="line">        <span class="type">Path</span> <span class="variable">src</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"D:\\school\\hadoop\\琵琶行.txt"</span>);</span><br/><span class="line">        <span class="type">Path</span> <span class="variable">dst</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"/test/"</span>);</span><br/><span class="line">        fs.copyFromLocalFile(<span class="literal">false</span>, <span class="literal">true</span>, src, dst);</span><br/><span class="line">    }</span><br/><span class="line"></span><br/><span class="line">    <span class="meta">@Test</span></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testUploadFile1</span><span class="params">()</span> <span class="keyword">throws</span> IOException {</span><br/><span class="line">        <span class="type">File</span> <span class="variable">src</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">"D:\\school\\hadoop\\琵琶不行.txt"</span>);</span><br/><span class="line">        <span class="type">Path</span> <span class="variable">dst</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"/test/"</span>);</span><br/><span class="line">        FileUtil.copy(src, fs, dst, <span class="literal">false</span>, conf);</span><br/><span class="line">    }</span><br/><span class="line"></span><br/><span class="line">    <span class="comment">// 这些方法中，只有它一个测试失败</span></span><br/><span class="line">    <span class="meta">@Test</span></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testDownloadFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException {</span><br/><span class="line">        <span class="type">Path</span> <span class="variable">src</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"/琵琶行.txt"</span>);</span><br/><span class="line">        <span class="type">Path</span> <span class="variable">dst</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"D:\\school\\hadoop\\琵琶行1.txt"</span>);</span><br/><span class="line">        fs.copyToLocalFile(src, dst);<span class="comment">// 这里下载文件为空。且测试结果报错，不报缺 winutils，其他和调试控制台一样</span></span><br/><span class="line">    }</span><br/><span class="line"></span><br/><span class="line">    <span class="meta">@Test</span></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testDownloadFile1</span><span class="params">()</span> <span class="keyword">throws</span> IOException {</span><br/><span class="line">        <span class="type">Path</span> <span class="variable">src</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"/琵琶行.txt"</span>);</span><br/><span class="line">        <span class="type">File</span> <span class="variable">dst</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">"D:\\school\\hadoop\\琵琶行1.txt"</span>);</span><br/><span class="line">        FileUtil.copy(fs, src, dst, <span class="literal">false</span>, conf);<span class="comment">// 这里可以下载文件</span></span><br/><span class="line">    }</span><br/><span class="line"></span><br/><span class="line">    <span class="comment">// 列出指定目录下的文件和子目录信息，不深入子目录</span></span><br/><span class="line">    <span class="meta">@Test</span></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testListStatus</span><span class="params">()</span> <span class="keyword">throws</span> FileNotFoundException, IOException {</span><br/><span class="line">        <span class="type">Path</span> <span class="variable">path</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"/"</span>);</span><br/><span class="line">        FileStatus[] fileStatuses = fs.listStatus(path);</span><br/><span class="line">        <span class="keyword">for</span> (FileStatus fileStatus : fileStatuses) {</span><br/><span class="line">            System.out.println(fileStatus);</span><br/><span class="line">        }</span><br/><span class="line">    }</span><br/><span class="line"></span><br/><span class="line">    <span class="meta">@Test</span></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testCopyFileBetweenHDFS</span><span class="params">()</span> <span class="keyword">throws</span> IOException {</span><br/><span class="line">        <span class="type">Path</span> <span class="variable">src</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"/琵琶行.txt"</span>);</span><br/><span class="line">        <span class="type">Path</span> <span class="variable">dst</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"/test/琵琶可行.txt"</span>);</span><br/><span class="line">        FileUtil.copy(fs, src, fs, dst, <span class="literal">false</span>, <span class="literal">false</span>, conf);</span><br/><span class="line">    }</span><br/><span class="line"></span><br/><span class="line">    <span class="meta">@Test</span></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testRename</span><span class="params">()</span> <span class="keyword">throws</span> IOException {</span><br/><span class="line">        <span class="type">Path</span> <span class="variable">src</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"/test/琵琶可行.txt"</span>);</span><br/><span class="line">        <span class="type">Path</span> <span class="variable">dst</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"/test/琵琶不可行.txt"</span>);</span><br/><span class="line">        fs.rename(src, dst);</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
+<h3 id="在物理机上编程打包传到虚拟机上执行ubuntu-文件系统---hdfs">在物理机上编程打包，传到虚拟机上执行（ubuntu
+文件系统 &lt;-&gt; HDFS）</h3>
+<h3 id="还可以用-vscode-连接虚拟机直接在虚拟机的文件系统上编程">还可以用
+VSCode 连接虚拟机，直接在虚拟机的文件系统上编程</h3>
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/HD/05/" rel="prev" title="HD05 - ZooKeeper客户端的Shell命令和JavaAPI操作">
+<i class="fa fa-chevron-left"></i> HD05 - ZooKeeper客户端的Shell命令和JavaAPI操作
+                </a>
+</div>
+<div class="post-nav-item">
+</div>
+</div>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
+<div class="copyright">
+<span itemprop="copyrightYear">2023</span>
+<span class="with-love">
+<i class="fa fa-heart"></i>
+</span>
+<span class="author" itemprop="copyrightHolder">Ruofan</span>
+</div>
+</div>
+</footer>
+<div aria-label="返回顶部" class="back-to-top" role="button">
+<i class="fa fa-arrow-up fa-lg"></i>
+<span>0%</span>
+</div>
+<div class="reading-progress-bar"></div>
+<noscript>
+<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/next-boot.js"></script>
+<script crossorigin="anonymous" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+<script src="/blog/js/third-party/tags/mermaid.js"></script>
+<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/blog/js/third-party/math/mathjax.js"></script>
+<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/HD/06/"}</script>
+<script src="/blog/js/third-party/quicklink.js"></script>
+</body>
+</html>
