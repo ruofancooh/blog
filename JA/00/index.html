@@ -19,7 +19,7 @@
  Hello.java" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-09-04T13:31:47.000Z" property="article:published_time"/>
-<meta content="2023-09-29T06:58:04.963Z" property="article:modified_time"/>
+<meta content="2023-10-13T11:45:47.385Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/JA/00/" rel="canonical"/>
@@ -108,7 +108,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">43</span>
+<span class="site-state-item-count">44</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -177,6 +177,12 @@
 设置搜<code>java.jdt.ls.java.home</code>，在<code>settings.json</code>里改成
 JDK 安装路径。</li>
 </ol>
+<p>安装的是 17，但是版本太高了（<a href="https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions" rel="noopener" target="_blank">Hadoop
+支持的 Java 版本</a>），Hadoop 跟不上。所以又安装了 8 的。</p>
+<p>VSCode -&gt; <code>Ctrl + Shift + P</code> -&gt; Java: Install New
+JDK</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">openjdk version "1.8.0_382"</span><br/><span class="line">OpenJDK Runtime Environment (Temurin)(build 1.8.0_382-b05)</span><br/><span class="line">OpenJDK 64-Bit Server VM (Temurin)(build 25.382-b05, mixed mode)</span><br/></pre></td></tr></table></figure>
+<p>然后改环境变量和配置文件。</p>
 <h2 id="hello.java">Hello.java</h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span> {</span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> {</span><br/><span class="line">        System.out.println(<span class="string">"Hello"</span>);</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
 <p>按钮运行，或者终端：</p>

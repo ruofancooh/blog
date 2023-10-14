@@ -27,7 +27,7 @@
  Windows 10 + VSCode 环境配置。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-09-27T11:10:00.000Z" property="article:published_time"/>
-<meta content="2023-10-12T13:54:18.281Z" property="article:modified_time"/>
+<meta content="2023-10-13T15:33:32.693Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/JA/02/" rel="canonical"/>
@@ -117,7 +117,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">43</span>
+<span class="site-state-item-count">44</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -251,8 +251,7 @@
 <p>Maven 会下载依赖到本地。</p></li>
 <li><p>修改 <code>App.java</code>：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> com.alibaba.fastjson2.*;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">App</span> {</span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> {</span><br/><span class="line">        <span class="type">JSONArray</span> <span class="variable">a</span> <span class="operator">=</span> JSON.parseArray(<span class="string">"[1,2,3]"</span>);</span><br/><span class="line">        System.out.println(a);</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure></li>
-<li><p>改<code>pom.xml</code>里的 JDK 版本：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>17<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>17<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br/></pre></td></tr></table></figure></li>
+<li><p>适当修改<code>pom.xml</code>里的 JDK 版本。</p></li>
 <li><p>▶️</p></li>
 </ol>
 </div>
