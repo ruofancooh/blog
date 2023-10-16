@@ -9,17 +9,35 @@
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
-<meta content="website" property="og:type"/>
-<meta content="若凡的笔记" property="og:title"/>
-<meta content="https://hrfis.me/blog/categories/Java/index.html" property="og:url"/>
+<meta content="以太网：Ethernet，是一种局域网技术（可以作为局域网的同义词），使用
+ CSMA/CD 协议。
+ CSMA/CD：Carrier Sense Multiple Access with Collision
+ Detection，带冲突检测的载波侦听多路访问协议。
+ 
+ 使用曼切斯特编码（中心始终跳变，01
+ 为跳变方向不同），频带宽度比基带信号增加一倍。
+ 多点接入：多台计算机连在一根总线" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="CN08 - 数据链路层 - CSMA／CD协议" property="og:title"/>
+<meta content="https://hrfis.me/blog/CN/08/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
+<meta content="以太网：Ethernet，是一种局域网技术（可以作为局域网的同义词），使用
+ CSMA/CD 协议。
+ CSMA/CD：Carrier Sense Multiple Access with Collision
+ Detection，带冲突检测的载波侦听多路访问协议。
+ 
+ 使用曼切斯特编码（中心始终跳变，01
+ 为跳变方向不同），频带宽度比基带信号增加一倍。
+ 多点接入：多台计算机连在一根总线" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
+<meta content="2023-10-16T15:20:00.000Z" property="article:published_time"/>
+<meta content="2023-10-16T15:22:50.825Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/categories/Java/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"categories/Java/index.html","title":""}</script>
+<link href="https://hrfis.me/blog/CN/08/" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/CN/08/","path":"/CN/08/","title":"CN08 - 数据链路层 - CSMA／CD协议"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>分类: Java | 若凡的笔记</title>
+<title>CN08 - 数据链路层 - CSMA／CD协议 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -117,60 +135,69 @@
 </div>
 </aside>
 </div>
-<div class="main-inner category posts-collapse">
+<div class="main-inner post posts-expand">
 <div class="post-block">
-<div class="post-content">
-<div class="collection-title">
-<h1 class="collection-header">Java
-          <small>分类</small>
-</h1>
-</div>
-<div class="collection-year">
-<span class="collection-header">2023</span>
-</div>
-<article itemscope="" itemtype="http://schema.org/Article">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/CN/08/" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="CN08 - 数据链路层 - CSMA／CD协议 | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
 <header class="post-header">
+<h1 class="post-title" itemprop="name headline">
+          CN08 - 数据链路层 - CSMA／CD协议
+        </h1>
 <div class="post-meta-container">
-<time content="2023-09-27" datetime="2023-09-27T19:10:00+08:00" itemprop="dateCreated">
-          09-27
-        </time>
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/CN/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+</span>
+</span>
 </div>
-<div class="post-title">
-<a class="post-title-link" href="/blog/JA/02/" itemprop="url">
-<span itemprop="name">JA02 - Maven环境配置</span>
-</a>
 </div>
 </header>
+<div class="post-body" itemprop="articleBody"><ul>
+<li>以太网：Ethernet，是一种局域网技术（可以作为局域网的同义词），使用
+CSMA/CD 协议。</li>
+<li>CSMA/CD：Carrier Sense Multiple Access with Collision
+Detection，带冲突检测的载波侦听多路访问协议。
+<ul>
+<li>使用曼切斯特编码（中心始终跳变，01
+为跳变方向不同），频带宽度比基带信号增加一倍。</li>
+<li>多点接入：多台计算机连在一根总线上。多个人在同一个房间。</li>
+<li>载波（载体）监听：每个站都不停地检测信道。在说话前和说话中听别人有没有说话。</li>
+<li>碰撞检测：听到了自己和其他人同时说话的声音。</li>
+<li>一个站不能同时发送和接收。人不能同时（并行）听懂和说明白。半双工（双向交替通信）。</li>
+</ul></li>
+</ul>
+<span id="more"></span>
+<p>啊</p>
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/CN/07/" rel="prev" title="CN07 - 数据链路层 - 点对点协议PPP">
+<i class="fa fa-chevron-left"></i> CN07 - 数据链路层 - 点对点协议PPP
+                </a>
+</div>
+<div class="post-nav-item">
+</div>
+</div>
+</footer>
 </article>
-<article itemscope="" itemtype="http://schema.org/Article">
-<header class="post-header">
-<div class="post-meta-container">
-<time content="2023-09-06" datetime="2023-09-06T16:31:00+08:00" itemprop="dateCreated">
-          09-06
-        </time>
-</div>
-<div class="post-title">
-<a class="post-title-link" href="/blog/JA/01/" itemprop="url">
-<span itemprop="name">JA01 - 问答</span>
-</a>
-</div>
-</header>
-</article>
-<article itemscope="" itemtype="http://schema.org/Article">
-<header class="post-header">
-<div class="post-meta-container">
-<time content="2023-09-04" datetime="2023-09-04T21:31:47+08:00" itemprop="dateCreated">
-          09-04
-        </time>
-</div>
-<div class="post-title">
-<a class="post-title-link" href="/blog/JA/00/" itemprop="url">
-<span itemprop="name">JA00 - 准备</span>
-</a>
-</div>
-</header>
-</article>
-</div>
 </div>
 </div>
 </main>
@@ -203,7 +230,7 @@
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/categories/Java/"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/CN/08/"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>

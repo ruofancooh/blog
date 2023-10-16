@@ -101,7 +101,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">44</span>
+<span class="site-state-item-count">46</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -118,6 +118,130 @@
 </aside>
 </div>
 <div class="main-inner index posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
+<link href="https://hrfis.me/blog/CN/08/" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="undefined | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h2 class="post-title" itemprop="name headline">
+<a class="post-title-link" href="/blog/CN/08/" itemprop="url">CN08 - 数据链路层 - CSMA／CD协议</a>
+</h2>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/CN/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody">
+<ul>
+<li>以太网：Ethernet，是一种局域网技术（可以作为局域网的同义词），使用
+CSMA/CD 协议。</li>
+<li>CSMA/CD：Carrier Sense Multiple Access with Collision
+Detection，带冲突检测的载波侦听多路访问协议。
+<ul>
+<li>使用曼切斯特编码（中心始终跳变，01
+为跳变方向不同），频带宽度比基带信号增加一倍。</li>
+<li>多点接入：多台计算机连在一根总线上。多个人在同一个房间。</li>
+<li>载波（载体）监听：每个站都不停地检测信道。在说话前和说话中听别人有没有说话。</li>
+<li>碰撞检测：听到了自己和其他人同时说话的声音。</li>
+<li>一个站不能同时发送和接收。人不能同时（并行）听懂和说明白。半双工（双向交替通信）。</li>
+</ul></li>
+</ul>
+<!--noindex-->
+<div class="post-button">
+<a class="btn" href="/blog/CN/08/#more" rel="contents">
+                阅读全文 »
+              </a>
+</div>
+<!--/noindex-->
+</div>
+<footer class="post-footer">
+<div class="post-eof"></div>
+</footer>
+</article>
+</div>
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
+<link href="https://hrfis.me/blog/CN/07/" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="undefined | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h2 class="post-title" itemprop="name headline">
+<a class="post-title-link" href="/blog/CN/07/" itemprop="url">CN07 - 数据链路层 - 点对点协议PPP</a>
+</h2>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/CN/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody">
+<ul>
+<li>Point-to-Point Protocol：用户到 ISP 的协议。ISP 是学校，PPP
+就是和门口保安的对话。<a href="https://www.rfc-editor.org/rfc/rfc1661" rel="noopener" target="_blank">RFC 1661</a> | <a href="https://blog.csdn.net/qq_20677327/article/details/106079040" rel="noopener" target="_blank">翻译</a>
+<ul>
+<li>不采用序号和确认机制，接收方每收到一个帧就进行 CRC
+校验，正确就收下，错误就丢弃。断章取义。</li>
+<li>组成部分：
+<ul>
+<li>【网络层 -&gt; 数据链路层】一个将 IP 数据报封装到串行链路的方法</li>
+<li>【物理层 &lt;-&gt; 数据链路层】一个链路控制协议 LCP (Link Control
+Protocol)。分配临时IP地址。说话。</li>
+<li>【数据链路层 &lt;-&gt; 网络层】一套网络控制协议 NCP (Network Control
+Protocol)。填表。</li>
+</ul></li>
+</ul></li>
+</ul>
+<!--noindex-->
+<div class="post-button">
+<a class="btn" href="/blog/CN/07/#more" rel="contents">
+                阅读全文 »
+              </a>
+</div>
+<!--/noindex-->
+</div>
+<footer class="post-footer">
+<div class="post-eof"></div>
+</footer>
+</article>
+</div>
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
 <link href="https://hrfis.me/blog/UC/le/" itemprop="mainEntityOfPage"/>
@@ -523,131 +647,6 @@ Server API</a></li>
 </footer>
 </article>
 </div>
-<div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
-<link href="https://hrfis.me/blog/shao-yin-fu.html" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="undefined | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h2 class="post-title" itemprop="name headline">
-<a class="post-title-link" href="/blog/shao-yin-fu.html" itemprop="url">《韶音赋》歌词注解</a>
-</h2>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/M/" itemprop="url" rel="index"><span itemprop="name">音乐</span></a>
-</span>
-</span>
-</div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody">
-<ul>
-<li>韶：一种乐曲，后引申为“美好的”。</li>
-<li>赋：一种文体，用于描写和抒情。</li>
-</ul>
-<p>词作者是<a href="https://space.bilibili.com/109564" rel="noopener" target="_blank">战场原妖精</a>。</p>
-<!--noindex-->
-<div class="post-button">
-<a class="btn" href="/blog/shao-yin-fu.html#more" rel="contents">
-                阅读全文 »
-              </a>
-</div>
-<!--/noindex-->
-</div>
-<footer class="post-footer">
-<div class="post-eof"></div>
-</footer>
-</article>
-</div>
-<div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
-<link href="https://hrfis.me/blog/CN/06/" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="undefined | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h2 class="post-title" itemprop="name headline">
-<a class="post-title-link" href="/blog/CN/06/" itemprop="url">CN06 - 数据链路层 - 基本问题</a>
-</h2>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/CN/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
-</span>
-</span>
-</div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody">
-<p>物理层没法解决的三个问题：</p>
-<ol type="1">
-<li>发出去之后，哪一方接收</li>
-<li>传输何时开始，何时结束</li>
-<li>判断是否有传输错误</li>
-</ol>
-<p>对应数据链路层的三个基本问题：</p>
-<ol type="1">
-<li>封装成帧（载客）
-<ul>
-<li>帧定界符 SOH、EOT（何时开始和结束）</li>
-</ul></li>
-<li>透明传输（转义特殊字符）
-<ul>
-<li>ESC</li>
-</ul></li>
-<li>差错检测（判断传输是否出错）
-<ul>
-<li>误码率（BER）</li>
-<li>帧检验序列（FCS）的计算</li>
-<li>循环冗余检验（CRC）的方法</li>
-<li>【无比特差错】与【无传输差错】</li>
-</ul></li>
-</ol>
-<p>数据链路层：物理链路+协议与实现协议的软硬件（马路+交通规则）。</p>
-<p>网络适配器（网卡）连接了物理层和数据链路层。</p>
-<!--noindex-->
-<div class="post-button">
-<a class="btn" href="/blog/CN/06/#more" rel="contents">
-                阅读全文 »
-              </a>
-</div>
-<!--/noindex-->
-</div>
-<footer class="post-footer">
-<div class="post-eof"></div>
-</footer>
-</article>
-</div>
 <nav class="pagination">
 <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><span class="space">…</span><a class="page-number" href="/blog/page/5/">5</a><a aria-label="下一页" class="extend next" href="/blog/page/2/" rel="next" title="下一页"><i class="fa fa-angle-right"></i></a>
 </nav>
@@ -679,7 +678,7 @@ Server API</a></li>
 <script src="/blog/js/third-party/search/local-search.js"></script>
 <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
 <script src="/blog/js/third-party/tags/mermaid.js"></script>
-<script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
 <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/"}</script>

@@ -9,21 +9,37 @@
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
-<meta content="总纲就是学别人的写法，给别人的代码加注释。" name="description"/>
+<meta content="Point-to-Point Protocol：用户到 ISP 的协议。ISP 是学校，PPP
+ 就是和门口保安的对话。RFC 1661 | 翻译
+ 
+ 不采用序号和确认机制，接收方每收到一个帧就进行 CRC
+ 校验，正确就收下，错误就丢弃。断章取义。
+ 组成部分：
+ 
+ 【网络层 -&gt; 数据链路层】一个将 IP 数据报封装到串行链路的方法
+ 【物理层 &lt;-&gt; 数据链路层】一" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="AL00 - 总纲" property="og:title"/>
-<meta content="https://hrfis.me/blog/AL/00/index.html" property="og:url"/>
+<meta content="CN07 - 数据链路层 - 点对点协议PPP" property="og:title"/>
+<meta content="https://hrfis.me/blog/CN/07/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="总纲就是学别人的写法，给别人的代码加注释。" property="og:description"/>
+<meta content="Point-to-Point Protocol：用户到 ISP 的协议。ISP 是学校，PPP
+ 就是和门口保安的对话。RFC 1661 | 翻译
+ 
+ 不采用序号和确认机制，接收方每收到一个帧就进行 CRC
+ 校验，正确就收下，错误就丢弃。断章取义。
+ 组成部分：
+ 
+ 【网络层 -&gt; 数据链路层】一个将 IP 数据报封装到串行链路的方法
+ 【物理层 &lt;-&gt; 数据链路层】一" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-09-18T04:55:55.000Z" property="article:published_time"/>
-<meta content="2023-10-02T11:03:22.535Z" property="article:modified_time"/>
+<meta content="2023-10-16T14:32:00.000Z" property="article:published_time"/>
+<meta content="2023-10-16T14:33:18.231Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/AL/00/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/AL/00/","path":"/AL/00/","title":"AL00 - 总纲"}</script>
+<link href="https://hrfis.me/blog/CN/07/" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/CN/07/","path":"/CN/07/","title":"CN07 - 数据链路层 - 点对点协议PPP"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>AL00 - 总纲 | 若凡的笔记</title>
+<title>CN07 - 数据链路层 - 点对点协议PPP | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -94,7 +110,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E6%B5%8B%E8%AF%95"><span class="nav-number">1.</span> <span class="nav-text">算法的测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">1.1.</span> <span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tester.mjs"><span class="nav-number">1.2.</span> <span class="nav-text">Tester.mjs</span></a></li></ol></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ppp-%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%8A%B6%E6%80%81"><span class="nav-number">1.</span> <span class="nav-text">PPP 协议的工作状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ppp-%E5%B8%A7%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">PPP 帧格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E4%BC%A0%E8%BE%93%E6%97%B6%E7%9A%84%E5%AD%97%E8%8A%82%E5%A1%AB%E5%85%85"><span class="nav-number">3.</span> <span class="nav-text">异步传输时的字节填充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E4%BC%A0%E8%BE%93%E6%97%B6%E7%9A%84%E9%9B%B6%E6%AF%94%E7%89%B9%E5%A1%AB%E5%85%85"><span class="nav-number">4.</span> <span class="nav-text">同步传输时的零比特填充</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -125,7 +141,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/AL/00/" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/CN/07/" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -135,12 +151,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="AL00 - 总纲 | 若凡的笔记" itemprop="name"/>
+<meta content="CN07 - 数据链路层 - 点对点协议PPP | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          AL00 - 总纲
+          CN07 - 数据链路层 - 点对点协议PPP
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -150,41 +166,114 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/AL/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+<a href="/blog/CN/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>总纲就是学别人的写法，给别人的代码加注释。</p>
+<div class="post-body" itemprop="articleBody"><ul>
+<li>Point-to-Point Protocol：用户到 ISP 的协议。ISP 是学校，PPP
+就是和门口保安的对话。<a href="https://www.rfc-editor.org/rfc/rfc1661" rel="noopener" target="_blank">RFC 1661</a> | <a href="https://blog.csdn.net/qq_20677327/article/details/106079040" rel="noopener" target="_blank">翻译</a>
+<ul>
+<li>不采用序号和确认机制，接收方每收到一个帧就进行 CRC
+校验，正确就收下，错误就丢弃。断章取义。</li>
+<li>组成部分：
+<ul>
+<li>【网络层 -&gt; 数据链路层】一个将 IP 数据报封装到串行链路的方法</li>
+<li>【物理层 &lt;-&gt; 数据链路层】一个链路控制协议 LCP (Link Control
+Protocol)。分配临时IP地址。说话。</li>
+<li>【数据链路层 &lt;-&gt; 网络层】一套网络控制协议 NCP (Network Control
+Protocol)。填表。</li>
+</ul></li>
+</ul></li>
+</ul>
 <span id="more"></span>
-<p>参考仓库：</p>
-<ul>
-<li><a href="https://github.com/zhaosaisai/sort.js" rel="noopener" target="_blank">sort.js</a></li>
-</ul>
-<p>算法可视化：</p>
-<ul>
-<li><a href="https://visualgo.net/zh/" rel="noopener" target="_blank">VisuAlgo</a></li>
-</ul>
-<h2 id="算法的测试">算法的测试</h2>
-<p>从文件读取数据集，输出运行时间和运行结果。</p>
-<h3 id="数据集">数据集</h3>
-<p><code>dataSet.json</code> 类似：</p>
-<p>里面还有更长的数组。</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br/><span class="line">  <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="punctuation">[</span><span class="number">-1</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="punctuation">[</span><span class="number">3</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">5</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">4</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="punctuation">[</span><span class="number">-3</span><span class="punctuation">,</span> <span class="number">9999991247561</span><span class="punctuation">,</span> <span class="number">3456</span><span class="punctuation">,</span> <span class="number">-111</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">7</span><span class="punctuation">,</span> <span class="number">9</span><span class="punctuation">,</span> <span class="number">23</span><span class="punctuation">,</span> <span class="number">6</span><span class="punctuation">,</span> <span class="number">0</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="punctuation">[</span><span class="number">-1.23</span><span class="punctuation">,</span> <span class="number">3.14</span><span class="punctuation">,</span> <span class="number">3.14</span><span class="punctuation">,</span> <span class="number">2.71</span><span class="punctuation">,</span> <span class="number">0</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">-4</span><span class="punctuation">,</span> <span class="number">-2</span><span class="punctuation">]</span></span><br/><span class="line"><span class="punctuation">]</span></span><br/></pre></td></tr></table></figure>
-<h3 id="tester.mjs"><code>Tester.mjs</code></h3>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"></span><br/></pre></td></tr></table></figure>
+<h2 id="ppp-协议的工作状态">PPP 协议的工作状态</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/></pre></td><td class="code"><pre><span class="line">【链路静止】：保安没看见你</span><br/><span class="line">| 猫呼叫路由器，建立物理层连接：和保安搭话</span><br/><span class="line">v</span><br/><span class="line">【链路建立】：保安听见你了，问你来干什么</span><br/><span class="line">| LCP配置协商：我要进学校</span><br/><span class="line">| 失败：保安听不懂你的广东话，【链路静止】</span><br/><span class="line">v</span><br/><span class="line">【鉴别】：验证你的身份</span><br/><span class="line">| 失败：【链路终止】-&gt;【链路静止】</span><br/><span class="line">v</span><br/><span class="line">【网络层协议】：登记</span><br/><span class="line">| NCP配置协商：填表</span><br/><span class="line">v</span><br/><span class="line">【链路打开】：让你进了</span><br/></pre></td></tr></table></figure>
+<h2 id="ppp-帧格式">PPP 帧格式</h2>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 14%"/>
+<col style="width: 18%"/>
+<col style="width: 53%"/>
+<col style="width: 7%"/>
+<col style="width: 1%"/>
+<col style="width: 5%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>字段名</th>
+<th>标志字段、地址字段、控制字段</th>
+<th>协议字段</th>
+<th>信息字段</th>
+<th>FCS</th>
+<th>标志字段</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>字段值（十六进制）</strong></td>
+<td>7E FF 03</td>
+<td>0021【IP
+数据报】<br>8021【NCP】<br>C021【LCP】<br>C023【PAP】<br>C223【CHAP】</br></br></br></br></td>
+<td>...</td>
+<td>...</td>
+<td>7E</td>
+</tr>
+<tr class="even">
+<td><strong>字节数（十进制）</strong></td>
+<td>3</td>
+<td>2</td>
+<td>&lt;=MTU(1500)</td>
+<td>2</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="异步传输时的字节填充">异步传输时的字节填充</h2>
+<p>下面的都是十六进制</p>
+<p>转义字符：7D</p>
+<table>
+<thead>
+<tr class="header">
+<th>转义前</th>
+<th>转义后</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>7E</td>
+<td>7D 5E（减了 20）</td>
+</tr>
+<tr class="even">
+<td>7D</td>
+<td>7D 5D（减了 20）</td>
+</tr>
+<tr class="odd">
+<td>00 ~ 1F</td>
+<td>7D 20 ~ 7D 3F （加了 20）</td>
+</tr>
+</tbody>
+</table>
+<p>上面都是对从低到高第六位取反。<code>0x20</code> 是
+<code>0010 0000</code>。</p>
+<h2 id="同步传输时的零比特填充">同步传输时的零比特填充</h2>
+<p>发现有五个连续 <code>1</code>，就填入一个
+<code>0</code>。这样不会出现六个连续 <code>1</code>。</p>
+<p>因为不是按字节传输的，是按比特传输的，为了规避 <code>0x7E</code> 的
+<code>0111 1110</code>。</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/CN/04/" rel="prev" title="CN04 - 物理层 - 信道的极限容量">
-<i class="fa fa-chevron-left"></i> CN04 - 物理层 - 信道的极限容量
+<a href="/blog/UC/le/" rel="prev" title="关于学习">
+<i class="fa fa-chevron-left"></i> 关于学习
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/MD/01/" rel="next" title="MD01 - 按条件查询文档">
-                  MD01 - 按条件查询文档 <i class="fa fa-chevron-right"></i>
+<a href="/blog/CN/08/" rel="next" title="CN08 - 数据链路层 - CSMA／CD协议">
+                  CN08 - 数据链路层 - CSMA／CD协议 <i class="fa fa-chevron-right"></i>
 </a>
 </div>
 </div>
@@ -222,7 +311,7 @@
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/AL/00/"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/CN/07/"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
