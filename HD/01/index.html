@@ -10,20 +10,16 @@
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 <meta content="改配置文件后，用 Xftp
- 一个一个传还是很麻烦的，于是写一个脚本用来同步文件。
- 不管那么多，先能跑起来就行。毕竟连前置课程《Linux
- 操作系统》都没上，因为教学计划改变了。" name="description"/>
+ 一个一个传还是很麻烦的，于是写一个脚本用来同步文件。" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="HD01 - 编写Linux集群分发脚本" property="og:title"/>
 <meta content="https://hrfis.me/blog/HD/01/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
 <meta content="改配置文件后，用 Xftp
- 一个一个传还是很麻烦的，于是写一个脚本用来同步文件。
- 不管那么多，先能跑起来就行。毕竟连前置课程《Linux
- 操作系统》都没上，因为教学计划改变了。" property="og:description"/>
+ 一个一个传还是很麻烦的，于是写一个脚本用来同步文件。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-09-14T07:20:00.000Z" property="article:published_time"/>
-<meta content="2023-09-29T06:57:33.074Z" property="article:modified_time"/>
+<meta content="2023-10-17T02:48:01.231Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/HD/01/" rel="canonical"/>
@@ -113,7 +109,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">46</span>
+<span class="site-state-item-count">47</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -165,17 +161,15 @@
 </header>
 <div class="post-body" itemprop="articleBody"><p>改配置文件后，用 Xftp
 一个一个传还是很麻烦的，于是写一个脚本用来同步文件。</p>
-<p>不管那么多，先能跑起来就行。毕竟连前置课程《Linux
-操作系统》都没上，因为教学计划改变了。</p>
 <span id="more"></span>
 <h2 id="rsync">rsync</h2>
 <p>远程同步文件用的。<a href="https://www.ruanyifeng.com/blog/2020/08/rsync.html" rel="noopener" target="_blank">rsync
 用法教程</a></p>
-<p>我使用的 Ubuntu 默认已经安装了
+<p>Ubuntu 默认已经安装了
 rsync。直接在根目录建一个文件夹<code>test</code>，里面再套几个文件夹和文件，然后执行：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo rsync -av /test worker1:/</span><br/></pre></td></tr></table></figure>
 <p>把<code>/test</code>文件夹整个复制到 worker1 的根目录。</p>
-<p>显示权限拒绝，说明我的 SSH 还没有配置好。<a href="https://wangdoc.com/ssh/key#ssh-copy-id-%E5%91%BD%E4%BB%A4%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0%E5%85%AC%E9%92%A5" rel="noopener" target="_blank">SSH
+<p>显示权限拒绝，说明我还没有配置好 SSH。<a href="https://wangdoc.com/ssh/key#ssh-copy-id-%E5%91%BD%E4%BB%A4%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0%E5%85%AC%E9%92%A5" rel="noopener" target="_blank">SSH
 教程</a></p>
 <h2 id="改-sshd-配置文件">改 SSHD 配置文件</h2>
 <p>三台机器上都修改：</p>
@@ -192,7 +186,7 @@ rsync。直接在根目录建一个文件夹<code>test</code>，里面再套几�
 <p>复制自老师给的配置文档，把主机名改了：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br/><span class="line"><span class="comment">#1.-------判断参数个数</span></span><br/><span class="line"><span class="comment">#判断参数个数是否小于 1,如果小于 1 表示没有向脚本传递参数</span></span><br/><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -lt 1 ]</span><br/><span class="line"><span class="keyword">then</span></span><br/><span class="line">    <span class="built_in">echo</span> Not Enough Argument!</span><br/><span class="line">    <span class="built_in">exit</span>;</span><br/><span class="line"><span class="keyword">fi</span></span><br/><span class="line"><span class="comment">#2. 遍历集群所有机器</span></span><br/><span class="line"><span class="keyword">for</span> host <span class="keyword">in</span> master worker1 worker2</span><br/><span class="line"><span class="keyword">do</span></span><br/><span class="line">    <span class="built_in">echo</span> ==================== <span class="variable">$host</span> ====================</span><br/><span class="line">    <span class="comment">#3. 遍历所有目录,挨个发送</span></span><br/><span class="line">    <span class="comment">#先遍历更新的文本文件</span></span><br/><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> <span class="variable">$@</span></span><br/><span class="line">    <span class="keyword">do</span></span><br/><span class="line">        <span class="comment">#4. 判断文件是否存在</span></span><br/><span class="line">        <span class="keyword">if</span> [ -e <span class="variable">$file</span> ]</span><br/><span class="line">        <span class="keyword">then</span></span><br/><span class="line">            <span class="comment">#5. 获取父目录</span></span><br/><span class="line">            pdir=$(<span class="built_in">cd</span> -P $(<span class="built_in">dirname</span> <span class="variable">$file</span>); <span class="built_in">pwd</span>)</span><br/><span class="line">            <span class="comment">#6. 获取当期文件的名称</span></span><br/><span class="line">            fname=$(<span class="built_in">basename</span> <span class="variable">$file</span>)</span><br/><span class="line">            ssh <span class="variable">$host</span> <span class="string">"mkdir -p <span class="variable">$pdir</span>"</span></span><br/><span class="line">            rsync -av <span class="variable">$pdir</span>/<span class="variable">$fname</span> <span class="variable">$host</span>:<span class="variable">$pdir</span></span><br/><span class="line">        <span class="keyword">else</span></span><br/><span class="line">            <span class="built_in">echo</span> <span class="variable">$file</span> does not exists!</span><br/><span class="line">        <span class="keyword">fi</span></span><br/><span class="line">    <span class="keyword">done</span></span><br/><span class="line"><span class="keyword">done</span></span><br/></pre></td></tr></table></figure>
 <h3 id="问题">问题</h3>
-<p>由于我前面没有完全跟着老师的文档配置，导致：</p>
+<p>我没有完全跟着老师的文档配置，导致：</p>
 <ul>
 <li>master 连不上。</li>
 <li>连 worker1 和 worker2 总共要输入 4 次 root 密码。</li>
@@ -209,7 +203,7 @@ rsync。直接在根目录建一个文件夹<code>test</code>，里面再套几�
 放一份脚本。弊端是后续只能从 master 同步到另外两台，修改配置时需要在
 master 修改。</li>
 </ul>
-<p>但是输 4 次密码暂时不知道解决方法。</p>
+<p>输 4 次密码暂时不知道解决方法。</p>
 <h2 id="运行分发脚本在-master">运行分发脚本在 master：</h2>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo xsync.sh 指定路径</span><br/></pre></td></tr></table></figure>
 <p>这会把 master
@@ -218,8 +212,8 @@ master 修改。</li>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/UC/sp/" rel="prev" title="让提交的照片作业更清晰">
-<i class="fa fa-chevron-left"></i> 让提交的照片作业更清晰
+<a href="/blog/UC/sp/" rel="prev" title="用GIMP让拍摄的纸上的字更清晰">
+<i class="fa fa-chevron-left"></i> 用GIMP让拍摄的纸上的字更清晰
                 </a>
 </div>
 <div class="post-nav-item">
