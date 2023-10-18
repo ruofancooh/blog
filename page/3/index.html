@@ -101,7 +101,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">47</span>
+<span class="site-state-item-count">48</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -118,6 +118,96 @@
 </aside>
 </div>
 <div class="main-inner index posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
+<link href="https://hrfis.me/blog/CN/04/" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="undefined | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h2 class="post-title" itemprop="name headline">
+<a class="post-title-link" href="/blog/CN/04/" itemprop="url">CN04 - 物理层 - 信道的极限容量</a>
+</h2>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/CN/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody">
+<ul>
+<li>码元
+<ul>
+<li><span class="math inline">\(1\)</span> 码元对应 <span class="math inline">\(x \mathrm{bit}\)</span> 时（<span class="math inline">\(x &gt; 1\)</span>）：</li>
+<li>码元种类数（信号状态数） <span class="math inline">\(n =
+2^x\)</span></li>
+<li>码元对应的比特数 <span class="math inline">\(x =
+\log_2(n)\)</span></li>
+<li>当 <span class="math inline">\(0 &lt; x &lt;
+1\)</span>时，一个比特由多个码元表示</li>
+</ul></li>
+<li>奈氏准则：无噪声低通信道中码元传输最高速率
+<ul>
+<li><span class="math inline">\(波特 = \mathrm{码元/s} = 2W \times
+【码元单位】\)</span></li>
+<li><span class="math inline">\(W\)</span>：信道的频域带宽 <span class="math inline">\(\mathrm{Hz}\)</span></li>
+<li><span class="math inline">\(比特率 = \mathrm{bit/s} = 2Wx =
+2W\log_2(n)\)</span></li>
+</ul></li>
+<li>信噪比
+<ul>
+<li>用 <span class="math inline">\(\dfrac{S}{N}\)</span> 表示</li>
+<li>用 <span class="math inline">\(\mathrm{dB} = 10 \log_{10}
+\dfrac{S}{N}\)</span> 表示</li>
+<li><span class="math inline">\(\dfrac{S}{N} =
+10^{\mathrm{dB}/10}\)</span></li>
+</ul></li>
+<li>香农公式：信道极限速率
+<ul>
+<li><span class="math inline">\(\mathrm{bit/s} = W \log_2 (1 +
+\dfrac{S}{N})\)</span></li>
+</ul></li>
+<li>奈氏准则和香农公式的意义</li>
+<li>影响数据在信道中传输速率的因素有：
+<ul>
+<li>信道长度</li>
+<li>信道带宽</li>
+<li>信噪比</li>
+<li><a href="/blog/CN/03/#编码方式">编码方式</a></li>
+<li><a href="/blog/CN/05">信道复用方式</a></li>
+<li>信号传播速度（电磁波在介质中的传播速度）<strong>不会影响</strong>信道数据的传输速率</li>
+</ul></li>
+</ul>
+<!--noindex-->
+<div class="post-button">
+<a class="btn" href="/blog/CN/04/#more" rel="contents">
+                阅读全文 »
+              </a>
+</div>
+<!--/noindex-->
+</div>
+<footer class="post-footer">
+<div class="post-eof"></div>
+</footer>
+</article>
+</div>
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
 <link href="https://hrfis.me/blog/HD/02/" itemprop="mainEntityOfPage"/>
@@ -620,57 +710,6 @@ Player（免费的，但是不支持克隆虚拟机，需要手动装另外两�
 <!--noindex-->
 <div class="post-button">
 <a class="btn" href="/blog/CN/00/#more" rel="contents">
-                阅读全文 »
-              </a>
-</div>
-<!--/noindex-->
-</div>
-<footer class="post-footer">
-<div class="post-eof"></div>
-</footer>
-</article>
-</div>
-<div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
-<link href="https://hrfis.me/blog/MD/00/" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="undefined | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h2 class="post-title" itemprop="name headline">
-<a class="post-title-link" href="/blog/MD/00/" itemprop="url">MD00 - 准备与基本操作</a>
-</h2>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/MD/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a>
-</span>
-</span>
-</div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody">
-<ul>
-<li>Windows 10 环境配置</li>
-<li>启动脚本</li>
-</ul>
-<!--noindex-->
-<div class="post-button">
-<a class="btn" href="/blog/MD/00/#more" rel="contents">
                 阅读全文 »
               </a>
 </div>

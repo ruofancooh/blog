@@ -9,27 +9,39 @@
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
-<meta content="韶：一种乐曲，后引申为“美好的”。
- 赋：一种文体，用于描写和抒情。
+<meta content="以太网：Ethernet，是一种局域网技术（可以作为局域网的同义词），使用
+ CSMA/CD 协议。
  
- 词作者是战场原妖精。" name="description"/>
+ DIX Ethernet V2：第一个局域网标准。现在主要用这个。
+ IEEE 802.3：第一个 IEEE 的局域网标准。
+ 
+ 局域网共享信道，为避免冲突，可采用静态划分信道（复用）或动态媒体接入控制（多点接入：随机接入/受控接入-轮询）
+ 局域网数据链路层的两个子层：
+ 
+ 逻辑链" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="《韶音赋》歌词注解" property="og:title"/>
-<meta content="https://hrfis.me/blog/shao-yin-fu.html" property="og:url"/>
+<meta content="CN09 - 数据链路层 - 以太网" property="og:title"/>
+<meta content="https://hrfis.me/blog/CN/09/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="韶：一种乐曲，后引申为“美好的”。
- 赋：一种文体，用于描写和抒情。
+<meta content="以太网：Ethernet，是一种局域网技术（可以作为局域网的同义词），使用
+ CSMA/CD 协议。
  
- 词作者是战场原妖精。" property="og:description"/>
+ DIX Ethernet V2：第一个局域网标准。现在主要用这个。
+ IEEE 802.3：第一个 IEEE 的局域网标准。
+ 
+ 局域网共享信道，为避免冲突，可采用静态划分信道（复用）或动态媒体接入控制（多点接入：随机接入/受控接入-轮询）
+ 局域网数据链路层的两个子层：
+ 
+ 逻辑链" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-09-27T11:09:00.000Z" property="article:published_time"/>
-<meta content="2023-09-27T13:38:49.488Z" property="article:modified_time"/>
+<meta content="2023-10-18T13:40:01.000Z" property="article:published_time"/>
+<meta content="2023-10-18T13:43:40.459Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/shao-yin-fu" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/shao-yin-fu.html","path":"/shao-yin-fu.html","title":"《韶音赋》歌词注解"}</script>
+<link href="https://hrfis.me/blog/CN/09/" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/CN/09/","path":"/CN/09/","title":"CN09 - 数据链路层 - 以太网"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>《韶音赋》歌词注解 | 若凡的笔记</title>
+<title>CN09 - 数据链路层 - 以太网 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -100,7 +112,8 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%8D"><span class="nav-number">1.</span> <span class="nav-text">词</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A3%B9"><span class="nav-number">1.1.</span> <span class="nav-text">壹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%B0"><span class="nav-number">1.2.</span> <span class="nav-text">贰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%81"><span class="nav-number">1.3.</span> <span class="nav-text">叁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%82%86"><span class="nav-number">1.4.</span> <span class="nav-text">肆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%8D"><span class="nav-number">1.5.</span> <span class="nav-text">伍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%86"><span class="nav-number">1.6.</span> <span class="nav-text">陆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%92"><span class="nav-number">1.7.</span> <span class="nav-text">柒</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B2"><span class="nav-number">2.</span> <span class="nav-text">曲</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#windows-%E4%B8%8B%E7%94%A8-cmd-%E6%9F%A5%E7%9C%8B%E7%BD%91%E7%BB%9C%E9%80%82%E9%85%8D%E5%99%A8%E7%9A%84-mac-%E5%9C%B0%E5%9D%80"><span class="nav-number">1.</span> <span class="nav-text">Windows 下用 cmd
+查看网络适配器的 MAC 地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mac-%E5%9C%B0%E5%9D%80"><span class="nav-number">2.</span> <span class="nav-text">MAC 地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91-v2-%E7%9A%84-mac-%E5%B8%A7%E6%A0%BC%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">以太网 V2 的 MAC 帧格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E7%BA%BF%E5%99%A8%E4%B8%8E%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="nav-number">4.</span> <span class="nav-text">集线器与交换机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E8%87%AA%E5%AD%A6%E4%B9%A0%E5%8A%9F%E8%83%BD"><span class="nav-number">5.</span> <span class="nav-text">以太网交换机的自学习功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#base-t-%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="nav-number">6.</span> <span class="nav-text">100BASE-T 以太网</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -131,7 +144,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/shao-yin-fu.html" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/CN/09/" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -141,12 +154,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="《韶音赋》歌词注解 | 若凡的笔记" itemprop="name"/>
+<meta content="CN09 - 数据链路层 - 以太网 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          《韶音赋》歌词注解
+          CN09 - 数据链路层 - 以太网
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -156,118 +169,136 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/M/" itemprop="url" rel="index"><span itemprop="name">音乐</span></a>
+<a href="/blog/CN/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
 <div class="post-body" itemprop="articleBody"><ul>
-<li>韶：一种乐曲，后引申为“美好的”。</li>
-<li>赋：一种文体，用于描写和抒情。</li>
+<li>以太网：Ethernet，是一种局域网技术（可以作为局域网的同义词），使用
+CSMA/CD 协议。
+<ul>
+<li>DIX Ethernet V2：第一个局域网标准。现在主要用这个。</li>
+<li>IEEE 802.3：第一个 IEEE 的局域网标准。</li>
+</ul></li>
+<li>局域网共享信道，为避免冲突，可采用静态划分信道（复用）或动态媒体接入控制（多点接入：随机接入/受控接入-轮询）</li>
+<li>局域网数据链路层的两个子层：
+<ul>
+<li>逻辑链路控制 LLC (Logical Link Control)
+子层：与传输媒体无关。已经很少用了。</li>
+<li>媒体接入控制 MAC (Medium Access Control) 子层：与传输媒体有关。</li>
+</ul></li>
+<li>MAC 帧的格式
+<ul>
+<li>（带宽为 <span class="math inline">\(\mathrm{10Mbit/s}\)</span>
+的）以太网 V2： <span class="math display">\[
+6 + 6 + 2 + (46 \sim 1500) + 4 = (64 \sim 1518) 字节
+\]</span> 其中 <span class="math inline">\(\mathrm{64Byte = \dfrac{51.2
+\mu s \times 10Mbit/s}{8bit/Byte}}\)</span>，减去 18
+字节的首部和尾部后，得到数据部分的最小长度 46 字节。</li>
+</ul></li>
+<li>集线器与交换机</li>
+<li>以太网交换机的自学习功能</li>
+<li>适配器的作用：
+<ul>
+<li>与 CPU/存储器并行通信</li>
+<li>与局域网串行通信</li>
+<li>接收并缓存 MAC
+帧，帧的目标地址不是它自己时，或者不符合格式、校验失败时就丢弃</li>
+<li>安装驱动到操作系统</li>
+<li>实现以太网协议</li>
+</ul></li>
 </ul>
-<p>词作者是<a href="https://space.bilibili.com/109564" rel="noopener" target="_blank">战场原妖精</a>。</p>
 <span id="more"></span>
-<h2 id="词">词</h2>
-<h3 id="壹">壹</h3>
-<blockquote>
-<p><i>浮黎元始开天地 诸神创世天各一</i><br/>
-<i>三清六御轮回助 神界人间满紫气</i><br/></p>
-</blockquote>
+<h2 id="windows-下用-cmd-查看网络适配器的-mac-地址">Windows 下用 cmd
+查看网络适配器的 MAC 地址</h2>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">ipconfig</span> /all</span><br/></pre></td></tr></table></figure>
+<p>适配器的 MAC
+地址又叫硬件地址/物理地址。一台计算机可以有多个适配器。</p>
+<h2 id="mac-地址">MAC 地址</h2>
+<p><a href="https://standards.ieee.org/wp-content/uploads/import/documents/tutorials/eui.pdf" rel="noopener" target="_blank">EUI</a>-48：</p>
 <ul>
-<li><p><strong>浮黎元始</strong>：浮黎元始天尊，指盘古。</p>
-<p>——也有说指玉皇大帝的，而盘古是祂的长子【玉清元始天尊】。</p>
-<p>这不重要，只需要知道祂是神仙，是创世者，是对自然的想象，是一种信仰。</p>
-<p>【三清六御】同理，也有三清四御的说法。可能是出于字形和音韵美，选择【浮黎】比【玉清】好，【三清六御】比【三清四御】好。（应该没有道长能找到这）</p></li>
-<li><p><strong>紫气</strong>：祥瑞之气。</p></li>
+<li>前三个字节是 IEEE 的注册管理机构分配的</li>
+<li>后三个字节是厂家自行分配的</li>
+<li>第一个字节最低位：0 为单播，1 为多播</li>
+<li>全 1 的地址（FF:FF:FF:FF:FF:FF）是广播地址</li>
 </ul>
-<h3 id="贰">贰</h3>
-<blockquote>
-<p><i>天边远山泛青光 忽而花落花满殇</i><br/>
-<i>我从雾中乘风来 只为伴君不思量</i><br/></p>
-</blockquote>
+<h2 id="以太网-v2-的-mac-帧格式">以太网 V2 的 MAC 帧格式</h2>
+<table>
+<colgroup>
+<col style="width: 9%"/>
+<col style="width: 16%"/>
+<col style="width: 16%"/>
+<col style="width: 47%"/>
+<col style="width: 6%"/>
+<col style="width: 2%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>字段名</strong></th>
+<th>目标地址</th>
+<th>源地址</th>
+<th>类型（上一层用的什么协议）</th>
+<th>数据</th>
+<th>FCS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>字节数</strong></td>
+<td>6</td>
+<td>6</td>
+<td>2</td>
+<td>46~1500</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td><strong>值</strong></td>
+<td>xx:xx:xx:xx:xx:xx</td>
+<td>xx:xx:xx:xx:xx:xx</td>
+<td>0800【IPv4 数据报】<br>80DD【IPv6 数据报】<br/></br></td>
+<td>……</td>
+<td>……</td>
+</tr>
+</tbody>
+</table>
+<p>数据部分不足 46 字节时，补到 46 字节。</p>
+<p>MAC 子层 -&gt; 物理层：在 MAC 帧前面插入 7 字节的前同步码和 1
+字节的帧定界符：</p>
+<p>就是 <code>10101010 10101010 ... 10101010 10101011</code>。交替的 10
+用于时钟同步，最后一个字节的最后一个比特变了，告诉接收端，后面的就是 MAC
+帧。</p>
+<p>不用标记帧结束，因为是曼彻斯特编码，一直在跳变，脱离原本的规律了就是帧结束了。</p>
+<h2 id="集线器与交换机">集线器与交换机</h2>
+<p>集线器工作在物理层</p>
+<p>交换机工作在数据链路层，全双工。并且不使用 CSMA/CD
+协议，但仍然使用以太网的帧结构。</p>
+<h2 id="以太网交换机的自学习功能">以太网交换机的自学习功能</h2>
+<p>一些机器连在交换机的不同端口上。</p>
+<p>源机器发送帧到目标机器，通过交换机。</p>
+<p>如果交换机的交换表里没有记录【源机器】的信息（MAC 地址 +
+端口），就记录下来。</p>
+<p>如果交换机的交换表里没有记录【目标机器】的信息（MAC 地址 +
+端口），就向所有机器广播。但是广播后是不记录目标机器的信息的。</p>
+<p>记录一个新信息时，同时加上了有效时间，过期的信息会被删除。每查到一次目标地址，会更新有效时间。</p>
+<p>广播过程中可能会兜圈子。IEEE 802.1D
+标准指定了一个生成树协议（STP），在逻辑上切断一些回路，避免了兜圈子的问题。</p>
+<h2 id="base-t-以太网">100BASE-T 以太网</h2>
 <ul>
-<li><strong>青光</strong>：绿色的光。也指光阴、时光。</li>
-<li><strong>殇</strong>：非“正常”死亡：未成年而死、战死、为国捐躯。</li>
+<li>使用双绞线，带宽为 100Mbit/s。</li>
+<li>标准是 IEEE 802.3u，半双工时使用 CSMA/CD 协议，全双工时不使用。</li>
+<li>帧间隔从 9.6 μs 改为 0.96 μs。</li>
 </ul>
-<p>【我】是一名来自世界之外的旁观者：什么东西都不想，主打一个陪伴【君】。</p>
-<h3 id="叁">叁</h3>
-<blockquote>
-<p><i>伏羲女娲神农氏 江河淮济育生灵</i><br/>
-<i>南宫北斗映贤尚 天涯海角随君行</i><br/></p>
-</blockquote>
-<ul>
-<li><strong>伏羲女娲神农氏</strong>：用三位代指多位。神农就是“炎黄子孙”的炎帝。</li>
-<li><strong>江河淮济</strong>：长江、黄河、淮河、济水。四条流入大海的河。</li>
-<li><strong>南宫北斗</strong>：星辰。</li>
-<li><strong>贤尚</strong>：尚：尊崇。可以把【贤尚】空想成【人】的意思。</li>
-</ul>
-<h3 id="肆">肆</h3>
-<blockquote>
-<p><i>生来无欲享富贵 但求为君咏思绪</i><br/>
-<i>若夫德行无领会 自退远方乘浪归</i><br/></p>
-</blockquote>
-<ul>
-<li>【若夫】：句首语气词，“至于……的话”。</li>
-</ul>
-<p>要是【我】没有【领会】到【君】的【德行】，那【我】就要回去了。——这是其中一种理解方式。</p>
-<h3 id="伍">伍</h3>
-<blockquote>
-<p><i>我带着梦想 带着希望 带着力量</i><br/>
-<i>探寻人间的感伤</i><br/></p>
-</blockquote>
-<h3 id="陆">陆</h3>
-<blockquote>
-<p><i>请赋予我理想 请赋予我希望</i><br/>
-<i>请赋予我一颗炽热的心房</i><br/> <i>让这情感释放</i><br/></p>
-</blockquote>
-<ul>
-<li>【赋予】和【赋】是紧密相关的。</li>
-<li>【一颗心房】并不是量词使用不当。即使在生物学上也有心房、心室的概念，比如：</li>
-</ul>
-<style>
-   .r{
-      color: red;
-   }
-   .b{
-      color: blue;
-   }
-</style>
-<p><span class="r">动脉血</span>从【左心室】流入<span class="r">主动脉</span>，途经心肺之外的全身毛细血管消耗氧，变成<span class="b">静脉血</span>，经<span class="b">上腔、下腔静脉</span>流回【右心房】。这被称为【体循环】。</p>
-<p><span class="b">静脉血</span>从【右心室】流入<span class="r">肺动脉</span>，途径肺里的毛细血管吸收氧，变成<span class="r">动脉血</span>，经<span class="b">肺静脉</span>流回【左心房】。这被称为【肺循环】。</p>
-<h3 id="柒">柒</h3>
-<blockquote>
-<p><i>泪水模糊了眼眶 为何这般闪亮</i><br/>
-<i>就算我终会消亡 终会迷茫</i><br/> <i>请让我带走这份熵</i><br/></p>
-</blockquote>
-<ul>
-<li>【熵】是物理学的一个概念，用于描述系统的混乱程度。</li>
-</ul>
-<p>对于一个孤立的（不与外界交换能量和质量的）系统，其熵会一直增加。这被称为热力学第二定律。</p>
-<p>浅显不恰当的例子就是：如果不整理耳机线，它总是会缠起来。</p>
-<h2 id="曲">曲</h2>
-<p>曲子有三个发布版本：</p>
-<ul>
-<li>初版由洛天依演唱，战场原妖精词曲调，2012 年发布于<a href="https://www.bilibili.com/video/BV1ax411F7z2/" rel="noopener" target="_blank">哔哩哔哩</a>。</li>
-<li>2014 年作者重调重混，由洛天依演唱，收录于专辑<a href="https://www.bilibili.com/video/av1042693/" rel="noopener" target="_blank">《平行四界Quadimension》</a>。</li>
-<li>2016 年作者重调重混，由星尘演唱，发布于<a href="https://www.bilibili.com/video/BV1us41167ww/" rel="noopener" target="_blank">哔哩哔哩</a>。</li>
-</ul>
-<p>曲子结构并没有什么大变化。这是第二个版本：</p>
-<iframe frameborder="no" height="86" src="//music.163.com/outchain/player?type=2&amp;id=429460265&amp;auto=1&amp;height=66" width="100%">
-</iframe>
-<p>曲风属于【旋律金属/民谣金属】（根据专辑宣传视频里的介绍）。</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/CN/06/" rel="prev" title="CN06 - 数据链路层 - 基本问题">
-<i class="fa fa-chevron-left"></i> CN06 - 数据链路层 - 基本问题
+<a href="/blog/CN/08/" rel="prev" title="CN08 - 数据链路层 - CSMA／CD协议">
+<i class="fa fa-chevron-left"></i> CN08 - 数据链路层 - CSMA／CD协议
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/JA/02/" rel="next" title="JA02 - Maven环境配置">
-                  JA02 - Maven环境配置 <i class="fa fa-chevron-right"></i>
-</a>
 </div>
 </div>
 </footer>
@@ -304,7 +335,7 @@
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/shao-yin-fu.html"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/CN/09/"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>

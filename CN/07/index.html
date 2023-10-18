@@ -33,7 +33,7 @@
  【物理层 &lt;-&gt; 数据链路层】一" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-10-16T14:32:00.000Z" property="article:published_time"/>
-<meta content="2023-10-16T14:33:18.231Z" property="article:modified_time"/>
+<meta content="2023-10-17T07:17:18.102Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/CN/07/" rel="canonical"/>
@@ -122,7 +122,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">47</span>
+<span class="site-state-item-count">48</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -182,10 +182,11 @@
 <ul>
 <li>【网络层 -&gt; 数据链路层】一个将 IP 数据报封装到串行链路的方法</li>
 <li>【物理层 &lt;-&gt; 数据链路层】一个链路控制协议 LCP (Link Control
-Protocol)。分配临时IP地址。说话。</li>
+Protocol)。分配临时 IP 地址。说话。</li>
 <li>【数据链路层 &lt;-&gt; 网络层】一套网络控制协议 NCP (Network Control
 Protocol)。填表。</li>
 </ul></li>
+<li>是有连接的协议</li>
 </ul></li>
 </ul>
 <span id="more"></span>
@@ -256,13 +257,15 @@ Protocol)。填表。</li>
 </tr>
 </tbody>
 </table>
-<p>上面都是对从低到高第六位取反。<code>0x20</code> 是
+<p>上面都是对 <code>0x20</code>
+做异或，或者说对从低到高第六位取反。<code>0x20</code> 是
 <code>0010 0000</code>。</p>
 <h2 id="同步传输时的零比特填充">同步传输时的零比特填充</h2>
 <p>发现有五个连续 <code>1</code>，就填入一个
 <code>0</code>。这样不会出现六个连续 <code>1</code>。</p>
 <p>因为不是按字节传输的，是按比特传输的，为了规避 <code>0x7E</code> 的
-<code>0111 1110</code>。</p>
+<code>0111 1110</code>。大概是认为收到六个连续 <code>1</code>
+就结束。</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
@@ -272,8 +275,8 @@ Protocol)。填表。</li>
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/CN/08/" rel="next" title="CN08 - 数据链路层 - CSMA／CD协议">
-                  CN08 - 数据链路层 - CSMA／CD协议 <i class="fa fa-chevron-right"></i>
+<a href="/blog/HD/07/" rel="next" title="HD07 - Hadoop生态圈">
+                  HD07 - Hadoop生态圈 <i class="fa fa-chevron-right"></i>
 </a>
 </div>
 </div>

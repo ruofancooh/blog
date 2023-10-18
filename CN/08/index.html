@@ -9,29 +9,27 @@
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
-<meta content="以太网：Ethernet，是一种局域网技术（可以作为局域网的同义词），使用
- CSMA/CD 协议。
- CSMA/CD：Carrier Sense Multiple Access with Collision
- Detection，带冲突检测的载波侦听多路访问协议。
+<meta content="CSMA/CD：Carrier Sense Multiple Access with Collision
+ Detection，带冲突检测的载波侦听多路访问协议。以太网用的。
  
- 使用曼切斯特编码（中心始终跳变，01
+ 使用曼彻斯特编码（中心始终跳变，01
  为跳变方向不同），频带宽度比基带信号增加一倍。
- 多点接入：多台计算机连在一根总线" name="description"/>
+ 多点接入：多台计算机连在一根总线上：多个人在同一个房间。
+ 载波（载体）监听：每个站都不停地检测信道：在说话前和说话中听别人" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="CN08 - 数据链路层 - CSMA／CD协议" property="og:title"/>
 <meta content="https://hrfis.me/blog/CN/08/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="以太网：Ethernet，是一种局域网技术（可以作为局域网的同义词），使用
- CSMA/CD 协议。
- CSMA/CD：Carrier Sense Multiple Access with Collision
- Detection，带冲突检测的载波侦听多路访问协议。
+<meta content="CSMA/CD：Carrier Sense Multiple Access with Collision
+ Detection，带冲突检测的载波侦听多路访问协议。以太网用的。
  
- 使用曼切斯特编码（中心始终跳变，01
+ 使用曼彻斯特编码（中心始终跳变，01
  为跳变方向不同），频带宽度比基带信号增加一倍。
- 多点接入：多台计算机连在一根总线" property="og:description"/>
+ 多点接入：多台计算机连在一根总线上：多个人在同一个房间。
+ 载波（载体）监听：每个站都不停地检测信道：在说话前和说话中听别人" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-10-16T15:20:00.000Z" property="article:published_time"/>
-<meta content="2023-10-16T15:22:50.825Z" property="article:modified_time"/>
+<meta content="2023-10-18T13:40:00.000Z" property="article:published_time"/>
+<meta content="2023-10-18T13:43:08.018Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/CN/08/" rel="canonical"/>
@@ -96,7 +94,7 @@
 </div>
 </header>
 <aside class="sidebar">
-<div class="sidebar-inner sidebar-overview-active">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
 <ul class="sidebar-nav">
 <li class="sidebar-nav-toc">
           文章目录
@@ -108,6 +106,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csmacd-%E5%8D%8F%E8%AE%AE%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">CSMA/CD 协议工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A2%B0%E6%92%9E"><span class="nav-number">2.</span> <span class="nav-text">碰撞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%BA%E5%8C%96%E7%A2%B0%E6%92%9E"><span class="nav-number">3.</span> <span class="nav-text">强化碰撞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E9%80%80%E9%81%BF"><span class="nav-number">4.</span> <span class="nav-text">截断二进制指数退避</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E7%9A%84%E4%BF%A1%E9%81%93%E5%88%A9%E7%94%A8%E7%8E%87"><span class="nav-number">5.</span> <span class="nav-text">以太网的信道利用率</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -119,7 +118,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">47</span>
+<span class="site-state-item-count">48</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -170,32 +169,79 @@
 </div>
 </header>
 <div class="post-body" itemprop="articleBody"><ul>
-<li>以太网：Ethernet，是一种局域网技术（可以作为局域网的同义词），使用
-CSMA/CD 协议。</li>
 <li>CSMA/CD：Carrier Sense Multiple Access with Collision
-Detection，带冲突检测的载波侦听多路访问协议。
+Detection，带冲突检测的载波侦听多路访问协议。以太网用的。
 <ul>
-<li>使用曼切斯特编码（中心始终跳变，01
+<li>使用曼彻斯特编码（中心始终跳变，01
 为跳变方向不同），频带宽度比基带信号增加一倍。</li>
-<li>多点接入：多台计算机连在一根总线上。多个人在同一个房间。</li>
-<li>载波（载体）监听：每个站都不停地检测信道。在说话前和说话中听别人有没有说话。</li>
-<li>碰撞检测：听到了自己和其他人同时说话的声音。</li>
-<li>一个站不能同时发送和接收。人不能同时（并行）听懂和说明白。半双工（双向交替通信）。</li>
+<li>多点接入：多台计算机连在一根总线上：多个人在同一个房间。</li>
+<li>载波（载体）监听：每个站都不停地检测信道：在说话前和说话中听别人有没有说话。</li>
+<li>碰撞检测：检测信号电压：听到了自己和其他人同时说话的声音。</li>
+<li>一个站不能同时发送和接收：人不能同时（并行）听懂和说明白。半双工（双向交替通信）。</li>
+<li>是无连接的协议：一群人头脑风暴。</li>
+<li>碰撞的过程。</li>
+<li>计算碰撞后重传的等待时间：截断二进制指数退避。</li>
+</ul></li>
+<li><a href="/blog/CN/09">以太网</a>
+<ul>
+<li>以太网的信道利用率</li>
+<li>争用期规定为 <span class="math inline">\(51.2 \mathrm{\mu
+s}\)</span>，如果在这段时间内没有检测到碰撞，后续就不会碰撞。</li>
+<li>帧间最小间隔为 <span class="math inline">\(9.6 \mathrm{\mu
+s}\)</span></li>
 </ul></li>
 </ul>
 <span id="more"></span>
-<p>啊</p>
+<h2 id="csmacd-协议工作流程">CSMA/CD 协议工作流程</h2>
+<p>听到有别人正在说话时，自己不说话。</p>
+<p>没人正在说话时，自己说话，说话过程中听到有别人说了就不说，等一段时间后再准备说。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/></pre></td><td class="code"><pre><span class="line">准备发送 -&gt; 载波监听&lt;------</span><br/><span class="line">   ^           |         ^</span><br/><span class="line">   |           v         |</span><br/><span class="line">   |       监听到了 -&gt; 准备发送</span><br/><span class="line">   |       没监听到 -&gt; 发送，同时开始碰撞检测</span><br/><span class="line">   |                           |</span><br/><span class="line">等待随机时间（截二退）           |</span><br/><span class="line">   ^                           |</span><br/><span class="line">   |                           |</span><br/><span class="line">发送人为干扰信号                |</span><br/><span class="line">   ^                           |</span><br/><span class="line">   |                           v</span><br/><span class="line">停止发送&lt;-------------------检测到了</span><br/><span class="line">                           没检测到就发送直到完成</span><br/></pre></td></tr></table></figure>
+<h2 id="碰撞">碰撞</h2>
+<p>单程端到端传播时延（从【说出口】到【被人听到】经历的时间）记为 <span class="math inline">\(\tau\)</span>。为方便看，这里 <span class="math inline">\(\tau = 20\)</span>。</p>
+<p>B 在 <span class="math inline">\(\tau - \delta\)</span> 时刻向 A
+发送，过程中检测到了碰撞。这里 <span class="math inline">\(\delta =
+5\)</span>。</p>
+<p>这里碰撞的时刻是 <span class="math inline">\(17.25\)</span>，即 <span class="math inline">\(\tau - \delta / 2\)</span>。</p>
+<pre class="mermaid">gantt
+    title 碰撞（甘特图）
+    dateFormat s
+    axisFormat %S
+
+    section 传播过程
+    A发送后，从A到B传播          :0,20s
+    B发送后，从B到A传播          :15,20s
+    B检测到了碰撞，然后……          :20,36s
+    A检测到了碰撞，然后……          :35,21s</pre>
+<p>A 或 B 需要 <span class="math inline">\(2 \tau\)</span>
+的时间，即端到端往返时延，才能检测到与对方发生了碰撞。</p>
+<p><span class="math inline">\(2 \tau\)</span>
+叫【争用期】或【碰撞窗口】。</p>
+<p><span class="math inline">\(2 \tau\)</span> 规定为 <span class="math inline">\(51.2 \mathrm{\mu s}\)</span>。</p>
+<h2 id="强化碰撞">强化碰撞</h2>
+<p>碰撞之后，除了停止发送数据，还要发送 32 比特或 48
+比特的人为干扰信号，告诉所有用户已经发送了碰撞。</p>
+<h2 id="截断二进制指数退避">截断二进制指数退避</h2>
+<p>计算碰撞后重传的等待时间。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br/><span class="line"></span><br/><span class="line">tau = <span class="number">25.6</span>  <span class="comment"># 单程时延</span></span><br/><span class="line">basic_backoff_time = <span class="number">2</span> * tau  <span class="comment"># 往返时延，基本退避时间</span></span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">for</span> retransmit_count <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">17</span>):</span><br/><span class="line">    <span class="built_in">print</span>(<span class="string">f"第<span class="subst">{retransmit_count}</span>次重传"</span>)</span><br/><span class="line">    k = <span class="built_in">min</span>(retransmit_count, <span class="number">10</span>)</span><br/><span class="line">    r = random.randint(<span class="number">0</span>, <span class="number">2</span>**k)</span><br/><span class="line">    <span class="built_in">print</span>(<span class="string">f"退避时间：<span class="subst">{r*basic_backoff_time}</span>"</span>)</span><br/></pre></td></tr></table></figure>
+<p>重传 16 次仍不成功就丢弃，并向高层报告。</p>
+<h2 id="以太网的信道利用率">以太网的信道利用率</h2>
+<p>帧的发送时间 <span class="math inline">\(T_0\)</span>：</p>
+<p><span class="math display">\[
+\mathrm{s = \frac{bit}{bit/s} = } \frac{L}{C} =
+\frac{帧长}{数据发送速率}
+\]</span></p>
+<p>鸽</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/CN/07/" rel="prev" title="CN07 - 数据链路层 - 点对点协议PPP">
-<i class="fa fa-chevron-left"></i> CN07 - 数据链路层 - 点对点协议PPP
+<a href="/blog/HD/07/" rel="prev" title="HD07 - Hadoop生态圈">
+<i class="fa fa-chevron-left"></i> HD07 - Hadoop生态圈
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/HD/07/" rel="next" title="HD07 - Hadoop生态圈">
-                  HD07 - Hadoop生态圈 <i class="fa fa-chevron-right"></i>
+<a href="/blog/CN/09/" rel="next" title="CN09 - 数据链路层 - 以太网">
+                  CN09 - 数据链路层 - 以太网 <i class="fa fa-chevron-right"></i>
 </a>
 </div>
 </div>
@@ -230,7 +276,7 @@ Detection，带冲突检测的载波侦听多路访问协议。
 <script src="/blog/js/third-party/search/local-search.js"></script>
 <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
 <script src="/blog/js/third-party/tags/mermaid.js"></script>
-<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
 <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/CN/08/"}</script>
