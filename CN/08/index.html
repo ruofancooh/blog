@@ -29,7 +29,7 @@
  载波（载体）监听：每个站都不停地检测信道：在说话前和说话中听别人" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-10-18T13:40:00.000Z" property="article:published_time"/>
-<meta content="2023-10-18T13:43:08.018Z" property="article:modified_time"/>
+<meta content="2023-10-19T03:48:56.095Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/CN/08/" rel="canonical"/>
@@ -118,7 +118,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">48</span>
+<span class="site-state-item-count">49</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -222,7 +222,7 @@ s}\)</span></li>
 比特的人为干扰信号，告诉所有用户已经发送了碰撞。</p>
 <h2 id="截断二进制指数退避">截断二进制指数退避</h2>
 <p>计算碰撞后重传的等待时间。</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br/><span class="line"></span><br/><span class="line">tau = <span class="number">25.6</span>  <span class="comment"># 单程时延</span></span><br/><span class="line">basic_backoff_time = <span class="number">2</span> * tau  <span class="comment"># 往返时延，基本退避时间</span></span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">for</span> retransmit_count <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">17</span>):</span><br/><span class="line">    <span class="built_in">print</span>(<span class="string">f"第<span class="subst">{retransmit_count}</span>次重传"</span>)</span><br/><span class="line">    k = <span class="built_in">min</span>(retransmit_count, <span class="number">10</span>)</span><br/><span class="line">    r = random.randint(<span class="number">0</span>, <span class="number">2</span>**k)</span><br/><span class="line">    <span class="built_in">print</span>(<span class="string">f"退避时间：<span class="subst">{r*basic_backoff_time}</span>"</span>)</span><br/></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br/><span class="line"></span><br/><span class="line">tau = <span class="number">25.6</span>  <span class="comment"># 单程时延</span></span><br/><span class="line">basic_backoff_time = <span class="number">2</span> * tau  <span class="comment"># 往返时延，基本退避时间</span></span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">for</span> retransmit_count <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">17</span>):</span><br/><span class="line">    <span class="built_in">print</span>(<span class="string">f"第<span class="subst">{retransmit_count}</span>次重传"</span>)</span><br/><span class="line">    k = <span class="built_in">min</span>(retransmit_count, <span class="number">10</span>)</span><br/><span class="line">    r = random.randint(<span class="number">0</span>, <span class="number">2</span>**k - <span class="number">1</span>)</span><br/><span class="line">    <span class="built_in">print</span>(<span class="string">f"退避时间：<span class="subst">{r*basic_backoff_time}</span>"</span>)</span><br/></pre></td></tr></table></figure>
 <p>重传 16 次仍不成功就丢弃，并向高层报告。</p>
 <h2 id="以太网的信道利用率">以太网的信道利用率</h2>
 <p>帧的发送时间 <span class="math inline">\(T_0\)</span>：</p>
