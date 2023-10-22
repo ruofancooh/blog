@@ -28,9 +28,7 @@
  差错检测（判断传输是否出错）
  
  误码率（BER）
- 帧检验序列（FCS）的计算
- 循环冗余检验（CRC）的方法
- 【无比特差错" name="description"/>
+ 帧检验序列（FCS）的计算：在待传数据后面加上（\(P\) 长度减一/生成" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="CN06 - 数据链路层 - 基本问题" property="og:title"/>
 <meta content="https://hrfis.me/blog/CN/06/index.html" property="og:url"/>
@@ -54,12 +52,10 @@
  差错检测（判断传输是否出错）
  
  误码率（BER）
- 帧检验序列（FCS）的计算
- 循环冗余检验（CRC）的方法
- 【无比特差错" property="og:description"/>
+ 帧检验序列（FCS）的计算：在待传数据后面加上（\(P\) 长度减一/生成" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-09-27T11:08:00.000Z" property="article:published_time"/>
-<meta content="2023-09-29T06:56:34.888Z" property="article:modified_time"/>
+<meta content="2023-10-20T02:19:19.997Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/CN/06/" rel="canonical"/>
@@ -217,7 +213,8 @@
 <li>差错检测（判断传输是否出错）
 <ul>
 <li>误码率（BER）</li>
-<li>帧检验序列（FCS）的计算</li>
+<li>帧检验序列（FCS）的计算：在待传数据后面加上（<span class="math inline">\(P\)</span> 长度减一/生成多项式最高次数）个
+0，然后用 <span class="math inline">\(P\)</span> 去除，得到的余数。</li>
 <li>循环冗余检验（CRC）的方法</li>
 <li>【无比特差错】与【无传输差错】</li>
 </ul></li>

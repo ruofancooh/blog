@@ -35,7 +35,7 @@
  逻辑链" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-10-18T13:40:01.000Z" property="article:published_time"/>
-<meta content="2023-10-19T08:21:09.599Z" property="article:modified_time"/>
+<meta content="2023-10-21T09:31:00.012Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/CN/09/" rel="canonical"/>
@@ -198,7 +198,7 @@ CSMA/CD 协议。
 \mu s \times 10Mbit/s}{8bit/Byte}}\)</span>，减去 18
 字节的首部和尾部后，得到数据部分的最小长度 46 字节。</li>
 </ul></li>
-<li>集线器与交换机</li>
+<li>集线器（Hub）与交换机（Switch）</li>
 <li>以太网交换机的自学习功能</li>
 <li>适配器的作用：
 <ul>
@@ -274,6 +274,9 @@ CSMA/CD 协议。
 <p>集线器工作在物理层</p>
 <p>交换机工作在数据链路层，全双工。并且不使用 CSMA/CD
 协议，但仍然使用以太网的帧结构。</p>
+<p>交换机的每一个接口都是一个冲突域。</p>
+<p>交换机分为直通交换和存储转发。直通交换不校验 FCS，直接读 6
+字节的目标地址（有时包含前导码）。</p>
 <h2 id="以太网交换机的自学习功能">以太网交换机的自学习功能</h2>
 <p>一些机器连在交换机的不同端口上。</p>
 <p>源机器发送帧到目标机器，通过交换机。</p>
@@ -286,9 +289,10 @@ CSMA/CD 协议。
 标准指定了一个生成树协议（STP），在逻辑上切断一些回路，避免了兜圈子的问题。</p>
 <h2 id="base-t-以太网">100BASE-T 以太网</h2>
 <ul>
-<li>使用双绞线，带宽为 100Mbit/s。</li>
+<li>使用双绞线（T），带宽为 100Mbit/s。</li>
 <li>标准是 IEEE 802.3u，半双工时使用 CSMA/CD 协议，全双工时不使用。</li>
-<li>争用期为 51.2 μs，帧最小间隔 0.96 μs。</li>
+<li>争用期为 5.12 μs，帧最小间隔 0.96 μs，是 10 Mbit/s
+以太网的十分之一。</li>
 </ul>
 </div>
 <footer class="post-footer">
@@ -335,7 +339,7 @@ CSMA/CD 协议。
 <script src="/blog/js/third-party/search/local-search.js"></script>
 <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
 <script src="/blog/js/third-party/tags/mermaid.js"></script>
-<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
 <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/CN/09/"}</script>

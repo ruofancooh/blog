@@ -224,7 +224,7 @@ CSMA/CD 协议。
 \mu s \times 10Mbit/s}{8bit/Byte}}\)</span>，减去 18
 字节的首部和尾部后，得到数据部分的最小长度 46 字节。</li>
 </ul></li>
-<li>集线器与交换机</li>
+<li>集线器（Hub）与交换机（Switch）</li>
 <li>以太网交换机的自学习功能</li>
 <li>适配器的作用：
 <ul>
@@ -285,7 +285,7 @@ CSMA/CD 协议。
 <div class="post-body" itemprop="articleBody">
 <ul>
 <li>CSMA/CD：Carrier Sense Multiple Access with Collision
-Detection，带冲突检测的载波侦听多路访问协议。以太网用的。
+Detection，载波监听多址接入/碰撞检测协议。以太网用的。
 <ul>
 <li>使用曼彻斯特编码（中心始终跳变，01
 为跳变方向不同），频带宽度比基带信号增加一倍。</li>
@@ -304,6 +304,7 @@ Detection，带冲突检测的载波侦听多路访问协议。以太网用的�
 s}\)</span>，如果在这段时间内没有检测到碰撞，后续就不会碰撞。</li>
 <li>帧间最小间隔为 <span class="math inline">\(9.6 \mathrm{\mu
 s}\)</span></li>
+<li>最短帧长 = 争用期 × 带宽。</li>
 </ul></li>
 </ul>
 <!--noindex-->
@@ -415,7 +416,7 @@ Protocol)。分配临时 IP 地址。说话。</li>
 <li>【数据链路层 &lt;-&gt; 网络层】一套网络控制协议 NCP (Network Control
 Protocol)。填表。</li>
 </ul></li>
-<li>是有连接的协议</li>
+<li>是有连接，面向字节的协议</li>
 </ul></li>
 </ul>
 <!--noindex-->

@@ -372,7 +372,8 @@
 <li>差错检测（判断传输是否出错）
 <ul>
 <li>误码率（BER）</li>
-<li>帧检验序列（FCS）的计算</li>
+<li>帧检验序列（FCS）的计算：在待传数据后面加上（<span class="math inline">\(P\)</span> 长度减一/生成多项式最高次数）个
+0，然后用 <span class="math inline">\(P\)</span> 去除，得到的余数。</li>
 <li>循环冗余检验（CRC）的方法</li>
 <li>【无比特差错】与【无传输差错】</li>
 </ul></li>

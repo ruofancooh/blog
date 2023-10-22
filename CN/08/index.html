@@ -10,26 +10,26 @@
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 <meta content="CSMA/CD：Carrier Sense Multiple Access with Collision
- Detection，带冲突检测的载波侦听多路访问协议。以太网用的。
+ Detection，载波监听多址接入/碰撞检测协议。以太网用的。
  
  使用曼彻斯特编码（中心始终跳变，01
  为跳变方向不同），频带宽度比基带信号增加一倍。
  多点接入：多台计算机连在一根总线上：多个人在同一个房间。
- 载波（载体）监听：每个站都不停地检测信道：在说话前和说话中听别人" name="description"/>
+ 载波（载体）监听：每个站都不停地检测信道：在说话前和说话中听别人有" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="CN08 - 数据链路层 - CSMA／CD协议" property="og:title"/>
 <meta content="https://hrfis.me/blog/CN/08/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
 <meta content="CSMA/CD：Carrier Sense Multiple Access with Collision
- Detection，带冲突检测的载波侦听多路访问协议。以太网用的。
+ Detection，载波监听多址接入/碰撞检测协议。以太网用的。
  
  使用曼彻斯特编码（中心始终跳变，01
  为跳变方向不同），频带宽度比基带信号增加一倍。
  多点接入：多台计算机连在一根总线上：多个人在同一个房间。
- 载波（载体）监听：每个站都不停地检测信道：在说话前和说话中听别人" property="og:description"/>
+ 载波（载体）监听：每个站都不停地检测信道：在说话前和说话中听别人有" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-10-18T13:40:00.000Z" property="article:published_time"/>
-<meta content="2023-10-19T03:48:56.095Z" property="article:modified_time"/>
+<meta content="2023-10-22T14:44:47.408Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/CN/08/" rel="canonical"/>
@@ -106,7 +106,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#csmacd-%E5%8D%8F%E8%AE%AE%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">CSMA/CD 协议工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A2%B0%E6%92%9E"><span class="nav-number">2.</span> <span class="nav-text">碰撞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%BA%E5%8C%96%E7%A2%B0%E6%92%9E"><span class="nav-number">3.</span> <span class="nav-text">强化碰撞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E9%80%80%E9%81%BF"><span class="nav-number">4.</span> <span class="nav-text">截断二进制指数退避</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E7%9A%84%E4%BF%A1%E9%81%93%E5%88%A9%E7%94%A8%E7%8E%87"><span class="nav-number">5.</span> <span class="nav-text">以太网的信道利用率</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8D%E8%AF%8D%E8%BE%A8%E6%9E%90csma-%E4%B8%8E-cdma"><span class="nav-number">1.</span> <span class="nav-text">名词辨析：CSMA 与 CDMA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#csmacd-%E5%8D%8F%E8%AE%AE%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">CSMA/CD 协议工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A2%B0%E6%92%9E"><span class="nav-number">3.</span> <span class="nav-text">碰撞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%BA%E5%8C%96%E7%A2%B0%E6%92%9E"><span class="nav-number">4.</span> <span class="nav-text">强化碰撞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E9%80%80%E9%81%BF"><span class="nav-number">5.</span> <span class="nav-text">截断二进制指数退避</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E7%9A%84%E4%BF%A1%E9%81%93%E5%88%A9%E7%94%A8%E7%8E%87"><span class="nav-number">6.</span> <span class="nav-text">以太网的信道利用率</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -170,7 +170,7 @@
 </header>
 <div class="post-body" itemprop="articleBody"><ul>
 <li>CSMA/CD：Carrier Sense Multiple Access with Collision
-Detection，带冲突检测的载波侦听多路访问协议。以太网用的。
+Detection，载波监听多址接入/碰撞检测协议。以太网用的。
 <ul>
 <li>使用曼彻斯特编码（中心始终跳变，01
 为跳变方向不同），频带宽度比基带信号增加一倍。</li>
@@ -189,9 +189,17 @@ Detection，带冲突检测的载波侦听多路访问协议。以太网用的�
 s}\)</span>，如果在这段时间内没有检测到碰撞，后续就不会碰撞。</li>
 <li>帧间最小间隔为 <span class="math inline">\(9.6 \mathrm{\mu
 s}\)</span></li>
+<li>最短帧长 = 争用期 × 带宽。</li>
 </ul></li>
 </ul>
 <span id="more"></span>
+<h2 id="名词辨析csma-与-cdma">名词辨析：CSMA 与 CDMA</h2>
+<p>CS 是载波监听（Carrier Sense），CD 是码分（Code Division），MA
+都是多址接入（Multiple Access）。</p>
+<p>后者是码分多址复用。</p>
+<p>而 CSMA/CD 的 CD 是碰撞检测（Collision Detection）。</p>
+<p>CSMA/CD 用于有线网，还有一个 CSMA/CA（Collision
+Avoidance，碰撞避免），用于无线网。</p>
 <h2 id="csmacd-协议工作流程">CSMA/CD 协议工作流程</h2>
 <p>听到有别人正在说话时，自己不说话。</p>
 <p>没人正在说话时，自己说话，说话过程中听到有别人说了就不说，等一段时间后再准备说。</p>
@@ -230,7 +238,7 @@ s}\)</span></li>
 \mathrm{s = \frac{bit}{bit/s} = } \frac{L}{C} =
 \frac{帧长}{数据发送速率}
 \]</span></p>
-<p>鸽</p>
+<p>拖</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
