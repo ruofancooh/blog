@@ -7,8 +7,7 @@
 <meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" rel="stylesheet"/>
-<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 <meta content="起因是我觉得文章链接太长了。" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="把文章链接折腾得简单点" property="og:title"/>
@@ -17,7 +16,7 @@
 <meta content="起因是我觉得文章链接太长了。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-09-30T07:45:00.000Z" property="article:published_time"/>
-<meta content="2023-10-17T03:48:12.481Z" property="article:modified_time"/>
+<meta content="2023-10-25T10:17:36.850Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/UC/e1/" rel="canonical"/>
@@ -28,7 +27,7 @@
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
 </head>
-<body class="use-motion" itemscope="" itemtype="http://schema.org/WebPage">
+<body itemscope="" itemtype="http://schema.org/WebPage">
 <div class="headband"></div>
 <main class="main">
 <div class="column">
@@ -94,7 +93,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%B7%E5%9B%A0"><span class="nav-number">1.</span> <span class="nav-text">起因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bm.py-%E5%9C%A8%E6%AF%8F%E6%AC%A1%E6%B8%B2%E6%9F%93%E5%AE%8C%E6%88%90%E4%B9%8B%E5%90%8E%E8%BF%90%E8%A1%8C"><span class="nav-number">3.</span> <span class="nav-text">bm.py
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bm.py-%E5%9C%A8%E6%AF%8F%E6%AC%A1%E6%B8%B2%E6%9F%93%E5%AE%8C%E6%88%90%E4%B9%8B%E5%90%8E%E8%BF%90%E8%A1%8C"><span class="nav-number">3.</span> <span class="nav-text">bm.py
 在每次渲染完成之后运行：</span></a></li></ol></div>
 </div>
 <!--/noindex-->
@@ -159,24 +158,15 @@
 </header>
 <div class="post-body" itemprop="articleBody"><p>起因是我觉得文章链接太长了。</p>
 <span id="more"></span>
-<h2 id="起因">起因</h2>
-<p>比如 <code>hrfis.me/blog/2023/计网-02-概述-体系结构</code>，</p>
-<p>我想把它改成 <code>hrfis.me/blog/CN/02</code> （CN 即 Computer
-Network）。</p>
-<p>理由是：</p>
+<h2 id="需求">需求</h2>
 <ol type="1">
-<li>切换笔记比较方便。</li>
-<li>发布时间不重要。</li>
-<li>页面里（<code>&lt;h1&gt;</code>标签），和浏览器选项卡上（<code>&lt;title&gt;</code>标签）都已经有标题了，不用再在链接里写上。</li>
+<li>把 <code>hrfis.me/blog/2023/计网-02-概述-体系结构</code>，改成
+<code>hrfis.me/blog/CN/02</code>。</li>
+<li>删除 <code>/blog/archives/</code> 下多渲染的年份文件夹。</li>
 </ol>
-<p>还有一点，在 <code>/blog/archives/</code>
-下多渲染了年份文件夹，单凭配置文件也改不了。</p>
-<p>具体怎么改？</p>
 <h2 id="分析">分析</h2>
-<p>我还没有动力看 Hexo
-框架的源码，所以要把它渲染出来的文件进行二次处理，用 Python 的
-<code>BeautifulSoup</code> 库。因为在爬虫之后处理 HTML
-是课内的内容，迟早要学的。</p>
+<p>笨办法，用 Python 的 <code>BeautifulSoup</code> 库，二次处理 Hexo
+渲染出来的 html。</p>
 <p>对于一个 <code>.md</code> 文件：</p>
 <figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/></pre></td><td class="code"><pre><span class="line">---</span><br/><span class="line">title: CN02 - 概述 - 体系结构</span><br/><span class="line">date: 2023-09-09 17:00:00</span><br/><span class="line">categories: 计算机网络</span><br/><span class="line"><span class="section">permalink: CN/02/</span></span><br/><span class="line"><span class="section">---</span></span><br/><span class="line"></span><br/><span class="line"><span class="bullet">-</span> OSI 七层协议：参考模型</span><br/><span class="line"><span class="bullet">-</span> TCP/IP 四层协议：即 Internet protocol suite，实际用到的</span><br/><span class="line"><span class="bullet">-</span> 五层协议：教学模型</span><br/><span class="line"></span><br/><span class="line">&lt;!--more--&gt;</span><br/><span class="line"></span><br/><span class="line">（正文）</span><br/></pre></td></tr></table></figure>
 <p><code>permalink:</code>
@@ -259,7 +249,7 @@ f 字符串拼接地址，<code>os.system()</code>执行命令。</p>
 </noscript>
 <script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 <script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
-<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/next-boot.js"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
 <script crossorigin="anonymous" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js"></script>
 <script src="/blog/js/third-party/search/local-search.js"></script>
 <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>

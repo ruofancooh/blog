@@ -7,30 +7,35 @@
 <meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" rel="stylesheet"/>
-<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
-<meta content="在 Ubuntu 上安装 MongoDB。官方教程
- 这个系列的笔记可能会重写。" name="description"/>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+<meta content="官方教程：
+ 
+ 在
+ Ubuntu 上安装
+ 部署副本集" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="MD04 - 在Ubuntu上安装MongoDB" property="og:title"/>
+<meta content="MD04 - 在Ubuntu上安装MongoDB并部署副本集" property="og:title"/>
 <meta content="https://hrfis.me/blog/MD/04/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="在 Ubuntu 上安装 MongoDB。官方教程
- 这个系列的笔记可能会重写。" property="og:description"/>
+<meta content="官方教程：
+ 
+ 在
+ Ubuntu 上安装
+ 部署副本集" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-10-19T12:40:00.000Z" property="article:published_time"/>
-<meta content="2023-10-19T12:59:50.222Z" property="article:modified_time"/>
+<meta content="2023-10-25T10:20:00.000Z" property="article:published_time"/>
+<meta content="2023-10-25T10:21:53.202Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/MD/04/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/MD/04/","path":"/MD/04/","title":"MD04 - 在Ubuntu上安装MongoDB"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/MD/04/","path":"/MD/04/","title":"MD04 - 在Ubuntu上安装MongoDB并部署副本集"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>MD04 - 在Ubuntu上安装MongoDB | 若凡的笔记</title>
+<title>MD04 - 在Ubuntu上安装MongoDB并部署副本集 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
 </head>
-<body class="use-motion" itemscope="" itemtype="http://schema.org/WebPage">
+<body itemscope="" itemtype="http://schema.org/WebPage">
 <div class="headband"></div>
 <main class="main">
 <div class="column">
@@ -84,7 +89,7 @@
 </div>
 </header>
 <aside class="sidebar">
-<div class="sidebar-inner sidebar-overview-active">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
 <ul class="sidebar-nav">
 <li class="sidebar-nav-toc">
           文章目录
@@ -96,6 +101,8 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E4%BA%86%E4%BB%A5%E4%B8%8B%E5%87%A0%E5%8F%A5%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">执行了以下几句命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%91%E5%AE%9A-ip"><span class="nav-number">2.</span> <span class="nav-text">绑定 IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-mongod%E5%81%9C%E6%AD%A2%E9%87%8D%E6%96%B0%E5%90%AF%E5%8A%A8%E6%9F%A5%E7%9C%8B%E7%8A%B6%E6%80%81"><span class="nav-number">3.</span> <span class="nav-text">启动
+mongod/停止/重新启动/查看状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%89%AF%E6%9C%AC%E9%9B%86"><span class="nav-number">4.</span> <span class="nav-text">部署副本集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E5%87%BA%E9%94%99%E4%BA%86"><span class="nav-number">4.1.</span> <span class="nav-text">如果出错了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8-primary-%E8%8A%82%E7%82%B9%E4%B8%8A-crud"><span class="nav-number">5.</span> <span class="nav-text">在 primary 节点上 CRUD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#replication-methods"><span class="nav-number">6.</span> <span class="nav-text">Replication Methods</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -136,12 +143,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="MD04 - 在Ubuntu上安装MongoDB | 若凡的笔记" itemprop="name"/>
+<meta content="MD04 - 在Ubuntu上安装MongoDB并部署副本集 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          MD04 - 在Ubuntu上安装MongoDB
+          MD04 - 在Ubuntu上安装MongoDB并部署副本集
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -157,10 +164,48 @@
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>在 Ubuntu 上安装 MongoDB。<a href="https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/" rel="noopener" target="_blank">官方教程</a></p>
-<p>这个系列的笔记可能会重写。</p>
+<div class="post-body" itemprop="articleBody"><p>官方教程：</p>
+<ul>
+<li><a href="https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/" rel="noopener" target="_blank">在
+Ubuntu 上安装</a></li>
+<li><a href="https://www.mongodb.com/docs/manual/tutorial/deploy-replica-set/" rel="noopener" target="_blank">部署副本集</a></li>
+</ul>
 <span id="more"></span>
-<p>拖一会。</p>
+<h2 id="执行了以下几句命令">执行了以下几句命令</h2>
+<p>分别在三台虚拟机上。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo apt-get install gnupg curl</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">curl -fsSL https://pgp.mongodb.com/server-7.0.asc | \</span><br/><span class="line">   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \</span><br/><span class="line">   --dearmor</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse"</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/mongodb-org-7.0.list</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y mongodb-org</span><br/></pre></td></tr></table></figure>
+<h2 id="绑定-ip">绑定 IP</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo vi /etc/mongod.conf</span><br/></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">net:</span><br/><span class="line">  port: 27017</span><br/><span class="line">  bindIp: localhost,ubuntu101</span><br/></pre></td></tr></table></figure>
+<p>绑定 IP 的后者是当前机器的主机名。</p>
+<p>这样既可以在当前机器上使用 <code>mongosh</code>，又可以在物理机上用
+MongoDB Compass 连接。</p>
+<h2 id="启动-mongod停止重新启动查看状态">启动
+mongod/停止/重新启动/查看状态</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo systemctl [start] [stop] [restart] [status] mongod</span><br/></pre></td></tr></table></figure>
+<h2 id="部署副本集">部署副本集</h2>
+<p>副本集就是在多台机器上保存同一组数据的副本。</p>
+<p>改配置文件并重启 mongod。三台机器取同一个副本集名字。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">replication:</span><br/><span class="line">  replSetName: "rs0"</span><br/></pre></td></tr></table></figure>
+<p>只在一台机器的 mongosh 里，用下面的命令初始化：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/></pre></td><td class="code"><pre><span class="line">rs.<span class="title function_">initiate</span>({</span><br/><span class="line">  <span class="attr">_id</span>: <span class="string">"rs0"</span>,</span><br/><span class="line">  <span class="attr">members</span>: [</span><br/><span class="line">    { <span class="attr">_id</span>: <span class="number">101</span>, <span class="attr">host</span>: <span class="string">"ubuntu101:27017"</span> },</span><br/><span class="line">    { <span class="attr">_id</span>: <span class="number">102</span>, <span class="attr">host</span>: <span class="string">"ubuntu102:27017"</span> },</span><br/><span class="line">    { <span class="attr">_id</span>: <span class="number">103</span>, <span class="attr">host</span>: <span class="string">"ubuntu103:27017"</span> },</span><br/><span class="line">  ],</span><br/><span class="line">});</span><br/></pre></td></tr></table></figure>
+<p>（这里没有设置仲裁节点）</p>
+<p>查看节点状态：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">rs.<span class="title function_">status</span>();</span><br/></pre></td></tr></table></figure>
+<h3 id="如果出错了">如果出错了</h3>
+<p>我不小心配置并初始化错了，然后不知道为何 MongoDB Compass
+也连不上了。</p>
+<p>简单的解决方法是把数据目录删了重建，重新配置。刚装上，所以没有删库成本：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/></pre></td><td class="code"><pre><span class="line">sudo systemctl stop mongod &amp;&amp;</span><br/><span class="line">sudo <span class="built_in">rm</span> -r /var/lib/mongodb &amp;&amp;</span><br/><span class="line">sudo <span class="built_in">mkdir</span> /var/lib/mongodb &amp;&amp;</span><br/><span class="line">sudo <span class="built_in">chown</span> -R mongodb:mongodb /var/lib/mongodb &amp;&amp;</span><br/><span class="line">sudo systemctl start mongod</span><br/></pre></td></tr></table></figure>
+<h2 id="在-primary-节点上-crud">在 primary 节点上 CRUD</h2>
+<p>CRUD 就是增删改查 Create、Read、Update、Delete。</p>
+<h2 id="replication-methods">Replication Methods</h2>
+<p><a href="https://www.mongodb.com/docs/manual/reference/method/js-replication/" rel="noopener" target="_blank">Replication
+Methods</a></p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
@@ -198,7 +243,7 @@
 </noscript>
 <script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 <script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
-<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/next-boot.js"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
 <script crossorigin="anonymous" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js"></script>
 <script src="/blog/js/third-party/search/local-search.js"></script>
 <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>

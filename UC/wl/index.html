@@ -7,8 +7,7 @@
 <meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" rel="stylesheet"/>
-<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
 <meta content="真机系统：Windows 10
  使用软件：VMware Workstation 17.0.2 Player
  虚拟机系统：Ubuntu 22.04.3 server" name="description"/>
@@ -22,7 +21,7 @@
 <meta content="zh_CN" property="og:locale"/>
 <meta content="https://hrfis.me/blog/images/vm.png" property="og:image"/>
 <meta content="2023-08-11T12:10:00.000Z" property="article:published_time"/>
-<meta content="2023-09-29T13:13:33.544Z" property="article:modified_time"/>
+<meta content="2023-10-23T03:43:08.424Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/vm.png" name="twitter:image"/>
@@ -34,7 +33,7 @@
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
 </head>
-<body class="use-motion" itemscope="" itemtype="http://schema.org/WebPage">
+<body itemscope="" itemtype="http://schema.org/WebPage">
 <div class="headband"></div>
 <main class="main">
 <div class="column">
@@ -101,7 +100,7 @@
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
 <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85-vmware-workstation-player"><span class="nav-number">1.</span> <span class="nav-text">下载安装 VMware Workstation
-Player</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD-ubuntu-%E9%95%9C%E5%83%8F"><span class="nav-number">2.</span> <span class="nav-text">下载 Ubuntu 镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8-vm-player-%E4%B8%AD%E6%96%B0%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">3.</span> <span class="nav-text">在 VM Player 中新建虚拟机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ubuntu"><span class="nav-number">4.</span> <span class="nav-text">安装 Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E7%9C%9F%E6%9C%BA%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">5.</span> <span class="nav-text">设置虚拟机与真机的共享文件夹</span></a></li></ol></div>
+Player</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD-ubuntu-%E9%95%9C%E5%83%8F"><span class="nav-number">2.</span> <span class="nav-text">下载 Ubuntu 镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8-vm-player-%E4%B8%AD%E6%96%B0%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">3.</span> <span class="nav-text">在 VM Player 中新建虚拟机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ubuntu"><span class="nav-number">4.</span> <span class="nav-text">安装 Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA"><span class="nav-number">5.</span> <span class="nav-text">设置时区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E7%9C%9F%E6%9C%BA%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">6.</span> <span class="nav-text">设置虚拟机与真机的共享文件夹</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -223,6 +222,10 @@ China。</p>
 </ol>
 <p>报错不要紧，回车。</p>
 <p>输入用户名和密码登录 Ubuntu。注意输入密码默认是不回显的。</p>
+<h2 id="设置时区">设置时区</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo dpkg-reconfigure tzdata</span><br/></pre></td></tr></table></figure>
+<p>选择 <code>Asia</code></p>
+<p>再选择 <code>Shanghai</code></p>
 <h2 id="设置虚拟机与真机的共享文件夹">设置虚拟机与真机的共享文件夹</h2>
 <p>VM
 的虚拟磁盘文件不好直接打开。有时候需要在虚拟机和真机之间互传文件，可以通过共享文件夹。</p>
@@ -270,7 +273,7 @@ China。</p>
 </noscript>
 <script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 <script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
-<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/motion.js"></script><script src="/blog/js/next-boot.js"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
 <script crossorigin="anonymous" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js"></script>
 <script src="/blog/js/third-party/search/local-search.js"></script>
 <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
