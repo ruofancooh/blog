@@ -28,7 +28,7 @@
  载波（载体）监听：每个站都不停地检测信道：在说话前和说话中听别人有" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-10-18T13:40:00.000Z" property="article:published_time"/>
-<meta content="2023-10-22T14:44:47.408Z" property="article:modified_time"/>
+<meta content="2023-10-28T08:09:27.877Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/CN/08/" rel="canonical"/>
@@ -105,7 +105,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8D%E8%AF%8D%E8%BE%A8%E6%9E%90csma-%E4%B8%8E-cdma"><span class="nav-number">1.</span> <span class="nav-text">名词辨析：CSMA 与 CDMA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#csmacd-%E5%8D%8F%E8%AE%AE%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">CSMA/CD 协议工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A2%B0%E6%92%9E"><span class="nav-number">3.</span> <span class="nav-text">碰撞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%BA%E5%8C%96%E7%A2%B0%E6%92%9E"><span class="nav-number">4.</span> <span class="nav-text">强化碰撞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E9%80%80%E9%81%BF"><span class="nav-number">5.</span> <span class="nav-text">截断二进制指数退避</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E7%9A%84%E4%BF%A1%E9%81%93%E5%88%A9%E7%94%A8%E7%8E%87"><span class="nav-number">6.</span> <span class="nav-text">以太网的信道利用率</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8D%E8%AF%8D%E8%BE%A8%E6%9E%90csma-%E4%B8%8E-cdma"><span class="nav-number">1.</span> <span class="nav-text">名词辨析：CSMA 与 CDMA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#csmacd-%E5%8D%8F%E8%AE%AE%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">CSMA/CD 协议工作流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A2%B0%E6%92%9E"><span class="nav-number">3.</span> <span class="nav-text">碰撞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%BA%E5%8C%96%E7%A2%B0%E6%92%9E"><span class="nav-number">4.</span> <span class="nav-text">强化碰撞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E9%80%80%E9%81%BF"><span class="nav-number">5.</span> <span class="nav-text">截断二进制指数退避</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E7%9A%84%E4%BF%A1%E9%81%93%E5%88%A9%E7%94%A8%E7%8E%87"><span class="nav-number">6.</span> <span class="nav-text">以太网的信道利用率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%8B%E9%A2%98"><span class="nav-number">7.</span> <span class="nav-text">例题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#section"><span class="nav-number">7.1.</span> <span class="nav-text">【3-24】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#section-1"><span class="nav-number">7.2.</span> <span class="nav-text">【3-25】</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -179,7 +179,7 @@ Detection，载波监听多址接入/碰撞检测协议。以太网用的。
 <li>一个站不能同时发送和接收：人不能同时（并行）听懂和说明白。半双工（双向交替通信）。</li>
 <li>是无连接的协议：一群人头脑风暴。</li>
 <li>碰撞的过程。</li>
-<li>计算碰撞后重传的等待时间：截断二进制指数退避。</li>
+<li>计算碰撞后重传的等待时间：截断二进制指数退避。用 r 乘争用期。</li>
 </ul></li>
 <li><a href="/blog/CN/09">以太网</a>
 <ul>
@@ -219,7 +219,7 @@ Avoidance，碰撞避免），用于无线网。</p>
     B发送后，从B到A传播          :15,20s
     B检测到了碰撞，然后……          :20,36s
     A检测到了碰撞，然后……          :35,21s</pre>
-<p>A 或 B 需要 <span class="math inline">\(2 \tau\)</span>
+<p>A 或 B 发送之后，至多需要 <span class="math inline">\(2 \tau\)</span>
 的时间，即端到端往返时延，才能检测到与对方发生了碰撞。</p>
 <p><span class="math inline">\(2 \tau\)</span>
 叫【争用期】或【碰撞窗口】。</p>
@@ -237,7 +237,89 @@ Avoidance，碰撞避免），用于无线网。</p>
 \mathrm{s = \frac{bit}{bit/s} = } \frac{L}{C} =
 \frac{帧长}{数据发送速率}
 \]</span></p>
-<p>拖</p>
+<p>拖一会。</p>
+<h2 id="例题">例题</h2>
+<h3 id="section">【3-24】</h3>
+<blockquote>
+<p>假定站点 A 和 B 在同一个 10 Mbit/s
+以太网网段上。这两个站点之间的传播时延为 225 比特时间。现假定 A
+开始发送一帧，并且在 A 发送结束之前 B 也发送一帧。如果 A
+发送的是以太网所容许的最短的帧，那么 <strong>A 在检测到和 B
+发生碰撞之前能否把自己的数据发送完毕？</strong> 换言之，如果 A
+在发送完毕之前并没有检测到碰撞，那么能否肯定 A 所发送的帧不会和 B
+发送的帧发生碰撞？（提示：在计算时应当考虑到每一个以太网帧在发送到信道上时，在
+MAC 帧前面还要增加若干字节（8 字节，64
+比特）的前同步码和帧定界符。）</p>
+</blockquote>
+<p>即比较【假定 A 发送完】的时刻与【A 检测到碰撞】的时刻谁在前。</p>
+<p>这里【A 检测到碰撞】的时刻要取最晚的情况，即 B “即将” 接收到 A
+发送的时刻。传播时延是 225 比特时间，如果在 225 时刻 B 还没发送，B
+就会接收到 A 发送的，这时 B 就不会发送，进而不会发生碰撞。</p>
+<p>所以要取 B 在 224 时刻开始发送。经过一个传播时延，A 在 224 + 225 =
+449 时刻检测到碰撞。</p>
+<p>假定 A 会发送完：</p>
+<p>51.2 μs × 10 Mbit/s = 512 bit</p>
+<p>512 + 64 = 576 bit</p>
+<p>假定不会发生碰撞，A 将在 576 比特时刻发送完。但是 A 已经在 449
+时刻检测到碰撞了，所以 A 不会发送完。</p>
+<h3 id="section-1">【3-25】</h3>
+<blockquote>
+<p>上题中的站点 A 和 B 在 t = 0 时同时发送了数据帧。当 t = 225
+比特时间，A 和 B 同时检测到发生了碰撞，并且在 t = 225 + 48 = 273
+比特时间完成了干扰信号的传输。A 和 B 在 CSMA/CD 算法中选择不同的 r
+值退避。假定 A 和 B 选择的随机数分别是 rA = 0 和 rB = 1。试问 A 和 B
+各在什么时间开始重传其数据帧？ A 重传的数据帧在什么时间到达 B？ A
+重传的数据会不会和 B 重传的数据再次发生碰撞？B
+会不会在预定的重传时间停止发送数据？</p>
+</blockquote>
+<p>A 或 B 在检测到碰撞之后，需要做以下几件事：</p>
+<ol type="1">
+<li>发送 48 比特的干扰信号</li>
+<li>退避等待一段时间（r × 争用期 51.2 μs）</li>
+<li>开始检测信道</li>
+<li>检测到空闲后，再等待一个帧最小间隔 9.6 μs</li>
+<li>期间没有接收到信号，则重传</li>
+</ol>
+<p>下面的单位都是比特时间：</p>
+<ul>
+<li>0 ~ 225：A 和 B 发送的数据在信道上传播</li>
+<li>225：A 和 B 同时检测到碰撞</li>
+<li>225 ~ 273：A 和 B 都发送干扰信号</li>
+<li>273：A 和 B 都发送完了干扰信号，开始退避等待
+<ul>
+<li>273：A 退避时间为 0，开始检测信道</li>
+<li>273 ~ 785：B 退避时间为 512</li>
+</ul></li>
+<li>225|273 ~ 450|498：干扰信号在信道上传播</li>
+<li>450：A 和 B 都接收到了干扰信号</li>
+<li>498：A 和 B 都接收完了干扰信号，B 仍然在退避
+<ul>
+<li>498 ~ 594：A 检测到空闲，等待 96</li>
+<li>594：A 开始重传</li>
+<li>594 ~ 819：A 重传的数据在信道上传播</li>
+</ul></li>
+<li>785：B 开始检测信道
+<ul>
+<li>785 ~ 881：B 等待 96</li>
+<li>但是在 819 时间 B 接收到了 A 重传的，所以 B 暂时不重传</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>试问 A 和 B 各在什么时间开始重传其数据帧？</p>
+</blockquote>
+<p>A 在 594，B 不知道</p>
+<blockquote>
+<p>A 重传的数据帧在什么时间到达 B？</p>
+</blockquote>
+<p>819</p>
+<blockquote>
+<p>A 重传的数据会不会和 B 重传的数据再次发生碰撞？</p>
+</blockquote>
+<p>不会</p>
+<blockquote>
+<p>B 会不会在预定的重传时间停止发送数据？</p>
+</blockquote>
+<p>会</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
