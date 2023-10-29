@@ -8,37 +8,21 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
-<meta content="Point-to-Point Protocol：用户到 ISP 的协议。ISP 是学校，PPP
- 就是和门口保安的对话。RFC 1661 | 翻译
- 
- 不采用序号和确认机制，接收方每收到一个帧就进行 CRC
- 校验，正确就收下，错误就丢弃。断章取义。
- 组成部分：
- 
- 【网络层 -&gt; 数据链路层】一个将 IP 数据报封装到串行链路的方法
- 【物理层 &lt;-&gt; 数据链路层】一" name="description"/>
+<meta content="HDFS 的读写流程和工作机制" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="CN07 - 数据链路层 - 点对点协议PPP" property="og:title"/>
-<meta content="https://hrfis.me/blog/CN/07/index.html" property="og:url"/>
+<meta content="HD08 - HDFS 的读写流程和工作机制" property="og:title"/>
+<meta content="https://hrfis.me/blog/HD/08/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="Point-to-Point Protocol：用户到 ISP 的协议。ISP 是学校，PPP
- 就是和门口保安的对话。RFC 1661 | 翻译
- 
- 不采用序号和确认机制，接收方每收到一个帧就进行 CRC
- 校验，正确就收下，错误就丢弃。断章取义。
- 组成部分：
- 
- 【网络层 -&gt; 数据链路层】一个将 IP 数据报封装到串行链路的方法
- 【物理层 &lt;-&gt; 数据链路层】一" property="og:description"/>
+<meta content="HDFS 的读写流程和工作机制" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-10-16T14:32:00.000Z" property="article:published_time"/>
-<meta content="2023-10-20T03:10:43.061Z" property="article:modified_time"/>
+<meta content="2023-10-29T02:10:00.000Z" property="article:published_time"/>
+<meta content="2023-10-29T02:19:54.793Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/CN/07/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/CN/07/","path":"/CN/07/","title":"CN07 - 数据链路层 - 点对点协议PPP"}</script>
+<link href="https://hrfis.me/blog/HD/08/" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/HD/08/","path":"/HD/08/","title":"HD08 - HDFS 的读写流程和工作机制"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>CN07 - 数据链路层 - 点对点协议PPP | 若凡的笔记</title>
+<title>HD08 - HDFS 的读写流程和工作机制 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -109,7 +93,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ppp-%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%8A%B6%E6%80%81"><span class="nav-number">1.</span> <span class="nav-text">PPP 协议的工作状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ppp-%E5%B8%A7%E6%A0%BC%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">PPP 帧格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E4%BC%A0%E8%BE%93%E6%97%B6%E7%9A%84%E5%AD%97%E8%8A%82%E5%A1%AB%E5%85%85"><span class="nav-number">3.</span> <span class="nav-text">异步传输时的字节填充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E4%BC%A0%E8%BE%93%E6%97%B6%E7%9A%84%E9%9B%B6%E6%AF%94%E7%89%B9%E5%A1%AB%E5%85%85"><span class="nav-number">4.</span> <span class="nav-text">同步传输时的零比特填充</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%A6%E5%A4%96"><span class="nav-number">5.</span> <span class="nav-text">另外</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">写数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E6%95%B0%E6%8D%AE%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">写数据的流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%AF%E6%9C%AC%E6%94%BE%E7%BD%AE%E7%AD%96%E7%95%A5%E4%B8%8E%E6%9C%BA%E6%9E%B6%E6%84%9F%E7%9F%A5"><span class="nav-number">1.2.</span> <span class="nav-text">副本放置策略与机架感知</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -140,7 +124,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/CN/07/" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/HD/08/" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -150,12 +134,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="CN07 - 数据链路层 - 点对点协议PPP | 若凡的笔记" itemprop="name"/>
+<meta content="HD08 - HDFS 的读写流程和工作机制 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          CN07 - 数据链路层 - 点对点协议PPP
+          HD08 - HDFS 的读写流程和工作机制
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -165,119 +149,89 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/CN/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><ul>
-<li>Point-to-Point Protocol：用户到 ISP 的协议。ISP 是学校，PPP
-就是和门口保安的对话。<a href="https://www.rfc-editor.org/rfc/rfc1661" rel="noopener" target="_blank">RFC 1661</a> | <a href="https://blog.csdn.net/qq_20677327/article/details/106079040" rel="noopener" target="_blank">翻译</a>
-<ul>
-<li>不采用序号和确认机制，接收方每收到一个帧就进行 CRC
-校验，正确就收下，错误就丢弃。断章取义。</li>
-<li>组成部分：
-<ul>
-<li>【网络层 -&gt; 数据链路层】一个将 IP 数据报封装到串行链路的方法</li>
-<li>【物理层 &lt;-&gt; 数据链路层】一个链路控制协议 LCP (Link Control
-Protocol)。分配临时 IP 地址。说话。</li>
-<li>【数据链路层 &lt;-&gt; 网络层】一套网络控制协议 NCP (Network Control
-Protocol)。填表。</li>
-</ul></li>
-<li>是有连接，面向字节的协议</li>
-</ul></li>
-</ul>
+<div class="post-body" itemprop="articleBody"><p>HDFS 的读写流程和工作机制</p>
 <span id="more"></span>
-<h2 id="ppp-协议的工作状态">PPP 协议的工作状态</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/></pre></td><td class="code"><pre><span class="line">【链路静止】：保安没看见你</span><br/><span class="line">| 猫呼叫路由器，建立物理层连接：和保安搭话</span><br/><span class="line">v</span><br/><span class="line">【链路建立】：保安听见你了，问你来干什么</span><br/><span class="line">| LCP配置协商：我要进学校</span><br/><span class="line">| 失败：保安听不懂你的广东话，【链路静止】</span><br/><span class="line">v</span><br/><span class="line">【鉴别】：验证你的身份</span><br/><span class="line">| 失败：【链路终止】-&gt;【链路静止】</span><br/><span class="line">v</span><br/><span class="line">【网络层协议】：登记</span><br/><span class="line">| NCP配置协商：填表</span><br/><span class="line">v</span><br/><span class="line">【链路打开】：让你进了</span><br/></pre></td></tr></table></figure>
-<h2 id="ppp-帧格式">PPP 帧格式</h2>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 14%"/>
-<col style="width: 18%"/>
-<col style="width: 53%"/>
-<col style="width: 7%"/>
-<col style="width: 1%"/>
-<col style="width: 5%"/>
-</colgroup>
-<thead>
-<tr class="header">
-<th>字段名</th>
-<th>标志字段、地址字段、控制字段</th>
-<th>协议字段</th>
-<th>信息字段</th>
-<th>FCS</th>
-<th>标志字段</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>字段值（十六进制）</strong></td>
-<td>7E FF 03</td>
-<td>0021【IP
-数据报】<br>8021【NCP】<br>C021【LCP】<br>C023【PAP】<br>C223【CHAP】</br></br></br></br></td>
-<td>...</td>
-<td>...</td>
-<td>7E</td>
-</tr>
-<tr class="even">
-<td><strong>字节数（十进制）</strong></td>
-<td>3</td>
-<td>2</td>
-<td>&lt;=MTU(1500)</td>
-<td>2</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<h2 id="异步传输时的字节填充">异步传输时的字节填充</h2>
-<p>下面的都是十六进制</p>
-<p>转义字符：7D</p>
-<table>
-<thead>
-<tr class="header">
-<th>转义前</th>
-<th>转义后</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>7E</td>
-<td>7D 5E（减了 20）</td>
-</tr>
-<tr class="even">
-<td>7D</td>
-<td>7D 5D（减了 20）</td>
-</tr>
-<tr class="odd">
-<td>00 ~ 1F</td>
-<td>7D 20 ~ 7D 3F （加了 20）</td>
-</tr>
-</tbody>
-</table>
-<p>上面都是对 <code>0x20</code>
-做异或，或者说对从低到高第六位取反。<code>0x20</code> 是
-<code>0010 0000</code>。</p>
-<h2 id="同步传输时的零比特填充">同步传输时的零比特填充</h2>
-<p>发现有五个连续 <code>1</code>，就填入一个
-<code>0</code>。这样不会出现六个连续 <code>1</code>。</p>
-<p>因为不是按字节传输的，是按比特传输的，为了规避定界符
-<code>0x7E</code> 的 <code>0111 1110</code>。</p>
-<h2 id="另外">另外</h2>
-<p>HDLC 也是数据链路层的协议，是面向比特的协议，使用零比特填充。</p>
+<p>在 HDFS
+中，数据是分块（Block）存储的。相当于你一个人分割在了多个社交平台上。</p>
+<p>在 Hadoop2.x 和 3.x 中，数据块大小默认是 128MB。</p>
+<p>如果数据分块太小，分割数量会变多，寻址时间会增加。就是你切换 APP
+的时间增加。</p>
+<p>如果数据块太大，磁盘传输时间占比增加。就是你花在这一个 APP
+上的时间增加。且分割数量变少，MR 的并行任务数变少。</p>
+<p>当寻址时间是传输时间的 1% 时，状态最佳。</p>
+<h2 id="写数据">写数据</h2>
+<p>创建一个文件，将数据写入文件，关闭文件。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hadoop fs -put ./voice.wav /app</span><br/></pre></td></tr></table></figure>
+<p>如果是一个 200MB 的文件，会被分为 128MB 的一块和 72MB 的一块。</p>
+<p>distributed：分布式</p>
+<h3 id="写数据的流程">写数据的流程</h3>
+<pre class="mermaid">sequenceDiagram
+    participant C as Client
+    participant NN as NameNode
+    participant DN1 as DataNode1
+    participant DN2 as DataNode2
+    participant DN3 as DataNode3
+
+    C-&gt;&gt;NN: 1
+    NN--&gt;&gt;C: 2
+    C-&gt;&gt;NN: 3
+    NN--&gt;&gt;C: 4
+    C-&gt;&gt;DN1: 5
+    DN1-&gt;&gt;DN2: 5
+    DN2-&gt;&gt;DN3: 5
+    DN3--&gt;&gt;DN2: 6
+    DN2--&gt;&gt;DN1: 6
+    DN1--&gt;&gt;C: 6
+    C-&gt;&gt;DN1: 7
+    DN1-&gt;&gt;DN2: 7
+    DN2-&gt;&gt;DN3: 7</pre>
+<p>把 Client 看成你，NameNode 看成手机，DataNode 看成
+APP。（类比不恰当，但是好记）</p>
+<ol type="1">
+<li>Client 通过<a href="https://github.com/apache/hadoop/blob/branch-3.3.6/hadoop-hdfs-project/hadoop-hdfs-Client/src/main/java/org/apache/hadoop/hdfs/DistributedFileSystem.java" rel="noopener" target="_blank">DistributedFileSystem</a>模块向
+NameNode 发请求：上传文件</li>
+<li>NameNode 给 Client 响应：是/否允许上传</li>
+</ol>
+<p>前两步是你和你的手机建立连接，看手机能不能用。</p>
+<ol start="3" type="1">
+<li>Client 再给 NameNode 发请求：上传第一个块/可用的 DataNode 列表</li>
+<li>NameNode 返回 DataNode 的服务器地址</li>
+</ol>
+<p>这两步是你想发动态了，看目前装了哪些 APP。</p>
+<ol start="5" type="1">
+<li>Client 通过<a href="https://github.com/apache/hadoop/blob/branch-3.3.6/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/fs/FSDataOutputStream.java" rel="noopener" target="_blank">FSDataOutputStream</a>模块向
+DataNode1 请求上传数据，DataNode1 收到请求之后向 DataNode2
+请求……这叫建立通信管道。</li>
+<li>通信管道建立之后，DataNode 向前面的 DataNode 逐级应答到 Client</li>
+</ol>
+<p>你想发一条动态，打开了 NeteaseCloudMusic，但是 APP
+们都是有灵性的，一个接连唤醒一个。</p>
+<ol start="7" type="1">
+<li>Client 向 DataNode1
+发送第一个数据块的多个数据包（Packet），DataNode1 收到之后发给
+DataNode2……类似路由器分组转发，但是保存了数据。</li>
+<li>重复步骤 3 到 7，上传第二、第三……个数据块直到传输完成，Client
+关闭连接。</li>
+</ol>
+<p>总结：Client 和 NameNode 问答两次（是否可以上传，DN 的地址），和
+DataNode 问答一次（建立通信管道），之后开始分包传数据。</p>
+<h3 id="副本放置策略与机架感知">副本放置策略与机架感知</h3>
+<p>机架（rack）是放机器的架子，是连接到同一个交换机的物理存储节点的集合。</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/UC/le/" rel="prev" title="关于学习">
-<i class="fa fa-chevron-left"></i> 关于学习
+<a href="/blog/the-wall.html" rel="prev" title="《The Wall》歌词直译">
+<i class="fa fa-chevron-left"></i> 《The Wall》歌词直译
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/HD/07/" rel="next" title="HD07 - Hadoop生态圈">
-                  HD07 - Hadoop生态圈 <i class="fa fa-chevron-right"></i>
-</a>
 </div>
 </div>
 </footer>
@@ -314,7 +268,7 @@ Protocol)。填表。</li>
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/CN/07/"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/HD/08/"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
