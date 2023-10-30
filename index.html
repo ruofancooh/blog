@@ -100,7 +100,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">51</span>
+<span class="site-state-item-count">53</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -117,6 +117,111 @@
 </aside>
 </div>
 <div class="main-inner index posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
+<link href="https://hrfis.me/blog/HD/09/" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="undefined | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h2 class="post-title" itemprop="name headline">
+<a class="post-title-link" href="/blog/HD/09/" itemprop="url">HD09 - HDFS的EditLog和FsImage文件</a>
+</h2>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody">
+<p>有两种二进制文件保证元数据的可靠性：</p>
+<ul>
+<li>EditLog：编辑日志，对 HDFS 进行操作的日志</li>
+<li>FsImage：文件系统（元数据）镜像</li>
+</ul>
+<p>位于 NN 的 <code>$HADOOP_HOME/data/dfs/name/current</code></p>
+<p>和 2NN 的
+<code>$HADOOP_HOME/data/dfs/namesecondary/current</code></p>
+<!--noindex-->
+<div class="post-button">
+<a class="btn" href="/blog/HD/09/#more" rel="contents">
+                阅读全文 »
+              </a>
+</div>
+<!--/noindex-->
+</div>
+<footer class="post-footer">
+<div class="post-eof"></div>
+</footer>
+</article>
+</div>
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
+<link href="https://hrfis.me/blog/UC/b0/" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="undefined | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h2 class="post-title" itemprop="name headline">
+<a class="post-title-link" href="/blog/UC/b0/" itemprop="url">VMware Workstation VMX占用CPU高的解决记录</a>
+</h2>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/UC/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody">
+<p>只是【在做完这些操作后的一段时间，没有再出现这个问题】</p>
+<p>并不能保证【这些操作的每一步都是一定对的，或有用的】</p>
+<p>因为我是通过搜索解决的，并不理解每一步操作背后的东西。</p>
+<!--noindex-->
+<div class="post-button">
+<a class="btn" href="/blog/UC/b0/#more" rel="contents">
+                阅读全文 »
+              </a>
+</div>
+<!--/noindex-->
+</div>
+<footer class="post-footer">
+<div class="post-eof"></div>
+</footer>
+</article>
+</div>
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
 <link href="https://hrfis.me/blog/HD/08/" itemprop="mainEntityOfPage"/>
@@ -574,121 +679,10 @@ Protocol)。填表。</li>
 </header>
 <div class="post-body" itemprop="articleBody">
 <p>分为思考型的（study）和应用型的（learn）。</p>
+<p>【牢骚警告】</p>
 <!--noindex-->
 <div class="post-button">
 <a class="btn" href="/blog/UC/le/#more" rel="contents">
-                阅读全文 »
-              </a>
-</div>
-<!--/noindex-->
-</div>
-<footer class="post-footer">
-<div class="post-eof"></div>
-</footer>
-</article>
-</div>
-<div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
-<link href="https://hrfis.me/blog/HD/06/" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="undefined | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h2 class="post-title" itemprop="name headline">
-<a class="post-title-link" href="/blog/HD/06/" itemprop="url">HD06 - HDFS的Shell命令和JavaAPI操作</a>
-</h2>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
-</span>
-</span>
-</div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody">
-<p>r3.3.6</p>
-<ul>
-<li><a href="https://hadoop.apache.org/docs/r3.3.6/hadoop-project-dist/hadoop-common/FileSystemShell.html" rel="noopener" target="_blank">FileSystem
-Shell</a></li>
-<li><a href="https://hadoop.apache.org/docs/r3.3.6/api/org/apache/hadoop/fs/FileSystem.html" rel="noopener" target="_blank">FileSystem
-API</a></li>
-<li><a href="https://hadoop.apache.org/docs/r3.3.6/api/org/apache/hadoop/fs/FileUtil.html" rel="noopener" target="_blank">FileUtil
-API</a></li>
-<li><a href="https://hadoop.apache.org/docs/r3.3.6/api/org/apache/hadoop/fs/FileStatus.html" rel="noopener" target="_blank">FileStatus
-API</a></li>
-</ul>
-<!--noindex-->
-<div class="post-button">
-<a class="btn" href="/blog/HD/06/#more" rel="contents">
-                阅读全文 »
-              </a>
-</div>
-<!--/noindex-->
-</div>
-<footer class="post-footer">
-<div class="post-eof"></div>
-</footer>
-</article>
-</div>
-<div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
-<link href="https://hrfis.me/blog/HD/05/" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="undefined | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h2 class="post-title" itemprop="name headline">
-<a class="post-title-link" href="/blog/HD/05/" itemprop="url">HD05 - ZooKeeper的Shell命令和JavaAPI操作</a>
-</h2>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
-</span>
-</span>
-</div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody">
-<p>r3.8.2</p>
-<ul>
-<li><a href="https://zookeeper.apache.org/doc/r3.8.2/zookeeperCLI.html" rel="noopener" target="_blank">zookeeper
-CLI</a></li>
-<li><a href="https://zookeeper.apache.org/doc/r3.8.2/apidocs/zookeeper-server/index.html" rel="noopener" target="_blank">zookeeper
-Server API</a></li>
-</ul>
-<!--noindex-->
-<div class="post-button">
-<a class="btn" href="/blog/HD/05/#more" rel="contents">
                 阅读全文 »
               </a>
 </div>
