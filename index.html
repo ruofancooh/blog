@@ -100,7 +100,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">53</span>
+<span class="site-state-item-count">54</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -117,6 +117,60 @@
 </aside>
 </div>
 <div class="main-inner index posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
+<link href="https://hrfis.me/blog/UC/d0/" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="undefined | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h2 class="post-title" itemprop="name headline">
+<a class="post-title-link" href="/blog/UC/d0/" itemprop="url">获取正方教务系统里的成绩信息并对学分求和</a>
+</h2>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/UC/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody">
+<p>关键点在于：</p>
+<p>https://教务系统域名/cjcx/cjcx_cxDgXscj.html?doType=query&amp;gnmkdm=N100801&amp;su=学号</p>
+<p>上边那个链接可能适用于各种【正方教务系统】。对它发 POST
+请求，然后对返回的 json 的 <code>items</code> 字段转换成 pandas 的
+DataFrame 处理。</p>
+<p>COOKIES 是从浏览器发送的 POST
+请求头里复制的，想重新获取数据时需要手动重新登录、更新代码。只是相当于简化了【登录之后再从表格获取信息】的这一步。</p>
+<!--noindex-->
+<div class="post-button">
+<a class="btn" href="/blog/UC/d0/#more" rel="contents">
+                阅读全文 »
+              </a>
+</div>
+<!--/noindex-->
+</div>
+<footer class="post-footer">
+<div class="post-eof"></div>
+</footer>
+</article>
+</div>
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
 <link href="https://hrfis.me/blog/HD/09/" itemprop="mainEntityOfPage"/>
@@ -634,55 +688,6 @@ Protocol)。填表。</li>
 <!--noindex-->
 <div class="post-button">
 <a class="btn" href="/blog/CN/07/#more" rel="contents">
-                阅读全文 »
-              </a>
-</div>
-<!--/noindex-->
-</div>
-<footer class="post-footer">
-<div class="post-eof"></div>
-</footer>
-</article>
-</div>
-<div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
-<link href="https://hrfis.me/blog/UC/le/" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="undefined | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h2 class="post-title" itemprop="name headline">
-<a class="post-title-link" href="/blog/UC/le/" itemprop="url">关于学习</a>
-</h2>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/UC/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
-</span>
-</span>
-</div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody">
-<p>分为思考型的（study）和应用型的（learn）。</p>
-<p>【牢骚警告】</p>
-<!--noindex-->
-<div class="post-button">
-<a class="btn" href="/blog/UC/le/#more" rel="contents">
                 阅读全文 »
               </a>
 </div>

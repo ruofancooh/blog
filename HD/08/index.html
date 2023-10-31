@@ -16,7 +16,7 @@
 <meta content="HDFS 的读写流程和工作机制" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-10-29T02:10:00.000Z" property="article:published_time"/>
-<meta content="2023-10-30T13:08:15.695Z" property="article:modified_time"/>
+<meta content="2023-10-31T14:09:17.022Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/HD/08/" rel="canonical"/>
@@ -105,7 +105,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">53</span>
+<span class="site-state-item-count">54</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -248,12 +248,42 @@ Client 和 NameNode 的第二次问答处开始循环。</p>
 <p>副本放置策略，就是策划把数据块分别放置到哪个机架的哪个机器上。</p>
 <p>机架感知（RackAware）</p>
 <h2 id="nn-和-2nn-的工作机制">NN 和 2NN 的工作机制</h2>
+<p><a href="/blog/HD/09/">HDFS 的 EditLog 和 FsImage 文件</a></p>
+<ul>
+<li>NN：记录 EditLog，滚动正在写的（inprogress）EditLog</li>
+<li>2NN：向 NN 请求（是否/执行）创建 CheckPoint，当 CheckPoint
+触发时，合并 EditLog 为 FsImage</li>
+</ul>
 <ol type="1">
-<li>启动 NN，读 EditLog 和 FsImage 到内存里。（第一次格式化 HDFS 并启动
-NN 时会创建）</li>
+<li>启动 NN，加载 EditLog 和 FsImage 到内存里（第一次格式化 HDFS 并启动
+NN 时会创建），同时 2NN 加载 FsImage 到内存里。</li>
 <li>C 向 NN 发写请求。</li>
+<li>NN 写日志。</li>
+<li>2NN 请求创建 CheckPoint。</li>
+<li>NN 滚动日志。</li>
+<li>NN 把日志复制到 2NN，2NN 加载日志到内存里。</li>
+<li>当检查点到时，2NN 合并日志和镜像文件为新的镜像文件
+fsimage.chkpoint。</li>
+<li>2NN 把新的镜像文件复制到 NN，NN 对其重命名为 fsimage。</li>
 </ol>
 <h2 id="dn-的工作机制">DN 的工作机制</h2>
+<ul>
+<li>DN 启动后向 NN 注册。</li>
+<li>DN 每隔一个 <code>dfs.blockreport.intervalMsec</code> 时间向 NN
+上报所有数据块信息。</li>
+<li>DN 每隔一个 <code>dfs.datanode.directoryscan.interval</code>
+时间扫描本地的数据块信息。</li>
+<li>DN 每隔一个 <code>dfs.heartbeat.interval</code> 时间向 NN
+发送心跳信息。</li>
+</ul>
+<p>NN 判定 DN 死亡的超时时长 = 2 ×
+<code>dfs.heartbeat.recheck-interval</code> + 10 ×
+<code>dfs.heartbeat.interval</code></p>
+<p>上面的参数可以在
+<code>$HADOOP_HOME/share/hadoop/hdfs/hadoop-hdfs-3.3.6.jar</code> 里的
+<code>hdfs-default.xml</code> 里查看。其参数可以被
+<code>$HADOOP_HOME/etc/hadoop/hdfs-site.xml</code>
+里设置的同名参数覆盖。</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">

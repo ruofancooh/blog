@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
+<link href="/blog/css/main.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
+<meta content="关键点在于：
+ https://教务系统域名/cjcx/cjcx_cxDgXscj.html?doType=query&amp;gnmkdm=N100801&amp;su=学号
+ 上边那个链接可能适用于各种【正方教务系统】。对它发 POST
+ 请求，然后对返回的 json 的 items 字段转换成 pandas 的
+ DataFrame 处理。
+ COOKIES 是从浏览器发送的 POST
+ 请" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="获取正方教务系统里的成绩信息并对学分求和" property="og:title"/>
+<meta content="https://hrfis.me/blog/UC/d0/index.html" property="og:url"/>
+<meta content="若凡的笔记" property="og:site_name"/>
+<meta content="关键点在于：
+ https://教务系统域名/cjcx/cjcx_cxDgXscj.html?doType=query&amp;gnmkdm=N100801&amp;su=学号
+ 上边那个链接可能适用于各种【正方教务系统】。对它发 POST
+ 请求，然后对返回的 json 的 items 字段转换成 pandas 的
+ DataFrame 处理。
+ COOKIES 是从浏览器发送的 POST
+ 请" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="2023-10-31T14:10:00.000Z" property="article:published_time"/>
+<meta content="2023-10-31T14:10:02.702Z" property="article:modified_time"/>
+<meta content="Ruofan" property="article:author"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://hrfis.me/blog/UC/d0/" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/UC/d0/","path":"/UC/d0/","title":"获取正方教务系统里的成绩信息并对学分求和"}</script>
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>获取正方教务系统里的成绩信息并对学分求和 | 若凡的笔记</title>
+<noscript>
+<link href="/blog/css/noscript.css" rel="stylesheet"/>
+</noscript>
+</head>
+<body itemscope="" itemtype="http://schema.org/WebPage">
+<div class="headband"></div>
+<main class="main">
+<div class="column">
+<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+<div class="site-nav-toggle">
+<div aria-label="切换导航栏" class="toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+</div>
+</div>
+<div class="site-meta">
+<a class="brand" href="/blog/" rel="start">
+<i class="logo-line"></i>
+<p class="site-title">若凡的笔记</p>
+<i class="logo-line"></i>
+</a>
+</div>
+<div class="site-nav-right">
+<div aria-label="搜索" class="toggle popup-trigger" role="button">
+<i class="fa fa-search fa-fw fa-lg"></i>
+</div>
+</div>
+</div>
+<nav class="site-nav">
+<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+<li class="menu-item menu-item-search">
+<a class="popup-trigger" role="button"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+</li>
+</ul>
+</nav>
+<div class="search-pop-overlay">
+<div class="popup search-popup"><div class="search-header">
+<span class="search-icon">
+<i class="fa fa-search"></i>
+</span>
+<div class="search-input-container">
+<input autocapitalize="off" autocomplete="off" class="search-input" maxlength="80" placeholder="搜索..." spellcheck="false" type="search"/>
+</div>
+<span class="popup-btn-close" role="button">
+<i class="fa fa-times-circle"></i>
+</span>
+</div>
+<div class="search-result-container no-result">
+<div class="search-result-icon">
+<i class="fa fa-spinner fa-pulse fa-5x"></i>
+</div>
+</div>
+</div>
+</div>
+</header>
+<aside class="sidebar">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<ul class="sidebar-nav">
+<li class="sidebar-nav-toc">
+          文章目录
+        </li>
+<li class="sidebar-nav-overview">
+          站点概览
+        </li>
+</ul>
+<div class="sidebar-panel-container">
+<!--noindex-->
+<div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">获取数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E7%9A%84-json-%E6%A0%BC%E5%BC%8F%E7%B1%BB%E4%BC%BC"><span class="nav-number">2.</span> <span class="nav-text">返回的 json 格式类似</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE"><span class="nav-number">3.</span> <span class="nav-text">处理数据</span></a></li></ol></div>
+</div>
+<!--/noindex-->
+<div class="site-overview-wrap sidebar-panel">
+<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<p class="site-author-name" itemprop="name">Ruofan</p>
+<div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+<nav class="site-state">
+<div class="site-state-item site-state-posts">
+<a href="/blog/archives/">
+<span class="site-state-item-count">54</span>
+<span class="site-state-item-name">笔记</span>
+</a>
+</div>
+<div class="site-state-item site-state-categories">
+<a href="/blog/categories/">
+<span class="site-state-item-count">7</span>
+<span class="site-state-item-name">分类</span></a>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<div class="main-inner post posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/UC/d0/" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="获取正方教务系统里的成绩信息并对学分求和 | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h1 class="post-title" itemprop="name headline">
+          获取正方教务系统里的成绩信息并对学分求和
+        </h1>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/UC/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody"><p>关键点在于：</p>
+<p>https://教务系统域名/cjcx/cjcx_cxDgXscj.html?doType=query&amp;gnmkdm=N100801&amp;su=学号</p>
+<p>上边那个链接可能适用于各种【正方教务系统】。对它发 POST
+请求，然后对返回的 json 的 <code>items</code> 字段转换成 pandas 的
+DataFrame 处理。</p>
+<p>COOKIES 是从浏览器发送的 POST
+请求头里复制的，想重新获取数据时需要手动重新登录、更新代码。只是相当于简化了【登录之后再从表格获取信息】的这一步。</p>
+<span id="more"></span>
+<h2 id="获取数据">获取数据</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/><span class="line">33</span><br/><span class="line">34</span><br/><span class="line">35</span><br/><span class="line">36</span><br/><span class="line">37</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">class</span> <span class="title class_">Conf</span>:</span><br/><span class="line">    domain_name = <span class="string">"xx.yy.zz"</span></span><br/><span class="line">    student_id = <span class="string">"123456789"</span></span><br/><span class="line">    cookies = (</span><br/><span class="line">        <span class="string">"my_client_ticket=xxxxxx; JSESSIONID=xxxxxx"</span></span><br/><span class="line">    )</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">get_course_grades</span>() -&gt; <span class="literal">None</span>:</span><br/><span class="line">    url = <span class="string">f"https://<span class="subst">{Conf.domain_name}</span>/cjcx/cjcx_cxDgXscj.html?doType=query&amp;gnmkdm=N100801&amp;su=<span class="subst">{Conf.student_id}</span>"</span></span><br/><span class="line">    headers = {</span><br/><span class="line">        <span class="string">"User-Agent"</span>: <span class="string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0"</span>,</span><br/><span class="line">        <span class="string">"Cookie"</span>: Conf.cookies,</span><br/><span class="line">    }</span><br/><span class="line">    form = {</span><br/><span class="line">        <span class="string">"xh_id"</span>: Conf.student_id,</span><br/><span class="line">        <span class="string">"xnm"</span>: <span class="string">""</span>,</span><br/><span class="line">        <span class="string">"xqm"</span>: <span class="string">""</span>,</span><br/><span class="line">        <span class="string">"_search"</span>: <span class="string">"false"</span>,</span><br/><span class="line">        <span class="string">"queryModel.showCount"</span>: <span class="string">"100"</span>,</span><br/><span class="line">        <span class="string">"queryModel.currentPage"</span>: <span class="string">"1"</span>,</span><br/><span class="line">        <span class="string">"queryModel.sortName"</span>: <span class="string">""</span>,</span><br/><span class="line">        <span class="string">"queryModel.sortOrder"</span>: <span class="string">"asc"</span>,</span><br/><span class="line">        <span class="string">"time"</span>: <span class="string">"0"</span>,</span><br/><span class="line">    }</span><br/><span class="line">    response = requests.post(url, headers=headers, data=form)</span><br/><span class="line">    response.encoding = <span class="string">"utf-8"</span></span><br/><span class="line"></span><br/><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">"course_grade.json"</span>, <span class="string">"w"</span>, encoding=<span class="string">"utf-8"</span>) <span class="keyword">as</span> f:</span><br/><span class="line">        f.write(response.text)</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br/><span class="line">    get_course_grades()</span><br/></pre></td></tr></table></figure>
+<h2 id="返回的-json-格式类似">返回的 json 格式类似</h2>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/><span class="line">33</span><br/><span class="line">34</span><br/><span class="line">35</span><br/><span class="line">36</span><br/><span class="line">37</span><br/><span class="line">38</span><br/><span class="line">39</span><br/><span class="line">40</span><br/><span class="line">41</span><br/><span class="line">42</span><br/><span class="line">43</span><br/><span class="line">44</span><br/><span class="line">45</span><br/><span class="line">46</span><br/><span class="line">47</span><br/><span class="line">48</span><br/><span class="line">49</span><br/><span class="line">50</span><br/><span class="line">51</span><br/><span class="line">52</span><br/><span class="line">53</span><br/><span class="line">54</span><br/><span class="line">55</span><br/><span class="line">56</span><br/><span class="line">57</span><br/><span class="line">58</span><br/><span class="line">59</span><br/><span class="line">60</span><br/><span class="line">61</span><br/><span class="line">62</span><br/><span class="line">63</span><br/><span class="line">64</span><br/><span class="line">65</span><br/><span class="line">66</span><br/><span class="line">67</span><br/><span class="line">68</span><br/><span class="line">69</span><br/><span class="line">70</span><br/><span class="line">71</span><br/><span class="line">72</span><br/><span class="line">73</span><br/><span class="line">74</span><br/><span class="line">75</span><br/><span class="line">76</span><br/><span class="line">77</span><br/><span class="line">78</span><br/><span class="line">79</span><br/><span class="line">80</span><br/><span class="line">81</span><br/><span class="line">82</span><br/><span class="line">83</span><br/><span class="line">84</span><br/><span class="line">85</span><br/><span class="line">86</span><br/><span class="line">87</span><br/><span class="line">88</span><br/><span class="line">89</span><br/><span class="line">90</span><br/><span class="line">91</span><br/><span class="line">92</span><br/><span class="line">93</span><br/><span class="line">94</span><br/><span class="line">95</span><br/><span class="line">96</span><br/><span class="line">97</span><br/><span class="line">98</span><br/><span class="line">99</span><br/><span class="line">100</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"currentPage"</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"currentResult"</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"entityOrField"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"items"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br/><span class="line">    <span class="punctuation">{</span></span><br/><span class="line">      <span class="attr">"bfzcj"</span><span class="punctuation">:</span> <span class="string">"80"</span><span class="punctuation">,</span> <span class="comment">//？？？成绩（始终是数字）</span></span><br/><span class="line">      <span class="attr">"bh"</span><span class="punctuation">:</span> <span class="string">"123456"</span><span class="punctuation">,</span> <span class="comment">//班号</span></span><br/><span class="line">      <span class="attr">"bh_id"</span><span class="punctuation">:</span> <span class="string">"xxx"</span><span class="punctuation">,</span> <span class="comment">//班号id</span></span><br/><span class="line">      <span class="attr">"bj"</span><span class="punctuation">:</span> <span class="string">"硬件工程2222"</span><span class="punctuation">,</span> <span class="comment">//班级</span></span><br/><span class="line">      <span class="attr">"cj"</span><span class="punctuation">:</span> <span class="string">"80"</span><span class="punctuation">,</span> <span class="comment">//成绩（也有“合格”的）</span></span><br/><span class="line">      <span class="attr">"cjsfzf"</span><span class="punctuation">:</span> <span class="string">"否"</span><span class="punctuation">,</span> <span class="comment">//成绩是否作废</span></span><br/><span class="line">      <span class="attr">"date"</span><span class="punctuation">:</span> <span class="string">"二○二三年十月三十一日"</span><span class="punctuation">,</span> <span class="comment">//当前日期</span></span><br/><span class="line">      <span class="attr">"dateDigit"</span><span class="punctuation">:</span> <span class="string">"2023年10月31日"</span><span class="punctuation">,</span> <span class="comment">//当前日期</span></span><br/><span class="line">      <span class="attr">"dateDigitSeparator"</span><span class="punctuation">:</span> <span class="string">"2023-10-31"</span><span class="punctuation">,</span> <span class="comment">//当前日期</span></span><br/><span class="line">      <span class="attr">"day"</span><span class="punctuation">:</span> <span class="string">"31"</span><span class="punctuation">,</span> <span class="comment">//当前日</span></span><br/><span class="line">      <span class="attr">"jd"</span><span class="punctuation">:</span> <span class="string">"3.00"</span><span class="punctuation">,</span> <span class="comment">//绩点</span></span><br/><span class="line">      <span class="attr">"jg_id"</span><span class="punctuation">:</span> <span class="string">"15"</span><span class="punctuation">,</span> <span class="comment">//机构id</span></span><br/><span class="line">      <span class="attr">"jgmc"</span><span class="punctuation">:</span> <span class="string">"魔法与机械学院"</span><span class="punctuation">,</span> <span class="comment">//机构名称</span></span><br/><span class="line">      <span class="attr">"jgpxzd"</span><span class="punctuation">:</span> <span class="string">"1"</span><span class="punctuation">,</span> <span class="comment">//我查的都是1</span></span><br/><span class="line">      <span class="attr">"jsxm"</span><span class="punctuation">:</span> <span class="string">"无"</span><span class="punctuation">,</span> <span class="comment">//教师姓名</span></span><br/><span class="line">      <span class="attr">"jxb_id"</span><span class="punctuation">:</span> <span class="string">"xxx"</span><span class="punctuation">,</span> <span class="comment">//教学班id</span></span><br/><span class="line">      <span class="attr">"jxbmc"</span><span class="punctuation">:</span> <span class="string">"(2077-2078-1)-xxxx"</span><span class="punctuation">,</span> <span class="comment">//教学班名称</span></span><br/><span class="line">      <span class="attr">"kcbj"</span><span class="punctuation">:</span> <span class="string">"主修"</span><span class="punctuation">,</span> <span class="comment">//课程？？</span></span><br/><span class="line">      <span class="attr">"kcgsmc"</span><span class="punctuation">:</span> <span class="string">"必修课"</span><span class="punctuation">,</span> <span class="comment">//课程？？名称</span></span><br/><span class="line">      <span class="attr">"kch"</span><span class="punctuation">:</span> <span class="string">"xxxx"</span><span class="punctuation">,</span> <span class="comment">//课程号</span></span><br/><span class="line">      <span class="attr">"kch_id"</span><span class="punctuation">:</span> <span class="string">"xxxx"</span><span class="punctuation">,</span> <span class="comment">//课程号id</span></span><br/><span class="line">      <span class="attr">"kclbmc"</span><span class="punctuation">:</span> <span class="string">"通识课"</span><span class="punctuation">,</span> <span class="comment">//课程？？名称</span></span><br/><span class="line">      <span class="attr">"kcmc"</span><span class="punctuation">:</span> <span class="string">"火星文"</span><span class="punctuation">,</span> <span class="comment">//课程名称</span></span><br/><span class="line">      <span class="attr">"kcxzdm"</span><span class="punctuation">:</span> <span class="string">"13"</span><span class="punctuation">,</span> <span class="comment">//课程性质代码</span></span><br/><span class="line">      <span class="attr">"kcxzmc"</span><span class="punctuation">:</span> <span class="string">"通识必修课"</span><span class="punctuation">,</span> <span class="comment">//课程性质名称</span></span><br/><span class="line">      <span class="attr">"key"</span><span class="punctuation">:</span> <span class="string">"xxx"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"kkbmmc"</span><span class="punctuation">:</span> <span class="string">"外星语学院"</span><span class="punctuation">,</span> <span class="comment">//开课部门名称</span></span><br/><span class="line">      <span class="attr">"ksxz"</span><span class="punctuation">:</span> <span class="string">"正常考试"</span><span class="punctuation">,</span> <span class="comment">//考试性质</span></span><br/><span class="line">      <span class="attr">"ksxzdm"</span><span class="punctuation">:</span> <span class="string">"01"</span><span class="punctuation">,</span> <span class="comment">//考试性质代码</span></span><br/><span class="line">      <span class="attr">"listnav"</span><span class="punctuation">:</span> <span class="string">"false"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"localeKey"</span><span class="punctuation">:</span> <span class="string">"zh_CN"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"month"</span><span class="punctuation">:</span> <span class="string">"10"</span><span class="punctuation">,</span> <span class="comment">//当前月</span></span><br/><span class="line">      <span class="attr">"njdm_id"</span><span class="punctuation">:</span> <span class="string">"2077"</span><span class="punctuation">,</span> <span class="comment">//年级代码id</span></span><br/><span class="line">      <span class="attr">"njmc"</span><span class="punctuation">:</span> <span class="string">"2077"</span><span class="punctuation">,</span> <span class="comment">//年级名称</span></span><br/><span class="line">      <span class="attr">"pageable"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"queryModel"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br/><span class="line">        <span class="attr">"currentPage"</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br/><span class="line">        <span class="attr">"currentResult"</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br/><span class="line">        <span class="attr">"entityOrField"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br/><span class="line">        <span class="attr">"limit"</span><span class="punctuation">:</span> <span class="number">15</span><span class="punctuation">,</span></span><br/><span class="line">        <span class="attr">"offset"</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br/><span class="line">        <span class="attr">"pageNo"</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br/><span class="line">        <span class="attr">"pageSize"</span><span class="punctuation">:</span> <span class="number">15</span><span class="punctuation">,</span></span><br/><span class="line">        <span class="attr">"showCount"</span><span class="punctuation">:</span> <span class="number">10</span><span class="punctuation">,</span></span><br/><span class="line">        <span class="attr">"sorts"</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br/><span class="line">        <span class="attr">"totalCount"</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br/><span class="line">        <span class="attr">"totalPage"</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br/><span class="line">        <span class="attr">"totalResult"</span><span class="punctuation">:</span> <span class="number">0</span></span><br/><span class="line">      <span class="punctuation">}</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"rangeable"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"row_id"</span><span class="punctuation">:</span> <span class="string">"46"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"rwzxs"</span><span class="punctuation">:</span> <span class="string">"48"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"sfdkbcx"</span><span class="punctuation">:</span> <span class="string">"否"</span><span class="punctuation">,</span> <span class="comment">//是否单开班课程</span></span><br/><span class="line">      <span class="attr">"sfxwkc"</span><span class="punctuation">:</span> <span class="string">"否"</span><span class="punctuation">,</span> <span class="comment">//是否？？课程</span></span><br/><span class="line">      <span class="attr">"sfzh"</span><span class="punctuation">:</span> <span class="string">"xxxx"</span><span class="punctuation">,</span> <span class="comment">//身份证号</span></span><br/><span class="line">      <span class="attr">"totalResult"</span><span class="punctuation">:</span> <span class="string">"49"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"userModel"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br/><span class="line">        <span class="attr">"monitor"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br/><span class="line">        <span class="attr">"roleCount"</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br/><span class="line">        <span class="attr">"roleKeys"</span><span class="punctuation">:</span> <span class="string">""</span><span class="punctuation">,</span></span><br/><span class="line">        <span class="attr">"roleValues"</span><span class="punctuation">:</span> <span class="string">""</span><span class="punctuation">,</span></span><br/><span class="line">        <span class="attr">"status"</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br/><span class="line">        <span class="attr">"usable"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br/><span class="line">      <span class="punctuation">}</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"xb"</span><span class="punctuation">:</span> <span class="string">"男"</span><span class="punctuation">,</span> <span class="comment">//性别</span></span><br/><span class="line">      <span class="attr">"xbm"</span><span class="punctuation">:</span> <span class="string">"1"</span><span class="punctuation">,</span> <span class="comment">//性别码</span></span><br/><span class="line">      <span class="attr">"xf"</span><span class="punctuation">:</span> <span class="string">"2.0"</span><span class="punctuation">,</span> <span class="comment">//学分</span></span><br/><span class="line">      <span class="attr">"xfjd"</span><span class="punctuation">:</span> <span class="string">"6.00"</span><span class="punctuation">,</span> <span class="comment">//学分绩点</span></span><br/><span class="line">      <span class="attr">"xh"</span><span class="punctuation">:</span> <span class="string">"123456789"</span><span class="punctuation">,</span> <span class="comment">//学号</span></span><br/><span class="line">      <span class="attr">"xh_id"</span><span class="punctuation">:</span> <span class="string">"xxx"</span><span class="punctuation">,</span> <span class="comment">//学号id</span></span><br/><span class="line">      <span class="attr">"xm"</span><span class="punctuation">:</span> <span class="string">"王二狗"</span><span class="punctuation">,</span> <span class="comment">//姓名</span></span><br/><span class="line">      <span class="attr">"xnm"</span><span class="punctuation">:</span> <span class="string">"2077"</span><span class="punctuation">,</span> <span class="comment">//学年名</span></span><br/><span class="line">      <span class="attr">"xnmmc"</span><span class="punctuation">:</span> <span class="string">"2077-2078"</span><span class="punctuation">,</span> <span class="comment">//学年名名称</span></span><br/><span class="line">      <span class="attr">"xqm"</span><span class="punctuation">:</span> <span class="string">"3"</span><span class="punctuation">,</span> <span class="comment">//学期名</span></span><br/><span class="line">      <span class="attr">"xqmmc"</span><span class="punctuation">:</span> <span class="string">"1"</span><span class="punctuation">,</span> <span class="comment">//学期名名称</span></span><br/><span class="line">      <span class="attr">"xslb"</span><span class="punctuation">:</span> <span class="string">"普通本科生"</span><span class="punctuation">,</span> <span class="comment">//学生？？</span></span><br/><span class="line">      <span class="attr">"year"</span><span class="punctuation">:</span> <span class="string">"2023"</span><span class="punctuation">,</span> <span class="comment">//当前年份</span></span><br/><span class="line">      <span class="attr">"zsxymc"</span><span class="punctuation">:</span> <span class="string">"魔法与机械学院"</span><span class="punctuation">,</span> <span class="comment">//？？学院名称</span></span><br/><span class="line">      <span class="attr">"zyh_id"</span><span class="punctuation">:</span> <span class="string">"xxx"</span><span class="punctuation">,</span> <span class="comment">//专业号id</span></span><br/><span class="line">      <span class="attr">"zymc"</span><span class="punctuation">:</span> <span class="string">"硬件工程"</span> <span class="comment">//专业名称</span></span><br/><span class="line">    <span class="punctuation">}</span></span><br/><span class="line">    <span class="comment">//下一门课……</span></span><br/><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"limit"</span><span class="punctuation">:</span> <span class="number">15</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"offset"</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"pageNo"</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"pageSize"</span><span class="punctuation">:</span> <span class="number">15</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"showCount"</span><span class="punctuation">:</span> <span class="number">100</span><span class="punctuation">,</span> <span class="comment">//这是前面POST的form里传的</span></span><br/><span class="line">  <span class="attr">"sortOrder"</span><span class="punctuation">:</span> <span class="string">" "</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"sorts"</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"totalCount"</span><span class="punctuation">:</span> <span class="number">47</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"totalPage"</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"totalResult"</span><span class="punctuation">:</span> <span class="number">47</span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></table></figure>
+<h2 id="处理数据">处理数据</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/><span class="line">33</span><br/><span class="line">34</span><br/><span class="line">35</span><br/><span class="line">36</span><br/><span class="line">37</span><br/><span class="line">38</span><br/><span class="line">39</span><br/><span class="line">40</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br/><span class="line"></span><br/><span class="line">pd.set_option(<span class="string">"display.unicode.east_asian_width"</span>, <span class="literal">True</span>)</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">"course_grade.json"</span>, <span class="string">"r"</span>, encoding=<span class="string">"utf-8"</span>) <span class="keyword">as</span> f:</span><br/><span class="line">    response_content = json.loads(f.read())</span><br/><span class="line"></span><br/><span class="line">items = response_content[<span class="string">"items"</span>]</span><br/><span class="line">df = pd.DataFrame(items)</span><br/><span class="line"><span class="comment"># print(df.columns)</span></span><br/><span class="line"></span><br/><span class="line">selected_cols = [</span><br/><span class="line">    <span class="string">"bfzcj"</span>,</span><br/><span class="line">    <span class="string">"cj"</span>,</span><br/><span class="line">    <span class="string">"jd"</span>,</span><br/><span class="line">    <span class="string">"kcbj"</span>,</span><br/><span class="line">    <span class="string">"kch"</span>,</span><br/><span class="line">    <span class="string">"kcmc"</span>,</span><br/><span class="line">    <span class="string">"kcxzdm"</span>,</span><br/><span class="line">    <span class="string">"kcxzmc"</span>,</span><br/><span class="line">    <span class="string">"kkbmmc"</span>,</span><br/><span class="line">    <span class="string">"ksxz"</span>,</span><br/><span class="line">    <span class="string">"ksxzdm"</span>,</span><br/><span class="line">    <span class="string">"xf"</span>,</span><br/><span class="line">    <span class="string">"xfjd"</span>,</span><br/><span class="line">    <span class="string">"xqm"</span>,</span><br/><span class="line">    <span class="string">"xqmmc"</span>,</span><br/><span class="line">]</span><br/><span class="line">df1 = df[selected_cols]</span><br/><span class="line"><span class="comment"># df1.to_excel("output.xlsx")</span></span><br/><span class="line"></span><br/><span class="line"><span class="comment"># 所有类型都是字符串，且不及格课程的学分不是0</span></span><br/><span class="line">df1 = df1.astype({<span class="string">"bfzcj"</span>: <span class="built_in">int</span>, <span class="string">"xf"</span>: <span class="built_in">float</span>})</span><br/><span class="line">sum_xf = df1.loc[df1[<span class="string">"bfzcj"</span>] &gt;= <span class="number">60</span>, <span class="string">"xf"</span>].<span class="built_in">sum</span>()</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="built_in">print</span>(df1[[<span class="string">"kcmc"</span>, <span class="string">"bfzcj"</span>, <span class="string">"xf"</span>]])</span><br/><span class="line"><span class="built_in">print</span>(sum_xf)</span><br/></pre></td></tr></table></figure>
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/HD/09/" rel="prev" title="HD09 - HDFS的EditLog和FsImage文件">
+<i class="fa fa-chevron-left"></i> HD09 - HDFS的EditLog和FsImage文件
+                </a>
+</div>
+<div class="post-nav-item">
+</div>
+</div>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
+<div class="copyright">
+<span itemprop="copyrightYear">2023</span>
+<span class="with-love">
+<i class="fa fa-heart"></i>
+</span>
+<span class="author" itemprop="copyrightHolder">Ruofan</span>
+</div>
+</div>
+</footer>
+<div aria-label="返回顶部" class="back-to-top" role="button">
+<i class="fa fa-arrow-up fa-lg"></i>
+<span>0%</span>
+</div>
+<div class="reading-progress-bar"></div>
+<noscript>
+<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
+<script crossorigin="anonymous" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js"></script>
+<script src="/blog/js/third-party/search/local-search.js"></script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+<script src="/blog/js/third-party/tags/mermaid.js"></script>
+<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/blog/js/third-party/math/mathjax.js"></script>
+<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/UC/d0/"}</script>
+<script src="/blog/js/third-party/quicklink.js"></script>
+</body>
+</html>
