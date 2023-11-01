@@ -100,13 +100,13 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">54</span>
+<span class="site-state-item-count">55</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
 <div class="site-state-item site-state-categories">
 <a href="/blog/categories/">
-<span class="site-state-item-count">7</span>
+<span class="site-state-item-count">9</span>
 <span class="site-state-item-name">分类</span></a>
 </div>
 </nav>
@@ -117,6 +117,80 @@
 </aside>
 </div>
 <div class="main-inner index posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
+<link href="https://hrfis.me/blog/CN/06/" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="undefined | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h2 class="post-title" itemprop="name headline">
+<a class="post-title-link" href="/blog/CN/06/" itemprop="url">CN06 - 数据链路层 - 基本问题</a>
+</h2>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/CN/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody">
+<p>物理层没法解决的三个问题：</p>
+<ol type="1">
+<li>发出去之后，哪一方接收</li>
+<li>传输何时开始，何时结束</li>
+<li>判断是否有传输错误</li>
+</ol>
+<p>对应数据链路层的三个基本问题：</p>
+<ol type="1">
+<li>封装成帧（载客）
+<ul>
+<li>帧定界符 SOH、EOT（何时开始和结束）</li>
+</ul></li>
+<li>透明传输（转义特殊字符）
+<ul>
+<li>ESC</li>
+</ul></li>
+<li>差错检测（判断传输是否出错）
+<ul>
+<li>误码率（BER）</li>
+<li>帧检验序列（FCS）的计算：在待传数据后面加上（<span class="math inline">\(P\)</span> 长度减一/生成多项式最高次数）个
+0，然后用 <span class="math inline">\(P\)</span> 去除，得到的余数。</li>
+<li>循环冗余检验（CRC）的方法</li>
+<li>【无比特差错】与【无传输差错】</li>
+</ul></li>
+</ol>
+<p>数据链路层：物理链路+协议与实现协议的软硬件（马路+交通规则）。</p>
+<p>网络适配器（网卡）连接了物理层和数据链路层。</p>
+<!--noindex-->
+<div class="post-button">
+<a class="btn" href="/blog/CN/06/#more" rel="contents">
+                阅读全文 »
+              </a>
+</div>
+<!--/noindex-->
+</div>
+<footer class="post-footer">
+<div class="post-eof"></div>
+</footer>
+</article>
+</div>
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
 <link href="https://hrfis.me/blog/MD/03/" itemprop="mainEntityOfPage"/>
@@ -601,61 +675,6 @@ Hadoop 许多周边项目的形象都是动物，ZooKeeper 就是协调它们工
 <!--noindex-->
 <div class="post-button">
 <a class="btn" href="/blog/HD/01/#more" rel="contents">
-                阅读全文 »
-              </a>
-</div>
-<!--/noindex-->
-</div>
-<footer class="post-footer">
-<div class="post-eof"></div>
-</footer>
-</article>
-</div>
-<div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
-<link href="https://hrfis.me/blog/UC/sp/" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="undefined | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h2 class="post-title" itemprop="name headline">
-<a class="post-title-link" href="/blog/UC/sp/" itemprop="url">用GIMP让拍摄的纸上的字更清晰</a>
-</h2>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/UC/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
-</span>
-</span>
-</div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody">
-<ol start="0" type="1">
-<li><a href="https://www.gimp.org/downloads/" rel="noopener" target="_blank">GIMP</a></li>
-<li>拍摄</li>
-<li>裁剪</li>
-<li><strong>彩色转黑白</strong></li>
-<li><strong>白平衡</strong></li>
-<li>导出图片</li>
-</ol>
-<!--noindex-->
-<div class="post-button">
-<a class="btn" href="/blog/UC/sp/#more" rel="contents">
                 阅读全文 »
               </a>
 </div>

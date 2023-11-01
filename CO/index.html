@@ -8,25 +8,17 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
-<meta content="起因是想验证浮点数的存储方式。
- 这个网站可以实现普通十进制数与
- IEEE 754 浮点数的相互转换。" name="description"/>
-<meta content="article" property="og:type"/>
-<meta content="用GDB查看变量内存" property="og:title"/>
-<meta content="https://hrfis.me/blog/UC/gd/index.html" property="og:url"/>
+<meta content="website" property="og:type"/>
+<meta content="若凡的笔记" property="og:title"/>
+<meta content="https://hrfis.me/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="起因是想验证浮点数的存储方式。
- 这个网站可以实现普通十进制数与
- IEEE 754 浮点数的相互转换。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-08-23T08:30:00.000Z" property="article:published_time"/>
-<meta content="2023-09-29T13:12:46.187Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/UC/gd/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/UC/gd/","path":"/UC/gd/","title":"用GDB查看变量内存"}</script>
+<link href="https://hrfis.me/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"categories/计算机组成原理/index.html","title":""}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>用GDB查看变量内存 | 若凡的笔记</title>
+<title>分类: 计算机组成原理 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -108,13 +100,13 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">54</span>
+<span class="site-state-item-count">55</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
 <div class="site-state-item site-state-categories">
 <a href="/blog/categories/">
-<span class="site-state-item-count">7</span>
+<span class="site-state-item-count">9</span>
 <span class="site-state-item-name">分类</span></a>
 </div>
 </nav>
@@ -124,92 +116,60 @@
 </div>
 </aside>
 </div>
-<div class="main-inner post posts-expand">
+<div class="main-inner category posts-collapse">
 <div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/UC/gd/" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="用GDB查看变量内存 | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
+<div class="post-content">
+<div class="collection-title">
+<h1 class="collection-header">计算机组成原理
+          <small>分类</small>
+</h1>
+</div>
+<div class="collection-year">
+<span class="collection-header">2023</span>
+</div>
+<article itemscope="" itemtype="http://schema.org/Article">
 <header class="post-header">
-<h1 class="post-title" itemprop="name headline">
-          用GDB查看变量内存
-        </h1>
 <div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/UC/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
-</span>
-</span>
+<time content="2023-08-24" datetime="2023-08-24T15:10:00+08:00" itemprop="dateCreated">
+          08-24
+        </time>
 </div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody"><p>起因是想验证浮点数的存储方式。</p>
-<p><a href="https://baseconvert.com/ieee-754-floating-point" rel="noopener" target="_blank">这个网站</a>可以实现普通十进制数与
-IEEE 754 浮点数的相互转换。</p>
-<span id="more"></span>
-<p>示例程序：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br/><span class="line"></span><br/><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br/><span class="line">{</span><br/><span class="line">    <span class="type">float</span> num = <span class="number">1.7</span>;</span><br/><span class="line">    <span class="built_in">printf</span>(<span class="string">""</span>);</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
-<p>在第六行打上断点，VSCode 开调试，在调试控制台里：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/4tb &amp;num</span><br/></pre></td></tr></table></figure>
-<ul>
-<li><code>-exec</code> 执行命令</li>
-<li><code>x</code> 查看内存</li>
-<li><code>4</code> 输出 4 个单元
-<ul>
-<li>不写默认为 <code>1</code></li>
-</ul></li>
-<li><code>t</code> 以二进制形式输出
-<ul>
-<li><code>x</code> 十六进制</li>
-</ul></li>
-<li><code>b</code> 以【一个字节】为一个单元
-<ul>
-<li><code>h</code> 两个字节</li>
-<li><code>w</code> 四个字节</li>
-<li><code>g</code> 八个字节</li>
-</ul></li>
-<li><code>&amp;</code>取变量地址</li>
-</ul>
-<p>输出结果：</p>
-<p><code>0x61fe1c: 10011010 10011001 11011001 00111111</code></p>
-<p>从右往左排列后：</p>
-<p><code>00111111 11011001 10011001 10011010</code></p>
-<p>才是<code>float 1.7</code>的二进制表示。</p>
-<p>还可以直接用</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/tw &amp;num</span><br/></pre></td></tr></table></figure>
-<p>输出四个字节，结果：</p>
-<p><code>0x61fe1c: 00111111110110011001100110011010</code></p>
-</div>
-<footer class="post-footer">
-<div class="post-nav">
-<div class="post-nav-item">
-<a href="/blog/UC/2k/" rel="prev" title="十进制与K进制小数互转">
-<i class="fa fa-chevron-left"></i> 十进制与K进制小数互转
-                </a>
-</div>
-<div class="post-nav-item">
-<a href="/blog/UC/bs/" rel="next" title="用browser-sync实现在文件内容改变后立即刷新页面">
-                  用browser-sync实现在文件内容改变后立即刷新页面 <i class="fa fa-chevron-right"></i>
+<div class="post-title">
+<a class="post-title-link" href="/blog/CO/10-to-float/" itemprop="url">
+<span itemprop="name">普通十进制数转单精度浮点数</span>
 </a>
 </div>
-</div>
-</footer>
+</header>
 </article>
+<article itemscope="" itemtype="http://schema.org/Article">
+<header class="post-header">
+<div class="post-meta-container">
+<time content="2023-08-23" datetime="2023-08-23T16:30:00+08:00" itemprop="dateCreated">
+          08-23
+        </time>
+</div>
+<div class="post-title">
+<a class="post-title-link" href="/blog/CO/gdb/" itemprop="url">
+<span itemprop="name">用GDB查看变量内存</span>
+</a>
+</div>
+</header>
+</article>
+<article itemscope="" itemtype="http://schema.org/Article">
+<header class="post-header">
+<div class="post-meta-container">
+<time content="2023-08-19" datetime="2023-08-19T20:56:00+08:00" itemprop="dateCreated">
+          08-19
+        </time>
+</div>
+<div class="post-title">
+<a class="post-title-link" href="/blog/CO/10-to-k/" itemprop="url">
+<span itemprop="name">十进制与K进制小数互转</span>
+</a>
+</div>
+</header>
+</article>
+</div>
 </div>
 </div>
 </main>
@@ -242,7 +202,7 @@ IEEE 754 浮点数的相互转换。</p>
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/UC/gd/"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>

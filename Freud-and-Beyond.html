@@ -8,23 +8,21 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
-<meta content="能指和所指
- C 语言中的指针" name="description"/>
+<meta content="如题" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="能指和所指" property="og:title"/>
-<meta content="https://hrfis.me/blog/UC/ss/index.html" property="og:url"/>
+<meta content="《弗洛伊德及其后继者——现代精神分析思想史》读书笔记" property="og:title"/>
+<meta content="https://hrfis.me/blog/Freud-and-Beyond.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="能指和所指
- C 语言中的指针" property="og:description"/>
+<meta content="如题" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-09-05T09:50:00.000Z" property="article:published_time"/>
-<meta content="2023-10-28T09:42:26.943Z" property="article:modified_time"/>
+<meta content="2023-11-01T05:55:29.000Z" property="article:published_time"/>
+<meta content="2023-11-01T09:16:13.084Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/UC/ss/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/UC/ss/","path":"/UC/ss/","title":"能指和所指"}</script>
+<link href="https://hrfis.me/blog/Freud-and-Beyond" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/Freud-and-Beyond.html","path":"/Freud-and-Beyond.html","title":"《弗洛伊德及其后继者——现代精神分析思想史》读书笔记"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>能指和所指 | 若凡的笔记</title>
+<title>《弗洛伊德及其后继者——现代精神分析思想史》读书笔记 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -95,7 +93,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%BD%E6%8C%87%E5%92%8C%E6%89%80%E6%8C%87"><span class="nav-number">1.</span> <span class="nav-text">能指和所指</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-%E8%AF%AD%E8%A8%80%E4%B8%AD%E7%9A%84%E6%8C%87%E9%92%88"><span class="nav-number">2.</span> <span class="nav-text">C 语言中的指针</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E5%8F%98%E9%87%8F"><span class="nav-number">2.1.</span> <span class="nav-text">普通变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E5%8F%98%E9%87%8F"><span class="nav-number">2.2.</span> <span class="nav-text">指针变量</span></a></li></ol></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%A1%E4%BE%8B"><span class="nav-number">1.</span> <span class="nav-text">凡例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%95%E4%B8%BA%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">何为精神分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93%E4%BB%A3%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">当代精神分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A5%BF%E6%A0%BC%E8%92%99%E5%BE%B7%E5%BC%97%E6%B4%9B%E4%BC%8A%E5%BE%B7%E4%B8%8E%E7%BB%8F%E5%85%B8%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%E4%BC%A0%E7%BB%9F"><span class="nav-number">4.</span> <span class="nav-text">西格蒙德·弗洛伊德与经典精神分析传统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E5%A4%A7%E8%84%91%E5%88%B0%E5%BF%83%E7%81%B5"><span class="nav-number">4.1.</span> <span class="nav-text">从大脑到心灵</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -107,13 +105,13 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">54</span>
+<span class="site-state-item-count">55</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
 <div class="site-state-item site-state-categories">
 <a href="/blog/categories/">
-<span class="site-state-item-count">7</span>
+<span class="site-state-item-count">9</span>
 <span class="site-state-item-name">分类</span></a>
 </div>
 </nav>
@@ -126,7 +124,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/UC/ss/" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/Freud-and-Beyond.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -136,12 +134,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="能指和所指 | 若凡的笔记" itemprop="name"/>
+<meta content="《弗洛伊德及其后继者——现代精神分析思想史》读书笔记 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          能指和所指
+          《弗洛伊德及其后继者——现代精神分析思想史》读书笔记
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -151,60 +149,67 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/UC/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
+<a href="/blog/M/" itemprop="url" rel="index"><span itemprop="name">音乐</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><ul>
-<li>能指和所指</li>
-<li>C 语言中的指针</li>
-</ul>
+<div class="post-body" itemprop="articleBody"><p>如题</p>
 <span id="more"></span>
-<h2 id="能指和所指">能指和所指</h2>
-<p>能指就是符号，所指就是符号所指向的意义。</p>
-<p>能指是【生】，所指是【诞生、生物、生活、不成熟、不熟悉、从业者<code>-ist</code>……】。</p>
-<p>能指是变量名，所指是变量值。</p>
-<p>变量名可以被重新赋值，就是老子说的“非常名”。</p>
-<p>简单点说就是【一词多义】【古今异义】【结合上下文理解】</p>
-<h2 id="c-语言中的指针">C 语言中的指针</h2>
-<h3 id="普通变量">普通变量</h3>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> num = <span class="number">100</span>;</span><br/></pre></td></tr></table></figure>
-<p>变量类型<code>int</code>，变量名<code>num</code>-&gt;变量值<code>100</code>。</p>
-<p>普通变量名已经有一层指向了。</p>
-<h3 id="指针变量">指针变量</h3>
-<p>用于专门存放内存地址（值的位置）的变量，叫指针。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>* ptr = &amp;num;</span><br/></pre></td></tr></table></figure>
-<p>变量类型<code>int*</code>，变量名<code>ptr</code>-&gt;变量值<code>num-&gt;100的内存地址</code></p>
-<p><code>&amp;num</code>，就是获取<code>num</code>值的位置。</p>
+<h2 id="凡例">凡例</h2>
+<blockquote>
+<p>引用原文</p>
+</blockquote>
+<p>【自己的注】</p>
+<p>其他都是对原文的演绎。</p>
+<h2 id="何为精神分析">何为精神分析</h2>
+<p>精神分析是一种心理治疗的方式，是一种学派。</p>
+<p>精神分析的过程：</p>
 <ul>
-<li><code>&amp;</code>一个变量名，就是获取变量名的值的地址。简称取地址。</li>
-<li><code>*</code>一个变量名，就是获取变量名的值（只对指针有效）。简称访问地址。</li>
-<li><code>*&amp;</code>一个变量名就是先<code>&amp;</code>后<code>*</code>（两个运算符优先级相同，且都是右结合）。
-<ul>
-<li>先取地址，后访问地址，和单独使用变量名效果一样。</li>
-</ul></li>
-<li><code>&amp;</code>一个指针变量名，就是获取指针变量值本身的位置（存放<code>num</code>地址值的地址）。</li>
+<li>把模糊不清的体验细化</li>
+<li>把片段的回忆和感受进行整合，并赋予能用语言描述出来的意义</li>
 </ul>
-<p>还可以创建二级指针，就是指向指针的指针：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>** pptr = &amp;ptr;</span><br/></pre></td></tr></table></figure>
-<ul>
-<li><code>pptr</code>变量名指向某一个地址，这个地址处记录着<code>ptr</code>的地址</li>
-<li><code>ptr</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的地址</li>
-<li><code>num</code>变量名指向某一个地址，这个地址处记录着<code>num</code>的值<code>100</code></li>
-</ul>
+<p>【反卷积 + MapReduce】</p>
+<blockquote>
+<p>人们有时创造出新词来传达旧的观点，以便夸大差异，从而宣称自己具有原创性。有时，人们又把旧的语言扩展，用来传达新的观点，以便夸大相同点，从而宣称自己保持了连续性。（12
+页）</p>
+</blockquote>
+<p>精神分析的目标是解决心理冲突。</p>
+<h2 id="当代精神分析">当代精神分析</h2>
+<p>弗洛伊德创立了精神分析学，就像牛顿创立了牛顿力学。</p>
+<p>后人对其取“精华”（客体关系理论、自体心理学），去“糟粕”（本能驱力、俄狄浦斯情结的核心重要性、性和攻击在动机中的首要地位）之后，进一步发展。</p>
+<p>精神分析这个学派始终在努力扩展和重新界定自身。</p>
+<h2 id="西格蒙德弗洛伊德与经典精神分析传统">西格蒙德·弗洛伊德与经典精神分析传统</h2>
+<p>1873 年，弗洛伊德 17
+岁，当时德国的考古学家谢里曼通过拼凑零碎的历史文献，确定了古代城市特洛伊位于现在土耳其的沿海平原。这激发了弗洛伊德的想象力，他的挖掘之处不是土地，而是病人的心灵。</p>
+<p>【弗洛伊德是奥地利人。维也纳从二战结束后的 1945 年开始，每年都有<a href="https://tv.cctv.com/special/Vienna2023/index.shtml" rel="noopener" target="_blank">新年音乐会</a>】</p>
+<h3 id="从大脑到心灵">从大脑到心灵</h3>
+<p>弗洛伊德毕业于医学院校，最初是神经心理学的研究者。刚开始他认为癔症是大脑神经出了问题，直到看到同行通过催眠暗示引导出了病人原先并不存在的癔症，还可以通过暗示暂时解除症状。问题的根源在于想法，而不是神经。</p>
+<p>【不是你大脑的哪根筋（神经）出了问题，是灵魂（心灵）（想法）出了问题。和西药/中药、细节/整体、白盒测试/黑盒测试、药物治疗/谈话治疗的区别差不多】</p>
+<blockquote>
+<p>为什么心灵中的某些想法会变得和普通想法如此不同呢？一些想法是怎样变得自己无法知道的呢？它们是怎样具有造成如此严重破坏的能力的呢？</p>
+</blockquote>
+<p>弗洛伊德的第一个合作者，布洛伊尔，一位维也纳内科医生尝试回答这些问题。他接触过的一个病人认为水是剧毒的，通过布洛伊尔的催眠暗示，病人回想起了她之前看到了“她一个关系不太好的闺蜜的狗”正在舔杯子里的水。出于礼貌，她对医生隐瞒了此事。在催眠状态下释放情绪后，症状消失了。布洛伊尔把这些经验告诉了弗洛伊德，两人在
+1893 年出版了第一篇精神分析论文《一份初步交流》：</p>
+<blockquote>
+<p>癔症是由于被抑制的回忆以及有关的情感所造成的。这些回忆与情感从未以正常方式被经历；他们与心灵的其他部分割裂，结果积累恶化，以破坏性的而且似乎是无法解释的症状形式在表面浮现出来。如果追溯这些症状的源头，症状的意义就会变得清晰，情感就会在大量宣泄中得以释放。然后症状就会消失。</p>
+</blockquote>
+<p>这些最初的临床发现引出了一个问题：为什么某些经历会引发魂不守舍？</p>
+<p>布洛伊尔提出，当人在过度疲劳、压力过大时，会进入一种“催眠样状态”，在这种状态下的经历无法被整合进“正常状态”。通过催眠并鼓励病人重新回忆后，分裂就愈合了。他认为，或许某些人比其他人更容易进入催眠样状态，因此更容易成为癔症患者。</p>
+<p>而弗洛伊德认为，魂不守舍并不是因为意识改变了状态，而是这些被解离的回忆和情感是和意识的其余部分冲突的，和意识的其余部分不相容，因此被主动排除在意识觉察之外。</p>
+<p>前者认为癔症患者是意识状态容易改变的，变得“被隔开”的人。后者认为癔症患者是充满冲突、向自己和他人隐瞒秘密的人。</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/JA/00/" rel="prev" title="JA00 - 准备">
-<i class="fa fa-chevron-left"></i> JA00 - 准备
+<a href="/blog/UC/d0/" rel="prev" title="获取正方教务系统里的成绩信息并对学分求和">
+<i class="fa fa-chevron-left"></i> 获取正方教务系统里的成绩信息并对学分求和
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/MD/00/" rel="next" title="MD00 - 准备与基本操作">
-                  MD00 - 准备与基本操作 <i class="fa fa-chevron-right"></i>
+<a href="/blog/CN/0A/" rel="next" title="CN0A - 网络层 - 杂项概念">
+                  CN0A - 网络层 - 杂项概念 <i class="fa fa-chevron-right"></i>
 </a>
 </div>
 </div>
@@ -242,7 +247,7 @@
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/UC/ss/"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/Freud-and-Beyond.html"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
