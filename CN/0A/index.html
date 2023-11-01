@@ -16,7 +16,7 @@
 <meta content="杂项概念" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-11-01T08:30:00.000Z" property="article:published_time"/>
-<meta content="2023-10-31T14:59:05.214Z" property="article:modified_time"/>
+<meta content="2023-11-01T13:57:13.068Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/CN/0A/" rel="canonical"/>
@@ -93,7 +93,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.</span> <span class="nav-text">两种服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E5%B1%82%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">两个层面</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.</span> <span class="nav-text">两种服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E5%B1%82%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">两个层面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E8%A1%A8%E5%92%8C%E8%BD%AC%E5%8F%91%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text">路由表和转发表</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -105,7 +105,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">55</span>
+<span class="site-state-item-count">56</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -166,6 +166,10 @@
 </ul>
 <p>现在用数据报服务。</p>
 <h2 id="两个层面">两个层面</h2>
+<p>在路由器之间有两类传送的信息：分组数据和路由数据。</p>
+<p>于是把网络层抽象地划分为“数据层面”和“控制层面”。</p>
+<p>在数据层面（或者说转发层面），每个路由器独立地通过本机的转发表转发分组。在控制层面，多个路由器协同动作创建路由表。</p>
+<h2 id="路由表和转发表">路由表和转发表</h2>
 </div>
 <footer class="post-footer">
 <div class="post-nav">

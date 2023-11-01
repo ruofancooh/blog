@@ -8,17 +8,29 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
-<meta content="website" property="og:type"/>
-<meta content="若凡的笔记" property="og:title"/>
-<meta content="https://hrfis.me/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/index.html" property="og:url"/>
+<meta content="MR 是一个分布式计算程序的编程框架，是用户开发基于 Hadoop
+ 的数据分析应用程序的核心框架。
+ MR
+ 的核心功能是将用户编写的业务逻辑代码和自带的默认组件整合成一个完整的分布式计算程序，并将其并发运行在一个
+ Hadoop 集群上。" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="HD0A - MapReduce概述" property="og:title"/>
+<meta content="https://hrfis.me/blog/HD/0A/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
+<meta content="MR 是一个分布式计算程序的编程框架，是用户开发基于 Hadoop
+ 的数据分析应用程序的核心框架。
+ MR
+ 的核心功能是将用户编写的业务逻辑代码和自带的默认组件整合成一个完整的分布式计算程序，并将其并发运行在一个
+ Hadoop 集群上。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
+<meta content="2023-11-01T13:47:00.000Z" property="article:published_time"/>
+<meta content="2023-11-01T13:46:07.501Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"categories/计算机组成原理/index.html","title":""}</script>
+<link href="https://hrfis.me/blog/HD/0A/" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/HD/0A/","path":"/HD/0A/","title":"HD0A - MapReduce概述"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>分类: 计算机组成原理 | 若凡的笔记</title>
+<title>HD0A - MapReduce概述 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -77,7 +89,7 @@
 </div>
 </header>
 <aside class="sidebar">
-<div class="sidebar-inner sidebar-overview-active">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
 <ul class="sidebar-nav">
 <li class="sidebar-nav-toc">
           文章目录
@@ -89,6 +101,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mr-%E7%9A%84%E4%BC%98%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">MR 的优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr-%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">MR 的缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr-%E7%9A%84%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="nav-number">3.</span> <span class="nav-text">MR 的核心思想</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -116,60 +129,80 @@
 </div>
 </aside>
 </div>
-<div class="main-inner category posts-collapse">
+<div class="main-inner post posts-expand">
 <div class="post-block">
-<div class="post-content">
-<div class="collection-title">
-<h1 class="collection-header">计算机组成原理
-          <small>分类</small>
-</h1>
-</div>
-<div class="collection-year">
-<span class="collection-header">2023</span>
-</div>
-<article itemscope="" itemtype="http://schema.org/Article">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/HD/0A/" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="HD0A - MapReduce概述 | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
 <header class="post-header">
+<h1 class="post-title" itemprop="name headline">
+          HD0A - MapReduce概述
+        </h1>
 <div class="post-meta-container">
-<time content="2023-08-24" datetime="2023-08-24T15:10:00+08:00" itemprop="dateCreated">
-          08-24
-        </time>
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+</span>
+</span>
 </div>
-<div class="post-title">
-<a class="post-title-link" href="/blog/CO/10-to-float/" itemprop="url">
-<span itemprop="name">普通十进制数转单精度浮点数</span>
-</a>
 </div>
 </header>
+<div class="post-body" itemprop="articleBody"><p>MR 是一个分布式计算程序的编程框架，是用户开发基于 Hadoop
+的数据分析应用程序的核心框架。</p>
+<p>MR
+的核心功能是将用户编写的业务逻辑代码和自带的默认组件整合成一个完整的分布式计算程序，并将其并发运行在一个
+Hadoop 集群上。</p>
+<span id="more"></span>
+<h2 id="mr-的优点">MR 的优点</h2>
+<ul>
+<li>易于编写一个分布式计算程序【像“编写一个串行程序一样简单”，MR
+的接口都写好了，相当于库函数，或者相当于 C 对汇编的封装】</li>
+<li>良好的扩展性【硬件性能不够？直接加节点】</li>
+<li>高容错性【节点挂了？甩给其他节点接盘】</li>
+<li>适合 PB 级以上数据的离线处理【TB 的后一个数量级，一百万 GB】</li>
+</ul>
+<h2 id="mr-的缺点">MR 的缺点</h2>
+<ul>
+<li>不擅长实时计算，返回结果的速度相对慢【高射炮打蚊子】</li>
+<li>不擅长流式计算【不能在消化的同时吃东西】</li>
+<li>不擅长有向无环图（DAG）计算【多个应用程序之间相联系，前一个程序的输出是后一个程序的输入，这时
+MR 不是不能计算，而是会造成大量的磁盘 I/O。因为每个 MR
+运行完之后都会写磁盘】</li>
+</ul>
+<h2 id="mr-的核心思想">MR 的核心思想</h2>
+<p>映射（map）和规约（reduce）。分而治之。</p>
+<p>MR 编程模型包含且只包含一个 map 阶段和一个 reduce 阶段。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"> /------[]------\</span><br/><span class="line">&lt;-------[]-------&gt;</span><br/><span class="line"> \------[]------/</span><br/></pre></td></tr></table></figure>
+<p>还有一个 MRAppMaster 进程，负责 MR 的调度。</p>
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/CN/0B/" rel="prev" title="CN0B - 网络层 - IP地址">
+<i class="fa fa-chevron-left"></i> CN0B - 网络层 - IP地址
+                </a>
+</div>
+<div class="post-nav-item">
+</div>
+</div>
+</footer>
 </article>
-<article itemscope="" itemtype="http://schema.org/Article">
-<header class="post-header">
-<div class="post-meta-container">
-<time content="2023-08-23" datetime="2023-08-23T16:30:00+08:00" itemprop="dateCreated">
-          08-23
-        </time>
-</div>
-<div class="post-title">
-<a class="post-title-link" href="/blog/CO/gdb/" itemprop="url">
-<span itemprop="name">用GDB查看变量内存</span>
-</a>
-</div>
-</header>
-</article>
-<article itemscope="" itemtype="http://schema.org/Article">
-<header class="post-header">
-<div class="post-meta-container">
-<time content="2023-08-19" datetime="2023-08-19T20:56:00+08:00" itemprop="dateCreated">
-          08-19
-        </time>
-</div>
-<div class="post-title">
-<a class="post-title-link" href="/blog/CO/10-to-k/" itemprop="url">
-<span itemprop="name">十进制与K进制小数互转</span>
-</a>
-</div>
-</header>
-</article>
-</div>
 </div>
 </div>
 </main>
@@ -202,7 +235,7 @@
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/HD/0A/"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>

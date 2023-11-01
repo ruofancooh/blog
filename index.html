@@ -100,7 +100,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">55</span>
+<span class="site-state-item-count">56</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -117,6 +117,58 @@
 </aside>
 </div>
 <div class="main-inner index posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
+<link href="https://hrfis.me/blog/HD/0A/" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="undefined | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h2 class="post-title" itemprop="name headline">
+<a class="post-title-link" href="/blog/HD/0A/" itemprop="url">HD0A - MapReduce概述</a>
+</h2>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody">
+<p>MR 是一个分布式计算程序的编程框架，是用户开发基于 Hadoop
+的数据分析应用程序的核心框架。</p>
+<p>MR
+的核心功能是将用户编写的业务逻辑代码和自带的默认组件整合成一个完整的分布式计算程序，并将其并发运行在一个
+Hadoop 集群上。</p>
+<!--noindex-->
+<div class="post-button">
+<a class="btn" href="/blog/HD/0A/#more" rel="contents">
+                阅读全文 »
+              </a>
+</div>
+<!--/noindex-->
+</div>
+<footer class="post-footer">
+<div class="post-eof"></div>
+</footer>
+</article>
+</div>
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
 <link href="https://hrfis.me/blog/CN/0B/" itemprop="mainEntityOfPage"/>
@@ -597,77 +649,6 @@ CSMA/CD 协议。
 <!--noindex-->
 <div class="post-button">
 <a class="btn" href="/blog/CN/09/#more" rel="contents">
-                阅读全文 »
-              </a>
-</div>
-<!--/noindex-->
-</div>
-<footer class="post-footer">
-<div class="post-eof"></div>
-</footer>
-</article>
-</div>
-<div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
-<link href="https://hrfis.me/blog/CN/08/" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="undefined | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h2 class="post-title" itemprop="name headline">
-<a class="post-title-link" href="/blog/CN/08/" itemprop="url">CN08 - 数据链路层 - CSMA／CD协议</a>
-</h2>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/CN/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
-</span>
-</span>
-</div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody">
-<ul>
-<li>CSMA/CD：Carrier Sense Multiple Access with Collision
-Detection，载波监听多址接入/碰撞检测协议。以太网用的。
-<ul>
-<li>使用曼彻斯特编码（中心始终跳变，01
-为跳变方向不同），频带宽度比基带信号增加一倍。</li>
-<li>多点接入：多台计算机连在一根总线上：多个人在同一个房间。</li>
-<li>载波（载体）监听：每个站都不停地检测信道：在说话前和说话中听别人有没有说话。</li>
-<li>碰撞检测：检测信号电压：听到了自己和其他人同时说话的声音。</li>
-<li>一个站不能同时发送和接收：人不能同时（并行）听懂和说明白。半双工（双向交替通信）。</li>
-<li>是无连接的协议：一群人头脑风暴。</li>
-<li>碰撞的过程。</li>
-<li>计算碰撞后重传的等待时间：截断二进制指数退避。用 r 乘争用期。</li>
-</ul></li>
-<li><a href="/blog/CN/09">以太网</a>
-<ul>
-<li>以太网的信道利用率</li>
-<li>争用期规定为 <span class="math inline">\(51.2 \mathrm{\mu
-s}\)</span>，如果在这段时间内没有检测到碰撞，后续就不会碰撞。</li>
-<li>帧间最小间隔为 <span class="math inline">\(9.6 \mathrm{\mu
-s}\)</span></li>
-<li>最短帧长 = 争用期 × 带宽。</li>
-</ul></li>
-</ul>
-<!--noindex-->
-<div class="post-button">
-<a class="btn" href="/blog/CN/08/#more" rel="contents">
                 阅读全文 »
               </a>
 </div>
