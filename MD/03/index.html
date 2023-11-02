@@ -8,15 +8,27 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
-<meta content="就是把多个操作组合到一起。" name="description"/>
+<meta content="就是把多个操作组合到一起。
+ 
+ 官方文档
+ 官方文档-操作符
+ 
+ aggregate([]) 列表里可加多个
+ &amp;#123;$操作符&amp;#125;。" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="MD03 - 聚合管道操作" property="og:title"/>
 <meta content="https://hrfis.me/blog/MD/03/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="就是把多个操作组合到一起。" property="og:description"/>
+<meta content="就是把多个操作组合到一起。
+ 
+ 官方文档
+ 官方文档-操作符
+ 
+ aggregate([]) 列表里可加多个
+ &amp;#123;$操作符&amp;#125;。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-09-26T09:50:00.000Z" property="article:published_time"/>
-<meta content="2023-09-29T06:59:00.870Z" property="article:modified_time"/>
+<meta content="2023-11-02T07:36:00.160Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/MD/03/" rel="canonical"/>
@@ -93,7 +105,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E6%9F%90%E4%B8%AA%E9%94%AE%E7%9A%84%E5%80%BC%E6%8E%92%E5%BA%8F%E8%BE%93%E5%87%BA"><span class="nav-number">1.</span> <span class="nav-text">按某个键的值排序输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%96%87%E6%A1%A3%E4%B8%AA%E6%95%B0%E9%99%90%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">输出文档个数限制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%B3%E8%BF%87%E5%AF%B9%E5%89%8D-x-%E4%B8%AA%E6%96%87%E6%A1%A3%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">跳过对前 x 个文档的操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E6%9F%90%E4%B8%AA%E9%94%AE%E5%88%86%E7%BB%84%E5%AF%B9%E6%9F%90%E4%B8%80%E5%88%86%E7%BB%84%E7%9A%84%E6%9F%90%E4%B8%80%E5%AD%97%E6%AE%B5%E6%B1%82%E5%92%8C"><span class="nav-number">4.</span> <span class="nav-text">按某个键分组，对某一分组的某一字段求和</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E6%9F%90%E4%B8%AA%E9%94%AE%E7%9A%84%E5%80%BC%E6%8E%92%E5%BA%8F%E8%BE%93%E5%87%BA"><span class="nav-number">1.</span> <span class="nav-text">按某个键的值排序输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%96%87%E6%A1%A3%E4%B8%AA%E6%95%B0%E9%99%90%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">输出文档个数限制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%B3%E8%BF%87%E5%AF%B9%E5%89%8D-x-%E4%B8%AA%E6%96%87%E6%A1%A3%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">跳过对前 x 个文档的操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E6%9F%90%E4%B8%AA%E9%94%AE%E5%88%86%E7%BB%84%E5%AF%B9%E5%90%84%E4%B8%AA%E5%88%86%E7%BB%84%E7%9A%84%E6%9F%90%E4%B8%80%E5%AD%97%E6%AE%B5%E6%B1%82%E5%92%8C"><span class="nav-number">4.</span> <span class="nav-text">按某个键分组，对各个分组的某一字段求和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%88%AB%E8%BF%9B%E8%A1%8C%E4%B8%A4%E7%BB%84%E6%93%8D%E4%BD%9C"><span class="nav-number">5.</span> <span class="nav-text">分别进行两组操作</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -156,9 +168,13 @@
 </div>
 </header>
 <div class="post-body" itemprop="articleBody"><p>就是把多个操作组合到一起。</p>
-<span id="more"></span>
+<ul>
+<li><a href="https://www.mongodb.com/docs/manual/core/aggregation-pipeline/" rel="noopener" target="_blank">官方文档</a></li>
+<li><a href="https://www.mongodb.com/docs/v7.0/reference/operator/aggregation-pipeline/" rel="noopener" target="_blank">官方文档-操作符</a></li>
+</ul>
 <p><code>aggregate([])</code> 列表里可加多个
 <code>{$操作符}</code>。</p>
+<span id="more"></span>
 <h2 id="按某个键的值排序输出">按某个键的值排序输出</h2>
 <ul>
 <li><code>$sort:{}</code></li>
@@ -166,7 +182,7 @@
 <p>按 "_id" 升序输出（-1 就是降序）：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">db.<span class="property">bookorder</span>.<span class="title function_">aggregate</span>([{ <span class="attr">$sort</span>: { <span class="attr">_id</span>: <span class="number">1</span> } }]);</span><br/></pre></td></tr></table></figure>
 <p>只是输出，并不会在原集合里排序。</p>
-<p>对于汉字之类的是按 Unicode，而不是拼音。<a href="https://symbl.cc/cn/" rel="noopener" target="_blank">这个网站</a>可以查 Unicode。</p>
+<p>对于汉字之类的大概是按 Unicode，而不是拼音。<a href="https://symbl.cc/cn/" rel="noopener" target="_blank">这个网站</a>可以查 Unicode。</p>
 <h2 id="输出文档个数限制">输出文档个数限制</h2>
 <ul>
 <li><code>$limit:</code></li>
@@ -177,9 +193,12 @@
 <li><code>$skip:</code></li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">db.<span class="property">bookorder</span>.<span class="title function_">aggregate</span>([{ <span class="attr">$sort</span>: { <span class="attr">_id</span>: <span class="number">1</span> } }, { <span class="attr">$skip</span>: <span class="number">3</span> }, { <span class="attr">$limit</span>: <span class="number">2</span> }]);</span><br/></pre></td></tr></table></figure>
-<h2 id="按某个键分组对某一分组的某一字段求和">按某个键分组，对某一分组的某一字段求和</h2>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/></pre></td><td class="code"><pre><span class="line">db.<span class="property">bookorder</span>.<span class="title function_">aggregate</span>([</span><br/><span class="line">  {</span><br/><span class="line">    <span class="attr">$group</span>: {</span><br/><span class="line">      <span class="attr">_id</span>: <span class="string">"$publishingtime"</span>,</span><br/><span class="line">      <span class="attr">price</span>: { <span class="attr">$sum</span>: <span class="string">"$price"</span> },</span><br/><span class="line">    },</span><br/><span class="line">  },</span><br/><span class="line">]);</span><br/></pre></td></tr></table></figure>
+<h2 id="按某个键分组对各个分组的某一字段求和">按某个键分组，对各个分组的某一字段求和</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/></pre></td><td class="code"><pre><span class="line">db.<span class="property">bookorder</span>.<span class="title function_">aggregate</span>([</span><br/><span class="line">  {</span><br/><span class="line">    <span class="attr">$group</span>: {</span><br/><span class="line">      <span class="attr">_id</span>: <span class="string">"$publishingtime"</span>,</span><br/><span class="line">      <span class="attr">totalPrice</span>: { <span class="attr">$sum</span>: <span class="string">"$price"</span> },</span><br/><span class="line">    },</span><br/><span class="line">  },</span><br/><span class="line">]);</span><br/></pre></td></tr></table></figure>
+<p>注意不要漏了 <code>$</code></p>
 <p>对非数值类的求和为 0。</p>
+<h2 id="分别进行两组操作">分别进行两组操作</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/></pre></td><td class="code"><pre><span class="line">db.<span class="property">goodsbaseinf</span>.<span class="title function_">aggregate</span>([</span><br/><span class="line">  {</span><br/><span class="line">    <span class="attr">$facet</span>: {</span><br/><span class="line">      <span class="attr">group1</span>: [</span><br/><span class="line">        { <span class="attr">$match</span>: { <span class="attr">sales_vol</span>: { <span class="attr">$lt</span>: <span class="number">50</span> } } },</span><br/><span class="line">        { <span class="attr">$sort</span>: { <span class="attr">sales_vol</span>: -<span class="number">1</span> } },</span><br/><span class="line">      ],</span><br/><span class="line">      <span class="attr">group2</span>: [</span><br/><span class="line">        { <span class="attr">$match</span>: { <span class="attr">sale_vol</span>: { <span class="attr">$lt</span>: <span class="number">50</span> } } },</span><br/><span class="line">        { <span class="attr">$sort</span>: { <span class="attr">sale_vol</span>: -<span class="number">1</span> } },</span><br/><span class="line">      ],</span><br/><span class="line">    },</span><br/><span class="line">  },</span><br/><span class="line">]);</span><br/></pre></td></tr></table></figure>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
