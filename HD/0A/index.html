@@ -14,7 +14,7 @@
  的核心功能是将用户编写的业务逻辑代码和自带的默认组件整合成一个完整的分布式计算程序，并将其并发运行在一个
  Hadoop 集群上。" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="HD0A - MapReduce 概述" property="og:title"/>
+<meta content="HD0A - MapReduce 概述及编程入门" property="og:title"/>
 <meta content="https://hrfis.me/blog/HD/0A/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
 <meta content="MR 是一个分布式计算程序的编程框架，是用户开发基于 Hadoop
@@ -23,14 +23,14 @@
  的核心功能是将用户编写的业务逻辑代码和自带的默认组件整合成一个完整的分布式计算程序，并将其并发运行在一个
  Hadoop 集群上。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-11-01T13:47:00.000Z" property="article:published_time"/>
-<meta content="2023-11-04T11:02:27.339Z" property="article:modified_time"/>
+<meta content="2023-11-07T13:47:00.000Z" property="article:published_time"/>
+<meta content="2023-11-07T15:08:26.226Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/HD/0A/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/HD/0A/","path":"/HD/0A/","title":"HD0A - MapReduce 概述"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/HD/0A/","path":"/HD/0A/","title":"HD0A - MapReduce 概述及编程入门"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>HD0A - MapReduce 概述 | 若凡的笔记</title>
+<title>HD0A - MapReduce 概述及编程入门 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -101,7 +101,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mr-%E7%9A%84%E4%BC%98%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">MR 的优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr-%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">MR 的缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr-%E7%9A%84%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="nav-number">3.</span> <span class="nav-text">MR 的核心思想</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mr-%E7%9A%84%E4%BC%98%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">MR 的优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr-%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">MR 的缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr-%E7%9A%84%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="nav-number">3.</span> <span class="nav-text">MR 的核心思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8"><span class="nav-number">4.</span> <span class="nav-text">编程入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#input.txt"><span class="nav-number">4.1.</span> <span class="nav-text">input.txt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wordcountmapper.java"><span class="nav-number">4.2.</span> <span class="nav-text">WordCountMapper.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wordcountreducer.java"><span class="nav-number">4.3.</span> <span class="nav-text">WordCountReducer.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wordcountdriver.java"><span class="nav-number">4.4.</span> <span class="nav-text">WordCountDriver.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E6%B5%8B%E8%AF%95"><span class="nav-number">4.5.</span> <span class="nav-text">集群测试</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -113,7 +113,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">58</span>
+<span class="site-state-item-count">59</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -142,12 +142,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="HD0A - MapReduce 概述 | 若凡的笔记" itemprop="name"/>
+<meta content="HD0A - MapReduce 概述及编程入门 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          HD0A - MapReduce 概述
+          HD0A - MapReduce 概述及编程入门
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -156,14 +156,7 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2023-11-01T21:47:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-11-01 21:47:00">2023-11-01</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2023-11-04T19:02:27+08:00" itemprop="dateModified" title="修改时间：2023-11-04 19:02:27">2023-11-04</time>
+<time datetime="2023-11-07T21:47:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-11-07 21:47:00 / 修改时间：23:08:26">2023-11-07</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -191,7 +184,7 @@ Hadoop 集群上。</p>
 <li>高容错性【节点挂了？甩给其他节点接盘】</li>
 <li>适合 PB 级以上数据的离线处理【TB 的后一个数量级，一百万
 GB】【这个站点的资源文件，加上 md 文件、Hexo 框架的源码和 Git
-历史记录才刚过 60MB】</li>
+历史记录才刚过 60MB，我是蜩】</li>
 </ul>
 <h2 id="mr-的缺点">MR 的缺点</h2>
 <ul>
@@ -206,17 +199,29 @@ MR 不是不能计算，而是会造成大量的磁盘 I/O。因为每个 MR
 <p>MR 编程模型包含且只包含一个 map 阶段和一个 reduce 阶段。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"> /------[]------\</span><br/><span class="line">&lt;-------[]-------&gt;</span><br/><span class="line"> \------[]------/</span><br/></pre></td></tr></table></figure>
 <p>还有一个 MRAppMaster 进程，负责 MR 的调度。</p>
+<h2 id="编程入门">编程入门</h2>
+<p>可以参考：https://github.com/apache/hadoop/blob/branch-3.3.6/hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-core/src/site/markdown/MapReduceTutorial.md</p>
+<p>这里主要参考尚硅谷教材。</p>
+<h3 id="input.txt">input.txt</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">a good beginning is half the battle</span><br/><span class="line">where there is a will there is a way</span><br/></pre></td></tr></table></figure>
+<h3 id="wordcountmapper.java">WordCountMapper.java</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"></span><br/></pre></td></tr></table></figure>
+<h3 id="wordcountreducer.java">WordCountReducer.java</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"></span><br/></pre></td></tr></table></figure>
+<h3 id="wordcountdriver.java">WordCountDriver.java</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/><span class="line">33</span><br/><span class="line">34</span><br/><span class="line">35</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test.hrf.hd;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WordCountDriver</span> {</span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException, InterruptedException {</span><br/><span class="line">        <span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br/><span class="line">        <span class="type">Job</span> <span class="variable">job</span> <span class="operator">=</span> Job.getInstance(conf);</span><br/><span class="line"></span><br/><span class="line">        job.setJarByClass(WordCountDriver.class);</span><br/><span class="line"></span><br/><span class="line">        job.setMapperClass(WordCountMapper.class);</span><br/><span class="line">        job.setReducerClass(WordCountReducer.class);</span><br/><span class="line"></span><br/><span class="line">        job.setMapOutputKeyClass(Text.class);</span><br/><span class="line">        job.setMapOutputValueClass(IntWritable.class);</span><br/><span class="line"></span><br/><span class="line">        job.setOutputKeyClass(Text.class);</span><br/><span class="line">        job.setOutputValueClass(IntWritable.class);</span><br/><span class="line"></span><br/><span class="line">        FileInputFormat.setInputPaths(job, <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"input.txt"</span>));</span><br/><span class="line">        FileOutputFormat.setOutputPath(job, <span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"output"</span>));</span><br/><span class="line"></span><br/><span class="line">        <span class="type">boolean</span> <span class="variable">result</span> <span class="operator">=</span> job.waitForCompletion(<span class="literal">true</span>);</span><br/><span class="line">        System.exit(result ? <span class="number">0</span> : <span class="number">1</span>);</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
+<h3 id="集群测试">集群测试</h3>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/CN/0B/" rel="prev" title="CN0B - 网络层 - IP 地址">
-<i class="fa fa-chevron-left"></i> CN0B - 网络层 - IP 地址
+<a href="/blog/UC/paper/" rel="prev" title="如何写论文">
+<i class="fa fa-chevron-left"></i> 如何写论文
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/lost-in-tianyi.html" rel="next" title="《Lost In Tianyi》所表达的">
-                  《Lost In Tianyi》所表达的 <i class="fa fa-chevron-right"></i>
+<a href="/blog/HD/0B/" rel="next" title="HD0B - Hadoop 的序列化案例">
+                  HD0B - Hadoop 的序列化案例 <i class="fa fa-chevron-right"></i>
 </a>
 </div>
 </div>

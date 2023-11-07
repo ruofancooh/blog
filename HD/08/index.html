@@ -16,7 +16,7 @@
 <meta content="HDFS 的读写流程和工作机制" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-10-29T02:10:00.000Z" property="article:published_time"/>
-<meta content="2023-11-03T06:58:25.547Z" property="article:modified_time"/>
+<meta content="2023-11-07T00:41:47.566Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/HD/08/" rel="canonical"/>
@@ -93,7 +93,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E6%95%B0%E6%8D%AE%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">写数据的流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E6%95%B0%E6%8D%AE%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">读数据的流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%AF%E6%9C%AC%E6%94%BE%E7%BD%AE%E7%AD%96%E7%95%A5%E6%9C%BA%E6%9E%B6%E6%84%9F%E7%9F%A5%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91%E8%B7%9D%E7%A6%BBpineline"><span class="nav-number">3.</span> <span class="nav-text">副本放置策略、机架感知、网络拓扑距离、PineLine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nn-%E5%92%8C-2nn-%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6"><span class="nav-number">4.</span> <span class="nav-text">NN 和 2NN 的工作机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dn-%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6"><span class="nav-number">5.</span> <span class="nav-text">DN 的工作机制</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hdfs-default.xml"><span class="nav-number">1.</span> <span class="nav-text">hdfs-default.xml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E6%95%B0%E6%8D%AE%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">写数据的流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BB%E6%95%B0%E6%8D%AE%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">读数据的流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%AF%E6%9C%AC%E6%94%BE%E7%BD%AE%E7%AD%96%E7%95%A5%E6%9C%BA%E6%9E%B6%E6%84%9F%E7%9F%A5%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91%E8%B7%9D%E7%A6%BBpineline"><span class="nav-number">4.</span> <span class="nav-text">副本放置策略、机架感知、网络拓扑距离、PineLine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nn-%E5%92%8C-2nn-%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6"><span class="nav-number">5.</span> <span class="nav-text">NN 和 2NN 的工作机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dn-%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6"><span class="nav-number">6.</span> <span class="nav-text">DN 的工作机制</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -105,7 +105,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">58</span>
+<span class="site-state-item-count">59</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -155,7 +155,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2023-11-03T14:58:25+08:00" itemprop="dateModified" title="修改时间：2023-11-03 14:58:25">2023-11-03</time>
+<time datetime="2023-11-07T08:41:47+08:00" itemprop="dateModified" title="修改时间：2023-11-07 08:41:47">2023-11-07</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -173,12 +173,18 @@
 <span id="more"></span>
 <p>在 HDFS
 中，数据是分块（Block）存储的。相当于你一个人分割在了多个社交平台上。</p>
+<p>存储位置配置在 <code>dfs.datanode.data.dir</code></p>
 <p>在 Hadoop2.x 和 3.x 中，数据块大小默认是 128MB。</p>
 <p>如果数据分块太小，分割数量会变多，寻址时间会增加。就是你切换 APP
 的时间增加。</p>
 <p>如果数据块太大，磁盘传输时间占比增加。就是你花在这一个 APP
 上的时间增加。且分割数量变少，MR 的并行任务数变少。</p>
 <p>当寻址时间是传输时间的 1% 时，状态最佳。</p>
+<h2 id="hdfs-default.xml">hdfs-default.xml</h2>
+<p><code>$HADOOP_HOME/share/hadoop/hdfs/hadoop-hdfs-3.3.6.jar</code>
+里的 <code>hdfs-default.xml</code>。其参数可以被
+<code>$HADOOP_HOME/etc/hadoop/hdfs-site.xml</code>
+里设置的同名参数覆盖。</p>
 <h2 id="写数据的流程">写数据的流程</h2>
 <p>创建一个文件，将数据写入文件，关闭文件。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hadoop fs -put ./voice.wav /app</span><br/></pre></td></tr></table></figure>
@@ -293,11 +299,6 @@ fsimage.chkpoint。</li>
 <p>NN 判定 DN 死亡的超时时长 = 2 ×
 <code>dfs.heartbeat.recheck-interval</code> + 10 ×
 <code>dfs.heartbeat.interval</code></p>
-<p>上面的参数可以在
-<code>$HADOOP_HOME/share/hadoop/hdfs/hadoop-hdfs-3.3.6.jar</code> 里的
-<code>hdfs-default.xml</code> 里查看。其参数可以被
-<code>$HADOOP_HOME/etc/hadoop/hdfs-site.xml</code>
-里设置的同名参数覆盖。</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">

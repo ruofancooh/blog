@@ -8,21 +8,29 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/blog/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/blog/js/config.js"></script>
-<meta content="杂项概念" name="description"/>
+<meta content="序列化（serialization）是指将内存中的对象转换成字节序列，以便传输和持久化存储（硬盘）。
+ 反序列化是反过来，把存储在硬盘中的持久化数据转换为内存中的对象。
+ 例如 JSON，它的文本文件属于持久化数据，读 json
+ 文件后转换成对象属于反序列化。
+ 为什么要序列化：内存中的对象是鲜活的，需要把它序列化成标准形式，便于持久化管理和多台计算机通信。对象是“声音”，序列化后是“文字”。" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="CN0A - 网络层 - 杂项概念" property="og:title"/>
-<meta content="https://hrfis.me/blog/CN/0A/index.html" property="og:url"/>
+<meta content="HD0B - Hadoop 的序列化案例" property="og:title"/>
+<meta content="https://hrfis.me/blog/HD/0B/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="杂项概念" property="og:description"/>
+<meta content="序列化（serialization）是指将内存中的对象转换成字节序列，以便传输和持久化存储（硬盘）。
+ 反序列化是反过来，把存储在硬盘中的持久化数据转换为内存中的对象。
+ 例如 JSON，它的文本文件属于持久化数据，读 json
+ 文件后转换成对象属于反序列化。
+ 为什么要序列化：内存中的对象是鲜活的，需要把它序列化成标准形式，便于持久化管理和多台计算机通信。对象是“声音”，序列化后是“文字”。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-11-01T08:30:00.000Z" property="article:published_time"/>
-<meta content="2023-11-01T13:57:13.068Z" property="article:modified_time"/>
+<meta content="2023-11-07T13:47:48.000Z" property="article:published_time"/>
+<meta content="2023-11-07T15:07:24.559Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/CN/0A/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/CN/0A/","path":"/CN/0A/","title":"CN0A - 网络层 - 杂项概念"}</script>
+<link href="https://hrfis.me/blog/HD/0B/" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/HD/0B/","path":"/HD/0B/","title":"HD0B - Hadoop 的序列化案例"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>CN0A - 网络层 - 杂项概念 | 若凡的笔记</title>
+<title>HD0B - Hadoop 的序列化案例 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -93,7 +101,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.</span> <span class="nav-text">两种服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E5%B1%82%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">两个层面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E8%A1%A8%E5%92%8C%E8%BD%AC%E5%8F%91%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text">路由表和转发表</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#javabean"><span class="nav-number">1.</span> <span class="nav-text">JavaBean</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -124,7 +132,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/CN/0A/" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/HD/0B/" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -134,12 +142,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="CN0A - 网络层 - 杂项概念 | 若凡的笔记" itemprop="name"/>
+<meta content="HD0B - Hadoop 的序列化案例 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          CN0A - 网络层 - 杂项概念
+          HD0B - Hadoop 的序列化案例
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -148,7 +156,7 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2023-11-01T16:30:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-11-01 16:30:00 / 修改时间：21:57:13">2023-11-01</time>
+<time datetime="2023-11-07T21:47:48+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-11-07 21:47:48 / 修改时间：23:07:24">2023-11-07</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -156,39 +164,36 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/CN/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>杂项概念</p>
+<div class="post-body" itemprop="articleBody"><p>序列化（serialization）是指将内存中的对象转换成字节序列，以便传输和持久化存储（硬盘）。</p>
+<p>反序列化是反过来，把存储在硬盘中的持久化数据转换为内存中的对象。</p>
+<p>例如 JSON，它的文本文件属于持久化数据，读 json
+文件后转换成对象属于反序列化。</p>
+<p>为什么要序列化：内存中的对象是鲜活的，需要把它序列化成标准形式，便于持久化管理和多台计算机通信。对象是“声音”，序列化后是“文字”。</p>
+<p>为什么不用 Java 自带的序列化 Serializable：太笨重了。</p>
 <span id="more"></span>
-<h2 id="两种服务">两种服务</h2>
-<p>网络层应该向运输层提供怎样的服务？面向连接的还是无连接的？</p>
-<p>可靠交付应该由谁来完成？是网络还是端系统？</p>
+<h2 id="javabean">JavaBean</h2>
+<p>是一种遵守某套开发规范的类，可以存储具有整体性的实体信息：学生的姓名、学号、班级等。</p>
+<p>规则：</p>
 <ul>
-<li>虚电路服务：面向连接的，可靠通信由网络来保证</li>
-<li>数据报服务：无连接的，可靠通信由用户主机保证</li>
+<li>必须有一个无参构造方法</li>
+<li>所有属性私有，且对其提供 public 的 <code>getXxx()</code> 与
+<code>setXxx()</code> 方法</li>
 </ul>
-<p>现在用数据报服务。</p>
-<h2 id="两个层面">两个层面</h2>
-<p>在路由器之间有两类传送的信息：分组数据和路由数据。</p>
-<p>于是把网络层抽象地划分为“数据层面”和“控制层面”。</p>
-<p>在数据层面（或者说转发层面），每个路由器独立地通过本机的转发表转发分组。在控制层面，多个路由器协同动作创建路由表。</p>
-<h2 id="路由表和转发表">路由表和转发表</h2>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/Freud-and-Beyond.html" rel="prev" title="《弗洛伊德及其后继者——现代精神分析思想史》读书笔记">
-<i class="fa fa-chevron-left"></i> 《弗洛伊德及其后继者——现代精神分析思想史》读书笔记
+<a href="/blog/HD/0A/" rel="prev" title="HD0A - MapReduce 概述及编程入门">
+<i class="fa fa-chevron-left"></i> HD0A - MapReduce 概述及编程入门
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/CN/0B/" rel="next" title="CN0B - 网络层 - IP 地址">
-                  CN0B - 网络层 - IP 地址 <i class="fa fa-chevron-right"></i>
-</a>
 </div>
 </div>
 </footer>
@@ -225,7 +230,7 @@
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/CN/0A/"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/HD/0B/"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
