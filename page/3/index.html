@@ -76,7 +76,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">66</span>
+<span class="site-state-item-count">67</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -93,6 +93,106 @@
 </aside>
 </div>
 <div class="main-inner index posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
+<link href="https://hrfis.me/blog/CN/09/" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="undefined | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h2 class="post-title" itemprop="name headline">
+<a class="post-title-link" href="/blog/CN/09/" itemprop="url">CN09 - 数据链路层 - 以太网</a>
+</h2>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2023-10-18T21:40:01+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-10-18 21:40:01">2023-10-18</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2023-10-27T14:16:46+08:00" itemprop="dateModified" title="修改时间：2023-10-27 14:16:46">2023-10-27</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/CN/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody">
+<ul>
+<li>以太网：Ethernet，是一种局域网技术（可以作为局域网的同义词），使用
+CSMA/CD 协议。
+<ul>
+<li>DIX Ethernet V2：第一个局域网标准。现在主要用这个。</li>
+<li>IEEE 802.3：第一个 IEEE 的局域网标准。</li>
+</ul></li>
+<li>局域网共享信道，为避免冲突，可采用静态划分信道（复用）或动态媒体接入控制（多点接入：随机接入/受控接入-轮询）</li>
+<li>局域网数据链路层的两个子层：
+<ul>
+<li>逻辑链路控制 LLC (Logical Link Control)
+子层：与传输媒体无关。已经很少用了。</li>
+<li>媒体接入控制 MAC (Medium Access Control) 子层：与传输媒体有关。</li>
+</ul></li>
+<li>MAC 帧的格式
+<ul>
+<li>（带宽为 <span class="math inline">\(\mathrm{10Mbit/s}\)</span>
+的）以太网 V2： <span class="math display">\[
+6 + 6 + 2 + (46 \sim 1500) + 4 = (64 \sim 1518) 字节
+\]</span> 其中 <span class="math inline">\(\mathrm{64Byte = \dfrac{51.2
+\mu s \times 10Mbit/s}{8bit/Byte}}\)</span>，减去 18
+字节的首部和尾部后，得到数据部分的最小长度 46 字节。</li>
+</ul></li>
+<li>集线器（Hub）与交换机（Switch）
+<ul>
+<li>某某带宽的集线器：分摊带宽。总线型。</li>
+<li>某某带宽的交换机：每个接口独占带宽。并行。</li>
+</ul></li>
+<li>以太网交换机的自学习功能</li>
+<li>适配器的作用：
+<ul>
+<li>与 CPU/存储器并行通信</li>
+<li>与局域网串行通信</li>
+<li>接收并缓存 MAC
+帧，帧的目标地址不是它自己时，或者不符合格式、校验失败时就丢弃</li>
+<li>安装驱动到操作系统</li>
+<li>实现以太网协议</li>
+</ul></li>
+</ul>
+<!--noindex-->
+<div class="post-button">
+<a class="btn" href="/blog/CN/09/#more" rel="contents">
+                阅读全文 »
+              </a>
+</div>
+<!--/noindex-->
+</div>
+<footer class="post-footer">
+<div class="post-eof"></div>
+</footer>
+</article>
+</div>
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
 <link href="https://hrfis.me/blog/CN/08/" itemprop="mainEntityOfPage"/>
@@ -696,69 +796,6 @@ Server API</a></li>
 <!--noindex-->
 <div class="post-button">
 <a class="btn" href="/blog/HD/04/#more" rel="contents">
-                阅读全文 »
-              </a>
-</div>
-<!--/noindex-->
-</div>
-<footer class="post-footer">
-<div class="post-eof"></div>
-</footer>
-</article>
-</div>
-<div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
-<link href="https://hrfis.me/blog/JA/02/" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="undefined | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h2 class="post-title" itemprop="name headline">
-<a class="post-title-link" href="/blog/JA/02/" itemprop="url">JA02 - Maven 环境配置</a>
-</h2>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar"></i>
-</span>
-<span class="post-meta-item-text">发表于</span>
-<time datetime="2023-09-27T19:10:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-09-27 19:10:00">2023-09-27</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2023-11-08T18:03:31+08:00" itemprop="dateModified" title="修改时间：2023-11-08 18:03:31">2023-11-08</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/JA/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-</span>
-</span>
-</div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody">
-<p>Maven（行家）是一个工具，用于构建和管理 Java 工程。</p>
-<p>Windows 10 + VSCode 环境配置。</p>
-<!--noindex-->
-<div class="post-button">
-<a class="btn" href="/blog/JA/02/#more" rel="contents">
                 阅读全文 »
               </a>
 </div>
