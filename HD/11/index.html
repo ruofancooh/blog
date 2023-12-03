@@ -12,21 +12,23 @@
  另一种资源调度器
  为什么叫另一种：新的" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="HD11 - YARN 概述" property="og:title"/>
+<meta content="HD11 - YARN 概述及案例" property="og:title"/>
 <meta content="https://hrfis.me/blog/HD/11/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
 <meta content="Yet Another Resouce Negotiator
  另一种资源调度器
  为什么叫另一种：新的" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
+<meta content="https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/yarn_architecture.gif" property="og:image"/>
 <meta content="2023-11-26T21:25:00.000Z" property="article:published_time"/>
-<meta content="2023-12-02T14:41:34.852Z" property="article:modified_time"/>
+<meta content="2023-12-03T16:29:38.352Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
+<meta content="https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/yarn_architecture.gif" name="twitter:image"/>
 <link href="https://hrfis.me/blog/HD/11/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/HD/11/","path":"/HD/11/","title":"HD11 - YARN 概述"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/HD/11/","path":"/HD/11/","title":"HD11 - YARN 概述及案例"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>HD11 - YARN 概述 | 若凡的笔记</title>
+<title>HD11 - YARN 概述及案例 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -73,7 +75,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">工作机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">调度器</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%84%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6"><span class="nav-number">2.</span> <span class="nav-text">工作机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E5%BA%A6%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">调度器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">4.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90-1-%E4%B8%AA-g-%E7%9A%84%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">生成 1 个 G 的文本文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE%E6%A1%88%E4%BE%8B"><span class="nav-number">6.</span> <span class="nav-text">核心参数配置案例</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -85,7 +87,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">65</span>
+<span class="site-state-item-count">67</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -114,12 +116,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="HD11 - YARN 概述 | 若凡的笔记" itemprop="name"/>
+<meta content="HD11 - YARN 概述及案例 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          HD11 - YARN 概述
+          HD11 - YARN 概述及案例
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -135,7 +137,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2023-12-02T22:41:34+08:00" itemprop="dateModified" title="修改时间：2023-12-02 22:41:34">2023-12-02</time>
+<time datetime="2023-12-04T00:29:38+08:00" itemprop="dateModified" title="修改时间：2023-12-04 00:29:38">2023-12-04</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -154,10 +156,11 @@
 <p>为什么叫另一种：新的</p>
 <span id="more"></span>
 <h2 id="组件">组件</h2>
+<p><img src="https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/yarn_architecture.gif"/></p>
 <ul>
 <li>资源管理器 ResourceManager：集群老大</li>
 <li>节点管理器 NodeManager：节点老大</li>
-<li>容器 Contianer：每个节点里的多个小电脑</li>
+<li>容器 Container：每个节点里的多个小电脑</li>
 <li>ApplicatonMaster：用户提交的应用程序里的老大</li>
 </ul>
 <h2 id="工作机制">工作机制</h2>
@@ -165,6 +168,19 @@
 <p>FIFO 调度器</p>
 <p>容量调度器</p>
 <p>公平调度器</p>
+<h2 id="需求">需求</h2>
+<p>需求：从 1G 数据中，统计每个单词出现次数。</p>
+<p>需求分析： 1G / 128m = 8 个 MapTask；1 个 ReduceTask；1 个
+mrAppMaster 平均每个节点运行 10 个 / 3 台 ≈ 3 个任务（3 3 4）</p>
+<p>修改 <code>yarn-site.xml</code><a href="https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-common/yarn-default.xml" rel="noopener" target="_blank">（yarn-default.xml）</a>
+后分发，停启 yarn。</p>
+<h2 id="生成-1-个-g-的文本文件">生成 1 个 G 的文本文件</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.BufferedOutputStream;</span><br/><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br/><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br/><span class="line"><span class="keyword">import</span> java.util.Random;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span> {</span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException {</span><br/><span class="line">        <span class="type">String</span> <span class="variable">filePath</span> <span class="operator">=</span> <span class="string">"D:/1/1.txt"</span>;</span><br/><span class="line"></span><br/><span class="line">        <span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(filePath);</span><br/><span class="line">        <span class="type">BufferedOutputStream</span> <span class="variable">bos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BufferedOutputStream</span>(fos);</span><br/><span class="line">        <span class="type">int</span> <span class="variable">minAscii</span> <span class="operator">=</span> <span class="string">'a'</span>;</span><br/><span class="line">        <span class="type">int</span> <span class="variable">maxAscii</span> <span class="operator">=</span> <span class="string">'z'</span>;</span><br/><span class="line">        <span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br/><span class="line"></span><br/><span class="line">        <span class="type">long</span> <span class="variable">s</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; <span class="number">27</span>;</span><br/><span class="line">        <span class="type">byte</span>[] buffer = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">4096</span>];</span><br/><span class="line"></span><br/><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; s; i++) {</span><br/><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">7</span>; j++) {</span><br/><span class="line">                <span class="type">byte</span> <span class="variable">randomByte</span> <span class="operator">=</span> (<span class="type">byte</span>) (minAscii + random.nextInt(maxAscii - minAscii + <span class="number">1</span>));</span><br/><span class="line">                buffer[j] = randomByte;</span><br/><span class="line">            }</span><br/><span class="line">            buffer[<span class="number">7</span>] = <span class="string">' '</span>;</span><br/><span class="line">            bos.write(buffer, <span class="number">0</span>, <span class="number">8</span>);</span><br/><span class="line">        }</span><br/><span class="line"></span><br/><span class="line">        bos.flush();</span><br/><span class="line">        bos.close();</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
+<p>在物理机上写文件，用 xftp 传到虚拟机上，上传到 HDFS</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">hadoop fs -<span class="built_in">mkdir</span> /wcinput</span><br/><span class="line">hadoop fs -put ./1.txt /wcinput/1.txt</span><br/></pre></td></tr></table></figure>
+<p>或者直接通过 Web UI 上传。</p>
+<h2 id="核心参数配置案例">核心参数配置案例</h2>
+<p>内存不足，待处理……</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">

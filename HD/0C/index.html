@@ -11,20 +11,20 @@
 <meta content="HDFS 在物理层面上把数据分成若干个数据块（block）
  切片是在逻辑上对输入的数据划分，一个切片对应一个 MapTask。" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="HD0C - MapReduce 框架原理之 InputFormat" property="og:title"/>
+<meta content="HD0C - MapReduce 框架原理" property="og:title"/>
 <meta content="https://hrfis.me/blog/HD/0C/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
 <meta content="HDFS 在物理层面上把数据分成若干个数据块（block）
  切片是在逻辑上对输入的数据划分，一个切片对应一个 MapTask。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-11-08T13:47:48.000Z" property="article:published_time"/>
-<meta content="2023-11-08T11:37:31.990Z" property="article:modified_time"/>
+<meta content="2023-12-03T16:27:35.479Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/HD/0C/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/HD/0C/","path":"/HD/0C/","title":"HD0C - MapReduce 框架原理之 InputFormat"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/HD/0C/","path":"/HD/0C/","title":"HD0C - MapReduce 框架原理"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>HD0C - MapReduce 框架原理之 InputFormat | 若凡的笔记</title>
+<title>HD0C - MapReduce 框架原理 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -83,7 +83,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">65</span>
+<span class="site-state-item-count">67</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -112,12 +112,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="HD0C - MapReduce 框架原理之 InputFormat | 若凡的笔记" itemprop="name"/>
+<meta content="HD0C - MapReduce 框架原理 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          HD0C - MapReduce 框架原理之 InputFormat
+          HD0C - MapReduce 框架原理
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -126,7 +126,14 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2023-11-08T21:47:48+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-11-08 21:47:48 / 修改时间：19:37:31">2023-11-08</time>
+<time datetime="2023-11-08T21:47:48+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-11-08 21:47:48">2023-11-08</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2023-12-04T00:27:35+08:00" itemprop="dateModified" title="修改时间：2023-12-04 00:27:35">2023-12-04</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -143,6 +150,7 @@
 <div class="post-body" itemprop="articleBody"><p>HDFS 在物理层面上把数据分成若干个数据块（block）</p>
 <p>切片是在逻辑上对输入的数据划分，一个切片对应一个 MapTask。</p>
 <span id="more"></span>
+<p>期末了（</p>
 <h2 id="job-提交流程">Job 提交流程</h2>
 <ul>
 <li>Job.waitForCompletion()

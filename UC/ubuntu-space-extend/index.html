@@ -8,23 +8,21 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="Windows 10 + VSCode 环境配置
- Hello.java" name="description"/>
+<meta content="MR 报空间不足了。" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="JA00 - 准备" property="og:title"/>
-<meta content="https://hrfis.me/blog/JA/00/index.html" property="og:url"/>
+<meta content="给虚拟机折腾扩容" property="og:title"/>
+<meta content="https://hrfis.me/blog/UC/ubuntu-space-extend/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="Windows 10 + VSCode 环境配置
- Hello.java" property="og:description"/>
+<meta content="MR 报空间不足了。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-09-04T13:31:47.000Z" property="article:published_time"/>
-<meta content="2023-10-13T11:45:47.385Z" property="article:modified_time"/>
+<meta content="2023-12-03T16:17:00.000Z" property="article:published_time"/>
+<meta content="2023-12-03T16:30:28.072Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/JA/00/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/JA/00/","path":"/JA/00/","title":"JA00 - 准备"}</script>
+<link href="https://hrfis.me/blog/UC/ubuntu-space-extend/" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/UC/ubuntu-space-extend/","path":"/UC/ubuntu-space-extend/","title":"给虚拟机折腾扩容"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>JA00 - 准备 | 若凡的笔记</title>
+<title>给虚拟机折腾扩容 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -71,7 +69,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#windows-10-vscode-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Windows 10 + VSCode 环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hello.java"><span class="nav-number">2.</span> <span class="nav-text">Hello.java</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E7%A9%BA%E9%97%B4%E7%BC%9D%E9%9A%99"><span class="nav-number">2.</span> <span class="nav-text">层次（空间缝隙）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9-devsda"><span class="nav-number">3.</span> <span class="nav-text">扩 /dev/sda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9-devsda3"><span class="nav-number">4.</span> <span class="nav-text">扩 /dev/sda3</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -102,7 +100,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/JA/00/" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/UC/ubuntu-space-extend/" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -112,12 +110,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="JA00 - 准备 | 若凡的笔记" itemprop="name"/>
+<meta content="给虚拟机折腾扩容 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          JA00 - 准备
+          给虚拟机折腾扩容
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -126,14 +124,7 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2023-09-04T21:31:47+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-09-04 21:31:47">2023-09-04</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2023-10-13T19:45:47+08:00" itemprop="dateModified" title="修改时间：2023-10-13 19:45:47">2023-10-13</time>
+<time datetime="2023-12-04T00:17:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-12-04 00:17:00 / 修改时间：00:30:28">2023-12-04</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -141,55 +132,68 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/JA/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+<a href="/blog/UC/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><ul>
-<li>Windows 10 + VSCode 环境配置</li>
-<li><code>Hello.java</code></li>
-</ul>
+<div class="post-body" itemprop="articleBody"><p>MR 报空间不足了。</p>
 <span id="more"></span>
-<h2 id="windows-10-vscode-环境配置">Windows 10 + VSCode 环境配置</h2>
-<ol type="1">
-<li>VSCode 里安装 <code>Extension Pack for Java</code> 扩展。
-它会提示你下载安装 JDK。安。</li>
-<li>设置环境变量
+<h2 id="工具">工具</h2>
 <ul>
-<li><code>JAVA_HOME</code>：JDK 安装路径</li>
-<li><code>PATH</code>：<code>%JAVA_HOME%\bin</code></li>
+<li>df：查看文件系统使用情况、挂载到的目录</li>
+<li>lsblk：查看块设备相关信息、挂载点</li>
+<li>sudo parted：分区管理</li>
+<li>sudo vgs</li>
+<li>sudo lvs</li>
+<li>sudo vgdisplay</li>
+<li>sudo lvdisplay</li>
+<li>vgextend</li>
+<li>lvextend</li>
+</ul>
+<h2 id="层次空间缝隙">层次（空间缝隙）</h2>
+<ul>
+<li><code>/dev/sda</code>：大概是 VM 设置里分配的硬盘空间大小【20G】
+<ul>
+<li><code>/dev/sda1</code>：bios_grub</li>
+<li><code>/dev/sda2</code>：<code>/boot</code>【1.8G】</li>
+<li><code>/dev/sda3</code>：【18.2G】
+<ul>
+<li>卷组 vg（Volume
+Group）：将多个物理分区组合在一起，形成一个逻辑卷的容器【18.2G】
+<ul>
+<li>逻辑卷 lv（Logical
+Volume）：<code>/dev/mapper/ubuntu--vg-ubuntu--lv</code> -&gt;
+<code>/dev/dm-0</code>：在卷组上创建的。大概是“能用的文件系统”的大小【只有
+10G 左右】</li>
 </ul></li>
-<li>终端输入： <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">java -version</span><br/></pre></td></tr></table></figure> 输出： <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">openjdk version "17.0.8.1" 2023-08-24</span><br/><span class="line">OpenJDK Runtime Environment Temurin-17.0.8.1+1 (build 17.0.8.1+1)</span><br/><span class="line">OpenJDK 64-Bit Server VM Temurin-17.0.8.1+1 (build 17.0.8.1+1, mixed mode, sharing)</span><br/></pre></td></tr></table></figure></li>
-<li>VSCode
-设置搜<code>java.jdt.ls.java.home</code>，在<code>settings.json</code>里改成
-JDK 安装路径。</li>
+</ul></li>
+</ul></li>
+<li><code>/dev/sr0</code>：【2G】</li>
+</ul>
+<p>需求：</p>
+<ol type="1">
+<li>先扩 sda</li>
+<li>从 sda 向 sd3 匀</li>
+<li>从 sda3 向 vg 匀</li>
+<li>从 vg 向 lv 匀</li>
 </ol>
-<p>安装的是 17，但是版本太高了（<a href="https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions" rel="noopener" target="_blank">Hadoop
-支持的 Java 版本</a>），Hadoop 跟不上。所以又安装了 8 的。</p>
-<p>VSCode -&gt; <code>Ctrl + Shift + P</code> -&gt; Java: Install New
-JDK</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">openjdk version "1.8.0_382"</span><br/><span class="line">OpenJDK Runtime Environment (Temurin)(build 1.8.0_382-b05)</span><br/><span class="line">OpenJDK 64-Bit Server VM (Temurin)(build 25.382-b05, mixed mode)</span><br/></pre></td></tr></table></figure>
-<p>然后改环境变量和配置文件。</p>
-<h2 id="hello.java">Hello.java</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Hello</span> {</span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> {</span><br/><span class="line">        System.out.println(<span class="string">"Hello"</span>);</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
-<p>按钮运行，或者终端：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">java Hello.java</span><br/></pre></td></tr></table></figure>
-<p>或者终端：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">javac Hello.java</span><br/><span class="line">java Hello</span><br/></pre></td></tr></table></figure>
+<h2 id="扩-devsda">扩 /dev/sda</h2>
+<p>在关机状态下给 VM 的虚拟磁盘扩容</p>
+<p>编辑虚拟机设置 -&gt; 硬盘 -&gt; 扩展</p>
+<h2 id="扩-devsda3">扩 /dev/sda3</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo parted</span><br/></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/></pre></td><td class="code"><pre><span class="line">GNU Parted 3.4</span><br/><span class="line">Using /dev/sda</span><br/><span class="line">Welcome to GNU Parted! Type 'help' to view a list of commands.</span><br/><span class="line">(parted) print all</span><br/><span class="line">(parted) print free</span><br/><span class="line">// 输出……</span><br/><span class="line">(parted) resizepart 3</span><br/><span class="line">End?  [22.5GB]? 23.5GB //在后面输入扩到的容量</span><br/></pre></td></tr></table></figure>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/UC/si/" rel="prev" title="社保">
-<i class="fa fa-chevron-left"></i> 社保
+<a href="/blog/HD/10/" rel="prev" title="HD10 - 当前配置">
+<i class="fa fa-chevron-left"></i> HD10 - 当前配置
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/M/ss/" rel="next" title="能指和所指">
-                  能指和所指 <i class="fa fa-chevron-right"></i>
-</a>
 </div>
 </div>
 </footer>
@@ -224,7 +228,7 @@ JDK</p>
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/JA/00/"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/UC/ubuntu-space-extend/"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
