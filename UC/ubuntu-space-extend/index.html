@@ -8,15 +8,19 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="MR 报空间不足了。" name="description"/>
+<meta content="MR 报空间不足了。但实际上是我读了一个 1G
+ 的文本文件，没有换行符的。
+ 神秘数字 2.1 暂且不管。" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="给虚拟机折腾扩容" property="og:title"/>
 <meta content="https://hrfis.me/blog/UC/ubuntu-space-extend/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="MR 报空间不足了。" property="og:description"/>
+<meta content="MR 报空间不足了。但实际上是我读了一个 1G
+ 的文本文件，没有换行符的。
+ 神秘数字 2.1 暂且不管。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-12-03T16:17:00.000Z" property="article:published_time"/>
-<meta content="2023-12-03T16:30:28.072Z" property="article:modified_time"/>
+<meta content="2023-12-04T11:12:10.929Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/UC/ubuntu-space-extend/" rel="canonical"/>
@@ -69,7 +73,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E7%A9%BA%E9%97%B4%E7%BC%9D%E9%9A%99"><span class="nav-number">2.</span> <span class="nav-text">层次（空间缝隙）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9-devsda"><span class="nav-number">3.</span> <span class="nav-text">扩 /dev/sda</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9-devsda3"><span class="nav-number">4.</span> <span class="nav-text">扩 /dev/sda3</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E7%A9%BA%E9%97%B4%E7%BC%9D%E9%9A%99"><span class="nav-number">2.</span> <span class="nav-text">层次（空间缝隙）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">步骤</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -124,7 +128,7 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2023-12-04T00:17:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-12-04 00:17:00 / 修改时间：00:30:28">2023-12-04</time>
+<time datetime="2023-12-04T00:17:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-12-04 00:17:00 / 修改时间：19:12:10">2023-12-04</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -138,53 +142,60 @@
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>MR 报空间不足了。</p>
+<div class="post-body" itemprop="articleBody"><p>MR 报空间不足了。但实际上是我读了一个 1G
+的文本文件，没有换行符的。</p>
+<p>神秘数字 2.1 暂且不管。</p>
 <span id="more"></span>
 <h2 id="工具">工具</h2>
 <ul>
-<li>df：查看文件系统使用情况、挂载到的目录</li>
-<li>lsblk：查看块设备相关信息、挂载点</li>
-<li>sudo parted：分区管理</li>
-<li>sudo vgs</li>
-<li>sudo lvs</li>
-<li>sudo vgdisplay</li>
-<li>sudo lvdisplay</li>
-<li>vgextend</li>
-<li>lvextend</li>
+<li><code>df -h</code>：查看文件系统使用情况、挂载到的目录</li>
+<li><code>lsblk</code>：查看块设备相关信息、挂载点</li>
+<li><code>parted</code>：分区管理</li>
+<li><code>vgs</code> <code>vgdisplay</code>：卷组信息（Volume
+Group）</li>
+<li><code>pvs</code> <code>pvdisplay</code>：物理卷信息（Physical
+volume）</li>
+<li><code>lvs</code> <code>lvdisplay</code>：逻辑卷信息（Logical
+Volume）</li>
 </ul>
 <h2 id="层次空间缝隙">层次（空间缝隙）</h2>
 <ul>
-<li><code>/dev/sda</code>：大概是 VM 设置里分配的硬盘空间大小【20G】
+<li><code>/dev/sda</code>：大概是 VM 设置里分配的硬盘空间大小
 <ul>
 <li><code>/dev/sda1</code>：bios_grub</li>
-<li><code>/dev/sda2</code>：<code>/boot</code>【1.8G】</li>
-<li><code>/dev/sda3</code>：【18.2G】
+<li><code>/dev/sda2</code>：<code>/boot</code></li>
+<li>物理卷 pv：<code>/dev/sda3</code>
 <ul>
-<li>卷组 vg（Volume
-Group）：将多个物理分区组合在一起，形成一个逻辑卷的容器【18.2G】
+<li>逻辑卷 lv：
 <ul>
-<li>逻辑卷 lv（Logical
-Volume）：<code>/dev/mapper/ubuntu--vg-ubuntu--lv</code> -&gt;
-<code>/dev/dm-0</code>：在卷组上创建的。大概是“能用的文件系统”的大小【只有
-10G 左右】</li>
+<li>文件系统 <code>/dev/mapper/ubuntu--vg-ubuntu--lv</code> -&gt;
+<code>/dev/dm-0</code></li>
 </ul></li>
 </ul></li>
 </ul></li>
-<li><code>/dev/sr0</code>：【2G】</li>
 </ul>
 <p>需求：</p>
 <ol type="1">
 <li>先扩 sda</li>
-<li>从 sda 向 sd3 匀</li>
-<li>从 sda3 向 vg 匀</li>
-<li>从 vg 向 lv 匀</li>
+<li>从 sda 向 sda3 匀</li>
+<li>从 sda3 向 lv 匀</li>
 </ol>
-<h2 id="扩-devsda">扩 /dev/sda</h2>
-<p>在关机状态下给 VM 的虚拟磁盘扩容</p>
-<p>编辑虚拟机设置 -&gt; 硬盘 -&gt; 扩展</p>
-<h2 id="扩-devsda3">扩 /dev/sda3</h2>
+<h2 id="步骤">步骤</h2>
+<ol type="1">
+<li><p>给 VM 的虚拟磁盘扩容</p>
+<p>关机状态下：编辑虚拟机设置 -&gt; 硬盘 -&gt; 扩展</p></li>
+<li><p>从 sda 向 sda3 匀</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo parted</span><br/></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/></pre></td><td class="code"><pre><span class="line">GNU Parted 3.4</span><br/><span class="line">Using /dev/sda</span><br/><span class="line">Welcome to GNU Parted! Type 'help' to view a list of commands.</span><br/><span class="line">(parted) print all</span><br/><span class="line">(parted) print free</span><br/><span class="line">// 输出……</span><br/><span class="line">(parted) resizepart 3</span><br/><span class="line">End?  [22.5GB]? 23.5GB //在后面输入扩到的容量</span><br/></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/></pre></td><td class="code"><pre><span class="line">GNU Parted 3.4</span><br/><span class="line">Using /dev/sda</span><br/><span class="line">Welcome to GNU Parted! Type 'help' to view a list of commands.</span><br/><span class="line">(parted) print all</span><br/><span class="line">// 输出……</span><br/><span class="line"></span><br/><span class="line">(parted) print free</span><br/><span class="line">Model: VMware, VMware Virtual S (scsi)</span><br/><span class="line">Disk /dev/sda: 32.2GB</span><br/><span class="line">Sector size (logical/physical): 512B/512B</span><br/><span class="line">Partition Table: gpt</span><br/><span class="line">Disk Flags:</span><br/><span class="line"></span><br/><span class="line">Number  Start   End     Size    File system  Name  Flags</span><br/><span class="line">        17.4kB  1049kB  1031kB  Free Space</span><br/><span class="line"> 1      1049kB  2097kB  1049kB                     bios_grub</span><br/><span class="line"> 2      2097kB  1904MB  1902MB  ext4</span><br/><span class="line"> 3      1904MB  21.5GB  19.6GB</span><br/><span class="line">        21.5GB  32.2GB  10.7GB  Free Space</span><br/><span class="line"></span><br/><span class="line">(parted) resizepart 3</span><br/><span class="line">End?  [21.5GB]? 32.3GB //在后面输入扩到的 End，比 End 略大就是扩到底</span><br/></pre></td></tr></table></figure>
+<p>扩完后，<code>sudo pvs</code> 出的 /dev/sda3 会比 <code>lsblk</code>
+出的 sda3 小，执行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo pvresize /dev/sda3</span><br/></pre></td></tr></table></figure></li>
+<li><p>从 sda3 向 lv 匀</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo lvresize -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv</span><br/></pre></td></tr></table></figure>
+<p>扩完后，<code>df -h</code> 出的 /dev/mapper/ubuntu--vg-ubuntu--lv
+还没变，执行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv</span><br/></pre></td></tr></table></figure></li>
+</ol>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
