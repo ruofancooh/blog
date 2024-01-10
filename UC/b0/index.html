@@ -10,17 +10,21 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
 <meta content="只是【在做完这些操作后的一段时间，没有再出现这个问题】
  并不能保证【这些操作的每一步都是一定对的，或有用的】
- 因为我是通过搜索解决的，并不理解每一步操作背后的东西。" name="description"/>
+ 因为我是通过搜索解决的，并不理解每一步操作背后的东西。
+ 过了两个月，这个问题又出现了。并且前三步的结果还是放在那里的，说明前三步可能是没有用的。
+ 现在是把虚拟机内存缩小了一点，不知道有没有用。磨刀不误砍柴工，即使磨的是刀背，负面经验也是经验。" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="VMware Workstation VMX 占用 CPU 高的解决记录" property="og:title"/>
 <meta content="https://hrfis.me/blog/UC/b0/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
 <meta content="只是【在做完这些操作后的一段时间，没有再出现这个问题】
  并不能保证【这些操作的每一步都是一定对的，或有用的】
- 因为我是通过搜索解决的，并不理解每一步操作背后的东西。" property="og:description"/>
+ 因为我是通过搜索解决的，并不理解每一步操作背后的东西。
+ 过了两个月，这个问题又出现了。并且前三步的结果还是放在那里的，说明前三步可能是没有用的。
+ 现在是把虚拟机内存缩小了一点，不知道有没有用。磨刀不误砍柴工，即使磨的是刀背，负面经验也是经验。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-10-30T14:00:00.000Z" property="article:published_time"/>
-<meta content="2023-12-02T15:13:34.352Z" property="article:modified_time"/>
+<meta content="2024-01-10T15:34:15.904Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/UC/b0/" rel="canonical"/>
@@ -73,7 +77,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A2%E9%AA%9A%E8%AD%A6%E5%91%8A"><span class="nav-number">2.</span> <span class="nav-text">牢骚警告</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">操作</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -135,7 +139,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2023-12-02T23:13:34+08:00" itemprop="dateModified" title="修改时间：2023-12-02 23:13:34">2023-12-02</time>
+<time datetime="2024-01-10T23:34:15+08:00" itemprop="dateModified" title="修改时间：2024-01-10 23:34:15">2024-01-10</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -152,6 +156,8 @@
 <div class="post-body" itemprop="articleBody"><p>只是【在做完这些操作后的一段时间，没有再出现这个问题】</p>
 <p>并不能保证【这些操作的每一步都是一定对的，或有用的】</p>
 <p>因为我是通过搜索解决的，并不理解每一步操作背后的东西。</p>
+<p>过了两个月，这个问题又出现了。并且前三步的结果还是放在那里的，说明前三步可能是没有用的。</p>
+<p>现在是把虚拟机内存缩小了一点，不知道有没有用。磨刀不误砍柴工，即使磨的是刀背，负面经验也是经验。</p>
 <span id="more"></span>
 <h2 id="操作">操作</h2>
 <ol type="1">
@@ -163,27 +169,8 @@
 </ol>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">bcdedit /<span class="built_in">set</span> hypervisorlaunchtype off</span><br/></pre></td></tr></table></figure>
 <ol start="4" type="1">
-<li>没有管虚拟机，强行重启物理机。</li>
-<li>打开 VMPlayer，发现 VM 是挂起的。播放之后报了一些关于 CPU
-的错。</li>
-<li>重启虚拟机，问题解决。</li>
+<li>重启电脑。</li>
 </ol>
-<h2 id="牢骚警告">牢骚警告</h2>
-<p>可能的底层成因是 VM 和 Hiper-V 什么的不兼容。</p>
-<p>可能的上层成因是在 Windows 更新后悄悄启用了 WSL 功能。</p>
-<p>因为我记得在之前 WSL 功能是没有启动的（控制面板 -&gt; 程序 -&gt;
-程序和功能 -&gt; 启用 Windows 功能 -&gt; 适用于 Linux 的 Windows
-子系统），就今天出现了占用 CPU 高的情况（几乎占满）。</p>
-<p>怎么注意到的呢，是今天第某次打开
-VSCode，给了我一个消息弹窗，“检测到你已经启用 WSL，是否安装 WSL
-扩展”。</p>
-<p>也可能是我记错了，为什么今天第一次打开 VSCode 没有弹窗呢？</p>
-<p>但是查看更新记录，昨天确实是更新过一次的。琐碎的事我是记不住的，所以才要写笔记。</p>
-<p>还有前几天给 ubuntu
-硬盘扩容了，这个应该不影响。关于扩容的笔记还得等到下次出问题，因为只要问题解决了，我就没有动力继续写了，基本概念（分区、卷组、逻辑卷等）都不想看，只是先试，试也只等到出问题的时候再试。</p>
-<p>所以为了写这些笔记，我就必须找一个问题对立。就是任务驱动型作文。</p>
-<p>但是呢？课内该学的一直拖，看你拖到什么时候。</p>
-<p>拖了一个月。</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
