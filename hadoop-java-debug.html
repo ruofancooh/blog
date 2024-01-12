@@ -8,21 +8,27 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="VM Player 17 里的 ubuntu 22.04.3" name="description"/>
+<meta content="在物理机上开 VSCode，开不开 Remote - SSH
+ 插件都可，开了大概就不叫远程了。
+ 这个暂时没什么作用，只能看到函数名，看不到来源代码。还没折腾明白
+ 文档" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="给虚拟机折腾扩容" property="og:title"/>
-<meta content="https://hrfis.me/blog/UC/ubuntu-space-extend/index.html" property="og:url"/>
+<meta content="用 VSCode 远程附加调试 Hadoop 的 Java 进程" property="og:title"/>
+<meta content="https://hrfis.me/blog/hadoop-java-debug.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="VM Player 17 里的 ubuntu 22.04.3" property="og:description"/>
+<meta content="在物理机上开 VSCode，开不开 Remote - SSH
+ 插件都可，开了大概就不叫远程了。
+ 这个暂时没什么作用，只能看到函数名，看不到来源代码。还没折腾明白
+ 文档" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-12-03T16:17:00.000Z" property="article:published_time"/>
-<meta content="2024-01-08T10:28:08.827Z" property="article:modified_time"/>
+<meta content="2024-01-12T02:40:00.000Z" property="article:published_time"/>
+<meta content="2024-01-12T15:31:13.921Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/UC/ubuntu-space-extend/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/UC/ubuntu-space-extend/","path":"/UC/ubuntu-space-extend/","title":"给虚拟机折腾扩容"}</script>
+<link href="https://hrfis.me/blog/hadoop-java-debug" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/hadoop-java-debug.html","path":"/hadoop-java-debug.html","title":"用 VSCode 远程附加调试 Hadoop 的 Java 进程"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>给虚拟机折腾扩容 | 若凡的笔记</title>
+<title>用 VSCode 远程附加调试 Hadoop 的 Java 进程 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -69,7 +75,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E7%A9%BA%E9%97%B4%E7%BC%9D%E9%9A%99"><span class="nav-number">2.</span> <span class="nav-text">层次（空间缝隙）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">步骤</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hadoop-env.sh"><span class="nav-number">1.</span> <span class="nav-text">hadoop-env.sh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#launch.json"><span class="nav-number">2.</span> <span class="nav-text">launch.json</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -81,7 +87,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">42</span>
+<span class="site-state-item-count">44</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -100,7 +106,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/UC/ubuntu-space-extend/" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/hadoop-java-debug.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -110,12 +116,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="给虚拟机折腾扩容 | 若凡的笔记" itemprop="name"/>
+<meta content="用 VSCode 远程附加调试 Hadoop 的 Java 进程 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          给虚拟机折腾扩容
+          用 VSCode 远程附加调试 Hadoop 的 Java 进程
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -124,14 +130,7 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2023-12-04T00:17:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-12-04 00:17:00">2023-12-04</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2024-01-08T18:28:08+08:00" itemprop="dateModified" title="修改时间：2024-01-08 18:28:08">2024-01-08</time>
+<time datetime="2024-01-12T10:40:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-12 10:40:00 / 修改时间：23:31:13">2024-01-12</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -139,73 +138,33 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/UC/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
+<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>VM Player 17 里的 ubuntu 22.04.3</p>
+<div class="post-body" itemprop="articleBody"><p>在物理机上开 VSCode，开不开 Remote - SSH
+插件都可，开了大概就不叫远程了。</p>
+<p>这个暂时没什么作用，只能看到函数名，看不到来源代码。还没折腾明白</p>
+<p><a href="https://code.visualstudio.com/docs/java/java-debugging" rel="noopener" target="_blank">文档</a></p>
 <span id="more"></span>
-<h2 id="工具">工具</h2>
-<ul>
-<li><code>df -h</code>：查看文件系统使用情况、挂载到的目录</li>
-<li><code>lsblk</code>：查看块设备相关信息、挂载点</li>
-<li><code>parted</code>：分区管理</li>
-<li><code>vgs</code> <code>vgdisplay</code>：卷组信息（Volume
-Group）</li>
-<li><code>pvs</code> <code>pvdisplay</code>：物理卷信息（Physical
-volume）</li>
-<li><code>lvs</code> <code>lvdisplay</code>：逻辑卷信息（Logical
-Volume）</li>
-</ul>
-<h2 id="层次空间缝隙">层次（空间缝隙）</h2>
-<ul>
-<li><code>/dev/sda</code>：大概是 VM 设置里分配的硬盘空间大小
-<ul>
-<li><code>/dev/sda1</code>：bios_grub</li>
-<li><code>/dev/sda2</code>：<code>/boot</code></li>
-<li>物理卷 pv：<code>/dev/sda3</code>
-<ul>
-<li>逻辑卷 lv：
-<ul>
-<li>文件系统 <code>/dev/mapper/ubuntu--vg-ubuntu--lv</code> -&gt;
-<code>/dev/dm-0</code></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-<p>需求：</p>
-<ol type="1">
-<li>先扩 sda</li>
-<li>从 sda 向 sda3 匀</li>
-<li>从 sda3 向 lv 匀</li>
-</ol>
-<h2 id="步骤">步骤</h2>
-<ol type="1">
-<li><p>给 VM 的虚拟磁盘扩容</p>
-<p>关机状态下：编辑虚拟机设置 -&gt; 硬盘 -&gt; 扩展</p></li>
-<li><p>从 sda 向 sda3 匀</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo parted</span><br/></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/></pre></td><td class="code"><pre><span class="line">GNU Parted 3.4</span><br/><span class="line">Using /dev/sda</span><br/><span class="line">Welcome to GNU Parted! Type 'help' to view a list of commands.</span><br/><span class="line">(parted) print all</span><br/><span class="line">// 输出……</span><br/><span class="line"></span><br/><span class="line">(parted) print free</span><br/><span class="line">Model: VMware, VMware Virtual S (scsi)</span><br/><span class="line">Disk /dev/sda: 32.2GB</span><br/><span class="line">Sector size (logical/physical): 512B/512B</span><br/><span class="line">Partition Table: gpt</span><br/><span class="line">Disk Flags:</span><br/><span class="line"></span><br/><span class="line">Number  Start   End     Size    File system  Name  Flags</span><br/><span class="line">        17.4kB  1049kB  1031kB  Free Space</span><br/><span class="line"> 1      1049kB  2097kB  1049kB                     bios_grub</span><br/><span class="line"> 2      2097kB  1904MB  1902MB  ext4</span><br/><span class="line"> 3      1904MB  21.5GB  19.6GB</span><br/><span class="line">        21.5GB  32.2GB  10.7GB  Free Space</span><br/><span class="line"></span><br/><span class="line">(parted) resizepart 3</span><br/><span class="line">End?  [21.5GB]? 32.3GB //在后面输入扩到的 End，比 End 略大就是扩到底</span><br/></pre></td></tr></table></figure>
-<p>扩完后，<code>sudo pvs</code> 出的 /dev/sda3 会比 <code>lsblk</code>
-出的 sda3 小，执行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo pvresize /dev/sda3</span><br/></pre></td></tr></table></figure></li>
-<li><p>从 sda3 向 lv 匀</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo lvresize -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv</span><br/></pre></td></tr></table></figure>
-<p>扩完后，<code>df -h</code> 出的 /dev/mapper/ubuntu--vg-ubuntu--lv
-还没变，执行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv</span><br/></pre></td></tr></table></figure></li>
-</ol>
+<h2 id="hadoop-env.sh">hadoop-env.sh</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> 某某_OPTS=<span class="string">"-agentlib:jdwp=transport=dt_socket,address=8888,server=y,suspend=n"</span></span><br/></pre></td></tr></table></figure>
+<h2 id="launch.json">launch.json</h2>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"version"</span><span class="punctuation">:</span> <span class="string">"0.2.0"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"configurations"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br/><span class="line">    <span class="punctuation">{</span></span><br/><span class="line">      <span class="attr">"type"</span><span class="punctuation">:</span> <span class="string">"java"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"name"</span><span class="punctuation">:</span> <span class="string">"Hadoop 某某"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"request"</span><span class="punctuation">:</span> <span class="string">"attach"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"hostName"</span><span class="punctuation">:</span> <span class="string">"ubuntu101"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"port"</span><span class="punctuation">:</span> <span class="number">8888</span></span><br/><span class="line">    <span class="punctuation">}</span></span><br/><span class="line">  <span class="punctuation">]</span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></table></figure>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/hadoop-linux-scripts.html" rel="prev" title="一些脚本">
-<i class="fa fa-chevron-left"></i> 一些脚本
+<a href="/blog/ubuntu-space-extend.html" rel="prev" title="给虚拟机扩容">
+<i class="fa fa-chevron-left"></i> 给虚拟机扩容
                 </a>
 </div>
 <div class="post-nav-item">
+<a href="/blog/jsch-auth-fail.html" rel="next" title="解决 JSch 认证失败">
+                  解决 JSch 认证失败 <i class="fa fa-chevron-right"></i>
+</a>
 </div>
 </div>
 </footer>
@@ -241,7 +200,7 @@ Volume）</li>
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/UC/ubuntu-space-extend/"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/hadoop-java-debug.html"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>

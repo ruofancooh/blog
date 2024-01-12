@@ -76,7 +76,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">42</span>
+<span class="site-state-item-count">44</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -95,7 +95,7 @@
 <div class="main-inner index posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
-<link href="https://hrfis.me/blog/UC/ubuntu-space-extend/" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/jsch-auth-fail.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -110,7 +110,122 @@
 </span>
 <header class="post-header">
 <h2 class="post-title" itemprop="name headline">
-<a class="post-title-link" href="/blog/UC/ubuntu-space-extend/" itemprop="url">给虚拟机折腾扩容</a>
+<a class="post-title-link" href="/blog/jsch-auth-fail.html" itemprop="url">解决 JSch 认证失败</a>
+</h2>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2024-01-12T23:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-12 23:00:00 / 修改时间：23:32:04">2024-01-12</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody">
+<p>问题出现在配置 HDFS HA 自动故障转移时。杀掉活跃的 NN
+之后，它没有被隔离成功。</p>
+<p>JSch 是一个库，它在 Java 程序里建立 SSH 连接。</p>
+<!--noindex-->
+<div class="post-button">
+<a class="btn" href="/blog/jsch-auth-fail.html#more" rel="contents">
+                阅读全文 »
+              </a>
+</div>
+<!--/noindex-->
+</div>
+<footer class="post-footer">
+<div class="post-eof"></div>
+</footer>
+</article>
+</div>
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
+<link href="https://hrfis.me/blog/hadoop-java-debug.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="undefined | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h2 class="post-title" itemprop="name headline">
+<a class="post-title-link" href="/blog/hadoop-java-debug.html" itemprop="url">用 VSCode 远程附加调试 Hadoop 的 Java 进程</a>
+</h2>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2024-01-12T10:40:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-12 10:40:00 / 修改时间：23:31:13">2024-01-12</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody">
+<p>在物理机上开 VSCode，开不开 Remote - SSH
+插件都可，开了大概就不叫远程了。</p>
+<p>这个暂时没什么作用，只能看到函数名，看不到来源代码。还没折腾明白</p>
+<p><a href="https://code.visualstudio.com/docs/java/java-debugging" rel="noopener" target="_blank">文档</a></p>
+<!--noindex-->
+<div class="post-button">
+<a class="btn" href="/blog/hadoop-java-debug.html#more" rel="contents">
+                阅读全文 »
+              </a>
+</div>
+<!--/noindex-->
+</div>
+<footer class="post-footer">
+<div class="post-eof"></div>
+</footer>
+</article>
+</div>
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
+<link href="https://hrfis.me/blog/ubuntu-space-extend.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="undefined | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h2 class="post-title" itemprop="name headline">
+<a class="post-title-link" href="/blog/ubuntu-space-extend.html" itemprop="url">给虚拟机扩容</a>
 </h2>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -126,7 +241,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-01-08T18:28:08+08:00" itemprop="dateModified" title="修改时间：2024-01-08 18:28:08">2024-01-08</time>
+<time datetime="2024-01-12T23:26:11+08:00" itemprop="dateModified" title="修改时间：2024-01-12 23:26:11">2024-01-12</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -134,7 +249,7 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/UC/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
+<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
 </span>
 </span>
 </div>
@@ -144,7 +259,7 @@
 <p>VM Player 17 里的 ubuntu 22.04.3</p>
 <!--noindex-->
 <div class="post-button">
-<a class="btn" href="/blog/UC/ubuntu-space-extend/#more" rel="contents">
+<a class="btn" href="/blog/ubuntu-space-extend.html#more" rel="contents">
                 阅读全文 »
               </a>
 </div>
@@ -581,133 +696,6 @@
 <!--noindex-->
 <div class="post-button">
 <a class="btn" href="/blog/hadoop-mapreduce.html#more" rel="contents">
-                阅读全文 »
-              </a>
-</div>
-<!--/noindex-->
-</div>
-<footer class="post-footer">
-<div class="post-eof"></div>
-</footer>
-</article>
-</div>
-<div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
-<link href="https://hrfis.me/blog/UC/paper/" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="undefined | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h2 class="post-title" itemprop="name headline">
-<a class="post-title-link" href="/blog/UC/paper/" itemprop="url">如何写论文</a>
-</h2>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar"></i>
-</span>
-<span class="post-meta-item-text">发表于</span>
-<time datetime="2023-11-06T22:24:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-11-06 22:24:00">2023-11-06</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2024-01-08T18:34:43+08:00" itemprop="dateModified" title="修改时间：2024-01-08 18:34:43">2024-01-08</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/UC/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
-</span>
-</span>
-</div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody">
-<p>如何写论文？</p>
-<!--noindex-->
-<div class="post-button">
-<a class="btn" href="/blog/UC/paper/#more" rel="contents">
-                阅读全文 »
-              </a>
-</div>
-<!--/noindex-->
-</div>
-<footer class="post-footer">
-<div class="post-eof"></div>
-</footer>
-</article>
-</div>
-<div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
-<link href="https://hrfis.me/blog/lost-in-tianyi.html" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="undefined | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h2 class="post-title" itemprop="name headline">
-<a class="post-title-link" href="/blog/lost-in-tianyi.html" itemprop="url">《Lost In Tianyi》所表达的</a>
-</h2>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar"></i>
-</span>
-<span class="post-meta-item-text">发表于</span>
-<time datetime="2023-11-04T14:55:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-11-04 14:55:00">2023-11-04</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2024-01-08T18:17:40+08:00" itemprop="dateModified" title="修改时间：2024-01-08 18:17:40">2024-01-08</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/M/" itemprop="url" rel="index"><span itemprop="name">音乐</span></a>
-</span>
-</span>
-</div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody">
-<p>《Lost In Tianyi》，谁 Lost In Tianyi？</p>
-<p>创作者或者听众，写歌的人或者听歌的人。洛天依是歌声数据库，同时作为一个纸片人歌手。</p>
-<p>为什么写歌/听歌？要表达一些什么东西/缺失一些什么东西，或许是理想。</p>
-<p>所以《Lost In Tianyi》=《迷失在理想里》。</p>
-<!--noindex-->
-<div class="post-button">
-<a class="btn" href="/blog/lost-in-tianyi.html#more" rel="contents">
                 阅读全文 »
               </a>
 </div>

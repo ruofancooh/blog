@@ -8,21 +8,35 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="Hadoop 生态圈" name="description"/>
+<meta content="有两种二进制文件保证元数据的可靠性：
+ 
+ EditLog：编辑日志，对 HDFS 进行操作的日志
+ FsImage：文件系统（元数据）镜像
+ 
+ 位于 NN 的 $&amp;#123;hadoop.tmp.dir&amp;#125;/dfs/name/current
+ 和 2NN 的
+ $&amp;#123;hadoop.tmp.dir&amp;#125;/data/dfs/namesecondary/current" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="HD07 - Hadoop 生态圈" property="og:title"/>
-<meta content="https://hrfis.me/blog/HD/07/index.html" property="og:url"/>
+<meta content="HDFS 的 EditLog 和 FsImage" property="og:title"/>
+<meta content="https://hrfis.me/blog/hdfs-editlog-fsimage.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="Hadoop 生态圈" property="og:description"/>
+<meta content="有两种二进制文件保证元数据的可靠性：
+ 
+ EditLog：编辑日志，对 HDFS 进行操作的日志
+ FsImage：文件系统（元数据）镜像
+ 
+ 位于 NN 的 $&amp;#123;hadoop.tmp.dir&amp;#125;/dfs/name/current
+ 和 2NN 的
+ $&amp;#123;hadoop.tmp.dir&amp;#125;/data/dfs/namesecondary/current" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-10-17T03:37:00.000Z" property="article:published_time"/>
-<meta content="2023-11-03T07:06:52.740Z" property="article:modified_time"/>
+<meta content="2023-10-30T14:01:00.000Z" property="article:published_time"/>
+<meta content="2024-01-11T15:33:14.925Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/HD/07/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/HD/07/","path":"/HD/07/","title":"HD07 - Hadoop 生态圈"}</script>
+<link href="https://hrfis.me/blog/hdfs-editlog-fsimage" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/hdfs-editlog-fsimage.html","path":"/hdfs-editlog-fsimage.html","title":"HDFS 的 EditLog 和 FsImage"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>HD07 - Hadoop 生态圈 | 若凡的笔记</title>
+<title>HDFS 的 EditLog 和 FsImage | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -69,7 +83,9 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E6%AF%8D%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.</span> <span class="nav-text">字母顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%82%E7%BA%A7%E9%A1%BA%E5%BA%8F"><span class="nav-number">2.</span> <span class="nav-text">层级顺序</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8-oev-%E5%91%BD%E4%BB%A4%E8%BD%AC%E6%8D%A2-editlog-%E4%B8%BA-xml"><span class="nav-number">1.</span> <span class="nav-text">用 oev 命令转换 EditLog 为
+xml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8-oiv-%E5%91%BD%E4%BB%A4%E8%BD%AC%E6%8D%A2-fsimage-%E4%B8%BA-xml"><span class="nav-number">2.</span> <span class="nav-text">用 oiv 命令转换 FsImage 为
+xml</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -100,7 +116,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/HD/07/" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/hdfs-editlog-fsimage.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -110,12 +126,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="HD07 - Hadoop 生态圈 | 若凡的笔记" itemprop="name"/>
+<meta content="HDFS 的 EditLog 和 FsImage | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          HD07 - Hadoop 生态圈
+          HDFS 的 EditLog 和 FsImage
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -124,14 +140,14 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2023-10-17T11:37:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-10-17 11:37:00">2023-10-17</time>
+<time datetime="2023-10-30T22:01:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-10-30 22:01:00">2023-10-30</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2023-11-03T15:06:52+08:00" itemprop="dateModified" title="修改时间：2023-11-03 15:06:52">2023-11-03</time>
+<time datetime="2024-01-11T23:33:14+08:00" itemprop="dateModified" title="修改时间：2024-01-11 23:33:14">2024-01-11</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -145,67 +161,33 @@
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>Hadoop 生态圈</p>
-<span id="more"></span>
-<h2 id="字母顺序">字母顺序</h2>
+<div class="post-body" itemprop="articleBody"><p>有两种二进制文件保证元数据的可靠性：</p>
 <ul>
-<li>Alluxio：【不是 Apache 基金会的】</li>
-<li>Ambari：</li>
-<li>Flume：收集用户日志。</li>
-<li>HBase：分布式的，面向列的非关系型数据库，用于随机访问和实时读写数据。</li>
-<li>HDFS：分布式文件系统。</li>
-<li>Hive：用类似 SQL 的语言整理数据。</li>
-<li>Kafka：</li>
-<li>MapReduce：一种编程模型，用于海量数据的并行运算。类似分治。</li>
-<li>Pig：</li>
-<li>Spark：计算引擎。用内存代替磁盘，存储计算过程中的数据。</li>
-<li>Sqoop:</li>
-<li>Storm:</li>
-<li>YARN：资源管理和调度。</li>
-<li>Zookeeper：管动物园的。</li>
+<li>EditLog：编辑日志，对 HDFS 进行操作的日志</li>
+<li>FsImage：文件系统（元数据）镜像</li>
 </ul>
-<h2 id="层级顺序">层级顺序</h2>
-<table>
-<thead>
-<tr class="header">
-<th>用的东西</th>
-<th>层级</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td></td>
-<td>数据分析</td>
-</tr>
-<tr class="even">
-<td>MapReduce Spark Storm</td>
-<td>数据模型</td>
-</tr>
-<tr class="odd">
-<td>HBase<br/>HDFS</td>
-<td>数据存储</td>
-</tr>
-<tr class="even">
-<td>Sqoop Flume Kafka</td>
-<td>数据传输</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>数据来源</td>
-</tr>
-</tbody>
-</table>
+<p>位于 NN 的 <code>${hadoop.tmp.dir}/dfs/name/current</code></p>
+<p>和 2NN 的
+<code>${hadoop.tmp.dir}/data/dfs/namesecondary/current</code></p>
+<span id="more"></span>
+<p>执行下面两个命令都不需要启动集群（dfs）。</p>
+<h2 id="用-oev-命令转换-editlog-为-xml">用 oev 命令转换 EditLog 为
+xml</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs oev -p XML -i edits_xxxx -o ./edits_xxxx.xml</span><br/></pre></td></tr></table></figure>
+<h2 id="用-oiv-命令转换-fsimage-为-xml">用 oiv 命令转换 FsImage 为
+xml</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs oiv -p XML -i fsimage_xxxx -o ./fsimage_xxxx.xml</span><br/></pre></td></tr></table></figure>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/HD/06/" rel="prev" title="HD06 - HDFS 的 Shell 命令和 JavaAPI 操作">
-<i class="fa fa-chevron-left"></i> HD06 - HDFS 的 Shell 命令和 JavaAPI 操作
+<a href="/blog/vmware-vmx-high-cpu-usage.html" rel="prev" title="解决 VMware Workstation VMX 占用 CPU 高">
+<i class="fa fa-chevron-left"></i> 解决 VMware Workstation VMX 占用 CPU 高
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/HD/08/" rel="next" title="HD08 - HDFS 的读写流程和工作机制">
-                  HD08 - HDFS 的读写流程和工作机制 <i class="fa fa-chevron-right"></i>
+<a href="/blog/UC/d0/" rel="next" title="获取正方教务系统里的成绩信息并对学分求和">
+                  获取正方教务系统里的成绩信息并对学分求和 <i class="fa fa-chevron-right"></i>
 </a>
 </div>
 </div>
@@ -242,7 +224,7 @@
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/HD/07/"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/hdfs-editlog-fsimage.html"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>

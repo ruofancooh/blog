@@ -72,7 +72,7 @@
  Hadoop 3.3.6" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-09-11T09:45:00.000Z" property="article:published_time"/>
-<meta content="2023-12-03T16:27:06.617Z" property="article:modified_time"/>
+<meta content="2024-01-12T15:22:34.132Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/HD/00/" rel="canonical"/>
@@ -140,7 +140,7 @@ worker1 和 worker2，配置好之后，互相复制 SSH KEY</span></a></li><li 
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">42</span>
+<span class="site-state-item-count">44</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -190,7 +190,7 @@ worker1 和 worker2，配置好之后，互相复制 SSH KEY</span></a></li><li 
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2023-12-04T00:27:06+08:00" itemprop="dateModified" title="修改时间：2023-12-04 00:27:06">2023-12-04</time>
+<time datetime="2024-01-12T23:22:34+08:00" itemprop="dateModified" title="修改时间：2024-01-12 23:22:34">2024-01-12</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -247,7 +247,7 @@ Player（免费的，但是不支持克隆虚拟机，需要手动装另外两�
 </table>
 <p>装了三台机器，名：master、worker1、worker2。（<a href="/blog/HD/04">后来</a>又改成 ubuntu101、ubuntu102、ubuntu103
 了）</p>
-<p>配置仅供参考。<a href="/blog/HD/0D/">当前配置</a></p>
+<p>配置仅供参考。</p>
 <span id="more"></span>
 <h2 id="在-windows-中安装-linux-虚拟机">在 Windows 中安装 Linux
 虚拟机</h2>
@@ -367,7 +367,12 @@ IP</h3>
 <h2 id="再建两个虚拟机-worker1-和-worker2配置好之后互相复制-ssh-key">再建两个虚拟机
 worker1 和 worker2，配置好之后，互相复制 SSH KEY</h2>
 <p>三台机器上都执行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -m PEM</span><br/></pre></td></tr></table></figure>
+<p>SSH-2.0-JSCH-0.1.54</p>
+<p>我这里的版本是
+<code>OpenSSH_8.9p1 Ubuntu-3ubuntu0.6, OpenSSL 3.0.2 15 Mar 2022</code>，要加上
+<code>-m PEM</code>，确保私钥以 -----BEGIN <strong>RSA</strong> PRIVATE
+KEY----- 开头。<a href="https://www.cnblogs.com/simple-li/p/14654812.html" rel="noopener" target="_blank">后续错误</a></p>
 <p>三台机器上都执行：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">ssh-copy-id master</span><br/><span class="line">ssh-copy-id worker1</span><br/><span class="line">ssh-copy-id worker2</span><br/></pre></td></tr></table></figure>
 <h2 id="格式化-hdfs">格式化 HDFS</h2>

@@ -8,29 +8,21 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="只是【在做完这些操作后的一段时间，没有再出现这个问题】
- 并不能保证【这些操作的每一步都是一定对的，或有用的】
- 因为我是通过搜索解决的，并不理解每一步操作背后的东西。
- 过了两个月，这个问题又出现了。并且前三步的结果还是放在那里的，说明前三步可能是没有用的。
- 现在是把虚拟机内存缩小了一点，不知道有没有用。磨刀不误砍柴工，即使磨的是刀背，负面经验也是经验。" name="description"/>
+<meta content="只是在做完这些操作后的一段时间，没有再出现这个问题，并不能保证这些操作的每一步都是一定对的，或有用的。过了两个月，这个问题又出现了。并且前三步的结果还是放在那里的，说明前三步可能是没有用的。方向搞错了：你在物理机上看任务管理器，为什么不在虚拟机上看任务管理器。" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="VMware Workstation VMX 占用 CPU 高的解决记录" property="og:title"/>
-<meta content="https://hrfis.me/blog/UC/b0/index.html" property="og:url"/>
+<meta content="解决 VMware Workstation VMX 占用 CPU 高" property="og:title"/>
+<meta content="https://hrfis.me/blog/vmware-vmx-high-cpu-usage.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="只是【在做完这些操作后的一段时间，没有再出现这个问题】
- 并不能保证【这些操作的每一步都是一定对的，或有用的】
- 因为我是通过搜索解决的，并不理解每一步操作背后的东西。
- 过了两个月，这个问题又出现了。并且前三步的结果还是放在那里的，说明前三步可能是没有用的。
- 现在是把虚拟机内存缩小了一点，不知道有没有用。磨刀不误砍柴工，即使磨的是刀背，负面经验也是经验。" property="og:description"/>
+<meta content="只是在做完这些操作后的一段时间，没有再出现这个问题，并不能保证这些操作的每一步都是一定对的，或有用的。过了两个月，这个问题又出现了。并且前三步的结果还是放在那里的，说明前三步可能是没有用的。方向搞错了：你在物理机上看任务管理器，为什么不在虚拟机上看任务管理器。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-10-30T14:00:00.000Z" property="article:published_time"/>
-<meta content="2024-01-10T15:34:15.904Z" property="article:modified_time"/>
+<meta content="2024-01-12T15:32:51.782Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/UC/b0/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/UC/b0/","path":"/UC/b0/","title":"VMware Workstation VMX 占用 CPU 高的解决记录"}</script>
+<link href="https://hrfis.me/blog/vmware-vmx-high-cpu-usage" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/vmware-vmx-high-cpu-usage.html","path":"/vmware-vmx-high-cpu-usage.html","title":"解决 VMware Workstation VMX 占用 CPU 高"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>VMware Workstation VMX 占用 CPU 高的解决记录 | 若凡的笔记</title>
+<title>解决 VMware Workstation VMX 占用 CPU 高 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -77,7 +69,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">操作</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%83%BD%E6%B2%A1%E6%9C%89%E7%94%A8%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">可能没有用的操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">新问题</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -89,7 +81,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">42</span>
+<span class="site-state-item-count">44</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -108,7 +100,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/UC/b0/" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/vmware-vmx-high-cpu-usage.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -118,12 +110,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="VMware Workstation VMX 占用 CPU 高的解决记录 | 若凡的笔记" itemprop="name"/>
+<meta content="解决 VMware Workstation VMX 占用 CPU 高 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          VMware Workstation VMX 占用 CPU 高的解决记录
+          解决 VMware Workstation VMX 占用 CPU 高
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -139,7 +131,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-01-10T23:34:15+08:00" itemprop="dateModified" title="修改时间：2024-01-10 23:34:15">2024-01-10</time>
+<time datetime="2024-01-12T23:32:51+08:00" itemprop="dateModified" title="修改时间：2024-01-12 23:32:51">2024-01-12</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -147,19 +139,15 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/UC/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
+<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>只是【在做完这些操作后的一段时间，没有再出现这个问题】</p>
-<p>并不能保证【这些操作的每一步都是一定对的，或有用的】</p>
-<p>因为我是通过搜索解决的，并不理解每一步操作背后的东西。</p>
-<p>过了两个月，这个问题又出现了。并且前三步的结果还是放在那里的，说明前三步可能是没有用的。</p>
-<p>现在是把虚拟机内存缩小了一点，不知道有没有用。磨刀不误砍柴工，即使磨的是刀背，负面经验也是经验。</p>
+<div class="post-body" itemprop="articleBody"><p>只是在做完这些操作后的一段时间，没有再出现这个问题，并不能保证这些操作的每一步都是一定对的，或有用的。过了两个月，这个问题又出现了。并且前三步的结果还是放在那里的，说明前三步可能是没有用的。方向搞错了：你在物理机上看任务管理器，为什么不在虚拟机上看任务管理器。</p>
 <span id="more"></span>
-<h2 id="操作">操作</h2>
+<h2 id="可能没有用的操作">可能没有用的操作</h2>
 <ol type="1">
 <li>控制面板 -&gt; 程序 -&gt; 程序和功能 -&gt; 启用 Windows 功能 -&gt;
 取消勾选【适用于 Linux 的 Windows 子系统】</li>
@@ -171,6 +159,15 @@
 <ol start="4" type="1">
 <li>重启电脑。</li>
 </ol>
+<h2 id="新问题">新问题</h2>
+<p>起因是，配置 HDFS 高可用自动故障转移，把 Active 的 NN
+杀了。然后它不但没有故障转移，反而故障了。</p>
+<p>查看进程：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">top</span><br/></pre></td></tr></table></figure>
+<p>DataNode 出问题了，CPU 占满了。看 log：DataNode 和 ZKFC 的 log
+文件大小都在涨，一直在尝试重连。所以<strong>当 CPU 占用高，写磁盘不到
+1MB/s，可能是出问题了在一直写 log</strong>。所以要习惯看
+log，本来就是盲人摸 Hadoop，log 看不明白就完了。</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
@@ -180,8 +177,8 @@
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/HD/09/" rel="next" title="HD09 - HDFS 的 EditLog 和 FsImage 文件">
-                  HD09 - HDFS 的 EditLog 和 FsImage 文件 <i class="fa fa-chevron-right"></i>
+<a href="/blog/hdfs-editlog-fsimage.html" rel="next" title="HDFS 的 EditLog 和 FsImage">
+                  HDFS 的 EditLog 和 FsImage <i class="fa fa-chevron-right"></i>
 </a>
 </div>
 </div>
@@ -218,7 +215,7 @@
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/UC/b0/"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/vmware-vmx-high-cpu-usage.html"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
