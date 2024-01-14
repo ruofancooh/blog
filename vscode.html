@@ -8,21 +8,23 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="只是在做完这些操作后的一段时间，没有再出现这个问题，并不能保证这些操作的每一步都是一定对的，或有用的。过了两个月，这个问题又出现了。并且前三步的结果还是放在那里的，说明前三步可能是没有用的。方向搞错了：你在物理机上看任务管理器，为什么不在虚拟机上看任务管理器。" name="description"/>
+<meta content="工具没用明白
+ 文档" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="解决 VMware Workstation VMX 占用 CPU 高" property="og:title"/>
-<meta content="https://hrfis.me/blog/vmware-vmx-high-cpu-usage.html" property="og:url"/>
+<meta content="VSCode 相关问题" property="og:title"/>
+<meta content="https://hrfis.me/blog/vscode.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="只是在做完这些操作后的一段时间，没有再出现这个问题，并不能保证这些操作的每一步都是一定对的，或有用的。过了两个月，这个问题又出现了。并且前三步的结果还是放在那里的，说明前三步可能是没有用的。方向搞错了：你在物理机上看任务管理器，为什么不在虚拟机上看任务管理器。" property="og:description"/>
+<meta content="工具没用明白
+ 文档" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-10-30T14:00:00.000Z" property="article:published_time"/>
-<meta content="2024-01-12T15:32:51.782Z" property="article:modified_time"/>
+<meta content="2024-01-12T02:40:00.000Z" property="article:published_time"/>
+<meta content="2024-01-14T14:37:33.649Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/vmware-vmx-high-cpu-usage" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/vmware-vmx-high-cpu-usage.html","path":"/vmware-vmx-high-cpu-usage.html","title":"解决 VMware Workstation VMX 占用 CPU 高"}</script>
+<link href="https://hrfis.me/blog/vscode" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/vscode.html","path":"/vscode.html","title":"VSCode 相关问题"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>解决 VMware Workstation VMX 占用 CPU 高 | 若凡的笔记</title>
+<title>VSCode 相关问题 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -69,7 +71,8 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%83%BD%E6%B2%A1%E6%9C%89%E7%94%A8%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">可能没有用的操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">新问题</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E9%9B%86%E6%88%90%E7%BB%88%E7%AB%AF%E6%8C%89%E9%94%AE%E4%B8%8E%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%86%B2%E7%AA%81"><span class="nav-number">1.</span> <span class="nav-text">解决集成终端按键与快捷键冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E9%99%84%E5%8A%A0%E8%B0%83%E8%AF%95-hadoop-%E7%9A%84-java-%E8%BF%9B%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">远程附加调试 Hadoop 的 Java
+进程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hadoop-env.sh"><span class="nav-number">2.1.</span> <span class="nav-text">hadoop-env.sh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#launch.json"><span class="nav-number">2.2.</span> <span class="nav-text">launch.json</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -81,13 +84,13 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">43</span>
+<span class="site-state-item-count">38</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
 <div class="site-state-item site-state-categories">
 <a href="/blog/categories/">
-<span class="site-state-item-count">3</span>
+<span class="site-state-item-count">4</span>
 <span class="site-state-item-name">分类</span></a>
 </div>
 </nav>
@@ -100,7 +103,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/vmware-vmx-high-cpu-usage.html" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/vscode.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -110,12 +113,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="解决 VMware Workstation VMX 占用 CPU 高 | 若凡的笔记" itemprop="name"/>
+<meta content="VSCode 相关问题 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          解决 VMware Workstation VMX 占用 CPU 高
+          VSCode 相关问题
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -124,14 +127,14 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2023-10-30T22:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-10-30 22:00:00">2023-10-30</time>
+<time datetime="2024-01-12T10:40:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-12 10:40:00">2024-01-12</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-01-12T23:32:51+08:00" itemprop="dateModified" title="修改时间：2024-01-12 23:32:51">2024-01-12</time>
+<time datetime="2024-01-14T22:37:33+08:00" itemprop="dateModified" title="修改时间：2024-01-14 22:37:33">2024-01-14</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -139,46 +142,40 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">问题</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>只是在做完这些操作后的一段时间，没有再出现这个问题，并不能保证这些操作的每一步都是一定对的，或有用的。过了两个月，这个问题又出现了。并且前三步的结果还是放在那里的，说明前三步可能是没有用的。方向搞错了：你在物理机上看任务管理器，为什么不在虚拟机上看任务管理器。</p>
+<div class="post-body" itemprop="articleBody"><p>工具没用明白</p>
+<p><a href="https://code.visualstudio.com/docs/" rel="noopener" target="_blank">文档</a></p>
 <span id="more"></span>
-<h2 id="可能没有用的操作">可能没有用的操作</h2>
-<ol type="1">
-<li>控制面板 -&gt; 程序 -&gt; 程序和功能 -&gt; 启用 Windows 功能 -&gt;
-取消勾选【适用于 Linux 的 Windows 子系统】</li>
-<li><code>Win + R</code> 打开 <code>services.msc</code>，停止【HV
-主机服务】。</li>
-<li>管理员身份在 cmd 里执行：</li>
-</ol>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">bcdedit /<span class="built_in">set</span> hypervisorlaunchtype off</span><br/></pre></td></tr></table></figure>
-<ol start="4" type="1">
-<li>重启电脑。</li>
-</ol>
-<h2 id="新问题">新问题</h2>
-<p>起因是，配置 HDFS 高可用自动故障转移，把 Active 的 NN
-杀了。然后它不但没有故障转移，反而故障了。</p>
-<p>查看进程：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">top</span><br/></pre></td></tr></table></figure>
-<p>DataNode 出问题了，CPU 占满了。看 log：DataNode 和 ZKFC 的 log
-文件大小都在涨，一直在尝试重连。所以<strong>当 CPU 占用高，写磁盘不到
-1MB/s，可能是出问题了在一直写 log</strong>。所以要习惯看
-log，本来就是盲人摸 Hadoop，log 看不明白就完了。</p>
+<h2 id="解决集成终端按键与快捷键冲突">解决集成终端按键与快捷键冲突</h2>
+<p><code>Ctrl + Shift + P</code> 打开命令面板，搜键盘快捷方式</p>
+<p>搜冲突的按键，右键更改 When 表达式，加上
+<code>&amp;&amp; !terminalFocus</code></p>
+<h2 id="远程附加调试-hadoop-的-java-进程">远程附加调试 Hadoop 的 Java
+进程</h2>
+<p>在物理机上开 VSCode，开不开 Remote - SSH 插件都可。</p>
+<p>如果开了，工作区在虚拟机上。如果没开，工作区在物理机上。</p>
+<p>这个暂时没什么作用，只能看到函数名，看不到来源代码。还没折腾明白</p>
+<p><a href="https://code.visualstudio.com/docs/java/java-debugging" rel="noopener" target="_blank">文档</a></p>
+<h3 id="hadoop-env.sh">hadoop-env.sh</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> 某某_OPTS=<span class="string">"-agentlib:jdwp=transport=dt_socket,address=8888,server=y,suspend=n"</span></span><br/></pre></td></tr></table></figure>
+<h3 id="launch.json">launch.json</h3>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"version"</span><span class="punctuation">:</span> <span class="string">"0.2.0"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"configurations"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br/><span class="line">    <span class="punctuation">{</span></span><br/><span class="line">      <span class="attr">"type"</span><span class="punctuation">:</span> <span class="string">"java"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"name"</span><span class="punctuation">:</span> <span class="string">"Hadoop 某某"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"request"</span><span class="punctuation">:</span> <span class="string">"attach"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"hostName"</span><span class="punctuation">:</span> <span class="string">"ubuntu101"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"port"</span><span class="punctuation">:</span> <span class="number">8888</span></span><br/><span class="line">    <span class="punctuation">}</span></span><br/><span class="line">  <span class="punctuation">]</span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></table></figure>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/HD/07/" rel="prev" title="HD07 - Hadoop 生态圈">
-<i class="fa fa-chevron-left"></i> HD07 - Hadoop 生态圈
+<a href="/blog/hadoop-linux-scripts.html" rel="prev" title="一些脚本">
+<i class="fa fa-chevron-left"></i> 一些脚本
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/hdfs-editlog-fsimage.html" rel="next" title="HDFS 的 EditLog 和 FsImage">
-                  HDFS 的 EditLog 和 FsImage <i class="fa fa-chevron-right"></i>
+<a href="/blog/jsch-auth-fail.html" rel="next" title="解决 JSch 认证失败">
+                  解决 JSch 认证失败 <i class="fa fa-chevron-right"></i>
 </a>
 </div>
 </div>
@@ -215,7 +212,7 @@ log，本来就是盲人摸 Hadoop，log 看不明白就完了。</p>
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/vmware-vmx-high-cpu-usage.html"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/vscode.html"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>

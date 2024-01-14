@@ -8,21 +8,27 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="VM Player 17 里的 ubuntu 22.04.3" name="description"/>
+<meta content="真机系统：Windows 10
+ 使用软件：VMware Workstation 17.0.2 Player
+ 虚拟机系统：Ubuntu 22.04.3 server" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="给虚拟机扩容" property="og:title"/>
-<meta content="https://hrfis.me/blog/ubuntu-space-extend.html" property="og:url"/>
+<meta content="VM 相关问题" property="og:title"/>
+<meta content="https://hrfis.me/blog/ubuntu-on-vmplayer.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="VM Player 17 里的 ubuntu 22.04.3" property="og:description"/>
+<meta content="真机系统：Windows 10
+ 使用软件：VMware Workstation 17.0.2 Player
+ 虚拟机系统：Ubuntu 22.04.3 server" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-12-03T16:17:00.000Z" property="article:published_time"/>
-<meta content="2024-01-12T15:26:11.602Z" property="article:modified_time"/>
+<meta content="https://hrfis.me/blog/images/vm.png" property="og:image"/>
+<meta content="2023-08-11T12:10:00.000Z" property="article:published_time"/>
+<meta content="2024-01-14T14:49:27.577Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/ubuntu-space-extend" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/ubuntu-space-extend.html","path":"/ubuntu-space-extend.html","title":"给虚拟机扩容"}</script>
+<meta content="https://hrfis.me/blog/images/vm.png" name="twitter:image"/>
+<link href="https://hrfis.me/blog/ubuntu-on-vmplayer" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/ubuntu-on-vmplayer.html","path":"/ubuntu-on-vmplayer.html","title":"VM 相关问题"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>给虚拟机扩容 | 若凡的笔记</title>
+<title>VM 相关问题 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -69,7 +75,9 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E7%A9%BA%E9%97%B4%E7%BC%9D%E9%9A%99"><span class="nav-number">2.</span> <span class="nav-text">层次（空间缝隙）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">步骤</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85-vmware-workstation-player"><span class="nav-number">1.1.</span> <span class="nav-text">下载安装 VMware Workstation
+Player</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD-ubuntu-%E9%95%9C%E5%83%8F"><span class="nav-number">1.2.</span> <span class="nav-text">下载 Ubuntu 镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8-vm-player-%E4%B8%AD%E6%96%B0%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">1.3.</span> <span class="nav-text">在 VM Player 中新建虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ubuntu"><span class="nav-number">1.4.</span> <span class="nav-text">安装 Ubuntu</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA"><span class="nav-number">1.5.</span> <span class="nav-text">设置时区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8E%E7%9C%9F%E6%9C%BA%E7%9A%84%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">1.6.</span> <span class="nav-text">设置虚拟机与真机的共享文件夹</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">扩容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">2.1.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E7%A9%BA%E9%97%B4%E7%BC%9D%E9%9A%99"><span class="nav-number">2.2.</span> <span class="nav-text">层次（空间缝隙）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.3.</span> <span class="nav-text">步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3-vmware-workstation-vmx-%E5%8D%A0%E7%94%A8-cpu-%E9%AB%98"><span class="nav-number">3.</span> <span class="nav-text">解决 VMware Workstation
+VMX 占用 CPU 高</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E8%83%BD%E6%B2%A1%E6%9C%89%E7%94%A8%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-number">3.1.</span> <span class="nav-text">可能没有用的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E9%97%AE%E9%A2%98"><span class="nav-number">3.2.</span> <span class="nav-text">新问题</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -81,13 +89,13 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">43</span>
+<span class="site-state-item-count">38</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
 <div class="site-state-item site-state-categories">
 <a href="/blog/categories/">
-<span class="site-state-item-count">3</span>
+<span class="site-state-item-count">4</span>
 <span class="site-state-item-name">分类</span></a>
 </div>
 </nav>
@@ -100,7 +108,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/ubuntu-space-extend.html" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/ubuntu-on-vmplayer.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -110,12 +118,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="给虚拟机扩容 | 若凡的笔记" itemprop="name"/>
+<meta content="VM 相关问题 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          给虚拟机扩容
+          VM 相关问题
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -124,14 +132,14 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2023-12-04T00:17:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-12-04 00:17:00">2023-12-04</time>
+<time datetime="2023-08-11T20:10:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-08-11 20:10:00">2023-08-11</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-01-12T23:26:11+08:00" itemprop="dateModified" title="修改时间：2024-01-12 23:26:11">2024-01-12</time>
+<time datetime="2024-01-14T22:49:27+08:00" itemprop="dateModified" title="修改时间：2024-01-14 22:49:27">2024-01-14</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -139,15 +147,87 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">问题</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>VM Player 17 里的 ubuntu 22.04.3</p>
+<div class="post-body" itemprop="articleBody"><ul>
+<li>真机系统：Windows 10</li>
+<li>使用软件：VMware Workstation 17.0.2 Player</li>
+<li>虚拟机系统：Ubuntu 22.04.3 server</li>
+</ul>
 <span id="more"></span>
-<h2 id="工具">工具</h2>
+<p>也可以给硬盘分一个新的区，单独安装 Linux。不过没有必要。</p>
+<p>好像还能用 Docker，我没试过。</p>
+<h2 id="安装">安装</h2>
+<h3 id="下载安装-vmware-workstation-player">下载安装 VMware Workstation
+Player</h3>
+<blockquote>
+<p>使用 VMware Workstation Player 在 Windows 或 Linux PC
+上轻松地将多个操作系统作为虚拟机运行。——网站介绍</p>
+</blockquote>
+<p><a href="https://customerconnect.vmware.com/cn/downloads/info/slug/desktop_end_user_computing/vmware_workstation_player/" rel="noopener" target="_blank">下载页面</a></p>
+<p>这里下载的是当前最新版
+<code>VMware Workstation 17.0.2 Player for Windows 64-bit Operating Systems</code>。</p>
+<p>安装过程略（“增强型键盘驱动程序”不知道有什么用，先勾上）。</p>
+<h3 id="下载-ubuntu-镜像">下载 Ubuntu 镜像</h3>
+<p>是一种 Linux 发行版操作系统。</p>
+<p><a href="https://launchpad.net/ubuntu/+cdmirrors" rel="noopener" target="_blank">下载页面（仓库集合）</a>，找到
+China。</p>
+<p>这里下载的是<code>ubuntu-22.04.3-live-server-amd64.iso</code>。</p>
+<h3 id="在-vm-player-中新建虚拟机">在 VM Player 中新建虚拟机</h3>
+<ol type="1">
+<li><code>创建新虚拟机(N)</code></li>
+<li><code>安装程序光盘文件(iso)(M)</code></li>
+<li><code>浏览(R)</code>，选择下载的镜像文件，下一步。</li>
+<li>设置虚拟机名称和位置，下一步。（我这里设置的是<code>Ubuntu100</code>和<code>D:\VMachines\Ubuntu100</code>）</li>
+<li>指定磁盘容量，下一步。</li>
+<li>自定义硬件（我这里把 CPU 改成了 4 核）。完成。</li>
+</ol>
+<p>你会看到：</p>
+<p><img src="/blog/images/vm.png"/></p>
+<p>按回车开始安装 Ubuntu。</p>
+<h3 id="安装-ubuntu">安装 Ubuntu</h3>
+<ol type="1">
+<li><p>语言选择，默认回车。</p></li>
+<li><p>键盘布局选择，默认回车。</p></li>
+<li><p>安装类型，默认回车。</p></li>
+<li><p>网络，默认回车。</p></li>
+<li><p>代理，默认回车。</p></li>
+<li><p>配置镜像源，如果网络不好，改成</p>
+<ul>
+<li><p>清华源：<code>https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</code></p></li>
+<li><p>南京源：<code>https://mirror.nju.edu.cn/ubuntu/</code></p></li>
+<li><p>北邮源：<code>https://mirrors.bupt.edu.cn/ubuntu/</code></p>
+<p>等均可。</p></li>
+</ul></li>
+<li><p>配置存储布局，默认选择<code>Done</code>，回车。</p></li>
+<li><p>文件系统，<code>Done</code>，<code>Continue</code>。</p></li>
+<li><p>设置用户名密码等。</p></li>
+<li><p>是否升级到 Pro 版，默认不升级，<code>Continue</code>。</p></li>
+<li><p>是否安装 OpenSSH server，先不安装。</p></li>
+<li><p>是否安装其他东西，先都不选。</p></li>
+<li><p>等待安装系统。</p></li>
+<li><p>安装完成后，点击 VM Player
+下方的“我已完成安装”，然后<code>Reboot Now</code>。</p></li>
+</ol>
+<p>报错不要紧，回车。</p>
+<p>输入用户名和密码登录 Ubuntu。注意输入密码默认是不回显的。</p>
+<h3 id="设置时区">设置时区</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo dpkg-reconfigure tzdata</span><br/></pre></td></tr></table></figure>
+<p>选择 <code>Asia</code></p>
+<p>再选择 <code>Shanghai</code></p>
+<h3 id="设置虚拟机与真机的共享文件夹">设置虚拟机与真机的共享文件夹</h3>
+<p>VM
+的虚拟磁盘文件不好直接打开。有时候需要在虚拟机和真机之间互传文件，可以通过共享文件夹。</p>
+<p>（以后用的都是<a href="https://wangdoc.com/ssh/" rel="noopener" target="_blank">SSH</a>和<a href="https://www.xshell.com/zh/free-for-home-school/" rel="noopener" target="_blank">Xftp</a>）</p>
+<p>在 VM Player 里打开虚拟机设置-&gt;选项-&gt;共享文件夹。</p>
+<p>我这里设置在<code>D:\VMachines\Shared</code>。</p>
+<p>在虚拟机里的位置是<code>/mnt/hgfs/Shared</code>。</p>
+<h2 id="扩容">扩容</h2>
+<h3 id="工具">工具</h3>
 <ul>
 <li><code>df -h</code>：查看文件系统使用情况、挂载到的目录</li>
 <li><code>lsblk</code>：查看块设备相关信息、挂载点</li>
@@ -159,7 +239,7 @@ volume）</li>
 <li><code>lvs</code> <code>lvdisplay</code>：逻辑卷信息（Logical
 Volume）</li>
 </ul>
-<h2 id="层次空间缝隙">层次（空间缝隙）</h2>
+<h3 id="层次空间缝隙">层次（空间缝隙）</h3>
 <ul>
 <li><code>/dev/sda</code>：大概是 VM 设置里分配的硬盘空间大小
 <ul>
@@ -181,7 +261,7 @@ Volume）</li>
 <li>从 sda 向 sda3 匀</li>
 <li>从 sda3 向 lv 匀</li>
 </ol>
-<h2 id="步骤">步骤</h2>
+<h3 id="步骤">步骤</h3>
 <ol type="1">
 <li><p>给 VM 的虚拟磁盘扩容</p>
 <p>关机状态下：编辑虚拟机设置 -&gt; 硬盘 -&gt; 扩展</p></li>
@@ -197,17 +277,41 @@ Volume）</li>
 还没变，执行：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv</span><br/></pre></td></tr></table></figure></li>
 </ol>
+<h2 id="解决-vmware-workstation-vmx-占用-cpu-高">解决 VMware Workstation
+VMX 占用 CPU 高</h2>
+<p>只是在做完这些操作后的一段时间，没有再出现这个问题，并不能保证这些操作的每一步都是一定对的，或有用的。过了两个月，这个问题又出现了。并且前三步的结果还是放在那里的，说明前三步可能是没有用的。方向搞错了：你在物理机上看任务管理器，为什么不在虚拟机上看任务管理器。</p>
+<h3 id="可能没有用的操作">可能没有用的操作</h3>
+<ol type="1">
+<li>控制面板 -&gt; 程序 -&gt; 程序和功能 -&gt; 启用 Windows 功能 -&gt;
+取消勾选【适用于 Linux 的 Windows 子系统】</li>
+<li><code>Win + R</code> 打开 <code>services.msc</code>，停止【HV
+主机服务】。</li>
+<li>管理员身份在 cmd 里执行：</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">bcdedit /<span class="built_in">set</span> hypervisorlaunchtype off</span><br/></pre></td></tr></table></figure>
+<ol start="4" type="1">
+<li>重启电脑。</li>
+</ol>
+<h3 id="新问题">新问题</h3>
+<p>起因是，配置 HDFS 高可用自动故障转移，把 Active 的 NN
+杀了。然后它不但没有故障转移，反而故障了。</p>
+<p>查看进程：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">top</span><br/><span class="line">htop</span><br/></pre></td></tr></table></figure>
+<p>DataNode 出问题了，CPU 占满了。看 log：DataNode 和 ZKFC 的 log
+文件大小都在涨，一直在尝试重连。所以<strong>当 CPU 占用高，写磁盘不到
+1MB/s，可能是出问题了在一直写 log</strong>。所以要习惯看
+log，本来就是盲人摸 Hadoop，log 看不明白就完了。</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/hadoop-linux-scripts.html" rel="prev" title="一些脚本">
-<i class="fa fa-chevron-left"></i> 一些脚本
+<a href="/blog/holy-shit-grass-snake.html" rel="prev" title="《草蛇惊一》歌词解读">
+<i class="fa fa-chevron-left"></i> 《草蛇惊一》歌词解读
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/hadoop-java-debug.html" rel="next" title="用 VSCode 远程附加调试 Hadoop 的 Java 进程">
-                  用 VSCode 远程附加调试 Hadoop 的 Java 进程 <i class="fa fa-chevron-right"></i>
+<a href="/blog/10-to-k.html" rel="next" title="十进制与 K 进制小数互转">
+                  十进制与 K 进制小数互转 <i class="fa fa-chevron-right"></i>
 </a>
 </div>
 </div>
@@ -244,7 +348,7 @@ Volume）</li>
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/ubuntu-space-extend.html"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/ubuntu-on-vmplayer.html"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
