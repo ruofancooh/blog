@@ -8,21 +8,21 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="《如此背包》" name="description"/>
+<meta content="基础不牢，工具没用明白" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="如此背包" property="og:title"/>
-<meta content="https://hrfis.me/blog/M/backpack/index.html" property="og:url"/>
+<meta content="一些概念与 Linux 命令" property="og:title"/>
+<meta content="https://hrfis.me/blog/linux.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="《如此背包》" property="og:description"/>
+<meta content="基础不牢，工具没用明白" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-11-26T21:31:00.000Z" property="article:published_time"/>
-<meta content="2023-12-02T14:42:11.360Z" property="article:modified_time"/>
+<meta content="2024-01-14T02:30:00.000Z" property="article:published_time"/>
+<meta content="2024-01-14T02:47:44.478Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/M/backpack/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/M/backpack/","path":"/M/backpack/","title":"如此背包"}</script>
+<link href="https://hrfis.me/blog/linux" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/linux.html","path":"/linux.html","title":"一些概念与 Linux 命令"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>如此背包 | 若凡的笔记</title>
+<title>一些概念与 Linux 命令 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -57,7 +57,7 @@
 </nav>
 </header>
 <aside class="sidebar">
-<div class="sidebar-inner sidebar-overview-active">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
 <ul class="sidebar-nav">
 <li class="sidebar-nav-toc">
           文章目录
@@ -69,6 +69,9 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC%E4%B8%8E%E5%B8%AE%E5%8A%A9"><span class="nav-number">1.</span> <span class="nav-text">查看软件版本与帮助</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.</span> <span class="nav-text">程序、进程、线程、服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#internet-connections-%E4%B8%8E-unix-domain-sockets"><span class="nav-number">3.</span> <span class="nav-text">Internet
+connections 与 UNIX domain sockets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E7%8A%B6%E6%80%81"><span class="nav-number">4.</span> <span class="nav-text">连接状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3"><span class="nav-number">5.</span> <span class="nav-text">端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#net-tools-2.10-alpha"><span class="nav-number">6.</span> <span class="nav-text">net-tools 2.10-alpha</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#openbsd-netcat-debian-patchlevel-1.218-4ubuntu1"><span class="nav-number">7.</span> <span class="nav-text">OpenBSD netcat
+(Debian patchlevel 1.218-4ubuntu1)</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -80,7 +83,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">41</span>
+<span class="site-state-item-count">43</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -99,7 +102,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/M/backpack/" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/linux.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -109,12 +112,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="如此背包 | 若凡的笔记" itemprop="name"/>
+<meta content="一些概念与 Linux 命令 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          如此背包
+          一些概念与 Linux 命令
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -123,14 +126,7 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2023-11-27T05:31:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-11-27 05:31:00">2023-11-27</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2023-12-02T22:42:11+08:00" itemprop="dateModified" title="修改时间：2023-12-02 22:42:11">2023-12-02</time>
+<time datetime="2024-01-14T10:30:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-14 10:30:00 / 修改时间：10:47:44">2024-01-14</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -138,113 +134,66 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/M/" itemprop="url" rel="index"><span itemprop="name">音乐</span></a>
+<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>《如此背包》</p>
+<div class="post-body" itemprop="articleBody"><p>基础不牢，工具没用明白</p>
 <span id="more"></span>
-<p>大伙晚上好，给大伙来说段相声</p>
-<p>先做个自我介绍，你先吧，你是干什么工作的</p>
-<p>（我啊，我是学生，学计算机的）</p>
-<p>学生，怎么上这儿来说相声了</p>
-<p>（大学嘛，不是什么都要学嘛。学说相声，学写相声，也算是学习。）</p>
-<p>啊，有理</p>
-<p>（那你是干什么工作的）</p>
-<p>我也是学生，哎我们不是一个人吗</p>
-<p>（啊，这我还没注意）</p>
-<p>这个说相声啊，讲究什么，你知道吗</p>
-<p>（说学逗唱啊）</p>
-<p>说相声，讲究抖包袱</p>
-<p>（抖包袱，包袱是什么意思啊？）</p>
-<p>包袱，就是笑点哪，就是让观众朋友们图一乐</p>
-<p>（哦，说相声就是为人图一乐，那你这不是在解释笑话吗）</p>
-<p>啊这个……在算法里啊，还有一个专业名词（什么名词啊）背包问题</p>
-<p>（背包问题？什么意思）</p>
-<p>就是有一个背包，承重有限。还有几个不同重量的物品，这些物品的价格也是不同的</p>
-<p>（您等会，能具体一点吗？）</p>
-<p>具体一点</p>
-<p>（就是举一个例子）</p>
-<p>你，是一个小偷，把人家屋子的锁给撬了，顺便把保险柜也撬了。</p>
-<p>（什么保险柜这是）</p>
-<p>打开保险柜，八十根金条，五十个大钻，二十张银行卡，映入眼帘。</p>
-<p>但是，你这一趟来得比较仓促，什么口袋都没拿，浑身上下只有两个衣服口袋能装东西。</p>
-<p>（我怎么还不提前准备呢）</p>
-<p>刚偷完上一家，口袋给同伙拿了，再寻思赚点外快。</p>
-<p>（嚯）</p>
-<p>现在你得考虑了，怎么往口袋里装这些东西，使得在法网网到你之前你能够最大程度的挥霍。</p>
-<p>（那我可挥霍不了几天了）</p>
-<p>（那这么说，背包问题就是小偷问题）</p>
-<p>对喽，你可以这么记。把背包问题挪到说相声上，也是同一个理。</p>
-<p>（什么理）</p>
-<p>你想想，背包，就是包袱。</p>
-<p>（包袱）</p>
-<p>包袱里的东西，是什么？是嘴里头说的，是语言。</p>
-<p>所以相声上的背包问题，就是如何使用最简单的语言，抖出一个最响的包袱。</p>
-<p>（啊这……有点……道理）</p>
-<p>相声是什么？是语言的艺术。</p>
-<p>（噢，是说的道理）</p>
-<p>背包问题，背包，是先把包袱背上了才能抖下来。</p>
-<p>（那是怎么背上包袱的呢）</p>
-<p>看代码：（代码？）</p>
-<p>dp[i][j]</p>
-<p>（dp[i][j]？dp 是什么意思）</p>
-<p>dynamic programming</p>
-<p>（什么玩意儿？呆什么）</p>
-<p>英语！不懂吧？就是动态规划的意思</p>
-<p>（动态规划，什么叫动态规划啊）</p>
-<p>规划，就是计划你之后要干什么事儿</p>
-<p>（那动态呢）</p>
-<p>动态</p>
-<p>（噢，那我要是计划我今天晚上吃什么饭，是不是也叫动态规划）</p>
-<p>对喽（啊）</p>
-<p>这动态规划有一特点，就是要记住过去的事儿，然后通过过去的事儿来规划将来的事儿</p>
-<p>（什么意思）</p>
-<p>比如你用哔哩哔哩，点那个搜索框，是不是出来了一些词儿啊。</p>
-<p>（都是我搜过的）</p>
-<p>它是不是还给你推荐新词儿啊，这就是他们那边的动态规划。</p>
-<p>（哦）</p>
-<p>你这边的动态规划呢，就是你用浏览器，点那个历史记录，然后（哎哎哎）怎么了？</p>
-<p>（这 ei 个不能点。）</p>
-<p>这怎么不能点了呢？</p>
-<p>（额，我开的是无痕模式。）</p>
-<p>无痕模式，那你是怎么规划的呢。</p>
-<p>（我是，直接输网址）</p>
-<p>然后呢</p>
-<p>（然后……）</p>
-<p>发我一份</p>
-<p>（发什么啊发你一份）</p>
-<p>有福同享啊</p>
-<p>（享什么啊你，继续讲背包问题啊）</p>
-<p>好好，开不起玩笑，继续说这个背包问题。背包问题要用动态规划来解决，这个动态规划的英文缩写，是
-dp</p>
-<p>（就是那什么呆）</p>
-<p>dp，不就是大盘吗</p>
-<p>（大盘？怎么说）</p>
-<p>有一特别火的射击游戏，叫和平精英，里面有一把枪，叫 dp-28
-不是叫大盘鸡吗。</p>
-<p>（哦，dp 可以谐音成大盘）</p>
-<p>大盘，不得有点掌控全局的意思吗。（哦）只要拿到大盘鸡，这盘鸡就稳了。</p>
-<p>（那只要使用动态规划，解决这个背包问题就稳了？）</p>
-<p>有慧根</p>
-<p>（还慧根）</p>
-<p>【【【后略】】】</p>
-<hr/>
-<p>作者通过对 0-1 背包问题的诙谐演绎，生动形象地表达了思乡之情。</p>
-<p>关键词：相声 算法 背包问题 动态规划 dp</p>
+<h2 id="查看软件版本与帮助">查看软件版本与帮助</h2>
+<p>dpkg 是 Debian 的包管理器。Linux -&gt; Debian -&gt; Ubuntu</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">dpkg -l | grep xxx</span><br/><span class="line"><span class="comment"># | 是管道操作符，把上一个进程的输出作为下一个进程的输入</span></span><br/></pre></td></tr></table></figure>
+<p>apt 是基于 dpkg 的包管理器</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">apt list --installed | grep xxx</span><br/><span class="line"><span class="comment"># apt does not have a stable CLI interface. Use with caution in scripts.</span></span><br/></pre></td></tr></table></figure>
+<p>找不到就</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">xxx -h 或 --<span class="built_in">help</span></span><br/></pre></td></tr></table></figure>
+<p>一般会有帮助，然后 <code>-V</code> <code>-version</code>
+<code>--version</code> 之类的</p>
+<p>或者<strong>直接看 man
+手册，写得非常详细</strong>。剩下的就是愿不愿意看、愿不愿意查翻译的问题了。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/518891500" rel="noopener" target="_blank">一文读懂 man
+手册</a></p>
+<h2 id="程序进程线程服务">程序、进程、线程、服务</h2>
+<p>程序是代码，静态的，以文件的形式存储在存储介质上。</p>
+<p>进程是在内存里正在运行的程序，有代码段，数据段（存全局变量、静态变量），栈（管理函数的调用和返回、存局部变量、参数）等。</p>
+<p>一个进程可包含一个或多个线程，这些线程共享进程资源。</p>
+<p>服务是特定的一个或多个进程</p>
+<p><code>ps</code> 列出当前用户的进程状态，<code>-e</code>
+参数列出所有</p>
+<h2 id="internet-connections-与-unix-domain-sockets">Internet
+connections 与 UNIX domain sockets</h2>
+<p>前者是基于 TCP/IP 协议的网络连接。每个套接字都由 IP
+地址和端口号唯一标识。</p>
+<p>后者用于本地进程之间的通信，而不是跨网络的通信。使用文件系统路径作为套接字的地址。</p>
+<h2 id="连接状态">连接状态</h2>
+<p>LISTEN 服务端正在等待客户端的连接</p>
+<p>established 既定了</p>
+<h2 id="端口">端口</h2>
+<p>端口是进程之间通信用的</p>
+<h2 id="net-tools-2.10-alpha">net-tools 2.10-alpha</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">netstat -tunlp</span><br/></pre></td></tr></table></figure>
+<ul>
+<li>-t：<strong>仅</strong>显示 TCP 连接信息</li>
+<li>-u：<strong>仅</strong>显示 UDP 连接信息</li>
+<li>-n：以数字形式显示 IP 地址和端口号</li>
+<li>-l：<strong>仅</strong>显示监听状态的连接</li>
+<li>-p：显示与连接关联的进程信息</li>
+</ul>
+<h2 id="openbsd-netcat-debian-patchlevel-1.218-4ubuntu1">OpenBSD netcat
+(Debian patchlevel 1.218-4ubuntu1)</h2>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/M/y/" rel="prev" title="关于抑郁症的五十个问题">
-<i class="fa fa-chevron-left"></i> 关于抑郁症的五十个问题
+<a href="/blog/jsch-auth-fail.html" rel="prev" title="解决 JSch 认证失败">
+<i class="fa fa-chevron-left"></i> 解决 JSch 认证失败
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/hadoop-linux-scripts.html" rel="next" title="一些脚本">
-                  一些脚本 <i class="fa fa-chevron-right"></i>
+<a href="/blog/kaleido.html" rel="next" title="一些概念">
+                  一些概念 <i class="fa fa-chevron-right"></i>
 </a>
 </div>
 </div>
@@ -281,7 +230,7 @@ dp</p>
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/M/backpack/"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/linux.html"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>

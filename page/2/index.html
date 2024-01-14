@@ -76,7 +76,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">41</span>
+<span class="site-state-item-count">43</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -95,7 +95,7 @@
 <div class="main-inner index posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
-<link href="https://hrfis.me/blog/UC/paper/" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/HD/0B/" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -110,7 +110,137 @@
 </span>
 <header class="post-header">
 <h2 class="post-title" itemprop="name headline">
-<a class="post-title-link" href="/blog/UC/paper/" itemprop="url">如何写论文</a>
+<a class="post-title-link" href="/blog/HD/0B/" itemprop="url">HD0B - Hadoop 的序列化案例</a>
+</h2>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2023-11-07T21:47:48+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-11-07 21:47:48">2023-11-07</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2023-11-09T11:38:20+08:00" itemprop="dateModified" title="修改时间：2023-11-09 11:38:20">2023-11-09</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody">
+<p>序列化（serialization）是指将内存中的对象转换成字节序列，以便传输和持久化存储（硬盘）。</p>
+<p>反序列化是反过来，把存储在硬盘中的持久化数据转换为内存中的对象。</p>
+<p>例如 JSON，它的文本文件属于持久化数据，读 json
+文件后转换成对象属于反序列化。</p>
+<p>为什么要序列化：内存中的对象是鲜活的，需要把它序列化成标准形式，便于持久化管理和多台计算机通信。对象是“声音”，序列化后是“文字”。</p>
+<p>为什么不用 Java 自带的序列化 Serializable：太笨重了。</p>
+<!--noindex-->
+<div class="post-button">
+<a class="btn" href="/blog/HD/0B/#more" rel="contents">
+                阅读全文 »
+              </a>
+</div>
+<!--/noindex-->
+</div>
+<footer class="post-footer">
+<div class="post-eof"></div>
+</footer>
+</article>
+</div>
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
+<link href="https://hrfis.me/blog/hadoop-mapreduce.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="undefined | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h2 class="post-title" itemprop="name headline">
+<a class="post-title-link" href="/blog/hadoop-mapreduce.html" itemprop="url">MapReduce编程入门</a>
+</h2>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2023-11-07T21:47:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-11-07 21:47:00">2023-11-07</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-01-08T18:50:13+08:00" itemprop="dateModified" title="修改时间：2024-01-08 18:50:13">2024-01-08</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody">
+<p><a href="https://github.com/apache/hadoop/blob/branch-3.3.6/hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-core/src/site/markdown/MapReduceTutorial.md" rel="noopener" target="_blank">官方教程</a></p>
+<p><img src="/blog/images/MapReduce.png"/></p>
+<!--noindex-->
+<div class="post-button">
+<a class="btn" href="/blog/hadoop-mapreduce.html#more" rel="contents">
+                阅读全文 »
+              </a>
+</div>
+<!--/noindex-->
+</div>
+<footer class="post-footer">
+<div class="post-eof"></div>
+</footer>
+</article>
+</div>
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
+<link href="https://hrfis.me/blog/how-to-write.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="undefined | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h2 class="post-title" itemprop="name headline">
+<a class="post-title-link" href="/blog/how-to-write.html" itemprop="url">如何写论文</a>
 </h2>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -126,7 +256,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-01-08T18:34:43+08:00" itemprop="dateModified" title="修改时间：2024-01-08 18:34:43">2024-01-08</time>
+<time datetime="2024-01-14T10:40:30+08:00" itemprop="dateModified" title="修改时间：2024-01-14 10:40:30">2024-01-14</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -144,7 +274,7 @@
 <p>如何写论文？</p>
 <!--noindex-->
 <div class="post-button">
-<a class="btn" href="/blog/UC/paper/#more" rel="contents">
+<a class="btn" href="/blog/how-to-write.html#more" rel="contents">
                 阅读全文 »
               </a>
 </div>
@@ -188,7 +318,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-01-08T18:17:40+08:00" itemprop="dateModified" title="修改时间：2024-01-08 18:17:40">2024-01-08</time>
+<time datetime="2024-01-14T10:34:42+08:00" itemprop="dateModified" title="修改时间：2024-01-14 10:34:42">2024-01-14</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -196,7 +326,7 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/M/" itemprop="url" rel="index"><span itemprop="name">音乐</span></a>
+<a href="/blog/categories/%E9%9F%B3%E4%B9%90/" itemprop="url" rel="index"><span itemprop="name">音乐</span></a>
 </span>
 </span>
 </div>
@@ -604,127 +734,6 @@ Server API</a></li>
 <!--noindex-->
 <div class="post-button">
 <a class="btn" href="/blog/HD/05/#more" rel="contents">
-                阅读全文 »
-              </a>
-</div>
-<!--/noindex-->
-</div>
-<footer class="post-footer">
-<div class="post-eof"></div>
-</footer>
-</article>
-</div>
-<div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
-<link href="https://hrfis.me/blog/UC/e1/" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="undefined | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h2 class="post-title" itemprop="name headline">
-<a class="post-title-link" href="/blog/UC/e1/" itemprop="url">把文章链接折腾得简单点</a>
-</h2>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar"></i>
-</span>
-<span class="post-meta-item-text">发表于</span>
-<time datetime="2023-09-30T15:45:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-09-30 15:45:00">2023-09-30</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2023-11-03T15:03:21+08:00" itemprop="dateModified" title="修改时间：2023-11-03 15:03:21">2023-11-03</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/UC/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
-</span>
-</span>
-</div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody">
-<p>起因是我觉得文章链接太长了。</p>
-<!--noindex-->
-<div class="post-button">
-<a class="btn" href="/blog/UC/e1/#more" rel="contents">
-                阅读全文 »
-              </a>
-</div>
-<!--/noindex-->
-</div>
-<footer class="post-footer">
-<div class="post-eof"></div>
-</footer>
-</article>
-</div>
-<div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
-<link href="https://hrfis.me/blog/shao-yin-fu.html" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="undefined | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h2 class="post-title" itemprop="name headline">
-<a class="post-title-link" href="/blog/shao-yin-fu.html" itemprop="url">《韶音赋》歌词注解</a>
-</h2>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar"></i>
-</span>
-<span class="post-meta-item-text">发表于</span>
-<time datetime="2023-09-27T19:09:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-09-27 19:09:00 / 修改时间：21:38:49">2023-09-27</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/M/" itemprop="url" rel="index"><span itemprop="name">音乐</span></a>
-</span>
-</span>
-</div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody">
-<ul>
-<li>韶：一种乐曲，后引申为“美好的”。</li>
-<li>赋：一种文体，用于描写和抒情。</li>
-</ul>
-<p>词作者是<a href="https://space.bilibili.com/109564" rel="noopener" target="_blank">战场原妖精</a>。</p>
-<!--noindex-->
-<div class="post-button">
-<a class="btn" href="/blog/shao-yin-fu.html#more" rel="contents">
                 阅读全文 »
               </a>
 </div>

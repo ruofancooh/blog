@@ -8,25 +8,27 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="r3.3.6
- 
- UnixShellAPI" name="description"/>
+<meta content="JSON（JavaScript Object Notation，JavaScript
+ 对象表示法）是一种轻量级的数据交换格式，可以看成是字符串。
+ 和 JavaScript 没什么关系，就像 JavaScript 和 Java
+ 没什么关系一样。" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="HD03 - 对 Hadoop 集群启动脚本的注解" property="og:title"/>
-<meta content="https://hrfis.me/blog/HD/03/index.html" property="og:url"/>
+<meta content="JSON" property="og:title"/>
+<meta content="https://hrfis.me/blog/json.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="r3.3.6
- 
- UnixShellAPI" property="og:description"/>
+<meta content="JSON（JavaScript Object Notation，JavaScript
+ 对象表示法）是一种轻量级的数据交换格式，可以看成是字符串。
+ 和 JavaScript 没什么关系，就像 JavaScript 和 Java
+ 没什么关系一样。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-09-26T09:45:00.000Z" property="article:published_time"/>
-<meta content="2023-11-03T07:06:20.537Z" property="article:modified_time"/>
+<meta content="2023-05-26T10:21:43.000Z" property="article:published_time"/>
+<meta content="2024-01-14T02:41:18.325Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/HD/03/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/HD/03/","path":"/HD/03/","title":"HD03 - 对 Hadoop 集群启动脚本的注解"}</script>
+<link href="https://hrfis.me/blog/json" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/json.html","path":"/json.html","title":"JSON"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>HD03 - 对 Hadoop 集群启动脚本的注解 | 若凡的笔记</title>
+<title>JSON | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -73,7 +75,8 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hadoop_homesbinstart-all.sh"><span class="nav-number">1.</span> <span class="nav-text">$HADOOP_HOME/sbin/start-all.sh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hadoop_homelibexechadoop-config.sh"><span class="nav-number">2.</span> <span class="nav-text">$HADOOP_HOME/libexec/hadoop-config.sh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hadoop_homesbinstart-dfs.sh"><span class="nav-number">3.</span> <span class="nav-text">$HADOOP_HOME/sbin/start-dfs.sh</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#json-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E4%B8%8E-js-%E5%AF%B9%E8%B1%A1%E4%BA%92%E8%BD%AC"><span class="nav-number">1.</span> <span class="nav-text">JSON 字符串 与 JS 对象互转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#json-%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E-python-%E5%AD%97%E5%85%B8%E4%BA%92%E8%BD%AC"><span class="nav-number">2.</span> <span class="nav-text">JSON 字符串与 Python
+字典互转</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -104,7 +107,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/HD/03/" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/json.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -114,12 +117,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="HD03 - 对 Hadoop 集群启动脚本的注解 | 若凡的笔记" itemprop="name"/>
+<meta content="JSON | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          HD03 - 对 Hadoop 集群启动脚本的注解
+          JSON
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -128,14 +131,14 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2023-09-26T17:45:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-09-26 17:45:00">2023-09-26</time>
+<time datetime="2023-05-26T18:21:43+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-05-26 18:21:43">2023-05-26</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2023-11-03T15:06:20+08:00" itemprop="dateModified" title="修改时间：2023-11-03 15:06:20">2023-11-03</time>
+<time datetime="2024-01-14T10:41:18+08:00" itemprop="dateModified" title="修改时间：2024-01-14 10:41:18">2024-01-14</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -143,85 +146,30 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/HD/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+<a href="/blog/UC/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>r3.3.6</p>
-<ul>
-<li><a href="https://hadoop.apache.org/docs/r3.3.6/hadoop-project-dist/hadoop-common/UnixShellAPI.html" rel="noopener" target="_blank">UnixShellAPI</a></li>
-</ul>
+<div class="post-body" itemprop="articleBody"><p>JSON（JavaScript Object Notation，JavaScript
+对象表示法）是一种轻量级的数据交换格式，可以看成是字符串。</p>
+<p>和 JavaScript 没什么关系，就像 JavaScript 和 Java
+没什么关系一样。</p>
 <span id="more"></span>
-<h2 id="hadoop_homesbinstart-all.sh">$HADOOP_HOME/sbin/start-all.sh</h2>
-<p>对应
-https://github.com/apache/hadoop/blob/branch-3.3.6/hadoop-common-project/hadoop-common/src/main/bin/start-all.sh</p>
-<iframe height="500" src="https://github.com/apache/hadoop/blob/branch-3.3.6/hadoop-common-project/hadoop-common/src/main/bin/start-all.sh" width="100%">
-</iframe>
-<p>干的事：</p>
-<ol type="1">
-<li>【28-36】找目录
-<code>${HADOOP_HOME}/libexec</code>，里面有其他脚本，和配置文件
-<code>hadoop-config.sh</code></li>
-<li>【38-44】把 <code>hadoop-config.sh</code> 包含到当前脚本里</li>
-<li>【46-53】如果 <code>hadoop_privilege_check</code> 返回 0，进行 10
-秒的启动前确认</li>
-<li>【55-63】运行另两个启动脚本 <code>start-dfs.sh</code> 和
-<code>start-yarn.sh</code></li>
-</ol>
-<ul>
-<li>28：if [[ -n ]] 判断字符串非空，非空为 1</li>
-<li>31：获取当前脚本的完整路径。$0 表示当前脚本的名称（含扩展名）</li>
-<li>32：-P 表示使用物理路径，不使用软链接。--
-表示后面跟的不是选项了，是参数。对于 dirname
-命令，如果路径不以/结束，返回最后一个/之前的内容；如果路径以/结束，返回倒数第二个/之前的内容。&gt;/dev/null
-就是把输出重定向到 /dev/null，丢弃输出的数据。pwd
-获取当前目录的绝对路径</li>
-<li>37：注释告诉 ShellCheck 工具忽略 SC2034
-警告（定义了未使用的变量）</li>
-<li>39：-f
-用于检查文件是否存在，并且是一个常规文件（不是目录、符号链接、设备文件或管道）</li>
-<li>40：. 将另一个脚本包含到当前脚本中</li>
-<li>42：2&gt;&amp;1 将标准错误输出重定向到标准输出</li>
-<li>47：trap 设置信号处理程序</li>
-<li>52：取消对 INT 信号的捕获</li>
-</ul>
-<h2 id="hadoop_homelibexechadoop-config.sh">$HADOOP_HOME/libexec/hadoop-config.sh</h2>
-<h2 id="hadoop_homesbinstart-dfs.sh">$HADOOP_HOME/sbin/start-dfs.sh</h2>
-<p>对应
-https://github.com/apache/hadoop/blob/branch-3.3.6/hadoop-hdfs-project/hadoop-hdfs/src/main/bin/start-dfs.sh</p>
-<p>干的事：</p>
-<ol type="1">
-<li>【43-61】同样找 <code>${HADOOP_HOME}/libexec</code> 目录，并包含
-<code>hdfs-config.sh</code></li>
-<li>【63-78】对本脚本传参个数大于等于一个时，如果第一个参数为
-<code>-upgrade</code> 或 <code>-rollback</code>，把它赋值给
-<code>nameStartOpt</code> 或 <code>dataStartOpt</code></li>
-</ol>
-<ul>
-<li>64: $# 参数个数，-ge 大于等于</li>
-<li>66：shift
-把所有参数“左移”一位（丢弃第一个参数，原来第二个参数变成第一个参数……）</li>
-<li>82：$* 所有当前参数（shift 后的）拼接起来的字符串</li>
-<li>89：if [[ -z ]] 判断字符串空，空为 1</li>
-<li>101：$? 上一个进程结束的状态码，0 成功 1 失败</li>
-<li>112：(( )) 可在里面进行算术运算并赋值</li>
-<li>121：=~ 正则匹配</li>
-<li>147：2&gt;&amp;- 把标准错误输出重定向到“关闭”</li>
-<li>149："$</li>
-</ul>
+<h2 id="json-字符串-与-js-对象互转">JSON 字符串 与 JS 对象互转</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> jsonStr = <span class="string">""</span>;</span><br/><span class="line"><span class="keyword">let</span> jsObj = {</span><br/><span class="line">  <span class="attr">a</span>: <span class="number">1</span>,</span><br/><span class="line">  <span class="attr">b</span>: <span class="number">2</span>,</span><br/><span class="line">  <span class="attr">c</span>: <span class="number">3</span>,</span><br/><span class="line">};</span><br/><span class="line"><span class="comment">// JS 对象转 JSON 字符串</span></span><br/><span class="line">jsonStr = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(jsObj);</span><br/><span class="line"></span><br/><span class="line"><span class="comment">// JSON 字符串转 JS 对象</span></span><br/><span class="line">jsObj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(jsonStr);</span><br/></pre></td></tr></table></figure>
+<h2 id="json-字符串与-python-字典互转">JSON 字符串与 Python
+字典互转</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br/><span class="line"></span><br/><span class="line">py_dic = {<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>, <span class="string">'c'</span>: <span class="number">3</span>}</span><br/><span class="line"></span><br/><span class="line"><span class="comment"># Python 字典转 JSON 字符串</span></span><br/><span class="line">json_str = json.dumps(py_dic)</span><br/><span class="line"></span><br/><span class="line"><span class="comment"># JSON 字符串转 Python 字典</span></span><br/><span class="line">py_dic = json.loads(json_str)</span><br/></pre></td></tr></table></figure>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/algorithm.html" rel="prev" title="算法">
-<i class="fa fa-chevron-left"></i> 算法
-                </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/shao-yin-fu.html" rel="next" title="《韶音赋》歌词注解">
-                  《韶音赋》歌词注解 <i class="fa fa-chevron-right"></i>
+<a href="/blog/android-root-magisk.html" rel="next" title="用 Magisk 获取 Android 手机的 root 权限">
+                  用 Magisk 获取 Android 手机的 root 权限 <i class="fa fa-chevron-right"></i>
 </a>
 </div>
 </div>
@@ -258,7 +206,7 @@ https://github.com/apache/hadoop/blob/branch-3.3.6/hadoop-hdfs-project/hadoop-hd
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/HD/03/"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/json.html"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
