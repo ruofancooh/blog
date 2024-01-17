@@ -16,7 +16,7 @@
 <meta content="基础不牢" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-01-14T02:30:02.000Z" property="article:published_time"/>
-<meta content="2024-01-14T14:39:00.725Z" property="article:modified_time"/>
+<meta content="2024-01-17T05:22:09.381Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/kaleido" rel="canonical"/>
@@ -69,7 +69,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E-app"><span class="nav-number">1.</span> <span class="nav-text">浏览器与 APP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mvc"><span class="nav-number">2.</span> <span class="nav-text">MVC</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%8E-app"><span class="nav-number">1.</span> <span class="nav-text">浏览器与 APP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mvc"><span class="nav-number">2.</span> <span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#slf4j-%E4%B8%8E-log4j"><span class="nav-number">3.</span> <span class="nav-text">slf4j 与 log4j</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#restful-api"><span class="nav-number">4.</span> <span class="nav-text">RESTful API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pojo"><span class="nav-number">5.</span> <span class="nav-text">POJO</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -81,7 +81,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">38</span>
+<span class="site-state-item-count">41</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -124,7 +124,14 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2024-01-14T10:30:02+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-14 10:30:02 / 修改时间：22:39:00">2024-01-14</time>
+<time datetime="2024-01-14T10:30:02+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-14 10:30:02">2024-01-14</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-01-17T13:22:09+08:00" itemprop="dateModified" title="修改时间：2024-01-17 13:22:09">2024-01-17</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -147,6 +154,19 @@
 <h2 id="mvc">MVC</h2>
 <p>模型、视图与控制器。是一种软件架构模式。</p>
 <p>视图在表面，与用户交互。模型在里面，包括数据、业务逻辑。控制器连接视图和模型。</p>
+<p>用户 &lt;-&gt; 视图 &lt;-&gt; 控制器 &lt;-&gt; 模型</p>
+<h2 id="slf4j-与-log4j">slf4j 与 log4j</h2>
+<p>Simple Logging Facade for Java，Java 的简单日志门面</p>
+<p>写代码 -&gt; slf4j -&gt; 绑定 log4j -&gt; 日志</p>
+<h2 id="restful-api">RESTful API</h2>
+<p>API 是应用程序接口 Application Programming Interface</p>
+<p>REST 是表述性状态转移 Representational State Transfer</p>
+<p>RESTful API：</p>
+<ul>
+<li>用名词（动宾短语 GET /xxx），不用动词</li>
+</ul>
+<h2 id="pojo">POJO</h2>
+<p>Plain Old Java Object，普通的旧的 Java 对象</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
@@ -156,6 +176,9 @@
                 </a>
 </div>
 <div class="post-nav-item">
+<a href="/blog/maven.html" rel="next" title="Maven 相关问题">
+                  Maven 相关问题 <i class="fa fa-chevron-right"></i>
+</a>
 </div>
 </div>
 </footer>

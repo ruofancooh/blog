@@ -8,17 +8,21 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="website" property="og:type"/>
-<meta content="若凡的笔记" property="og:title"/>
-<meta content="https://hrfis.me/blog/archives/2024/01/index.html" property="og:url"/>
+<meta content="基础不牢" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="Maven 相关问题" property="og:title"/>
+<meta content="https://hrfis.me/blog/maven.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
+<meta content="基础不牢" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
+<meta content="2024-01-16T13:31:47.000Z" property="article:published_time"/>
+<meta content="2024-01-15T22:31:40.938Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/archives/2024/01/" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/2024/01/index.html","title":""}</script>
+<link href="https://hrfis.me/blog/maven" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/maven.html","path":"/maven.html","title":"Maven 相关问题"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>归档 | 若凡的笔记</title>
+<title>Maven 相关问题 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -38,7 +42,7 @@
 <div class="site-meta">
 <a class="brand" href="/blog/" rel="start">
 <i class="logo-line"></i>
-<h1 class="site-title">若凡的笔记</h1>
+<p class="site-title">若凡的笔记</p>
 <i class="logo-line"></i>
 </a>
 </div>
@@ -53,7 +57,7 @@
 </nav>
 </header>
 <aside class="sidebar">
-<div class="sidebar-inner sidebar-overview-active">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
 <ul class="sidebar-nav">
 <li class="sidebar-nav-toc">
           文章目录
@@ -65,6 +69,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#maven-wrapper-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">Maven Wrapper 是什么</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -92,111 +97,67 @@
 </div>
 </aside>
 </div>
-<div class="main-inner archive posts-collapse">
+<div class="main-inner post posts-expand">
 <div class="post-block">
-<div class="post-content">
-<div class="collection-year">
-<span class="collection-header">2024</span>
-</div>
-<article itemscope="" itemtype="http://schema.org/Article">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/maven.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="Maven 相关问题 | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
 <header class="post-header">
+<h1 class="post-title" itemprop="name headline">
+          Maven 相关问题
+        </h1>
 <div class="post-meta-container">
-<time content="2024-01-17" datetime="2024-01-17T13:21:00+08:00" itemprop="dateCreated">
-          01-17
-        </time>
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2024-01-16T21:31:47+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-16 21:31:47 / 修改时间：06:31:40">2024-01-16</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">问题</span></a>
+</span>
+</span>
 </div>
-<div class="post-title">
-<a class="post-title-link" href="/blog/pubgm.html" itemprop="url">
-<span itemprop="name">玩《和平精英》的几点心得</span>
-</a>
 </div>
 </header>
-</article>
-<article itemscope="" itemtype="http://schema.org/Article">
-<header class="post-header">
-<div class="post-meta-container">
-<time content="2024-01-17" datetime="2024-01-17T13:20:00+08:00" itemprop="dateCreated">
-          01-17
-        </time>
+<div class="post-body" itemprop="articleBody"><p>基础不牢</p>
+<span id="more"></span>
+<h2 id="maven-wrapper-是什么">Maven Wrapper 是什么</h2>
+<p>Maven 包装纸</p>
 </div>
-<div class="post-title">
-<a class="post-title-link" href="/blog/discrete-mathematics.html" itemprop="url">
-<span itemprop="name">离散数学相关概念</span>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/kaleido.html" rel="prev" title="一些概念">
+<i class="fa fa-chevron-left"></i> 一些概念
+                </a>
+</div>
+<div class="post-nav-item">
+<a href="/blog/discrete-mathematics.html" rel="next" title="离散数学相关概念">
+                  离散数学相关概念 <i class="fa fa-chevron-right"></i>
 </a>
 </div>
-</header>
+</div>
+</footer>
 </article>
-<article itemscope="" itemtype="http://schema.org/Article">
-<header class="post-header">
-<div class="post-meta-container">
-<time content="2024-01-16" datetime="2024-01-16T21:31:47+08:00" itemprop="dateCreated">
-          01-16
-        </time>
-</div>
-<div class="post-title">
-<a class="post-title-link" href="/blog/maven.html" itemprop="url">
-<span itemprop="name">Maven 相关问题</span>
-</a>
-</div>
-</header>
-</article>
-<article itemscope="" itemtype="http://schema.org/Article">
-<header class="post-header">
-<div class="post-meta-container">
-<time content="2024-01-14" datetime="2024-01-14T10:30:02+08:00" itemprop="dateCreated">
-          01-14
-        </time>
-</div>
-<div class="post-title">
-<a class="post-title-link" href="/blog/kaleido.html" itemprop="url">
-<span itemprop="name">一些概念</span>
-</a>
-</div>
-</header>
-</article>
-<article itemscope="" itemtype="http://schema.org/Article">
-<header class="post-header">
-<div class="post-meta-container">
-<time content="2024-01-14" datetime="2024-01-14T10:30:00+08:00" itemprop="dateCreated">
-          01-14
-        </time>
-</div>
-<div class="post-title">
-<a class="post-title-link" href="/blog/linux.html" itemprop="url">
-<span itemprop="name">Linux 相关问题</span>
-</a>
-</div>
-</header>
-</article>
-<article itemscope="" itemtype="http://schema.org/Article">
-<header class="post-header">
-<div class="post-meta-container">
-<time content="2024-01-12" datetime="2024-01-12T23:00:00+08:00" itemprop="dateCreated">
-          01-12
-        </time>
-</div>
-<div class="post-title">
-<a class="post-title-link" href="/blog/jsch-auth-fail.html" itemprop="url">
-<span itemprop="name">解决 JSch 认证失败</span>
-</a>
-</div>
-</header>
-</article>
-<article itemscope="" itemtype="http://schema.org/Article">
-<header class="post-header">
-<div class="post-meta-container">
-<time content="2024-01-12" datetime="2024-01-12T10:40:00+08:00" itemprop="dateCreated">
-          01-12
-        </time>
-</div>
-<div class="post-title">
-<a class="post-title-link" href="/blog/vscode.html" itemprop="url">
-<span itemprop="name">VSCode 相关问题</span>
-</a>
-</div>
-</header>
-</article>
-</div>
 </div>
 </div>
 </main>
@@ -228,7 +189,7 @@
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":false,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/archives/2024/01/"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/maven.html"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
