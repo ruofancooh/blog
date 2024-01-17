@@ -16,7 +16,7 @@
 <meta content="基础不牢。虽然之前及格了，但是什么都没学会。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-01-17T05:20:00.000Z" property="article:published_time"/>
-<meta content="2024-01-17T05:26:51.280Z" property="article:modified_time"/>
+<meta content="2024-01-17T05:41:27.017Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/discrete-mathematics" rel="canonical"/>
@@ -126,7 +126,7 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2024-01-17T13:20:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-17 13:20:00 / 修改时间：13:26:51">2024-01-17</time>
+<time datetime="2024-01-17T13:20:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-17 13:20:00 / 修改时间：13:41:27">2024-01-17</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -152,29 +152,28 @@
 <h3 id="笛卡尔积">笛卡尔积</h3>
 <p>把 <span class="math inline">\(A\)</span> 放到左边，<span class="math inline">\(B\)</span> 放到右边。</p>
 <p>把左边的所有人和右边的所有人多对多配对，用一根根线连起来。</p>
-<p>这些<strong>所有线的集合</strong>叫笛卡尔积 $ A B $</p>
+<p>这些<strong>所有线的集合</strong>叫笛卡尔积 <span class="math inline">\(A \times B\)</span></p>
 <p>当然也有自己连自己的。以及连了两次、左右互换的。</p>
-<p>注意，这些线是有方向的，是从左往右连。即 $ A B B A $</p>
+<p>注意，这些线是有方向的，是从左往右连。即 <span class="math inline">\(A \times B \neq B \times A\)</span></p>
 <h3 id="关系-1">关系</h3>
 <p>从这些线里任意取几根。或者全取，或者一根都不取。</p>
-<p><strong>取出来的这几根线</strong>叫关系，记作 $ <span class="math inline">\(。即关系是笛卡尔积的子集。\)</span> A B $</p>
-<p>$ $ 是从 $ A $ 到 $ B $ 的一个关系，也是有顺序的。</p>
-<p>如果取出来的这几根线左边全是老师，线右边全是对应老师的学生，则 $ $
-是从 $ A $ 到 $ B $ 的师生关系。</p>
+<p><strong>取出来的这几根线</strong>叫关系，记作 <span class="math inline">\(\rho\)</span>。即关系是笛卡尔积的子集。<span class="math inline">\(\rho \subseteq A \times B\)</span></p>
+<p><span class="math inline">\(\rho\)</span> 是从 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(B\)</span> 的一个关系，也是有顺序的。</p>
+<p>如果取出来的这几根线左边全是老师，线右边全是对应老师的学生，则 <span class="math inline">\(\rho\)</span> 是从 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(B\)</span> 的师生关系。</p>
 <hr/>
-<p>张三在左边的 $ A $ 里面，代号是 $ a $</p>
-<p>李四在右边的 $ B $ 里面，代号是 $ b $</p>
-<p>连接它们的线记作 $ (a,b) $</p>
-<p>如果这条线<strong>在</strong> $ $ 里面，则记作 $ a b
-$。即张三对李四<strong>有</strong>师生关系 $ $，张三是李四的老师。</p>
-<p>不止他们两个人在师生关系 $ $
-里面。张三对李四的这根线，<strong>在取出来的线集 $ $
-里面</strong>。这些线的集合才叫关系，而 <span class="math inline">\((a,b)\)</span> 不叫关系，再起码也得 $ {(a,b)}
-$</p>
-<p>即 $ a b $ 的意思是 $ (a,b) $， $ (a,b) $ 这根线在 $ $
-这个线集里面。</p>
+<p>张三在左边的 <span class="math inline">\(A\)</span> 里面，代号是
+<span class="math inline">\(a\)</span></p>
+<p>李四在右边的 <span class="math inline">\(B\)</span> 里面，代号是
+<span class="math inline">\(b\)</span></p>
+<p>连接它们的线记作 <span class="math inline">\((a,b)\)</span></p>
+<p>如果这条线<strong>在</strong> <span class="math inline">\(\rho\)</span> 里面，则记作 <span class="math inline">\(a \rho
+b\)</span>。即张三对李四<strong>有</strong>师生关系 <span class="math inline">\(\rho\)</span>，张三是李四的老师。</p>
+<p>不止他们两个人在师生关系 <span class="math inline">\(\rho\)</span>
+里面。张三对李四的这根线，<strong>在取出来的线集 <span class="math inline">\(\rho\)</span>
+里面</strong>。这些线的集合才叫关系，而 <span class="math inline">\((a,b)\)</span> 不叫关系，再起码也得 <span class="math inline">\(\{(a,b)\}\)</span></p>
+<p>即 <span class="math inline">\(a \rho b\)</span> 的意思是 <span class="math inline">\((a,b) \in \rho\)</span>， <span class="math inline">\((a,b)\)</span> 这根线在 <span class="math inline">\(\rho\)</span> 这个线集里面。</p>
 <h3 id="定义域和值域">定义域和值域</h3>
-<p>现在有一个从 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(B\)</span> 的师生关系 $ $，就是从 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(B\)</span> 有一些线。</p>
+<p>现在有一个从 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(B\)</span> 的师生关系 <span class="math inline">\(\rho\)</span>，就是从 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(B\)</span> 有一些线。</p>
 <p>被师生关系牵住的左边的所有人（老师），称为<strong>这个</strong>师生关系的定义域。</p>
 <p>右边的所有人（学生），称为<strong>这个</strong>师生关系的值域。</p>
 <p>这个师生关系是建立在 <span class="math inline">\(A\)</span> -&gt;
@@ -192,8 +191,7 @@ $</p>
 <p>集合 <span class="math inline">\(A\)</span> 上的关系 <span class="math inline">\(\rho \subseteq A^2\)</span></p>
 <p>注意在此时，不一定有 <span class="math inline">\(\rho =
 \tilde{\rho}\)</span>。</p>
-<p>如果 $(你, 她)$ 且 <span class="math inline">\(\rho\)</span> 是暗恋
-，不能保证 $(你, 她) $</p>
+<p>如果 <span class="math inline">\((你, 她)\in \rho\)</span> 且 <span class="math inline">\(\rho\)</span> 是暗恋 ，不能保证 <span class="math inline">\((你, 她)\in \tilde{\rho}\)</span></p>
 <p><strong>你对别人有暗恋关系，不能保证你对别人有暗恋关系的逆</strong>。</p>
 <h4 id="普遍关系-u_a">普遍关系 <span class="math inline">\(U_A\)</span></h4>
 <p>所有人都连上线了，包括和自己。</p>
