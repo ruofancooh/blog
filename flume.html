@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
+<link href="/blog/css/main.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
+<meta content="Flume 是一个水槽，用于采集、聚合和传输流数据（事件）。对于每一个代理
+ agent，有源 source、汇 sink、渠道 channel。
+ 文档" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="使用 Flume" property="og:title"/>
+<meta content="https://hrfis.me/blog/flume.html" property="og:url"/>
+<meta content="若凡的笔记" property="og:site_name"/>
+<meta content="Flume 是一个水槽，用于采集、聚合和传输流数据（事件）。对于每一个代理
+ agent，有源 source、汇 sink、渠道 channel。
+ 文档" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="https://flume.apache.org/_images/DevGuide_image00.png" property="og:image"/>
+<meta content="2024-01-19T00:32:00.000Z" property="article:published_time"/>
+<meta content="2024-01-19T00:57:09.044Z" property="article:modified_time"/>
+<meta content="Ruofan" property="article:author"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://flume.apache.org/_images/DevGuide_image00.png" name="twitter:image"/>
+<link href="https://hrfis.me/blog/flume" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/flume.html","path":"/flume.html","title":"使用 Flume"}</script>
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>使用 Flume | 若凡的笔记</title>
+<noscript>
+<link href="/blog/css/noscript.css" rel="stylesheet"/>
+</noscript>
+</head>
+<body itemscope="" itemtype="http://schema.org/WebPage">
+<div class="headband"></div>
+<main class="main">
+<div class="column">
+<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+<div class="site-nav-toggle">
+<div aria-label="切换导航栏" class="toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+</div>
+</div>
+<div class="site-meta">
+<a class="brand" href="/blog/" rel="start">
+<i class="logo-line"></i>
+<p class="site-title">若凡的笔记</p>
+<i class="logo-line"></i>
+</a>
+</div>
+<div class="site-nav-right">
+<div aria-label="搜索" class="toggle popup-trigger" role="button">
+</div>
+</div>
+</div>
+<nav class="site-nav">
+<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+</ul>
+</nav>
+</header>
+<aside class="sidebar">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<ul class="sidebar-nav">
+<li class="sidebar-nav-toc">
+          文章目录
+        </li>
+<li class="sidebar-nav-overview">
+          站点概览
+        </li>
+</ul>
+<div class="sidebar-panel-container">
+<!--noindex-->
+<div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">启动参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hellonetcat-%E6%BA%90%E4%B8%8E-logger-%E6%8E%A5%E6%94%B6%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">Hello（netcat 源与 logger
+接收器）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7%E5%8D%95%E4%B8%AA%E8%BF%BD%E5%8A%A0%E6%96%87%E4%BB%B6exec-%E6%BA%90%E4%B8%8E-hdfs-%E6%8E%A5%E6%94%B6%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">实时监控单个追加文件（exec
+源与 hdfs 接收器）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7%E5%A4%9A%E4%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6spooldir-%E6%BA%90%E4%B8%8E-hdfs-%E6%8E%A5%E6%94%B6%E5%99%A8"><span class="nav-number">4.</span> <span class="nav-text">实时监控多个新文件（spooldir
+源与 hdfs 接收器）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%97%B6%E7%9B%91%E6%8E%A7%E5%A4%9A%E4%B8%AA%E8%BF%BD%E5%8A%A0%E6%96%87%E4%BB%B6taildir-%E6%BA%90%E4%B8%8E-hdfs-%E6%8E%A5%E6%94%B6%E5%99%A8"><span class="nav-number">5.</span> <span class="nav-text">实时监控多个追加文件（TAILDIR
+源与 hdfs 接收器）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%91%E6%8E%A7-mapreduce-%E7%BB%93%E6%9E%9C%E4%B8%8A%E4%BC%A0%E5%88%B0-hdfs"><span class="nav-number">6.</span> <span class="nav-text">监控 MapReduce 结果，上传到
+HDFS</span></a></li></ol></div>
+</div>
+<!--/noindex-->
+<div class="site-overview-wrap sidebar-panel">
+<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<p class="site-author-name" itemprop="name">Ruofan</p>
+<div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+<nav class="site-state">
+<div class="site-state-item site-state-posts">
+<a href="/blog/archives/">
+<span class="site-state-item-count">43</span>
+<span class="site-state-item-name">笔记</span>
+</a>
+</div>
+<div class="site-state-item site-state-categories">
+<a href="/blog/categories/">
+<span class="site-state-item-count">4</span>
+<span class="site-state-item-name">分类</span></a>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<div class="main-inner post posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/flume.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="使用 Flume | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h1 class="post-title" itemprop="name headline">
+          使用 Flume
+        </h1>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2024-01-19T08:32:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-19 08:32:00 / 修改时间：08:57:09">2024-01-19</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody"><p><img src="https://flume.apache.org/_images/DevGuide_image00.png"/></p>
+<p>Flume 是一个水槽，用于采集、聚合和传输流数据（事件）。对于每一个代理
+agent，有源 source、汇 sink、渠道 channel。</p>
+<p><a href="https://flume.apache.org/documentation.html" rel="noopener" target="_blank">文档</a></p>
+<span id="more"></span>
+<h2 id="启动参数">启动参数</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">flume-ng agent --conf conf -f &lt;配置文件路径&gt; -n &lt;代理名&gt;</span><br/></pre></td></tr></table></figure>
+<p>注意：下面的配置不一定对。我不小心把配置文件夹删了，但是保留的还有配置内容截图。所以下面的实际是
+<a href="https://web.baimiaoapp.com/" rel="noopener" target="_blank">OCR</a>
+过来后再修改的。之前是实验成功了的，而之后没有做过实验。</p>
+<h2 id="hellonetcat-源与-logger-接收器">Hello（netcat 源与 logger
+接收器）</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/></pre></td><td class="code"><pre><span class="line"># 代理名为 a1</span><br/><span class="line"># 以 s 结尾说明可以有多个 source、sink、channel</span><br/><span class="line">a1.sources = r1</span><br/><span class="line">a1.sinks = k1</span><br/><span class="line">a1.channels = c1</span><br/><span class="line"></span><br/><span class="line"># 设置 a1 的渠道 c1 为内存通道</span><br/><span class="line">a1.channels.c1.type = memory</span><br/><span class="line">a1.channels.c1.capacity = 1000</span><br/><span class="line">a1.channels.c1.transactionCapacity = 100</span><br/><span class="line"></span><br/><span class="line"># 把 a1 的源和汇 r1 和 k1 绑定到 a1 的渠道 c1 上</span><br/><span class="line"># source 可以指定多个渠道，sink 只能指定一个</span><br/><span class="line"># 以多种方式流向一个结果</span><br/><span class="line">a1.sources.r1.channels = c1</span><br/><span class="line">a1.sinks.k1.channel = c1</span><br/><span class="line"></span><br/><span class="line"># 设置 a1 的源 r1 为一个 netcat-like source</span><br/><span class="line"># 行为像 nc -lk [host] [port]</span><br/><span class="line"># 它侦听给定端口并将每行文本转换为一个事件</span><br/><span class="line">a1.sources.r1.type = netcat</span><br/><span class="line">a1.sources.r1.bind = localhost</span><br/><span class="line">a1.sources.r1.port = 44444</span><br/><span class="line"></span><br/><span class="line"># 设置 a1 的汇 k1 为 logger 类型，写到 flume.log 里面</span><br/><span class="line">a1.sinks.k1.type = logger</span><br/></pre></td></tr></table></figure>
+<h2 id="实时监控单个追加文件exec-源与-hdfs-接收器">实时监控单个追加文件（exec
+源与 hdfs 接收器）</h2>
+<p>Exec Source 在启动时运行给定的 Unix
+命令，并期望该进程在标准输出时连续生成数据。使用
+<code>tail –F &lt;filename&gt;</code>
+命令可以看到文件末尾的实时追加。</p>
+<p>这里监控本机的 datanode 日志，并上传到 HDFS。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/><span class="line">33</span><br/></pre></td><td class="code"><pre><span class="line"># 代理</span><br/><span class="line">a2.sources = r2</span><br/><span class="line">a2.sinks = k2</span><br/><span class="line">a2.channels = c2</span><br/><span class="line"></span><br/><span class="line"># 渠道</span><br/><span class="line">a2.channels.c2.type = memory</span><br/><span class="line">a2.channels.c2.capacity = 1000</span><br/><span class="line">a2.channels.c2.transactionCapacity = 100</span><br/><span class="line"></span><br/><span class="line"># 源</span><br/><span class="line">a2.sources.r2.type = exec</span><br/><span class="line">a2.sources.r2.command = tail -F /opt/hadoop-ha/hadoop-3.3.6/logs/hadoop-rc-datanode-ubuntu101.log</span><br/><span class="line">a2.sources.r2.channels= c2</span><br/><span class="line"></span><br/><span class="line"># 汇</span><br/><span class="line">a2.sinks.k2.type = hdfs</span><br/><span class="line">a2.sinks.k2.hdfs.path = hdfs://mycluster/flume/%Y%m%d/%H</span><br/><span class="line">a2.sinks.k2.hdfs.filePrefix = logs-</span><br/><span class="line">a2.sinks.k2.hdfs.fileType = DataStream</span><br/><span class="line"># 使用本地事件戳，把时间戳向下舍入，结合上面的配置是以小时作为子文件夹，即按小时分隔a2.sinks.k2.hdfs.useLocalTimeStamp = true</span><br/><span class="line">a2.sinks.k2.hdfs.round = true</span><br/><span class="line">a2.sinks.k2.hdfs.roundValue = 1</span><br/><span class="line">a2.sinks.k2.hdfs.roundUnit = hour</span><br/><span class="line"># 最多积攒多少个事件后，才将文件 flush 到 HDFS</span><br/><span class="line">a2.sinks.k2.hdfs.batchSize = 100</span><br/><span class="line"># 指定多少秒生成一个新的文件（滚动）</span><br/><span class="line">a2.sinks.k2.hdfs.rollInterval = 60</span><br/><span class="line"># 生成的文件最大大小（字节），略小于128M（HDFS的文件分块大小）</span><br/><span class="line">a2.sinks.k2.hdfs.rollSize = 134217700</span><br/><span class="line"># 不指定滚动文件的事件数量</span><br/><span class="line">a2.sinks.k2.hdfs.rollCount = 0</span><br/><span class="line">a2.sinks.k2.channel = c2</span><br/></pre></td></tr></table></figure>
+<h2 id="实时监控多个新文件spooldir-源与-hdfs-接收器">实时监控多个新文件（spooldir
+源与 hdfs 接收器）</h2>
+<p>Spooling Directory Source
+监视指定目录中的新文件，并在新文件出现时解析事件。</p>
+<p>这里监控 <code>/opt/flume-1.11.0/upload</code>
+目录。向目录里添加文件后，上传到 HDFS。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/><span class="line">33</span><br/><span class="line">34</span><br/><span class="line">35</span><br/><span class="line">36</span><br/><span class="line">37</span><br/><span class="line">38</span><br/><span class="line">39</span><br/><span class="line">40</span><br/></pre></td><td class="code"><pre><span class="line"># 代理</span><br/><span class="line">a3.sources = r3</span><br/><span class="line">a3.sinks = k3</span><br/><span class="line">a3.channels = c3</span><br/><span class="line"># 渠道</span><br/><span class="line">a3.channels.c3.type = memory</span><br/><span class="line">a3.channels.c3.capacity = 1000</span><br/><span class="line">a3.channels.c3.transactionCapacity = 100</span><br/><span class="line"># 源</span><br/><span class="line">a3.sources.r3.type = spooldir</span><br/><span class="line">a3.sources.r3.spoolDir = /opt/flume-1.11.0/upload</span><br/><span class="line">a3.sources.r3.fileSuffix = .COMPLETED</span><br/><span class="line"># 是否添加存储绝对路径文件名的标头</span><br/><span class="line">a3.sources.r3.fileHeader = true</span><br/><span class="line"># 忽略以.tmp 结尾的文件</span><br/><span class="line"># [^ ]*匹配任意不是空格的字符零次或多次</span><br/><span class="line">a3.sources.r3.ignorePattern = ^([^ ]*\.tmp)$</span><br/><span class="line"></span><br/><span class="line">a3.sources.r3.channels = c3</span><br/><span class="line"></span><br/><span class="line"># 汇</span><br/><span class="line">a3.sinks.k3.type = hdfs</span><br/><span class="line">a3.sinks.k3.hdfs.path = hdfs://mycluster/flume/upload/%Y%m%d/%H</span><br/><span class="line">a3.sinks.k3.hdfs.filePrefix = upload-</span><br/><span class="line">a3.sinks.k3.hdfs.fileType = DataStream</span><br/><span class="line"># 使用本地事件戳，把时间戳向下舍入，结合上面的配置是以小时作为子文件夹，即按小时分隔</span><br/><span class="line">a3.sinks.k3.hdfs.useLocalTimeStamp = true</span><br/><span class="line">a3.sinks.k3.hdfs.round = true</span><br/><span class="line">a3.sinks.k3.hdfs.roundValue = 1</span><br/><span class="line">a3.sinks.k3.hdfs.roundUnit = hour</span><br/><span class="line"># 最多积攒多少个事件后，才将文件 flush 到 HDFS</span><br/><span class="line">a3.sinks.k3.hdfs.batchSize = 100</span><br/><span class="line"># 指定多少秒生成一个新的文件（滚动）</span><br/><span class="line">a3.sinks.k3.hdfs.rollInterval = 60</span><br/><span class="line"># 生成的文件最大大小（字节），略小于128M（HDFS的文件分块大小）</span><br/><span class="line">a3.sinks.k3.hdfs.rollSize = 134217700</span><br/><span class="line"># 不指定滚动文件的事件数量</span><br/><span class="line">a3.sinks.k3.hdfs.rollCount = 0</span><br/><span class="line"></span><br/><span class="line">a3.sinks.k3.channel = c3</span><br/></pre></td></tr></table></figure>
+<h2 id="实时监控多个追加文件taildir-源与-hdfs-接收器">实时监控多个追加文件（TAILDIR
+源与 hdfs 接收器）</h2>
+<p>Taildir
+Source：监视指定的文件，并在检测到附加到每个文件的新行后几乎实时地跟踪它们。如果正在写入新行，则此源将重试读取它们，等待写入完成。</p>
+<p>监控 flume 目录里的 upload 目录和 upload1 目录。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/><span class="line">33</span><br/><span class="line">34</span><br/><span class="line">35</span><br/><span class="line">36</span><br/><span class="line">37</span><br/><span class="line">38</span><br/><span class="line">39</span><br/></pre></td><td class="code"><pre><span class="line"># 代理</span><br/><span class="line">a4.sources = r4</span><br/><span class="line">a4.sinks = k4</span><br/><span class="line">a4.channels = c4</span><br/><span class="line"># 渠道</span><br/><span class="line">a4.channels.c4.type = memory</span><br/><span class="line">a4.channels.c4.capacity = 1000</span><br/><span class="line">a4.channels.c4.transactionCapacity = 100</span><br/><span class="line"># 源</span><br/><span class="line">a4.sources.r4.type = TAILDIR</span><br/><span class="line"># JSON 格式的文件，用于记录每个尾部文件的inode、绝对路径和最后位置</span><br/><span class="line">a4.sources.r4.positionFile = /opt/flume-1.11.0/taildir_position.json</span><br/><span class="line">a4.sources.r4.filegroups = f1 f2</span><br/><span class="line"># 正则表达式只能用于文件名</span><br/><span class="line">a4.sources.r4.filegroups.f1 = /opt/flume-1.11.0/upload/.*</span><br/><span class="line">a4.sources.r4.filegroups.f2 = /opt/flume-1.11.0/upload1/.*</span><br/><span class="line">a4.sources.r4.channels = c4</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"># 汇</span><br/><span class="line">a4.sinks.k4.type = hdfs</span><br/><span class="line">a4.sinks.k4.hdfs.path = hdfs://mycluster/flume/upload/%Y%m%d/%H</span><br/><span class="line">a4.sinks.k4.hdfs.filePrefix = upload-</span><br/><span class="line">a4.sinks.k4.hdfs.fileType = DataStream</span><br/><span class="line"># 使用本地事件戳，把时间戳向下舍入，结合上面的配置是以小时作为子文件夹，即按小时分隔</span><br/><span class="line">a4.sinks.k4.hdfs.useLocalTimeStamp = true</span><br/><span class="line">a4.sinks.k4.hdfs.round = true</span><br/><span class="line">a4.sinks.k4.hdfs.roundValue = 1</span><br/><span class="line">a4.sinks.k4.hdfs.roundUnit = hour</span><br/><span class="line"># 最多积攒多少个事件后，才将文件 flush 到 HDFS</span><br/><span class="line">a4.sinks.k4.hdfs.batchSize = 100</span><br/><span class="line"># 指定多少秒生成一个新的文件（滚动）</span><br/><span class="line">a4.sinks.k4.hdfs.rollInterval = 20</span><br/><span class="line"># 生成的文件最大大小（字节），略小于128M（HDFS的文件分块大小）</span><br/><span class="line">a4.sinks.k4.hdfs.rollSize = 134217700</span><br/><span class="line"># 不指定滚动文件的事件数量</span><br/><span class="line">a4.sinks.k4.hdfs.rollCount = 0</span><br/><span class="line"></span><br/><span class="line">a4.sinks.k4.channel = c4</span><br/></pre></td></tr></table></figure>
+<p>查看 <code>taildir_position.json</code>：其中 inode
+号码是操作系统里文件的唯一 id，pos 是 flume
+的读取到的最新的文件位置（偏移量）</p>
+<p>Taildir source
+是存在问题的：如果文件名变了，会重新上传。如果日志的文件名在一天过后变了，它会被重新上传一份。解决方案有修改
+flume 的源码，或者修改生成日志文件名部分的源码。</p>
+<h2 id="监控-mapreduce-结果上传到-hdfs">监控 MapReduce 结果，上传到
+HDFS</h2>
+<p>（1）使用 Flume 的 spooldir 源递归监控 <code>/opt/result/</code>
+目录下的文件，汇总到 hdfs 接收器
+<code>hdfs://mycluster/flume/mrresult</code>。</p>
+<p>（2）将文献上传到 HDFS 的 <code>/wcinput</code> 目录，执行 MR
+输出到本地路径 <code>file:///opt/result/mrresult</code></p>
+<p>注意：如果提前建好 MR 的输出目录，MR 会报错。而如果不提前建好 flume
+的监控目录，flume 会报错。</p>
+<p>所以只提前建好外层目录，用 flume 递归监控外层目录，MR
+输出到内层目录。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/><span class="line">33</span><br/><span class="line">34</span><br/><span class="line">35</span><br/><span class="line">36</span><br/><span class="line">37</span><br/><span class="line">38</span><br/><span class="line">39</span><br/><span class="line">40</span><br/><span class="line">41</span><br/><span class="line">42</span><br/><span class="line">43</span><br/><span class="line">44</span><br/><span class="line">45</span><br/></pre></td><td class="code"><pre><span class="line"># 代理</span><br/><span class="line">a5.sources = r5</span><br/><span class="line">a5.sinks = k5</span><br/><span class="line">a5.channels = c5</span><br/><span class="line"># 渠道</span><br/><span class="line">a5.channels.c5.type = memory</span><br/><span class="line">a5.channels.c5.capacity = 1000</span><br/><span class="line">a5.channels.c5.transactionCapacity = 100</span><br/><span class="line"># 源</span><br/><span class="line">a5.sources.r5.type = spooldir</span><br/><span class="line">a5.sources.r5.spoolDir = /opt/result</span><br/><span class="line"># 递归监视子目录</span><br/><span class="line">a5.sources.r5.recursiveDirectorySearch = true</span><br/><span class="line"># 指定文件名</span><br/><span class="line">a5.sources.r5.includePattern = ^part-r-00000$</span><br/><span class="line"></span><br/><span class="line">a5.sources.r5.fileSuffix = .COMPLETED</span><br/><span class="line"># 是否添加存储绝对路径文件名的标头</span><br/><span class="line">a5.sources.r5.fileHeader = true</span><br/><span class="line"># 忽略以.tmp 结尾的文件</span><br/><span class="line"># [^ ]*匹配任意不是空格的字符零次或多次</span><br/><span class="line">a5.sources.r5.ignorePattern = ^([^ ]*\.tmp)$</span><br/><span class="line"></span><br/><span class="line">a5.sources.r5.channels = c5</span><br/><span class="line"></span><br/><span class="line"># 汇</span><br/><span class="line">a5.sinks.k5.type = hdfs</span><br/><span class="line">a5.sinks.k5.hdfs.path = hdfs://mycluster/flume/mrresult</span><br/><span class="line">a5.sinks.k5.hdfs.filePrefix = upload-</span><br/><span class="line">a5.sinks.k5.hdfs.fileType = DataStream</span><br/><span class="line"># 使用本地事件戳，把时间戳向下舍入，结合上面的配置是以小时作为子文件夹，即按小时分隔</span><br/><span class="line">a5.sinks.k5.hdfs.useLocalTimeStamp = true</span><br/><span class="line">a5.sinks.k5.hdfs.round = true</span><br/><span class="line">a5.sinks.k5.hdfs.roundValue = 1</span><br/><span class="line">a5.sinks.k5.hdfs.roundUnit = hour</span><br/><span class="line"># 最多积攒多少个事件后，才将文件 flush 到 HDFS</span><br/><span class="line">a5.sinks.k5.hdfs.batchSize = 100</span><br/><span class="line"># 指定多少秒生成一个新的文件（滚动）</span><br/><span class="line">a5.sinks.k5.hdfs.rollInterval = 60</span><br/><span class="line"># 生成的文件最大大小（字节），略小于128M（HDFS的文件分块大小）</span><br/><span class="line">a5.sinks.k5.hdfs.rollSize = 134217700</span><br/><span class="line"># 不指定滚动文件的事件数量</span><br/><span class="line">a5.sinks.k5.hdfs.rollCount = 0</span><br/><span class="line"></span><br/><span class="line">a5.sinks.k5.channel = c5</span><br/></pre></td></tr></table></figure>
+<p>执行 MR：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hadoop jar <span class="variable">$HADOOP_HOME</span>/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar wordcount /wcinput file:///opt/result/mrresult</span><br/></pre></td></tr></table></figure>
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/hadoop-ha.html" rel="prev" title="搭建 Hadoop 高可用集群">
+<i class="fa fa-chevron-left"></i> 搭建 Hadoop 高可用集群
+                </a>
+</div>
+<div class="post-nav-item">
+<a href="/blog/video-game.html" rel="next" title="电子游戏">
+                  电子游戏 <i class="fa fa-chevron-right"></i>
+</a>
+</div>
+</div>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
+<div class="copyright">
+  2023 – 
+  <span itemprop="copyrightYear">2024</span>
+<span class="with-love">
+<i class="fa fa-heart"></i>
+</span>
+<span class="author" itemprop="copyrightHolder">Ruofan</span>
+</div>
+</div>
+</footer>
+<div aria-label="返回顶部" class="back-to-top" role="button">
+<i class="fa fa-arrow-up fa-lg"></i>
+<span>0%</span>
+</div>
+<div class="reading-progress-bar"></div>
+<noscript>
+<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+<script src="/blog/js/third-party/tags/mermaid.js"></script>
+<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/blog/js/third-party/math/mathjax.js"></script>
+<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/flume.html"}</script>
+<script src="/blog/js/third-party/quicklink.js"></script>
+</body>
+</html>
