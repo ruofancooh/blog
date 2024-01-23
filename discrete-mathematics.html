@@ -10,19 +10,19 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
 <meta content="基础不牢。虽然之前及格了，但是什么都没学会。" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="离散数学相关概念" property="og:title"/>
+<meta content="离散数学" property="og:title"/>
 <meta content="https://hrfis.me/blog/discrete-mathematics.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
 <meta content="基础不牢。虽然之前及格了，但是什么都没学会。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-01-17T05:20:00.000Z" property="article:published_time"/>
-<meta content="2024-01-17T05:41:27.017Z" property="article:modified_time"/>
+<meta content="2024-01-23T09:37:17.486Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/discrete-mathematics" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/discrete-mathematics.html","path":"/discrete-mathematics.html","title":"离散数学相关概念"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/discrete-mathematics.html","path":"/discrete-mathematics.html","title":"离散数学"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>离散数学相关概念 | 若凡的笔记</title>
+<title>离散数学 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -83,7 +83,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">43</span>
+<span class="site-state-item-count">41</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -112,12 +112,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="离散数学相关概念 | 若凡的笔记" itemprop="name"/>
+<meta content="离散数学 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          离散数学相关概念
+          离散数学
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -126,7 +126,14 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2024-01-17T13:20:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-17 13:20:00 / 修改时间：13:41:27">2024-01-17</time>
+<time datetime="2024-01-17T13:20:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-17 13:20:00">2024-01-17</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-01-23T17:37:17+08:00" itemprop="dateModified" title="修改时间：2024-01-23 17:37:17">2024-01-23</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -154,7 +161,7 @@
 <p>把左边的所有人和右边的所有人多对多配对，用一根根线连起来。</p>
 <p>这些<strong>所有线的集合</strong>叫笛卡尔积 <span class="math inline">\(A \times B\)</span></p>
 <p>当然也有自己连自己的。以及连了两次、左右互换的。</p>
-<p>注意，这些线是有方向的，是从左往右连。即 <span class="math inline">\(A \times B \neq B \times A\)</span></p>
+<p>注意，这些线是有方向的，是从左往右连。即 <span class="math inline">\(A \times B \not\equiv B \times A\)</span></p>
 <h3 id="关系-1">关系</h3>
 <p>从这些线里任意取几根。或者全取，或者一根都不取。</p>
 <p><strong>取出来的这几根线</strong>叫关系，记作 <span class="math inline">\(\rho\)</span>。即关系是笛卡尔积的子集。<span class="math inline">\(\rho \subseteq A \times B\)</span></p>
@@ -192,7 +199,7 @@ b\)</span>。即张三对李四<strong>有</strong>师生关系 <span class="mat
 <p>注意在此时，不一定有 <span class="math inline">\(\rho =
 \tilde{\rho}\)</span>。</p>
 <p>如果 <span class="math inline">\((你, 她)\in \rho\)</span> 且 <span class="math inline">\(\rho\)</span> 是暗恋 ，不能保证 <span class="math inline">\((你, 她)\in \tilde{\rho}\)</span></p>
-<p><strong>你对别人有暗恋关系，不能保证你对别人有暗恋关系的逆</strong>。</p>
+<p><a href="https://music.163.com/#/song?id=430026359" rel="noopener" target="_blank"><strong>你对别人有暗恋关系，不能保证你对别人有暗恋关系的逆</strong></a>。</p>
 <h4 id="普遍关系-u_a">普遍关系 <span class="math inline">\(U_A\)</span></h4>
 <p>所有人都连上线了，包括和自己。</p>
 <p>即这个关系<strong>等于笛卡尔积</strong> <span class="math inline">\(A^2\)</span></p>
@@ -220,7 +227,7 @@ b\)</span>。即张三对李四<strong>有</strong>师生关系 <span class="mat
 <li>它的真值可以<strong>被判断</strong>（没有说被<em>谁</em>判断、在什么<em>时间</em>被判断）</li>
 </ol>
 <blockquote>
-<p>2x - 3 = 0 这句话是假的</p>
+<p>2x - 3 = 0 <br/> 这句话是假的</p>
 </blockquote>
 <p>我们<strong>永远</strong>没法判断它们的真值是 <span class="math inline">\(0\)</span> 还是 <span class="math inline">\(1\)</span>（如果前者是一个陈述句而不是方程，我们不知道
 x 是什么东西的。后者……）。所以它们<strong>不是命题</strong>。</p>
@@ -229,7 +236,7 @@ x 是什么东西的。后者……）。所以它们<strong>不是命题</stron
 </blockquote>
 <p>它是一个命题。它的真值可以被判断，因为这件事已经发生了，但需要我们查询资料。</p>
 <blockquote>
-<p>2025 年 1 月 16 号体彩排列三的开奖号码是 777 太阳系外有宇宙人</p>
+<p>2025 年 1 月 16 号体彩排列三的开奖号码是 777 <br/> <a href="https://music.163.com/song?id=1883951953" rel="noopener" target="_blank">太阳系外有宇宙人</a></p>
 </blockquote>
 <p>它们都是命题。它们的真值可以被判断，但不是现在。</p>
 <h3 id="命题连结词">命题连结词</h3>
@@ -264,7 +271,7 @@ x 是什么东西的。后者……）。所以它们<strong>不是命题</stron
 <li>在蕴含的前件为真的情况下，复合命题的真值为后件的真值。</li>
 </ul>
 <p>如果我们把【生】舍了，那还管它义不义。名字直接刻碑上了。</p>
-<p>或者这样记：如果一个人的前提都搞错了，那就没有必要和他讨论了，你说得都对。</p>
+<p>或者这样记：如果一个人的<a href="https://music.163.com/#/song?id=4237850" rel="noopener" target="_blank">前提都搞错了</a>，那就没有必要和他讨论了，你说得都对。</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="literal">True</span> <span class="keyword">if</span> <span class="keyword">not</span> P <span class="keyword">else</span> Q</span><br/></pre></td></tr></table></figure>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> (<span class="keyword">not</span> P) <span class="keyword">or</span> Q</span><br/></pre></td></tr></table></figure>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P <span class="keyword">and</span> (<span class="keyword">not</span> Q)</span><br/></pre></td></tr></table></figure>
@@ -279,13 +286,13 @@ x 是什么东西的。后者……）。所以它们<strong>不是命题</stron
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/maven.html" rel="prev" title="Maven 相关问题">
-<i class="fa fa-chevron-left"></i> Maven 相关问题
+<a href="/blog/kaleido.html" rel="prev" title="一些概念">
+<i class="fa fa-chevron-left"></i> 一些概念
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/pubgm.html" rel="next" title="玩《和平精英》的几点心得">
-                  玩《和平精英》的几点心得 <i class="fa fa-chevron-right"></i>
+<a href="/blog/hadoop-ha.html" rel="next" title="搭建 Hadoop 高可用集群">
+                  搭建 Hadoop 高可用集群 <i class="fa fa-chevron-right"></i>
 </a>
 </div>
 </div>

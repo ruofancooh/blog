@@ -8,21 +8,21 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="基础不牢" name="description"/>
+<meta content="物理基础不牢" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="Maven 相关问题" property="og:title"/>
-<meta content="https://hrfis.me/blog/maven.html" property="og:url"/>
+<meta content="数字音频与纸上谈兵" property="og:title"/>
+<meta content="https://hrfis.me/blog/mix.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="基础不牢" property="og:description"/>
+<meta content="物理基础不牢" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2024-01-16T13:31:47.000Z" property="article:published_time"/>
-<meta content="2024-01-15T22:31:40.938Z" property="article:modified_time"/>
+<meta content="2024-01-23T08:20:00.000Z" property="article:published_time"/>
+<meta content="2024-01-23T09:18:05.189Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/maven" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/maven.html","path":"/maven.html","title":"Maven 相关问题"}</script>
+<link href="https://hrfis.me/blog/mix" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/mix.html","path":"/mix.html","title":"数字音频与纸上谈兵"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Maven 相关问题 | 若凡的笔记</title>
+<title>数字音频与纸上谈兵 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -69,7 +69,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#maven-wrapper-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">Maven Wrapper 是什么</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%81%9A%E6%9F%90%E4%B8%AA%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">为什么要做某个操作？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E8%B4%9D%E5%93%8D%E5%BA%A6dbfsdbtp"><span class="nav-number">2.</span> <span class="nav-text">分贝、响度、dBFS、dBTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%87%E6%A0%B7%E7%8E%87"><span class="nav-number">3.</span> <span class="nav-text">采样率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AF%94%E7%89%B9%E7%8E%87"><span class="nav-number">4.</span> <span class="nav-text">比特率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%8C%83%E5%9B%B4"><span class="nav-number">5.</span> <span class="nav-text">动态范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E5%A4%A7%E5%8A%A8%E6%80%81%E6%95%88%E6%9E%9C%E5%99%A8"><span class="nav-number">6.</span> <span class="nav-text">四大动态效果器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%81%9A"><span class="nav-number">7.</span> <span class="nav-text">如何做</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -81,7 +81,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">43</span>
+<span class="site-state-item-count">41</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -100,7 +100,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/maven.html" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/mix.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -110,12 +110,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="Maven 相关问题 | 若凡的笔记" itemprop="name"/>
+<meta content="数字音频与纸上谈兵 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          Maven 相关问题
+          数字音频与纸上谈兵
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -124,7 +124,7 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2024-01-16T21:31:47+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-16 21:31:47 / 修改时间：06:31:40">2024-01-16</time>
+<time datetime="2024-01-23T16:20:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-23 16:20:00 / 修改时间：17:18:05">2024-01-23</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -132,28 +132,52 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">问题</span></a>
+<a href="/blog/m/" itemprop="url" rel="index"><span itemprop="name">音乐</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>基础不牢</p>
+<div class="post-body" itemprop="articleBody"><p>物理基础不牢</p>
 <span id="more"></span>
-<h2 id="maven-wrapper-是什么">Maven Wrapper 是什么</h2>
-<p>Maven 包装纸</p>
+<h2 id="为什么要做某个操作">为什么要做某个操作？</h2>
+<p>不知道</p>
+<h2 id="分贝响度dbfsdbtp">分贝、响度、dBFS、dBTP</h2>
+<p>不知道是什么意思。写一个标题只是有一种安心感。</p>
+<h2 id="采样率">采样率</h2>
+<p>时间精密度，水平方向的。一秒钟之内采样多少个。</p>
+<p>人耳听力范围约 <span class="math inline">\(20 \sim 20000
+\mathrm{Hz}\)</span></p>
+<p>按奈奎斯特采样定理，采样率要大于最高频率两倍，才可较准确还原。因此最常用的采样率为
+<span class="math inline">\(44100 \mathrm{Hz}\)</span></p>
+<h2 id="比特率">比特率</h2>
+<p>空间精密度（深度），竖直方向的。用多少个比特切割“振幅”。</p>
+<p>比如 <span class="math inline">\(16 \mathrm {bit}\)</span>
+的位深，对于每一个采样，有 <span class="math inline">\(2^{16}=65536\)</span> 种度量“振幅”的刻度。</p>
+<p><span class="math inline">\(1 \mathrm{bit}\)</span> 对应 <span class="math inline">\(6\mathrm{dB}\)</span> 动态范围。</p>
+<h2 id="动态范围">动态范围</h2>
+<p>最高波峰和最低波谷的距离。</p>
+<p>动态范围与情绪挂钩。</p>
+<h2 id="四大动态效果器">四大动态效果器</h2>
+<p>改变动态范围的。</p>
+<ul>
+<li>压缩器：把超出门槛的波形压小</li>
+<li>限制器：大号压缩器，把超出门槛的波形限制到门槛以下</li>
+<li>扩展器：把门槛以下的波形降低</li>
+<li>门限器（噪音门）：把门槛以下的波形去了</li>
+</ul>
+<h2 id="如何做">如何做</h2>
+<p>限制器限制到 <span class="math inline">\(-0.3\)</span></p>
+<p>不知道</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/kaleido.html" rel="prev" title="一些概念">
-<i class="fa fa-chevron-left"></i> 一些概念
+<a href="/blog/video-game.html" rel="prev" title="电子游戏">
+<i class="fa fa-chevron-left"></i> 电子游戏
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/discrete-mathematics.html" rel="next" title="离散数学相关概念">
-                  离散数学相关概念 <i class="fa fa-chevron-right"></i>
-</a>
 </div>
 </div>
 </footer>
@@ -186,10 +210,10 @@
 <script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
 <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
 <script src="/blog/js/third-party/tags/mermaid.js"></script>
-<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/maven.html"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/mix.html"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
