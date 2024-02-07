@@ -34,7 +34,7 @@
  最好有一台电脑" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-07-19T05:45:00.000Z" property="article:published_time"/>
-<meta content="2024-01-05T14:06:52.190Z" property="article:modified_time"/>
+<meta content="2024-02-07T03:10:24.513Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/termux-flask-ngrok" rel="canonical"/>
@@ -149,7 +149,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-01-05T22:06:52+08:00" itemprop="dateModified" title="修改时间：2024-01-05 22:06:52">2024-01-05</time>
+<time datetime="2024-02-07T11:10:24+08:00" itemprop="dateModified" title="修改时间：2024-02-07 11:10:24">2024-02-07</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -261,7 +261,7 @@ ip 地址。比如是<code>192.168.1.2</code>。</p></li>
 </ol>
 <h3 id="在开始之前解决-dns-问题">在开始之前，解决 DNS 问题</h3>
 <p>官网上的包，没有适配<a class="footnote-ref" href="#fn1" id="fnref1" role="doc-noteref"><sup>1</sup></a>
-Termux。因此在我首次连接时，发生了连接错误。</p>
+Termux。因此笔者在首次连接时，发生了连接错误。</p>
 <p>在运行的同时打印日志：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">ngrok http 5000 --log-level debug --<span class="built_in">log</span> stdout</span><br/></pre></td></tr></table></figure>
 <p>大部分内容略。关键在这里：</p>
@@ -279,7 +279,7 @@ DNS，而在手机里找不到这个文件。进而向<code>localhost:53</code>�
 root 权限。</p>
 <p>在 Termux
 里有<code>resolv.conf</code>文件，在<code>$PREFIX/usr/etc/resolv.conf</code>。但是官方的包没有改路径，源码也没有开放。</p>
-<p>我尝试修改 Ngrok 配置文件里的
+<p>笔者尝试修改 Ngrok 配置文件里的
 <code>dns_resolver_ips</code>，但是没有用。</p>
 <h4 id="解决方法">解决方法：</h4>
 <p>把 Termux

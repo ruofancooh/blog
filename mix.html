@@ -16,7 +16,7 @@
 <meta content="物理基础不牢" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-01-23T08:20:00.000Z" property="article:published_time"/>
-<meta content="2024-01-23T09:18:05.189Z" property="article:modified_time"/>
+<meta content="2024-02-07T03:00:51.991Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/mix" rel="canonical"/>
@@ -69,7 +69,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%81%9A%E6%9F%90%E4%B8%AA%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">为什么要做某个操作？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E8%B4%9D%E5%93%8D%E5%BA%A6dbfsdbtp"><span class="nav-number">2.</span> <span class="nav-text">分贝、响度、dBFS、dBTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%87%E6%A0%B7%E7%8E%87"><span class="nav-number">3.</span> <span class="nav-text">采样率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AF%94%E7%89%B9%E7%8E%87"><span class="nav-number">4.</span> <span class="nav-text">比特率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%8C%83%E5%9B%B4"><span class="nav-number">5.</span> <span class="nav-text">动态范围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E5%A4%A7%E5%8A%A8%E6%80%81%E6%95%88%E6%9E%9C%E5%99%A8"><span class="nav-number">6.</span> <span class="nav-text">四大动态效果器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%81%9A"><span class="nav-number">7.</span> <span class="nav-text">如何做</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%B8%8A%E6%89%8B"><span class="nav-number">1.</span> <span class="nav-text">如何上手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%B7%E9%9F%B3"><span class="nav-number">2.</span> <span class="nav-text">混音</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8D%E8%AF%8D"><span class="nav-number">3.</span> <span class="nav-text">名词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9F%B3%E9%A2%91%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7"><span class="nav-number">4.</span> <span class="nav-text">音频文件属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%87%E6%A0%B7%E7%8E%87"><span class="nav-number">4.1.</span> <span class="nav-text">采样率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E7%89%B9%E7%8E%87"><span class="nav-number">4.2.</span> <span class="nav-text">比特率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A2%E5%BD%A2%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF"><span class="nav-number">5.</span> <span class="nav-text">波形统计信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E5%A4%A7%E5%8A%A8%E6%80%81%E6%95%88%E6%9E%9C%E5%99%A8"><span class="nav-number">6.</span> <span class="nav-text">四大动态效果器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%81%9A"><span class="nav-number">7.</span> <span class="nav-text">如何做</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%BA%E5%A3%B0"><span class="nav-number">7.1.</span> <span class="nav-text">人声</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BA%BF"><span class="nav-number">7.2.</span> <span class="nav-text">总线</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="nav-number">8.</span> <span class="nav-text">工程管理</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -124,7 +124,14 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2024-01-23T16:20:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-23 16:20:00 / 修改时间：17:18:05">2024-01-23</time>
+<time datetime="2024-01-23T16:20:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-23 16:20:00">2024-01-23</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-02-07T11:00:51+08:00" itemprop="dateModified" title="修改时间：2024-02-07 11:00:51">2024-02-07</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -140,35 +147,181 @@
 </header>
 <div class="post-body" itemprop="articleBody"><p>物理基础不牢</p>
 <span id="more"></span>
-<h2 id="为什么要做某个操作">为什么要做某个操作？</h2>
-<p>不知道</p>
-<h2 id="分贝响度dbfsdbtp">分贝、响度、dBFS、dBTP</h2>
-<p>不知道是什么意思。写一个标题只是有一种安心感。</p>
-<h2 id="采样率">采样率</h2>
-<p>时间精密度，水平方向的。一秒钟之内采样多少个。</p>
+<h2 id="如何上手">如何上手</h2>
+<ol type="1">
+<li>有问题/有死线</li>
+<li>有扳机</li>
+<li>把软件装上</li>
+</ol>
+<p>重要性 1 &gt; 2 &gt; 3</p>
+<h2 id="混音">混音</h2>
+<p>混音就是把好几堆数字合并，并转换为另一堆数字，使转换后的数字客观听起来好听。</p>
+<p>声源 -&gt; 电脑 -&gt; 耳朵</p>
+<table>
+<thead>
+<tr class="header">
+<th>声源</th>
+<th>相关名词</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>人唱歌</td>
+<td>声乐</td>
+</tr>
+<tr class="even">
+<td>人演奏</td>
+<td>器乐、乐器、演奏</td>
+</tr>
+<tr class="odd">
+<td>机器唱歌</td>
+<td>歌声合成技术、声库、VOCALOID</td>
+</tr>
+<tr class="even">
+<td>机器演奏</td>
+<td>软件音源、编曲</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>人唱歌/演奏 -&gt; 通过麦克风录制（电磁学） -&gt;
+通过声卡把模拟信号转换为数字信号 -&gt; 通过声卡 ASIO
+驱动给到电脑操作系统 -&gt; 操作系统给到 DAW -&gt;</li>
+<li>声库/软音源 -&gt; 给到 DAW -&gt;
+<ul>
+<li>存到内存里 -&gt; 在 DAW 里用 VST
+插件等进行处理（<strong>这一步才叫混音</strong>） -&gt;
+<ul>
+<li>渲染（导出、编码）文件
+<ul>
+<li>音频文件 -&gt; 解码器 -&gt; 播放器 -&gt;</li>
+<li>内存里的音频 -&gt; DAW 实时回放 -&gt;
+<ul>
+<li>音频系统（ASIO、WASAPI 等）-&gt; 输出 -&gt; 耳朵</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>其中 ASIO 驱动是音频流输入输出程序， DAW（Digital Audio
+Workstation）是数字音频工作站，即编曲软件，也叫 VST 宿主机。VST 意思是
+Vitrual Studio Technology（虚拟工作室技术），免费的 DAW 有 <a href="https://www.reaper.fm/" rel="noopener" target="_blank">Reaper</a> 等。</p>
+<p>混音的关键是<strong>做平衡</strong>。因此得有一些标准</p>
+<h2 id="名词">名词</h2>
+<p>驻波：两波叠加时出现的稳定加强/减弱点。</p>
+<p>共振：人荡秋千，你推的频率要和他荡的频率相同，他才荡得高。你对一首歌有共鸣，说明这首歌对上你的电波了。</p>
+<p>泛音列：</p>
+<ol type="1">
+<li>复合音 = 基音 + 泛音列</li>
+<li>各列泛音为基音的整数倍</li>
+<li>音色区别在于各列音的振幅（能量）不同</li>
+<li>C：CEG 和谐是因为 C 的泛音中“占比最多”为 C&gt;G&gt;E C5：CG 则被称作
+C 强力五和弦</li>
+</ol>
+<h2 id="音频文件属性">音频文件属性</h2>
+<p>把音频文件看成是一条离散采样的波形</p>
+<h3 id="采样率">采样率</h3>
+<p><strong>采样的时间精密度</strong>，水平方向的。一秒钟之内采样多少个。</p>
 <p>人耳听力范围约 <span class="math inline">\(20 \sim 20000
-\mathrm{Hz}\)</span></p>
-<p>按奈奎斯特采样定理，采样率要大于最高频率两倍，才可较准确还原。因此最常用的采样率为
+\mathrm{Hz}\)</span>。按奈奎斯特采样定理，采样率要大于最高频率两倍，才可较准确还原。因此最常用（CD）的采样率为
 <span class="math inline">\(44100 \mathrm{Hz}\)</span></p>
-<h2 id="比特率">比特率</h2>
-<p>空间精密度（深度），竖直方向的。用多少个比特切割“振幅”。</p>
+<p>或者记：记录一次振动，最少要采两个点</p>
+<h3 id="比特率">比特率</h3>
+<p>采样的空间精密度（深度），<strong>竖直方向的</strong>。用多少个比特切割“振幅”。</p>
 <p>比如 <span class="math inline">\(16 \mathrm {bit}\)</span>
 的位深，对于每一个采样，有 <span class="math inline">\(2^{16}=65536\)</span> 种度量“振幅”的刻度。</p>
-<p><span class="math inline">\(1 \mathrm{bit}\)</span> 对应 <span class="math inline">\(6\mathrm{dB}\)</span> 动态范围。</p>
-<h2 id="动态范围">动态范围</h2>
-<p>最高波峰和最低波谷的距离。</p>
-<p>动态范围与情绪挂钩。</p>
+<p><span class="math inline">\(1 \mathrm{bit}\)</span> 对应 <span class="math inline">\(6\mathrm{dB}\)</span> 动态范围（？）。</p>
+<h2 id="波形统计信息">波形统计信息</h2>
+<p>用 RX/AU
+等软件可以查看音频文件的频谱图。横轴是时间，纵轴是频率，颜色亮度代表电平（振幅/能量）</p>
+<p>用 RX 的 Waveform Statistic 查看：</p>
+<table>
+<colgroup>
+<col style="width: 35%"/>
+<col style="width: 5%"/>
+<col style="width: 58%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>信息</th>
+<th>单位</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>True peak level</td>
+<td>dbTP</td>
+<td>真峰值水平，“最高音量”</td>
+</tr>
+<tr class="even">
+<td>Sample peak level</td>
+<td>dbFS</td>
+<td>采样峰值水平</td>
+</tr>
+<tr class="odd">
+<td>Max. RMS level</td>
+<td>db</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Min. RMS level</td>
+<td>db</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Total RMS level</td>
+<td>db</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Possibly clipped samples</td>
+<td></td>
+<td>可能剪切（爆电平，超出 0dB 的样本数量）</td>
+</tr>
+<tr class="odd">
+<td>DC offset</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Max.momentary loudness</td>
+<td></td>
+<td>最大瞬时响度</td>
+</tr>
+<tr class="odd">
+<td>Max.short-term loudness</td>
+<td>LUFS</td>
+<td>最大短期响度</td>
+</tr>
+<tr class="even">
+<td>Integrated loudness</td>
+<td>LUFS</td>
+<td>整体响度</td>
+</tr>
+<tr class="odd">
+<td>Loudness range (LRA)</td>
+<td>LUFS</td>
+<td>动态范围，情绪起伏程度</td>
+</tr>
+</tbody>
+</table>
 <h2 id="四大动态效果器">四大动态效果器</h2>
 <p>改变动态范围的。</p>
 <ul>
 <li>压缩器：把超出门槛的波形压小</li>
 <li>限制器：大号压缩器，把超出门槛的波形限制到门槛以下</li>
-<li>扩展器：把门槛以下的波形降低</li>
+<li>扩展器：把门槛以下的波形压小</li>
 <li>门限器（噪音门）：把门槛以下的波形去了</li>
 </ul>
 <h2 id="如何做">如何做</h2>
+<h3 id="人声">人声</h3>
+<h3 id="总线">总线</h3>
 <p>限制器限制到 <span class="math inline">\(-0.3\)</span></p>
-<p>不知道</p>
+<h2 id="工程管理">工程管理</h2>
+<p>不要把所有素材放到同一个父文件夹</p>
+<p>文件命名尽可能短，有描述性</p>
+<p>不要指望一个工程解决所有问题（不要在视频剪辑软件里混音，会卡顿）</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">

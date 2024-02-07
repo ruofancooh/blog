@@ -22,7 +22,7 @@
  除了官方文档之外，还有个网站：大象教程。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-09-14T08:48:00.000Z" property="article:published_time"/>
-<meta content="2023-11-03T07:06:14.919Z" property="article:modified_time"/>
+<meta content="2024-02-07T03:14:14.629Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/HD/02/" rel="canonical"/>
@@ -137,7 +137,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2023-11-03T15:06:14+08:00" itemprop="dateModified" title="修改时间：2023-11-03 15:06:14">2023-11-03</time>
+<time datetime="2024-02-07T11:14:14+08:00" itemprop="dateModified" title="修改时间：2024-02-07 11:14:14">2024-02-07</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -176,7 +176,7 @@ Apache ZooKeeper 3.8.2(asc, sha512)，文件名带 bin 的那一个。</p>
 传到另外两台上，然后改。</p>
 <h3 id="配置-zkdatamyid">配置 <code>zkData/myid</code></h3>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> zookeeper-3.8.2;</span><br/><span class="line">sudo <span class="built_in">mkdir</span> zkData;</span><br/><span class="line"><span class="built_in">cd</span> zkData;</span><br/><span class="line">sudo vi myid;</span><br/></pre></td></tr></table></figure>
-<p>我填的是 <em>当前主机</em> 的 ip 后三位 <code>10x</code>。</p>
+<p>笔者填的是 <em>当前主机</em> 的 ip 后三位 <code>10x</code>。</p>
 <h3 id="配置-confzoo.cfg">配置 <code>conf/zoo.cfg</code></h3>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../conf;</span><br/><span class="line">sudo <span class="built_in">mv</span> zoo_sample.cfg zoo.cfg;</span><br/><span class="line">sudo vi zoo.cfg;</span><br/></pre></td></tr></table></figure>
 <p>改默认的 dataDir，并配置三台主机的端口：</p>

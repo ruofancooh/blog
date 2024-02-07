@@ -72,7 +72,7 @@
  Hadoop 3.3.6" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-09-11T09:45:00.000Z" property="article:published_time"/>
-<meta content="2024-01-13T15:20:20.205Z" property="article:modified_time"/>
+<meta content="2024-02-07T03:14:01.595Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/HD/00/" rel="canonical"/>
@@ -190,7 +190,7 @@ worker1 和 worker2，配置好之后，互相复制 SSH KEY</span></a></li><li 
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-01-13T23:20:20+08:00" itemprop="dateModified" title="修改时间：2024-01-13 23:20:20">2024-01-13</time>
+<time datetime="2024-02-07T11:14:01+08:00" itemprop="dateModified" title="修改时间：2024-02-07 11:14:01">2024-02-07</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -253,7 +253,7 @@ Player（免费的，但是不支持克隆虚拟机，需要手动装另外两�
 虚拟机</h2>
 <p><a href="/blog/UC/wl">教程</a></p>
 <ul>
-<li>其中，【安装 Ubuntu】的第 4 步，我选的还是默认的
+<li>其中，【安装 Ubuntu】的第 4 步，笔者选的还是默认的
 DHCP，装好之后再改成静态 IP。</li>
 <li>第 11 步，要安装 OpenSSH server。</li>
 <li>不用设置共享文件夹，因为我们有 Xftp。</li>
@@ -266,7 +266,7 @@ DHCP，装好之后再改成静态 IP。</li>
 <p>然后用 Xftp 连接。</p>
 <h2 id="下载-hadoop">下载 Hadoop</h2>
 <p><a href="https://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/" rel="noopener" target="_blank">下载页面（清华源）</a></p>
-<p>我这里下载的是<code>hadoop-3.3.6.tar.gz</code>。</p>
+<p>笔者这里下载的是<code>hadoop-3.3.6.tar.gz</code>。</p>
 <p>用 Xftp 把压缩包传到虚拟机的家目录下，然后：</p>
 <h2 id="安装软件及配置环境变量写脚本避免重复工作">安装软件及配置环境变量，写脚本避免重复工作</h2>
 <p>把脚本也传到家目录，然后执行：</p>
@@ -275,7 +275,7 @@ DHCP，装好之后再改成静态 IP。</li>
 里的说明，指向 <a href="https://github.com/apache/hadoop/blob/rel/release-3.2.1/dev-support/docker/Dockerfile#L92" rel="noopener" target="_blank">https://github.com/apache/hadoop/blob/rel/release-3.2.1/dev-support/docker/Dockerfile#L92</a>
 里的命令。</p>
 <p><code>ha.sh</code>：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 JDK</span></span><br/><span class="line">sudo apt-get update;</span><br/><span class="line">sudo apt-get install openjdk-8-jdk libbcprov-java;</span><br/><span class="line">sudo apt-get clean;</span><br/><span class="line"><span class="comment"># 存放 Hadoop 压缩包的位置</span></span><br/><span class="line"><span class="built_in">cd</span>;</span><br/><span class="line"><span class="comment"># 解压，删除（这两句我执行的时候没执行上，重启后手动执行）</span></span><br/><span class="line">sudo tar -zxvf hadoop-3.3.6.tar.gz -C /usr/local;</span><br/><span class="line">sudo <span class="built_in">rm</span> hadoop-3.3.6.tar.gz;</span><br/><span class="line"><span class="comment"># 写环境变量</span></span><br/><span class="line"><span class="comment"># env 查看所有环境变量</span></span><br/><span class="line"><span class="comment"># echo $NAME 查看某个</span></span><br/><span class="line">JAVA_HOME=<span class="string">"/lib/jvm/java-1.8.0-openjdk-amd64"</span>;</span><br/><span class="line">HADOOP_HOME=<span class="string">"/usr/local/hadoop-3.3.6"</span>;</span><br/><span class="line">text=<span class="string">"export JAVA_HOME=<span class="variable">$JAVA_HOME</span></span></span><br/><span class="line"><span class="string">export HADOOP_HOME=<span class="variable">$HADOOP_HOME</span></span></span><br/><span class="line"><span class="string">export PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin:<span class="variable">$HADOOP_HOME</span>/sbin:<span class="variable">$JAVA_HOME</span>/bin</span></span><br/><span class="line"><span class="string">"</span>;</span><br/><span class="line">sudo <span class="built_in">echo</span> <span class="string">"<span class="variable">$text</span>"</span> &gt;&gt; .bashrc;</span><br/><span class="line"><span class="comment"># 应用，重启</span></span><br/><span class="line"><span class="built_in">source</span> .bashrc;</span><br/><span class="line">reboot;</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 JDK</span></span><br/><span class="line">sudo apt-get update;</span><br/><span class="line">sudo apt-get install openjdk-8-jdk libbcprov-java;</span><br/><span class="line">sudo apt-get clean;</span><br/><span class="line"><span class="comment"># 存放 Hadoop 压缩包的位置</span></span><br/><span class="line"><span class="built_in">cd</span>;</span><br/><span class="line"><span class="comment"># 解压，删除（这两句笔者执行的时候没执行上，重启后手动执行）</span></span><br/><span class="line">sudo tar -zxvf hadoop-3.3.6.tar.gz -C /usr/local;</span><br/><span class="line">sudo <span class="built_in">rm</span> hadoop-3.3.6.tar.gz;</span><br/><span class="line"><span class="comment"># 写环境变量</span></span><br/><span class="line"><span class="comment"># env 查看所有环境变量</span></span><br/><span class="line"><span class="comment"># echo $NAME 查看某个</span></span><br/><span class="line">JAVA_HOME=<span class="string">"/lib/jvm/java-1.8.0-openjdk-amd64"</span>;</span><br/><span class="line">HADOOP_HOME=<span class="string">"/usr/local/hadoop-3.3.6"</span>;</span><br/><span class="line">text=<span class="string">"export JAVA_HOME=<span class="variable">$JAVA_HOME</span></span></span><br/><span class="line"><span class="string">export HADOOP_HOME=<span class="variable">$HADOOP_HOME</span></span></span><br/><span class="line"><span class="string">export PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin:<span class="variable">$HADOOP_HOME</span>/sbin:<span class="variable">$JAVA_HOME</span>/bin</span></span><br/><span class="line"><span class="string">"</span>;</span><br/><span class="line">sudo <span class="built_in">echo</span> <span class="string">"<span class="variable">$text</span>"</span> &gt;&gt; .bashrc;</span><br/><span class="line"><span class="comment"># 应用，重启</span></span><br/><span class="line"><span class="built_in">source</span> .bashrc;</span><br/><span class="line">reboot;</span><br/></pre></td></tr></table></figure>
 <h2 id="改虚拟机内的文件">改虚拟机内的文件</h2>
 <p><a href="https://www.runoob.com/linux/linux-vim.html" rel="noopener" target="_blank">Vim
 教程</a></p>
@@ -326,7 +326,7 @@ IP</h3>
 服务的用户</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/lib/jvm/java-1.8.0-openjdk-amd64</span><br/><span class="line"><span class="built_in">export</span> HDFS_NAMENODE_USER=rc</span><br/><span class="line"><span class="built_in">export</span> HDFS_DATANODE_USER=rc</span><br/><span class="line"><span class="built_in">export</span> HDFS_SECONDARYNAMENODE_USER=rc</span><br/><span class="line"><span class="built_in">export</span> YARN_RESOURCEMANAGER_USER=rc</span><br/><span class="line"><span class="built_in">export</span> YARN_NODEMANAGER_USER=rc</span><br/></pre></td></tr></table></figure>
-<p>rc 是我每台机器的用户名。</p>
+<p>rc 是笔者每台机器的用户名。</p>
 <p><strong>下面的文件都是在<code>$HADOOP_HOME/etc/hadoop</code>目录里。</strong></p>
 <h3 id="改core-site.xml">改<code>core-site.xml</code></h3>
 <ul>
@@ -369,7 +369,7 @@ worker1 和 worker2，配置好之后，互相复制 SSH KEY</h2>
 <p>三台机器上都执行：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -m PEM</span><br/></pre></td></tr></table></figure>
 <p>SSH-2.0-JSCH-0.1.54</p>
-<p>我这里的版本是
+<p>笔者这里的版本是
 <code>OpenSSH_8.9p1 Ubuntu-3ubuntu0.6, OpenSSL 3.0.2 15 Mar 2022</code>，要加上
 <code>-m PEM</code>，确保私钥以 -----BEGIN <strong>RSA</strong> PRIVATE
 KEY----- 开头。<a href="https://www.cnblogs.com/simple-li/p/14654812.html" rel="noopener" target="_blank">后续错误</a></p>
