@@ -8,31 +8,21 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="起因是：
- 不管是直接打开 html
- 文件，还是用python -m http.server 8000 --bind 127.0.0.1，在修改保存
- html 文件后浏览器都不能立马刷新。
- 结果是：
- 用 Vue 就没这么多事了。" name="description"/>
+<meta content="仅限笔者本人的经验" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="用 browser-sync 实现在文件内容改变后立即刷新页面" property="og:title"/>
-<meta content="https://hrfis.me/blog/browser-sync.html" property="og:url"/>
+<meta content="社交恐惧的成因、症状及解决方法" property="og:title"/>
+<meta content="https://hrfis.me/blog/SAD.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="起因是：
- 不管是直接打开 html
- 文件，还是用python -m http.server 8000 --bind 127.0.0.1，在修改保存
- html 文件后浏览器都不能立马刷新。
- 结果是：
- 用 Vue 就没这么多事了。" property="og:description"/>
+<meta content="仅限笔者本人的经验" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-08-23T08:31:00.000Z" property="article:published_time"/>
-<meta content="2024-02-07T03:09:54.624Z" property="article:modified_time"/>
+<meta content="2024-02-18T14:40:00.000Z" property="article:published_time"/>
+<meta content="2024-02-18T14:55:30.801Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/browser-sync" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/browser-sync.html","path":"/browser-sync.html","title":"用 browser-sync 实现在文件内容改变后立即刷新页面"}</script>
+<link href="https://hrfis.me/blog/SAD" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/SAD.html","path":"/SAD.html","title":"社交恐惧的成因、症状及解决方法"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>用 browser-sync 实现在文件内容改变后立即刷新页面 | 若凡的笔记</title>
+<title>社交恐惧的成因、症状及解决方法 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -67,7 +57,7 @@
 </nav>
 </header>
 <aside class="sidebar">
-<div class="sidebar-inner sidebar-overview-active">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
 <ul class="sidebar-nav">
 <li class="sidebar-nav-toc">
           文章目录
@@ -79,6 +69,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%90%E5%9B%A0"><span class="nav-number">1.</span> <span class="nav-text">成因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%97%87%E7%8A%B6"><span class="nav-number">2.</span> <span class="nav-text">症状</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">解决方法</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -109,7 +100,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/browser-sync.html" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/SAD.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -119,12 +110,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="用 browser-sync 实现在文件内容改变后立即刷新页面 | 若凡的笔记" itemprop="name"/>
+<meta content="社交恐惧的成因、症状及解决方法 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          用 browser-sync 实现在文件内容改变后立即刷新页面
+          社交恐惧的成因、症状及解决方法
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -133,14 +124,7 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2023-08-23T16:31:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-08-23 16:31:00">2023-08-23</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2024-02-07T11:09:54+08:00" itemprop="dateModified" title="修改时间：2024-02-07 11:09:54">2024-02-07</time>
+<time datetime="2024-02-18T22:40:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-02-18 22:40:00 / 修改时间：22:55:30">2024-02-18</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -148,48 +132,58 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/u/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
+<a href="/blog/m/" itemprop="url" rel="index"><span itemprop="name">音乐</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>起因是：</p>
-<p>不管是直接打开 html
-文件，还是用<code>python -m http.server 8000 --bind 127.0.0.1</code>，在修改保存
-html 文件后浏览器都不能立马刷新。</p>
-<p>结果是：</p>
-<p>用 Vue 就没这么多事了。</p>
+<div class="post-body" itemprop="articleBody"><p>仅限笔者本人的经验</p>
 <span id="more"></span>
+<h2 id="成因">成因</h2>
+<p>仅限笔者本人的经验，“互联网上的社交恐惧”和“现实世界里的社交恐惧”的成因是一样的：</p>
 <ol type="1">
-<li><p>安装</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">npm install browser-sync</span><br/></pre></td></tr></table></figure>
-<p>安装到想作为服务器根目录的文件夹。以前觉得全局安装好，现在暂时觉得本地安装好。（据说用
-Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p></li>
-<li><p>运行</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">npx browser-sync start --server --files <span class="string">"."</span></span><br/></pre></td></tr></table></figure>
-<p><code>--files</code> 后指定要监视的文件。</p>
-<p><code>.</code> 表示监视当前目录以及子目录下的所有文件。</p>
-<p>可以改成 <code>*.html</code>，<code>public/*.*</code> 等。</p></li>
+<li>没有征兆地来到一个新环境</li>
+<li>以现有的经验，无法确定自己的身份与环境是否融合</li>
 </ol>
-<p>html
-文件里至少得有一对<code>&lt;body&gt;</code>标签，要么没法自动刷新。</p>
-<p>在没有修改文件内容，只 <code>Ctrl + S</code>
-保存时也会刷新，在命令行会输出
-<code>File event [change]</code>，只不过看不出来。</p>
-<p>好像和直接通过浏览器来刷新不一样，因为笔者在选项卡上没看到加载动画。</p>
+<p>上面两个条件循环累加几次。</p>
+<h2 id="症状">症状</h2>
+<ol type="1">
+<li>过度关心自己</li>
+<li>没法确定自己是否喜欢某一样东西</li>
+</ol>
+<p>具体地说：打开 b
+站，看到推荐视频的封面和标题，【安心感】和【不愿意点进去看】这两种想法会同时出现</p>
+<p>以笔者现有的经验，可以联想到一首歌，叫<a href="https://music.163.com/song?id=1833372266" rel="noopener" target="_blank">《Stairway To
+Heaven》</a>。暂且不管这首歌别人是怎么解读的。只是这两句歌词对上了：</p>
+<blockquote>
+<p>When she gets there she knows if the stores are all closed<br/> With
+a word she can get what she came for<br/></p>
+</blockquote>
+<h2 id="解决方法">解决方法</h2>
+<ol type="1">
+<li>自我欺骗法：我就是喜欢这一样东西，不需要理由</li>
+<li>曲线救国法：找电影、电视剧、动画、纪录片看</li>
+<li>开诚布公法：像笔者这样，把心里所有想法都公开出来</li>
+<li>表演相声法：把自己当成相声演员</li>
+<li>反向思考法：关心并鼓励别人</li>
+<li>时间作刀法：反正到最后，大家都得死</li>
+</ol>
+<p>关于第五条的实践方法：晚上 12
+点之后，在网易云音乐搜【抑郁】，会出现一大堆的歌单。或者在【热歌榜】里找一首
+emo
+的歌，点进评论区，你总能碰到几个发小作文的，给他们点赞就行。如果他们在动态里发心里话，直接给他们点个关注。</p>
+<p>注意，在网易云音乐的一些热门歌曲下面，是有机器人刷评论的。我们只用关注两种情况：一种情况是，我们可以判断出来，这是真人发的
+emo；另一种情况我们无法判断是真人/真人复制粘贴，还是机器人。</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/gdb.html" rel="prev" title="用 GDB 查看变量内存">
-<i class="fa fa-chevron-left"></i> 用 GDB 查看变量内存
+<a href="/blog/mix.html" rel="prev" title="数字音频与纸上谈兵">
+<i class="fa fa-chevron-left"></i> 数字音频与纸上谈兵
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/10-to-float.html" rel="next" title="普通十进制数转单精度浮点数">
-                  普通十进制数转单精度浮点数 <i class="fa fa-chevron-right"></i>
-</a>
 </div>
 </div>
 </footer>
@@ -225,7 +219,7 @@ Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p><
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/browser-sync.html"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/SAD.html"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>

@@ -8,31 +8,17 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="起因是：
- 不管是直接打开 html
- 文件，还是用python -m http.server 8000 --bind 127.0.0.1，在修改保存
- html 文件后浏览器都不能立马刷新。
- 结果是：
- 用 Vue 就没这么多事了。" name="description"/>
-<meta content="article" property="og:type"/>
-<meta content="用 browser-sync 实现在文件内容改变后立即刷新页面" property="og:title"/>
-<meta content="https://hrfis.me/blog/browser-sync.html" property="og:url"/>
+<meta content="website" property="og:type"/>
+<meta content="若凡的笔记" property="og:title"/>
+<meta content="https://hrfis.me/blog/archives/2024/02/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="起因是：
- 不管是直接打开 html
- 文件，还是用python -m http.server 8000 --bind 127.0.0.1，在修改保存
- html 文件后浏览器都不能立马刷新。
- 结果是：
- 用 Vue 就没这么多事了。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-08-23T08:31:00.000Z" property="article:published_time"/>
-<meta content="2024-02-07T03:09:54.624Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/browser-sync" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/browser-sync.html","path":"/browser-sync.html","title":"用 browser-sync 实现在文件内容改变后立即刷新页面"}</script>
+<link href="https://hrfis.me/blog/archives/2024/02/" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/2024/02/index.html","title":""}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>用 browser-sync 实现在文件内容改变后立即刷新页面 | 若凡的笔记</title>
+<title>归档 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -52,7 +38,7 @@
 <div class="site-meta">
 <a class="brand" href="/blog/" rel="start">
 <i class="logo-line"></i>
-<p class="site-title">若凡的笔记</p>
+<h1 class="site-title">若凡的笔记</h1>
 <i class="logo-line"></i>
 </a>
 </div>
@@ -106,94 +92,27 @@
 </div>
 </aside>
 </div>
-<div class="main-inner post posts-expand">
+<div class="main-inner archive posts-collapse">
 <div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/browser-sync.html" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="用 browser-sync 实现在文件内容改变后立即刷新页面 | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
+<div class="post-content">
+<div class="collection-year">
+<span class="collection-header">2024</span>
+</div>
+<article itemscope="" itemtype="http://schema.org/Article">
 <header class="post-header">
-<h1 class="post-title" itemprop="name headline">
-          用 browser-sync 实现在文件内容改变后立即刷新页面
-        </h1>
 <div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar"></i>
-</span>
-<span class="post-meta-item-text">发表于</span>
-<time datetime="2023-08-23T16:31:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-08-23 16:31:00">2023-08-23</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2024-02-07T11:09:54+08:00" itemprop="dateModified" title="修改时间：2024-02-07 11:09:54">2024-02-07</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/u/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
-</span>
-</span>
+<time content="2024-02-18" datetime="2024-02-18T22:40:00+08:00" itemprop="dateCreated">
+          02-18
+        </time>
 </div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody"><p>起因是：</p>
-<p>不管是直接打开 html
-文件，还是用<code>python -m http.server 8000 --bind 127.0.0.1</code>，在修改保存
-html 文件后浏览器都不能立马刷新。</p>
-<p>结果是：</p>
-<p>用 Vue 就没这么多事了。</p>
-<span id="more"></span>
-<ol type="1">
-<li><p>安装</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">npm install browser-sync</span><br/></pre></td></tr></table></figure>
-<p>安装到想作为服务器根目录的文件夹。以前觉得全局安装好，现在暂时觉得本地安装好。（据说用
-Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p></li>
-<li><p>运行</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">npx browser-sync start --server --files <span class="string">"."</span></span><br/></pre></td></tr></table></figure>
-<p><code>--files</code> 后指定要监视的文件。</p>
-<p><code>.</code> 表示监视当前目录以及子目录下的所有文件。</p>
-<p>可以改成 <code>*.html</code>，<code>public/*.*</code> 等。</p></li>
-</ol>
-<p>html
-文件里至少得有一对<code>&lt;body&gt;</code>标签，要么没法自动刷新。</p>
-<p>在没有修改文件内容，只 <code>Ctrl + S</code>
-保存时也会刷新，在命令行会输出
-<code>File event [change]</code>，只不过看不出来。</p>
-<p>好像和直接通过浏览器来刷新不一样，因为笔者在选项卡上没看到加载动画。</p>
-</div>
-<footer class="post-footer">
-<div class="post-nav">
-<div class="post-nav-item">
-<a href="/blog/gdb.html" rel="prev" title="用 GDB 查看变量内存">
-<i class="fa fa-chevron-left"></i> 用 GDB 查看变量内存
-                </a>
-</div>
-<div class="post-nav-item">
-<a href="/blog/10-to-float.html" rel="next" title="普通十进制数转单精度浮点数">
-                  普通十进制数转单精度浮点数 <i class="fa fa-chevron-right"></i>
+<div class="post-title">
+<a class="post-title-link" href="/blog/SAD.html" itemprop="url">
+<span itemprop="name">社交恐惧的成因、症状及解决方法</span>
 </a>
 </div>
-</div>
-</footer>
+</header>
 </article>
+</div>
 </div>
 </div>
 </main>
@@ -225,7 +144,7 @@ Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p><
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/browser-sync.html"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":false,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/archives/2024/02/"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
