@@ -8,35 +8,17 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="有两种二进制文件保证元数据的可靠性：
- 
- EditLog：编辑日志，对 HDFS 进行操作的日志
- FsImage：文件系统（元数据）镜像
- 
- 位于 NN 的 $&amp;#123;hadoop.tmp.dir&amp;#125;/dfs/name/current
- 和 2NN 的
- $&amp;#123;hadoop.tmp.dir&amp;#125;/data/dfs/namesecondary/current" name="description"/>
-<meta content="article" property="og:type"/>
-<meta content="HDFS 的 EditLog 和 FsImage" property="og:title"/>
-<meta content="https://hrfis.me/blog/hdfs-editlog-fsimage.html" property="og:url"/>
+<meta content="website" property="og:type"/>
+<meta content="若凡的笔记" property="og:title"/>
+<meta content="https://hrfis.me/blog/categories/%E9%9F%B3%E4%B9%90/page/2/index.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="有两种二进制文件保证元数据的可靠性：
- 
- EditLog：编辑日志，对 HDFS 进行操作的日志
- FsImage：文件系统（元数据）镜像
- 
- 位于 NN 的 $&amp;#123;hadoop.tmp.dir&amp;#125;/dfs/name/current
- 和 2NN 的
- $&amp;#123;hadoop.tmp.dir&amp;#125;/data/dfs/namesecondary/current" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-10-30T14:01:00.000Z" property="article:published_time"/>
-<meta content="2024-01-11T15:33:14.925Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/hdfs-editlog-fsimage" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/hdfs-editlog-fsimage.html","path":"/hdfs-editlog-fsimage.html","title":"HDFS 的 EditLog 和 FsImage"}</script>
+<link href="https://hrfis.me/blog/categories/%E9%9F%B3%E4%B9%90/page/2/" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"categories/音乐/page/2/index.html","title":""}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>HDFS 的 EditLog 和 FsImage | 若凡的笔记</title>
+<title>分类: 音乐 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -71,7 +53,7 @@
 </nav>
 </header>
 <aside class="sidebar">
-<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<div class="sidebar-inner sidebar-overview-active">
 <ul class="sidebar-nav">
 <li class="sidebar-nav-toc">
           文章目录
@@ -83,9 +65,6 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8-oev-%E5%91%BD%E4%BB%A4%E8%BD%AC%E6%8D%A2-editlog-%E4%B8%BA-xml"><span class="nav-number">1.</span> <span class="nav-text">用 oev 命令转换 EditLog 为
-xml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8-oiv-%E5%91%BD%E4%BB%A4%E8%BD%AC%E6%8D%A2-fsimage-%E4%B8%BA-xml"><span class="nav-number">2.</span> <span class="nav-text">用 oiv 命令转换 FsImage 为
-xml</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -113,87 +92,36 @@ xml</span></a></li></ol></div>
 </div>
 </aside>
 </div>
-<div class="main-inner post posts-expand">
+<div class="main-inner category posts-collapse">
 <div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/hdfs-editlog-fsimage.html" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="HDFS 的 EditLog 和 FsImage | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
+<div class="post-content">
+<div class="collection-title">
+<h1 class="collection-header">音乐
+          <small>分类</small>
+</h1>
+</div>
+<div class="collection-year">
+<span class="collection-header">2023</span>
+</div>
+<article itemscope="" itemtype="http://schema.org/Article">
 <header class="post-header">
-<h1 class="post-title" itemprop="name headline">
-          HDFS 的 EditLog 和 FsImage
-        </h1>
 <div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar"></i>
-</span>
-<span class="post-meta-item-text">发表于</span>
-<time datetime="2023-10-30T22:01:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-10-30 22:01:00">2023-10-30</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2024-01-11T23:33:14+08:00" itemprop="dateModified" title="修改时间：2024-01-11 23:33:14">2024-01-11</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
-</span>
-</span>
+<time content="2023-08-05" datetime="2023-08-05T13:55:29+08:00" itemprop="dateCreated">
+          08-05
+        </time>
 </div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody"><p>有两种二进制文件保证元数据的可靠性：</p>
-<ul>
-<li>EditLog：编辑日志，对 HDFS 进行操作的日志</li>
-<li>FsImage：文件系统（元数据）镜像</li>
-</ul>
-<p>位于 NN 的 <code>${hadoop.tmp.dir}/dfs/name/current</code></p>
-<p>和 2NN 的
-<code>${hadoop.tmp.dir}/data/dfs/namesecondary/current</code></p>
-<span id="more"></span>
-<p>执行下面两个命令都不需要启动集群（dfs）。</p>
-<h2 id="用-oev-命令转换-editlog-为-xml">用 oev 命令转换 EditLog 为
-xml</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs oev -p XML -i edits_xxxx -o ./edits_xxxx.xml</span><br/></pre></td></tr></table></figure>
-<h2 id="用-oiv-命令转换-fsimage-为-xml">用 oiv 命令转换 FsImage 为
-xml</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs oiv -p XML -i fsimage_xxxx -o ./fsimage_xxxx.xml</span><br/></pre></td></tr></table></figure>
-</div>
-<footer class="post-footer">
-<div class="post-nav">
-<div class="post-nav-item">
-<a href="/blog/HD/07/" rel="prev" title="HD07 - Hadoop 生态圈">
-<i class="fa fa-chevron-left"></i> HD07 - Hadoop 生态圈
-                </a>
-</div>
-<div class="post-nav-item">
-<a href="/blog/credits.html" rel="next" title="获取正方教务系统里的成绩信息并对学分求和">
-                  获取正方教务系统里的成绩信息并对学分求和 <i class="fa fa-chevron-right"></i>
+<div class="post-title">
+<a class="post-title-link" href="/blog/holy-shit-grass-snake.html" itemprop="url">
+<span itemprop="name">《草蛇惊一》</span>
 </a>
 </div>
-</div>
-</footer>
+</header>
 </article>
 </div>
+</div>
+<nav class="pagination">
+<a aria-label="上一页" class="extend prev" href="/blog/m/" rel="prev" title="上一页"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/blog/m/">1</a><span class="page-number current">2</span>
+</nav>
 </div>
 </main>
 <footer class="footer">
@@ -224,7 +152,7 @@ xml</h2>
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/hdfs-editlog-fsimage.html"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/categories/%E9%9F%B3%E4%B9%90/page/2/"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
