@@ -26,7 +26,7 @@
  从【信息】到【知识】的这一步，叫【数据挖掘】" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-02-28T13:35:00.000Z" property="article:published_time"/>
-<meta content="2024-03-05T12:56:21.426Z" property="article:modified_time"/>
+<meta content="2024-03-31T12:41:52.875Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/data-mining" rel="canonical"/>
@@ -79,7 +79,8 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.</span> <span class="nav-text">数据挖掘的任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E6%B5%8B%E8%AF%B4%E6%98%8E%E5%8F%98%E9%87%8F-%E7%9B%AE%E6%A0%87%E5%8F%98%E9%87%8F"><span class="nav-number">1.1.</span> <span class="nav-text">预测：说明变量-&gt;目标变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0%E6%95%B0%E6%8D%AE-%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">描述：数据-&gt;模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%BA%A6%E9%87%8F"><span class="nav-number">2.</span> <span class="nav-text">属性与度量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E7%9A%84%E7%B1%BB%E5%9E%8B%E4%B9%9F%E5%8F%AB%E6%B5%8B%E9%87%8F%E6%A0%87%E5%BA%A6%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.1.</span> <span class="nav-text">属性的类型（也叫测量标度的类型）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">3.</span> <span class="nav-text">数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%80%A7"><span class="nav-number">3.1.</span> <span class="nav-text">特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.2.</span> <span class="nav-text">类型</span></a></li></ol></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.1.</span> <span class="nav-text">数据挖掘的任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%BA%A6%E9%87%8F"><span class="nav-number">1.2.</span> <span class="nav-text">属性与度量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">1.3.</span> <span class="nav-text">数据集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%88%98"><span class="nav-number">2.</span> <span class="nav-text">实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8-numpy-%E5%92%8C-plt-%E8%BF%9B%E8%A1%8C%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%8B%9F%E5%90%88%E7%94%BB%E5%9B%BE"><span class="nav-number">2.1.</span> <span class="nav-text">用 numpy 和 plt
+进行最小二乘法多项式拟合、画图</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -141,7 +142,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-03-05T20:56:21+08:00" itemprop="dateModified" title="修改时间：2024-03-05 20:56:21">2024-03-05</time>
+<time datetime="2024-03-31T20:41:52+08:00" itemprop="dateModified" title="修改时间：2024-03-31 20:41:52">2024-03-31</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -163,8 +164,9 @@
 </ul>
 <p>从【信息】到【知识】的这一步，叫【数据挖掘】</p>
 <span id="more"></span>
-<h2 id="数据挖掘的任务">数据挖掘的任务</h2>
-<h3 id="预测说明变量-目标变量">预测：说明变量-&gt;目标变量</h3>
+<h2 id="概念">概念</h2>
+<h3 id="数据挖掘的任务">数据挖掘的任务</h3>
+<p><strong>预测：说明变量-&gt;目标变量</strong></p>
 <ul>
 <li>预测建模：使目标变量的预测值与实际值之间的误差达到最小
 <ul>
@@ -172,36 +174,38 @@
 <li>回归：预测连续的目标变量：听音乐时（假定音乐是连续的），预测音乐下一步的发展，“回归”到音乐整体</li>
 </ul></li>
 </ul>
-<h3 id="描述数据-模式">描述：数据-&gt;模式</h3>
+<p><strong>描述：数据-&gt;模式</strong></p>
 <p>关联分析： 聚类分析： 异常检测：</p>
-<h2 id="属性与度量">属性与度量</h2>
-<p>测量：将对象的属性映射为数值/符号值</p>
-<p>测量标度：函数、秤</p>
-<p>例如：秤将人的体重映射为一个数值</p>
-<h3 id="属性的类型也叫测量标度的类型">属性的类型（也叫测量标度的类型）</h3>
+<h3 id="属性与度量">属性与度量</h3>
 <ul>
-<li>分类的（定性的）
+<li>测量：将对象的属性映射为数值/符号值</li>
+<li>测量标度：函数、秤</li>
+</ul>
+<p>例如：秤将人的体重映射为一个数值</p>
+<p>属性的类型（也叫测量标度的类型）：</p>
+<ul>
+<li><p>分类的（定性的）</p>
 <ul>
 <li>标称：有意义的只有等于/不等于操作。例如你的性别，不能与其他性别进行比较大小、加减、乘除操作</li>
 <li>序数：有意义的有：等于/不等于和比较大小。例如你的成绩在这五个档次里面{A,B,C,D,E}</li>
 </ul></li>
-<li>数值的（定量的）
+<li><p>数值的（定量的）</p>
 <ul>
 <li>区间：除了能等于/不等于/比较大小，还要能加减。比如某年某月某日、华氏/摄氏温度</li>
 <li>比率：在上面的基础上，还要能乘除</li>
 </ul></li>
+<li><p>离散的属性：可取有限个值，或无限可数个值</p></li>
+<li><p>连续的属性：取实数值</p></li>
+<li><p>非对称的属性：出现非零值比零值重要</p></li>
 </ul>
-<p>离散的属性：可取有限个值，或无限可数个值</p>
-<p>连续的属性：取实数值</p>
-<p>非对称的属性：出现非零值比零值重要</p>
-<h2 id="数据集">数据集</h2>
-<h3 id="特性">特性</h3>
+<h3 id="数据集">数据集</h3>
+<p><strong>特性</strong></p>
 <ul>
 <li>维度：对象具有的属性数目</li>
 <li>稀疏性：0 越多，越稀疏</li>
 <li>分辨率：采样精度</li>
 </ul>
-<h3 id="类型">类型</h3>
+<p><strong>类型</strong></p>
 <ul>
 <li>记录的
 <ul>
@@ -222,6 +226,10 @@
 <li>空间数据：有空间自相关性：地球上相近的两个点通常具有相近的气温/降水量</li>
 </ul></li>
 </ul>
+<h2 id="实战">实战</h2>
+<h3 id="用-numpy-和-plt-进行最小二乘法多项式拟合画图">用 numpy 和 plt
+进行最小二乘法多项式拟合、画图</h3>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br/><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br/><span class="line"></span><br/><span class="line">x = np.array([<span class="number">48</span>, <span class="number">47</span>, <span class="number">54</span>, <span class="number">50</span>, <span class="number">73</span>, <span class="number">72</span>, <span class="number">62</span>, <span class="number">52</span>, <span class="number">47</span>, <span class="number">83</span>, <span class="number">70</span>, <span class="number">65</span>, <span class="number">48</span>])</span><br/><span class="line">y = np.array([<span class="number">0.42</span>, <span class="number">0.38</span>, <span class="number">0.66</span>, <span class="number">0.5</span>, <span class="number">0.99</span>, <span class="number">0.98</span>, <span class="number">0.89</span>,</span><br/><span class="line">             <span class="number">0.58</span>, <span class="number">0.38</span>, <span class="number">0.99</span>, <span class="number">0.98</span>, <span class="number">0.93</span>, <span class="number">0.42</span>])</span><br/><span class="line"></span><br/><span class="line"><span class="comment"># polynomial 多项式</span></span><br/><span class="line"><span class="comment"># fit 拟合</span></span><br/><span class="line"><span class="comment"># 第三个参数是多项式的次数，为大于等于零的整数</span></span><br/><span class="line">z = np.polyfit(x, y, <span class="number">2</span>)</span><br/><span class="line"></span><br/><span class="line"><span class="comment"># 这样一转换，可以以人可读的方式打印，可以在下面 call 它，把传参给 p 的数组转换为另一个数组</span></span><br/><span class="line">p = np.poly1d(z)</span><br/><span class="line"></span><br/><span class="line"><span class="built_in">print</span>(p)</span><br/><span class="line"></span><br/><span class="line"><span class="comment"># 一个范围之内取多少个点</span></span><br/><span class="line">x2 = np.linspace(<span class="number">40</span>, <span class="number">100</span>, <span class="number">100</span>)</span><br/><span class="line"></span><br/><span class="line"><span class="comment"># 画散点图</span></span><br/><span class="line">plt.scatter(x, y, color=<span class="string">'red'</span>, label=<span class="string">'Data Points'</span>)</span><br/><span class="line"><span class="comment"># 画曲线</span></span><br/><span class="line">plt.plot(x2, p(x2), color=<span class="string">'blue'</span>, label=<span class="string">'Quadratic Curve'</span>)</span><br/><span class="line"></span><br/><span class="line"><span class="comment"># xy轴标签、图题</span></span><br/><span class="line">plt.xlabel(<span class="string">'x'</span>)</span><br/><span class="line">plt.ylabel(<span class="string">'y'</span>)</span><br/><span class="line">plt.title(<span class="string">'Scatter plot with Quadratic Curve'</span>)</span><br/><span class="line"><span class="comment"># 图例</span></span><br/><span class="line">plt.legend()</span><br/><span class="line">plt.show()</span><br/></pre></td></tr></table></figure>
 </div>
 <footer class="post-footer">
 <div class="post-nav">

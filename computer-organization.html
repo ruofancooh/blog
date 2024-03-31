@@ -16,7 +16,7 @@
 <meta content="基础不牢" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-03-02T10:20:00.000Z" property="article:published_time"/>
-<meta content="2024-03-02T10:23:57.717Z" property="article:modified_time"/>
+<meta content="2024-03-31T14:15:01.301Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/computer-organization" rel="canonical"/>
@@ -69,7 +69,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cpu-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">CPU 性能指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">硬件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E5%AD%97%E8%8A%82%E8%AE%B0%E5%BD%95%E6%95%B4%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">使用一个字节记录整数</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cpu-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">CPU 性能指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">硬件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E5%AD%97%E8%8A%82%E8%AE%B0%E5%BD%95%E6%95%B4%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">使用一个字节记录整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%90%E4%BD%8D%E8%BF%9B%E4%BD%8D%E5%8A%A0%E6%B3%95%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">逐位进位加法器的实现</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -124,7 +124,14 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2024-03-02T18:20:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-03-02 18:20:00 / 修改时间：18:23:57">2024-03-02</time>
+<time datetime="2024-03-02T18:20:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-03-02 18:20:00">2024-03-02</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-03-31T22:15:01+08:00" itemprop="dateModified" title="修改时间：2024-03-31 22:15:01">2024-03-31</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -240,6 +247,32 @@ N_\mathrm{C}\)</span></p>
 之前的位（除了符号位）按位取反</li>
 </ul></li>
 </ul>
+<h2 id="逐位进位加法器的实现">逐位进位加法器的实现</h2>
+<ol type="1">
+<li>用两个非门、两个与门、一个或门实现异或门</li>
+</ol>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">xor_gate</span>(<span class="params">a: <span class="built_in">bool</span>, b: <span class="built_in">bool</span></span>):</span><br/><span class="line">    <span class="keyword">return</span> (a <span class="keyword">and</span> <span class="keyword">not</span> b) <span class="keyword">or</span> (<span class="keyword">not</span> a <span class="keyword">and</span> b)</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line">truth = (<span class="literal">True</span>, <span class="literal">False</span>)</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> truth:</span><br/><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> truth:</span><br/><span class="line">        <span class="built_in">print</span>(<span class="string">f"<span class="subst">{<span class="built_in">int</span>(a)}</span> xor <span class="subst">{<span class="built_in">int</span>(b)}</span> = <span class="subst">{<span class="built_in">int</span>(xor_gate(a,b))}</span>"</span>)</span><br/></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li>用一个异或门、一个与门实现半加器</li>
+</ol>
+<p>两个一位的二进制数相加，和一位，进一位：</p>
+<ul>
+<li>0 + 0 和 0 进 0</li>
+<li>0 + 1 和 1 进 0</li>
+<li>1 + 0 和 1 进 0</li>
+<li>1 + 1 和 0 进 1</li>
+</ul>
+<p>和的位由异或得来，进的位由与得来：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">half_adder</span>(<span class="params">a: <span class="built_in">bool</span>, b: <span class="built_in">bool</span></span>):</span><br/><span class="line">    sum_ = xor_gate(a, b)</span><br/><span class="line">    carry = a <span class="keyword">and</span> b</span><br/><span class="line">    <span class="keyword">return</span> sum_, carry</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line">truth = (<span class="literal">True</span>, <span class="literal">False</span>)</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> truth:</span><br/><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> truth:</span><br/><span class="line">        s, c = half_adder(a, b)</span><br/><span class="line">        <span class="built_in">print</span>(<span class="string">f"<span class="subst">{<span class="built_in">int</span>(a)}</span> + <span class="subst">{<span class="built_in">int</span>(b)}</span> 进 <span class="subst">{<span class="built_in">int</span>(c)}</span> 和 <span class="subst">{<span class="built_in">int</span>(s)}</span>"</span>)</span><br/></pre></td></tr></table></figure>
+<ol start="3" type="1">
+<li>用两个半加器、一个或门实现全加器</li>
+</ol>
+<p>两个本位的数相加后，再加上低位进的位。和一位，进一位：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">full_adder</span>(<span class="params">a: <span class="built_in">bool</span>, b: <span class="built_in">bool</span>, carry_in: <span class="built_in">bool</span></span>):</span><br/><span class="line">    s1, c1 = half_adder(a, b)</span><br/><span class="line">    s2, c2 = half_adder(s1, carry_in)</span><br/><span class="line">    carry_out = c1 <span class="keyword">or</span> c2</span><br/><span class="line">    <span class="keyword">return</span> s2, carry_out</span><br/><span class="line"></span><br/><span class="line">truth = (<span class="literal">True</span>, <span class="literal">False</span>)</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> truth:</span><br/><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> truth:</span><br/><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> truth:</span><br/><span class="line">            s, c_out = full_adder(a, b, c)</span><br/><span class="line">            <span class="built_in">print</span>(<span class="string">f"<span class="subst">{<span class="built_in">int</span>(a)}</span> + <span class="subst">{<span class="built_in">int</span>(b)}</span> + <span class="subst">{<span class="built_in">int</span>(c)}</span> 进 <span class="subst">{<span class="built_in">int</span>(c_out)}</span> 和 <span class="subst">{<span class="built_in">int</span>(s)}</span>"</span>)</span><br/></pre></td></tr></table></figure>
+<ol start="4" type="1">
+<li>四个全加器串联实现四位加法器</li>
+</ol>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br/><span class="line"></span><br/><span class="line">truth = (<span class="literal">True</span>, <span class="literal">False</span>)</span><br/><span class="line">numbers = <span class="built_in">tuple</span>(product(truth, repeat=<span class="number">4</span>))</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">adder</span>(<span class="params">a: <span class="built_in">tuple</span>[<span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>], b: <span class="built_in">tuple</span>[<span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>]</span>):</span><br/><span class="line">    s1, c1 = full_adder(a[-<span class="number">1</span>], b[-<span class="number">1</span>], <span class="literal">False</span>)</span><br/><span class="line">    s2, c2 = full_adder(a[-<span class="number">2</span>], b[-<span class="number">2</span>], c1)</span><br/><span class="line">    s3, c3 = full_adder(a[-<span class="number">3</span>], b[-<span class="number">3</span>], c2)</span><br/><span class="line">    s4, c4 = full_adder(a[-<span class="number">4</span>], b[-<span class="number">4</span>], c3)</span><br/><span class="line">    <span class="keyword">return</span> c4, s4, s3, s2, s1</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">to_number</span>(<span class="params">a: <span class="built_in">tuple</span>[<span class="built_in">bool</span>, ...]</span>):</span><br/><span class="line">    binary_string = <span class="string">""</span>.join(<span class="built_in">str</span>(<span class="built_in">int</span>(elem)) <span class="keyword">for</span> elem <span class="keyword">in</span> a)</span><br/><span class="line">    decimal_number = <span class="built_in">int</span>(binary_string, <span class="number">2</span>)</span><br/><span class="line">    <span class="keyword">return</span> decimal_number</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> numbers:</span><br/><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> numbers:</span><br/><span class="line">        result = adder(a, b)</span><br/><span class="line">        <span class="built_in">print</span>(<span class="string">f"<span class="subst">{to_number(a)}</span> + <span class="subst">{to_number(b)}</span> = <span class="subst">{to_number(result)}</span>"</span>)</span><br/></pre></td></tr></table></figure>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
