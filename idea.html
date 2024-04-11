@@ -8,35 +8,23 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="有两种二进制文件保证元数据的可靠性：
- 
- EditLog：编辑日志，对 HDFS 进行操作的日志
- FsImage：文件系统（元数据）镜像
- 
- 位于 NN 的 $&amp;#123;hadoop.tmp.dir&amp;#125;/dfs/name/current
- 和 2NN 的
- $&amp;#123;hadoop.tmp.dir&amp;#125;/data/dfs/namesecondary/current" name="description"/>
+<meta content="VSCode
+ 它是一个轻型软件，是一个壳子。是一个代码编辑器，不是一个集成开发环境。" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="HDFS 的 EditLog 和 FsImage" property="og:title"/>
-<meta content="https://hrfis.me/blog/hdfs-editlog-fsimage.html" property="og:url"/>
+<meta content="VSCode是有局限性的" property="og:title"/>
+<meta content="https://hrfis.me/blog/idea.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="有两种二进制文件保证元数据的可靠性：
- 
- EditLog：编辑日志，对 HDFS 进行操作的日志
- FsImage：文件系统（元数据）镜像
- 
- 位于 NN 的 $&amp;#123;hadoop.tmp.dir&amp;#125;/dfs/name/current
- 和 2NN 的
- $&amp;#123;hadoop.tmp.dir&amp;#125;/data/dfs/namesecondary/current" property="og:description"/>
+<meta content="VSCode
+ 它是一个轻型软件，是一个壳子。是一个代码编辑器，不是一个集成开发环境。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-10-30T14:01:00.000Z" property="article:published_time"/>
-<meta content="2024-01-11T15:33:14.925Z" property="article:modified_time"/>
+<meta content="2024-04-11T13:11:00.000Z" property="article:published_time"/>
+<meta content="2024-04-11T13:26:07.281Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/hdfs-editlog-fsimage" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/hdfs-editlog-fsimage.html","path":"/hdfs-editlog-fsimage.html","title":"HDFS 的 EditLog 和 FsImage"}</script>
+<link href="https://hrfis.me/blog/idea" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/idea.html","path":"/idea.html","title":"VSCode是有局限性的"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>HDFS 的 EditLog 和 FsImage | 若凡的笔记</title>
+<title>VSCode是有局限性的 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -71,7 +59,7 @@
 </nav>
 </header>
 <aside class="sidebar">
-<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<div class="sidebar-inner sidebar-overview-active">
 <ul class="sidebar-nav">
 <li class="sidebar-nav-toc">
           文章目录
@@ -83,9 +71,6 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8-oev-%E5%91%BD%E4%BB%A4%E8%BD%AC%E6%8D%A2-editlog-%E4%B8%BA-xml"><span class="nav-number">1.</span> <span class="nav-text">用 oev 命令转换 EditLog 为
-xml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8-oiv-%E5%91%BD%E4%BB%A4%E8%BD%AC%E6%8D%A2-fsimage-%E4%B8%BA-xml"><span class="nav-number">2.</span> <span class="nav-text">用 oiv 命令转换 FsImage 为
-xml</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -116,7 +101,7 @@ xml</span></a></li></ol></div>
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/hdfs-editlog-fsimage.html" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/idea.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -126,12 +111,12 @@ xml</span></a></li></ol></div>
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="HDFS 的 EditLog 和 FsImage | 若凡的笔记" itemprop="name"/>
+<meta content="VSCode是有局限性的 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          HDFS 的 EditLog 和 FsImage
+          VSCode是有局限性的
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -140,14 +125,7 @@ xml</span></a></li></ol></div>
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2023-10-30T22:01:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-10-30 22:01:00">2023-10-30</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2024-01-11T23:33:14+08:00" itemprop="dateModified" title="修改时间：2024-01-11 23:33:14">2024-01-11</time>
+<time datetime="2024-04-11T21:11:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-04-11 21:11:00 / 修改时间：21:26:07">2024-04-11</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -155,40 +133,61 @@ xml</span></a></li></ol></div>
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+<a href="/blog/m/" itemprop="url" rel="index"><span itemprop="name">音乐</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>有两种二进制文件保证元数据的可靠性：</p>
-<ul>
-<li>EditLog：编辑日志，对 HDFS 进行操作的日志</li>
-<li>FsImage：文件系统（元数据）镜像</li>
-</ul>
-<p>位于 NN 的 <code>${hadoop.tmp.dir}/dfs/name/current</code></p>
-<p>和 2NN 的
-<code>${hadoop.tmp.dir}/data/dfs/namesecondary/current</code></p>
+<div class="post-body" itemprop="articleBody"><p>VSCode
+它是一个轻型软件，是一个壳子。是一个代码编辑器，不是一个集成开发环境。</p>
 <span id="more"></span>
-<p>执行下面两个命令都不需要启动集群（dfs）。</p>
-<h2 id="用-oev-命令转换-editlog-为-xml">用 oev 命令转换 EditLog 为
-xml</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs oev -p XML -i edits_xxxx -o ./edits_xxxx.xml</span><br/></pre></td></tr></table></figure>
-<h2 id="用-oiv-命令转换-fsimage-为-xml">用 oiv 命令转换 FsImage 为
-xml</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs oiv -p XML -i fsimage_xxxx -o ./fsimage_xxxx.xml</span><br/></pre></td></tr></table></figure>
+<p>即使我们可以在它的插件市场里下载一个对 Python
+语言提供支持的插件，这个插件可以满足你在编辑一个后缀为 .py
+的文本文件时以不同颜色显示你的代码，自动补全你的代码；下载一个格式化代码的插件，一键让你的代码排版更好看。但是它没法运行你的代码，因为你还没有下载
+Python 本体。</p>
+<p>Python
+本体包括一些别人已经写好的，被无数人使用过的代码，这被称为模块、库或者包；还包括
+Python 解释器和 Python 虚拟机。虚拟机是一个模拟的小电脑，解释器把你写的
+Python 代码翻译成虚拟机能读懂的语言，在虚拟机上运行。</p>
+<p>到了 Java 这里，情况变得复杂了：首先你还是需要 Java 虚拟机和 Java
+编译器，它们被打包在了一个名叫 JDK 的东西里。把 JDK 解压之后，你需要在
+VSCode 的插件市场里下载一个 Java 扩展包，这个扩展包里有 6
+个插件：有语言支持的、排错的、测试的、在 Github
+上寻找相近代码例子的、工程管理的、与 Maven 交互的。</p>
+<p>其中 Maven 是一个管理 Java
+工程的工具，你如果想使用它——对不起，你得自己下载。下载完之后还要修改
+Maven
+的配置文件，设置从哪个网络地址获取别人已经写好的包，存到电脑本地的哪个文件夹里。之后要修改
+VSCode 的 Maven 插件的配置文件，把 Maven
+本体在电脑上的路径写进去，要不然 VSCode 找不到它。还要修改 VSCode 的
+Java 扩展的配置文件，把 JDK 在电脑上的路径写进去，要不然 VSCode
+找不到它。</p>
+<p>你当然可以通过在命令行上敲命令来使用
+Maven，但插件能帮你自动敲命令，所以这么一通配置，好像也不亏。所以折腾
+VSCode 的过程就是折腾插件的过程，它里面甚至还有玩 4399
+小游戏的插件。</p>
+<p>你就这么得过且过地往 VSCode 上安装插件，直到有一天，你遇到一个名叫
+JSP 的东西。JSP 就是让你把 Java 代码和网页混在一起写，然后运行在一个名叫
+Tomcat 的东西上。</p>
+<p>你还是可以通过 Maven 插件来新建一个 JSP 项目。然后下载
+Tomcat、下载一个叫 Runtime Server Protocol UI 的插件，对插件一通折腾，把
+JSP
+的代码复制进来，运行成功了，很好。但是在运行成功之前你就会发现，倒数第二个对
+JSP
+提供支持的插件已经停止维护了，就是用不成了。如果还能用，你现在看到的这一篇文字就不会被发出来。</p>
+<p>只剩一个 JSP
+语法高亮的插件，它没法排你的错、没法给你补全代码。这时候你懊恼也没用，因为这插件是人家写的，让你写你也写不出来。你的矛盾就从如何写
+JSP 代码上转移到了为什么我还要坚持使用 VSCode 上。</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/HD/07/" rel="prev" title="HD07 - Hadoop 生态圈">
-<i class="fa fa-chevron-left"></i> HD07 - Hadoop 生态圈
+<a href="/blog/favorite.html" rel="prev" title="我喜欢的音乐">
+<i class="fa fa-chevron-left"></i> 我喜欢的音乐
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/credits.html" rel="next" title="获取正方教务系统里的成绩信息并对学分求和">
-                  获取正方教务系统里的成绩信息并对学分求和 <i class="fa fa-chevron-right"></i>
-</a>
 </div>
 </div>
 </footer>
@@ -224,7 +223,7 @@ xml</h2>
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/hdfs-editlog-fsimage.html"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/idea.html"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
