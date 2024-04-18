@@ -20,7 +20,7 @@
  IEEE 754 浮点数的相互转换。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-08-23T08:30:00.000Z" property="article:published_time"/>
-<meta content="2024-01-05T14:06:44.212Z" property="article:modified_time"/>
+<meta content="2024-04-16T12:28:32.433Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/gdb" rel="canonical"/>
@@ -84,7 +84,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">42</span>
+<span class="site-state-item-count">43</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -134,7 +134,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-01-05T22:06:44+08:00" itemprop="dateModified" title="修改时间：2024-01-05 22:06:44">2024-01-05</time>
+<time datetime="2024-04-16T20:28:32+08:00" itemprop="dateModified" title="修改时间：2024-04-16 20:28:32">2024-04-16</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -179,6 +179,7 @@ IEEE 754 浮点数的相互转换。</p>
 <p><code>0x61fe1c: 10011010 10011001 11011001 00111111</code></p>
 <p>从右往左排列后：</p>
 <p><code>00111111 11011001 10011001 10011010</code></p>
+<p><code>0 01111111 10110011001100110011010</code></p>
 <p>才是<code>float 1.7</code>的二进制表示。</p>
 <p>还可以直接用</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/tw &amp;num</span><br/></pre></td></tr></table></figure>

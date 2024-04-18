@@ -76,7 +76,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">42</span>
+<span class="site-state-item-count">43</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -93,6 +93,75 @@
 </aside>
 </div>
 <div class="main-inner index posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
+<link href="https://hrfis.me/blog/hdfs-editlog-fsimage.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="undefined | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h2 class="post-title" itemprop="name headline">
+<a class="post-title-link" href="/blog/hdfs-editlog-fsimage.html" itemprop="url">HDFS 的 EditLog 和 FsImage</a>
+</h2>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2023-10-30T22:01:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-10-30 22:01:00">2023-10-30</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-01-11T23:33:14+08:00" itemprop="dateModified" title="修改时间：2024-01-11 23:33:14">2024-01-11</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/hadoop/" itemprop="url" rel="index"><span itemprop="name">Hadoop</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody">
+<p>有两种二进制文件保证元数据的可靠性：</p>
+<ul>
+<li>EditLog：编辑日志，对 HDFS 进行操作的日志</li>
+<li>FsImage：文件系统（元数据）镜像</li>
+</ul>
+<p>位于 NN 的 <code>${hadoop.tmp.dir}/dfs/name/current</code></p>
+<p>和 2NN 的
+<code>${hadoop.tmp.dir}/data/dfs/namesecondary/current</code></p>
+<!--noindex-->
+<div class="post-button">
+<a class="btn" href="/blog/hdfs-editlog-fsimage.html#more" rel="contents">
+                阅读全文 »
+              </a>
+</div>
+<!--/noindex-->
+</div>
+<footer class="post-footer">
+<div class="post-eof"></div>
+</footer>
+</article>
+</div>
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
 <link href="https://hrfis.me/blog/HD/07/" itemprop="mainEntityOfPage"/>
@@ -716,77 +785,6 @@ Player（免费的，但是不支持克隆虚拟机，需要手动装另外两�
 <!--noindex-->
 <div class="post-button">
 <a class="btn" href="/blog/computer-network.html#more" rel="contents">
-                阅读全文 »
-              </a>
-</div>
-<!--/noindex-->
-</div>
-<footer class="post-footer">
-<div class="post-eof"></div>
-</footer>
-</article>
-</div>
-<div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="">
-<link href="https://hrfis.me/blog/mongodb.html" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="undefined | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h2 class="post-title" itemprop="name headline">
-<a class="post-title-link" href="/blog/mongodb.html" itemprop="url">MongoDB</a>
-</h2>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar"></i>
-</span>
-<span class="post-meta-item-text">发表于</span>
-<time datetime="2023-09-05T17:51:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-09-05 17:51:00">2023-09-05</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2024-02-07T11:10:31+08:00" itemprop="dateModified" title="修改时间：2024-02-07 11:10:31">2024-02-07</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/u/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
-</span>
-</span>
-</div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody">
-<p>官方文档</p>
-<ul>
-<li><a href="https://www.mongodb.com/docs/manual/" rel="noopener" target="_blank">总</a></li>
-<li><a href="https://www.mongodb.com/docs/mongodb-vscode/" rel="noopener" target="_blank">VSCode
-插件</a></li>
-<li><a href="https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/" rel="noopener" target="_blank">在
-Ubuntu 上安装</a></li>
-<li><a href="https://www.mongodb.com/docs/manual/tutorial/deploy-replica-set/" rel="noopener" target="_blank">部署副本集</a></li>
-<li><a href="https://www.mongodb.com/docs/v7.0/reference/operator/aggregation-pipeline/" rel="noopener" target="_blank">聚合管道操作符</a></li>
-</ul>
-<!--noindex-->
-<div class="post-button">
-<a class="btn" href="/blog/mongodb.html#more" rel="contents">
                 阅读全文 »
               </a>
 </div>

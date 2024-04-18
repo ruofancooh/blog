@@ -16,7 +16,7 @@
 <meta content="前提是你不考研。这时候你需要做的只是把学习通上的题目答案背下来。这一些题目是来源于历年考研真题以及别的地方，按其他课程的经验，期末考试就是从那上面抽的。面向题目学习。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-15T08:12:00.000Z" property="article:published_time"/>
-<meta content="2024-04-15T13:50:02.904Z" property="article:modified_time"/>
+<meta content="2024-04-16T12:37:29.449Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/jz-exam" rel="canonical"/>
@@ -69,7 +69,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">计算机体系概论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E6%96%B9%E6%B3%95%E5%92%8C%E8%BF%90%E7%AE%97%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">运算方法和运算器</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">计算机体系概论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E6%96%B9%E6%B3%95%E5%92%8C%E8%BF%90%E7%AE%97%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">运算方法和运算器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.</span> <span class="nav-text">存储系统</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -81,7 +81,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">42</span>
+<span class="site-state-item-count">43</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -124,7 +124,14 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2024-04-15T16:12:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-04-15 16:12:00 / 修改时间：21:50:02">2024-04-15</time>
+<time datetime="2024-04-15T16:12:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-04-15 16:12:00">2024-04-15</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-04-16T20:37:29+08:00" itemprop="dateModified" title="修改时间：2024-04-16 20:37:29">2024-04-16</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -199,13 +206,14 @@ P E B</p>
 <p>在纸上画图：一个秒被切割成了一系列时钟周期，每个时钟周期执行一条指令。直接设未知数，列方程。</p>
 <h2 id="运算方法和运算器">运算方法和运算器</h2>
 <blockquote>
-<p>原码反码补码？</p>
+<p>原码反码补码移码？</p>
 </blockquote>
 <p>正整数的原码反码补码都是它的二进制按照某一个特定的位数表示，前面补零。</p>
 <p>负整数的原码，最高位为符号位
 1，后面为它的二进制形式按照某一个特定的位数表示，前面补零。</p>
 <p>负整数的反码，为原码除符号位的所有位按位取反后的结果。</p>
 <p>负整数的补码，为其反码 + 1，按位截断。</p>
+<p>移码 = 补码符号位取反</p>
 <blockquote>
 <p>八位下，零的表示形式？</p>
 </blockquote>
@@ -228,13 +236,49 @@ P E B</p>
 码，是把十进制数的每一个位转换成一个四位的二进制数。</p>
 <p>如(1145)_10 = (0001 0001 0100 0101)_BCD</p>
 <blockquote>
-<p>整数进制转换？</p>
+<p>进制转换？</p>
 </blockquote>
 <p>分向十进制转、从十进制向外转、二八十六互转。</p>
 <p>向十进制转：各个位的十进制值乘上以原进制为底、该位与小数点的相对位置为指数的幂，再相加。其中小数点左边一位的相对位置为零，小数点右边一位的相对位置为负一，以此类推。</p>
 <p>从十进制向外转：除 k 取余法+乘 k
 取整法。整数部分用短除法列竖式，用新进制的基数去除，除到余数为零为止，之前的所有余数从下向上排列为新数的整数部分；小数部分乘上新进制的基数，取积的整数部分为新数的小数部分，积的小数部分继续与基数乘，直到积的小数部分为零或者出现循环节为止。</p>
 <p>二八十六互转：四位二进制位与一位十六进制位在[0,16)这个整数范围内一一对应。小数点前后的部分直接按片段替换。三位二进制位与一位八进制位在[0,8)这个整数范围内一一对应。小数点前后的部分直接按片段替换。八与十六互转时，以二作为桥梁。</p>
+<blockquote>
+<p>浮点数的编码方式？</p>
+</blockquote>
+<p>对于 32 位浮点数 float，即单精度浮点数，最高位为符号位，后 8
+位为阶码，再后 23 位为尾数。</p>
+<p>阶码决定范围，尾数决定精度。</p>
+<p>浮点数转真值：把 1.与 23
+位尾数缝合起来，转成十进制；把阶码作为移码求真值，作为 2
+的指数；两者相乘，带上符号位。</p>
+<p>普通数转浮点数：先转成二进制，小数点挪到第一个 1
+的后面，为符号(1.xxx)乘 2^指数；符号放最高位；指数转为移码放后 8
+位；小数点后的部分取“0 舍 1 入”的 23 位。</p>
+<p>对于 64 位双精度浮点数 double：阶码变成了 11 位</p>
+<blockquote>
+<p>float 的五种形式？</p>
+</blockquote>
+<p>32
+位二进制浮点数，她的位数是有限的，不可能对应无限多（阿列夫一）的（实）数。</p>
+<ul>
+<li>阶码全零，尾数全零：正/负机器零</li>
+<li>阶码全零，尾数不全零：非规格化数</li>
+<li>阶码全 1，尾数全零：正/负无穷大</li>
+<li>阶码全 1，尾数不全零：不是数（NaN）</li>
+</ul>
+<p>她的阶码有 8
+位，当不是全零或全一时，我们称她为规格化的。把阶码移码的身份转回正经数后，指数范围为[-126,+127]，不考虑尾数，对应真值约
+2^(-126) 到 2^127，又约 10^(-38) 到 10^38。</p>
+<p>浮点数原码运算时，判定结果为规格化数的条件是：尾数的最高位为 1</p>
+<blockquote>
+<p>奇偶校验？</p>
+</blockquote>
+<p>看 1 的个数</p>
+<h2 id="存储系统">存储系统</h2>
+<blockquote>
+<p>存取周期？</p>
+</blockquote>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
