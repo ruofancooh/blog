@@ -32,7 +32,7 @@
  ——菜鸟教程" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-15T08:32:00.000Z" property="article:published_time"/>
-<meta content="2024-04-16T12:30:42.556Z" property="article:modified_time"/>
+<meta content="2024-04-22T08:08:28.642Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/java-web" rel="canonical"/>
@@ -85,7 +85,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">新建工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8-vscode-%E6%88%96-idea"><span class="nav-number">1.1.</span> <span class="nav-text">用 VSCode 或 IDEA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8-eclipse-2020-03-4.15.0"><span class="nav-number">1.2.</span> <span class="nav-text">用 Eclipse 2020-03 (4.15.0)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA-jsp-%E6%96%87%E4%BB%B6%E7%9A%84%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">一个 JSP 文件的示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsp-%E8%BF%90%E8%A1%8C%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">JSP 运行的原理</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">新建工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8-vscode-%E6%88%96-idea"><span class="nav-number">1.1.</span> <span class="nav-text">用 VSCode 或 IDEA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8-eclipse-2020-03-4.15.0"><span class="nav-number">1.2.</span> <span class="nav-text">用 Eclipse 2020-03 (4.15.0)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA-jsp-%E6%96%87%E4%BB%B6%E7%9A%84%E7%A4%BA%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">一个 JSP 文件的示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsp-%E8%BF%90%E8%A1%8C%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">JSP 运行的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E7%AD%94"><span class="nav-number">4.</span> <span class="nav-text">问答</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -147,7 +147,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-04-16T20:30:42+08:00" itemprop="dateModified" title="修改时间：2024-04-16 20:30:42">2024-04-16</time>
+<time datetime="2024-04-22T16:08:28+08:00" itemprop="dateModified" title="修改时间：2024-04-22 16:08:28">2024-04-22</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -207,6 +207,30 @@
 <li>把 java 文件编译成 class 文件（字节码）</li>
 <li>客户</li>
 </ol>
+<h2 id="问答">问答</h2>
+<blockquote>
+<p>jsp 指令与 jsp 动作？</p>
+</blockquote>
+<p>前者是静态的，后者是动态的（感性认识）</p>
+<p>前者类似</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">&lt;%@ <span class="type">include</span> <span class="variable">file</span> <span class="operator">=</span> <span class="string">"sub.jsp"</span> %&gt;</span><br/></pre></td></tr></table></figure>
+<p>后者类似</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">&lt;jsp:<span class="type">include</span> <span class="variable">page</span> <span class="operator">=</span> <span class="string">"sub.jsp"</span>/&gt;</span><br/></pre></td></tr></table></figure>
+<blockquote>
+<p>在一个 jsp 页里，如何把表单传递给另一个 jsp 页？另一个 jsp
+页如何接收？</p>
+</blockquote>
+<p>传递的两种方式：</p>
+<p>使用 get 方法会在 url 里看到请求参数，post 不会</p>
+<ol type="1">
+<li><code>jsp:include</code> 配合 <code>jsp:param</code></li>
+</ol>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line">&lt;form method=<span class="string">"get"</span>&gt;</span><br/><span class="line">	请输入圆的半径：&lt;input type=<span class="string">"text"</span> name=<span class="string">"radius"</span> /&gt; &lt;input type=<span class="string">"submit"</span></span><br/><span class="line">		value=<span class="string">"提交"</span> /&gt;</span><br/><span class="line">&lt;/form&gt;</span><br/><span class="line">&lt;jsp:include page=<span class="string">"computeAreaOfCircle.jsp"</span>&gt;</span><br/><span class="line">	&lt;jsp:param value=<span class="string">"${param.radius}"</span> name=<span class="string">"radius"</span> /&gt;</span><br/><span class="line">&lt;/jsp:include&gt;</span><br/></pre></td></tr></table></figure>
+<ol start="2" type="1">
+<li><code>jsp:forward</code> 配合 <code>jsp:param</code></li>
+</ol>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/></pre></td><td class="code"><pre><span class="line">&lt;form method=<span class="string">"post"</span> action=<span class="string">""</span>&gt;</span><br/><span class="line">	&lt;label&gt;请选择一个图形：&lt;/label&gt;&lt;br&gt; &lt;input type=<span class="string">"radio"</span> name=<span class="string">"shape"</span></span><br/><span class="line">		id=<span class="string">"circle"</span> value=<span class="string">"circle"</span> /&gt;&lt;label <span class="keyword">for</span>=<span class="string">"circle"</span>&gt;圆形&lt;/label&gt;&lt;br&gt;</span><br/><span class="line">	&lt;input type=<span class="string">"radio"</span> name=<span class="string">"shape"</span> id=<span class="string">"rectangle"</span> value=<span class="string">"rectangle"</span> /&gt;&lt;label</span><br/><span class="line">		<span class="keyword">for</span>=<span class="string">"rectangle"</span>&gt;矩形&lt;/label&gt;&lt;br&gt; &lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交"</span> /&gt;</span><br/><span class="line">&lt;/form&gt;</span><br/><span class="line">&lt;%</span><br/><span class="line">	<span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br/><span class="line"><span class="type">String</span> <span class="variable">shape</span> <span class="operator">=</span> request.getParameter(<span class="string">"shape"</span>);</span><br/><span class="line"><span class="keyword">if</span> (shape != <span class="literal">null</span>) {</span><br/><span class="line">	<span class="keyword">if</span> (shape.equals(<span class="string">"circle"</span>)) {</span><br/><span class="line">		<span class="type">double</span> <span class="variable">radius</span> <span class="operator">=</span> <span class="number">100</span> * random.nextDouble();</span><br/><span class="line">%&gt;</span><br/><span class="line">&lt;jsp:forward page=<span class="string">"process.jsp"</span>&gt;</span><br/><span class="line">	&lt;jsp:param value=<span class="string">"&lt;%=shape%&gt;"</span> name=<span class="string">"shape"</span> /&gt;</span><br/><span class="line">	&lt;jsp:param value=<span class="string">"&lt;%=radius%&gt;"</span> name=<span class="string">"radius"</span> /&gt;</span><br/><span class="line">&lt;/jsp:forward&gt;</span><br/><span class="line">&lt;%</span><br/><span class="line">	} <span class="keyword">else</span> <span class="keyword">if</span> (shape.equals(<span class="string">"rectangle"</span>)) {</span><br/><span class="line">	<span class="type">double</span> <span class="variable">width</span> <span class="operator">=</span> <span class="number">100</span> * random.nextDouble();</span><br/><span class="line">	<span class="type">double</span> <span class="variable">height</span> <span class="operator">=</span> <span class="number">100</span> * random.nextDouble();</span><br/><span class="line">%&gt;</span><br/><span class="line">&lt;jsp:forward page=<span class="string">"process.jsp"</span>&gt;</span><br/><span class="line">	&lt;jsp:param value=<span class="string">"&lt;%=shape%&gt;"</span> name=<span class="string">"shape"</span> /&gt;</span><br/><span class="line">	&lt;jsp:param value=<span class="string">"&lt;%=width%&gt;"</span> name=<span class="string">"width"</span> /&gt;</span><br/><span class="line">	&lt;jsp:param value=<span class="string">"&lt;%=height%&gt;"</span> name=<span class="string">"height"</span> /&gt;</span><br/><span class="line">&lt;/jsp:forward&gt;</span><br/><span class="line">&lt;%</span><br/><span class="line">	}</span><br/><span class="line">}</span><br/><span class="line">%&gt;</span><br/></pre></td></tr></table></figure>
+<p>接收方用 <code>request.getParameter("name")</code> 接收</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">

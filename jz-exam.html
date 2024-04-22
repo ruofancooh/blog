@@ -16,7 +16,7 @@
 <meta content="前提是你不考研。这时候你需要做的只是把学习通上的题目答案背下来。这一些题目是来源于历年考研真题以及别的地方，按其他课程的经验，期末考试就是从那上面抽的。面向题目学习。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-15T08:12:00.000Z" property="article:published_time"/>
-<meta content="2024-04-16T12:37:29.449Z" property="article:modified_time"/>
+<meta content="2024-04-22T04:07:24.567Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/jz-exam" rel="canonical"/>
@@ -131,7 +131,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-04-16T20:37:29+08:00" itemprop="dateModified" title="修改时间：2024-04-16 20:37:29">2024-04-16</time>
+<time datetime="2024-04-22T12:07:24+08:00" itemprop="dateModified" title="修改时间：2024-04-22 12:07:24">2024-04-22</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -194,15 +194,16 @@ CPU；存储系统包括硬盘、内存、cache、寄存器，这四个是体积
 <p>机器字长是二进制的位数，是 ALU
 和通用寄存器的宽度。指令寄存器和浮点寄存器的宽度可能与其不等。</p>
 <blockquote>
-<p>面向量纲计算？</p>
+<p>面向量纲/单位计算？</p>
 </blockquote>
-<p>CPI 的量纲是：个(时钟周期)每个(指令)</p>
+<p>CPI 的单位是：个(时钟周期)每个(指令)</p>
 <p>时钟周期的量纲是：时间。这一个时钟周期有它的具体时间长度。</p>
 <p>主频的量纲是：频率，时间的倒数。一秒钟被分割成了有多少个时钟周期。</p>
-<p>MIPS 的量纲是：(百万)个(指令)每个(秒)</p>
+<p>MIPS 的单位是：(百万)个(指令)每个(秒)</p>
 <p>这里的 M 是 10 的 6 次方，主频里的 G 是 10 的 9 次方，往上指数+3 为 T
 P E B</p>
-<p>做计算题，先搞明白指令总数、时钟周期总数。时间就是它俩相乘，再乘上每个时钟周期所占的时间长度。</p>
+<p>做计算题，先搞明白指令总数、时钟周期总数。指令总数乘上 CPI
+等于时钟周期总数。时间就是时钟周期总数乘上每个时钟周期所占的时间长度。</p>
 <p>在纸上画图：一个秒被切割成了一系列时钟周期，每个时钟周期执行一条指令。直接设未知数，列方程。</p>
 <h2 id="运算方法和运算器">运算方法和运算器</h2>
 <blockquote>
@@ -275,9 +276,87 @@ P E B</p>
 <p>奇偶校验？</p>
 </blockquote>
 <p>看 1 的个数</p>
+<blockquote>
+<p>串行运算器？</p>
+</blockquote>
+<p>从低位到高位逐位运算</p>
+<blockquote>
+<p>加法器采用先行进位的目的？</p>
+</blockquote>
+<p>加速传递进位信号（没明白）</p>
+<blockquote>
+<p>采用双符号位的定点补码运算器，何时结果溢出？</p>
+</blockquote>
+<p>双符号位不同（没明白）</p>
 <h2 id="存储系统">存储系统</h2>
 <blockquote>
 <p>存取周期？</p>
+</blockquote>
+<p>存储器进行连续读和写操作所允许的最短时间间隔（没明白）</p>
+<blockquote>
+<p>存储器采用分级存储的目的？</p>
+</blockquote>
+<p>钱、容量、速度三者不能兼得。</p>
+<blockquote>
+<p>寻址范围？</p>
+</blockquote>
+<ol type="1">
+<li>内存能存储多少位二进制数</li>
+<li>多少位二进制数作为一个地址</li>
+<li>两者相除，结果无单位</li>
+</ol>
+<blockquote>
+<p>已被淘汰的存储器？</p>
+</blockquote>
+<p>磁芯存储器</p>
+<blockquote>
+<p>主存？</p>
+</blockquote>
+<p>主存由 RAM(Random Access Memory，随机存取存储器)和
+ROM(只读存储器，Read-Only
+Memory)组成。同一个存储器里，每个存储单元宽度相同</p>
+<blockquote>
+<p>PROM? EPROM?</p>
+</blockquote>
+<p>前者是可编程(P)的 ROM，后者是可擦除的 PROM。</p>
+<p>PROM 不一定可被改写。EPROM 可被改写多次，但不能作 RAM</p>
+<p>U 盘、TF 卡属于闪存，闪存属于 EPROM</p>
+<blockquote>
+<p>SRAM? DRAM?</p>
+</blockquote>
+<p>一静一动，一快一慢。</p>
+<p>前者用于 CPU 缓存。后者用于主存、需要定时刷新、行列地址引脚复用(RAS
+行地址选通信号引脚、CAS 列地址选通信号引脚)</p>
+<blockquote>
+<p>磁盘和磁带？</p>
+</blockquote>
+<p>存取时间与存取单元的物理位置有关。磁带串行存取，磁盘部分串行存取。</p>
+<blockquote>
+<p>存储芯片的地址线数据线？</p>
+</blockquote>
+<p>存储容量=地址数*位宽</p>
+<p>数据线或引脚数目=位宽</p>
+<p>SRAM 地址线或引脚数目=log_2(地址数)，与位宽无关</p>
+<p>DRAM 地址线或引脚数目=0.5log_2(地址数)，与位宽无关</p>
+<blockquote>
+<p>MAR? MDR?</p>
+</blockquote>
+<p>存储器地址寄存器、存储器数据寄存器</p>
+<p>MAR 宽度=log_2(地址数)</p>
+<p>MDR 宽度至少为每次读写操作最多存取的位数</p>
+<blockquote>
+<p>某一 RAM 芯片其容量是 512*8
+位，除电源和接地端外该芯片引线的最少数目是多少？</p>
+</blockquote>
+<p>数据线 8+地址线 log2(512)+片选线 1+读写线 1=19</p>
+<blockquote>
+<p>双端口存储器？</p>
+</blockquote>
+<p>左右端口地址码相同时，发生读写冲突</p>
+<blockquote>
+<p>某计算机的 Cache 共有 16 块，采用 2 路-组相联映射方式(即每组包括 2
+块)。存储器按字节编址，每个主存块大小为 32 字节。主存 135
+号单元所在主存块应装入的 cache 组号？</p>
 </blockquote>
 </div>
 <footer class="post-footer">
