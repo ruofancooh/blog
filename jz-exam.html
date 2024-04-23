@@ -16,7 +16,7 @@
 <meta content="前提是你不考研。这时候你需要做的只是把学习通上的题目答案背下来。这一些题目是来源于历年考研真题以及别的地方，按其他课程的经验，期末考试就是从那上面抽的。面向题目学习。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-15T08:12:00.000Z" property="article:published_time"/>
-<meta content="2024-04-22T04:07:24.567Z" property="article:modified_time"/>
+<meta content="2024-04-23T12:15:40.365Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/jz-exam" rel="canonical"/>
@@ -81,7 +81,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">43</span>
+<span class="site-state-item-count">44</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -131,7 +131,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-04-22T12:07:24+08:00" itemprop="dateModified" title="修改时间：2024-04-22 12:07:24">2024-04-22</time>
+<time datetime="2024-04-23T20:15:40+08:00" itemprop="dateModified" title="修改时间：2024-04-23 20:15:40">2024-04-23</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -354,10 +354,41 @@ Memory)组成。同一个存储器里，每个存储单元宽度相同</p>
 </blockquote>
 <p>左右端口地址码相同时，发生读写冲突</p>
 <blockquote>
-<p>某计算机的 Cache 共有 16 块，采用 2 路-组相联映射方式(即每组包括 2
-块)。存储器按字节编址，每个主存块大小为 32 字节。主存 135
+<p>多体交叉存储器解决的问题？</p>
+</blockquote>
+<p>提高主存的数据传输率</p>
+<blockquote>
+<p>cache 的功能全部由谁实现？</p>
+</blockquote>
+<p>硬件</p>
+<blockquote>
+<p>与 cache 命中率无关的是？</p>
+</blockquote>
+<p>主存的存取时间</p>
+<blockquote>
+<p>cache 的地址映射？</p>
+</blockquote>
+<p>主存 到 cache</p>
+<p>多对一：直接映射</p>
+<p>多对多：全相联映射</p>
+<p>组相联映射：</p>
+<ol type="1">
+<li>把主存和 cache 都分为若干组</li>
+<li>对于主存的某一组，其块数=cache 组数。其所有块分配给 cache
+的各个组，对于每一块，其被分到的 cache 组固定、不一定分配到 cache
+组的哪一行</li>
+</ol>
+<blockquote>
+<p>某计算机的 Cache 共有 16 行，采用 2 路-组相联映射方式(即每组包括 2
+行)。存储器按字节编址，每个主存块大小为 32 字节。主存 135
 号单元所在主存块应装入的 cache 组号？</p>
 </blockquote>
+<p>简记： cache 组号 = 主存单元号 // 主存块字节数 % cache 组数</p>
+<p>cache 分 8 组，每组两行。则主存分若干组，每组 8 块。</p>
+<p>cache 组号 = 主存块号 % 主存每组块数</p>
+<p>= 单元号 // 字节数 % 主存每组块数</p>
+<p>= 135 // 32 % 8</p>
+<p>= 4</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
