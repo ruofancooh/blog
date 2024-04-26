@@ -16,7 +16,7 @@
 <meta content="基础不牢" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-03-02T10:20:00.000Z" property="article:published_time"/>
-<meta content="2024-03-31T14:15:01.301Z" property="article:modified_time"/>
+<meta content="2024-04-26T13:38:17.153Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/computer-organization" rel="canonical"/>
@@ -69,7 +69,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cpu-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">CPU 性能指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">硬件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E5%AD%97%E8%8A%82%E8%AE%B0%E5%BD%95%E6%95%B4%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">使用一个字节记录整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%90%E4%BD%8D%E8%BF%9B%E4%BD%8D%E5%8A%A0%E6%B3%95%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">逐位进位加法器的实现</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cpu-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">CPU 性能指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E5%AD%97%E8%8A%82%E8%AE%B0%E5%BD%95%E6%95%B4%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">使用一个字节记录整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%90%E4%BD%8D%E8%BF%9B%E4%BD%8D%E5%8A%A0%E6%B3%95%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">逐位进位加法器的实现</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -81,7 +81,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">43</span>
+<span class="site-state-item-count">36</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -131,7 +131,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-03-31T22:15:01+08:00" itemprop="dateModified" title="修改时间：2024-03-31 22:15:01">2024-03-31</time>
+<time datetime="2024-04-26T21:38:17+08:00" itemprop="dateModified" title="修改时间：2024-04-26 21:38:17">2024-04-26</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -175,23 +175,6 @@ N_\mathrm{C}\)</span></p>
 = &amp; 花了多少天 \times 一天有多少秒\\
 \end{aligned}
 \]</span></p>
-<h2 id="硬件">硬件</h2>
-<ul>
-<li>运算器：算盘</li>
-<li>存储器：纸</li>
-<li>控制器：人</li>
-<li>指令：人做的事</li>
-<li>指令的操作码：做哪种类型的事</li>
-<li>指令的地址码：纸上的哪一个格子</li>
-<li>控制器的任务：从存储器里取指，执行，取指，执行……</li>
-<li>指令流：存储器 -&gt; 控制器</li>
-<li>数据流：存储器 -&gt; 运算器</li>
-<li>运算器 + 控制器 = CPU</li>
-<li>冯·诺依曼结构：指令和数据放在同一个存储器。解题步骤和数据写在同一张纸上。</li>
-<li>哈佛结构：更快。指令和数据分别放在两个存储器</li>
-<li>适配器：与 I/O 设备交互</li>
-<li>运算器、存储器、控制器、适配器与系统总线交互</li>
-</ul>
 <h2 id="使用一个字节记录整数">使用一个字节记录整数</h2>
 <p>计算机存储的数据由一系列 <code>0</code> 和 <code>1</code> 表示，每个
 <code>0</code> 或 <code>1</code>
@@ -282,8 +265,8 @@ N_\mathrm{C}\)</span></p>
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/fathers.html" rel="next" title="家·春·秋">
-                  家·春·秋 <i class="fa fa-chevron-right"></i>
+<a href="/blog/favorite.html" rel="next" title="我喜欢的音乐">
+                  我喜欢的音乐 <i class="fa fa-chevron-right"></i>
 </a>
 </div>
 </div>
