@@ -9,16 +9,16 @@
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
 <meta content="工具没用明白
- 文档" name="description"/>
+ https://code.visualstudio.com/docs/" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="VSCode" property="og:title"/>
 <meta content="https://hrfis.me/blog/vscode.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
 <meta content="工具没用明白
- 文档" property="og:description"/>
+ https://code.visualstudio.com/docs/" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-01-12T02:40:00.000Z" property="article:published_time"/>
-<meta content="2024-01-23T08:11:28.314Z" property="article:modified_time"/>
+<meta content="2024-04-28T10:02:00.400Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/vscode" rel="canonical"/>
@@ -71,8 +71,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E9%9B%86%E6%88%90%E7%BB%88%E7%AB%AF%E6%8C%89%E9%94%AE%E4%B8%8E%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%86%B2%E7%AA%81"><span class="nav-number">1.</span> <span class="nav-text">解决集成终端按键与快捷键冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E9%99%84%E5%8A%A0%E8%B0%83%E8%AF%95-hadoop-%E7%9A%84-java-%E8%BF%9B%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">远程附加调试 Hadoop 的 Java
-进程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hadoop-env.sh"><span class="nav-number">2.1.</span> <span class="nav-text">hadoop-env.sh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#launch.json"><span class="nav-number">2.2.</span> <span class="nav-text">launch.json</span></a></li></ol></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E9%9B%86%E6%88%90%E7%BB%88%E7%AB%AF%E6%8C%89%E9%94%AE%E4%B8%8E%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%86%B2%E7%AA%81"><span class="nav-number">1.</span> <span class="nav-text">解决集成终端按键与快捷键冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E9%99%84%E5%8A%A0%E8%B0%83%E8%AF%95"><span class="nav-number">2.</span> <span class="nav-text">远程附加调试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hadoop-env.sh"><span class="nav-number">2.1.</span> <span class="nav-text">hadoop-env.sh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#launch.json"><span class="nav-number">2.2.</span> <span class="nav-text">launch.json</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -84,7 +83,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">36</span>
+<span class="site-state-item-count">34</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -134,7 +133,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-01-23T16:11:28+08:00" itemprop="dateModified" title="修改时间：2024-01-23 16:11:28">2024-01-23</time>
+<time datetime="2024-04-28T18:02:00+08:00" itemprop="dateModified" title="修改时间：2024-04-28 18:02:00">2024-04-28</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -149,18 +148,13 @@
 </div>
 </header>
 <div class="post-body" itemprop="articleBody"><p>工具没用明白</p>
-<p><a href="https://code.visualstudio.com/docs/" rel="noopener" target="_blank">文档</a></p>
+<p>https://code.visualstudio.com/docs/</p>
 <span id="more"></span>
 <h2 id="解决集成终端按键与快捷键冲突">解决集成终端按键与快捷键冲突</h2>
 <p><code>Ctrl + Shift + P</code> 打开命令面板，搜键盘快捷方式</p>
 <p>搜冲突的按键，右键更改 When 表达式，加上
 <code>&amp;&amp; !terminalFocus</code></p>
-<h2 id="远程附加调试-hadoop-的-java-进程">远程附加调试 Hadoop 的 Java
-进程</h2>
-<p>在物理机上开 VSCode，开不开 Remote - SSH 插件都可。</p>
-<p>如果开了，工作区在虚拟机上。如果没开，工作区在物理机上。</p>
-<p>这个暂时没什么作用，只能看到函数名，看不到来源代码。还没折腾明白</p>
-<p><a href="https://code.visualstudio.com/docs/java/java-debugging" rel="noopener" target="_blank">文档</a></p>
+<h2 id="远程附加调试">远程附加调试</h2>
 <h3 id="hadoop-env.sh">hadoop-env.sh</h3>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> 某某_OPTS=<span class="string">"-agentlib:jdwp=transport=dt_socket,address=8888,server=y,suspend=n"</span></span><br/></pre></td></tr></table></figure>
 <h3 id="launch.json">launch.json</h3>

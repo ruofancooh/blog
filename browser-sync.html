@@ -11,8 +11,7 @@
 <meta content="起因是：
  不管是直接打开 html
  文件，还是用python -m http.server 8000 --bind 127.0.0.1，在修改保存
- html 文件后浏览器都不能立马刷新。
- 结果是：" name="description"/>
+ html 文件后浏览器都不能立马刷新。" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="用 browser-sync 实现在文件内容改变后立即刷新页面" property="og:title"/>
 <meta content="https://hrfis.me/blog/browser-sync.html" property="og:url"/>
@@ -20,11 +19,10 @@
 <meta content="起因是：
  不管是直接打开 html
  文件，还是用python -m http.server 8000 --bind 127.0.0.1，在修改保存
- html 文件后浏览器都不能立马刷新。
- 结果是：" property="og:description"/>
+ html 文件后浏览器都不能立马刷新。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-08-23T08:31:00.000Z" property="article:published_time"/>
-<meta content="2024-04-26T13:38:48.149Z" property="article:modified_time"/>
+<meta content="2024-04-28T09:53:05.425Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/browser-sync" rel="canonical"/>
@@ -88,7 +86,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">36</span>
+<span class="site-state-item-count">34</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -138,7 +136,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-04-26T21:38:48+08:00" itemprop="dateModified" title="修改时间：2024-04-26 21:38:48">2024-04-26</time>
+<time datetime="2024-04-28T17:53:05+08:00" itemprop="dateModified" title="修改时间：2024-04-28 17:53:05">2024-04-28</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -156,31 +154,20 @@
 <p>不管是直接打开 html
 文件，还是用<code>python -m http.server 8000 --bind 127.0.0.1</code>，在修改保存
 html 文件后浏览器都不能立马刷新。</p>
-<p>结果是：</p>
 <span id="more"></span>
-<ol type="1">
-<li><p>安装</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">npm install browser-sync</span><br/></pre></td></tr></table></figure>
-<p>安装到想作为服务器根目录的文件夹。以前觉得全局安装好，现在暂时觉得本地安装好。（据说用
-Flask 也能实现立即刷新，用搜到的方法结果版本不匹配）</p></li>
-<li><p>运行</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">npx browser-sync start --server --files <span class="string">"."</span></span><br/></pre></td></tr></table></figure>
 <p><code>--files</code> 后指定要监视的文件。</p>
 <p><code>.</code> 表示监视当前目录以及子目录下的所有文件。</p>
-<p>可以改成 <code>*.html</code>，<code>public/*.*</code> 等。</p></li>
-</ol>
+<p>可以改成 <code>*.html</code>，<code>public/*.*</code> 等。</p>
 <p>html
 文件里至少得有一对<code>&lt;body&gt;</code>标签，要么没法自动刷新。</p>
-<p>在没有修改文件内容，只 <code>Ctrl + S</code>
-保存时也会刷新，在命令行会输出
-<code>File event [change]</code>，只不过看不出来。</p>
-<p>好像和直接通过浏览器来刷新不一样，因为笔者在选项卡上没看到加载动画。</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/gdb.html" rel="prev" title="用 GDB 查看变量内存">
-<i class="fa fa-chevron-left"></i> 用 GDB 查看变量内存
+<a href="/blog/termux-flask-ngrok.html" rel="prev" title="在手机上搭建 Web 服务器">
+<i class="fa fa-chevron-left"></i> 在手机上搭建 Web 服务器
                 </a>
 </div>
 <div class="post-nav-item">
