@@ -8,25 +8,29 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="重写中
+<meta content="只有当笔者意识到：写教程是在浪费时间的时候，说明笔者是真的学会了。
+ 理由：这些文档在各个软件的网站上，别人早就写好了。笔者写的不叫教程，顶多叫操作步骤，这些步骤不可能适用于所有环境。
  不作死就不会死。用 Ubuntu + VM Player
  的后果是：隔一段时间系统就会卡死（与 Hadoop 无关），然后 watchdog
  报死锁。
- 也可能是笔者最近重新启用了一些 Windows 配置。最可能的问题可能就是
- VMPlayer 的问题。笔者想转用 WSL" name="description"/>
+ 
+ 改用 WSL
+ 以后安装各种软件，先看文档。配置文" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="Hadoop" property="og:title"/>
 <meta content="https://hrfis.me/blog/hadoop.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="重写中
+<meta content="只有当笔者意识到：写教程是在浪费时间的时候，说明笔者是真的学会了。
+ 理由：这些文档在各个软件的网站上，别人早就写好了。笔者写的不叫教程，顶多叫操作步骤，这些步骤不可能适用于所有环境。
  不作死就不会死。用 Ubuntu + VM Player
  的后果是：隔一段时间系统就会卡死（与 Hadoop 无关），然后 watchdog
  报死锁。
- 也可能是笔者最近重新启用了一些 Windows 配置。最可能的问题可能就是
- VMPlayer 的问题。笔者想转用 WSL" property="og:description"/>
+ 
+ 改用 WSL
+ 以后安装各种软件，先看文档。配置文" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-26T09:45:00.000Z" property="article:published_time"/>
-<meta content="2024-04-28T14:58:04.116Z" property="article:modified_time"/>
+<meta content="2024-04-29T09:04:10.760Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/hadoop" rel="canonical"/>
@@ -79,7 +83,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA-hadoop-%E5%AE%8C%E5%85%A8%E5%88%86%E5%B8%83%E5%BC%8F%E9%9B%86%E7%BE%A4"><span class="nav-number">1.</span> <span class="nav-text">搭建 Hadoop 完全分布式集群</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5-hdfs"><span class="nav-number">2.</span> <span class="nav-text">连接 HDFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zookeeper"><span class="nav-number">3.</span> <span class="nav-text">ZooKeeper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hbase"><span class="nav-number">4.</span> <span class="nav-text">HBase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C"><span class="nav-number">5.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh"><span class="nav-number">6.</span> <span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">7.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr"><span class="nav-number">8.</span> <span class="nav-text">MR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number">9.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-number">10.</span> <span class="nav-text">持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">10.1.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#all"><span class="nav-number">10.2.</span> <span class="nav-text">all</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xsync"><span class="nav-number">10.3.</span> <span class="nav-text">xsync</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#myhadoop"><span class="nav-number">10.4.</span> <span class="nav-text">myhadoop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zks"><span class="nav-number">10.5.</span> <span class="nav-text">zks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zkc"><span class="nav-number">10.6.</span> <span class="nav-text">zkc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8F%8A%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">10.7.</span> <span class="nav-text">写脚本安装软件及配置环境变量</span></a></li></ol></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ubuntu"><span class="nav-number">1.</span> <span class="nav-text">安装 Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-hadoop"><span class="nav-number">2.</span> <span class="nav-text">安装 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5-hdfs"><span class="nav-number">3.</span> <span class="nav-text">连接 HDFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zookeeper"><span class="nav-number">4.</span> <span class="nav-text">ZooKeeper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hbase"><span class="nav-number">5.</span> <span class="nav-text">HBase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C"><span class="nav-number">6.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh"><span class="nav-number">7.</span> <span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">8.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr"><span class="nav-number">9.</span> <span class="nav-text">MR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number">10.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-number">11.</span> <span class="nav-text">持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">11.1.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#all"><span class="nav-number">11.2.</span> <span class="nav-text">all</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xsync"><span class="nav-number">11.3.</span> <span class="nav-text">xsync</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#myhadoop"><span class="nav-number">11.4.</span> <span class="nav-text">myhadoop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zks"><span class="nav-number">11.5.</span> <span class="nav-text">zks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zkc"><span class="nav-number">11.6.</span> <span class="nav-text">zkc</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -141,7 +145,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-04-28T22:58:04+08:00" itemprop="dateModified" title="修改时间：2024-04-28 22:58:04">2024-04-28</time>
+<time datetime="2024-04-29T17:04:10+08:00" itemprop="dateModified" title="修改时间：2024-04-29 17:04:10">2024-04-29</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -155,12 +159,15 @@
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>重写中</p>
+<div class="post-body" itemprop="articleBody"><p>只有当笔者意识到：写教程是在浪费时间的时候，说明笔者是真的学会了。</p>
+<p>理由：这些文档在各个软件的网站上，别人早就写好了。笔者写的不叫教程，顶多叫操作步骤，这些步骤不可能适用于所有环境。</p>
 <p>不作死就不会死。用 Ubuntu + VM Player
 的后果是：隔一段时间系统就会卡死（与 Hadoop 无关），然后 watchdog
 报死锁。</p>
-<p>也可能是笔者最近重新启用了一些 Windows 配置。最可能的问题可能就是
-VMPlayer 的问题。笔者想转用 WSL</p>
+<ol type="1">
+<li>改用 WSL</li>
+<li>以后安装各种软件，先看文档。配置文件能不改就不改，能用默认的就用默认的，改了费时费力。</li>
+</ol>
 <span id="more"></span>
 <p>Hadoop 是一个软件，它是用 Java 写的，需要运行在 Java
 虚拟机上。你以后还要通过写 Java 代码来连接它其中的一个组件，叫
@@ -177,29 +184,41 @@ HDFS。所有 Java 代码都得过一道 Java 编译器，然后在 JVM（Java
 <li>在 Windows 上照样可以运行 JVM</li>
 <li>Hadoop 可以运行在 Windows 上</li>
 </ol>
-<h2 id="搭建-hadoop-完全分布式集群">搭建 Hadoop 完全分布式集群</h2>
+<h2 id="安装-ubuntu">安装 Ubuntu</h2>
 <ol type="1">
-<li>下载 Linux 操作系统镜像，可以理解为操作系统的“安装包”。<a href="https://launchpad.net/ubuntu/+cdmirrors" rel="noopener" target="_blank">下载页面（仓库集合）</a>，找到
-China。这里使用 <code>ubuntu-22.04.3-live-server-amd64.iso</code></li>
+<li>下载 Linux
+操作系统镜像，可以理解为操作系统的“安装包”。https://launchpad.net/ubuntu/+cdmirrors</li>
 <li>下载一个支持在 Windows 操作系统下运行 Linux
 镜像的软件（宿主），它相当于一个没装操作系统的电脑，但是装了引导加载程序
 GRUB
 <ul>
-<li>使用 VM Player <a href="https://customerconnect.vmware.com/cn/downloads/info/slug/desktop_end_user_computing/vmware_workstation_player/" rel="noopener" target="_blank">下载页面</a></li>
-<li>使用 WSL（适用于 Windows 的 Linux 子系统）</li>
+<li>使用 VM Player</li>
 </ul></li>
 <li>在宿主里“创建两台虚拟机”，相当于对这一份镜像，安装了两个新的操作系统，运行在你的宿主和
 Windows 操作系统上</li>
-<li>配置网络，给虚拟机和物理机搭上鹊桥
+</ol>
+<p>前面三步改用 WSL（适用于 Linux 的 Windows
+子系统）https://learn.microsoft.com/zh-cn/windows/wsl/</p>
+<ol start="4" type="1">
+<li><p>配置网络，给虚拟机和物理机搭上鹊桥</p>
 <ul>
 <li>不同虚拟机采用不同静态 IP</li>
 <li>把虚拟机网卡路由到宿主的网关，在
 <code>C:\ProgramData\VMware\vmnetnat.conf</code> 查看 VM 的 NAT
 网关地址</li>
-<li>修改 <code>/etc/hostname</code> <code>/etc/hosts</code>
+<li>修改 <code>/etc/hostname</code> 为自定义主机名</li>
+<li><code>/etc/hosts</code>
 <code>C:\Windows\System32\drivers\etc\hosts</code></li>
 </ul></li>
-<li>配置 SSH。<a href="https://wangdoc.com/ssh/" rel="noopener" target="_blank">SSH 教程</a></li>
+<li><p>配置 Ubuntu 软件源
+https://mirrors.ustc.edu.cn/help/ubuntu.html</p></li>
+<li><p>安装 JDK
+https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions</p></li>
+<li><p>写环境变量</p></li>
+<li><p>配置 SSH https://wangdoc.com/ssh/</p></li>
+</ol>
+<h2 id="安装-hadoop">安装 Hadoop</h2>
+<ol start="9" type="1">
 <li>下载 Hadoop 软件包
 <ul>
 <li>在虚拟机上直接用 <code>wget</code></li>
@@ -336,13 +355,6 @@ DNS，<code>PATH</code> 和物理路径的中间商叫命令行解释器。</p>
 <h3 id="zkc">zkc</h3>
 <p>就是把自带的脚本 <code>zkCli.sh</code> 再封装一层</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br/><span class="line"></span><br/><span class="line">ZK_HOME=<span class="string">"/opt/zookeeper-3.8.2"</span></span><br/><span class="line">ZKC_SH=<span class="string">"<span class="variable">$ZK_HOME</span>/bin/zkCli.sh"</span></span><br/><span class="line">servers=<span class="string">"ubuntu101 ubuntu102"</span></span><br/><span class="line"></span><br/><span class="line"><span class="string">"<span class="variable">$ZKC_SH</span>"</span> -server $(hostname)</span><br/></pre></td></tr></table></figure>
-<h3 id="写脚本安装软件及配置环境变量">写脚本安装软件及配置环境变量</h3>
-<p>其中，安装 OpenJDK 是按照 <a href="https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions" rel="noopener" target="_blank">https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions</a>
-里的说明，指向 <a href="https://github.com/apache/hadoop/blob/rel/release-3.2.1/dev-support/docker/Dockerfile#L92" rel="noopener" target="_blank">https://github.com/apache/hadoop/blob/rel/release-3.2.1/dev-support/docker/Dockerfile#L92</a>
-里的命令。</p>
-<p>笔者彼时没有注意：在链接里有“Dockerfile”这个单词。Docker
-等以后有时间再研究。（有时间再研究的意思是永远都不）</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 JDK</span></span><br/><span class="line">sudo apt-get update;</span><br/><span class="line">sudo apt-get install openjdk-8-jdk libbcprov-java;</span><br/><span class="line">sudo apt-get clean;</span><br/><span class="line"><span class="comment"># 存放 Hadoop 压缩包的位置</span></span><br/><span class="line"><span class="built_in">cd</span>;</span><br/><span class="line"><span class="comment"># 解压，删除（这两句笔者执行的时候没执行上，重启后手动执行）</span></span><br/><span class="line">sudo tar -zxvf hadoop-3.3.6.tar.gz -C /opt;</span><br/><span class="line">sudo <span class="built_in">rm</span> hadoop-3.3.6.tar.gz;</span><br/><span class="line"><span class="comment"># 写环境变量，建议用VSCode写，把每个环境变量分开</span></span><br/><span class="line"><span class="comment"># env 查看所有环境变量</span></span><br/><span class="line"><span class="comment"># echo $NAME 查看某个</span></span><br/><span class="line">JAVA_HOME=<span class="string">"/lib/jvm/java-1.8.0-openjdk-amd64"</span>;</span><br/><span class="line">HADOOP_HOME=<span class="string">"/opt/hadoop-3.3.6"</span>;</span><br/><span class="line">text=<span class="string">"export JAVA_HOME=<span class="variable">$JAVA_HOME</span></span></span><br/><span class="line"><span class="string">export HADOOP_HOME=<span class="variable">$HADOOP_HOME</span></span></span><br/><span class="line"><span class="string">export PATH=<span class="variable">$PATH</span>:<span class="variable">$HADOOP_HOME</span>/bin:<span class="variable">$HADOOP_HOME</span>/sbin:<span class="variable">$JAVA_HOME</span>/bin</span></span><br/><span class="line"><span class="string">"</span>;</span><br/><span class="line">sudo <span class="built_in">echo</span> <span class="string">"<span class="variable">$text</span>"</span> &gt;&gt; .bashrc;</span><br/><span class="line"><span class="comment"># 应用，重启</span></span><br/><span class="line"><span class="built_in">source</span> .bashrc;</span><br/><span class="line">reboot;</span><br/></pre></td></tr></table></figure>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
