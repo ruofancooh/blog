@@ -10,27 +10,17 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
 <meta content="只有当笔者意识到：写教程是在浪费时间的时候，说明笔者是真的学会了。
  理由：这些文档在各个软件的网站上，别人早就写好了。笔者写的不叫教程，顶多叫操作步骤，这些步骤不可能适用于所有环境。
- 不作死就不会死。用 Ubuntu + VM Player
- 的后果是：隔一段时间系统就会卡死（与 Hadoop 无关），然后 watchdog
- 报死锁。
- 
- 改用 WSL
- 以后安装各种软件，先看文档。配置文" name="description"/>
+ 回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="Hadoop" property="og:title"/>
 <meta content="https://hrfis.me/blog/hadoop.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
 <meta content="只有当笔者意识到：写教程是在浪费时间的时候，说明笔者是真的学会了。
  理由：这些文档在各个软件的网站上，别人早就写好了。笔者写的不叫教程，顶多叫操作步骤，这些步骤不可能适用于所有环境。
- 不作死就不会死。用 Ubuntu + VM Player
- 的后果是：隔一段时间系统就会卡死（与 Hadoop 无关），然后 watchdog
- 报死锁。
- 
- 改用 WSL
- 以后安装各种软件，先看文档。配置文" property="og:description"/>
+ 回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-26T09:45:00.000Z" property="article:published_time"/>
-<meta content="2024-04-29T09:04:10.760Z" property="article:modified_time"/>
+<meta content="2024-04-30T14:37:37.150Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/hadoop" rel="canonical"/>
@@ -145,7 +135,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-04-29T17:04:10+08:00" itemprop="dateModified" title="修改时间：2024-04-29 17:04:10">2024-04-29</time>
+<time datetime="2024-04-30T22:37:37+08:00" itemprop="dateModified" title="修改时间：2024-04-30 22:37:37">2024-04-30</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -161,13 +151,17 @@
 </header>
 <div class="post-body" itemprop="articleBody"><p>只有当笔者意识到：写教程是在浪费时间的时候，说明笔者是真的学会了。</p>
 <p>理由：这些文档在各个软件的网站上，别人早就写好了。笔者写的不叫教程，顶多叫操作步骤，这些步骤不可能适用于所有环境。</p>
+<p>回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就过程看来，笔者确实没有做到，因为笔者去纠结软件了。</p>
 <p>不作死就不会死。用 Ubuntu + VM Player
-的后果是：隔一段时间系统就会卡死（与 Hadoop 无关），然后 watchdog
-报死锁。</p>
+的后果是：隔一段时间系统就会卡死（与 Hadoop 无关），挂起再开后，watchdog
+说：软锁定，你的 CPU 又卡住了好几十秒。</p>
 <ol type="1">
-<li>改用 WSL</li>
+<li>改用
+WSL（有三层动机，就第一种，笔者还是有点叛逆的想法；第二种，据说它比虚拟机的性能好，实际上，它几秒钟就能开机；第三种，笔者没有自信以看日志的方式解决卡死的问题）</li>
 <li>以后安装各种软件，先看文档。配置文件能不改就不改，能用默认的就用默认的，改了费时费力。</li>
 </ol>
+<p>真的，笔者有想把软件全部转移到 C 盘的冲动，把 C 盘和 D
+盘合并，东西全放在桌面上，这样做比较不反人类。就事实看来，这几年根本没有出现系统崩了导致文件丢了的情况；仅就学术价值看来，没有对笔者来说重要顶过天的文件；就个人价值看来，也没有，因为笔者是一个俗人。也只是想想而已，想想而已……</p>
 <span id="more"></span>
 <p>Hadoop 是一个软件，它是用 Java 写的，需要运行在 Java
 虚拟机上。你以后还要通过写 Java 代码来连接它其中的一个组件，叫
