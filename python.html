@@ -18,7 +18,7 @@
  基础也不牢，但这门语言相对于其他语言是写得最多的，其他语言基本没写过。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-23T12:24:00.000Z" property="article:published_time"/>
-<meta content="2024-04-23T12:34:09.817Z" property="article:modified_time"/>
+<meta content="2024-05-07T15:49:13.821Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/python" rel="canonical"/>
@@ -71,7 +71,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%A3%85%E9%A5%B0%E5%99%A8%E8%BE%93%E5%87%BA%E5%87%BD%E6%95%B0%E5%90%8D%E5%92%8C%E6%9C%AC%E5%9C%B0%E6%97%B6%E9%97%B4"><span class="nav-number">1.</span> <span class="nav-text">使用装饰器输出函数名和本地时间</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E5%87%BD%E6%95%B0%E5%90%8D%E5%92%8C%E6%9C%AC%E5%9C%B0%E6%97%B6%E9%97%B4"><span class="nav-number">1.</span> <span class="nav-text">输出函数名和本地时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%A5%E8%8F%9C%E5%90%8D"><span class="nav-number">2.</span> <span class="nav-text">报菜名</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -126,7 +126,14 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2024-04-23T20:24:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-04-23 20:24:00 / 修改时间：20:34:09">2024-04-23</time>
+<time datetime="2024-04-23T20:24:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-04-23 20:24:00">2024-04-23</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-05-07T23:49:13+08:00" itemprop="dateModified" title="修改时间：2024-05-07 23:49:13">2024-05-07</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -143,8 +150,19 @@
 <div class="post-body" itemprop="articleBody"><p>虽然 Python
 基础也不牢，但这门语言相对于其他语言是写得最多的，其他语言基本没写过。</p>
 <span id="more"></span>
-<h2 id="使用装饰器输出函数名和本地时间">使用装饰器输出函数名和本地时间</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">log</span>(<span class="params">func</span>):</span><br/><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br/><span class="line">        <span class="built_in">print</span>(<span class="string">f"<span class="subst">{func.__name__}</span>，系统时间：<span class="subst">{datetime.datetime.now()}</span>"</span>)</span><br/><span class="line">        <span class="keyword">return</span> func(*args, **kwargs)</span><br/><span class="line"></span><br/><span class="line">    <span class="keyword">return</span> wrapper</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="meta">@log</span></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>(): ...</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line">test()</span><br/></pre></td></tr></table></figure>
+<h2 id="输出函数名和本地时间">输出函数名和本地时间</h2>
+<p>使用装饰器：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">log</span>(<span class="params">func</span>):</span><br/><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br/><span class="line">        <span class="built_in">print</span>(<span class="string">f"<span class="subst">{func.__name__}</span>，系统时间：<span class="subst">{datetime.datetime.now()}</span>"</span>)</span><br/><span class="line">        <span class="keyword">return</span> func(*args, **kwargs)</span><br/><span class="line"></span><br/><span class="line">    <span class="keyword">return</span> wrapper</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="meta">@log</span></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>(): ...</span><br/><span class="line"></span><br/><span class="line">test()</span><br/></pre></td></tr></table></figure>
+<p>上面是一种很笨的方法，我们可以用其自带的 logging
+模块记录日志到文件：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br/><span class="line"><span class="keyword">import</span> logging</span><br/><span class="line"></span><br/><span class="line">logging.basicConfig(</span><br/><span class="line">    filename=<span class="string">f"<span class="subst">{datetime.date.today()}</span>.log"</span>,</span><br/><span class="line">    filemode=<span class="string">"w"</span>,</span><br/><span class="line">    encoding=<span class="string">"utf-8"</span>,</span><br/><span class="line">    level=logging.INFO,</span><br/><span class="line">    <span class="built_in">format</span>=<span class="string">"%(asctime)s - %(levelname)s - %(message)s"</span>,</span><br/><span class="line">)</span><br/><span class="line">logging.info(...)</span><br/><span class="line">logging.warning(...)</span><br/><span class="line">logging.error(...)</span><br/></pre></td></tr></table></figure>
+<p>你只要写一个稍微像样的项目，都不可能不用模块/库，不拆分文件。这只能说明笔者代码写得实在太少了。</p>
+<h2 id="报菜名">报菜名</h2>
+<p>下面开始 python
+报菜名时间，这是笔者尝试用过的库（只用过一次，什么东西都没写出来，也算用过）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/></pre></td><td class="code"><pre><span class="line">cv2</span><br/><span class="line">geopandas</span><br/><span class="line">matplotlib</span><br/><span class="line">numpy</span><br/><span class="line">pandas</span><br/><span class="line">ppadb</span><br/><span class="line">pyautogui</span><br/><span class="line">requests</span><br/><span class="line">scipy</span><br/><span class="line">seaborn</span><br/><span class="line">shapely</span><br/><span class="line">sklearn</span><br/><span class="line">yaml</span><br/></pre></td></tr></table></figure>
+<p>尝试用过的自带模块：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/></pre></td><td class="code"><pre><span class="line">base64</span><br/><span class="line">datetime</span><br/><span class="line">enum</span><br/><span class="line">json</span><br/><span class="line">logging</span><br/><span class="line">queue</span><br/><span class="line">subprocess</span><br/><span class="line">threading</span><br/><span class="line">time</span><br/><span class="line">tkinter</span><br/><span class="line">unittest</span><br/></pre></td></tr></table></figure>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
