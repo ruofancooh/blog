@@ -18,7 +18,7 @@
  基础也不牢，但这门语言相对于其他语言是写得最多的，其他语言基本没写过。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-23T12:24:00.000Z" property="article:published_time"/>
-<meta content="2024-05-07T15:49:13.821Z" property="article:modified_time"/>
+<meta content="2024-05-08T04:16:48.263Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/python" rel="canonical"/>
@@ -83,7 +83,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">34</span>
+<span class="site-state-item-count">35</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -133,7 +133,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-07T23:49:13+08:00" itemprop="dateModified" title="修改时间：2024-05-07 23:49:13">2024-05-07</time>
+<time datetime="2024-05-08T12:16:48+08:00" itemprop="dateModified" title="修改时间：2024-05-08 12:16:48">2024-05-08</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -158,11 +158,33 @@
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br/><span class="line"><span class="keyword">import</span> logging</span><br/><span class="line"></span><br/><span class="line">logging.basicConfig(</span><br/><span class="line">    filename=<span class="string">f"<span class="subst">{datetime.date.today()}</span>.log"</span>,</span><br/><span class="line">    filemode=<span class="string">"w"</span>,</span><br/><span class="line">    encoding=<span class="string">"utf-8"</span>,</span><br/><span class="line">    level=logging.INFO,</span><br/><span class="line">    <span class="built_in">format</span>=<span class="string">"%(asctime)s - %(levelname)s - %(message)s"</span>,</span><br/><span class="line">)</span><br/><span class="line">logging.info(...)</span><br/><span class="line">logging.warning(...)</span><br/><span class="line">logging.error(...)</span><br/></pre></td></tr></table></figure>
 <p>你只要写一个稍微像样的项目，都不可能不用模块/库，不拆分文件。这只能说明笔者代码写得实在太少了。</p>
 <h2 id="报菜名">报菜名</h2>
+<p>Python
+的标准库有上百个。https://docs.python.org/zh-cn/3/tutorial/whatnow.html</p>
+<p>用 <code>import</code> 还是
+<code>from ... import ...</code>，后面加不加 <code>as</code>
+，以易读为主。因为代码是给人看的。</p>
+<p>虽然 Python
+的一个变量名可以赋多个类型，但在有必要的情况下，还是加上类型注解。这对
+VSCode
+的代码补全也有帮助：把鼠标移到一个变量名上边，如果你想要它是某一个类的对象，但是它显示为
+<code>Any</code>，这时候你在它后面加 <code>.</code>，VSCode
+没法给你列出它的方法。这时候你需要显式标注它的类型，比如
+<code>foo: Bar</code>。或者 <code>assert isinstance(foo, Bar)</code></p>
+<p>不要使用 <code>from xxx import *</code>，可能会出现同名的东西。</p>
+<p><code>import</code> 语句的顺序是：标准库、第三方库、自定义库。可通过
+VSCode 插件 isort 解决，按 Ctrl + Shift + O 排序。</p>
+<p>在你的工程目录下面，使用 https://github.com/bndr/pipreqs
+可以把你用到的所有第三方库写到依赖文件 <code>requirements.txt</code>
+里：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">pipreqs --encoding <span class="string">"utf-8"</span> --force ./</span><br/></pre></td></tr></table></figure>
+<p>如果你有多个环境，可能会出现写了两个版本不同的，需手动排除。</p>
+<p>列出已安装包：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/></pre></td><td class="code"><pre><span class="line">conda list</span><br/><span class="line">conda list numpy</span><br/><span class="line">pip list</span><br/><span class="line">pip show numpy</span><br/></pre></td></tr></table></figure>
 <p>下面开始 python
-报菜名时间，这是笔者尝试用过的库（只用过一次，什么东西都没写出来，也算用过）：</p>
+报菜名时间，这是笔者尝试用过的标准库（只用过一次，什么东西都没写出来，也算用过）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/></pre></td><td class="code"><pre><span class="line">abc</span><br/><span class="line">base64</span><br/><span class="line">collections</span><br/><span class="line">datetime</span><br/><span class="line">enum</span><br/><span class="line">json</span><br/><span class="line">logging</span><br/><span class="line">math</span><br/><span class="line">os</span><br/><span class="line">queue</span><br/><span class="line">random</span><br/><span class="line">re</span><br/><span class="line">shutil</span><br/><span class="line">string</span><br/><span class="line">subprocess</span><br/><span class="line">threading</span><br/><span class="line">time</span><br/><span class="line">tkinter</span><br/><span class="line">unittest</span><br/></pre></td></tr></table></figure>
+<p>尝试用过的第三方库：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/></pre></td><td class="code"><pre><span class="line">cv2</span><br/><span class="line">geopandas</span><br/><span class="line">matplotlib</span><br/><span class="line">numpy</span><br/><span class="line">pandas</span><br/><span class="line">ppadb</span><br/><span class="line">pyautogui</span><br/><span class="line">requests</span><br/><span class="line">scipy</span><br/><span class="line">seaborn</span><br/><span class="line">shapely</span><br/><span class="line">sklearn</span><br/><span class="line">yaml</span><br/></pre></td></tr></table></figure>
-<p>尝试用过的自带模块：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/></pre></td><td class="code"><pre><span class="line">base64</span><br/><span class="line">datetime</span><br/><span class="line">enum</span><br/><span class="line">json</span><br/><span class="line">logging</span><br/><span class="line">queue</span><br/><span class="line">subprocess</span><br/><span class="line">threading</span><br/><span class="line">time</span><br/><span class="line">tkinter</span><br/><span class="line">unittest</span><br/></pre></td></tr></table></figure>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
