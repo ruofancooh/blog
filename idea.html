@@ -18,7 +18,7 @@
  它是一个轻型软件，是一个壳子。是一个代码编辑器，不是一个集成开发环境。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-11T13:11:00.000Z" property="article:published_time"/>
-<meta content="2024-04-15T08:49:57.069Z" property="article:modified_time"/>
+<meta content="2024-05-08T08:59:01.755Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/idea" rel="canonical"/>
@@ -132,7 +132,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-04-15T16:49:57+08:00" itemprop="dateModified" title="修改时间：2024-04-15 16:49:57">2024-04-15</time>
+<time datetime="2024-05-08T16:59:01+08:00" itemprop="dateModified" title="修改时间：2024-05-08 16:59:01">2024-05-08</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -156,6 +156,60 @@ Python 本体。Python
 本体包括一些别人已经写好的，被无数人使用过的代码，这被称为模块、库或者包；还包括
 Python 解释器和 Python 虚拟机。虚拟机是一个模拟的小电脑，解释器把你写的
 Python 代码翻译成虚拟机能读懂的语言，在虚拟机上运行。</p>
+<p>（纠错：如果你没有 Python
+环境，它或许不能自动补全你的基础语法，笔者没试过。但如果你没写 import
+语句，它肯定不能自动补全你想要的。）</p>
+<table>
+<colgroup>
+<col style="width: 14%"/>
+<col style="width: 44%"/>
+<col style="width: 41%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>语言</th>
+<th>必需品（加上任一个文本编辑器）</th>
+<th>再往上（再再往上，就是 IDE）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C/C++/ASM</td>
+<td>MinGW</td>
+<td>CMake（没试过）</td>
+</tr>
+<tr class="even">
+<td>JavaScript</td>
+<td>浏览器内核/ Node.js</td>
+<td>npm</td>
+</tr>
+<tr class="odd">
+<td>Python</td>
+<td>Python（CPython）</td>
+<td>pip/Conda/Anaconda</td>
+</tr>
+<tr class="even">
+<td>Java</td>
+<td>JDK</td>
+<td>Maven/ Gradle</td>
+</tr>
+<tr class="odd">
+<td>Scala</td>
+<td>JDK、Scala</td>
+<td>Sbt</td>
+</tr>
+<tr class="even">
+<td>Kotlin</td>
+<td>JDK、Kotlin</td>
+<td>Gradle /Maven</td>
+</tr>
+<tr class="odd">
+<td>JSP</td>
+<td>JDK、Servlet 容器</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p>到了 Java 这里，情况变得复杂了：首先你还是需要 Java 虚拟机和 Java
 编译器，它们被打包在了一个名叫 JDK 的东西里。把 JDK 解压之后，你需要在
 VSCode 的插件市场里下载一个 Java 扩展包，这个扩展包里有 6
@@ -172,6 +226,8 @@ Java 扩展的配置文件，把 JDK 在电脑上的路径写进去，要不然 
 Maven，但插件能帮你自动敲命令，所以这么一通配置，好像也不亏。所以折腾
 VSCode 的过程就是折腾插件的过程，它里面甚至还有玩 4399
 小游戏的插件。</p>
+<p>（纠错：VSCode 的所有插件的配置统一在一个文件里面，在
+<code>C:\Users\yourname\AppData\Roaming\Code\User\settings.json</code></p>
 <p>你就这么得过且过地往 VSCode 上安装插件，直到有一天，你遇到一个名叫
 JSP 的东西。JSP 就是让你把 Java 代码和网页混在一起写，然后运行在一个名叫
 Tomcat 的东西上。你还是可以通过 Maven 插件来新建一个 JSP 项目。然后下载
@@ -179,7 +235,8 @@ Tomcat、下载一个叫 Community Server Connectors
 的插件，对插件一通折腾，把 JSP
 的代码复制进来，运行成功了，很好。但是在运行成功之前你就会发现，倒数第二个对
 JSP
-提供支持的插件已经停止维护了，就是用不成了。如果还能用，你现在看到的这一篇文字就不会被发出来（事实上，它的语法高亮功能还是能用的）。</p>
+提供支持的插件已经停止维护了，就是用不成了。如果还能用，你现在看到的这一篇文字就不会被发出来.</p>
+<p>（纠错：事实上，它的语法高亮功能还是能用的）</p>
 <p>只剩一个 JSP
 语法高亮的插件，它没法排你的错、没法给你补全代码。这时候你懊恼也没用，因为这插件是人家写的，让你写你也写不出来。你的矛盾就从如何写
 JSP 代码上转移到了为什么我还要坚持使用 VSCode 上。然后你下载了
