@@ -16,7 +16,7 @@
 <meta content="前提是你不考研。这时候你需要做的只是把学习通上的题目答案背下来。这一些题目是来源于历年考研真题以及别的地方，按其他课程的经验，期末考试就是从那上面抽的。面向题目学习。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-15T08:12:00.000Z" property="article:published_time"/>
-<meta content="2024-04-28T12:18:59.565Z" property="article:modified_time"/>
+<meta content="2024-05-10T08:00:05.854Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/jz-exam" rel="canonical"/>
@@ -69,7 +69,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">计算机体系概论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E6%96%B9%E6%B3%95%E5%92%8C%E8%BF%90%E7%AE%97%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">运算方法和运算器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.</span> <span class="nav-text">存储系统</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BD%93%E7%B3%BB%E6%A6%82%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">计算机体系概论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E6%96%B9%E6%B3%95%E5%92%8C%E8%BF%90%E7%AE%97%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">运算方法和运算器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.</span> <span class="nav-text">存储系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F"><span class="nav-number">4.</span> <span class="nav-text">指令系统</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -131,7 +131,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-04-28T20:18:59+08:00" itemprop="dateModified" title="修改时间：2024-04-28 20:18:59">2024-04-28</time>
+<time datetime="2024-05-10T16:00:05+08:00" itemprop="dateModified" title="修改时间：2024-05-10 16:00:05">2024-05-10</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -390,6 +390,48 @@ Memory)组成。同一个存储器里，每个存储单元宽度相同</p>
 <p>= 135 // 32 % 8</p>
 <p>= 4</p>
 <p>简记是什么意思？因为笔者写出来的东西都是笔者不会的，至少是在写出来之前的那一段时间是不会的，如果笔者在写出来之后会了，那么就不会使用“简记”这两个字了。简记的意思是：我对这个知识点没搞明白，也不想搞明白，所以按感性提了一个公式出来，这个公式根本记不住，没有内化到自身。“简记”在笔者的潜意识里有两层麻痹自我的意思：简的意思是：我没搞懂；记的意思是：我记不住。</p>
+<blockquote>
+<p>cache？</p>
+</blockquote>
+<p>cache 是易失型存储器。当程序具有较好的访问局部性时，能更好地发挥
+cache 的作用。</p>
+<blockquote>
+<p>闪速存储器？</p>
+</blockquote>
+<p>闪速存储器是一种高密度，非易失的读/写半导体存储器</p>
+<blockquote>
+<p>下列 cache 替换算法中，速度最快的是？命中率最高的是？LFU LRU
+随机替换</p>
+</blockquote>
+<p>随机替换 LRU</p>
+<h2 id="指令系统">指令系统</h2>
+<blockquote>
+<p>程序控制类指令的功能？</p>
+</blockquote>
+<p>改变程序执行的顺序</p>
+<blockquote>
+<p>RISC？</p>
+</blockquote>
+<p>指令长度固定，减少指令数，增加寄存器数</p>
+<blockquote>
+<p>一地址格式的指令？</p>
+</blockquote>
+<p>一地址格式的算术运算指令，另一个操作数隐含在累加器里</p>
+<p>一地址格式的指令，可能有一个操作数，也可能有两个操作数</p>
+<blockquote>
+<p>怎么区分寄存器中的值是地址还是数据？</p>
+</blockquote>
+<p>指令操作码或寻址方式位</p>
+<blockquote>
+<p>一条指令中，操作数的寻址方式？</p>
+</blockquote>
+<p>看指令地址码是什么：</p>
+<ul>
+<li>操作数所在的存储单元：寄存器间接寻址</li>
+<li>操作数所在的存储单元地址：直接寻址</li>
+<li>操作数所在的寄存器编号：寄存器直接寻址</li>
+<li>操作数本身：立即寻址</li>
+</ul>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
