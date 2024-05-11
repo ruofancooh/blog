@@ -32,7 +32,7 @@
  ——菜鸟教程" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-15T08:32:00.000Z" property="article:published_time"/>
-<meta content="2024-05-10T12:38:45.709Z" property="article:modified_time"/>
+<meta content="2024-05-11T08:23:11.921Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/java-web" rel="canonical"/>
@@ -151,7 +151,7 @@ id），级联更新和删除。如何插入“一条”id
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-10T20:38:45+08:00" itemprop="dateModified" title="修改时间：2024-05-10 20:38:45">2024-05-10</time>
+<time datetime="2024-05-11T16:23:11+08:00" itemprop="dateModified" title="修改时间：2024-05-11 16:23:11">2024-05-11</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -192,7 +192,7 @@ sequenceDiagram
     U --&gt;&gt; S:   return studentList
     S --&gt;&gt; S:    request.setAttribute("studentList", studentList)<br/>request.getRequestDispatcher("result.jsp")
     S --&gt;&gt; R:    dispatcher.forward(request, response)
-    R -&gt;&gt; R:    &lt;table&gt;...    <br/>    &lt;%<br/>    request.getAttribute("studentList")<br/>     for(studentList){<br/>    ... %&gt;<br/>    &amp;lttr&gt;<br/>    &lt;td&gt; &lt;%=student.get("id")%&gt; &lt;/td&gt; ...<br/>    &lt;/tr&gt;<br/>    &lt;% } %&gt;<br/>    &lt;/table&gt;<br/>
+    R -&gt;&gt; R:    &lt;table&gt;...    <br/>    &lt;%<br/>    request.getAttribute("studentList")<br/>     for(studentList){<br/>    ... %&gt;<br/>    &lt;tr&gt;<br/>    &lt;td&gt; &lt;%=student.get("id")%&gt; &lt;/td&gt; ...<br/>    &lt;/tr&gt;<br/>    &lt;% } %&gt;<br/>    &lt;/table&gt;<br/>
     R -&gt;&gt; S:    &lt;form action="xxServlet" method="xxx"&gt;</pre>
 <h2 id="新建工程">新建工程</h2>
 <p>据笔者测试，用 VSCode 和最新的 IDEA 社区版都没办法格式化 JSP

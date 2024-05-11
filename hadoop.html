@@ -20,7 +20,7 @@
  回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-26T09:45:00.000Z" property="article:published_time"/>
-<meta content="2024-05-10T04:07:22.779Z" property="article:modified_time"/>
+<meta content="2024-05-11T12:26:24.064Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/hadoop" rel="canonical"/>
@@ -73,7 +73,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ubuntu"><span class="nav-number">1.</span> <span class="nav-text">安装 Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-hadoop"><span class="nav-number">2.</span> <span class="nav-text">安装 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5-hdfs"><span class="nav-number">3.</span> <span class="nav-text">连接 HDFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zookeeper"><span class="nav-number">4.</span> <span class="nav-text">ZooKeeper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hbase"><span class="nav-number">5.</span> <span class="nav-text">HBase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C"><span class="nav-number">6.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh"><span class="nav-number">7.</span> <span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">8.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr"><span class="nav-number">9.</span> <span class="nav-text">MR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number">10.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-number">11.</span> <span class="nav-text">持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">11.1.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#all"><span class="nav-number">11.2.</span> <span class="nav-text">all</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xsync"><span class="nav-number">11.3.</span> <span class="nav-text">xsync</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#myhadoop"><span class="nav-number">11.4.</span> <span class="nav-text">myhadoop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zks"><span class="nav-number">11.5.</span> <span class="nav-text">zks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zkc"><span class="nav-number">11.6.</span> <span class="nav-text">zkc</span></a></li></ol></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ubuntu"><span class="nav-number">1.</span> <span class="nav-text">安装 Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-hadoop"><span class="nav-number">2.</span> <span class="nav-text">安装 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-hadoop"><span class="nav-number">3.</span> <span class="nav-text">配置 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr"><span class="nav-number">4.</span> <span class="nav-text">MR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5-hdfs"><span class="nav-number">5.</span> <span class="nav-text">连接 HDFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zookeeper"><span class="nav-number">6.</span> <span class="nav-text">ZooKeeper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hbase"><span class="nav-number">7.</span> <span class="nav-text">HBase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C"><span class="nav-number">8.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh"><span class="nav-number">9.</span> <span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">10.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr-1"><span class="nav-number">11.</span> <span class="nav-text">MR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number">12.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-number">13.</span> <span class="nav-text">持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">13.1.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E8%84%9A%E6%9C%AC"><span class="nav-number">13.2.</span> <span class="nav-text">集群脚本</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -135,7 +135,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-10T12:07:22+08:00" itemprop="dateModified" title="修改时间：2024-05-10 12:07:22">2024-05-10</time>
+<time datetime="2024-05-11T20:26:24+08:00" itemprop="dateModified" title="修改时间：2024-05-11 20:26:24">2024-05-11</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -155,10 +155,15 @@
 <p>不作死就不会死。用 Ubuntu + VM Player
 的后果是：隔一段时间系统就会卡死（与 Hadoop 无关），挂起再开后，watchdog
 说：软锁定，你的 CPU 又卡住了好几十秒。</p>
+<style>
+    .red-text {
+        color: red;
+    }
+</style>
 <ol type="1">
 <li>改用
 WSL（有三层动机，就第一种，笔者还是有点叛逆的想法；第二种，据说它比虚拟机的性能好，实际上，它几秒钟就能开机；第三种，笔者没有自信以看日志的方式解决卡死的问题）</li>
-<li>以后安装各种软件，先看文档。配置文件能不改就不改，能用默认的就用默认的，改了费时费力。</li>
+<li>以后安装各种软件，先看文档。配置文件能不改就不改，能用默认的就用默认的，改了费时费力。有一种心法是：<b><span class="red-text">在软件安装完之后，什么配置都别写，上来先启动了再说。等报错了再修改配置。这样做你才能知道，哪些配置是必须有的，而哪些配置是多余的（或者人家默认配置好的）。</span></b></li>
 </ol>
 <p>真的，笔者有想把软件全部转移到 C 盘的冲动，把 C 盘和 D
 盘合并，东西全放在桌面上，这样做比较不反人类。就事实看来，这几年根本没有出现系统崩了导致文件丢了的情况；仅就学术价值看来，没有对笔者来说重要顶过天的文件；就个人价值看来，也没有，因为笔者是一个俗人。也只是想想而已，想想而已……</p>
@@ -205,12 +210,9 @@ Windows 操作系统上</li>
 <code>C:\Windows\System32\drivers\etc\hosts</code></li>
 </ul></li>
 </ol>
-<p>WSL 的网络比较特殊，你在它上面开一个端口，可以直接在物理机上使用
-<code>localhost:port</code> 访问。</p>
-<p>（“比较特殊”的意思是：我还没有搞明白。“我还没有搞明白”的意思是：我还没有搞，我还没有在
-WSL 上装
-Hadoop，如果装了，肯定会面临如何通信的问题。如果搞不明白，我可能又得放弃
-WSL）</p>
+<p>如果你用的是 WSL，你在它上面开一个端口，可以直接在物理机上使用
+<code>localhost:port</code> 访问。<strong>如果你装了两台 WSL，它们的 IP
+会是相同的</strong>，这个问题不好解决。据说<b><span class="red-text">学大数据的都找不到大数据相关工作</span></b>。那我们就退而求其次，根本没有必要搭分布式集群，在一台机器上搭个伪分布式就行了，文件分片只分一片。这样配置文件还不至于备份来备份去，只保留一份配置文件。</p>
 <ol start="5" type="1">
 <li><p>配置 Ubuntu 软件源
 https://mirrors.ustc.edu.cn/help/ubuntu.html</p></li>
@@ -237,24 +239,63 @@ https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions</p></li>
 </ul></li>
 <li>在两台虚拟机上都把软件包解压。<code>/opt</code> 目录是空的，option
 的意思，让你自己选择装不装到这里。</li>
+</ol>
+<h2 id="配置-hadoop">配置 Hadoop</h2>
+<ol start="11" type="1">
 <li>修改它们的配置文件，要保证每台机器配置文件内容相同。使用 VSCode 的
-Remote-SSH 插件可以直接修改虚拟机内的文件。当 CPU 占用高，写磁盘不到
-1MB/s，可能是出问题了在一直写 log。
+Remote-SSH 插件可以直接修改虚拟机内的文件，如果你用的是 WSL
+更方便。</li>
+</ol>
+<p><b><span class="red-text">在
+https://hadoop.apache.org/docs/r3.3.6/index.html
+左下角有默认的配置文件。</span></b></p>
 <ul>
-<li><code>hadoop-env.sh</code> 指定 JAVA_HOME，NN、2NN、DN、RM、NM
-的用户名，启动 JVM 时的参数</li>
+<li><code>hadoop-env.sh</code> 指定 JAVA_HOME，启动 JVM 时的参数</li>
 <li><code>core-site.xml</code> 指定 hdfs 的
-URI，文件系统存在本地哪个目录，http 登录用户名</li>
+URI，文件系统存在本地哪个目录</li>
 <li><code>hdfs-site.xml</code> 指定谁当 NN、2NN，副本个数</li>
 <li><code>mapred-site.xml</code> 指定 MR 框架，MR 历史服务器</li>
 <li><code>yarn-site.xml</code> 指定 RM，YARN 历史服务器</li>
 <li><code>workers</code> 指定谁当 DataNode</li>
-</ul></li>
+</ul>
+<p>勤看日志。当 CPU 占用高，写磁盘不到 1MB/s，可能是出问题了在一直写
+log。</p>
+<ul>
+<li>我们为什么要在 <code>hadoop-env.sh</code> 里写
+<code>JAVA_HOME</code>？因为没写的时候，它会报错： JAVA_HOME is not set
+and could not be found；</li>
+<li>我们为什么要配置 SSH？因为没配置它会报错：Could not resolve hostname
+xxx: Name or service not known；</li>
+<li>我们为什么要在 <code>core-site.xml</code> 里配置
+<code>fs.defaultFS</code> ？因为没配置它会报错：Cannot set priority of
+namenode process xxx。在日志文件里有：No services to connect, missing
+NameNode address；</li>
+<li>我们为什么要在 <code>core-site.xml</code> 里配置
+<code>hadoop.tmp.dir</code> ？因为它默认存在 <code>/tmp</code>
+文件夹下，而 <code>/tmp</code> 文件夹一重启就没了；</li>
+<li>我们为什么要在 <code>hdfs-site.xml</code> 里配置
+<code>dfs.namenode.http-address</code> ？因为我们想用浏览器访问
+HDFS；</li>
+<li>我们为什么可以不在 <code>core-site.xml</code> 里配置
+<code>hadoop.http.staticuser.user</code> ？为什么可以不在
+<code>hadoop-env.sh</code>
+里配置各种用户名？因为笔者尝试的结果就是：可以不配置。笔者把
+<code>/opt</code> 目录的用户和用户组都修改成了自定义用户。</li>
+</ul>
+<ol start="12" type="1">
 <li>在 NameNode 上执行 <code>hdfs -namenode format</code>，把 Hadoop
 的文件系统 HDFS
 初始化。在你的物理机文件系统上有一个虚拟机文件系统，在虚拟机文件系统上又有一个
 HDFS</li>
 </ol>
+<h2 id="mr">MR</h2>
+<ol type="1">
+<li><code>start-dfs.sh</code> 再 <code>jps</code> 查看 JVM
+进程，你会看到 NN、2NN、DN</li>
+<li>不需要 <code>start-yarn.sh</code></li>
+<li></li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span></span><br/><span class="line">vi 1.txt</span><br/><span class="line">hdfs dfs -put 1.txt /wcinput</span><br/><span class="line">hadoop jar <span class="variable">$HADOOP_HOME</span>/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar wordcount /wcinput /wcoutput</span><br/></pre></td></tr></table></figure>
 <h2 id="连接-hdfs">连接 HDFS</h2>
 <p>何意？</p>
 <p>使用 org.apache.hadoop.fs.FileSystem 这个类的 get 方法，传一个
@@ -278,6 +319,11 @@ core-site.xml 里指定的 URI。</p>
 <p>注意：hbase 自带 zookeeper。如果想使用本地已安装的
 zookeeper：下次再说（下次再说的意思是永远都不说）</p>
 <h2 id="网络">网络</h2>
+<p>如果你用的 WSL + 单机伪分布式，只需要修改
+<code>/etc/wsl.conf</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">[network]</span><br/><span class="line">hostname=localhost</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br/><span class="line">wsl --shutdown</span><br/><span class="line">wsl</span><br/></pre></td></tr></table></figure>
+<p>如果你用的 VM + Ubuntu 22.04:</p>
 <p>编辑<code>/etc/netplan</code>下的<code>00-installer-config.yaml</code>文件。<a href="https://netplan.readthedocs.io/en/stable/netplan-tutorial/" rel="noopener" target="_blank">netplan
 文档</a></p>
 <p>选择<code>192.168.78</code>的依据是：</p>
@@ -290,14 +336,15 @@ zookeeper：下次再说（下次再说的意思是永远都不说）</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/></pre></td><td class="code"><pre><span class="line"><span class="attr">network:</span></span><br/><span class="line">  <span class="attr">version:</span> <span class="number">2</span></span><br/><span class="line">  <span class="attr">ethernets:</span></span><br/><span class="line">    <span class="attr">ens33:</span></span><br/><span class="line">      <span class="attr">dhcp4:</span> <span class="literal">false</span></span><br/><span class="line">      <span class="attr">dhcp6:</span> <span class="literal">false</span></span><br/><span class="line">      <span class="attr">addresses:</span></span><br/><span class="line">        <span class="bullet">-</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.101</span><span class="string">/24</span> <span class="comment"># 每台机器设置成不同的</span></span><br/><span class="line">      <span class="attr">routes:</span></span><br/><span class="line">        <span class="bullet">-</span> <span class="attr">to:</span> <span class="string">default</span></span><br/><span class="line">          <span class="attr">via:</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.2</span></span><br/><span class="line">      <span class="attr">nameservers:</span></span><br/><span class="line">        <span class="attr">addresses:</span></span><br/><span class="line">          <span class="bullet">-</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.2</span></span><br/></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo netplan try</span><br/></pre></td></tr></table></figure>
 <h2 id="ssh">SSH</h2>
-<p>两台机器上都执行：</p>
+<p>如果你用的 WSL + 单机伪分布式，下面两条命令只用做一次。</p>
+<p>如果你搭的分布式：每台机器上都执行：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -m PEM</span><br/></pre></td></tr></table></figure>
 <p>笔者这里的版本是
 <code>OpenSSH_8.9p1 Ubuntu-3ubuntu0.6, OpenSSL 3.0.2 15 Mar 2022</code>，要加上
 <code>-m PEM</code>，确保私钥以 -----BEGIN <strong>RSA</strong> PRIVATE
 KEY----- 开头。<a href="https://www.cnblogs.com/simple-li/p/14654812.html" rel="noopener" target="_blank">后续错误</a></p>
-<p>两台机器上都执行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">ssh-copy-id ubuntu101</span><br/><span class="line">ssh-copy-id ubuntu102</span><br/></pre></td></tr></table></figure>
+<p>每台机器上都执行：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">ssh-copy-id ubuntu101</span><br/><span class="line">ssh-copy-id ubuntu102</span><br/><span class="line">...</span><br/></pre></td></tr></table></figure>
 <h2 id="目录">目录</h2>
 <p>EditLog 和 FsImage 在：</p>
 <ul>
@@ -305,7 +352,7 @@ KEY----- 开头。<a href="https://www.cnblogs.com/simple-li/p/14654812.html" re
 <li>2NN 的
 <code>${hadoop.tmp.dir}/data/dfs/namesecondary/current</code></li>
 </ul>
-<h2 id="mr">MR</h2>
+<h2 id="mr-1">MR</h2>
 <h2 id="超链接">超链接</h2>
 <ul>
 <li><a href="https://www.ruanyifeng.com/blog/2020/08/rsync.html" rel="noopener" target="_blank">rsync
@@ -334,30 +381,21 @@ DNS，<code>PATH</code> 和物理路径的中间商叫命令行解释器。</p>
 <p>你可以使用 <code>which xxx</code> 或
 <code>readlink -f $(which xxx)</code> 找你的命令源文件在哪里；使用
 <code>which which</code> 找你的 <code>which</code> 在哪里。</p>
-<p>查看虚拟机的 IP 地址：<code>ifconfig</code></p>
-<p>查看 JVM 进程：<code>jps</code></p>
-<p>start-all.sh</p>
-<p>stop-all.sh</p>
+<p>查看虚拟机的 IP 地址：<code>ifconfig</code> <code>ip -a</code></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">mapred --daemon start historyserver</span><br/></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hadoop jar <span class="variable">$HADOOP_HOME</span>/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar wordcount /wcinput /wcoutput</span><br/></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs oev -p XML -i edits_xxxx -o ./edits_xxxx.xml</span><br/></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs oiv -p XML -i fsimage_xxxx -o ./fsimage_xxxx.xml</span><br/></pre></td></tr></table></figure>
-<h3 id="all">all</h3>
-<p>对集群的所有机器执行操作。</p>
+<h3 id="集群脚本">集群脚本</h3>
+<p>前提是你搭了集群。笔者已经放弃集群了，太麻烦了。</p>
+<p><strong>all：对集群的所有机器执行操作</strong></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br/><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -eq 0 ]; <span class="keyword">then</span></span><br/><span class="line">    <span class="built_in">echo</span> <span class="string">"Error: Please provide at least one argument."</span></span><br/><span class="line">    <span class="built_in">exit</span> 1</span><br/><span class="line"><span class="keyword">else</span></span><br/><span class="line">    <span class="keyword">for</span> host <span class="keyword">in</span> ubuntu101 ubuntu102</span><br/><span class="line">    <span class="keyword">do</span></span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"============ <span class="variable">$host</span> ==========="</span></span><br/><span class="line">        ssh <span class="variable">$host</span> <span class="string">"<span class="variable">$@</span>"</span></span><br/><span class="line">    <span class="keyword">done</span></span><br/><span class="line"><span class="keyword">fi</span></span><br/></pre></td></tr></table></figure>
-<h3 id="xsync">xsync</h3>
-<p>同步文件/目录到所有机器</p>
+<p><strong>xsync：同步文件/目录到所有机器</strong></p>
 <p>先测试从一台机器上同步到另一台机器上：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">rsync -av /path/to/src ubuntu102:/path/to/dst</span><br/></pre></td></tr></table></figure>
 <p>从某台机器上同步到所有机器上：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br/><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -lt 1 ]</span><br/><span class="line"><span class="keyword">then</span></span><br/><span class="line">    <span class="built_in">echo</span> Not Enough Argument!</span><br/><span class="line">    <span class="built_in">exit</span>;</span><br/><span class="line"><span class="keyword">fi</span></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">for</span> host <span class="keyword">in</span> ubuntu101 ubuntu102 ubuntu103</span><br/><span class="line"><span class="keyword">do</span></span><br/><span class="line">    <span class="built_in">echo</span> ==================== <span class="variable">$host</span> ====================</span><br/><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> <span class="variable">$@</span></span><br/><span class="line">    <span class="keyword">do</span></span><br/><span class="line">        <span class="keyword">if</span> [ -e <span class="variable">$file</span> ]</span><br/><span class="line">        <span class="keyword">then</span></span><br/><span class="line">            pdir=$(<span class="built_in">cd</span> -P $(<span class="built_in">dirname</span> <span class="variable">$file</span>); <span class="built_in">pwd</span>)</span><br/><span class="line">            fname=$(<span class="built_in">basename</span> <span class="variable">$file</span>)</span><br/><span class="line">            ssh <span class="variable">$host</span> <span class="string">"mkdir -p <span class="variable">$pdir</span>"</span></span><br/><span class="line">            rsync -av <span class="variable">$pdir</span>/<span class="variable">$fname</span> <span class="variable">$host</span>:<span class="variable">$pdir</span></span><br/><span class="line">        <span class="keyword">else</span></span><br/><span class="line">            <span class="built_in">echo</span> <span class="variable">$file</span> does not exists!</span><br/><span class="line">        <span class="keyword">fi</span></span><br/><span class="line">    <span class="keyword">done</span></span><br/><span class="line"><span class="keyword">done</span></span><br/></pre></td></tr></table></figure>
-<h3 id="myhadoop">myhadoop</h3>
+<p><strong>myhadoop</strong></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br/><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br/><span class="line">    <span class="string">"start"</span>)</span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"============ 启动 hadoop 集群 ============"</span></span><br/><span class="line"></span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"-------- 启动 HDFS --------"</span></span><br/><span class="line">        ssh <span class="string">"ubuntu101"</span> <span class="string">"<span class="variable">$HADOOP_HOME</span>/sbin/start-dfs.sh"</span></span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"-------- 启动 YARN --------"</span></span><br/><span class="line">        ssh <span class="string">"ubuntu102"</span> <span class="string">"<span class="variable">$HADOOP_HOME</span>/sbin/start-yarn.sh"</span></span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"-------- 启动 historyserver --------"</span></span><br/><span class="line">        ssh <span class="string">"ubuntu102"</span> <span class="string">"<span class="variable">$HADOOP_HOME</span>/bin/mapred --daemon start historyserver"</span></span><br/><span class="line"></span><br/><span class="line">        all jps</span><br/><span class="line">        ;;</span><br/><span class="line">    <span class="string">"stop"</span>)</span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"============ 关闭 hadoop 集群 ============"</span></span><br/><span class="line"></span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"-------- 关闭 historyserver --------"</span></span><br/><span class="line">        ssh <span class="string">"ubuntu102"</span> <span class="string">"<span class="variable">$HADOOP_HOME</span>/bin/mapred --daemon stop historyserver"</span></span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"-------- 关闭 YARN --------"</span></span><br/><span class="line">        ssh <span class="string">"ubuntu102"</span> <span class="string">"<span class="variable">$HADOOP_HOME</span>/sbin/stop-yarn.sh"</span></span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"-------- 关闭 HDFS --------"</span></span><br/><span class="line">        ssh <span class="string">"ubuntu101"</span> <span class="string">"<span class="variable">$HADOOP_HOME</span>/sbin/stop-dfs.sh"</span></span><br/><span class="line"></span><br/><span class="line">        all jps</span><br/><span class="line">        ;;</span><br/><span class="line">    *)</span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"Invalid parameter!"</span></span><br/><span class="line">        <span class="built_in">exit</span> 1</span><br/><span class="line">        ;;</span><br/><span class="line"><span class="keyword">esac</span></span><br/></pre></td></tr></table></figure>
-<h3 id="zks">zks</h3>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br/><span class="line"></span><br/><span class="line">ZK_HOME=<span class="string">"/opt/zookeeper-3.8.2"</span></span><br/><span class="line">ZKS_SH=<span class="string">"<span class="variable">$ZK_HOME</span>/bin/zkServer.sh"</span></span><br/><span class="line">servers=<span class="string">"ubuntu101 ubuntu102"</span></span><br/><span class="line"></span><br/><span class="line"><span class="built_in">echo</span> -e <span class="string">"\n"</span></span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="comment"># 参数 $1 是操作名，$2 是主机名</span></span><br/><span class="line"><span class="keyword">if</span> [ -n <span class="string">"<span class="variable">$2</span>"</span> ]; <span class="keyword">then</span></span><br/><span class="line">    <span class="comment"># 如果指定了主机名，对指定主机操作</span></span><br/><span class="line">    <span class="built_in">echo</span> ------ zkServer <span class="variable">$2</span> <span class="variable">$1</span> ------</span><br/><span class="line">    ssh <span class="variable">$2</span> <span class="variable">$ZKS_SH</span> <span class="variable">$1</span></span><br/><span class="line">    <span class="built_in">echo</span> -e <span class="string">"\n"</span></span><br/><span class="line"><span class="keyword">else</span></span><br/><span class="line">    <span class="comment"># 如果没有指定主机名，就对所有主机操作</span></span><br/><span class="line">    <span class="keyword">for</span> server <span class="keyword">in</span> <span class="variable">$servers</span>; <span class="keyword">do</span></span><br/><span class="line">        <span class="built_in">echo</span> ------ zkServer <span class="variable">$server</span> <span class="variable">$1</span> ------</span><br/><span class="line">        ssh <span class="variable">$server</span> <span class="variable">$ZKS_SH</span> <span class="variable">$1</span></span><br/><span class="line">        <span class="built_in">echo</span> -e <span class="string">"\n"</span></span><br/><span class="line">    <span class="keyword">done</span></span><br/><span class="line"><span class="keyword">fi</span></span><br/></pre></td></tr></table></figure>
-<h3 id="zkc">zkc</h3>
-<p>就是把自带的脚本 <code>zkCli.sh</code> 再封装一层</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br/><span class="line"></span><br/><span class="line">ZK_HOME=<span class="string">"/opt/zookeeper-3.8.2"</span></span><br/><span class="line">ZKC_SH=<span class="string">"<span class="variable">$ZK_HOME</span>/bin/zkCli.sh"</span></span><br/><span class="line">servers=<span class="string">"ubuntu101 ubuntu102"</span></span><br/><span class="line"></span><br/><span class="line"><span class="string">"<span class="variable">$ZKC_SH</span>"</span> -server $(hostname)</span><br/></pre></td></tr></table></figure>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
