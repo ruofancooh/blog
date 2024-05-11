@@ -32,7 +32,7 @@
  ——菜鸟教程" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-15T08:32:00.000Z" property="article:published_time"/>
-<meta content="2024-05-11T08:23:11.921Z" property="article:modified_time"/>
+<meta content="2024-05-11T15:23:48.699Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/java-web" rel="canonical"/>
@@ -86,10 +86,7 @@
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
 <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4"><span class="nav-number">1.</span> <span class="nav-text">整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">新建工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA-jsp-%E6%96%87%E4%BB%B6%E7%9A%84%E7%A4%BA%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">一个 JSP 文件的示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsp-%E8%BF%90%E8%A1%8C%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">JSP 运行的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E7%AD%94"><span class="nav-number">5.</span> <span class="nav-text">问答</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jsp-%E6%8C%87%E4%BB%A4%E4%B8%8E-jsp-%E5%8A%A8%E4%BD%9C"><span class="nav-number">5.1.</span> <span class="nav-text">jsp 指令与 jsp 动作？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E4%B8%80%E4%B8%AA-jsp-%E9%A1%B5%E9%87%8C%E5%A6%82%E4%BD%95%E6%8A%8A%E8%A1%A8%E5%8D%95%E4%BC%A0%E9%80%92%E7%BB%99%E5%8F%A6%E4%B8%80%E4%B8%AA-jsp-%E9%A1%B5%E5%8F%A6%E4%B8%80%E4%B8%AA-jsp-%E9%A1%B5%E5%A6%82%E4%BD%95%E6%8E%A5%E6%94%B6"><span class="nav-number">5.2.</span> <span class="nav-text">在一个
-jsp 页里，如何把表单传递给另一个 jsp 页？另一个 jsp 页如何接收？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E5%92%8C%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91"><span class="nav-number">5.3.</span> <span class="nav-text">重定向和请求转发？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%82%B9%E4%B8%80%E4%B8%AA%E6%8C%89%E9%92%AE%E5%87%BA%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%96%B0%E8%A1%A8%E5%8D%95"><span class="nav-number">5.4.</span> <span class="nav-text">如何实现点一个按钮出现一个新表单？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">5.5.</span> <span class="nav-text">Filter 是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-jdbc-%E8%BF%9E%E6%8E%A5-mysql"><span class="nav-number">5.6.</span> <span class="nav-text">如何使用 JDBC 连接 MySQL？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql-%E9%87%8C%E6%9C%89%E4%B8%A4%E5%BC%A0%E8%A1%A8%E4%B8%80%E5%BC%A0%E8%A1%A8%E7%9A%84%E5%A4%96%E9%94%AE%E6%98%AF%E5%8F%A6%E4%B8%80%E5%BC%A0%E8%A1%A8%E7%9A%84%E4%B8%BB%E9%94%AE%E5%A6%82-id%E7%BA%A7%E8%81%94%E6%9B%B4%E6%96%B0%E5%92%8C%E5%88%A0%E9%99%A4%E5%A6%82%E4%BD%95%E6%8F%92%E5%85%A5%E4%B8%80%E6%9D%A1id-%E7%9A%84%E8%AE%B0%E5%BD%95%E5%88%86%E6%95%A3%E7%BB%99%E8%BF%99%E4%B8%A4%E5%BC%A0%E8%A1%A8%E5%8D%B3%E5%AF%B9%E8%BF%99%E4%B8%A4%E5%BC%A0%E8%A1%A8%E5%88%86%E5%88%AB%E6%8F%92%E4%BA%86%E4%B8%80%E4%B8%AA-id-%E7%9B%B8%E5%90%8C%E7%9A%84%E8%AE%B0%E5%BD%95"><span class="nav-number">5.7.</span> <span class="nav-text">MySQL
-里有两张表，一张表的外键是另一张表的主键（如
-id），级联更新和删除。如何插入“一条”id
-的记录“分散给”这两张表？即对这两张表分别插了一个 id 相同的记录。</span></a></li></ol></li></ol></div>
+jsp 页里，如何把表单传递给另一个 jsp 页？另一个 jsp 页如何接收？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E5%92%8C%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91"><span class="nav-number">5.3.</span> <span class="nav-text">重定向和请求转发？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%82%B9%E4%B8%80%E4%B8%AA%E6%8C%89%E9%92%AE%E5%87%BA%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%96%B0%E8%A1%A8%E5%8D%95"><span class="nav-number">5.4.</span> <span class="nav-text">如何实现点一个按钮出现一个新表单？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">5.5.</span> <span class="nav-text">Filter 是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-jdbc-%E8%BF%9E%E6%8E%A5-mysql"><span class="nav-number">5.6.</span> <span class="nav-text">如何使用 JDBC 连接 MySQL？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">5.7.</span> <span class="nav-text">插入的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">5.8.</span> <span class="nav-text">乱码的问题</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -151,7 +148,7 @@ id），级联更新和删除。如何插入“一条”id
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-11T16:23:11+08:00" itemprop="dateModified" title="修改时间：2024-05-11 16:23:11">2024-05-11</time>
+<time datetime="2024-05-11T23:23:48+08:00" itemprop="dateModified" title="修改时间：2024-05-11 23:23:48">2024-05-11</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -184,16 +181,22 @@ id），级联更新和删除。如何插入“一条”id
     } 
 }%%
 sequenceDiagram
-    participant S as display.jsp<br/> Other Servlets
+    participant D as display.jsp
     participant U as DBUtil.java
     participant R as result.jsp
-    S -&gt;&gt; U:    DBUtil.createConnection()<br/>DBUtil.xxx()
+    participant I as Insert Servlet
+    participant Q as Query Servlet
+    D -&gt;&gt; U:    DBUtil.createConnection()<br/>DBUtil.xxx()
     U -&gt;&gt; U:    try(connection.prepareStatement(SQL)){<br/>statement.executeQuery()<br/>...
-    U --&gt;&gt; S:   return studentList
-    S --&gt;&gt; S:    request.setAttribute("studentList", studentList)<br/>request.getRequestDispatcher("result.jsp")
-    S --&gt;&gt; R:    dispatcher.forward(request, response)
+    U --&gt;&gt; D:   return studentList
+    D --&gt;&gt; D:   request.getSession()<br/>session.setAttribute("studentList", studentList)
+    D --&gt;&gt; R:   response.sendRedirect("result.jsp");
     R -&gt;&gt; R:    &lt;table&gt;...    <br/>    &lt;%<br/>    request.getAttribute("studentList")<br/>     for(studentList){<br/>    ... %&gt;<br/>    &lt;tr&gt;<br/>    &lt;td&gt; &lt;%=student.get("id")%&gt; &lt;/td&gt; ...<br/>    &lt;/tr&gt;<br/>    &lt;% } %&gt;<br/>    &lt;/table&gt;<br/>
-    R -&gt;&gt; S:    &lt;form action="xxServlet" method="xxx"&gt;</pre>
+    R -&gt;&gt; I:    &lt;form action="xxServlet" method="xxx"&gt;
+    I -&gt;&gt; U:    ……
+    U -&gt;&gt; U:    ……
+    U --&gt;&gt; I:    ……
+    I --&gt;&gt; D:   response.sendRedirect("display.jsp")</pre>
 <h2 id="新建工程">新建工程</h2>
 <p>据笔者测试，用 VSCode 和最新的 IDEA 社区版都没办法格式化 JSP
 代码，或者是暂时没找到解决方法。</p>
@@ -278,18 +281,27 @@ request 对象传递过去</li>
 <code>doFilter</code> 方法里对请求预处理，响应后处理：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebFilter("/*")</span></span><br/><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ProZhInput</span> <span class="keyword">implements</span> <span class="title class_">Filter</span> {</span><br/><span class="line">    <span class="comment">//...</span></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException {</span><br/><span class="line">        request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br/><span class="line">        response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br/><span class="line">        response.setContentType(<span class="string">"text/html;charset=UTF-8"</span>);</span><br/><span class="line">        chain.doFilter(request, response);</span><br/><span class="line">    }</span><br/><span class="line">    <span class="comment">//...</span></span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
 <h3 id="如何使用-jdbc-连接-mysql">如何使用 JDBC 连接 MySQL？</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DBUtil</span> {</span><br/><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Connection</span> <span class="variable">connection</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br/><span class="line"></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">createConnection</span><span class="params">()</span>  {</span><br/><span class="line">        <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">"jdbc:mysql://localhost:3306/yourdbname?serverTimezone=UTC&amp;useSSL=false"</span>;</span><br/><span class="line">        <span class="type">String</span> <span class="variable">user</span> <span class="operator">=</span> <span class="string">"yourname"</span>;</span><br/><span class="line">        <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="string">"yourpassword"</span>;</span><br/><span class="line">        <span class="keyword">try</span> {</span><br/><span class="line">            Class.forName(<span class="string">"com.mysql.cj.jdbc.Driver"</span>);<span class="comment">// 注册MySQL JDBC驱动程序</span></span><br/><span class="line">            connection = DriverManager.getConnection(url, user, password);</span><br/><span class="line">            <span class="keyword">if</span> (connection != <span class="literal">null</span>) {</span><br/><span class="line">            	System.out.println(<span class="string">"成功连接到数据库！"</span>);</span><br/><span class="line">            	<span class="keyword">return</span> <span class="literal">true</span>;</span><br/><span class="line">            }</span><br/><span class="line">        } <span class="keyword">catch</span> (SQLException e) {</span><br/><span class="line">            e.printStackTrace();</span><br/><span class="line">        } <span class="keyword">catch</span> (ClassNotFoundException e) {</span><br/><span class="line">            e.printStackTrace();</span><br/><span class="line">        }</span><br/><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DBUtil</span> {</span><br/><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Connection</span> <span class="variable">connection</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br/><span class="line"></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">createConnection</span><span class="params">()</span>  {</span><br/><span class="line">        <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">"jdbc:mysql://localhost:3306/yourdbname?serverTimezone=UTC"</span>;</span><br/><span class="line">        <span class="type">String</span> <span class="variable">user</span> <span class="operator">=</span> <span class="string">"yourname"</span>;</span><br/><span class="line">        <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="string">"yourpassword"</span>;</span><br/><span class="line">        <span class="keyword">try</span> {</span><br/><span class="line">            Class.forName(<span class="string">"com.mysql.cj.jdbc.Driver"</span>);<span class="comment">// 注册MySQL JDBC驱动程序</span></span><br/><span class="line">            connection = DriverManager.getConnection(url, user, password);</span><br/><span class="line">            <span class="keyword">if</span> (connection != <span class="literal">null</span>) {</span><br/><span class="line">            	System.out.println(<span class="string">"成功连接到数据库！"</span>);</span><br/><span class="line">            	<span class="keyword">return</span> <span class="literal">true</span>;</span><br/><span class="line">            }</span><br/><span class="line">        } <span class="keyword">catch</span> (SQLException e) {</span><br/><span class="line">            e.printStackTrace();</span><br/><span class="line">        } <span class="keyword">catch</span> (ClassNotFoundException e) {</span><br/><span class="line">            e.printStackTrace();</span><br/><span class="line">        }</span><br/><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
 <ol type="1">
 <li>下载驱动 Jar 包 https://dev.mysql.com/downloads/connector/j/</li>
 <li>把 Jar 包 复制到
 <code>yourprojectname\WebContent\WEB-INF\lib</code></li>
 </ol>
-<h3 id="mysql-里有两张表一张表的外键是另一张表的主键如-id级联更新和删除如何插入一条id-的记录分散给这两张表即对这两张表分别插了一个-id-相同的记录">MySQL
-里有两张表，一张表的外键是另一张表的主键（如
+<h3 id="插入的问题">插入的问题</h3>
+<blockquote>
+<p>MySQL 里有两张表，一张表的外键是另一张表的主键（如
 id），级联更新和删除。如何插入“一条”id
-的记录“分散给”这两张表？即对这两张表分别插了一个 id 相同的记录。</h3>
+的记录“分散给”这两张表？即对这两张表分别插了一个 id 相同的记录。</p>
+</blockquote>
 <p>先插 id 为主键所在的表，后插 id 为外键所在的表。</p>
 <p>这是（关系型）数据库原理的知识。本表里的“外键”就是引用外部表里的“主键”，那得先有外部表。</p>
+<h3 id="乱码的问题">乱码的问题</h3>
+<p>保证这些地方的编码是 UTF-8：</p>
+<ol type="1">
+<li>Eclipse 首选项里的文件编码</li>
+<li>搞一个 Filter</li>
+<li>MySQL 数据库表的编码</li>
+</ol>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
