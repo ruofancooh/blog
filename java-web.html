@@ -32,7 +32,7 @@
  ——菜鸟教程" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-15T08:32:00.000Z" property="article:published_time"/>
-<meta content="2024-05-11T15:23:48.699Z" property="article:modified_time"/>
+<meta content="2024-05-12T08:41:24.102Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/java-web" rel="canonical"/>
@@ -148,7 +148,7 @@ jsp 页里，如何把表单传递给另一个 jsp 页？另一个 jsp 页如何
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-11T23:23:48+08:00" itemprop="dateModified" title="修改时间：2024-05-11 23:23:48">2024-05-11</time>
+<time datetime="2024-05-12T16:41:24+08:00" itemprop="dateModified" title="修改时间：2024-05-12 16:41:24">2024-05-12</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -173,30 +173,45 @@ jsp 页里，如何把表单传递给另一个 jsp 页？另一个 jsp 页如何
 </blockquote>
 <p>——菜鸟教程</p>
 <span id="more"></span>
+<style>
+    .main{
+        width:100%
+    }
+</style>
 <h2 id="整">整</h2>
-<pre class="mermaid">%%{ 
+<pre class="mermaid">%%{
     init: {
         "theme": "neutral",
         "fontFamily": "Times New Roman"
-    } 
+    }
 }%%
-sequenceDiagram
-    participant D as display.jsp
-    participant U as DBUtil.java
-    participant R as result.jsp
-    participant I as Insert Servlet
-    participant Q as Query Servlet
-    D -&gt;&gt; U:    DBUtil.createConnection()<br/>DBUtil.xxx()
-    U -&gt;&gt; U:    try(connection.prepareStatement(SQL)){<br/>statement.executeQuery()<br/>...
-    U --&gt;&gt; D:   return studentList
-    D --&gt;&gt; D:   request.getSession()<br/>session.setAttribute("studentList", studentList)
-    D --&gt;&gt; R:   response.sendRedirect("result.jsp");
-    R -&gt;&gt; R:    &lt;table&gt;...    <br/>    &lt;%<br/>    request.getAttribute("studentList")<br/>     for(studentList){<br/>    ... %&gt;<br/>    &lt;tr&gt;<br/>    &lt;td&gt; &lt;%=student.get("id")%&gt; &lt;/td&gt; ...<br/>    &lt;/tr&gt;<br/>    &lt;% } %&gt;<br/>    &lt;/table&gt;<br/>
-    R -&gt;&gt; I:    &lt;form action="xxServlet" method="xxx"&gt;
-    I -&gt;&gt; U:    ……
-    U -&gt;&gt; U:    ……
-    U --&gt;&gt; I:    ……
-    I --&gt;&gt; D:   response.sendRedirect("display.jsp")</pre>
+flowchart LR
+    subgraph "Web页面"
+        result[result.jsp]
+        display[display.jsp]
+        register[register.jsp]
+    end
+    subgraph "Servlet"
+        Query[Query Servlet]
+        Insert[Insert Servlet]
+        Delete[Delete Servlet]
+        Update[Update Servlet]
+    end
+    subgraph "DBUtil"
+        dbutil[DBUtil.java]
+    end
+    db[(Database)]
+     
+    display--o|查询所有|DBUtil--odb
+    display-.-&gt;|重定向|result
+    result--&gt;|查询某个|Query--o|查询某个|DBUtil
+    Query-.-&gt;|重定向|result
+    result--&gt;|插入某个|register--&gt;|POST|Insert--o|插入某个|DBUtil
+    Insert-.-&gt;|重定向|display
+    result--&gt;|删除某个|Delete--o|删除某个|DBUtil
+    Delete-.-&gt;|重定向|display
+    result--&gt;|修改某个|Update--o|修改某个|DBUtil
+    Update-.-&gt;|重定向|display</pre>
 <h2 id="新建工程">新建工程</h2>
 <p>据笔者测试，用 VSCode 和最新的 IDEA 社区版都没办法格式化 JSP
 代码，或者是暂时没找到解决方法。</p>
@@ -301,7 +316,9 @@ id），级联更新和删除。如何插入“一条”id
 <li>Eclipse 首选项里的文件编码</li>
 <li>搞一个 Filter</li>
 <li>MySQL 数据库表的编码</li>
+<li></li>
 </ol>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br/><span class="line">	pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br/></pre></td></tr></table></figure>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
