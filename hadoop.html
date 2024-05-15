@@ -20,7 +20,7 @@
  回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-26T09:45:00.000Z" property="article:published_time"/>
-<meta content="2024-05-11T12:26:24.064Z" property="article:modified_time"/>
+<meta content="2024-05-15T08:10:17.924Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/hadoop" rel="canonical"/>
@@ -73,7 +73,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ubuntu"><span class="nav-number">1.</span> <span class="nav-text">安装 Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-hadoop"><span class="nav-number">2.</span> <span class="nav-text">安装 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-hadoop"><span class="nav-number">3.</span> <span class="nav-text">配置 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr"><span class="nav-number">4.</span> <span class="nav-text">MR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5-hdfs"><span class="nav-number">5.</span> <span class="nav-text">连接 HDFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zookeeper"><span class="nav-number">6.</span> <span class="nav-text">ZooKeeper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hbase"><span class="nav-number">7.</span> <span class="nav-text">HBase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C"><span class="nav-number">8.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh"><span class="nav-number">9.</span> <span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">10.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr-1"><span class="nav-number">11.</span> <span class="nav-text">MR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number">12.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-number">13.</span> <span class="nav-text">持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">13.1.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E8%84%9A%E6%9C%AC"><span class="nav-number">13.2.</span> <span class="nav-text">集群脚本</span></a></li></ol></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ubuntu"><span class="nav-number">1.</span> <span class="nav-text">安装 Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-hadoop"><span class="nav-number">2.</span> <span class="nav-text">安装 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-hadoop"><span class="nav-number">3.</span> <span class="nav-text">配置 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr"><span class="nav-number">4.</span> <span class="nav-text">MR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hdfs"><span class="nav-number">5.</span> <span class="nav-text">HDFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zookeeper"><span class="nav-number">6.</span> <span class="nav-text">ZooKeeper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hbase"><span class="nav-number">7.</span> <span class="nav-text">HBase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spark"><span class="nav-number">8.</span> <span class="nav-text">Spark</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C"><span class="nav-number">9.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh"><span class="nav-number">10.</span> <span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number">11.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-number">12.</span> <span class="nav-text">持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">12.1.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E8%84%9A%E6%9C%AC"><span class="nav-number">12.2.</span> <span class="nav-text">集群脚本</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -85,13 +85,13 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">35</span>
+<span class="site-state-item-count">30</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
 <div class="site-state-item site-state-categories">
 <a href="/blog/categories/">
-<span class="site-state-item-count">4</span>
+<span class="site-state-item-count">3</span>
 <span class="site-state-item-name">分类</span></a>
 </div>
 </nav>
@@ -135,7 +135,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-11T20:26:24+08:00" itemprop="dateModified" title="修改时间：2024-05-11 20:26:24">2024-05-11</time>
+<time datetime="2024-05-15T16:10:17+08:00" itemprop="dateModified" title="修改时间：2024-05-15 16:10:17">2024-05-15</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -143,7 +143,7 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">问题</span></a>
+<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">实用系列</span></a>
 </span>
 </span>
 </div>
@@ -296,10 +296,19 @@ HDFS</li>
 <li></li>
 </ol>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span></span><br/><span class="line">vi 1.txt</span><br/><span class="line">hdfs dfs -put 1.txt /wcinput</span><br/><span class="line">hadoop jar <span class="variable">$HADOOP_HOME</span>/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar wordcount /wcinput /wcoutput</span><br/></pre></td></tr></table></figure>
-<h2 id="连接-hdfs">连接 HDFS</h2>
-<p>何意？</p>
-<p>使用 org.apache.hadoop.fs.FileSystem 这个类的 get 方法，传一个
-core-site.xml 里指定的 URI。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">mapred --daemon start historyserver</span><br/></pre></td></tr></table></figure>
+<h2 id="hdfs">HDFS</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">start-dfs.sh</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs oev -p XML -i edits_xxxx -o ./edits_xxxx.xml</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs oiv -p XML -i fsimage_xxxx -o ./fsimage_xxxx.xml</span><br/></pre></td></tr></table></figure>
+<p>EditLog 和 FsImage 在：</p>
+<ul>
+<li>NN 的 <code>${hadoop.tmp.dir}/dfs/name/current</code></li>
+<li>2NN 的
+<code>${hadoop.tmp.dir}/data/dfs/namesecondary/current</code></li>
+</ul>
+<p>连接 HDFS，何意？使用 org.apache.hadoop.fs.FileSystem 这个类的 get
+方法，传一个 core-site.xml 里指定的 URI。</p>
 <p>在物理机上编码，带上这些依赖，带依赖打成 jar 包，在虚拟机上使用
 <code>java -jar xxx.jar</code></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hadoop<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hadoop-common<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hadoop<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hadoop-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hadoop<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hadoop-hdfs<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br/></pre></td></tr></table></figure>
@@ -318,6 +327,14 @@ core-site.xml 里指定的 URI。</p>
 临时目录，不强制执行与流式传输相关的不安全操作</p>
 <p>注意：hbase 自带 zookeeper。如果想使用本地已安装的
 zookeeper：下次再说（下次再说的意思是永远都不说）</p>
+<h2 id="spark">Spark</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">start-master.sh</span><br/><span class="line">start-workers.sh</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">spark-submit --class org.apache.spark.examples.SparkPi --master yarn <span class="variable">$SPARK_HOME</span>/examples/jars/spark-examples_2.12-3.5.1.jar</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">spark-shell --master yarn</span><br/><span class="line">val textFile = sc.textFile(<span class="string">"hdfs://localhost:9820/wcinput"</span>)</span><br/><span class="line">textFile.count()</span><br/></pre></td></tr></table></figure>
+<p><code>spark-env.sh</code>：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> SPARK_DIST_CLASSPATH=$(/opt/hadoop-3.3.6/bin/hadoop classpath)</span><br/><span class="line"><span class="built_in">export</span> HADOOP_CONF_DIR=/opt/hadoop-3.3.6/etc/hadoop</span><br/><span class="line"><span class="built_in">export</span> SPARK_MASTER_HOST=localhost</span><br/></pre></td></tr></table></figure>
+<p><code>workers</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">localhost</span><br/></pre></td></tr></table></figure>
 <h2 id="网络">网络</h2>
 <p>如果你用的 WSL + 单机伪分布式，只需要修改
 <code>/etc/wsl.conf</code>：</p>
@@ -345,14 +362,6 @@ zookeeper：下次再说（下次再说的意思是永远都不说）</p>
 KEY----- 开头。<a href="https://www.cnblogs.com/simple-li/p/14654812.html" rel="noopener" target="_blank">后续错误</a></p>
 <p>每台机器上都执行：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">ssh-copy-id ubuntu101</span><br/><span class="line">ssh-copy-id ubuntu102</span><br/><span class="line">...</span><br/></pre></td></tr></table></figure>
-<h2 id="目录">目录</h2>
-<p>EditLog 和 FsImage 在：</p>
-<ul>
-<li>NN 的 <code>${hadoop.tmp.dir}/dfs/name/current</code></li>
-<li>2NN 的
-<code>${hadoop.tmp.dir}/data/dfs/namesecondary/current</code></li>
-</ul>
-<h2 id="mr-1">MR</h2>
 <h2 id="超链接">超链接</h2>
 <ul>
 <li><a href="https://www.ruanyifeng.com/blog/2020/08/rsync.html" rel="noopener" target="_blank">rsync
@@ -382,9 +391,6 @@ DNS，<code>PATH</code> 和物理路径的中间商叫命令行解释器。</p>
 <code>readlink -f $(which xxx)</code> 找你的命令源文件在哪里；使用
 <code>which which</code> 找你的 <code>which</code> 在哪里。</p>
 <p>查看虚拟机的 IP 地址：<code>ifconfig</code> <code>ip -a</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">mapred --daemon start historyserver</span><br/></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs oev -p XML -i edits_xxxx -o ./edits_xxxx.xml</span><br/></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs oiv -p XML -i fsimage_xxxx -o ./fsimage_xxxx.xml</span><br/></pre></td></tr></table></figure>
 <h3 id="集群脚本">集群脚本</h3>
 <p>前提是你搭了集群。笔者已经放弃集群了，太麻烦了。</p>
 <p><strong>all：对集群的所有机器执行操作</strong></p>

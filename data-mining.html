@@ -25,12 +25,12 @@
  
  从【信息】到【知识】的这一步，叫【数据挖掘】" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="https://hrfis.me/blog/images/decision-tree.png" property="og:image"/>
+<meta content="https://hrfis.me/blog/images/decision-tree.webp" property="og:image"/>
 <meta content="2024-02-28T13:35:00.000Z" property="article:published_time"/>
-<meta content="2024-05-10T08:02:37.446Z" property="article:modified_time"/>
+<meta content="2024-05-15T08:20:56.831Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<meta content="https://hrfis.me/blog/images/decision-tree.png" name="twitter:image"/>
+<meta content="https://hrfis.me/blog/images/decision-tree.webp" name="twitter:image"/>
 <link href="https://hrfis.me/blog/data-mining" rel="canonical"/>
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/data-mining.html","path":"/data-mining.html","title":"数据挖掘"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
@@ -93,13 +93,13 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">35</span>
+<span class="site-state-item-count">30</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
 <div class="site-state-item site-state-categories">
 <a href="/blog/categories/">
-<span class="site-state-item-count">4</span>
+<span class="site-state-item-count">3</span>
 <span class="site-state-item-name">分类</span></a>
 </div>
 </nav>
@@ -143,7 +143,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-10T16:02:37+08:00" itemprop="dateModified" title="修改时间：2024-05-10 16:02:37">2024-05-10</time>
+<time datetime="2024-05-15T16:20:56+08:00" itemprop="dateModified" title="修改时间：2024-05-15 16:20:56">2024-05-15</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -151,7 +151,7 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">问题</span></a>
+<a href="/blog/u/" itemprop="url" rel="index"><span itemprop="name">永远不看系列</span></a>
 </span>
 </span>
 </div>
@@ -234,7 +234,7 @@
 <p>（方便理解，学习用，无歧视）</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/></pre></td><td class="code"><pre><span class="line"><span class="comment"># 特征列表</span></span><br/><span class="line">features = [<span class="string">"性别"</span>, <span class="string">"使用手机的牌子"</span>, <span class="string">"年龄"</span>, <span class="string">"是否赌博"</span>, <span class="string">"喜欢玩的游戏"</span>, <span class="string">"喜欢音乐的曲风"</span>]</span><br/><span class="line">dataset = [</span><br/><span class="line">    <span class="comment"># 最后一个是分类标签</span></span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"小米"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"王者荣耀"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"有病"</span>],</span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"华为"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"和平精英"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"有病"</span>],</span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"苹果"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"明日方舟"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"有病"</span>],</span><br/><span class="line">    [<span class="string">"女"</span>, <span class="string">"小米"</span>, <span class="string">"中"</span>, <span class="string">"是"</span>, <span class="string">"王者荣耀"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"有病"</span>],</span><br/><span class="line">    [<span class="string">"女"</span>, <span class="string">"小米"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"和平精英"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"有病"</span>],</span><br/><span class="line">    [<span class="string">"女"</span>, <span class="string">"华为"</span>, <span class="string">"小"</span>, <span class="string">"否"</span>, <span class="string">"明日方舟"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"有病"</span>],</span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"华为"</span>, <span class="string">"小"</span>, <span class="string">"否"</span>, <span class="string">"王者荣耀"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"有病"</span>],</span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"苹果"</span>, <span class="string">"小"</span>, <span class="string">"否"</span>, <span class="string">"和平精英"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"有病"</span>],</span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"苹果"</span>, <span class="string">"大"</span>, <span class="string">"否"</span>, <span class="string">"明日方舟"</span>, <span class="string">"华语流行"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">    [<span class="string">"女"</span>, <span class="string">"小米"</span>, <span class="string">"大"</span>, <span class="string">"否"</span>, <span class="string">"王者荣耀"</span>, <span class="string">"华语流行"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">    [<span class="string">"女"</span>, <span class="string">"小米"</span>, <span class="string">"大"</span>, <span class="string">"否"</span>, <span class="string">"和平精英"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">    [<span class="string">"女"</span>, <span class="string">"华为"</span>, <span class="string">"小"</span>, <span class="string">"否"</span>, <span class="string">"明日方舟"</span>, <span class="string">"华语流行"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"华为"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"王者荣耀"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">    [<span class="string">"女"</span>, <span class="string">"苹果"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"明日方舟"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"苹果"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"明日方舟"</span>, <span class="string">"华语流行"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">    [<span class="string">"女"</span>, <span class="string">"小米"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"和平精英"</span>, <span class="string">"华语流行"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"华为"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"明日方舟"</span>, <span class="string">"日语流行"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">]</span><br/></pre></td></tr></table></figure>
 <p>生成类似这样的决策树：</p>
-<p><img src="/blog/images/decision-tree.png"/></p>
+<p><img src="/blog/images/decision-tree.webp"/></p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">

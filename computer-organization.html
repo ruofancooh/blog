@@ -16,7 +16,7 @@
 <meta content="永远不看系列。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-03-02T10:20:00.000Z" property="article:published_time"/>
-<meta content="2024-04-28T09:59:26.162Z" property="article:modified_time"/>
+<meta content="2024-05-15T08:07:46.510Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/computer-organization" rel="canonical"/>
@@ -69,7 +69,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cpu-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">CPU 性能指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E5%AD%97%E8%8A%82%E8%AE%B0%E5%BD%95%E6%95%B4%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">使用一个字节记录整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%90%E4%BD%8D%E8%BF%9B%E4%BD%8D%E5%8A%A0%E6%B3%95%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">逐位进位加法器的实现</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cpu-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">CPU 性能指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E5%AD%97%E8%8A%82%E8%AE%B0%E5%BD%95%E6%95%B4%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">使用一个字节记录整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%90%E4%BD%8D%E8%BF%9B%E4%BD%8D%E5%8A%A0%E6%B3%95%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">逐位进位加法器的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">普通十进制数转单精度浮点数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E4%B8%80"><span class="nav-number">4.1.</span> <span class="nav-text">例一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E4%BA%8C"><span class="nav-number">4.2.</span> <span class="nav-text">例二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81"><span class="nav-number">4.3.</span> <span class="nav-text">如何验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8E-k-%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC"><span class="nav-number">5.</span> <span class="nav-text">十进制与 K 进制小数互转</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-10"><span class="nav-number">5.1.</span> <span class="nav-text">2 转 10</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-2"><span class="nav-number">5.2.</span> <span class="nav-text">10 转 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-16"><span class="nav-number">5.3.</span> <span class="nav-text">10 转 16</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -81,13 +81,13 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">35</span>
+<span class="site-state-item-count">30</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
 <div class="site-state-item site-state-categories">
 <a href="/blog/categories/">
-<span class="site-state-item-count">4</span>
+<span class="site-state-item-count">3</span>
 <span class="site-state-item-name">分类</span></a>
 </div>
 </nav>
@@ -131,7 +131,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-04-28T17:59:26+08:00" itemprop="dateModified" title="修改时间：2024-04-28 17:59:26">2024-04-28</time>
+<time datetime="2024-05-15T16:07:46+08:00" itemprop="dateModified" title="修改时间：2024-05-15 16:07:46">2024-05-15</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -139,7 +139,7 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/u/" itemprop="url" rel="index"><span itemprop="name">无分类</span></a>
+<a href="/blog/u/" itemprop="url" rel="index"><span itemprop="name">永远不看系列</span></a>
 </span>
 </span>
 </div>
@@ -256,6 +256,228 @@ N_\mathrm{C}\)</span></p>
 <li>四个全加器串联实现四位加法器</li>
 </ol>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br/><span class="line"></span><br/><span class="line">truth = (<span class="literal">True</span>, <span class="literal">False</span>)</span><br/><span class="line">numbers = <span class="built_in">tuple</span>(product(truth, repeat=<span class="number">4</span>))</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">adder</span>(<span class="params">a: <span class="built_in">tuple</span>[<span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>], b: <span class="built_in">tuple</span>[<span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>]</span>):</span><br/><span class="line">    s1, c1 = full_adder(a[-<span class="number">1</span>], b[-<span class="number">1</span>], <span class="literal">False</span>)</span><br/><span class="line">    s2, c2 = full_adder(a[-<span class="number">2</span>], b[-<span class="number">2</span>], c1)</span><br/><span class="line">    s3, c3 = full_adder(a[-<span class="number">3</span>], b[-<span class="number">3</span>], c2)</span><br/><span class="line">    s4, c4 = full_adder(a[-<span class="number">4</span>], b[-<span class="number">4</span>], c3)</span><br/><span class="line">    <span class="keyword">return</span> c4, s4, s3, s2, s1</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">to_number</span>(<span class="params">a: <span class="built_in">tuple</span>[<span class="built_in">bool</span>, ...]</span>):</span><br/><span class="line">    binary_string = <span class="string">""</span>.join(<span class="built_in">str</span>(<span class="built_in">int</span>(elem)) <span class="keyword">for</span> elem <span class="keyword">in</span> a)</span><br/><span class="line">    decimal_number = <span class="built_in">int</span>(binary_string, <span class="number">2</span>)</span><br/><span class="line">    <span class="keyword">return</span> decimal_number</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> numbers:</span><br/><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> numbers:</span><br/><span class="line">        result = adder(a, b)</span><br/><span class="line">        <span class="built_in">print</span>(<span class="string">f"<span class="subst">{to_number(a)}</span> + <span class="subst">{to_number(b)}</span> = <span class="subst">{to_number(result)}</span>"</span>)</span><br/></pre></td></tr></table></figure>
+<h2 id="普通十进制数转单精度浮点数">普通十进制数转单精度浮点数</h2>
+<ul>
+<li>在 IEEE 754 标准下</li>
+</ul>
+<p>单精度浮点数，即 32 位二进制浮点数，包含：</p>
+<p>一位符号位 + 八位指数位 + 二十三位尾数位</p>
+<h3 id="例一">例一</h3>
+<p>以 <span class="math inline">\(0.1_{10}\)</span> 为例：</p>
+<ol type="1">
+<li><p>把十进制转换为二进制 <span class="math inline">\(0.1 _{10} =
+0.0\dot{0}01\dot{1}... _{2}\)</span></p></li>
+<li><p>用以 <span class="math inline">\(2_{10}\)</span>
+为基数的科学计数法表示，并保证【尾数的小数点前是 <span class="math inline">\(1_{2}\)</span>】 <span class="math inline">\(=
+1.\dot{1}00\dot{1}..._{2} \times (2^{-4})_{10}\)</span> 可以看到指数是
+<span class="math inline">\(-4_{10}\)</span></p></li>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<p>这里 <span class="math inline">\(e\)</span>
+等于【用于表示指数位的位数】 <span class="math inline">\(8_{10}\)</span>，所以偏移量为 <span class="math inline">\(127_{10}\)</span></p>
+<p>则阶码为 <span class="math inline">\(-4_{10} + 127_{10} =
+123_{10}\)</span></p>
+<p>阶码的二进制为 <code>0111 1011</code>，注意
+<em>阶码始终为无符号整数</em></p></li>
+<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是无限的，所以要舍去一部分</p>
+<p>它的前二十位是：<code>1001 1001 1001 1001 1001</code></p>
+<p>二十一至二十八位是：<code>1001 1001</code></p>
+<p>所以二十一至二十三位，要么取 <code>100</code>，要么取
+<code>101</code>。</p>
+<p>通常是舍入到最接近的，一样接近则偶数（末尾为
+<code>0</code>）优先，这里 <code>101</code> 更接近。</p></li>
+<li><p>把符号位连同阶码、尾数位缝合起来</p>
+<p><code>0 | 0111 1011 | 1001 1001 1001 1001 1001 101</code></p></li>
+</ol>
+<h3 id="例二">例二</h3>
+<p>以 <span class="math inline">\(12_{10} = 1.5_{10} \times
+(2^{3})_{10}\)</span> 为例，和上面的步骤一样：</p>
+<ol type="1">
+<li><p>把十进制转换为二进制</p>
+<p><span class="math inline">\(12 _{10} = 1100 _{2}\)</span></p></li>
+<li><p>用以 <span class="math inline">\(2\)</span>
+为基数的科学计数法表示，并保证【尾数的小数点前是 <span class="math inline">\(1\)</span>】</p>
+<p><span class="math inline">\(= 1.1_{2} \times (2^3)_{10}\)</span></p>
+<p>可以看到指数是 <span class="math inline">\(3_{10}\)</span></p></li>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<p>这里 <span class="math inline">\(e\)</span>
+等于【用于表示指数位的位数】 <span class="math inline">\(8_{10}\)</span>，所以偏移量为 <span class="math inline">\(127_{10}\)</span></p>
+<p>则阶码为 <span class="math inline">\(3_{10} + 127_{10} =
+130_{10}\)</span></p>
+<p>阶码的二进制为 <code>1000 0010</code>，注意
+<em>阶码始终为无符号整数</em></p></li>
+<li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是有限的，所以后面直接补零</p>
+<p>小数点后二十三位是：<code>1000 0000 0000 0000 000</code></p></li>
+<li><p>把符号位连同阶码、尾数位缝合起来</p>
+<p><code>0 | 1000 0010 | 1000 0000 0000 0000 000</code></p></li>
+</ol>
+<h3 id="如何验证">如何验证</h3>
+<ul>
+<li><a href="https://baseconvert.com/ieee-754-floating-point" rel="noopener" target="_blank">在线转换</a></li>
+<li><a href="https://en.wikipedia.org/wiki/IEEE_754" rel="noopener" target="_blank">Wikipedia</a> | <a href="https://zh.wikipedia.org/wiki/IEEE_754" rel="noopener" target="_blank">维基百科</a></li>
+<li>获取国际标准文件 IEEE 754 标准是电气与电子工程师协会（Institute of
+Electrical and Electronics
+Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <a href="https://standards.ieee.org/ieee/754/6210/" rel="noopener" target="_blank">IEEE
+754-2019</a>，对应国际标准 <a href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/standard/08/09/80985.html" rel="noopener" target="_blank">ISO/IEC
+60559:2020</a>，预计下一次在 2028 年修订。 http://snti.ru/
+这个网站分享了各种国际标准文件的磁力链接，但是可以免费下载的不全，IEC
+的只有 61xxx。据说可以给站长发邮件要
+<code>popov_al@perm.ru</code>，每个文件一刀乐。在 ISO 官网上下载需要 187
+瑞士法郎，合 1000 多人民币。</li>
+</ul>
+<p>用 GDB：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br/><span class="line"></span><br/><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br/><span class="line">{</span><br/><span class="line">    <span class="type">float</span> num = <span class="number">1.7</span>;</span><br/><span class="line">    <span class="built_in">printf</span>(<span class="string">""</span>);</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
+<p>在第六行打上断点，VSCode 开调试，在调试控制台里：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/4tb &amp;num</span><br/></pre></td></tr></table></figure>
+<ul>
+<li><code>-exec</code> 执行命令</li>
+<li><code>x</code> 查看内存</li>
+<li><code>4</code> 输出 4 个单元
+<ul>
+<li>不写默认为 <code>1</code></li>
+</ul></li>
+<li><code>t</code> 以二进制形式输出
+<ul>
+<li><code>x</code> 十六进制</li>
+</ul></li>
+<li><code>b</code> 以【一个字节】为一个单元
+<ul>
+<li><code>h</code> 两个字节</li>
+<li><code>w</code> 四个字节</li>
+<li><code>g</code> 八个字节</li>
+</ul></li>
+<li><code>&amp;</code>取变量地址</li>
+</ul>
+<p>输出结果：</p>
+<p><code>0x61fe1c: 10011010 10011001 11011001 00111111</code></p>
+<p>从右往左排列后：</p>
+<p><code>00111111 11011001 10011001 10011010</code></p>
+<p><code>0 01111111 10110011001100110011010</code></p>
+<p>才是<code>float 1.7</code>的二进制表示。</p>
+<p>还可以直接用</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/tw &amp;num</span><br/></pre></td></tr></table></figure>
+<p>输出四个字节，结果：</p>
+<p><code>0x61fe1c: 00111111110110011001100110011010</code></p>
+<h2 id="十进制与-k-进制小数互转">十进制与 K 进制小数互转</h2>
+<p>K 转 10：每一位分别乘上 K 的次方，再相加。</p>
+<h3 id="转-10">2 转 10</h3>
+<p><strong>有限小数</strong></p>
+<p><span class="math inline">\(11.1011_{2} = 3.6875_{10}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>项</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{1}\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1\times2^{0}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{-1}\)</span></td>
+<td><span class="math inline">\(0.5\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0\times2^{-2}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{-3}\)</span></td>
+<td><span class="math inline">\(0.125\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1\times2^{-4}\)</span></td>
+<td><span class="math inline">\(0.0625\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>总和</strong></td>
+<td><span class="math inline">\(3.6875\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>无限循环小数</strong></p>
+<p><span class="math inline">\(1.1 \dot{0} 11 \dot{0} ... _{2} =
+1.7_{10}\)</span></p>
+<p>可以转换成分数计算：</p>
+<p><span class="math display">\[
+\begin{aligned}
+1.1 \dot{0} 11 \dot{0} ... _{2} &amp; = x \\
+11.\dot{0} 11 \dot{0} ... _{2} &amp; = 2_{10}x \\
+110110. \dot{0} 11 \dot{0} ... _{2} &amp; = 32_{10}x \\
+两式相减，110011_{2} &amp; = 30_{10}x \\
+x &amp; = \frac{110011_{2}}{30_{10}} = \frac{51_{10}}{30_{10}} =
+1.7_{10}
+\end{aligned}
+\]</span></p>
+<p>10 转 K：</p>
+<p>整数部分仍然除 K 取余，小数部分乘 K 取整，然后相加。</p>
+<h3 id="转-2">10 转 2</h3>
+<p><span class="math inline">\(0.7 _{10} = 0.1 \dot{0} 11 \dot{0} ...
+_{2}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>小数部分乘 2</th>
+<th>取整数部分</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0.7 \times 2 = 1.4\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.4 \times 2 = 0.8\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(0.8 \times 2 = 1.6\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.6 \times 2 = 1.2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(0.2 \times 2 = 0.4\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<h3 id="转-16">10 转 16</h3>
+<p><span class="math inline">\(0.7 _{10} = 0.\mathrm{B} \dot{3} ...
+_{16}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>小数部分乘 16</th>
+<th>取整数部分</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0.7 \times 16 = 11.2\)</span></td>
+<td><span class="math inline">\(\mathrm{B}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.2 \times 16 = 3.2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+</tr>
+<tr class="odd">
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
