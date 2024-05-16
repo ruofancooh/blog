@@ -20,7 +20,7 @@
  回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-26T09:45:00.000Z" property="article:published_time"/>
-<meta content="2024-05-15T08:10:17.924Z" property="article:modified_time"/>
+<meta content="2024-05-16T11:06:45.691Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/hadoop" rel="canonical"/>
@@ -135,7 +135,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-15T16:10:17+08:00" itemprop="dateModified" title="修改时间：2024-05-15 16:10:17">2024-05-15</time>
+<time datetime="2024-05-16T19:06:45+08:00" itemprop="dateModified" title="修改时间：2024-05-16 19:06:45">2024-05-16</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -163,7 +163,9 @@
 <ol type="1">
 <li>改用
 WSL（有三层动机，就第一种，笔者还是有点叛逆的想法；第二种，据说它比虚拟机的性能好，实际上，它几秒钟就能开机；第三种，笔者没有自信以看日志的方式解决卡死的问题）</li>
-<li>以后安装各种软件，先看文档。配置文件能不改就不改，能用默认的就用默认的，改了费时费力。有一种心法是：<b><span class="red-text">在软件安装完之后，什么配置都别写，上来先启动了再说。等报错了再修改配置。这样做你才能知道，哪些配置是必须有的，而哪些配置是多余的（或者人家默认配置好的）。</span></b></li>
+<li>以后安装各种软件，先看文档。配置文件能不改就不改，能用默认的就用默认的，改了费时费力。有一种心法是：<span class="red-text">在软件安装完之后，什么配置都别写，上来先启动了再说。然后查看日志，搜索
+<code>WARN</code>
+<code>ERROR</code>。这样做你才能知道，哪些配置是必须有的，而哪些配置是多余的（或者人家默认配置好的）。</span></li>
 </ol>
 <p>真的，笔者有想把软件全部转移到 C 盘的冲动，把 C 盘和 D
 盘合并，东西全放在桌面上，这样做比较不反人类。就事实看来，这几年根本没有出现系统崩了导致文件丢了的情况；仅就学术价值看来，没有对笔者来说重要顶过天的文件；就个人价值看来，也没有，因为笔者是一个俗人。也只是想想而已，想想而已……</p>
@@ -212,7 +214,7 @@ Windows 操作系统上</li>
 </ol>
 <p>如果你用的是 WSL，你在它上面开一个端口，可以直接在物理机上使用
 <code>localhost:port</code> 访问。<strong>如果你装了两台 WSL，它们的 IP
-会是相同的</strong>，这个问题不好解决。据说<b><span class="red-text">学大数据的都找不到大数据相关工作</span></b>。那我们就退而求其次，根本没有必要搭分布式集群，在一台机器上搭个伪分布式就行了，文件分片只分一片。这样配置文件还不至于备份来备份去，只保留一份配置文件。</p>
+会是相同的</strong>，这个问题不好解决。据说<span class="red-text">学大数据的都找不到大数据相关工作</span>。那我们就退而求其次，根本没有必要搭分布式集群，在一台机器上搭个伪分布式就行了，文件分片只分一片。这样配置文件还不至于备份来备份去，只保留一份配置文件。</p>
 <ol start="5" type="1">
 <li><p>配置 Ubuntu 软件源
 https://mirrors.ustc.edu.cn/help/ubuntu.html</p></li>
@@ -246,9 +248,9 @@ https://cwiki.apache.org/confluence/display/HADOOP/Hadoop+Java+Versions</p></li>
 Remote-SSH 插件可以直接修改虚拟机内的文件，如果你用的是 WSL
 更方便。</li>
 </ol>
-<p><b><span class="red-text">在
+<p><span class="red-text">在
 https://hadoop.apache.org/docs/r3.3.6/index.html
-左下角有默认的配置文件。</span></b></p>
+左下角有默认的配置文件。</span></p>
 <ul>
 <li><code>hadoop-env.sh</code> 指定 JAVA_HOME，启动 JVM 时的参数</li>
 <li><code>core-site.xml</code> 指定 hdfs 的
@@ -276,11 +278,11 @@ NameNode address；</li>
 <li>我们为什么要在 <code>hdfs-site.xml</code> 里配置
 <code>dfs.namenode.http-address</code> ？因为我们想用浏览器访问
 HDFS；</li>
-<li>我们为什么可以不在 <code>core-site.xml</code> 里配置
-<code>hadoop.http.staticuser.user</code> ？为什么可以不在
-<code>hadoop-env.sh</code>
-里配置各种用户名？因为笔者尝试的结果就是：可以不配置。笔者把
-<code>/opt</code> 目录的用户和用户组都修改成了自定义用户。</li>
+<li>我们为什么要在 <code>core-site.xml</code> 里配置
+<code>hadoop.http.staticuser.user</code>
+？因为如果不配置，只有读的权限，没有写的权限；</li>
+<li>我们为什么可以不在 <code>hadoop-env.sh</code>
+里配置各种用户名？因为还没有遇到报错的时候</li>
 </ul>
 <ol start="12" type="1">
 <li>在 NameNode 上执行 <code>hdfs -namenode format</code>，把 Hadoop
@@ -320,13 +322,17 @@ HDFS</li>
 <p>配置 <code>conf/zoo.cfg</code></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">dataDir=/usr/local/zookeeper-3.8.2/zkData</span><br/><span class="line">server.101=master:2888:3888</span><br/><span class="line">server.102=worker1:2888:3888</span><br/></pre></td></tr></table></figure>
 <h2 id="hbase">HBase</h2>
-<p><code>hbase-env.sh</code> 指定 JAVA_HOME</p>
-<p><code>hbase-site.xml</code>
-指定是否以分布式运行，数据库根目录是本地文件系统还是 HDFS，Web
-端口，Zookeeper 数据目录，HBase
-临时目录，不强制执行与流式传输相关的不安全操作</p>
-<p>注意：hbase 自带 zookeeper。如果想使用本地已安装的
-zookeeper：下次再说（下次再说的意思是永远都不说）</p>
+<p>https://hbase.apache.org/book.html#standalone_dist</p>
+<p>https://hbase.apache.org/book.html#shell_exercises</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">start-dfs.sh</span><br/><span class="line">start-hbase.sh</span><br/><span class="line">hbase shell</span><br/></pre></td></tr></table></figure>
+<p>如果你没有在 <code>hbase-env.sh</code> 里配置
+<code>JAVA_HOME</code>，你会看到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/></pre></td><td class="code"><pre><span class="line">127.0.0.1: +======================================================================+</span><br/><span class="line">127.0.0.1: |                    Error: JAVA_HOME is not set                       |</span><br/><span class="line">127.0.0.1: +----------------------------------------------------------------------+</span><br/><span class="line">127.0.0.1: | Please download the latest Sun JDK from the Sun Java web site        |</span><br/><span class="line">127.0.0.1: |     &gt; http://www.oracle.com/technetwork/java/javase/downloads        |</span><br/><span class="line">127.0.0.1: |                                                                      |</span><br/><span class="line">127.0.0.1: | HBase requires Java 1.8 or later.                                    |</span><br/><span class="line">127.0.0.1: +======================================================================+</span><br/></pre></td></tr></table></figure>
+<p><code>hbase-site.xml</code>：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.cluster.distributed<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://localhost:9820/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br/><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.wal.provider<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>filesystem<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br/></pre></td></tr></table></figure>
+<p>第三个配置项是为了解决：参见
+https://hbase.apache.org/book.html#wal.providers</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">ERROR [RS-EventLoopGroup-3-2] util.NettyFutureUtils (NettyFutureUtils.java:lambda$addListener$0(58)) - Unexpected error caught when processing netty</span><br/><span class="line">java.lang.IllegalArgumentException: object is not an instance of declaring class</span><br/></pre></td></tr></table></figure>
 <h2 id="spark">Spark</h2>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">start-master.sh</span><br/><span class="line">start-workers.sh</span><br/></pre></td></tr></table></figure>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">spark-submit --class org.apache.spark.examples.SparkPi --master yarn <span class="variable">$SPARK_HOME</span>/examples/jars/spark-examples_2.12-3.5.1.jar</span><br/></pre></td></tr></table></figure>
