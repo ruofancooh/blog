@@ -9,18 +9,20 @@
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
 <meta content="只有当笔者意识到：写教程是在浪费时间的时候，说明笔者是真的学会了。
- 理由：这些文档在各个软件的网站上，别人早就写好了。笔者写的不叫教程，顶多叫操作步骤，这些步骤不可能适用于所有环境。
- 回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就" name="description"/>
+ 理由：这些文档在各个软件的网站上，别人早就写好了。或者在你软件安装的目录里面，有一个大大的 doc
+ 文件夹。
+ 回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就过程" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="Hadoop" property="og:title"/>
 <meta content="https://hrfis.me/blog/hadoop.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
 <meta content="只有当笔者意识到：写教程是在浪费时间的时候，说明笔者是真的学会了。
- 理由：这些文档在各个软件的网站上，别人早就写好了。笔者写的不叫教程，顶多叫操作步骤，这些步骤不可能适用于所有环境。
- 回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就" property="og:description"/>
+ 理由：这些文档在各个软件的网站上，别人早就写好了。或者在你软件安装的目录里面，有一个大大的 doc
+ 文件夹。
+ 回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就过程" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-26T09:45:00.000Z" property="article:published_time"/>
-<meta content="2024-05-16T11:06:45.691Z" property="article:modified_time"/>
+<meta content="2024-05-17T09:24:26.545Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/hadoop" rel="canonical"/>
@@ -73,7 +75,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ubuntu"><span class="nav-number">1.</span> <span class="nav-text">安装 Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-hadoop"><span class="nav-number">2.</span> <span class="nav-text">安装 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-hadoop"><span class="nav-number">3.</span> <span class="nav-text">配置 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr"><span class="nav-number">4.</span> <span class="nav-text">MR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hdfs"><span class="nav-number">5.</span> <span class="nav-text">HDFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zookeeper"><span class="nav-number">6.</span> <span class="nav-text">ZooKeeper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hbase"><span class="nav-number">7.</span> <span class="nav-text">HBase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spark"><span class="nav-number">8.</span> <span class="nav-text">Spark</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C"><span class="nav-number">9.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh"><span class="nav-number">10.</span> <span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number">11.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-number">12.</span> <span class="nav-text">持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">12.1.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E8%84%9A%E6%9C%AC"><span class="nav-number">12.2.</span> <span class="nav-text">集群脚本</span></a></li></ol></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java-%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">Java 代码运行环境的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ubuntu"><span class="nav-number">2.</span> <span class="nav-text">安装 Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-hadoop"><span class="nav-number">3.</span> <span class="nav-text">安装 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-hadoop"><span class="nav-number">4.</span> <span class="nav-text">配置 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr"><span class="nav-number">5.</span> <span class="nav-text">MR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hdfs"><span class="nav-number">6.</span> <span class="nav-text">HDFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zookeeper"><span class="nav-number">7.</span> <span class="nav-text">ZooKeeper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hbase"><span class="nav-number">8.</span> <span class="nav-text">HBase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spark"><span class="nav-number">9.</span> <span class="nav-text">Spark</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C"><span class="nav-number">10.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh"><span class="nav-number">11.</span> <span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number">12.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-number">13.</span> <span class="nav-text">持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">13.1.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E8%84%9A%E6%9C%AC"><span class="nav-number">13.2.</span> <span class="nav-text">集群脚本</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -135,7 +137,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-16T19:06:45+08:00" itemprop="dateModified" title="修改时间：2024-05-16 19:06:45">2024-05-16</time>
+<time datetime="2024-05-17T17:24:26+08:00" itemprop="dateModified" title="修改时间：2024-05-17 17:24:26">2024-05-17</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -150,7 +152,8 @@
 </div>
 </header>
 <div class="post-body" itemprop="articleBody"><p>只有当笔者意识到：写教程是在浪费时间的时候，说明笔者是真的学会了。</p>
-<p>理由：这些文档在各个软件的网站上，别人早就写好了。笔者写的不叫教程，顶多叫操作步骤，这些步骤不可能适用于所有环境。</p>
+<p>理由：这些文档在各个软件的网站上，别人早就写好了。或者<span class="red-text">在你软件安装的目录里面，有一个大大的 doc
+文件夹。</span></p>
 <p>回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就过程看来，笔者确实没有做到，因为笔者去纠结软件了。</p>
 <p>不作死就不会死。用 Ubuntu + VM Player
 的后果是：隔一段时间系统就会卡死（与 Hadoop 无关），挂起再开后，watchdog
@@ -168,8 +171,16 @@ WSL（有三层动机，就第一种，笔者还是有点叛逆的想法；第�
 <code>ERROR</code>。这样做你才能知道，哪些配置是必须有的，而哪些配置是多余的（或者人家默认配置好的）。</span></li>
 </ol>
 <p>真的，笔者有想把软件全部转移到 C 盘的冲动，把 C 盘和 D
-盘合并，东西全放在桌面上，这样做比较不反人类。就事实看来，这几年根本没有出现系统崩了导致文件丢了的情况；仅就学术价值看来，没有对笔者来说重要顶过天的文件；就个人价值看来，也没有，因为笔者是一个俗人。也只是想想而已，想想而已……</p>
+盘合并，东西全放在桌面上，这样做比较不反人类。就事实看来，这几年根本没有出现系统崩了导致文件丢了的情况；仅就学术价值看来，没有对笔者来说重要顶过天的文件；就个人价值看来，也没有，因为笔者是一个俗人。</p>
+<ul>
+<li>使用 https://www.diskgenius.cn/ 可以把你 D 盘的空间向 C
+盘匀一点。如果你有多余的恢复分区，可以把它删了，只保留一个。</li>
+<li>使用 https://github.com/redtrillix/SpaceSniffer
+可以可视化地展示你硬盘的占用情况。</li>
+<li>给虚拟机扩容：<code>https://hrfis.me/blog/linux.html#扩容</code></li>
+</ul>
 <span id="more"></span>
+<hr/>
 <p>Hadoop 是一个软件，它是用 Java 写的，需要运行在 Java
 虚拟机上。你以后还要通过写 Java 代码来连接它其中的一个组件，叫
 HDFS。所有 Java 代码都得过一道 Java 编译器，然后在 JVM（Java
@@ -185,6 +196,58 @@ HDFS。所有 Java 代码都得过一道 Java 编译器，然后在 JVM（Java
 <li>在 Windows 上照样可以运行 JVM</li>
 <li>Hadoop 可以运行在 Windows 上</li>
 </ol>
+<h2 id="java-代码运行环境的问题">Java 代码运行环境的问题</h2>
+<p>你只要想“连接”一个什么东西，一定会碰到这个问题。</p>
+<p>“连接 HDFS”是什么意思？</p>
+<p>再往前问：你是如何知道你的“集群”是正在运行着的？用 <code>jps</code>
+查看 Java 进程。</p>
+<p><code>jps</code> 查看的是什么？是所有正在运行着的 JVM
+实例，每一个进程是一个单独的 JVM。</p>
+<p>“连接 HDFS”的意思是：<strong>再运行一个新的
+JVM</strong>，称为“客户端”。这个 JVM 要与另一个 JVM 通信，那个 JVM 叫
+<strong>NameNode</strong>。</p>
+<p>怎么通信？虽然不知道细节，但你可能看过这样的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br/><span class="line"><span class="keyword">import</span> java.net.URI;</span><br/><span class="line"><span class="keyword">import</span> java.net.URISyntaxException;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FileStatus;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FileSystem;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">App</span> {</span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, URISyntaxException {</span><br/><span class="line">        <span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br/><span class="line">        <span class="type">FileSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(<span class="keyword">new</span> <span class="title class_">URI</span>(<span class="string">"hdfs://ubuntu101:9820"</span>), conf);</span><br/><span class="line">        FileStatus[] fileStatuses = fs.listStatus(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"/"</span>));</span><br/><span class="line">        <span class="keyword">for</span> (FileStatus status : fileStatuses) {</span><br/><span class="line">            System.out.println(status.getPath());</span><br/><span class="line">        }</span><br/><span class="line">        fs.close();</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
+<p>现在的问题在于：</p>
+<ol type="1">
+<li><b><span class="red-text">它 <code>import</code>
+的东西是怎么来的？</span></b></li>
+<li><b><span class="red-text">在它编译完之后，放到 JVM
+上运行的时候（即“运行时”），它还需不需要它 <code>import</code>
+的东西？</span></b></li>
+<li><b><span class="red-text">它运行时的 JVM
+在哪里，在虚拟机上还是在物理机上？如果在物理机上，它能不能与虚拟机通信？</span></b></li>
+<li><b><span class="red-text">IDE 起的是什么作用？</span></b></li>
+</ol>
+<p>先回答第四个问题：<strong>IDE 起的是工具人的作用</strong>。如果你用的
+IDEA，并且成功连接 HDFS 了，你会在 IDEA 的命令行看到：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">/lib/jvm/java-8-openjdk-amd64/bin/java\ -javaagent:/opt/idea-IC-241.15989.150/lib/idea_rt.jar=43273:/opt/idea-IC-241.15989.150/bin\</span><br/><span class="line">                                        -Dfile.encoding=UTF-8\</span><br/><span class="line">                                        -classpath /lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/后面全都是Jar包的路径</span><br/></pre></td></tr></table></figure>
+<p>它就是执行了一条命令：打开你的 JDK 目录里的 <code>java</code>
+，然后向这个东西传了几个参数：工具人、文件编码、classpath</p>
+<p>关键的就是 classpath，<strong>你需要保证你代码“运行时”的东西能在
+classpath 里找到</strong>。</p>
+<p>再回答第二个问题：它 <code>import</code>
+的东西都是它的“运行时”需要的东西吗？</p>
+<p>不一定，这是它“编译时”需要的东西。当他报错报找不到某个类的时候，就是它“运行时”需要的东西。</p>
+<p>再回答第一个问题：搞到这些 jar 包。</p>
+<ul>
+<li>用 Maven</li>
+<li>如果你看过你 Hadoop 的安装目录，你会看到一个 <code>share</code>
+文件夹</li>
+</ul>
+<p>对于第三个问题的解决思路：</p>
+<ul>
+<li>在虚拟机上运行客户端，连接虚拟机上的 NameNode</li>
+<li>在物理机上运行客户端，连接物理机上的
+NameNode（如果你物理机搞成功了）</li>
+<li>在物理机上运行客户端，通过 winutils 这个中间人与虚拟机上的 NameNode
+通信</li>
+</ul>
+<p>笔者最终的解决方案是：在虚拟机上安装 IDE，把
+<code>$HADOOP_HOME/share/hadoop</code> 里的 Jar 包导进 IDE
+里（这里用的是 IDEA），按播放键运行。如果报找不到类的错误，注意：在
+<code>$HADOOP_HOME/share/hadoop/子文件夹</code> 下还有一个叫
+<code>lib</code> 的文件夹。</p>
 <h2 id="安装-ubuntu">安装 Ubuntu</h2>
 <ol type="1">
 <li>下载 Linux
@@ -309,12 +372,6 @@ HDFS</li>
 <li>2NN 的
 <code>${hadoop.tmp.dir}/data/dfs/namesecondary/current</code></li>
 </ul>
-<p>连接 HDFS，何意？使用 org.apache.hadoop.fs.FileSystem 这个类的 get
-方法，传一个 core-site.xml 里指定的 URI。</p>
-<p>在物理机上编码，带上这些依赖，带依赖打成 jar 包，在虚拟机上使用
-<code>java -jar xxx.jar</code></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hadoop<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hadoop-common<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hadoop<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hadoop-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hadoop<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hadoop-hdfs<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br/></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br/><span class="line"><span class="keyword">import</span> java.net.URI;</span><br/><span class="line"><span class="keyword">import</span> java.net.URISyntaxException;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FileStatus;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FileSystem;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">App</span> {</span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, URISyntaxException {</span><br/><span class="line">        <span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br/><span class="line">        <span class="type">FileSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(<span class="keyword">new</span> <span class="title class_">URI</span>(<span class="string">"hdfs://ubuntu101:9820"</span>), conf);</span><br/><span class="line">        FileStatus[] fileStatuses = fs.listStatus(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"/"</span>));</span><br/><span class="line">        <span class="keyword">for</span> (FileStatus status : fileStatuses) {</span><br/><span class="line">            System.out.println(status.getPath());</span><br/><span class="line">        }</span><br/><span class="line">        fs.close();</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
 <h2 id="zookeeper">ZooKeeper</h2>
 <p>ZooKeeper
 特点是只要有半数以上的节点正常工作，整个集群就能正常工作，所以适合装到奇数台服务器上。</p>
