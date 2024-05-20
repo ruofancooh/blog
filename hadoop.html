@@ -22,7 +22,7 @@
  回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就过程" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-26T09:45:00.000Z" property="article:published_time"/>
-<meta content="2024-05-17T09:24:26.545Z" property="article:modified_time"/>
+<meta content="2024-05-20T12:39:23.312Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/hadoop" rel="canonical"/>
@@ -137,7 +137,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-17T17:24:26+08:00" itemprop="dateModified" title="修改时间：2024-05-17 17:24:26">2024-05-17</time>
+<time datetime="2024-05-20T20:39:23+08:00" itemprop="dateModified" title="修改时间：2024-05-20 20:39:23">2024-05-20</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -382,6 +382,7 @@ HDFS</li>
 <p>https://hbase.apache.org/book.html#standalone_dist</p>
 <p>https://hbase.apache.org/book.html#shell_exercises</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">start-dfs.sh</span><br/><span class="line">start-hbase.sh</span><br/><span class="line">hbase shell</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">help</span></span><br/><span class="line">list</span><br/><span class="line">create <span class="string">'tablename'</span>,<span class="string">'cfname1'</span>,<span class="string">'cfname2'</span></span><br/><span class="line">put <span class="string">'tablename'</span>,<span class="string">'rowname'</span>,<span class="string">'cfname1:qualifiername1'</span>,<span class="string">'value'</span></span><br/><span class="line">put <span class="string">'tablename'</span>,<span class="string">'rowname'</span>,<span class="string">'cfname2:'</span>,<span class="string">'value'</span></span><br/><span class="line">scan <span class="string">'tablename'</span></span><br/><span class="line">scan <span class="string">'tablename'</span>,{COLUMNS=&gt;<span class="string">'cfname1'</span>}</span><br/><span class="line">get <span class="string">'tablename'</span>,<span class="string">'rowname'</span></span><br/><span class="line">describe <span class="string">'tablename'</span></span><br/><span class="line">drop <span class="string">'tablename'</span></span><br/></pre></td></tr></table></figure>
 <p>如果你没有在 <code>hbase-env.sh</code> 里配置
 <code>JAVA_HOME</code>，你会看到：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/></pre></td><td class="code"><pre><span class="line">127.0.0.1: +======================================================================+</span><br/><span class="line">127.0.0.1: |                    Error: JAVA_HOME is not set                       |</span><br/><span class="line">127.0.0.1: +----------------------------------------------------------------------+</span><br/><span class="line">127.0.0.1: | Please download the latest Sun JDK from the Sun Java web site        |</span><br/><span class="line">127.0.0.1: |     &gt; http://www.oracle.com/technetwork/java/javase/downloads        |</span><br/><span class="line">127.0.0.1: |                                                                      |</span><br/><span class="line">127.0.0.1: | HBase requires Java 1.8 or later.                                    |</span><br/><span class="line">127.0.0.1: +======================================================================+</span><br/></pre></td></tr></table></figure>

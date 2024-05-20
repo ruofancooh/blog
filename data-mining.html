@@ -27,7 +27,7 @@
 <meta content="zh_CN" property="og:locale"/>
 <meta content="https://hrfis.me/blog/images/decision-tree.webp" property="og:image"/>
 <meta content="2024-02-28T13:35:00.000Z" property="article:published_time"/>
-<meta content="2024-05-18T11:29:26.718Z" property="article:modified_time"/>
+<meta content="2024-05-20T12:59:09.505Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/decision-tree.webp" name="twitter:image"/>
@@ -81,7 +81,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.1.</span> <span class="nav-text">数据挖掘的任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%BA%A6%E9%87%8F"><span class="nav-number">1.2.</span> <span class="nav-text">属性与度量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">1.3.</span> <span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#id3-%E7%AE%97%E6%B3%95"><span class="nav-number">1.4.</span> <span class="nav-text">ID3 算法</span></a></li></ol></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.1.</span> <span class="nav-text">数据挖掘的任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%BA%A6%E9%87%8F"><span class="nav-number">1.2.</span> <span class="nav-text">属性与度量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">1.3.</span> <span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90"><span class="nav-number">1.4.</span> <span class="nav-text">关联分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#id3-%E7%AE%97%E6%B3%95"><span class="nav-number">1.5.</span> <span class="nav-text">ID3 算法</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -143,7 +143,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-18T19:29:26+08:00" itemprop="dateModified" title="修改时间：2024-05-18 19:29:26">2024-05-18</time>
+<time datetime="2024-05-20T20:59:09+08:00" itemprop="dateModified" title="修改时间：2024-05-20 20:59:09">2024-05-20</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -227,6 +227,16 @@
 <li>空间数据：有空间自相关性：地球上相近的两个点通常具有相近的气温/降水量</li>
 </ul></li>
 </ul>
+<h3 id="关联分析">关联分析</h3>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">AssociationRule</span>(namedtuple(<span class="string">"AssociationRule"</span>, [<span class="string">"X"</span>, <span class="string">"Y"</span>])):</span><br/><span class="line">    <span class="string">"""</span></span><br/><span class="line"><span class="string">    关联规则，是两个不相交集合的蕴含表达式</span></span><br/><span class="line"><span class="string">    {牛奶，尿布} -&gt; {啤酒}</span></span><br/><span class="line"><span class="string">    """</span></span><br/><span class="line"></span><br/><span class="line">    <span class="keyword">def</span> <span class="title function_">__new__</span>(<span class="params">cls, X: <span class="built_in">set</span>, Y: <span class="built_in">set</span></span>):</span><br/><span class="line">        <span class="keyword">assert</span> X.isdisjoint(Y)</span><br/><span class="line">        <span class="keyword">return</span> <span class="built_in">super</span>().__new__(cls, X, Y)</span><br/></pre></td></tr></table></figure>
+<p>支持度计数sigma，即事务列表里，项集的超集个数</p>
+<p>支持度，即项集的超集个数与集合总个数（事务个数）的比值</p>
+<p>大于等于最小支持度（计数）的项集，称为频繁项集</p>
+<p>置信度，由 X 引起 Y 的可能性。X 的支持度计数做分母，XY
+并集的支持度计数做分子</p>
+<p>先验原理：如果一个项集是频繁的，它的所有子集都是频繁的</p>
+<p>反过来：如果一个项集是非频繁的，它的所有超集都是非频繁的</p>
+<p>即：一个项集的子集的支持度，大于等于它本身的支持度</p>
 <h3 id="id3-算法">ID3 算法</h3>
 <p>Iterative Dichotomiser 3，迭代二分。属于决策树分类算法。</p>
 <p>对于一组数据集，其每一个数据有它的几个属性的值，和一个分类标签。</p>
