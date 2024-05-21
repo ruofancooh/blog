@@ -8,25 +8,31 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="起因是两年前《数据结构》考了 62 分；《离散数学》考了 63
- 分；《线性代数》挂了三次；《算法》也挂了一次。
+<meta content="起因是两年前：
+ 《数据结构》考了 62 分；
+ 《离散数学》考了 63 分；
+ 《线性代数》挂了三次；
+ 《算法》也 挂了一次。
  这四门课统称四大拦路虎。可以说是什么都没学会，太拉胯了。" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="离线算数" property="og:title"/>
+<meta content="我就是学不会算法" property="og:title"/>
 <meta content="https://hrfis.me/blog/ds.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="起因是两年前《数据结构》考了 62 分；《离散数学》考了 63
- 分；《线性代数》挂了三次；《算法》也挂了一次。
+<meta content="起因是两年前：
+ 《数据结构》考了 62 分；
+ 《离散数学》考了 63 分；
+ 《线性代数》挂了三次；
+ 《算法》也 挂了一次。
  这四门课统称四大拦路虎。可以说是什么都没学会，太拉胯了。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-05-18T16:00:00.000Z" property="article:published_time"/>
-<meta content="2024-05-20T09:44:15.122Z" property="article:modified_time"/>
+<meta content="2024-05-21T11:42:16.981Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/ds" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/ds.html","path":"/ds.html","title":"离线算数"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/ds.html","path":"/ds.html","title":"我就是学不会算法"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>离线算数 | 若凡的笔记</title>
+<title>我就是学不会算法 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -73,7 +79,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%A0%E8%BD%AE%E5%AD%90"><span class="nav-number">1.</span> <span class="nav-text">造轮子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E6%8F%90"><span class="nav-number">1.1.</span> <span class="nav-text">前提</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%9C%BA"><span class="nav-number">1.2.</span> <span class="nav-text">动机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8D%89%E7%A8%BF"><span class="nav-number">1.3.</span> <span class="nav-text">草稿</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-number">1.4.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%96%87%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">2.</span> <span class="nav-text">语文的基础知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE"><span class="nav-number">3.</span> <span class="nav-text">图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E6%96%B9%E9%98%B5"><span class="nav-number">4.</span> <span class="nav-text">图的邻接方阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%88%9D%E7%AD%89%E5%8F%98%E6%8D%A2"><span class="nav-number">5.</span> <span class="nav-text">矩阵的初等变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%82%E9%9B%86"><span class="nav-number">6.</span> <span class="nav-text">幂集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8"><span class="nav-number">7.</span> <span class="nav-text">顺序表</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B8%8D%E4%BC%9A%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="nav-number">1.</span> <span class="nav-text">算法学不会的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%92%88%E5%AF%B9%E8%B4%AD%E7%89%A9%E7%AF%AE%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">针对购物篮数据集的关联分析</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -114,12 +120,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="离线算数 | 若凡的笔记" itemprop="name"/>
+<meta content="我就是学不会算法 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          离线算数
+          我就是学不会算法
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -135,7 +141,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-20T17:44:15+08:00" itemprop="dateModified" title="修改时间：2024-05-20 17:44:15">2024-05-20</time>
+<time datetime="2024-05-21T19:42:16+08:00" itemprop="dateModified" title="修改时间：2024-05-21 19:42:16">2024-05-21</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -149,270 +155,69 @@
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>起因是两年前《数据结构》考了 62 分；《离散数学》考了 63
-分；《线性代数》挂了三次；《算法》也挂了一次。</p>
-<p>这四门课统称<strong>四大拦路虎</strong>。可以说是什么都没学会，太拉胯了。</p>
+<div class="post-body" itemprop="articleBody"><p>起因是两年前：</p>
+<p>《数据结构》考了 <strong>62 分</strong>；</p>
+<p>《离散数学》考了 <strong>63 分</strong>；</p>
+<p>《线性代数》<strong>挂</strong>了<strong>三</strong>次；</p>
+<p>《算法》也 <strong>挂</strong>了一次。</p>
+<p>这四门课统称<strong>四大拦路虎</strong>。可以说是什么都没学会，<strong><em>太拉胯了</em></strong>。</p>
 <span id="more"></span>
-<h2 id="造轮子">造轮子</h2>
-<h3 id="前提">前提</h3>
-<p>据说 C 语言里， <code>arr[i]</code> 的意思是，把 <code>arr</code>
-的首地址向后跳 <code>i</code> 个 <code>arr</code>
-所代表的数据类型的字节数，再访问该地址。</p>
-<p>那么，理应是存在一套方法，把算法和数据结构用数学符号表示，经过一番推演，得出算法的结果。</p>
-<p>（这应该就是编程语言和编译器的本职工作……）</p>
-<p>GPT 给出的回答是：</p>
-<blockquote>
-<p>算法的"形式化描述"并没有特定的发明者，它是计算机科学领域的一个通用概念，是为了更准确、更严谨地描述算法而提出的一种描述方式。在计算机科学的发展过程中，不同的学者和研究者都会尝试不同的方法来形式化描述算法的操作过程，以便于理论分析、验证和讨论。</p>
-</blockquote>
-<h3 id="动机">动机</h3>
+<h2 id="算法学不会的原因">算法学不会的原因</h2>
+<p>不仅仅是算法，把这个套到其他事情上面也是一样：因为<strong>你不明白基础概念</strong>。比如写二分查找，<strong>你连二分查找用几个指针都不知道，上来就开始写</strong>，人家是摸着石头过河，你裤腿都不撸，上来就趟。你的大部分时间都浪费在：我<strong>从头开始想</strong>，我应该怎么实现它，而不是先<strong>看</strong>一遍别人的代码，看明白之后再<strong>背</strong>一遍。或者当你看别人的代码的时候，你会发现你还是看不懂：为什么看不懂？因为<strong>你连这个算法到底是用来干什么的都不知道</strong>。当你自己想不出来，看别人代码也看不懂，又不愿意看基础概念的时候，你就会怀疑自已的能力，然后陷入一个
+<strong><em>死循环</em></strong>：为什么我写不出来？</p>
+<p>二分查找是什么意思？查找，是根据一个<strong>输入值</strong>，查找数组里面与<strong>该输入值相等的数的索引</strong>。二分，是<strong>缩小查找的范围</strong>，怎么二分？前提数组是<strong>有序</strong>的，把你要查找的值<strong>和正中间的值做比较</strong>，分成左半部分和右边部分，如果你要查找的值比中间值小，就在左半部分查找。怎么在左半部分查找？<strong>变换查找的边界，同时和新的中间的值做比较</strong>。<strong>构成查找边界</strong>的有两个指针，<strong>指向中间值</strong>的又是一个指针，<strong>所以</strong>才需要三个指针。</p>
+<h2 id="针对购物篮数据集的关联分析">针对购物篮数据集的关联分析</h2>
+<p>关联分析到底是<strong>什么意思</strong>？是发现隐藏在大型<strong>数据集</strong>中的有意义的<strong>联系</strong>。</p>
+<p>购物篮数据集<strong>怎么表示</strong>？是一张<strong>表</strong>，表里有一系列<strong>行</strong>，每一个行是一个<strong>事务</strong>，每一个事务表现为一个<strong>集合</strong>，这个集合里有一系列商品的<strong>名字</strong>，比如{"面包","牛奶","尿布"}</p>
+<p>联系<strong>怎么表示</strong>？有两种形式：<strong>关联规则</strong>、和<strong>频繁项集</strong></p>
+<p>关联规则是<strong>什么意思</strong>？是<strong>两个不相交集合的蕴含表达式</strong>，如{尿布}-&gt;{啤酒}这个表达式的意思是：购买尿布，<strong>引起了</strong>购买啤酒，前面是<strong>因</strong>、后面是<strong>果</strong>。</p>
+<p>项集是<strong>什么意思</strong>？是一些<strong>项</strong>的<strong>集合</strong>。是
+<code>list[str]</code></p>
+<p>什么叫<strong>频繁项集</strong>？是<strong>支持度</strong>或者<strong>支持度计数大于等于最小阈值</strong>的项集。</p>
+<p>什么叫<strong>支持度计数</strong>？是该项集在事务列表里的<strong>超集数量</strong>，是事务列表里的所有<strong>包含该项集</strong>的<strong>事务数量</strong>。</p>
+<p>什么叫<strong>支持度</strong>？是事务列表里，<strong>包含该项集的事务的数量</strong>占<strong>所有事务数量</strong>里的比值。</p>
+<p>{面包，牛奶}支持度 0.3
+是<strong>什么意思</strong>？是在所有的购物记录里，同时包含购买了面包、牛奶的购物记录的比值。是<strong>在每
+10 次购物里，就有三次同时购买了面包和啤酒</strong>。</p>
+<p><strong>怎么挖掘关联规则</strong>？分两步：</p>
 <ol type="1">
-<li>上面四门课没有认真学，所以现在有报复的心理。</li>
-<li>同理，语文和英语的基础也不牢，同样是有报复的心理。</li>
-<li>遍历一个什么东西的时候，边界和操作都记不住。</li>
+<li><strong>产生频繁项集</strong>:发现满足最小支持度阈值的所有项集
+<ul>
+<li>什么意思？项集里有几个元素？<strong>最少</strong>有一个，<strong>最多</strong>有
+<code>len(unique(flatten(basket)))</code>
+个，是所有独立的商品组成的集合。</li>
+</ul></li>
+<li><strong>产生规则</strong>
+<ul>
+<li>提取所有高置信度的规则。</li>
+</ul></li>
 </ol>
-<h3 id="草稿">草稿</h3>
-<p>这应该是一种类似于 HTML 的“标记型语言”：</p>
-<table style="width:100%;">
-<colgroup>
-<col style="width: 11%"/>
-<col style="width: 28%"/>
-<col style="width: 30%"/>
-<col style="width: 28%"/>
-</colgroup>
-<thead>
-<tr class="header">
-<th>符号</th>
-<th>意思</th>
-<th>C</th>
-<th>Python</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(k\)</span></td>
-<td>关键点的位置</td>
-<td>传入函数的参数</td>
-<td>同</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(.\)</span></td>
-<td>当前指针的位置</td>
-<td>i</td>
-<td>同</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(-\)</span></td>
-<td>当前指针的左边</td>
-<td>i - 1</td>
-<td>同</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(+\)</span></td>
-<td>当前指针的右边</td>
-<td>i + 1</td>
-<td>同</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(0\)</span></td>
-<td>第一个元素的位置</td>
-<td>0</td>
-<td>同</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(1\)</span></td>
-<td>第一个元素右边</td>
-<td>1</td>
-<td>同</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(p\)</span></td>
-<td>最后一个元素左边</td>
-<td>len - 2</td>
-<td>len - 2 或 -2</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(e\)</span></td>
-<td>最后一个元素的位置</td>
-<td>len - 1</td>
-<td>len - 1 或 -1</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(q\)</span></td>
-<td>最后一个元素右边</td>
-<td>len</td>
-<td>同</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(7_{a}^{b}\)</span></td>
-<td>从下标正序遍历到上标</td>
-<td>for(int i = a; i &lt; b + 1; i++)</td>
-<td>for i in range(a, b + 1)</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(L_{a}^{b}\)</span></td>
-<td>从下标倒序遍历到上标</td>
-<td>for(int i = a; i &gt;= b; i--)</td>
-<td>for i in range(a, b - 1, -1)</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(&lt;\)</span></td>
-<td>赋值</td>
-<td>=</td>
-<td>同</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(+&lt;.\)</span></td>
-<td>把当前指针指向的赋值给右边的</td>
-<td>arr[i+1] = arr[i]</td>
-<td>同</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(B\)</span></td>
-<td>判断索引是否越界</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(F\)</span></td>
-<td>判断空间是否已满</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(?\)</span></td>
-<td>判断值是否相等</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(N\)</span></td>
-<td>改变数据结构的长度</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>例如，<span class="math inline">\(L_{e}^{k}(+&lt;.)\)</span>表示：</p>
-<p>指针从最后一个元素倒序遍历到关键点，在每次循环中把指针指向的元素赋值给指针右边的元素。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = length - <span class="number">1</span>; i &gt;= k; i--)</span><br/><span class="line">{</span><br/><span class="line">    arr[i+<span class="number">1</span>] = arr[i];</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
-<h3 id="实例">实例</h3>
-<p>遍历二维数组：<span class="math inline">\(7_0^e 7_0^e\)</span></p>
-<p>遍历矩阵主对角线及其以上的部分：<span class="math inline">\(7_{i=0}^e
-7_{j=i}^e\)</span></p>
-<p>顺序表里根据索引取值：<span class="math inline">\(B\)</span></p>
-<p>顺序表里根据值查找索引：<span class="math inline">\(7_{0}^{e}(?)\)</span></p>
-<p>插入元素到顺序表：<span class="math inline">\(BFL_{e}^{k}(+&lt;.)N\)</span></p>
-<p>删除顺序表里的某个元素：<span class="math inline">\(B7_{k}^{e}(.&lt;+)N\)</span></p>
-<p><strong>造轮子部分到此结束，下面是正经的部分。</strong></p>
-<hr/>
-<h2 id="语文的基础知识">语文的基础知识</h2>
-<ul>
-<li>句子（组成部分：主谓宾定状补）
-<ul>
-<li>短语
-<ul>
-<li>词（词性：名词、动词）
-<ul>
-<li>语素（token）
-<ul>
-<li>字</li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-<p>名词主要做主语和宾语。动词主要做谓语。</p>
-<p>及物动词：后面能接宾语。不及物动词：后面不接宾语。</p>
-<blockquote>
-<p>我离线算数<br> I leave the river to do my own thing</br></p>
-</blockquote>
-<ul>
-<li>五个语素：我、离、线、算、数</li>
-<li>三个名词：我、线、数</li>
-<li>两个动词：离、算</li>
-<li>主语 我 名词</li>
-<li>谓语 离线算数</li>
-<li>离线：复合式构词中的述宾式</li>
-</ul>
-<blockquote>
-<p>没人在乎你喜欢听什么音乐，除了世界卫生组织，因为 WHO Cares</p>
-</blockquote>
-<p>这个冷笑话的结构是：起转（使用夸张，把“你”缩小）-承转（把“世界卫生组织”和“你”关联到一起）-合（使用双关语指向句子自身，达到了自问自答的效果）</p>
-<p>可以说所有笑话的原理都是预期违背：到达预期状态的失败过程</p>
-<ul>
-<li>预期违背：状态转移
-<ul>
-<li>改变状态的颜色：
-<ul>
-<li>夸张/把一些对于笑话阅读者主观不相关的事物关联起来，带去新鲜感</li>
-<li>褒，把“不好的”说成“好的”</li>
-<li>贬，把“好的”说成“不好的”</li>
-</ul></li>
-<li>虚无状态或无限状态（指向句子自身、废话文学）</li>
-<li>多重状态
-<ul>
-<li>一词多义/多性/谐音双关</li>
-<li>断句/拆字/拼字双关</li>
-<li>类比、挪用概念-&gt;联想-&gt;达到褒/贬/传达新鲜感的目的</li>
-</ul></li>
-</ul></li>
-</ul>
-<h2 id="图">图</h2>
-<ol type="1">
-<li>图至少得有一个节点。</li>
-<li>图的节点不能与它自身连线。</li>
-</ol>
-<p>(a,b) 图有 a 个节点，b 条边</p>
-<p>没有边的图叫零图。单独一个无边节点叫平凡图。所有节点都互相连起来了叫完全图。</p>
-<ol type="1">
-<li>单独一个无边节点叫平凡图</li>
-<li>人是一切社会关系的总和</li>
-<li>所有人都是不平凡的</li>
-</ol>
-<p>节点的边数叫度。d 次正则图：图的所有节点都是 d 度。</p>
-<p>邻接的节点：连在同一条边上。邻接的边：从一个节点延伸出去的相异边。</p>
-<h2 id="图的邻接方阵">图的邻接方阵</h2>
-<p>行索引 i 为所有节点的排列。列索引 j 与其相同。</p>
-<p>矩阵的主对角线上全为 0，以主对角线轴对称。</p>
-<p>(i,j) 或 (j,i) 为 1 时，代表两个节点连上线了。</p>
-<p>同构的两个图，它们的邻接方阵是等价的。反之不一定。因为：</p>
-<ol type="1">
-<li>一个图的邻接方阵，只能做行/列对换操作。且在对换两行之后，必须要对换相同编号的两列，才能保证同构。</li>
-<li>等价矩阵的定义是：经过有限次初等变换后的矩阵。</li>
-</ol>
-<p>考虑这样的两个图：</p>
-<p><span class="math display">\[
-\begin{pmatrix}
-0 &amp; 1 &amp; 0 \\
-1 &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; 0 \\
-\end{pmatrix}
-\]</span></p>
-<p>与</p>
-<p><span class="math display">\[
-\begin{pmatrix}
-0 &amp; 1 &amp; 1 \\
-1 &amp; 0 &amp; 0 \\
-1 &amp; 0 &amp; 0 \\
-\end{pmatrix}
-\]</span></p>
-<p>它们的邻接方阵是等价的，但是前者是两个点连线加上一个孤立点，后者是三个点连在一条线上（无环），显然不同构。</p>
-<h2 id="矩阵的初等变换">矩阵的初等变换</h2>
-<ol type="1">
-<li>对换两行</li>
-<li>对换两列</li>
-<li>某一行乘一个不为零的数</li>
-<li>某一列乘一个不为零的数</li>
-<li>把某一行的非零倍数加到另一行上</li>
-<li>把某一列的非零倍数加到另一列上</li>
-</ol>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/><span class="line">33</span><br/><span class="line">34</span><br/><span class="line">35</span><br/><span class="line">36</span><br/><span class="line">37</span><br/><span class="line">38</span><br/><span class="line">39</span><br/><span class="line">40</span><br/><span class="line">41</span><br/><span class="line">42</span><br/><span class="line">43</span><br/><span class="line">44</span><br/><span class="line">45</span><br/><span class="line">46</span><br/><span class="line">47</span><br/><span class="line">48</span><br/><span class="line">49</span><br/><span class="line">50</span><br/><span class="line">51</span><br/><span class="line">52</span><br/><span class="line">53</span><br/><span class="line">54</span><br/><span class="line">55</span><br/><span class="line">56</span><br/><span class="line">57</span><br/><span class="line">58</span><br/><span class="line">59</span><br/><span class="line">60</span><br/><span class="line">61</span><br/><span class="line">62</span><br/><span class="line">63</span><br/><span class="line">64</span><br/><span class="line">65</span><br/><span class="line">66</span><br/><span class="line">67</span><br/><span class="line">68</span><br/><span class="line">69</span><br/><span class="line">70</span><br/><span class="line">71</span><br/><span class="line">72</span><br/><span class="line">73</span><br/><span class="line">74</span><br/><span class="line">75</span><br/><span class="line">76</span><br/><span class="line">77</span><br/><span class="line">78</span><br/><span class="line">79</span><br/><span class="line">80</span><br/><span class="line">81</span><br/><span class="line">82</span><br/><span class="line">83</span><br/><span class="line">84</span><br/><span class="line">85</span><br/><span class="line">86</span><br/><span class="line">87</span><br/><span class="line">88</span><br/><span class="line">89</span><br/><span class="line">90</span><br/><span class="line">91</span><br/><span class="line">92</span><br/><span class="line">93</span><br/><span class="line">94</span><br/><span class="line">95</span><br/><span class="line">96</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br/><span class="line"></span><br/><span class="line"><span class="meta">#<span class="keyword">define</span> R 4</span></span><br/><span class="line"><span class="meta">#<span class="keyword">define</span> C 5</span></span><br/><span class="line"></span><br/><span class="line"><span class="type">void</span> <span class="title function_">printMatrix</span><span class="params">(<span class="type">int</span> mat[R][C])</span>;</span><br/><span class="line"><span class="type">void</span> <span class="title function_">swapRows</span><span class="params">(<span class="type">int</span> mat[R][C], <span class="type">int</span> r1, <span class="type">int</span> r2)</span>;</span><br/><span class="line"><span class="type">void</span> <span class="title function_">swapCols</span><span class="params">(<span class="type">int</span> mat[R][C], <span class="type">int</span> c1, <span class="type">int</span> c2)</span>;</span><br/><span class="line"><span class="type">void</span> <span class="title function_">rMultiPlyK</span><span class="params">(<span class="type">int</span> mat[R][C], <span class="type">int</span> r, <span class="type">int</span> k)</span>;</span><br/><span class="line"><span class="type">void</span> <span class="title function_">cMultiPlyK</span><span class="params">(<span class="type">int</span> mat[R][C], <span class="type">int</span> c, <span class="type">int</span> k)</span>;</span><br/><span class="line"><span class="type">void</span> <span class="title function_">r2AddAssignR1MultiPlyK</span><span class="params">(<span class="type">int</span> mat[R][C], <span class="type">int</span> r2, <span class="type">int</span> r1, <span class="type">int</span> k)</span>;</span><br/><span class="line"><span class="type">void</span> <span class="title function_">c2AddAssignC1MultiPlyK</span><span class="params">(<span class="type">int</span> mat[R][C], <span class="type">int</span> c2, <span class="type">int</span> c1, <span class="type">int</span> k)</span>;</span><br/><span class="line"></span><br/><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br/><span class="line">{</span><br/><span class="line">    <span class="type">int</span> mat[R][C] = {</span><br/><span class="line">        {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>},</span><br/><span class="line">        {<span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>},</span><br/><span class="line">        {<span class="number">11</span>, <span class="number">12</span>, <span class="number">13</span>, <span class="number">14</span>, <span class="number">15</span>},</span><br/><span class="line">        {<span class="number">16</span>, <span class="number">17</span>, <span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>}};</span><br/><span class="line">    printMatrix(mat);</span><br/><span class="line">    <span class="comment">// swapRows(mat, 0, 3);</span></span><br/><span class="line">    <span class="comment">// swapCols(mat, 0, R);</span></span><br/><span class="line">    <span class="comment">// rMultiPlyK(mat, 0, 3);</span></span><br/><span class="line">    <span class="comment">// cMultiPlyK(mat, 4, 3);</span></span><br/><span class="line">    <span class="comment">// r2AddAssignR1MultiPlyK(mat, 1, 0, 2);</span></span><br/><span class="line">    c2AddAssignC1MultiPlyK(mat, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>);</span><br/><span class="line">    printMatrix(mat);</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="type">void</span> <span class="title function_">printMatrix</span><span class="params">(<span class="type">int</span> mat[R][C])</span></span><br/><span class="line">{</span><br/><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; R; i++)</span><br/><span class="line">    {</span><br/><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; C; j++)</span><br/><span class="line">        {</span><br/><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\t"</span>, mat[i][j]);</span><br/><span class="line">        }</span><br/><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br/><span class="line">    }</span><br/><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="type">void</span> <span class="title function_">swapRows</span><span class="params">(<span class="type">int</span> mat[R][C], <span class="type">int</span> r1, <span class="type">int</span> r2)</span></span><br/><span class="line">{</span><br/><span class="line">    <span class="comment">// 传的是行索引，变的是列索引</span></span><br/><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; C; j++)</span><br/><span class="line">    {</span><br/><span class="line">        <span class="type">int</span> temp = mat[r1][j];</span><br/><span class="line">        mat[r1][j] = mat[r2][j];</span><br/><span class="line">        mat[r2][j] = temp;</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="type">void</span> <span class="title function_">swapCols</span><span class="params">(<span class="type">int</span> mat[R][C], <span class="type">int</span> c1, <span class="type">int</span> c2)</span></span><br/><span class="line">{</span><br/><span class="line">    <span class="comment">// 传的是列索引，变的是行索引</span></span><br/><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; R; i++)</span><br/><span class="line">    {</span><br/><span class="line">        <span class="type">int</span> temp = mat[i][c1];</span><br/><span class="line">        mat[i][c1] = mat[i][c2];</span><br/><span class="line">        mat[i][c2] = temp;</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="type">void</span> <span class="title function_">rMultiPlyK</span><span class="params">(<span class="type">int</span> mat[R][C], <span class="type">int</span> r, <span class="type">int</span> k)</span></span><br/><span class="line">{</span><br/><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; C; j++)</span><br/><span class="line">    {</span><br/><span class="line">        mat[r][j] *= k;</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="type">void</span> <span class="title function_">cMultiPlyK</span><span class="params">(<span class="type">int</span> mat[R][C], <span class="type">int</span> c, <span class="type">int</span> k)</span></span><br/><span class="line">{</span><br/><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; R; i++)</span><br/><span class="line">    {</span><br/><span class="line">        mat[i][c] *= k;</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="type">void</span> <span class="title function_">r2AddAssignR1MultiPlyK</span><span class="params">(<span class="type">int</span> mat[R][C], <span class="type">int</span> r2, <span class="type">int</span> r1, <span class="type">int</span> k)</span></span><br/><span class="line">{</span><br/><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; C; j++)</span><br/><span class="line">    {</span><br/><span class="line">        mat[r2][j] += mat[r1][j] * k;</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="type">void</span> <span class="title function_">c2AddAssignC1MultiPlyK</span><span class="params">(<span class="type">int</span> mat[R][C], <span class="type">int</span> c2, <span class="type">int</span> c1, <span class="type">int</span> k)</span></span><br/><span class="line">{</span><br/><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; R; i++)</span><br/><span class="line">    {</span><br/><span class="line">        mat[i][c2] += mat[i][c1] * k;</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
-<h2 id="幂集">幂集</h2>
-<p>集合的所有子集构成的集合。</p>
-<p><span class="math inline">\(A\)</span> 的幂集记作 <span class="math inline">\(2^A\)</span>。幂集里元素的个数等于 <span class="math inline">\(2^{原集合里元素的个数}\)</span></p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">powerset</span>(<span class="params">s: <span class="built_in">set</span></span>) -&gt; <span class="built_in">list</span>[<span class="built_in">set</span>]:</span><br/><span class="line">    <span class="string">"""</span></span><br/><span class="line"><span class="string">    幂集，一个集合的所有子集。这里用 list，因为 set 里的东西是不可变的，但是 set 本身是可变的。所以不能 set 套 set</span></span><br/><span class="line"><span class="string">    """</span></span><br/><span class="line">    <span class="keyword">return</span> [</span><br/><span class="line">        <span class="built_in">set</span>(combination)</span><br/><span class="line">        <span class="keyword">for</span> r <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s) + <span class="number">1</span>)</span><br/><span class="line">        <span class="keyword">for</span> combination <span class="keyword">in</span> itertools.combinations(s, r)</span><br/><span class="line">    ]</span><br/></pre></td></tr></table></figure>
-<h2 id="顺序表">顺序表</h2>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/><span class="line">32</span><br/><span class="line">33</span><br/><span class="line">34</span><br/><span class="line">35</span><br/><span class="line">36</span><br/><span class="line">37</span><br/><span class="line">38</span><br/><span class="line">39</span><br/><span class="line">40</span><br/><span class="line">41</span><br/><span class="line">42</span><br/><span class="line">43</span><br/><span class="line">44</span><br/><span class="line">45</span><br/><span class="line">46</span><br/><span class="line">47</span><br/><span class="line">48</span><br/><span class="line">49</span><br/><span class="line">50</span><br/><span class="line">51</span><br/><span class="line">52</span><br/><span class="line">53</span><br/><span class="line">54</span><br/><span class="line">55</span><br/><span class="line">56</span><br/><span class="line">57</span><br/><span class="line">58</span><br/><span class="line">59</span><br/><span class="line">60</span><br/><span class="line">61</span><br/><span class="line">62</span><br/><span class="line">63</span><br/><span class="line">64</span><br/><span class="line">65</span><br/><span class="line">66</span><br/><span class="line">67</span><br/><span class="line">68</span><br/><span class="line">69</span><br/><span class="line">70</span><br/><span class="line">71</span><br/><span class="line">72</span><br/><span class="line">73</span><br/><span class="line">74</span><br/><span class="line">75</span><br/><span class="line">76</span><br/><span class="line">77</span><br/><span class="line">78</span><br/><span class="line">79</span><br/><span class="line">80</span><br/><span class="line">81</span><br/><span class="line">82</span><br/><span class="line">83</span><br/><span class="line">84</span><br/><span class="line">85</span><br/><span class="line">86</span><br/><span class="line">87</span><br/><span class="line">88</span><br/><span class="line">89</span><br/><span class="line">90</span><br/><span class="line">91</span><br/><span class="line">92</span><br/><span class="line">93</span><br/><span class="line">94</span><br/><span class="line">95</span><br/><span class="line">96</span><br/><span class="line">97</span><br/><span class="line">98</span><br/><span class="line">99</span><br/><span class="line">100</span><br/><span class="line">101</span><br/><span class="line">102</span><br/><span class="line">103</span><br/><span class="line">104</span><br/><span class="line">105</span><br/><span class="line">106</span><br/><span class="line">107</span><br/><span class="line">108</span><br/><span class="line">109</span><br/><span class="line">110</span><br/><span class="line">111</span><br/><span class="line">112</span><br/><span class="line">113</span><br/><span class="line">114</span><br/><span class="line">115</span><br/><span class="line">116</span><br/><span class="line">117</span><br/><span class="line">118</span><br/><span class="line">119</span><br/><span class="line">120</span><br/><span class="line">121</span><br/><span class="line">122</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br/><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> ElemType;</span><br/><span class="line"></span><br/><span class="line"><span class="meta">#<span class="keyword">define</span> MAXSIZE 3 <span class="comment">// 分配给顺序表的空间</span></span></span><br/><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span>    // 顺序表</span></span><br/><span class="line"><span class="class">{</span></span><br/><span class="line">    ElemType *elem; <span class="comment">// 基地址</span></span><br/><span class="line">    <span class="type">int</span> length;     <span class="comment">// 当前长度</span></span><br/><span class="line">} SqList;</span><br/><span class="line"></span><br/><span class="line"><span class="type">void</span> <span class="title function_">initList</span><span class="params">(SqList *L)</span>;</span><br/><span class="line">ElemType <span class="title function_">getElem</span><span class="params">(SqList *L, <span class="type">int</span> i)</span>;</span><br/><span class="line"><span class="type">int</span> <span class="title function_">locateElem</span><span class="params">(SqList *L, ElemType e)</span>;</span><br/><span class="line"><span class="type">void</span> <span class="title function_">listInsert</span><span class="params">(SqList *L, <span class="type">int</span> i, ElemType e)</span>;</span><br/><span class="line"><span class="type">void</span> <span class="title function_">listDelete</span><span class="params">(SqList *L, <span class="type">int</span> i)</span>;</span><br/><span class="line"><span class="type">void</span> <span class="title function_">printList</span><span class="params">(SqList *L)</span>;</span><br/><span class="line"></span><br/><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br/><span class="line">{</span><br/><span class="line">    SqList L;</span><br/><span class="line">    initList(&amp;L);</span><br/><span class="line">    listInsert(&amp;L, <span class="number">0</span>, <span class="number">1</span>);</span><br/><span class="line">    listInsert(&amp;L, <span class="number">0</span>, <span class="number">2</span>);</span><br/><span class="line">    listInsert(&amp;L, <span class="number">2</span>, <span class="number">3</span>);</span><br/><span class="line">    listInsert(&amp;L, <span class="number">0</span>, <span class="number">4</span>);</span><br/><span class="line">    printList(&amp;L);</span><br/><span class="line">    listDelete(&amp;L, <span class="number">0</span>);</span><br/><span class="line">    printList(&amp;L);</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="type">void</span> <span class="title function_">printList</span><span class="params">(SqList *L)</span></span><br/><span class="line">{</span><br/><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; L-&gt;length; i++)</span><br/><span class="line">    {</span><br/><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d,"</span>, L-&gt;elem[i]);</span><br/><span class="line">    }</span><br/><span class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="type">void</span> <span class="title function_">initList</span><span class="params">(SqList *L)</span></span><br/><span class="line">{</span><br/><span class="line">    <span class="comment">// 给顺序表分配空间</span></span><br/><span class="line">    L-&gt;elem = (ElemType *)<span class="built_in">malloc</span>(MAXSIZE * <span class="keyword">sizeof</span>(ElemType));</span><br/><span class="line">    <span class="keyword">if</span> (!L-&gt;elem)</span><br/><span class="line">    {</span><br/><span class="line">        <span class="built_in">exit</span>(<span class="number">-1</span>);</span><br/><span class="line">    }</span><br/><span class="line">    L-&gt;length = <span class="number">0</span>;</span><br/><span class="line">    <span class="built_in">printf</span>(<span class="string">"init success\n"</span>);</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="type">int</span> <span class="title function_">getElem</span><span class="params">(SqList *L, <span class="type">int</span> i)</span></span><br/><span class="line">{</span><br/><span class="line">    <span class="comment">// 根据索引取值</span></span><br/><span class="line">    <span class="comment">// 只要输入索引，就要校验是否合法B</span></span><br/><span class="line">    <span class="comment">// 时间复杂度O(1)</span></span><br/><span class="line">    <span class="keyword">if</span> (i &lt; <span class="number">0</span> || i &gt; L-&gt;length - <span class="number">1</span>)</span><br/><span class="line">    {</span><br/><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br/><span class="line">    }</span><br/><span class="line">    <span class="keyword">return</span> L-&gt;elem[i];</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="type">int</span> <span class="title function_">locateElem</span><span class="params">(SqList *L, ElemType e)</span></span><br/><span class="line">{</span><br/><span class="line">    <span class="comment">// 根据值查找索引，返回第一个相等值的索引。</span></span><br/><span class="line">    <span class="comment">// 70e(?)</span></span><br/><span class="line">    <span class="comment">// 时间复杂度O(n)</span></span><br/><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; L-&gt;length; i++)</span><br/><span class="line">    {</span><br/><span class="line">        <span class="keyword">if</span> (e == L-&gt;elem[i])</span><br/><span class="line">        {</span><br/><span class="line">            <span class="keyword">return</span> i;</span><br/><span class="line">        }</span><br/><span class="line">    }</span><br/><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="type">void</span> <span class="title function_">listInsert</span><span class="params">(SqList *L, <span class="type">int</span> i, ElemType e)</span></span><br/><span class="line">{</span><br/><span class="line">    <span class="comment">// 按索引插入元素，索引之后的元素向后移动。</span></span><br/><span class="line">    <span class="comment">// BFLek(+&lt;.)N</span></span><br/><span class="line">    <span class="comment">// 这里输入索引了，所以要校验是否合法。由于是插入，还要检查空间是否已满。</span></span><br/><span class="line">    <span class="comment">// 时间复杂度O(n)</span></span><br/><span class="line">    <span class="keyword">if</span> (i &lt; <span class="number">0</span> || i &gt; L-&gt;length)</span><br/><span class="line">    {</span><br/><span class="line">        <span class="built_in">printf</span>(<span class="string">"index out of bounds\n"</span>);</span><br/><span class="line">        <span class="keyword">return</span>;</span><br/><span class="line">    }</span><br/><span class="line">    <span class="keyword">if</span> (MAXSIZE == L-&gt;length)</span><br/><span class="line">    {</span><br/><span class="line">        <span class="built_in">printf</span>(<span class="string">"list is full\n"</span>);</span><br/><span class="line">        <span class="keyword">return</span>;</span><br/><span class="line">    }</span><br/><span class="line"></span><br/><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = L-&gt;length - <span class="number">1</span>; j &gt;= i; j--)</span><br/><span class="line">    {</span><br/><span class="line">        L-&gt;elem[j + <span class="number">1</span>] = L-&gt;elem[j];</span><br/><span class="line">    }</span><br/><span class="line">    L-&gt;elem[i] = e;</span><br/><span class="line">    L-&gt;length++;</span><br/><span class="line">    <span class="built_in">printf</span>(<span class="string">"insert success\n"</span>);</span><br/><span class="line">}</span><br/><span class="line"></span><br/><span class="line"><span class="type">void</span> <span class="title function_">listDelete</span><span class="params">(SqList *L, <span class="type">int</span> i)</span></span><br/><span class="line">{</span><br/><span class="line">    <span class="comment">// 按索引删除元素。</span></span><br/><span class="line">    <span class="comment">// B7ke(.&lt;+)N</span></span><br/><span class="line">    <span class="keyword">if</span> (i &lt; <span class="number">0</span> || i &gt; L-&gt;length - <span class="number">1</span>)</span><br/><span class="line">    {</span><br/><span class="line">        <span class="built_in">printf</span>(<span class="string">"index out of bounds\n"</span>);</span><br/><span class="line">        <span class="keyword">return</span>;</span><br/><span class="line">    }</span><br/><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = i; j &lt; L-&gt;length - <span class="number">1</span>; j++)</span><br/><span class="line">    {</span><br/><span class="line">        L-&gt;elem[j] = L-&gt;elem[j + <span class="number">1</span>];</span><br/><span class="line">    }</span><br/><span class="line">    L-&gt;length--;</span><br/><span class="line">    <span class="built_in">printf</span>(<span class="string">"delete success\n"</span>);</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
+<p>格结构是什么意思？格结构里的所有节点构成一个集合的幂集。格结构的第一层是
+null，第二层是所有 1-项集，第三层是所有 2-项集……最底层是
+<code>len(unique(flatten(basket)))</code>项集</p>
+<p><strong>先验原理</strong>是什么意思？如果一个<strong>项集</strong>是<strong>频繁</strong>的，它的<strong>所有子集</strong>都一定是<strong>频繁的</strong>。</p>
+<p>什么叫一个项集是频繁的？它的支持度计数大于等于 minsup</p>
+<p>什么叫一个项集的子集是频繁的？它的子集的支持度计数大于等于 minsup</p>
+<p>为什么项集支持度计数大于等于 minsup 后，它的所有子集都会大于等于
+minsup？</p>
+<p>因为：就是这样，我明白，但是就是<strong>说不出来</strong>。那说明还是<strong>没明白</strong>。</p>
+<p><strong>支持度计数 +1
+的操作是在什么时候</strong>？把这个项集和事务列表里的所有项集做比较，如果该项集是事务列表里项集的子集，把该项集的支持度计数
++1。所以：支持度计数，就是<strong>找超集数量</strong></p>
+<p><strong>一个集合的子集的超集数量</strong>，必定<strong>大于等于该集合的超集数量</strong>，为什么？<strong>因为这个集合本身就是它子集的超集</strong>。</p>
+<p>好了，现在明白了。</p>
+<p>什么叫<strong>基于支持度的剪枝</strong>？把先验原理<strong>反过来说</strong>：如果一个项集是非频繁的，它的所有超集都是非频繁的。</p>
+<p>非频繁是什么意思？支持度计数小于 misup，超集数量小于
+minsup，<strong>事务数量</strong>小于 minsup</p>
+<p>如果一个集合的超集数量小于 minsup，它的（所有超集）的超集数量都会小于
+minsup。为什么？<strong>你确定这句话对吗</strong>？</p>
+<p>正确的描述方法是：如果<strong>包含 A 的事务数</strong>小于 minsup，
+那么<strong>包含（A 的超集）的事务数</strong>会小于 minsup。为什么？</p>
+<p>因为在一个购物篮里，事务数量是有限的。</p>
+<p>只会说这一句话吗？如果只会说这一句，说明你<strong>还是没明白</strong>。为什么？</p>
+<p><strong>支持度计数 +1
+的操作是在什么时候</strong>？是针对一个项集，<strong>判断各个事务</strong>是不是它的超集的时候。</p>
+<p>还是没明白。</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
@@ -454,7 +259,7 @@
 <script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
 <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
 <script src="/blog/js/third-party/tags/mermaid.js"></script>
-<script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
 <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/ds.html"}</script>
