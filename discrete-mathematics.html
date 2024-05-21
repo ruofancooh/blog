@@ -16,7 +16,7 @@
 <meta content="基础不牢。虽然之前及格了，但是什么都没学会。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-01-17T05:20:00.000Z" property="article:published_time"/>
-<meta content="2024-05-15T08:30:46.773Z" property="article:modified_time"/>
+<meta content="2024-05-21T15:33:29.297Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/discrete-mathematics" rel="canonical"/>
@@ -71,7 +71,7 @@
 <div class="post-toc-wrap sidebar-panel">
 <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88"><span class="nav-number">1.</span> <span class="nav-text">集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB"><span class="nav-number">2.</span> <span class="nav-text">关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF"><span class="nav-number">2.1.</span> <span class="nav-text">笛卡尔积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB-1"><span class="nav-number">2.2.</span> <span class="nav-text">关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%92%8C%E5%80%BC%E5%9F%9F"><span class="nav-number">2.3.</span> <span class="nav-text">定义域和值域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%86%E5%85%B3%E7%B3%BB"><span class="nav-number">2.4.</span> <span class="nav-text">逆关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E5%90%88-a-%E4%B8%8A%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">2.5.</span> <span class="nav-text">集合 \(A\)
 上的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%99%AE%E9%81%8D%E5%85%B3%E7%B3%BB-u_a"><span class="nav-number">2.5.1.</span> <span class="nav-text">普遍关系 \(U_A\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%81%92%E7%AD%89%E5%85%B3%E7%B3%BB-i_a"><span class="nav-number">2.5.2.</span> <span class="nav-text">恒等关系 \(I_A\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8"><span class="nav-number">2.5.3.</span> <span class="nav-text">性质</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E4%BA%8C%E5%80%BC%E9%80%BB%E8%BE%91"><span class="nav-number">3.</span> <span class="nav-text">命题逻辑（二值逻辑）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E9%A2%98"><span class="nav-number">3.1.</span> <span class="nav-text">命题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E8%BF%9E%E7%BB%93%E8%AF%8D"><span class="nav-number">3.2.</span> <span class="nav-text">命题连结词</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%88%E5%8F%96-wedge-%E4%B8%94"><span class="nav-number">3.2.1.</span> <span class="nav-text">合取 \(\wedge\)
-……且……</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%90%E5%8F%96-vee-%E6%88%96%E5%8F%AF%E5%85%BC%E7%9A%84%E6%88%96"><span class="nav-number">3.2.2.</span> <span class="nav-text">析取 \(\vee\) ……或……（可兼的或）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AD%89%E5%80%BC-leftrightarrow-%E5%BD%93%E4%B8%94%E4%BB%85%E5%BD%93"><span class="nav-number">3.2.3.</span> <span class="nav-text">等值 \(\leftrightarrow\) ……当且仅当……</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%95%B4%E5%90%AB-rightarrow-%E8%8B%A5%E5%88%99"><span class="nav-number">3.2.4.</span> <span class="nav-text">蕴含 \(\rightarrow\) ……若则……</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E6%96%87%E5%AD%97%E6%B8%B8%E6%88%8F"><span class="nav-number">3.2.5.</span> <span class="nav-text">一个文字游戏</span></a></li></ol></li></ol></li></ol></div>
+……且……</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%90%E5%8F%96-vee-%E6%88%96%E5%8F%AF%E5%85%BC%E7%9A%84%E6%88%96"><span class="nav-number">3.2.2.</span> <span class="nav-text">析取 \(\vee\) ……或……（可兼的或）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AD%89%E5%80%BC-leftrightarrow-%E5%BD%93%E4%B8%94%E4%BB%85%E5%BD%93"><span class="nav-number">3.2.3.</span> <span class="nav-text">等值 \(\leftrightarrow\) ……当且仅当……</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%95%B4%E5%90%AB-rightarrow-%E8%8B%A5%E5%88%99"><span class="nav-number">3.2.4.</span> <span class="nav-text">蕴含 \(\rightarrow\) ……若则……</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E6%96%87%E5%AD%97%E6%B8%B8%E6%88%8F"><span class="nav-number">3.2.5.</span> <span class="nav-text">一个文字游戏</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE"><span class="nav-number">4.</span> <span class="nav-text">图</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -133,7 +133,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-15T16:30:46+08:00" itemprop="dateModified" title="修改时间：2024-05-15 16:30:46">2024-05-15</time>
+<time datetime="2024-05-21T23:33:29+08:00" itemprop="dateModified" title="修改时间：2024-05-21 23:33:29">2024-05-21</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -282,6 +282,18 @@ x 是什么东西的。后者……）。所以它们<strong>不是命题</stron
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> P:</span><br/><span class="line">    <span class="keyword">return</span> Q</span><br/><span class="line"><span class="keyword">else</span>:</span><br/><span class="line">    <span class="keyword">return</span> <span class="keyword">not</span> Q</span><br/></pre></td></tr></table></figure>
 <p>就是当且仅当</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P == Q</span><br/></pre></td></tr></table></figure>
+<h2 id="图">图</h2>
+<ol type="1">
+<li>图至少得有一个节点。</li>
+<li>图的节点不能与它自身连线。</li>
+</ol>
+<p>(a,b) 图有 a 个节点，b 条边</p>
+<p>没有边的图叫零图。单独一个无边节点叫平凡图。所有节点都互相连起来了叫完全图。</p>
+<ol type="1">
+<li>单独一个无边节点叫平凡图</li>
+<li>人是一切社会关系的总和</li>
+<li>所有人都是不平凡的</li>
+</ol>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
