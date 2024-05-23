@@ -1,151 +1,215 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width" name="viewport"/>
-<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
-<link href="/blog/css/main.css" rel="stylesheet"/>
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="永远不看系列。" name="description"/>
-<meta content="article" property="og:type"/>
-<meta content="计算机组成原理" property="og:title"/>
-<meta content="https://hrfis.me/blog/computer-organization.html" property="og:url"/>
-<meta content="若凡的笔记" property="og:site_name"/>
-<meta content="永远不看系列。" property="og:description"/>
-<meta content="zh_CN" property="og:locale"/>
-<meta content="2024-03-02T10:20:00.000Z" property="article:published_time"/>
-<meta content="2024-05-15T08:07:46.510Z" property="article:modified_time"/>
-<meta content="Ruofan" property="article:author"/>
-<meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/computer-organization" rel="canonical"/>
+
+    <meta name="description" content="永远不看系列。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机组成原理">
+<meta property="og:url" content="https://hrfis.me/blog/computer-organization.html">
+<meta property="og:site_name" content="若凡的笔记">
+<meta property="og:description" content="永远不看系列。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-02T10:20:00.000Z">
+<meta property="article:modified_time" content="2024-05-15T08:07:46.510Z">
+<meta property="article:author" content="Ruofan">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hrfis.me/blog/computer-organization">
+
+
+
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/computer-organization.html","path":"/computer-organization.html","title":"计算机组成原理"}</script>
+
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>计算机组成原理 | 若凡的笔记</title>
-<noscript>
-<link href="/blog/css/noscript.css" rel="stylesheet"/>
-</noscript>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
 </head>
-<body itemscope="" itemtype="http://schema.org/WebPage">
-<div class="headband"></div>
-<main class="main">
-<div class="column">
-<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-<div class="site-nav-toggle">
-<div aria-label="切换导航栏" class="toggle" role="button">
-<span class="toggle-line"></span>
-<span class="toggle-line"></span>
-<span class="toggle-line"></span>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">若凡的笔记</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
 </div>
-</div>
-<div class="site-meta">
-<a class="brand" href="/blog/" rel="start">
-<i class="logo-line"></i>
-<p class="site-title">若凡的笔记</p>
-<i class="logo-line"></i>
-</a>
-</div>
-<div class="site-nav-right">
-<div aria-label="搜索" class="toggle popup-trigger" role="button">
-</div>
-</div>
-</div>
+
+
+
 <nav class="site-nav">
-<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-</ul>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
 </nav>
+
+
+
+
 </header>
-<aside class="sidebar">
-<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-<ul class="sidebar-nav">
-<li class="sidebar-nav-toc">
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
           文章目录
         </li>
-<li class="sidebar-nav-overview">
+        <li class="sidebar-nav-overview">
           站点概览
         </li>
-</ul>
-<div class="sidebar-panel-container">
-<!--noindex-->
-<div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cpu-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">CPU 性能指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E5%AD%97%E8%8A%82%E8%AE%B0%E5%BD%95%E6%95%B4%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">使用一个字节记录整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%90%E4%BD%8D%E8%BF%9B%E4%BD%8D%E5%8A%A0%E6%B3%95%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">逐位进位加法器的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">普通十进制数转单精度浮点数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E4%B8%80"><span class="nav-number">4.1.</span> <span class="nav-text">例一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E4%BA%8C"><span class="nav-number">4.2.</span> <span class="nav-text">例二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81"><span class="nav-number">4.3.</span> <span class="nav-text">如何验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8E-k-%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC"><span class="nav-number">5.</span> <span class="nav-text">十进制与 K 进制小数互转</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-10"><span class="nav-number">5.1.</span> <span class="nav-text">2 转 10</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-2"><span class="nav-number">5.2.</span> <span class="nav-text">10 转 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-16"><span class="nav-number">5.3.</span> <span class="nav-text">10 转 16</span></a></li></ol></li></ol></div>
-</div>
-<!--/noindex-->
-<div class="site-overview-wrap sidebar-panel">
-<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<p class="site-author-name" itemprop="name">Ruofan</p>
-<div class="site-description" itemprop="description"></div>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cpu-%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">1.</span> <span class="nav-text">CPU 性能指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%80%E4%B8%AA%E5%AD%97%E8%8A%82%E8%AE%B0%E5%BD%95%E6%95%B4%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">使用一个字节记录整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%90%E4%BD%8D%E8%BF%9B%E4%BD%8D%E5%8A%A0%E6%B3%95%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">逐位进位加法器的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E5%8D%81%E8%BF%9B%E5%88%B6%E6%95%B0%E8%BD%AC%E5%8D%95%E7%B2%BE%E5%BA%A6%E6%B5%AE%E7%82%B9%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">普通十进制数转单精度浮点数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E4%B8%80"><span class="nav-number">4.1.</span> <span class="nav-text">例一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E4%BA%8C"><span class="nav-number">4.2.</span> <span class="nav-text">例二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81"><span class="nav-number">4.3.</span> <span class="nav-text">如何验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8E-k-%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC"><span class="nav-number">5.</span> <span class="nav-text">十进制与 K 进制小数互转</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-10"><span class="nav-number">5.1.</span> <span class="nav-text">2 转 10</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-2"><span class="nav-number">5.2.</span> <span class="nav-text">10 转 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-16"><span class="nav-number">5.3.</span> <span class="nav-text">10 转 16</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Ruofan</p>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap animated">
-<nav class="site-state">
-<div class="site-state-item site-state-posts">
-<a href="/blog/archives/">
-<span class="site-state-item-count">31</span>
-<span class="site-state-item-name">笔记</span>
-</a>
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">笔记</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/blog/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
 </div>
-<div class="site-state-item site-state-categories">
-<a href="/blog/categories/">
-<span class="site-state-item-count">3</span>
-<span class="site-state-item-name">分类</span></a>
-</div>
-</nav>
-</div>
-</div>
-</div>
-</div>
-</aside>
-</div>
-<div class="main-inner post posts-expand">
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
 <div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/computer-organization.html" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="计算机组成原理 | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h1 class="post-title" itemprop="name headline">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/computer-organization.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Ruofan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="若凡的笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="计算机组成原理 | 若凡的笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
           计算机组成原理
         </h1>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar"></i>
-</span>
-<span class="post-meta-item-text">发表于</span>
-<time datetime="2024-03-02T18:20:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-03-02 18:20:00">2024-03-02</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-15T16:07:46+08:00" itemprop="dateModified" title="修改时间：2024-05-15 16:07:46">2024-05-15</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/u/" itemprop="url" rel="index"><span itemprop="name">永远不看系列</span></a>
-</span>
-</span>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-03-02 18:20:00" itemprop="dateCreated datePublished" datetime="2024-03-02T18:20:00+08:00">2024-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-05-15 16:07:46" itemprop="dateModified" datetime="2024-05-15T16:07:46+08:00">2024-05-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/%E6%B0%B8%E8%BF%9C%E4%B8%8D%E7%9C%8B%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">永远不看系列</span></a>
+        </span>
+    </span>
+
+  
 </div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody"><p>永远不看系列。</p>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>永远不看系列。</p>
 <span id="more"></span>
 <h2 id="cpu-性能指标">CPU 性能指标</h2>
 <p><span class="math inline">\(T\)</span>
@@ -163,8 +227,10 @@ Instruction)：每条指令平均时钟周期数。完成每个任务的平均�
 100 个任务(指令)要完成，完成它们共花了 200 天。你的 CPI 为 2 天/任务</p>
 <p><span class="math inline">\(\mathrm{CPI} \times I_\mathrm{N} =
 N_\mathrm{C}\)</span></p>
-<p><span class="math inline">\(\mathrm{MIPS}\)</span>：百万条指令数/秒</p>
-<p><span class="math inline">\(\mathrm{FLOPS}\)</span>：浮点操作数/秒</p>
+<p><span
+class="math inline">\(\mathrm{MIPS}\)</span>：百万条指令数/秒</p>
+<p><span
+class="math inline">\(\mathrm{FLOPS}\)</span>：浮点操作数/秒</p>
 <p><span class="math inline">\(t_\mathrm{CPU}\)</span>
 执行时间：执行一段程序(若干条指令)所花费时间。</p>
 <p><span class="math display">\[
@@ -181,24 +247,36 @@ N_\mathrm{C}\)</span></p>
 称为一个二进制位，八个二进制位组成一个字节。一个字节的范围：</p>
 <p><code>0000 0000 - 1111 1111</code></p>
 <p>使用一个字节，可以表示多少种状态？对每一位来说，只有两种可能的状态：<code>0</code>
-或 <code>1</code>。一共有八个不同的位，所以可以表示 <span class="math inline">\(2^8=256\)</span> 种状态。</p>
-<p>把 <code>0000 0000 - 1111 1111</code> 转换为十进制数是 <span class="math inline">\(0\)</span> 到 <span class="math inline">\(255\)</span>，有 <span class="math inline">\(256\)</span> 个数。它当然可以通过进制转换，表示
-<span class="math inline">\(0\)</span> 到 <span class="math inline">\(255\)</span> 的整数（也可以叫“无符号整数”）。</p>
+或 <code>1</code>。一共有八个不同的位，所以可以表示 <span
+class="math inline">\(2^8=256\)</span> 种状态。</p>
+<p>把 <code>0000 0000 - 1111 1111</code> 转换为十进制数是 <span
+class="math inline">\(0\)</span> 到 <span
+class="math inline">\(255\)</span>，有 <span
+class="math inline">\(256\)</span> 个数。它当然可以通过进制转换，表示
+<span class="math inline">\(0\)</span> 到 <span
+class="math inline">\(255\)</span> 的整数（也可以叫“无符号整数”）。</p>
 <p>我们想表示负数，可以这样规定：只把后面七个二进制位转换成十进制，而用第一个二进制位表示符号（其中
 <code>0</code> 表示正号，<code>1</code> 表示负号），即：</p>
 <ul>
-<li><code>0 0000000 - 0 1111111</code> 表示 <span class="math inline">\(+0\)</span> 到 <span class="math inline">\(+127\)</span></li>
-<li><code>1 0000000 - 1 1111111</code> 表示 <span class="math inline">\(-0\)</span> 到 <span class="math inline">\(-127\)</span></li>
+<li><code>0 0000000 - 0 1111111</code> 表示 <span
+class="math inline">\(+0\)</span> 到 <span
+class="math inline">\(+127\)</span></li>
+<li><code>1 0000000 - 1 1111111</code> 表示 <span
+class="math inline">\(-0\)</span> 到 <span
+class="math inline">\(-127\)</span></li>
 </ul>
 <p>这被称为<strong>原码</strong>表示法。</p>
-<p>我们想用原码计算 <span class="math inline">\(4 - 7\)</span>，即 <span class="math inline">\(4 + (-7)\)</span>：</p>
+<p>我们想用原码计算 <span class="math inline">\(4 - 7\)</span>，即 <span
+class="math inline">\(4 + (-7)\)</span>：</p>
 <ul>
 <li><code>0000 0100</code> <span class="math inline">\(-\)</span>
 <code>0000 0111</code> <span class="math inline">\(=\)</span>
-<code>1111 1101</code>，可以看到，结果不是 <span class="math inline">\(-3\)</span></li>
+<code>1111 1101</code>，可以看到，结果不是 <span
+class="math inline">\(-3\)</span></li>
 <li><code>0000 0100</code> <span class="math inline">\(+\)</span>
 <code>1000 0111</code> <span class="math inline">\(=\)</span>
-<code>1000 1011</code>，可以看到，结果不是 <span class="math inline">\(-3\)</span></li>
+<code>1000 1011</code>，可以看到，结果不是 <span
+class="math inline">\(-3\)</span></li>
 </ul>
 <p>因为有符号位干扰，但我们想<strong>让符号位也参与计算</strong>的同时，加和减的结果相同且满足定义。还是用符号位表示正负，后七个位表示绝对值。</p>
 <p>有一台钟（12 个数字的）慢了 3 小时，此时 <code>+3</code> 和
@@ -207,8 +285,12 @@ N_\mathrm{C}\)</span></p>
 <code>128</code>。此时，<code>-7</code> 和 <code>+121</code> 等价</p>
 <p>采用<strong>补码</strong>表示法：</p>
 <ul>
-<li><code>0 0000000 - 0 1111111</code> 表示 <span class="math inline">\(0\)</span> 到 <span class="math inline">\(127\)</span></li>
-<li><code>1 0000000 - 1 1111111</code> 表示 <span class="math inline">\(-128\)</span> 到 <span class="math inline">\(-1\)</span></li>
+<li><code>0 0000000 - 0 1111111</code> 表示 <span
+class="math inline">\(0\)</span> 到 <span
+class="math inline">\(127\)</span></li>
+<li><code>1 0000000 - 1 1111111</code> 表示 <span
+class="math inline">\(-128\)</span> 到 <span
+class="math inline">\(-1\)</span></li>
 </ul>
 <p>此时计算 <span class="math inline">\(4 - 7\)</span>：</p>
 <ul>
@@ -224,7 +306,8 @@ N_\mathrm{C}\)</span></p>
 <li>正数的补码与原码相同</li>
 <li>负数的补码：
 <ul>
-<li>总是以“全 <span class="math inline">\(1\)</span>”来表示 <span class="math inline">\(-1\)</span>，然后依次往前推</li>
+<li>总是以“全 <span class="math inline">\(1\)</span>”来表示 <span
+class="math inline">\(-1\)</span>，然后依次往前推</li>
 <li>原码按位取反（除了符号位）后再加一</li>
 <li>原码从右往左第一个 <span class="math inline">\(1\)</span>
 之前的位（除了符号位）按位取反</li>
@@ -234,7 +317,7 @@ N_\mathrm{C}\)</span></p>
 <ol type="1">
 <li>用两个非门、两个与门、一个或门实现异或门</li>
 </ol>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">xor_gate</span>(<span class="params">a: <span class="built_in">bool</span>, b: <span class="built_in">bool</span></span>):</span><br/><span class="line">    <span class="keyword">return</span> (a <span class="keyword">and</span> <span class="keyword">not</span> b) <span class="keyword">or</span> (<span class="keyword">not</span> a <span class="keyword">and</span> b)</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line">truth = (<span class="literal">True</span>, <span class="literal">False</span>)</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> truth:</span><br/><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> truth:</span><br/><span class="line">        <span class="built_in">print</span>(<span class="string">f"<span class="subst">{<span class="built_in">int</span>(a)}</span> xor <span class="subst">{<span class="built_in">int</span>(b)}</span> = <span class="subst">{<span class="built_in">int</span>(xor_gate(a,b))}</span>"</span>)</span><br/></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">xor_gate</span>(<span class="params">a: <span class="built_in">bool</span>, b: <span class="built_in">bool</span></span>):</span><br><span class="line">    <span class="keyword">return</span> (a <span class="keyword">and</span> <span class="keyword">not</span> b) <span class="keyword">or</span> (<span class="keyword">not</span> a <span class="keyword">and</span> b)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">truth = (<span class="literal">True</span>, <span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> truth:</span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> truth:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;<span class="built_in">int</span>(a)&#125;</span> xor <span class="subst">&#123;<span class="built_in">int</span>(b)&#125;</span> = <span class="subst">&#123;<span class="built_in">int</span>(xor_gate(a,b))&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
 <ol start="2" type="1">
 <li>用一个异或门、一个与门实现半加器</li>
 </ol>
@@ -246,16 +329,16 @@ N_\mathrm{C}\)</span></p>
 <li>1 + 1 和 0 进 1</li>
 </ul>
 <p>和的位由异或得来，进的位由与得来：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">half_adder</span>(<span class="params">a: <span class="built_in">bool</span>, b: <span class="built_in">bool</span></span>):</span><br/><span class="line">    sum_ = xor_gate(a, b)</span><br/><span class="line">    carry = a <span class="keyword">and</span> b</span><br/><span class="line">    <span class="keyword">return</span> sum_, carry</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line">truth = (<span class="literal">True</span>, <span class="literal">False</span>)</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> truth:</span><br/><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> truth:</span><br/><span class="line">        s, c = half_adder(a, b)</span><br/><span class="line">        <span class="built_in">print</span>(<span class="string">f"<span class="subst">{<span class="built_in">int</span>(a)}</span> + <span class="subst">{<span class="built_in">int</span>(b)}</span> 进 <span class="subst">{<span class="built_in">int</span>(c)}</span> 和 <span class="subst">{<span class="built_in">int</span>(s)}</span>"</span>)</span><br/></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">half_adder</span>(<span class="params">a: <span class="built_in">bool</span>, b: <span class="built_in">bool</span></span>):</span><br><span class="line">    sum_ = xor_gate(a, b)</span><br><span class="line">    carry = a <span class="keyword">and</span> b</span><br><span class="line">    <span class="keyword">return</span> sum_, carry</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">truth = (<span class="literal">True</span>, <span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> truth:</span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> truth:</span><br><span class="line">        s, c = half_adder(a, b)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;<span class="built_in">int</span>(a)&#125;</span> + <span class="subst">&#123;<span class="built_in">int</span>(b)&#125;</span> 进 <span class="subst">&#123;<span class="built_in">int</span>(c)&#125;</span> 和 <span class="subst">&#123;<span class="built_in">int</span>(s)&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
 <ol start="3" type="1">
 <li>用两个半加器、一个或门实现全加器</li>
 </ol>
 <p>两个本位的数相加后，再加上低位进的位。和一位，进一位：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">full_adder</span>(<span class="params">a: <span class="built_in">bool</span>, b: <span class="built_in">bool</span>, carry_in: <span class="built_in">bool</span></span>):</span><br/><span class="line">    s1, c1 = half_adder(a, b)</span><br/><span class="line">    s2, c2 = half_adder(s1, carry_in)</span><br/><span class="line">    carry_out = c1 <span class="keyword">or</span> c2</span><br/><span class="line">    <span class="keyword">return</span> s2, carry_out</span><br/><span class="line"></span><br/><span class="line">truth = (<span class="literal">True</span>, <span class="literal">False</span>)</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> truth:</span><br/><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> truth:</span><br/><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> truth:</span><br/><span class="line">            s, c_out = full_adder(a, b, c)</span><br/><span class="line">            <span class="built_in">print</span>(<span class="string">f"<span class="subst">{<span class="built_in">int</span>(a)}</span> + <span class="subst">{<span class="built_in">int</span>(b)}</span> + <span class="subst">{<span class="built_in">int</span>(c)}</span> 进 <span class="subst">{<span class="built_in">int</span>(c_out)}</span> 和 <span class="subst">{<span class="built_in">int</span>(s)}</span>"</span>)</span><br/></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">full_adder</span>(<span class="params">a: <span class="built_in">bool</span>, b: <span class="built_in">bool</span>, carry_in: <span class="built_in">bool</span></span>):</span><br><span class="line">    s1, c1 = half_adder(a, b)</span><br><span class="line">    s2, c2 = half_adder(s1, carry_in)</span><br><span class="line">    carry_out = c1 <span class="keyword">or</span> c2</span><br><span class="line">    <span class="keyword">return</span> s2, carry_out</span><br><span class="line"></span><br><span class="line">truth = (<span class="literal">True</span>, <span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> truth:</span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> truth:</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> truth:</span><br><span class="line">            s, c_out = full_adder(a, b, c)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;<span class="built_in">int</span>(a)&#125;</span> + <span class="subst">&#123;<span class="built_in">int</span>(b)&#125;</span> + <span class="subst">&#123;<span class="built_in">int</span>(c)&#125;</span> 进 <span class="subst">&#123;<span class="built_in">int</span>(c_out)&#125;</span> 和 <span class="subst">&#123;<span class="built_in">int</span>(s)&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
 <ol start="4" type="1">
 <li>四个全加器串联实现四位加法器</li>
 </ol>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br/><span class="line"></span><br/><span class="line">truth = (<span class="literal">True</span>, <span class="literal">False</span>)</span><br/><span class="line">numbers = <span class="built_in">tuple</span>(product(truth, repeat=<span class="number">4</span>))</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">adder</span>(<span class="params">a: <span class="built_in">tuple</span>[<span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>], b: <span class="built_in">tuple</span>[<span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>]</span>):</span><br/><span class="line">    s1, c1 = full_adder(a[-<span class="number">1</span>], b[-<span class="number">1</span>], <span class="literal">False</span>)</span><br/><span class="line">    s2, c2 = full_adder(a[-<span class="number">2</span>], b[-<span class="number">2</span>], c1)</span><br/><span class="line">    s3, c3 = full_adder(a[-<span class="number">3</span>], b[-<span class="number">3</span>], c2)</span><br/><span class="line">    s4, c4 = full_adder(a[-<span class="number">4</span>], b[-<span class="number">4</span>], c3)</span><br/><span class="line">    <span class="keyword">return</span> c4, s4, s3, s2, s1</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">to_number</span>(<span class="params">a: <span class="built_in">tuple</span>[<span class="built_in">bool</span>, ...]</span>):</span><br/><span class="line">    binary_string = <span class="string">""</span>.join(<span class="built_in">str</span>(<span class="built_in">int</span>(elem)) <span class="keyword">for</span> elem <span class="keyword">in</span> a)</span><br/><span class="line">    decimal_number = <span class="built_in">int</span>(binary_string, <span class="number">2</span>)</span><br/><span class="line">    <span class="keyword">return</span> decimal_number</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> numbers:</span><br/><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> numbers:</span><br/><span class="line">        result = adder(a, b)</span><br/><span class="line">        <span class="built_in">print</span>(<span class="string">f"<span class="subst">{to_number(a)}</span> + <span class="subst">{to_number(b)}</span> = <span class="subst">{to_number(result)}</span>"</span>)</span><br/></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br><span class="line"></span><br><span class="line">truth = (<span class="literal">True</span>, <span class="literal">False</span>)</span><br><span class="line">numbers = <span class="built_in">tuple</span>(product(truth, repeat=<span class="number">4</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">adder</span>(<span class="params">a: <span class="built_in">tuple</span>[<span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>], b: <span class="built_in">tuple</span>[<span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>]</span>):</span><br><span class="line">    s1, c1 = full_adder(a[-<span class="number">1</span>], b[-<span class="number">1</span>], <span class="literal">False</span>)</span><br><span class="line">    s2, c2 = full_adder(a[-<span class="number">2</span>], b[-<span class="number">2</span>], c1)</span><br><span class="line">    s3, c3 = full_adder(a[-<span class="number">3</span>], b[-<span class="number">3</span>], c2)</span><br><span class="line">    s4, c4 = full_adder(a[-<span class="number">4</span>], b[-<span class="number">4</span>], c3)</span><br><span class="line">    <span class="keyword">return</span> c4, s4, s3, s2, s1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">to_number</span>(<span class="params">a: <span class="built_in">tuple</span>[<span class="built_in">bool</span>, ...]</span>):</span><br><span class="line">    binary_string = <span class="string">&quot;&quot;</span>.join(<span class="built_in">str</span>(<span class="built_in">int</span>(elem)) <span class="keyword">for</span> elem <span class="keyword">in</span> a)</span><br><span class="line">    decimal_number = <span class="built_in">int</span>(binary_string, <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> decimal_number</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> numbers:</span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> numbers:</span><br><span class="line">        result = adder(a, b)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;to_number(a)&#125;</span> + <span class="subst">&#123;to_number(b)&#125;</span> = <span class="subst">&#123;to_number(result)&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="普通十进制数转单精度浮点数">普通十进制数转单精度浮点数</h2>
 <ul>
 <li>在 IEEE 754 标准下</li>
@@ -268,12 +351,16 @@ N_\mathrm{C}\)</span></p>
 <li><p>把十进制转换为二进制 <span class="math inline">\(0.1 _{10} =
 0.0\dot{0}01\dot{1}... _{2}\)</span></p></li>
 <li><p>用以 <span class="math inline">\(2_{10}\)</span>
-为基数的科学计数法表示，并保证【尾数的小数点前是 <span class="math inline">\(1_{2}\)</span>】 <span class="math inline">\(=
+为基数的科学计数法表示，并保证【尾数的小数点前是 <span
+class="math inline">\(1_{2}\)</span>】 <span class="math inline">\(=
 1.\dot{1}00\dot{1}..._{2} \times (2^{-4})_{10}\)</span> 可以看到指数是
 <span class="math inline">\(-4_{10}\)</span></p></li>
-<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
+class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
 <p>这里 <span class="math inline">\(e\)</span>
-等于【用于表示指数位的位数】 <span class="math inline">\(8_{10}\)</span>，所以偏移量为 <span class="math inline">\(127_{10}\)</span></p>
+等于【用于表示指数位的位数】 <span
+class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
+class="math inline">\(127_{10}\)</span></p>
 <p>则阶码为 <span class="math inline">\(-4_{10} + 127_{10} =
 123_{10}\)</span></p>
 <p>阶码的二进制为 <code>0111 1011</code>，注意
@@ -295,12 +382,16 @@ N_\mathrm{C}\)</span></p>
 <li><p>把十进制转换为二进制</p>
 <p><span class="math inline">\(12 _{10} = 1100 _{2}\)</span></p></li>
 <li><p>用以 <span class="math inline">\(2\)</span>
-为基数的科学计数法表示，并保证【尾数的小数点前是 <span class="math inline">\(1\)</span>】</p>
+为基数的科学计数法表示，并保证【尾数的小数点前是 <span
+class="math inline">\(1\)</span>】</p>
 <p><span class="math inline">\(= 1.1_{2} \times (2^3)_{10}\)</span></p>
 <p>可以看到指数是 <span class="math inline">\(3_{10}\)</span></p></li>
-<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span
+class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
 <p>这里 <span class="math inline">\(e\)</span>
-等于【用于表示指数位的位数】 <span class="math inline">\(8_{10}\)</span>，所以偏移量为 <span class="math inline">\(127_{10}\)</span></p>
+等于【用于表示指数位的位数】 <span
+class="math inline">\(8_{10}\)</span>，所以偏移量为 <span
+class="math inline">\(127_{10}\)</span></p>
 <p>则阶码为 <span class="math inline">\(3_{10} + 127_{10} =
 130_{10}\)</span></p>
 <p>阶码的二进制为 <code>1000 0010</code>，注意
@@ -312,12 +403,16 @@ N_\mathrm{C}\)</span></p>
 </ol>
 <h3 id="如何验证">如何验证</h3>
 <ul>
-<li><a href="https://baseconvert.com/ieee-754-floating-point" rel="noopener" target="_blank">在线转换</a></li>
-<li><a href="https://en.wikipedia.org/wiki/IEEE_754" rel="noopener" target="_blank">Wikipedia</a> | <a href="https://zh.wikipedia.org/wiki/IEEE_754" rel="noopener" target="_blank">维基百科</a></li>
+<li><a
+target="_blank" rel="noopener" href="https://baseconvert.com/ieee-754-floating-point">在线转换</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/IEEE_754">Wikipedia</a> | <a
+target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/IEEE_754">维基百科</a></li>
 <li>获取国际标准文件 IEEE 754 标准是电气与电子工程师协会（Institute of
 Electrical and Electronics
-Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <a href="https://standards.ieee.org/ieee/754/6210/" rel="noopener" target="_blank">IEEE
-754-2019</a>，对应国际标准 <a href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/standard/08/09/80985.html" rel="noopener" target="_blank">ISO/IEC
+Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <a
+target="_blank" rel="noopener" href="https://standards.ieee.org/ieee/754/6210/">IEEE
+754-2019</a>，对应国际标准 <a
+target="_blank" rel="noopener" href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/standard/08/09/80985.html">ISO/IEC
 60559:2020</a>，预计下一次在 2028 年修订。 http://snti.ru/
 这个网站分享了各种国际标准文件的磁力链接，但是可以免费下载的不全，IEC
 的只有 61xxx。据说可以给站长发邮件要
@@ -325,9 +420,9 @@ Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <
 瑞士法郎，合 1000 多人民币。</li>
 </ul>
 <p>用 GDB：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br/><span class="line"></span><br/><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br/><span class="line">{</span><br/><span class="line">    <span class="type">float</span> num = <span class="number">1.7</span>;</span><br/><span class="line">    <span class="built_in">printf</span>(<span class="string">""</span>);</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">float</span> num = <span class="number">1.7</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在第六行打上断点，VSCode 开调试，在调试控制台里：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/4tb &amp;num</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/4tb &amp;num</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>-exec</code> 执行命令</li>
 <li><code>x</code> 查看内存</li>
@@ -354,7 +449,7 @@ Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <
 <p><code>0 01111111 10110011001100110011010</code></p>
 <p>才是<code>float 1.7</code>的二进制表示。</p>
 <p>还可以直接用</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/tw &amp;num</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-<span class="built_in">exec</span> x/tw &amp;num</span><br></pre></td></tr></table></figure>
 <p>输出四个字节，结果：</p>
 <p><code>0x61fe1c: 00111111110110011001100110011010</code></p>
 <h2 id="十进制与-k-进制小数互转">十进制与 K 进制小数互转</h2>
@@ -478,54 +573,97 @@ _{16}\)</span></p>
 </tr>
 </tbody>
 </table>
-</div>
-<footer class="post-footer">
-<div class="post-nav">
-<div class="post-nav-item">
-<a href="/blog/data-mining.html" rel="prev" title="数据挖掘">
-<i class="fa fa-chevron-left"></i> 数据挖掘
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/data-mining.html" rel="prev" title="数据挖掘">
+                  <i class="fa fa-chevron-left"></i> 数据挖掘
                 </a>
-</div>
-<div class="post-nav-item">
-<a href="/blog/favorite.html" rel="next" title="我喜欢的音乐">
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/favorite.html" rel="next" title="我喜欢的音乐">
                   我喜欢的音乐 <i class="fa fa-chevron-right"></i>
-</a>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
 </div>
+
+
+
+
+
+
 </div>
-</footer>
-</article>
-</div>
-</div>
-</main>
-<footer class="footer">
-<div class="footer-inner">
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
 <div class="copyright">
   2023 – 
   <span itemprop="copyrightYear">2024</span>
-<span class="with-love">
-<i class="fa fa-heart"></i>
-</span>
-<span class="author" itemprop="copyrightHolder">Ruofan</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruofan</span>
 </div>
-</div>
-</footer>
-<div aria-label="返回顶部" class="back-to-top" role="button">
-<i class="fa fa-arrow-up fa-lg"></i>
-<span>0%</span>
-</div>
-<div class="reading-progress-bar"></div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
 <noscript>
-<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
 <script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
-<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
-<script src="/blog/js/third-party/tags/mermaid.js"></script>
-<script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+  <script src="/blog/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
-<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/computer-organization.html"}</script>
-<script src="/blog/js/third-party/quicklink.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/computer-organization.html"}</script>
+  <script src="/blog/js/third-party/quicklink.js"></script>
+
 </body>
 </html>

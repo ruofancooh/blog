@@ -1,178 +1,238 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width" name="viewport"/>
-<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
-<link href="/blog/css/main.css" rel="stylesheet"/>
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="你需要：
- 
- 一台系统为 Android 6.0 以上的手机
- 一台能够正常使用 Android
- SDK Platform-Tools 的电脑" name="description"/>
-<meta content="article" property="og:type"/>
-<meta content="用 Magisk 获取 Android 手机的 root 权限" property="og:title"/>
-<meta content="https://hrfis.me/blog/magisk.html" property="og:url"/>
-<meta content="若凡的笔记" property="og:site_name"/>
-<meta content="你需要：
- 
- 一台系统为 Android 6.0 以上的手机
- 一台能够正常使用 Android
- SDK Platform-Tools 的电脑" property="og:description"/>
-<meta content="zh_CN" property="og:locale"/>
-<meta content="https://hrfis.me/blog/images/magisk.webp" property="og:image"/>
-<meta content="2023-07-08T14:24:00.000Z" property="article:published_time"/>
-<meta content="2024-05-15T08:11:14.731Z" property="article:modified_time"/>
-<meta content="Ruofan" property="article:author"/>
-<meta content="summary" name="twitter:card"/>
-<meta content="https://hrfis.me/blog/images/magisk.webp" name="twitter:image"/>
-<link href="https://hrfis.me/blog/magisk" rel="canonical"/>
+
+    <meta name="description" content="你需要：  一台系统为 Android 6.0 以上的手机 一台能够正常使用 Android SDK Platform-Tools 的电脑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用 Magisk 获取 Android 手机的 root 权限">
+<meta property="og:url" content="https://hrfis.me/blog/magisk.html">
+<meta property="og:site_name" content="若凡的笔记">
+<meta property="og:description" content="你需要：  一台系统为 Android 6.0 以上的手机 一台能够正常使用 Android SDK Platform-Tools 的电脑">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hrfis.me/blog/images/magisk.webp">
+<meta property="article:published_time" content="2023-07-08T14:24:00.000Z">
+<meta property="article:modified_time" content="2024-05-15T08:11:14.731Z">
+<meta property="article:author" content="Ruofan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hrfis.me/blog/images/magisk.webp">
+
+
+<link rel="canonical" href="https://hrfis.me/blog/magisk">
+
+
+
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/magisk.html","path":"/magisk.html","title":"用 Magisk 获取 Android 手机的 root 权限"}</script>
+
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>用 Magisk 获取 Android 手机的 root 权限 | 若凡的笔记</title>
-<noscript>
-<link href="/blog/css/noscript.css" rel="stylesheet"/>
-</noscript>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
 </head>
-<body itemscope="" itemtype="http://schema.org/WebPage">
-<div class="headband"></div>
-<main class="main">
-<div class="column">
-<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-<div class="site-nav-toggle">
-<div aria-label="切换导航栏" class="toggle" role="button">
-<span class="toggle-line"></span>
-<span class="toggle-line"></span>
-<span class="toggle-line"></span>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">若凡的笔记</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
 </div>
-</div>
-<div class="site-meta">
-<a class="brand" href="/blog/" rel="start">
-<i class="logo-line"></i>
-<p class="site-title">若凡的笔记</p>
-<i class="logo-line"></i>
-</a>
-</div>
-<div class="site-nav-right">
-<div aria-label="搜索" class="toggle popup-trigger" role="button">
-</div>
-</div>
-</div>
+
+
+
 <nav class="site-nav">
-<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-</ul>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
 </nav>
+
+
+
+
 </header>
-<aside class="sidebar">
-<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-<ul class="sidebar-nav">
-<li class="sidebar-nav-toc">
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
           文章目录
         </li>
-<li class="sidebar-nav-overview">
+        <li class="sidebar-nav-overview">
           站点概览
         </li>
-</ul>
-<div class="sidebar-panel-container">
-<!--noindex-->
-<div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">背景知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-%E4%B8%8E-android"><span class="nav-number">1.1.</span> <span class="nav-text">Linux 与 Android</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-%E4%B8%8E-android-%E4%B8%AD%E7%9A%84%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90"><span class="nav-number">1.2.</span> <span class="nav-text">Linux 与 Android
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">背景知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-%E4%B8%8E-android"><span class="nav-number">1.1.</span> <span class="nav-text">Linux 与 Android</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux-%E4%B8%8E-android-%E4%B8%AD%E7%9A%84%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90"><span class="nav-number">1.2.</span> <span class="nav-text">Linux 与 Android
 中的用户权限</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bootloader-%E9%94%81"><span class="nav-number">1.3.</span> <span class="nav-text">Bootloader 锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#magisk"><span class="nav-number">1.4.</span> <span class="nav-text">Magisk</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%99%A4-bl-%E9%94%81"><span class="nav-number">2.1.</span> <span class="nav-text">解除 BL 锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E5%8F%96-boot.img"><span class="nav-number">2.2.</span> <span class="nav-text">提取 boot.img</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87-usb-%E8%B0%83%E8%AF%95%E6%89%8B%E6%9C%BA"><span class="nav-number">2.3.</span> <span class="nav-text">通过 USB 调试手机</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%B4%E4%B8%8A%E9%9D%A2%E5%85%B7"><span class="nav-number">3.</span> <span class="nav-text">戴上面具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%90%E8%97%8F%E9%9D%A2%E5%85%B7"><span class="nav-number">4.</span> <span class="nav-text">隐藏面具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-shamiko-%E9%9A%90%E8%97%8F-root"><span class="nav-number">4.1.</span> <span class="nav-text">使用 Shamiko 隐藏 root</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E9%9A%8F%E6%9C%BA%E5%8C%85%E5%90%8D%E9%9A%90%E8%97%8F%E9%9D%A2%E5%85%B7%E5%BA%94%E7%94%A8"><span class="nav-number">4.2.</span> <span class="nav-text">使用随机包名隐藏面具应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%BB%AD%E5%A4%84%E7%90%86%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F%E6%97%B6"><span class="nav-number">5.</span> <span class="nav-text">后续处理——更新系统时</span></a></li></ol></div>
-</div>
-<!--/noindex-->
-<div class="site-overview-wrap sidebar-panel">
-<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<p class="site-author-name" itemprop="name">Ruofan</p>
-<div class="site-description" itemprop="description"></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Ruofan</p>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap animated">
-<nav class="site-state">
-<div class="site-state-item site-state-posts">
-<a href="/blog/archives/">
-<span class="site-state-item-count">31</span>
-<span class="site-state-item-name">笔记</span>
-</a>
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">笔记</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/blog/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
 </div>
-<div class="site-state-item site-state-categories">
-<a href="/blog/categories/">
-<span class="site-state-item-count">3</span>
-<span class="site-state-item-name">分类</span></a>
-</div>
-</nav>
-</div>
-</div>
-</div>
-</div>
-</aside>
-</div>
-<div class="main-inner post posts-expand">
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
 <div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/magisk.html" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="用 Magisk 获取 Android 手机的 root 权限 | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h1 class="post-title" itemprop="name headline">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/magisk.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Ruofan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="若凡的笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="用 Magisk 获取 Android 手机的 root 权限 | 若凡的笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
           用 Magisk 获取 Android 手机的 root 权限
         </h1>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar"></i>
-</span>
-<span class="post-meta-item-text">发表于</span>
-<time datetime="2023-07-08T22:24:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-07-08 22:24:00">2023-07-08</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-15T16:11:14+08:00" itemprop="dateModified" title="修改时间：2024-05-15 16:11:14">2024-05-15</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">实用系列</span></a>
-</span>
-</span>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-08 22:24:00" itemprop="dateCreated datePublished" datetime="2023-07-08T22:24:00+08:00">2023-07-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-05-15 16:11:14" itemprop="dateModified" datetime="2024-05-15T16:11:14+08:00">2024-05-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/%E5%AE%9E%E7%94%A8%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">实用系列</span></a>
+        </span>
+    </span>
+
+  
 </div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody"><p>你需要：</p>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>你需要：</p>
 <ul>
 <li>一台系统为 Android 6.0 以上的手机</li>
-<li>一台能够正常使用 <a href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn" rel="noopener" target="_blank">Android
+<li>一台能够正常使用 <a
+target="_blank" rel="noopener" href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn">Android
 SDK Platform-Tools</a> 的电脑</li>
 </ul>
 <span id="more"></span>
-<p>另外，如果你手机的 Android kernel 版本在 5.10 以上，你也可以使用<a href="https://kernelsu.org/zh_CN/" rel="noopener" target="_blank">KernelSU</a>——这不属于此教程的范围。</p>
+<p>另外，如果你手机的 Android kernel 版本在 5.10 以上，你也可以使用<a
+target="_blank" rel="noopener" href="https://kernelsu.org/zh_CN/">KernelSU</a>——这不属于此教程的范围。</p>
 <h2 id="背景知识">背景知识</h2>
 <h3 id="linux-与-android">Linux 与 Android</h3>
 <p>Linux 是一种操作系统内核，由 Linus Torvalds 开发。<strong>基于 Linux
 内核</strong>，Android Inc.公司开发出了 Android 操作系统。</p>
 <p>2005 年，Google 收购 Android Inc.。2007 年，Google 将 Android
-的源代码公开，并创建了<a href="https://source.android.google.cn/?hl=zh-cn" rel="noopener" target="_blank">AOSP</a>（Android Open
+的源代码公开，并创建了<a
+target="_blank" rel="noopener" href="https://source.android.google.cn/?hl=zh-cn">AOSP</a>（Android Open
 Source Project）项目。</p>
 <p>许多手机厂商的定制系统，如 MIUI、Flyme、HarmonyOS 等都是<strong>基于
-AOSP 源码</strong>开发的。和 AOSP 对标的<a href="https://gitee.com/openharmony" rel="noopener" target="_blank">OpenHarmony</a>也有用到 Linux
+AOSP 源码</strong>开发的。和 AOSP 对标的<a
+target="_blank" rel="noopener" href="https://gitee.com/openharmony">OpenHarmony</a>也有用到 Linux
 内核。所以，如果你的手机不是苹果，它里面大概率就会有一个修改过的 Linux
 内核。</p>
 <h3 id="linux-与-android-中的用户权限">Linux 与 Android
@@ -198,13 +258,15 @@ bootloader（BL）锁。</p>
 的开源软件。它可以为应用程序提供 root
 访问权限。后文简称<strong>面具</strong>。</p>
 <p>面具获取 root 权限的原理是通过修改 boot 分区，代理 linux
-内核的第一个进程 init。<a class="footnote-ref" href="#fn1" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+内核的第一个进程 init。<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a></p>
 <p>面具修改了系统分区。因此，使用面具的前提是解除 BL 锁。</p>
 <h2 id="准备工作">准备工作</h2>
 <h3 id="解除-bl-锁">解除 BL 锁</h3>
 <blockquote>
 <p>解锁 BootLoader 实际上就是让 BootLoader
-启动链上某些阶段的签名验证不生效。<a class="footnote-ref" href="#fn2" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+启动链上某些阶段的签名验证不生效。<a href="#fn2" class="footnote-ref"
+id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 </blockquote>
 <p>你需要在你手机厂商的网站上申请，然后用他们提供的工具解锁。但不是所有厂商都支持。</p>
 <p>注意：解锁 BL
@@ -214,7 +276,9 @@ bootloader（BL）锁。</p>
 <p>通常是一个<code>.zip</code>或.<code>tgz</code>格式的压缩包。确保手机型号一致、操作系统版本一致。</p>
 <p>解压后找到<code>boot.img</code>或者<code>init_boot.img（如果有）</code>。复制两份，分别保存到手机和电脑，备用。</p>
 <ul>
-<li>如果你找不到<code>boot.img</code>，而找到了<code>payload.bin</code>：参考<a href="https://magiskcn.com/payload-dumper-go-boot" rel="noopener" target="_blank">这篇教程</a>。或者使用<a href="https://mt2.cn/" rel="noopener" target="_blank">MT 管理器</a>提取。</li>
+<li>如果你找不到<code>boot.img</code>，而找到了<code>payload.bin</code>：参考<a
+target="_blank" rel="noopener" href="https://magiskcn.com/payload-dumper-go-boot">这篇教程</a>。或者使用<a
+target="_blank" rel="noopener" href="https://mt2.cn/">MT 管理器</a>提取。</li>
 <li>如果你的手机<em><strong>已经 root
 了</strong></em>：可以在<code>adb shell</code>下使用<code>ls -l /dev/block/by-name/</code>查看分区表。找到
 boot
@@ -226,27 +290,30 @@ boot 分区。</li>
 版本”）。连续点击，直到手机出现提示框“您现在处于开发者模式”。</p>
 <p>在手机设置里找到开发者选项，进入。找到<strong>USB
 调试</strong>选项并开启。</p>
-<p>下载<a href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn" rel="noopener" target="_blank">Android
+<p>下载<a
+target="_blank" rel="noopener" href="https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn">Android
 SDK
 Platform-Tools</a>，解压到你喜欢的目录。比如<code>D:\platform-tools</code>。你会看到目录里有<code>adb.exe</code>和<code>fastboot.exe</code>等一些文件。</p>
 <p>打开命令行（Windows 下 win+R 输入 cmd，回车），你会看到：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">C:\Users\你的用户名\&gt;</span><br/></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\你的用户名\&gt;</span><br></pre></td></tr></table></figure>
 <p>这是你当前所在的目录。当你要执行一个<code>.exe</code>文件时，系统先从当前目录里寻找。如果找不到，就从环境变量里寻找。再找不到就打印错误信息。</p>
 <p>你刚才解压出来的<code>.exe</code>文件只能在它们所在的目录下运行。如果不想切换目录，想让它们在任意目录下都可以运行，需要把它们<strong>所在的目录</strong>添加到<strong>环境变量
 Path</strong>。</p>
 <p>Windows 10
 下，<code>Win + I</code>打开设置。系统-&gt;关于-&gt;高级系统设置-&gt;环境变量，双击系统变量<code>Path</code>，新建，把<code>D:\platform-tools</code>复制到列表，确定确定确定。这样环境变量就设置好了。</p>
 <p>用数据线连接手机和电脑。你可以尝试在<code>cmd</code>里使用命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">adb devices</span><br/></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br></pre></td></tr></table></figure>
 <p>这时手机会弹出授权窗口。点击确定，你会在电脑上看到：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">List of devices attached</span><br/><span class="line">你手机的序列号        device</span><br/></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List of devices attached</span><br><span class="line">你手机的序列号        device</span><br></pre></td></tr></table></figure>
 <p>说明 adb 连接成功。</p>
 <h2 id="戴上面具">戴上面具</h2>
-<p><a href="https://github.com/topjohnwu/Magisk/releases" rel="noopener" target="_blank">下载面具</a>并安装打开，你将看到：</p>
-<p><img src="/blog/images/magisk.webp"/></p>
+<p><a
+target="_blank" rel="noopener" href="https://github.com/topjohnwu/Magisk/releases">下载面具</a>并安装打开，你将看到：</p>
+<p><img src="/blog/images/magisk.webp"></p>
 <p>如果 Ramdisk
 为<strong>否</strong>，或者你的手机品牌是<strong>华为</strong>或<strong>三星</strong>：参考
-<a href="https://jesse205.github.io/MagiskChineseDocument/install.html" rel="noopener" target="_blank">Magisk
+<a
+target="_blank" rel="noopener" href="https://jesse205.github.io/MagiskChineseDocument/install.html">Magisk
 中文文档</a>。</p>
 <p>点击“安装”按钮。如果你手机的安装包中有<code>vbmeta.img</code>，选中“修补
 boot 映像中的 vbmeta”选项。否则不选中。</p>
@@ -254,19 +321,20 @@ boot 映像中的 vbmeta”选项。否则不选中。</p>
 <p>面具会把修补后的文件<code>magisk_patched-[版本号_随机字符].img</code>存放到
 SD 卡的<code>Download</code>目录下。</p>
 <p>把修补后的文件复制到电脑：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">adb pull /sdcard/Download/magisk_patched-[版本号_随机字符].img 电脑上的一个文件夹路径</span><br/></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb pull /sdcard/Download/magisk_patched-[版本号_随机字符].img 电脑上的一个文件夹路径</span><br></pre></td></tr></table></figure>
 <p>重启手机到<code>fastboot</code>模式：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">adb reboot bootloader</span><br/></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb reboot bootloader</span><br></pre></td></tr></table></figure>
 <p>刷写新的<code>boot</code>分区：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">fastboot flash boot（或者init_boot） 电脑上的一个文件夹路径\magisk_patched-[版本号_随机字符].img</span><br/></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash boot（或者init_boot） 电脑上的一个文件夹路径\magisk_patched-[版本号_随机字符].img</span><br></pre></td></tr></table></figure>
 <p>重启手机：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">fastboot reboot</span><br/></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot reboot</span><br></pre></td></tr></table></figure>
 <p>打开面具。如果看到了 Magisk-&gt;当前的版本号，说明成功。</p>
 <ul>
 <li>如果你的手机打不开了：说明面具不适合你的手机，或者你有地方做错了。
 你需要长按【电源】键重启，然后马上同时按住【电源】键和【音量+】键（也有手机是【电源】键和【音量-】键）。这会把手机重启到<code>fastboot</code>模式。
-然后使用以下命令恢复 boot 分区： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">fastboot flash boot（或者init_boot） 电脑上的一个文件夹路径\你修补前的boot.img</span><br/></pre></td></tr></table></figure></li>
-<li>在安装面具后：需要禁用系统自动更新。<a href="#后续处理更新系统时">后续处理——更新系统时</a></li>
+然后使用以下命令恢复 boot 分区： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot flash boot（或者init_boot） 电脑上的一个文件夹路径\你修补前的boot.img</span><br></pre></td></tr></table></figure></li>
+<li>在安装面具后：需要禁用系统自动更新。<a
+href="#后续处理更新系统时">后续处理——更新系统时</a></li>
 </ul>
 <h2 id="隐藏面具">隐藏面具</h2>
 <p>为了用户安全，一些银行类的 app 在检测到 root
@@ -274,7 +342,8 @@ SD 卡的<code>Download</code>目录下。</p>
 <h3 id="使用-shamiko-隐藏-root">使用 Shamiko 隐藏 root</h3>
 <p>Shamiko 是一个面具模块，用于隐藏 root。</p>
 <ul>
-<li>如果使用的是<a href="https://github.com/magojohnji/Magisk-delta/blob/main/intro.md" rel="noopener" target="_blank">Magisk
+<li>如果使用的是<a
+target="_blank" rel="noopener" href="https://github.com/magojohnji/Magisk-delta/blob/main/intro.md">Magisk
 Delta</a>，则不能安装此模块。可用其内置的 MagiskHide。</li>
 </ul>
 <p>在面具设置里：</p>
@@ -284,7 +353,7 @@ Delta</a>，则不能安装此模块。可用其内置的 MagiskHide。</li>
 <li><p>找到“配置排除列表”，选择要对其隐藏 root
 的应用。点击，在展开的列表里全部打上勾，直到上方进度条满。</p></li>
 </ul>
-<p><a href="https://github.com/LSPosed/LSPosed.github.io/releases/" rel="noopener" target="_blank">下载
+<p><a target="_blank" rel="noopener" href="https://github.com/LSPosed/LSPosed.github.io/releases/">下载
 Shamiko</a>
 。打开面具-&gt;模块-&gt;从本地安装-&gt;选择下载的<code>shamiko-[版本号]-release.zip</code>-&gt;确定-&gt;重启手机。</p>
 <p>如果看到模块-&gt;Shamiko 的简介里露出了 😋，说明 Shamiko
@@ -297,66 +366,115 @@ Magisk”-&gt;<strong>还原原厂映像</strong>。然后更新系统。</p>
 <p>系统更新后：仍然使用提取 boot-&gt;修补 boot-&gt;刷入 boot
 的方式安装面具。</p>
 <ul>
-<li>如果希望在更新系统时保留面具：参考<a href="https://jesse205.github.io/MagiskChineseDocument/ota.html" rel="noopener" target="_blank">这篇文档</a>。</li>
+<li>如果希望在更新系统时保留面具：参考<a
+target="_blank" rel="noopener" href="https://jesse205.github.io/MagiskChineseDocument/ota.html">这篇文档</a>。</li>
 </ul>
-<aside class="footnotes footnotes-end-of-document" id="footnotes" role="doc-endnotes">
-<hr/>
+<aside id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
 <ol>
-<li id="fn1"><p><a href="https://mp.weixin.qq.com/s/eF9izvazeSZ1bVxOcxamQg" rel="noopener" target="_blank">何为
-root？维术：https://mp.weixin.qq.com/s/eF9izvazeSZ1bVxOcxamQg</a><a class="footnote-back" href="#fnref1" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p><a href="https://mp.weixin.qq.com/s/-9VKyraHq5Qt2PTzqVqZOg" rel="noopener" target="_blank">当我们谈论解锁
+<li id="fn1"><p><a
+target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/eF9izvazeSZ1bVxOcxamQg">何为
+root？维术：https://mp.weixin.qq.com/s/eF9izvazeSZ1bVxOcxamQg</a><a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a
+target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/-9VKyraHq5Qt2PTzqVqZOg">当我们谈论解锁
 BootLoader
-时，我们在谈论什么？维术：https://mp.weixin.qq.com/s/-9VKyraHq5Qt2PTzqVqZOg</a><a class="footnote-back" href="#fnref2" role="doc-backlink">↩︎</a></p></li>
+时，我们在谈论什么？维术：https://mp.weixin.qq.com/s/-9VKyraHq5Qt2PTzqVqZOg</a><a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </aside>
-</div>
-<footer class="post-footer">
-<div class="post-nav">
-<div class="post-nav-item">
-<a href="/blog/json.html" rel="prev" title="JSON">
-<i class="fa fa-chevron-left"></i> JSON
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/json.html" rel="prev" title="JSON">
+                  <i class="fa fa-chevron-left"></i> JSON
                 </a>
-</div>
-<div class="post-nav-item">
-<a href="/blog/termux-flask-ngrok.html" rel="next" title="在手机上搭建 Web 服务器">
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/termux-flask-ngrok.html" rel="next" title="在手机上搭建 Web 服务器">
                   在手机上搭建 Web 服务器 <i class="fa fa-chevron-right"></i>
-</a>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
 </div>
+
+
+
+
+
+
 </div>
-</footer>
-</article>
-</div>
-</div>
-</main>
-<footer class="footer">
-<div class="footer-inner">
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
 <div class="copyright">
   2023 – 
   <span itemprop="copyrightYear">2024</span>
-<span class="with-love">
-<i class="fa fa-heart"></i>
-</span>
-<span class="author" itemprop="copyrightHolder">Ruofan</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruofan</span>
 </div>
-</div>
-</footer>
-<div aria-label="返回顶部" class="back-to-top" role="button">
-<i class="fa fa-arrow-up fa-lg"></i>
-<span>0%</span>
-</div>
-<div class="reading-progress-bar"></div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
 <noscript>
-<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
 <script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
-<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
-<script src="/blog/js/third-party/tags/mermaid.js"></script>
-<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+  <script src="/blog/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
-<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/magisk.html"}</script>
-<script src="/blog/js/third-party/quicklink.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/magisk.html"}</script>
+  <script src="/blog/js/third-party/quicklink.js"></script>
+
 </body>
 </html>

@@ -1,169 +1,215 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width" name="viewport"/>
-<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
-<link href="/blog/css/main.css" rel="stylesheet"/>
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+<link rel="stylesheet" href="/blog/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="使用的主要工具：
- 
- Termux——模拟 Linux 环境
- Flask——作为后端框架
- Ngrok——内网穿透
- 
- 你需要：
- 
- 能够正常运行以上软件的安卓手机
- 最好有一台电脑" name="description"/>
-<meta content="article" property="og:type"/>
-<meta content="在手机上搭建 Web 服务器" property="og:title"/>
-<meta content="https://hrfis.me/blog/termux-flask-ngrok.html" property="og:url"/>
-<meta content="若凡的笔记" property="og:site_name"/>
-<meta content="使用的主要工具：
- 
- Termux——模拟 Linux 环境
- Flask——作为后端框架
- Ngrok——内网穿透
- 
- 你需要：
- 
- 能够正常运行以上软件的安卓手机
- 最好有一台电脑" property="og:description"/>
-<meta content="zh_CN" property="og:locale"/>
-<meta content="2023-07-19T05:45:00.000Z" property="article:published_time"/>
-<meta content="2024-05-15T08:10:55.610Z" property="article:modified_time"/>
-<meta content="Ruofan" property="article:author"/>
-<meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/termux-flask-ngrok" rel="canonical"/>
+
+    <meta name="description" content="使用的主要工具：  Termux——模拟 Linux 环境 Flask——作为后端框架 Ngrok——内网穿透  你需要：  能够正常运行以上软件的安卓手机 最好有一台电脑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在手机上搭建 Web 服务器">
+<meta property="og:url" content="https://hrfis.me/blog/termux-flask-ngrok.html">
+<meta property="og:site_name" content="若凡的笔记">
+<meta property="og:description" content="使用的主要工具：  Termux——模拟 Linux 环境 Flask——作为后端框架 Ngrok——内网穿透  你需要：  能够正常运行以上软件的安卓手机 最好有一台电脑">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-19T05:45:00.000Z">
+<meta property="article:modified_time" content="2024-05-15T08:10:55.610Z">
+<meta property="article:author" content="Ruofan">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hrfis.me/blog/termux-flask-ngrok">
+
+
+
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/termux-flask-ngrok.html","path":"/termux-flask-ngrok.html","title":"在手机上搭建 Web 服务器"}</script>
+
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>在手机上搭建 Web 服务器 | 若凡的笔记</title>
-<noscript>
-<link href="/blog/css/noscript.css" rel="stylesheet"/>
-</noscript>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/blog/css/noscript.css">
+  </noscript>
 </head>
-<body itemscope="" itemtype="http://schema.org/WebPage">
-<div class="headband"></div>
-<main class="main">
-<div class="column">
-<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-<div class="site-nav-toggle">
-<div aria-label="切换导航栏" class="toggle" role="button">
-<span class="toggle-line"></span>
-<span class="toggle-line"></span>
-<span class="toggle-line"></span>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/blog/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">若凡的笔记</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
 </div>
-</div>
-<div class="site-meta">
-<a class="brand" href="/blog/" rel="start">
-<i class="logo-line"></i>
-<p class="site-title">若凡的笔记</p>
-<i class="logo-line"></i>
-</a>
-</div>
-<div class="site-nav-right">
-<div aria-label="搜索" class="toggle popup-trigger" role="button">
-</div>
-</div>
-</div>
+
+
+
 <nav class="site-nav">
-<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-</ul>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
 </nav>
+
+
+
+
 </header>
-<aside class="sidebar">
-<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-<ul class="sidebar-nav">
-<li class="sidebar-nav-toc">
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
           文章目录
         </li>
-<li class="sidebar-nav-overview">
+        <li class="sidebar-nav-overview">
           站点概览
         </li>
-</ul>
-<div class="sidebar-panel-container">
-<!--noindex-->
-<div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#termux%E6%A8%A1%E6%8B%9F-linux-%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">Termux——模拟 Linux 环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%89%8B%E6%9C%BA%E6%B2%A1%E6%9C%89-root"><span class="nav-number">1.1.</span> <span class="nav-text">如果手机没有 root：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%89%8B%E6%9C%BA%E5%B7%B2-root"><span class="nav-number">1.2.</span> <span class="nav-text">如果手机已 root：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%A6%E5%A4%96"><span class="nav-number">1.3.</span> <span class="nav-text">另外</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flask%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6"><span class="nav-number">2.</span> <span class="nav-text">Flask——后端框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-flask"><span class="nav-number">2.1.</span> <span class="nav-text">安装 Flask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BD%BF%E7%94%A8-flask"><span class="nav-number">2.2.</span> <span class="nav-text">在本地使用 Flask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E4%BD%BF%E7%94%A8-flask"><span class="nav-number">2.3.</span> <span class="nav-text">在局域网内使用 Flask</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F"><span class="nav-number">3.</span> <span class="nav-text">Ngrok——内网穿透</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ngrok"><span class="nav-number">3.1.</span> <span class="nav-text">安装 Ngrok</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D%E8%A7%A3%E5%86%B3-dns-%E9%97%AE%E9%A2%98"><span class="nav-number">3.2.</span> <span class="nav-text">在开始之前，解决 DNS 问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">3.2.1.</span> <span class="nav-text">解决方法：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-ngrok"><span class="nav-number">3.3.</span> <span class="nav-text">使用 Ngrok</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0-authtoken-%E5%88%B0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.3.1.</span> <span class="nav-text">添加 Authtoken 到配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0-domain-%E5%92%8C-edge"><span class="nav-number">3.3.2.</span> <span class="nav-text">添加 Domain 和 Edge</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%81%E8%AE%B8%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82"><span class="nav-number">3.3.3.</span> <span class="nav-text">允许跨域请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C-ngrok"><span class="nav-number">3.3.4.</span> <span class="nav-text">运行 Ngrok</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E5%8F%91%E9%80%81-http-%E8%AF%B7%E6%B1%82"><span class="nav-number">3.3.5.</span> <span class="nav-text">测试发送 HTTP 请求</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%BB%AD%E5%A4%84%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">后续处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%9D%E6%B4%BB"><span class="nav-number">4.1.</span> <span class="nav-text">保活</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">4.2.</span> <span class="nav-text">启动服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">4.3.</span> <span class="nav-text">关闭服务器</span></a></li></ol></li></ol></div>
-</div>
-<!--/noindex-->
-<div class="site-overview-wrap sidebar-panel">
-<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<p class="site-author-name" itemprop="name">Ruofan</p>
-<div class="site-description" itemprop="description"></div>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#termux%E6%A8%A1%E6%8B%9F-linux-%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">Termux——模拟 Linux 环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%89%8B%E6%9C%BA%E6%B2%A1%E6%9C%89-root"><span class="nav-number">1.1.</span> <span class="nav-text">如果手机没有 root：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%89%8B%E6%9C%BA%E5%B7%B2-root"><span class="nav-number">1.2.</span> <span class="nav-text">如果手机已 root：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%A6%E5%A4%96"><span class="nav-number">1.3.</span> <span class="nav-text">另外</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flask%E5%90%8E%E7%AB%AF%E6%A1%86%E6%9E%B6"><span class="nav-number">2.</span> <span class="nav-text">Flask——后端框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-flask"><span class="nav-number">2.1.</span> <span class="nav-text">安装 Flask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BD%BF%E7%94%A8-flask"><span class="nav-number">2.2.</span> <span class="nav-text">在本地使用 Flask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E4%BD%BF%E7%94%A8-flask"><span class="nav-number">2.3.</span> <span class="nav-text">在局域网内使用 Flask</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F"><span class="nav-number">3.</span> <span class="nav-text">Ngrok——内网穿透</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ngrok"><span class="nav-number">3.1.</span> <span class="nav-text">安装 Ngrok</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D%E8%A7%A3%E5%86%B3-dns-%E9%97%AE%E9%A2%98"><span class="nav-number">3.2.</span> <span class="nav-text">在开始之前，解决 DNS 问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">3.2.1.</span> <span class="nav-text">解决方法：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-ngrok"><span class="nav-number">3.3.</span> <span class="nav-text">使用 Ngrok</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0-authtoken-%E5%88%B0%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.3.1.</span> <span class="nav-text">添加 Authtoken 到配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0-domain-%E5%92%8C-edge"><span class="nav-number">3.3.2.</span> <span class="nav-text">添加 Domain 和 Edge</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%81%E8%AE%B8%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82"><span class="nav-number">3.3.3.</span> <span class="nav-text">允许跨域请求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C-ngrok"><span class="nav-number">3.3.4.</span> <span class="nav-text">运行 Ngrok</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E5%8F%91%E9%80%81-http-%E8%AF%B7%E6%B1%82"><span class="nav-number">3.3.5.</span> <span class="nav-text">测试发送 HTTP 请求</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%BB%AD%E5%A4%84%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">后续处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%9D%E6%B4%BB"><span class="nav-number">4.1.</span> <span class="nav-text">保活</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">4.2.</span> <span class="nav-text">启动服务器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">4.3.</span> <span class="nav-text">关闭服务器</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Ruofan</p>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap animated">
-<nav class="site-state">
-<div class="site-state-item site-state-posts">
-<a href="/blog/archives/">
-<span class="site-state-item-count">31</span>
-<span class="site-state-item-name">笔记</span>
-</a>
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/blog/archives/">
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">笔记</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/blog/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
 </div>
-<div class="site-state-item site-state-categories">
-<a href="/blog/categories/">
-<span class="site-state-item-count">3</span>
-<span class="site-state-item-name">分类</span></a>
-</div>
-</nav>
-</div>
-</div>
-</div>
-</div>
-</aside>
-</div>
-<div class="main-inner post posts-expand">
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
 <div class="post-block">
-<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/termux-flask-ngrok.html" itemprop="mainEntityOfPage"/>
-<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<meta content="/blog/images/avatar.gif" itemprop="image"/>
-<meta content="Ruofan" itemprop="name"/>
-</span>
-<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="在手机上搭建 Web 服务器 | 若凡的笔记" itemprop="name"/>
-<meta content="" itemprop="description"/>
-</span>
-<header class="post-header">
-<h1 class="post-title" itemprop="name headline">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/termux-flask-ngrok.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="Ruofan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="若凡的笔记">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="在手机上搭建 Web 服务器 | 若凡的笔记">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
           在手机上搭建 Web 服务器
         </h1>
-<div class="post-meta-container">
-<div class="post-meta">
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar"></i>
-</span>
-<span class="post-meta-item-text">发表于</span>
-<time datetime="2023-07-19T13:45:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-07-19 13:45:00">2023-07-19</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-15T16:10:55+08:00" itemprop="dateModified" title="修改时间：2024-05-15 16:10:55">2024-05-15</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-folder"></i>
-</span>
-<span class="post-meta-item-text">分类于</span>
-<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">实用系列</span></a>
-</span>
-</span>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-19 13:45:00" itemprop="dateCreated datePublished" datetime="2023-07-19T13:45:00+08:00">2023-07-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-05-15 16:10:55" itemprop="dateModified" datetime="2024-05-15T16:10:55+08:00">2024-05-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/%E5%AE%9E%E7%94%A8%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">实用系列</span></a>
+        </span>
+    </span>
+
+  
 </div>
-</div>
-</header>
-<div class="post-body" itemprop="articleBody"><p>使用的主要工具：</p>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>使用的主要工具：</p>
 <ul>
 <li>Termux——模拟 Linux 环境</li>
 <li>Flask——作为后端框架</li>
@@ -176,15 +222,17 @@
 </ul>
 <span id="more"></span>
 <p>在模拟的 Linux 环境下运行 Ngrok <strong>需要手机有 root
-权限，仅用于解决<a href="#在开始之前解决-dns-问题">这个问题</a></strong>。如果没有更好的，不使用
+权限，仅用于解决<a
+href="#在开始之前解决-dns-问题">这个问题</a></strong>。如果没有更好的，不使用
 root 权限的方法的话，可以尝试<a href="#另外">在 Termux 上安装 Linux
 发行版</a>。</p>
 <p><a href="/blog/magisk.html">用 Magisk 获取 Android 手机的 root
 权限</a></p>
 <h2 id="termux模拟-linux-环境">Termux——模拟 Linux 环境</h2>
-<p><a href="https://termux.dev/cn/index.html" rel="noopener" target="_blank">Termux</a>
+<p><a target="_blank" rel="noopener" href="https://termux.dev/cn/index.html">Termux</a>
 是一个在安卓手机上模拟 Linux 环境的 app。</p>
-<p>适用于 Android &gt;= 7，无需手机 root。可以在 github 上<a href="https://github.com/termux/termux-app/releases/" rel="noopener" target="_blank">下载</a>。</p>
+<p>适用于 Android &gt;= 7，无需手机 root。可以在 github 上<a
+target="_blank" rel="noopener" href="https://github.com/termux/termux-app/releases/">下载</a>。</p>
 <p>Termux 模拟 Linux
 环境的根目录在手机的<code>/data/data/com.termux/files/</code>。</p>
 <h3 id="如果手机没有-root">如果手机没有 root：</h3>
@@ -194,41 +242,45 @@ root 权限的方法的话，可以尝试<a href="#另外">在 Termux 上安装 
 <li><p>在 termux
 外，使用文件管理器无法访问<code>/data/</code>。</p></li>
 <li><p>在 termux 内访问手机 SD 卡，需使用命令</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">termux-setup-storage</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">termux-setup-storage</span><br></pre></td></tr></table></figure>
 <p>这会把 SD 卡目录<code>/storage/emulated/0/</code>链接到
 <code>/data/data/com.termux/files/home/storage/shared/</code>。</p></li>
 </ul>
 <h3 id="如果手机已-root">如果手机已 root：</h3>
-<p>可以直接使用<a href="https://mt2.cn/" rel="noopener" target="_blank">MT
+<p>可以直接使用<a target="_blank" rel="noopener" href="https://mt2.cn/">MT
 管理器</a>访问各个目录。这样转移文件比较方便。</p>
 <h3 id="另外">另外</h3>
-<p>上面针对的是 Termux 模拟的 Linux 环境。<strong>你可以使用 <a href="https://wiki.termux.com/wiki/PRoot" rel="noopener" target="_blank">PRoot</a> 或者 <a href="https://github.com/2moe/tmoe" rel="noopener" target="_blank">TMOE</a> 安装 Linux
+<p>上面针对的是 Termux 模拟的 Linux 环境。<strong>你可以使用 <a
+target="_blank" rel="noopener" href="https://wiki.termux.com/wiki/PRoot">PRoot</a> 或者 <a
+target="_blank" rel="noopener" href="https://github.com/2moe/tmoe">TMOE</a> 安装 Linux
 发行版。</strong></p>
 <h2 id="flask后端框架">Flask——后端框架</h2>
-<p>Flask 是一个用 Python 编写的 Web 框架。<a href="https://flask.palletsprojects.com/" rel="noopener" target="_blank">官网</a> | <a href="https://dormousehole.readthedocs.io/" rel="noopener" target="_blank">中文文档</a></p>
+<p>Flask 是一个用 Python 编写的 Web 框架。<a
+target="_blank" rel="noopener" href="https://flask.palletsprojects.com/">官网</a> | <a
+target="_blank" rel="noopener" href="https://dormousehole.readthedocs.io/">中文文档</a></p>
 <h3 id="安装-flask">安装 Flask</h3>
 <p>首先在 Termux 上安装 Python：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">pkg install python</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install python</span><br></pre></td></tr></table></figure>
 <p>然后用 Python 的包管理工具 pip 安装 Flask：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">pip install flask</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask</span><br></pre></td></tr></table></figure>
 <h3 id="在本地使用-flask">在本地使用 Flask</h3>
 <ol type="1">
 <li>在家目录下新建一个文件夹。名字随便取，用于存放代码：</li>
 </ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/flask-app</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/flask-app</span><br></pre></td></tr></table></figure>
 <ol start="2" type="1">
 <li><p>在文件夹里新建<code>app.py</code>文件——你可以在电脑上写好了传到手机，也可以用
 MT 管理器写，还可以用 Vim 写。</p></li>
 <li><p>编写代码：</p></li>
 </ol>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, make_response</span><br/><span class="line"></span><br/><span class="line">app = Flask(__name__)</span><br/><span class="line"></span><br/><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">'/'</span></span>)</span></span><br/><span class="line"><span class="comment">#处理根路由的视图函数</span></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br/><span class="line"></span><br/><span class="line">    <span class="comment">#创建 html 字符串</span></span><br/><span class="line">    html_content = <span class="string">"&lt;h1&gt;Hello, Flask!&lt;/h1&gt;"</span></span><br/><span class="line"></span><br/><span class="line">    <span class="comment">#创建响应对象</span></span><br/><span class="line">    response = make_response(html_content)</span><br/><span class="line">    response.headers[<span class="string">'Content-Type'</span>] = <span class="string">'text/html'</span></span><br/><span class="line"></span><br/><span class="line">    <span class="comment">#返回响应</span></span><br/><span class="line">    <span class="keyword">return</span> response</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br/><span class="line">    app.run()</span><br/></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, make_response</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="comment">#处理根路由的视图函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line"></span><br><span class="line">    <span class="comment">#创建 html 字符串</span></span><br><span class="line">    html_content = <span class="string">&quot;&lt;h1&gt;Hello, Flask!&lt;/h1&gt;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#创建响应对象</span></span><br><span class="line">    response = make_response(html_content)</span><br><span class="line">    response.headers[<span class="string">&#x27;Content-Type&#x27;</span>] = <span class="string">&#x27;text/html&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#返回响应</span></span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
 <ol start="4" type="1">
 <li>在<code>flask-app</code>目录下运行：</li>
 </ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">python app.py &amp;</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python app.py &amp;</span><br></pre></td></tr></table></figure>
 <p><code>&amp;</code>表示把程序放在后台运行。</p>
 <p>你会看到：</p>
-<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/></pre></td><td class="code"><pre><span class="line"> * Serving Flask app 'app'</span><br/><span class="line"> * Debug mode: off</span><br/><span class="line">WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.</span><br/><span class="line"> * Running on http://127.0.0.1:5000</span><br/><span class="line">Press CTRL+C to quit</span><br/></pre></td></tr></table></figure>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> * Serving Flask app &#x27;app&#x27;</span><br><span class="line"> * Debug mode: off</span><br><span class="line">WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.</span><br><span class="line"> * Running on http://127.0.0.1:5000</span><br><span class="line">Press CTRL+C to quit</span><br></pre></td></tr></table></figure>
 <p>用浏览器访问<code>http://127.0.0.1:5000</code>，看到<code>Hello, Flask!</code>即为成功。</p>
 <h3 id="在局域网内使用-flask">在局域网内使用 Flask</h3>
 <p>指定<code>app.run()</code>里面的<code>host</code>和<code>port</code>参数，即可在
@@ -237,7 +289,7 @@ Wi-Fi 局域网内访问手机。</p>
 <li><p>在手机设置里搜索（或者使用<code>ifconfig</code>命令），找到你手机的
 ip 地址。比如是<code>192.168.1.2</code>。</p></li>
 <li><p>把代码里的<code>app.run()</code>改为</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">app.run(host=<span class="string">'192.168.1.2'</span>, port=<span class="number">5000</span>)</span><br/></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.run(host=<span class="string">&#x27;192.168.1.2&#x27;</span>, port=<span class="number">5000</span>)</span><br></pre></td></tr></table></figure>
 <p>端口号任意填不冲突就行，默认是<code>5000</code>。</p></li>
 <li><p>如上文，运行。</p></li>
 </ol>
@@ -249,29 +301,31 @@ ip 地址。比如是<code>192.168.1.2</code>。</p></li>
 <h3 id="安装-ngrok">安装 Ngrok</h3>
 <ol type="1">
 <li><p>查看 Termux 模拟 Linux 环境的 CPU 架构（跟随你手机的架构）</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">uname</span> -m</span><br/><span class="line"><span class="comment">#或者</span></span><br/><span class="line">getprop ro.product.cpu.abi</span><br/></pre></td></tr></table></figure></li>
-<li><p><a href="https://ngrok.com/download" rel="noopener" target="_blank">下载</a>对应架构的 Ngrok
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uname</span> -m</span><br><span class="line"><span class="comment">#或者</span></span><br><span class="line">getprop ro.product.cpu.abi</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://ngrok.com/download">下载</a>对应架构的 Ngrok
 到手机。（最新版 Ngrok
 没有开源，使用<code>pkg install ngrok</code>找不到包，因此在官网上下载）</p></li>
 <li><p>解压文件，并移动到<code>~/../usr/bin</code>目录。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">tar xvzf ~/storage/shared/[你下载的.tgz文件路径] -C ~/../usr/bin</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar xvzf ~/storage/shared/[你下载的.tgz文件路径] -C ~/../usr/bin</span><br></pre></td></tr></table></figure>
 <p>这里用家目录的上一级<code>~/../</code>表示 linux
 环境根目录，也可以使用<code>$PREFIX</code>。如果直接使用<code>/</code>，Termux
 会认为是手机的根目录。</p></li>
 </ol>
 <h3 id="在开始之前解决-dns-问题">在开始之前，解决 DNS 问题</h3>
-<p>官网上的包，没有适配<a class="footnote-ref" href="#fn1" id="fnref1" role="doc-noteref"><sup>1</sup></a>
+<p>官网上的包，没有适配<a href="#fn1" class="footnote-ref" id="fnref1"
+role="doc-noteref"><sup>1</sup></a>
 Termux。因此笔者在首次连接时，发生了连接错误。</p>
 <p>在运行的同时打印日志：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">ngrok http 5000 --log-level debug --<span class="built_in">log</span> stdout</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ngrok http 5000 --log-level debug --<span class="built_in">log</span> stdout</span><br></pre></td></tr></table></figure>
 <p>大部分内容略。关键在这里：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">read udp [::1]:43938-&gt;[::1]:53: read: connection refused</span><br/></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read udp [::1]:43938-&gt;[::1]:53: read: connection refused</span><br></pre></td></tr></table></figure>
 <p>在本地主机<code>[::1]</code>的<code>43938</code>端口和<code>53</code>端口之间，建立连接失败。<code>53</code>是
 DNS 服务的端口，说明 DNS 查询出了问题。</p>
 <p>Ngrok 是用 Go 语言写的，</p>
 <blockquote>
 <p>根据 src/net/dnsclient_unix.go，如果 /etc/resolv.conf 不存在，则选择
-localhost:53 作为名称服务器。<a class="footnote-ref" href="#fn2" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+localhost:53 作为名称服务器。<a href="#fn2" class="footnote-ref"
+id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 </blockquote>
 <p>它想找<code>/etc/resolv.conf</code>查询
 DNS，而在手机里找不到这个文件。进而向<code>localhost:53</code>发送 udp
@@ -291,13 +345,14 @@ root 权限。</p>
 发行版</a>。</li>
 </ul>
 <h3 id="使用-ngrok">使用 Ngrok</h3>
-<p>先<a href="https://dashboard.ngrok.com/signup" rel="noopener" target="_blank">注册账号</a>，然后<a href="https://dashboard.ngrok.com" rel="noopener" target="_blank">进入仪表板</a>。</p>
+<p>先<a target="_blank" rel="noopener" href="https://dashboard.ngrok.com/signup">注册账号</a>，然后<a
+target="_blank" rel="noopener" href="https://dashboard.ngrok.com">进入仪表板</a>。</p>
 <h4 id="添加-authtoken-到配置文件">添加 Authtoken 到配置文件</h4>
 <p>在本地服务器连接 Ngrok 服务器时，Authtoken 用于认证你的身份。</p>
 <p>点击 <em>Your Authtoken</em>，你会看到你的 Authtoken。使用命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">ngrok config add-authtoken [你的authtoken]</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ngrok config add-authtoken [你的authtoken]</span><br></pre></td></tr></table></figure>
 <p>这会向配置文件<code>~/.config/ngrok/ngrok.yml</code>里写入：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="attr">authtoken:</span> [<span class="string">你的authtoken</span>]</span><br/></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">authtoken:</span> [<span class="string">你的authtoken</span>]</span><br></pre></td></tr></table></figure>
 <h4 id="添加-domain-和-edge">添加 Domain 和 Edge</h4>
 <p>点击 <em>Domains</em>。Ngrok
 应该会提醒你领取一个域名，像<code>[几个英文单词].ngrok-free.app</code>。这是在前端发送请求时的目标域名。</p>
@@ -310,23 +365,27 @@ Edge，找到<code>edge=edghts_[一串字符]</code>，复制到手机备用。<
 Github Pages——</p>
 <p>从<code>github.io</code>向<code>ngrok-free.app</code>发送 HTTP
 请求。由于两者不在同一域名下，浏览器为了用户安全，会拦截跨源请求。</p>
-<p>解决方法是，在后端的响应里加上<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS" rel="noopener" target="_blank">跨域资源共享（CORS）</a>头。</p>
-<p>flask-cors 库可以给 Flask 的响应自动加上 CORS 头。<a href="https://flask-cors.readthedocs.io/" rel="noopener" target="_blank">flask-cors 文档</a></p>
+<p>解决方法是，在后端的响应里加上<a
+target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS">跨域资源共享（CORS）</a>头。</p>
+<p>flask-cors 库可以给 Flask 的响应自动加上 CORS 头。<a
+target="_blank" rel="noopener" href="https://flask-cors.readthedocs.io/">flask-cors 文档</a></p>
 <p>安装 flask-cors：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">pip install flask-cors</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask-cors</span><br></pre></td></tr></table></figure>
 <p>然后在<code>app.py</code>里加两行：</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, make_response</span><br/><span class="line"><span class="keyword">from</span> flask_cors <span class="keyword">import</span> CORS    <span class="comment">#&lt;----------</span></span><br/><span class="line"></span><br/><span class="line">app = Flask(__name__)</span><br/><span class="line"></span><br/><span class="line">CORS(app)                      <span class="comment">#&lt;----------</span></span><br/><span class="line"></span><br/><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">'/'</span></span>)</span></span><br/><span class="line"><span class="comment">#处理根路由的视图函数</span></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br/><span class="line"></span><br/><span class="line">    <span class="comment">#创建 html 字符串</span></span><br/><span class="line">    html_content = <span class="string">"&lt;h1&gt;Hello, Flask!&lt;/h1&gt;"</span></span><br/><span class="line"></span><br/><span class="line">    <span class="comment">#创建响应对象</span></span><br/><span class="line">    response = make_response(html_content)</span><br/><span class="line">    response.headers[<span class="string">'Content-Type'</span>] = <span class="string">'text/html'</span></span><br/><span class="line"></span><br/><span class="line">    <span class="comment">#返回响应</span></span><br/><span class="line">    <span class="keyword">return</span> response</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br/><span class="line">    app.run()</span><br/></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, make_response</span><br><span class="line"><span class="keyword">from</span> flask_cors <span class="keyword">import</span> CORS    <span class="comment">#&lt;----------</span></span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">CORS(app)                      <span class="comment">#&lt;----------</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="comment">#处理根路由的视图函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line"></span><br><span class="line">    <span class="comment">#创建 html 字符串</span></span><br><span class="line">    html_content = <span class="string">&quot;&lt;h1&gt;Hello, Flask!&lt;/h1&gt;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#创建响应对象</span></span><br><span class="line">    response = make_response(html_content)</span><br><span class="line">    response.headers[<span class="string">&#x27;Content-Type&#x27;</span>] = <span class="string">&#x27;text/html&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#返回响应</span></span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
 <h4 id="运行-ngrok">运行 Ngrok</h4>
 <p>找到前面复制到手机上的<code>edge=edghts_[一串字符]</code>。</p>
 <p>先启动 Flask 到后台，再运行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">ngrok tunnel --label edge=[一串字符] http://localhost:5000</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ngrok tunnel --label edge=[一串字符] http://localhost:5000</span><br></pre></td></tr></table></figure>
 <h4 id="测试发送-http-请求">测试发送 HTTP 请求</h4>
 <ul>
-<li><p>用 <a href="https://www.ruanyifeng.com/blog/2019/09/curl-reference.html" rel="noopener" target="_blank">curl</a>
+<li><p>用 <a
+target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2019/09/curl-reference.html">curl</a>
 发送<code>GET</code>请求</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">curl -v [你的Ngrok域名]</span><br/></pre></td></tr></table></figure></li>
-<li><p>在本地<code>file://</code>协议或其他域名下，用 <a href="https://www.axios-http.cn/" rel="noopener" target="_blank">axios</a> 发送跨域请求</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br/><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br/><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br/><span class="line"></span><br/><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br/><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br/><span class="line"><span class="language-javascript">      axios</span></span><br/><span class="line"><span class="language-javascript">        .<span class="title function_">get</span>(<span class="string">"https://你的Ngrok域名"</span>)</span></span><br/><span class="line"><span class="language-javascript">        .<span class="title function_">then</span>(<span class="function">(<span class="params">response</span>) =&gt;</span> {</span></span><br/><span class="line"><span class="language-javascript">          <span class="variable language_">console</span>.<span class="title function_">log</span>(response);</span></span><br/><span class="line"><span class="language-javascript">        })</span></span><br/><span class="line"><span class="language-javascript">        .<span class="title function_">catch</span>(<span class="function">(<span class="params">error</span>) =&gt;</span> {</span></span><br/><span class="line"><span class="language-javascript">          <span class="variable language_">console</span>.<span class="title function_">log</span>(error);</span></span><br/><span class="line"><span class="language-javascript">        });</span></span><br/><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br/></pre></td></tr></table></figure></li>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -v [你的Ngrok域名]</span><br></pre></td></tr></table></figure></li>
+<li><p>在本地<code>file://</code>协议或其他域名下，用 <a
+target="_blank" rel="noopener" href="https://www.axios-http.cn/">axios</a> 发送跨域请求</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">      axios</span></span><br><span class="line"><span class="language-javascript">        .<span class="title function_">get</span>(<span class="string">&quot;https://你的Ngrok域名&quot;</span>)</span></span><br><span class="line"><span class="language-javascript">        .<span class="title function_">then</span>(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">console</span>.<span class="title function_">log</span>(response);</span></span><br><span class="line"><span class="language-javascript">        &#125;)</span></span><br><span class="line"><span class="language-javascript">        .<span class="title function_">catch</span>(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">          <span class="variable language_">console</span>.<span class="title function_">log</span>(error);</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="后续处理">后续处理</h2>
 <h3 id="保活">保活</h3>
@@ -339,67 +398,114 @@ Github Pages——</p>
 <p>先启动 Termux，再依次启动 Flask 和 Ngrok。</p>
 <p>可以向<code>$PREFIX/usr/etc/profile</code>文件中添加以下几行命令， 让
 Termux 启动的同时自执行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/flask-app</span><br/><span class="line"><span class="built_in">nohup</span> python app.py &amp;</span><br/><span class="line"><span class="built_in">nohup</span> ngrok tunnel --label edge=[一串字符] http://localhost:5000 &amp;</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/flask-app</span><br><span class="line"><span class="built_in">nohup</span> python app.py &amp;</span><br><span class="line"><span class="built_in">nohup</span> ngrok tunnel --label edge=[一串字符] http://localhost:5000 &amp;</span><br></pre></td></tr></table></figure>
 <h3 id="关闭服务器">关闭服务器</h3>
 <p>使用<code>jobs</code>查看进程列表，<code>kill %[进程序号]</code>杀死进程。</p>
 <p>当然，你也可以直接杀掉 Termux 的后台。</p>
-<aside class="footnotes footnotes-end-of-document" id="footnotes" role="doc-endnotes">
-<hr/>
+<aside id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
 <ol>
-<li id="fn1"><p><a href="https://wiki.termux.com/wiki/Differences_from_Linux" rel="noopener" target="_blank">Termux 与
-Linux 的区别：https://wiki.termux.com/wiki/Differences_from_Linux</a><a class="footnote-back" href="#fnref1" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p><a href="https://stackoverflow.com/a/49315513" rel="noopener" target="_blank">woohaha
-的回答：https://stackoverflow.com/a/49315513</a><a class="footnote-back" href="#fnref2" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p><a
+target="_blank" rel="noopener" href="https://wiki.termux.com/wiki/Differences_from_Linux">Termux 与
+Linux 的区别：https://wiki.termux.com/wiki/Differences_from_Linux</a><a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/a/49315513">woohaha
+的回答：https://stackoverflow.com/a/49315513</a><a href="#fnref2"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </aside>
-</div>
-<footer class="post-footer">
-<div class="post-nav">
-<div class="post-nav-item">
-<a href="/blog/magisk.html" rel="prev" title="用 Magisk 获取 Android 手机的 root 权限">
-<i class="fa fa-chevron-left"></i> 用 Magisk 获取 Android 手机的 root 权限
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/blog/magisk.html" rel="prev" title="用 Magisk 获取 Android 手机的 root 权限">
+                  <i class="fa fa-chevron-left"></i> 用 Magisk 获取 Android 手机的 root 权限
                 </a>
-</div>
-<div class="post-nav-item">
-<a href="/blog/browser-sync.html" rel="next" title="用 browser-sync 实现在文件内容改变后立即刷新页面">
+            </div>
+            <div class="post-nav-item">
+                <a href="/blog/browser-sync.html" rel="next" title="用 browser-sync 实现在文件内容改变后立即刷新页面">
                   用 browser-sync 实现在文件内容改变后立即刷新页面 <i class="fa fa-chevron-right"></i>
-</a>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
 </div>
+
+
+
+
+
+
 </div>
-</footer>
-</article>
-</div>
-</div>
-</main>
-<footer class="footer">
-<div class="footer-inner">
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
 <div class="copyright">
   2023 – 
   <span itemprop="copyrightYear">2024</span>
-<span class="with-love">
-<i class="fa fa-heart"></i>
-</span>
-<span class="author" itemprop="copyrightHolder">Ruofan</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ruofan</span>
 </div>
-</div>
-</footer>
-<div aria-label="返回顶部" class="back-to-top" role="button">
-<i class="fa fa-arrow-up fa-lg"></i>
-<span>0%</span>
-</div>
-<div class="reading-progress-bar"></div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
 <noscript>
-<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
 <script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
-<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
-<script src="/blog/js/third-party/tags/mermaid.js"></script>
-<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+
+  
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+  <script src="/blog/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
-<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/termux-flask-ngrok.html"}</script>
-<script src="/blog/js/third-party/quicklink.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/termux-flask-ngrok.html"}</script>
+  <script src="/blog/js/third-party/quicklink.js"></script>
+
 </body>
 </html>
