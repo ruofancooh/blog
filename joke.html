@@ -8,21 +8,21 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="来研究点有意思的东西。可以说所有笑话的原理都是预期违背和状态转移：到达（或稳定在）预期状态的失败过程。" name="description"/>
+<meta content="可以说所有笑话的原理都是预期违背/状态转移/跳跃：到达（或稳定在）预期状态的失败过程。" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="笑话原理研究进行时" property="og:title"/>
+<meta content="笑话原理研究" property="og:title"/>
 <meta content="https://hrfis.me/blog/joke.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="来研究点有意思的东西。可以说所有笑话的原理都是预期违背和状态转移：到达（或稳定在）预期状态的失败过程。" property="og:description"/>
+<meta content="可以说所有笑话的原理都是预期违背/状态转移/跳跃：到达（或稳定在）预期状态的失败过程。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-05-22T16:00:00.000Z" property="article:published_time"/>
-<meta content="2024-05-24T04:43:23.097Z" property="article:modified_time"/>
+<meta content="2024-05-24T09:36:43.394Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/joke" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/joke.html","path":"/joke.html","title":"笑话原理研究进行时"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/joke.html","path":"/joke.html","title":"笑话原理研究"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>笑话原理研究进行时 | 若凡的笔记</title>
+<title>笑话原理研究 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -69,7 +69,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E4%BE%8B%E5%AD%90%E5%85%A5%E6%89%8B"><span class="nav-number">1.</span> <span class="nav-text">从例子入手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%86%E8%AE%BA"><span class="nav-number">2.</span> <span class="nav-text">理论</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E4%BE%8B%E5%AD%90%E5%85%A5%E6%89%8B"><span class="nav-number">1.</span> <span class="nav-text">从例子入手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%92%88%E5%AF%B9%E6%95%85%E4%BA%8B%E5%8F%A5%E5%AD%90%E6%9C%AC%E8%BA%AB%E7%9A%84"><span class="nav-number">2.</span> <span class="nav-text">针对故事/句子本身的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E4%BA%8B%E7%BA%BF%E4%B8%8A%E7%9A%84%E7%BA%BF%E6%80%A7%E5%9C%BA%E6%99%AF%E8%B7%B3%E8%B7%83%E4%BB%8E%E6%AD%A3%E7%BB%8F%E5%88%B0%E4%B8%8D%E6%AD%A3%E7%BB%8F"><span class="nav-number">2.1.</span> <span class="nav-text">故事线上的线性场景跳跃：从正经到不正经</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E4%BA%8B%E7%BA%BF%E4%B8%8A%E7%9A%84%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%9C%BA%E6%99%AF%E8%B7%B3%E8%B7%83%E5%A4%8D%E8%AF%BB%E6%9C%BA%E5%A4%9A%E6%AC%A1%E8%A7%A6%E5%8F%91%E5%9E%8B%E5%9B%9E%E9%A1%BEgoto"><span class="nav-number">2.2.</span> <span class="nav-text">故事线上的非线性场景跳跃：复读机、多次触发型、回顾、goto</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E4%BA%8B%E7%BA%BF%E9%97%B4%E7%9A%84%E5%9C%BA%E6%99%AF%E8%B7%B3%E8%B7%83%E4%B9%B1%E7%82%96%E4%B8%8D%E5%90%8C%E5%9C%BA%E6%99%AF%E5%85%B8%E6%95%85%E5%88%87%E6%8D%A2"><span class="nav-number">2.3.</span> <span class="nav-text">故事线间的场景跳跃：乱炖、不同场景/典故切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E4%B8%80%E6%97%B6%E9%97%B4%E4%B8%8A%E7%9A%84%E5%9C%BA%E6%99%AF%E9%87%8D%E5%8F%A0%E5%8F%8C%E5%85%B3%E5%9B%9E%E5%91%B3%E6%97%B6%E9%97%B4%E9%95%BF"><span class="nav-number">2.4.</span> <span class="nav-text">同一时间上的场景重叠：双关，回味时间长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%9D%A2%E5%A2%99%E4%B8%A4%E5%A4%B4%E7%9A%84%E5%9C%BA%E6%99%AF%E8%B7%B3%E8%B7%83%E6%AD%A3%E5%B8%B8%E4%BA%BA%E4%B8%8D%E4%BC%9A%E8%BF%99%E4%B9%88%E5%B9%B2"><span class="nav-number">2.5.</span> <span class="nav-text">第四面墙两头的场景跳跃：正常人不会这么干</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%92%88%E5%AF%B9%E8%A7%82%E4%BC%97%E6%89%80%E6%84%9F%E5%8F%97%E5%88%B0%E7%9A%84%E6%95%85%E4%BA%8B%E5%8F%A5%E5%AD%90%E4%BC%A0%E9%80%92%E4%B8%8A%E7%9A%84"><span class="nav-number">3.</span> <span class="nav-text">针对观众所感受到的故事/句子传递上的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%BC%E9%9F%B5"><span class="nav-number">3.1.</span> <span class="nav-text">押韵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%A4%8D"><span class="nav-number">3.2.</span> <span class="nav-text">重复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E6%8C%87"><span class="nav-number">3.3.</span> <span class="nav-text">自指</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E6%9C%89%E5%88%B0%E6%97%A0%E7%9A%84%E8%B7%B3%E8%B7%83%E7%8A%B6%E6%80%81%E5%BD%92%E9%9B%B6"><span class="nav-number">3.4.</span> <span class="nav-text">从有到无的跳跃：状态归零</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%99%E8%BF%B0%E6%80%A7%E8%AF%A1%E8%AE%A1"><span class="nav-number">3.5.</span> <span class="nav-text">叙述性诡计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E5%88%86%E4%BF%A1%E6%81%AF%E7%BC%BA%E5%A4%B1"><span class="nav-number">3.6.</span> <span class="nav-text">部分信息缺失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E6%96%B9%E8%B7%B3%E8%B7%83%E5%8F%A5%E5%AD%90%E8%87%AA%E8%BA%AB%E5%8F%A5%E4%B9%89%E5%89%A7%E6%83%85%E5%8F%A5%E5%AD%90%E7%9A%84%E8%BD%BD%E4%BD%93%E5%B9%B3%E5%8F%B0"><span class="nav-number">3.7.</span> <span class="nav-text">三方跳跃：句子自身、句义（剧情）、句子的载体（平台）</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -110,12 +110,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="笑话原理研究进行时 | 若凡的笔记" itemprop="name"/>
+<meta content="笑话原理研究 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          笑话原理研究进行时
+          笑话原理研究
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -131,7 +131,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-24T12:43:23+08:00" itemprop="dateModified" title="修改时间：2024-05-24 12:43:23">2024-05-24</time>
+<time datetime="2024-05-24T17:36:43+08:00" itemprop="dateModified" title="修改时间：2024-05-24 17:36:43">2024-05-24</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -139,81 +139,98 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">实用系列</span></a>
+<a href="/blog/m/" itemprop="url" rel="index"><span itemprop="name">牢骚系列</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>来研究点有意思的东西。可以说所有笑话的原理都是预期违背和状态转移：到达（或稳定在）预期状态的失败过程。</p>
+<div class="post-body" itemprop="articleBody"><p>可以说所有笑话的原理都是预期违背/状态转移/跳跃：到达（或稳定在）预期状态的失败过程。</p>
 <span id="more"></span>
 <h2 id="从例子入手">从例子入手</h2>
 <blockquote>
 <p>重大发现！碗可以装饭原来是应用了纳米技术</p>
 </blockquote>
-<p>这条弱智吧段子分为四个部分</p>
-<ol type="1">
-<li>重大发现！</li>
-<li>碗可以装饭</li>
-<li>原来是应用了</li>
-<li>纳米技术</li>
-</ol>
+<p>这条弱智吧段子分为四个部分：</p>
 <p>第一部分是一个导引，导引你向一个“重大发现”去想。</p>
-<p>从第二个部分就可以开始笑了。因为“碗可以装饭”并不是一个“重大发现”，这是一个预期违背：从高期望到低现实。</p>
-<p>第三部分又是一个导引，勾起你的好奇心：“碗可以装饭”到底是怎样一个“重大发现”</p>
-<p>第四部分是一个双关，造成一个场景重叠：作为“高”的“纳米技术”，和作为“低”的“收纳米的技术”。你笑的过程就是在这两个高低状态之间来回转移的过程。</p>
-<h2 id="理论">理论</h2>
+<p>第二个部分是一个预期违背：从高期望到低现实。</p>
+<p>第三部分又是一个导引，勾起你的好奇心。</p>
+<p>第四部分是一个双关，造成一个场景重叠。</p>
+<p>下面举的例子可能用到不止一种手法</p>
+<h2 id="针对故事句子本身的">针对故事/句子本身的</h2>
+<h3 id="故事线上的线性场景跳跃从正经到不正经">故事线上的线性场景跳跃：从正经到不正经</h3>
+<p>埋梗再触梗、把包袱包起来再抖出来</p>
+<blockquote>
+<p>日子、月子、伺候月子</p>
+</blockquote>
+<p>提前枪，出其不意</p>
+<blockquote>
+<p>母猪的产后护理，拿错书了</p>
+</blockquote>
+<h3 id="故事线上的非线性场景跳跃复读机多次触发型回顾goto">故事线上的非线性场景跳跃：复读机、多次触发型、回顾、goto</h3>
+<blockquote>
+<p>逗你玩儿</p>
+</blockquote>
+<h3 id="故事线间的场景跳跃乱炖不同场景典故切换">故事线间的场景跳跃：乱炖、不同场景/典故切换</h3>
+<blockquote>
+<p>镇关西挨了三拳后心领神会，晚上三更准时来到鲁提辖的房间</p>
+</blockquote>
+<h3 id="同一时间上的场景重叠双关回味时间长">同一时间上的场景重叠：双关，回味时间长</h3>
 <ul>
-<li>预期违背：状态转移（以下各种手法排列组合）
-<ul>
-<li>转移一次
-<ul>
-<li>线性时间上的场景跳跃
-<ul>
-<li>从正经到不正经
-<ul>
-<li>埋梗再触梗、把包袱包起来再抖出来（日子、月子、伺候月子）</li>
-<li>提前枪（母猪的产后护理，拿错书了）</li>
-<li>不同场景切换/典故切换/典故与白话切换（空山新雨后，自挂东南枝）</li>
-<li>意料之外的发展（王警官系列）</li>
-<li>非理性挪用归因</li>
-</ul></li>
-<li>状态归零
-<ul>
-<li>废话文学（据说每个胖子都是潜力股，瘦下来的话就会很瘦）</li>
-</ul></li>
-<li>把不相关的事物关联起来/规则怪谈</li>
-</ul></li>
-<li>第四面墙两头的场景跳跃
-<ul>
-<li>夸张/放大/缩小</li>
-<li>本格弱智</li>
-</ul></li>
-</ul></li>
-<li>转移多次
-<ul>
-<li>同一时间上的场景重叠
-<ul>
-<li>轻型地狱笑话（医院床位那么紧张，为什么不弄成上下铺呢）</li>
-<li>荤段子（你以为呢）</li>
-<li>词义与词性活用上的（重大发现！碗可以装饭原来是应用了纳米技术）</li>
-<li>缩写词的扩展与收缩</li>
-<li>谐音双关（匪首将届时被彻底消灭）</li>
+<li>句义/段义上的（郭德纲的荤段子：你以为呢）</li>
+<li>词义与词性活用上的（顾客就是上帝，所以客观就是主观）</li>
+<li>谐音双关（大清律法又叫大盐酸法）</li>
 <li>断句双关（车站门口卖榴莲，臭外地的）</li>
-<li>空目/拆字/拼字双关</li>
+<li>缩写词的扩展与收缩</li>
+<li>空目/拆字/拼字双关（成长为什么会有痛苦，因为宝宝去掉宝盖头就玉玉了）</li>
 <li>类比、挪用概念</li>
-</ul></li>
-<li>循环往复
-<ul>
-<li>指向句子自身（冷知识：句子前面的才是冷知识）</li>
-<li>句子的自我表达（正方辩题：白色不可以作为字体的颜色。反方辩题：
-）</li>
-<li>押韵</li>
-<li>goto（逗你玩儿）</li>
-</ul></li>
-</ul></li>
-</ul></li>
 </ul>
+<h3 id="第四面墙两头的场景跳跃正常人不会这么干">第四面墙两头的场景跳跃：正常人不会这么干</h3>
+<ul>
+<li>典故与白话切换</li>
+<li>地狱笑话（医院床位那么紧张，为什么不弄成上下铺呢）</li>
+<li>非理性挪用归因</li>
+<li>把不相关的事物关联起来/规则怪谈</li>
+<li>意料之外的发展（王警官系列）</li>
+<li>本格弱智</li>
+</ul>
+<blockquote>
+<p>早知道最后被第三志愿录取，第三志愿就应该填清华的</p>
+</blockquote>
+<h2 id="针对观众所感受到的故事句子传递上的">针对观众所感受到的故事/句子传递上的</h2>
+<h3 id="押韵">押韵</h3>
+<blockquote>
+<p>我叫白云，我叫黑土；我七十一，我七十五；我属鸡，我属虎</p>
+</blockquote>
+<h3 id="重复">重复</h3>
+<blockquote>
+<p>叠词词，恶心心</p>
+</blockquote>
+<h3 id="自指">自指</h3>
+<blockquote>
+<p>冷知识：句子前面的才是冷知识</p>
+</blockquote>
+<h3 id="从有到无的跳跃状态归零">从有到无的跳跃：状态归零</h3>
+<p>废话文学</p>
+<blockquote>
+<p>据说每个胖子都是潜力股，瘦下来的话就会很瘦</p>
+</blockquote>
+<h3 id="叙述性诡计">叙述性诡计</h3>
+<blockquote>
+<p>“你是清朝来的吧？”人们纷纷赞叹朱元璋思想先进</p>
+</blockquote>
+<h3 id="部分信息缺失">部分信息缺失</h3>
+<blockquote>
+<p>评论区留下身份证号后两位，一样的在一起</p>
+</blockquote>
+<h3 id="三方跳跃句子自身句义剧情句子的载体平台">三方跳跃：句子自身、句义（剧情）、句子的载体（平台）</h3>
+<ul>
+<li>句子的排版表意</li>
+<li>句子的？？？</li>
+</ul>
+<blockquote>
+<p>正方辩题：白色不可以作为字体的颜色。反方辩题：</p>
+</blockquote>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
