@@ -32,7 +32,7 @@
  ——菜鸟教程" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-15T08:32:00.000Z" property="article:published_time"/>
-<meta content="2024-05-22T09:17:44.694Z" property="article:modified_time"/>
+<meta content="2024-05-24T10:12:08.562Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/java-web" rel="canonical"/>
@@ -98,7 +98,7 @@ jsp 页里，如何把表单传递给另一个 jsp 页？另一个 jsp 页如何
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">32</span>
+<span class="site-state-item-count">30</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -148,7 +148,7 @@ jsp 页里，如何把表单传递给另一个 jsp 页？另一个 jsp 页如何
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-22T17:17:44+08:00" itemprop="dateModified" title="修改时间：2024-05-22 17:17:44">2024-05-22</time>
+<time datetime="2024-05-24T18:12:08+08:00" itemprop="dateModified" title="修改时间：2024-05-24 18:12:08">2024-05-24</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -186,19 +186,20 @@ jsp 页里，如何把表单传递给另一个 jsp 页？另一个 jsp 页如何
     }
 }%%
 flowchart LR
+    subgraph "Controller"
+        selectShape[SelectShape Action]
+        compute[Compute Action]
+    end
+    subgraph "Model"
+        Beans
+    end
     subgraph "View"
         input[input.jsp]
         result[result.jsp]
     end
-    subgraph "Model"
-    end
-    subgraph "Controller"
-        selectShape[SelectShape.java]
-        compute[Compute.java]
-    end
 
-    input--&gt;selectShape
-    compute--&gt;result
+    input--&gt;selectShape-.-&gt;input
+    input--&gt;compute-.-&gt;result
     compute--oBeans</pre>
 <h2 id="整-1">整</h2>
 <pre class="mermaid">%%{
