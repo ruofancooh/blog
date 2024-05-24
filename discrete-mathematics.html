@@ -1,217 +1,153 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
-
-
-<link rel="stylesheet" href="/blog/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
-
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
+<link href="/blog/css/main.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-
-    <meta name="description" content="基础不牢。虽然之前及格了，但是什么都没学会。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="离散数学">
-<meta property="og:url" content="https://hrfis.me/blog/discrete-mathematics.html">
-<meta property="og:site_name" content="若凡的笔记">
-<meta property="og:description" content="基础不牢。虽然之前及格了，但是什么都没学会。">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-01-17T05:20:00.000Z">
-<meta property="article:modified_time" content="2024-05-21T15:33:29.297Z">
-<meta property="article:author" content="Ruofan">
-<meta name="twitter:card" content="summary">
-
-
-<link rel="canonical" href="https://hrfis.me/blog/discrete-mathematics">
-
-
-
+<meta content="基础不牢。虽然之前及格了，但是什么都没学会。" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="离散数学" property="og:title"/>
+<meta content="https://hrfis.me/blog/discrete-mathematics.html" property="og:url"/>
+<meta content="若凡的笔记" property="og:site_name"/>
+<meta content="基础不牢。虽然之前及格了，但是什么都没学会。" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="2024-01-17T05:20:00.000Z" property="article:published_time"/>
+<meta content="2024-05-21T15:33:29.297Z" property="article:modified_time"/>
+<meta content="Ruofan" property="article:author"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://hrfis.me/blog/discrete-mathematics" rel="canonical"/>
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/discrete-mathematics.html","path":"/discrete-mathematics.html","title":"离散数学"}</script>
-
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>离散数学 | 若凡的笔记</title>
-  
-
-
-
-
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/blog/css/noscript.css">
-  </noscript>
+<noscript>
+<link href="/blog/css/noscript.css" rel="stylesheet"/>
+</noscript>
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/blog/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">若凡的笔记</p>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
-    </div>
-  </div>
+<body itemscope="" itemtype="http://schema.org/WebPage">
+<div class="headband"></div>
+<main class="main">
+<div class="column">
+<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+<div class="site-nav-toggle">
+<div aria-label="切换导航栏" class="toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
 </div>
-
-
-
+</div>
+<div class="site-meta">
+<a class="brand" href="/blog/" rel="start">
+<i class="logo-line"></i>
+<p class="site-title">若凡的笔记</p>
+<i class="logo-line"></i>
+</a>
+</div>
+<div class="site-nav-right">
+<div aria-label="搜索" class="toggle popup-trigger" role="button">
+</div>
+</div>
+</div>
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-  </ul>
+<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+</ul>
 </nav>
-
-
-
-
 </header>
-        
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
+<aside class="sidebar">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<ul class="sidebar-nav">
+<li class="sidebar-nav-toc">
           文章目录
         </li>
-        <li class="sidebar-nav-overview">
+<li class="sidebar-nav-overview">
           站点概览
         </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88"><span class="nav-number">1.</span> <span class="nav-text">集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB"><span class="nav-number">2.</span> <span class="nav-text">关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF"><span class="nav-number">2.1.</span> <span class="nav-text">笛卡尔积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB-1"><span class="nav-number">2.2.</span> <span class="nav-text">关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%92%8C%E5%80%BC%E5%9F%9F"><span class="nav-number">2.3.</span> <span class="nav-text">定义域和值域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%86%E5%85%B3%E7%B3%BB"><span class="nav-number">2.4.</span> <span class="nav-text">逆关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E5%90%88-a-%E4%B8%8A%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">2.5.</span> <span class="nav-text">集合 \(A\)
+</ul>
+<div class="sidebar-panel-container">
+<!--noindex-->
+<div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9B%86%E5%90%88"><span class="nav-number">1.</span> <span class="nav-text">集合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB"><span class="nav-number">2.</span> <span class="nav-text">关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF"><span class="nav-number">2.1.</span> <span class="nav-text">笛卡尔积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB-1"><span class="nav-number">2.2.</span> <span class="nav-text">关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%92%8C%E5%80%BC%E5%9F%9F"><span class="nav-number">2.3.</span> <span class="nav-text">定义域和值域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%86%E5%85%B3%E7%B3%BB"><span class="nav-number">2.4.</span> <span class="nav-text">逆关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E5%90%88-a-%E4%B8%8A%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">2.5.</span> <span class="nav-text">集合 \(A\)
 上的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%99%AE%E9%81%8D%E5%85%B3%E7%B3%BB-u_a"><span class="nav-number">2.5.1.</span> <span class="nav-text">普遍关系 \(U_A\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%81%92%E7%AD%89%E5%85%B3%E7%B3%BB-i_a"><span class="nav-number">2.5.2.</span> <span class="nav-text">恒等关系 \(I_A\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8"><span class="nav-number">2.5.3.</span> <span class="nav-text">性质</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E4%BA%8C%E5%80%BC%E9%80%BB%E8%BE%91"><span class="nav-number">3.</span> <span class="nav-text">命题逻辑（二值逻辑）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E9%A2%98"><span class="nav-number">3.1.</span> <span class="nav-text">命题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E8%BF%9E%E7%BB%93%E8%AF%8D"><span class="nav-number">3.2.</span> <span class="nav-text">命题连结词</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%88%E5%8F%96-wedge-%E4%B8%94"><span class="nav-number">3.2.1.</span> <span class="nav-text">合取 \(\wedge\)
 ……且……</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%90%E5%8F%96-vee-%E6%88%96%E5%8F%AF%E5%85%BC%E7%9A%84%E6%88%96"><span class="nav-number">3.2.2.</span> <span class="nav-text">析取 \(\vee\) ……或……（可兼的或）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AD%89%E5%80%BC-leftrightarrow-%E5%BD%93%E4%B8%94%E4%BB%85%E5%BD%93"><span class="nav-number">3.2.3.</span> <span class="nav-text">等值 \(\leftrightarrow\) ……当且仅当……</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%95%B4%E5%90%AB-rightarrow-%E8%8B%A5%E5%88%99"><span class="nav-number">3.2.4.</span> <span class="nav-text">蕴含 \(\rightarrow\) ……若则……</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E6%96%87%E5%AD%97%E6%B8%B8%E6%88%8F"><span class="nav-number">3.2.5.</span> <span class="nav-text">一个文字游戏</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE"><span class="nav-number">4.</span> <span class="nav-text">图</span></a></li></ol></div>
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Ruofan</p>
-  <div class="site-description" itemprop="description"></div>
+</div>
+<!--/noindex-->
+<div class="site-overview-wrap sidebar-panel">
+<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<p class="site-author-name" itemprop="name">Ruofan</p>
+<div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/blog/archives/">
-          <span class="site-state-item-count">32</span>
-          <span class="site-state-item-name">笔记</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/blog/categories/">
-        <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-  </nav>
+<nav class="site-state">
+<div class="site-state-item site-state-posts">
+<a href="/blog/archives/">
+<span class="site-state-item-count">32</span>
+<span class="site-state-item-name">笔记</span>
+</a>
 </div>
-
-        </div>
-      </div>
-    </div>
-
-    
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner post posts-expand">
-
-
-  
-
-
+<div class="site-state-item site-state-categories">
+<a href="/blog/categories/">
+<span class="site-state-item-count">3</span>
+<span class="site-state-item-name">分类</span></a>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<div class="main-inner post posts-expand">
 <div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/discrete-mathematics.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="Ruofan">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="若凡的笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="离散数学 | 若凡的笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/discrete-mathematics.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="离散数学 | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h1 class="post-title" itemprop="name headline">
           离散数学
         </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-17 13:20:00" itemprop="dateCreated datePublished" datetime="2024-01-17T13:20:00+08:00">2024-01-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-21 23:33:29" itemprop="dateModified" datetime="2024-05-21T23:33:29+08:00">2024-05-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/%E7%89%A2%E9%AA%9A%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">牢骚系列</span></a>
-        </span>
-    </span>
-
-  
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2024-01-17T13:20:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-17 13:20:00">2024-01-17</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-05-21T23:33:29+08:00" itemprop="dateModified" title="修改时间：2024-05-21 23:33:29">2024-05-21</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/m/" itemprop="url" rel="index"><span itemprop="name">牢骚系列</span></a>
+</span>
+</span>
 </div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody"><p>基础不牢。虽然之前及格了，但是什么都没学会。</p>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody"><p>基础不牢。虽然之前及格了，但是什么都没学会。</p>
 <span id="more"></span>
 <h2 id="集合">集合</h2>
 <p>所有 <span class="math inline">\((10,60)\)</span> 岁的人是一个集合
@@ -221,92 +157,54 @@
 <p>当然有人同时属于这两个群体，也有同时不属于的。</p>
 <h2 id="关系">关系</h2>
 <h3 id="笛卡尔积">笛卡尔积</h3>
-<p>把 <span class="math inline">\(A\)</span> 放到左边，<span
-class="math inline">\(B\)</span> 放到右边。</p>
+<p>把 <span class="math inline">\(A\)</span> 放到左边，<span class="math inline">\(B\)</span> 放到右边。</p>
 <p>把左边的所有人和右边的所有人多对多配对，用一根根线连起来。</p>
-<p>这些<strong>所有线的集合</strong>叫笛卡尔积 <span
-class="math inline">\(A \times B\)</span></p>
+<p>这些<strong>所有线的集合</strong>叫笛卡尔积 <span class="math inline">\(A \times B\)</span></p>
 <p>当然也有自己连自己的。以及连了两次、左右互换的。</p>
-<p>注意，这些线是有方向的，是从左往右连。即 <span
-class="math inline">\(A \times B \not\equiv B \times A\)</span></p>
+<p>注意，这些线是有方向的，是从左往右连。即 <span class="math inline">\(A \times B \not\equiv B \times A\)</span></p>
 <h3 id="关系-1">关系</h3>
 <p>从这些线里任意取几根。或者全取，或者一根都不取。</p>
-<p><strong>取出来的这几根线</strong>叫关系，记作 <span
-class="math inline">\(\rho\)</span>。即关系是笛卡尔积的子集。<span
-class="math inline">\(\rho \subseteq A \times B\)</span></p>
-<p><span class="math inline">\(\rho\)</span> 是从 <span
-class="math inline">\(A\)</span> 到 <span
-class="math inline">\(B\)</span> 的一个关系，也是有顺序的。</p>
-<p>如果取出来的这几根线左边全是老师，线右边全是对应老师的学生，则 <span
-class="math inline">\(\rho\)</span> 是从 <span
-class="math inline">\(A\)</span> 到 <span
-class="math inline">\(B\)</span> 的师生关系。</p>
-<hr />
+<p><strong>取出来的这几根线</strong>叫关系，记作 <span class="math inline">\(\rho\)</span>。即关系是笛卡尔积的子集。<span class="math inline">\(\rho \subseteq A \times B\)</span></p>
+<p><span class="math inline">\(\rho\)</span> 是从 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(B\)</span> 的一个关系，也是有顺序的。</p>
+<p>如果取出来的这几根线左边全是老师，线右边全是对应老师的学生，则 <span class="math inline">\(\rho\)</span> 是从 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(B\)</span> 的师生关系。</p>
+<hr/>
 <p>张三在左边的 <span class="math inline">\(A\)</span> 里面，代号是
 <span class="math inline">\(a\)</span></p>
 <p>李四在右边的 <span class="math inline">\(B\)</span> 里面，代号是
 <span class="math inline">\(b\)</span></p>
 <p>连接它们的线记作 <span class="math inline">\((a,b)\)</span></p>
-<p>如果这条线<strong>在</strong> <span
-class="math inline">\(\rho\)</span> 里面，则记作 <span
-class="math inline">\(a \rho
-b\)</span>。即张三对李四<strong>有</strong>师生关系 <span
-class="math inline">\(\rho\)</span>，张三是李四的老师。</p>
+<p>如果这条线<strong>在</strong> <span class="math inline">\(\rho\)</span> 里面，则记作 <span class="math inline">\(a \rho
+b\)</span>。即张三对李四<strong>有</strong>师生关系 <span class="math inline">\(\rho\)</span>，张三是李四的老师。</p>
 <p>不止他们两个人在师生关系 <span class="math inline">\(\rho\)</span>
-里面。张三对李四的这根线，<strong>在取出来的线集 <span
-class="math inline">\(\rho\)</span>
-里面</strong>。这些线的集合才叫关系，而 <span
-class="math inline">\((a,b)\)</span> 不叫关系，再起码也得 <span
-class="math inline">\(\{(a,b)\}\)</span></p>
-<p>即 <span class="math inline">\(a \rho b\)</span> 的意思是 <span
-class="math inline">\((a,b) \in \rho\)</span>， <span
-class="math inline">\((a,b)\)</span> 这根线在 <span
-class="math inline">\(\rho\)</span> 这个线集里面。</p>
+里面。张三对李四的这根线，<strong>在取出来的线集 <span class="math inline">\(\rho\)</span>
+里面</strong>。这些线的集合才叫关系，而 <span class="math inline">\((a,b)\)</span> 不叫关系，再起码也得 <span class="math inline">\(\{(a,b)\}\)</span></p>
+<p>即 <span class="math inline">\(a \rho b\)</span> 的意思是 <span class="math inline">\((a,b) \in \rho\)</span>， <span class="math inline">\((a,b)\)</span> 这根线在 <span class="math inline">\(\rho\)</span> 这个线集里面。</p>
 <h3 id="定义域和值域">定义域和值域</h3>
-<p>现在有一个从 <span class="math inline">\(A\)</span> 到 <span
-class="math inline">\(B\)</span> 的师生关系 <span
-class="math inline">\(\rho\)</span>，就是从 <span
-class="math inline">\(A\)</span> 到 <span
-class="math inline">\(B\)</span> 有一些线。</p>
+<p>现在有一个从 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(B\)</span> 的师生关系 <span class="math inline">\(\rho\)</span>，就是从 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(B\)</span> 有一些线。</p>
 <p>被师生关系牵住的左边的所有人（老师），称为<strong>这个</strong>师生关系的定义域。</p>
 <p>右边的所有人（学生），称为<strong>这个</strong>师生关系的值域。</p>
 <p>这个师生关系是建立在 <span class="math inline">\(A\)</span> -&gt;
 <span class="math inline">\(B\)</span>
 这两个群体<strong>之上</strong>的。</p>
 <h3 id="逆关系">逆关系</h3>
-<p>从 <span class="math inline">\(B\)</span> 到 <span
-class="math inline">\(A\)</span> 的生师关系。记作 <span
-class="math inline">\(\tilde{\rho}\)</span>。</p>
+<p>从 <span class="math inline">\(B\)</span> 到 <span class="math inline">\(A\)</span> 的生师关系。记作 <span class="math inline">\(\tilde{\rho}\)</span>。</p>
 <h3 id="集合-a-上的关系">集合 <span class="math inline">\(A\)</span>
 上的关系</h3>
-<p>这【两边】可以放同一个集合，即从 <span
-class="math inline">\(A\)</span> 到 <span
-class="math inline">\(A\)</span> 的关系 <span
-class="math inline">\(\rho\)</span>，直接叫集合 <span
-class="math inline">\(A\)</span>
+<p>这【两边】可以放同一个集合，即从 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(A\)</span> 的关系 <span class="math inline">\(\rho\)</span>，直接叫集合 <span class="math inline">\(A\)</span>
 上的关系。即<strong>单个群体内部之间的线，包括自己连自己</strong>。</p>
 <p>前面说了，关系 <span class="math inline">\(\subseteq\)</span>
-笛卡尔积。对于 <span class="math inline">\(A\)</span> 和 <span
-class="math inline">\(A\)</span>
-的笛卡尔积，两边交换位置是相等的，可以记作 <span
-class="math inline">\(A^2\)</span>。</p>
-<p>集合 <span class="math inline">\(A\)</span> 上的关系 <span
-class="math inline">\(\rho \subseteq A^2\)</span></p>
+笛卡尔积。对于 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(A\)</span>
+的笛卡尔积，两边交换位置是相等的，可以记作 <span class="math inline">\(A^2\)</span>。</p>
+<p>集合 <span class="math inline">\(A\)</span> 上的关系 <span class="math inline">\(\rho \subseteq A^2\)</span></p>
 <p>注意在此时，不一定有 <span class="math inline">\(\rho =
 \tilde{\rho}\)</span>。</p>
-<p>如果 <span class="math inline">\((你, 她)\in \rho\)</span> 且 <span
-class="math inline">\(\rho\)</span> 是暗恋 ，不能保证 <span
-class="math inline">\((你, 她)\in \tilde{\rho}\)</span></p>
-<p><a
-target="_blank" rel="noopener" href="https://music.163.com/#/song?id=430026359"><strong>你对别人有暗恋关系，不能保证你对别人有暗恋关系的逆</strong></a>。</p>
-<h4 id="普遍关系-u_a">普遍关系 <span
-class="math inline">\(U_A\)</span></h4>
+<p>如果 <span class="math inline">\((你, 她)\in \rho\)</span> 且 <span class="math inline">\(\rho\)</span> 是暗恋 ，不能保证 <span class="math inline">\((你, 她)\in \tilde{\rho}\)</span></p>
+<p><a href="https://music.163.com/#/song?id=430026359" rel="noopener" target="_blank"><strong>你对别人有暗恋关系，不能保证你对别人有暗恋关系的逆</strong></a>。</p>
+<h4 id="普遍关系-u_a">普遍关系 <span class="math inline">\(U_A\)</span></h4>
 <p>所有人都连上线了，包括和自己。</p>
-<p>即这个关系<strong>等于笛卡尔积</strong> <span
-class="math inline">\(A^2\)</span></p>
+<p>即这个关系<strong>等于笛卡尔积</strong> <span class="math inline">\(A^2\)</span></p>
 <p>大家</p>
-<h4 id="恒等关系-i_a">恒等关系 <span
-class="math inline">\(I_A\)</span></h4>
+<h4 id="恒等关系-i_a">恒等关系 <span class="math inline">\(I_A\)</span></h4>
 <p>所有人都和自己连上线了，但是互相之间没有线。</p>
 <p>我</p>
 <h4 id="性质">性质</h4>
@@ -325,25 +223,20 @@ class="math inline">\(I_A\)</span></h4>
 <ol type="1">
 <li>它是一个陈述句</li>
 <li>它有一个自带的<strong>属性</strong>，叫<strong>真值</strong>，取
-<span class="math inline">\(0\)</span> 或 <span
-class="math inline">\(1\)</span></li>
+<span class="math inline">\(0\)</span> 或 <span class="math inline">\(1\)</span></li>
 <li>它的真值可以<strong>被判断</strong>（没有说被<em>谁</em>判断、在什么<em>时间</em>被判断）</li>
 </ol>
 <blockquote>
 <p>2x - 3 = 0 <br/> 这句话是假的</p>
 </blockquote>
-<p>我们<strong>永远</strong>没法判断它们的真值是 <span
-class="math inline">\(0\)</span> 还是 <span
-class="math inline">\(1\)</span>（如果前者是一个陈述句而不是方程，我们不知道
+<p>我们<strong>永远</strong>没法判断它们的真值是 <span class="math inline">\(0\)</span> 还是 <span class="math inline">\(1\)</span>（如果前者是一个陈述句而不是方程，我们不知道
 x 是什么东西的。后者……）。所以它们<strong>不是命题</strong>。</p>
 <blockquote>
 <p>2024 年 1 月 16 号体彩排列三的开奖号码是 703</p>
 </blockquote>
-<p>它是一个命题。它的真值可以被判断，因为这件事已经发生了，但需要我们<a
-target="_blank" rel="noopener" href="https://www.zhcw.com/kjxx/pl3/">查询资料</a>。</p>
+<p>它是一个命题。它的真值可以被判断，因为这件事已经发生了，但需要我们<a href="https://www.zhcw.com/kjxx/pl3/" rel="noopener" target="_blank">查询资料</a>。</p>
 <blockquote>
-<p><em>2024 年 1 月 17 号体彩排列三的开奖号码是 555</em> <br/> <a
-target="_blank" rel="noopener" href="https://music.163.com/song?id=1883951953">太阳系外有宇宙人</a></p>
+<p><em>2024 年 1 月 17 号体彩排列三的开奖号码是 555</em> <br/> <a href="https://music.163.com/song?id=1883951953" rel="noopener" target="_blank">太阳系外有宇宙人</a></p>
 </blockquote>
 <p>它们都是命题。它们的真值可以被判断，但不是现在。</p>
 <h3 id="命题连结词">命题连结词</h3>
@@ -352,56 +245,43 @@ target="_blank" rel="noopener" href="https://music.163.com/song?id=1883951953">�
 <li>否定 <span class="math inline">\(\neg\)</span>，非……</li>
 </ul>
 <p>下面都是二元的。</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">logic</span>(<span class="params">P: <span class="built_in">bool</span>, Q: <span class="built_in">bool</span></span>) -&gt; <span class="built_in">bool</span>:</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">logic</span>(<span class="params">P: <span class="built_in">bool</span>, Q: <span class="built_in">bool</span></span>) -&gt; <span class="built_in">bool</span>:</span><br/></pre></td></tr></table></figure>
 <p>现在有一份鱼和一份熊掌。作为前件和后件。</p>
-<p>如果我们吃了，件的真值记为 <span
-class="math inline">\(1\)</span>。否则记为 <span
-class="math inline">\(0\)</span></p>
-<p>如果我们满足了（吃好了），复合命题的真值记为 <span
-class="math inline">\(1\)</span>。否则记为 <span
-class="math inline">\(0\)</span></p>
+<p>如果我们吃了，件的真值记为 <span class="math inline">\(1\)</span>。否则记为 <span class="math inline">\(0\)</span></p>
+<p>如果我们满足了（吃好了），复合命题的真值记为 <span class="math inline">\(1\)</span>。否则记为 <span class="math inline">\(0\)</span></p>
 <h4 id="合取-wedge-且">合取 <span class="math inline">\(\wedge\)</span>
 ……且……</h4>
 <p>全吃了，我才满足</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P <span class="keyword">and</span> Q</span><br></pre></td></tr></table></figure>
-<h4 id="析取-vee-或可兼的或">析取 <span
-class="math inline">\(\vee\)</span> ……或……（可兼的或）</h4>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P <span class="keyword">and</span> Q</span><br/></pre></td></tr></table></figure>
+<h4 id="析取-vee-或可兼的或">析取 <span class="math inline">\(\vee\)</span> ……或……（可兼的或）</h4>
 <p>只要有吃的，我就满足</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P <span class="keyword">or</span> Q</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P <span class="keyword">or</span> Q</span><br/></pre></td></tr></table></figure>
 <p>不可兼的叫<strong>异或</strong>。区别是：异或的鱼和熊掌只能吃一个，同时吃会生病。</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P ^ Q</span><br></pre></td></tr></table></figure>
-<h4 id="等值-leftrightarrow-当且仅当">等值 <span
-class="math inline">\(\leftrightarrow\)</span> ……当且仅当……</h4>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P ^ Q</span><br/></pre></td></tr></table></figure>
+<h4 id="等值-leftrightarrow-当且仅当">等值 <span class="math inline">\(\leftrightarrow\)</span> ……当且仅当……</h4>
 <p>是异或的对立面：同或、完美主义：要么都吃，要么都不吃，只吃一个我就难受。</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P == Q</span><br></pre></td></tr></table></figure>
-<h4 id="蕴含-rightarrow-若则">蕴含 <span
-class="math inline">\(\rightarrow\)</span> ……若则……</h4>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P == Q</span><br/></pre></td></tr></table></figure>
+<h4 id="蕴含-rightarrow-若则">蕴含 <span class="math inline">\(\rightarrow\)</span> ……若则……</h4>
 <p>现在有【生】和【义】。作为前件和后件。</p>
-<p>如果我们保留了，件的真值记为 <span
-class="math inline">\(1\)</span>。否则记为 <span
-class="math inline">\(0\)</span></p>
-<p>如果我们满足了（垂名了），复合命题的真值记为 <span
-class="math inline">\(1\)</span>。否则记为 <span
-class="math inline">\(0\)</span></p>
+<p>如果我们保留了，件的真值记为 <span class="math inline">\(1\)</span>。否则记为 <span class="math inline">\(0\)</span></p>
+<p>如果我们满足了（垂名了），复合命题的真值记为 <span class="math inline">\(1\)</span>。否则记为 <span class="math inline">\(0\)</span></p>
 <p>注意：</p>
 <ul>
 <li>在蕴含的前件为假的情况下，复合命题为真。</li>
 <li>在蕴含的前件为真的情况下，复合命题的真值为后件的真值。</li>
 </ul>
-<p>如果我们<a
-target="_blank" rel="noopener" href="https://music.163.com/song?id=2058806391">把【生】舍了</a>，那还管它义不义。名字直接刻碑上了。</p>
-<p>或者这样记：如果一个人的<a
-target="_blank" rel="noopener" href="https://music.163.com/song?id=4237850">前提都搞错了</a>，那就没有必要和他讨论了，你说得都对。</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="literal">True</span> <span class="keyword">if</span> <span class="keyword">not</span> P <span class="keyword">else</span> Q</span><br></pre></td></tr></table></figure>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> (<span class="keyword">not</span> P) <span class="keyword">or</span> Q</span><br></pre></td></tr></table></figure>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P <span class="keyword">and</span> (<span class="keyword">not</span> Q)</span><br></pre></td></tr></table></figure>
+<p>如果我们<a href="https://music.163.com/song?id=2058806391" rel="noopener" target="_blank">把【生】舍了</a>，那还管它义不义。名字直接刻碑上了。</p>
+<p>或者这样记：如果一个人的<a href="https://music.163.com/song?id=4237850" rel="noopener" target="_blank">前提都搞错了</a>，那就没有必要和他讨论了，你说得都对。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="literal">True</span> <span class="keyword">if</span> <span class="keyword">not</span> P <span class="keyword">else</span> Q</span><br/></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> (<span class="keyword">not</span> P) <span class="keyword">or</span> Q</span><br/></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P <span class="keyword">and</span> (<span class="keyword">not</span> Q)</span><br/></pre></td></tr></table></figure>
 <h4 id="一个文字游戏">一个文字游戏</h4>
 <blockquote>
 <p>除非 P，否则不 Q</p>
 </blockquote>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> P:</span><br><span class="line">    <span class="keyword">return</span> Q</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">not</span> Q</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> P:</span><br/><span class="line">    <span class="keyword">return</span> Q</span><br/><span class="line"><span class="keyword">else</span>:</span><br/><span class="line">    <span class="keyword">return</span> <span class="keyword">not</span> Q</span><br/></pre></td></tr></table></figure>
 <p>就是当且仅当</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P == Q</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P == Q</span><br/></pre></td></tr></table></figure>
 <h2 id="图">图</h2>
 <ol type="1">
 <li>图至少得有一个节点。</li>
@@ -414,97 +294,54 @@ target="_blank" rel="noopener" href="https://music.163.com/song?id=4237850">前�
 <li>人是一切社会关系的总和</li>
 <li>所有人都是不平凡的</li>
 </ol>
-
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/blog/linux.html" rel="prev" title="Linux">
-                  <i class="fa fa-chevron-left"></i> Linux
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/linux.html" rel="prev" title="Linux">
+<i class="fa fa-chevron-left"></i> Linux
                 </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/blog/hadoop-ha.html" rel="next" title="搭建 Hadoop 高可用集群">
+</div>
+<div class="post-nav-item">
+<a href="/blog/hadoop-ha.html" rel="next" title="搭建 Hadoop 高可用集群">
                   搭建 Hadoop 高可用集群 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
+</a>
 </div>
-
-
-
-
-
-
 </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
 <div class="copyright">
   2023 – 
   <span itemprop="copyrightYear">2024</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Ruofan</span>
+<span class="with-love">
+<i class="fa fa-heart"></i>
+</span>
+<span class="author" itemprop="copyrightHolder">Ruofan</span>
 </div>
-
-    </div>
-  </footer>
-
-  
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-
+</div>
+</footer>
+<div aria-label="返回顶部" class="back-to-top" role="button">
+<i class="fa fa-arrow-up fa-lg"></i>
+<span>0%</span>
+</div>
+<div class="reading-progress-bar"></div>
 <noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
 <script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
-
-  
-
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
-  <script src="/blog/js/third-party/tags/mermaid.js"></script>
-
-
-
-
-
-  
-
-
-
-
-  
-
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+<script src="/blog/js/third-party/tags/mermaid.js"></script>
+<script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/discrete-mathematics.html"}</script>
-  <script src="/blog/js/third-party/quicklink.js"></script>
-
+<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/discrete-mathematics.html"}</script>
+<script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>

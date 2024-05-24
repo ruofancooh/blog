@@ -1,216 +1,168 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
-
-
-<link rel="stylesheet" href="/blog/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
-
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
+<link href="/blog/css/main.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-
-    <meta name="description" content="Web 是一种分布式的应用框架。基于 Web 的应用是典型的浏览器&#x2F;服务器（B&#x2F;S）架构。  ——ISBN 9787302438090  JSP 技术是以 Java 语言作为脚本语言的，JSP 网页为整个服务器端的 Java 库单元提供了一个接口来服务于 HTTP 的应用程序。  ——菜鸟教程">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JavaWeb">
-<meta property="og:url" content="https://hrfis.me/blog/java-web.html">
-<meta property="og:site_name" content="若凡的笔记">
-<meta property="og:description" content="Web 是一种分布式的应用框架。基于 Web 的应用是典型的浏览器&#x2F;服务器（B&#x2F;S）架构。  ——ISBN 9787302438090  JSP 技术是以 Java 语言作为脚本语言的，JSP 网页为整个服务器端的 Java 库单元提供了一个接口来服务于 HTTP 的应用程序。  ——菜鸟教程">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-15T08:32:00.000Z">
-<meta property="article:modified_time" content="2024-05-22T09:17:44.694Z">
-<meta property="article:author" content="Ruofan">
-<meta name="twitter:card" content="summary">
-
-
-<link rel="canonical" href="https://hrfis.me/blog/java-web">
-
-
-
+<meta content="Web 是一种分布式的应用框架。基于 Web
+ 的应用是典型的浏览器/服务器（B/S）架构。
+ 
+ ——ISBN 9787302438090
+ 
+ JSP 技术是以 Java 语言作为脚本语言的，JSP 网页为整个服务器端的 Java
+ 库单元提供了一个接口来服务于 HTTP 的应用程序。
+ 
+ ——菜鸟教程" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="JavaWeb" property="og:title"/>
+<meta content="https://hrfis.me/blog/java-web.html" property="og:url"/>
+<meta content="若凡的笔记" property="og:site_name"/>
+<meta content="Web 是一种分布式的应用框架。基于 Web
+ 的应用是典型的浏览器/服务器（B/S）架构。
+ 
+ ——ISBN 9787302438090
+ 
+ JSP 技术是以 Java 语言作为脚本语言的，JSP 网页为整个服务器端的 Java
+ 库单元提供了一个接口来服务于 HTTP 的应用程序。
+ 
+ ——菜鸟教程" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="2024-04-15T08:32:00.000Z" property="article:published_time"/>
+<meta content="2024-05-22T09:17:44.694Z" property="article:modified_time"/>
+<meta content="Ruofan" property="article:author"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://hrfis.me/blog/java-web" rel="canonical"/>
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/java-web.html","path":"/java-web.html","title":"JavaWeb"}</script>
-
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>JavaWeb | 若凡的笔记</title>
-  
-
-
-
-
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/blog/css/noscript.css">
-  </noscript>
+<noscript>
+<link href="/blog/css/noscript.css" rel="stylesheet"/>
+</noscript>
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/blog/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">若凡的笔记</p>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
-    </div>
-  </div>
+<body itemscope="" itemtype="http://schema.org/WebPage">
+<div class="headband"></div>
+<main class="main">
+<div class="column">
+<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+<div class="site-nav-toggle">
+<div aria-label="切换导航栏" class="toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
 </div>
-
-
-
+</div>
+<div class="site-meta">
+<a class="brand" href="/blog/" rel="start">
+<i class="logo-line"></i>
+<p class="site-title">若凡的笔记</p>
+<i class="logo-line"></i>
+</a>
+</div>
+<div class="site-nav-right">
+<div aria-label="搜索" class="toggle popup-trigger" role="button">
+</div>
+</div>
+</div>
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-  </ul>
+<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+</ul>
 </nav>
-
-
-
-
 </header>
-        
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
+<aside class="sidebar">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<ul class="sidebar-nav">
+<li class="sidebar-nav-toc">
           文章目录
         </li>
-        <li class="sidebar-nav-overview">
+<li class="sidebar-nav-overview">
           站点概览
         </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4"><span class="nav-number">1.</span> <span class="nav-text">整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4-1"><span class="nav-number">2.</span> <span class="nav-text">整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">新建工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA-jsp-%E6%96%87%E4%BB%B6%E7%9A%84%E7%A4%BA%E4%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">一个 JSP 文件的示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsp-%E8%BF%90%E8%A1%8C%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">5.</span> <span class="nav-text">JSP 运行的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E7%AD%94"><span class="nav-number">6.</span> <span class="nav-text">问答</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#struts2-%E6%98%AF%E5%B9%B2%E5%98%9B%E7%9A%84"><span class="nav-number">6.1.</span> <span class="nav-text">Struts2 是干嘛的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jsp-%E6%8C%87%E4%BB%A4%E4%B8%8E-jsp-%E5%8A%A8%E4%BD%9C"><span class="nav-number">6.2.</span> <span class="nav-text">jsp 指令与 jsp 动作？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E4%B8%80%E4%B8%AA-jsp-%E9%A1%B5%E9%87%8C%E5%A6%82%E4%BD%95%E6%8A%8A%E8%A1%A8%E5%8D%95%E4%BC%A0%E9%80%92%E7%BB%99%E5%8F%A6%E4%B8%80%E4%B8%AA-jsp-%E9%A1%B5%E5%8F%A6%E4%B8%80%E4%B8%AA-jsp-%E9%A1%B5%E5%A6%82%E4%BD%95%E6%8E%A5%E6%94%B6"><span class="nav-number">6.3.</span> <span class="nav-text">在一个
+</ul>
+<div class="sidebar-panel-container">
+<!--noindex-->
+<div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4"><span class="nav-number">1.</span> <span class="nav-text">整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4-1"><span class="nav-number">2.</span> <span class="nav-text">整</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">新建工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA-jsp-%E6%96%87%E4%BB%B6%E7%9A%84%E7%A4%BA%E4%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">一个 JSP 文件的示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsp-%E8%BF%90%E8%A1%8C%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">5.</span> <span class="nav-text">JSP 运行的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E7%AD%94"><span class="nav-number">6.</span> <span class="nav-text">问答</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#struts2-%E6%98%AF%E5%B9%B2%E5%98%9B%E7%9A%84"><span class="nav-number">6.1.</span> <span class="nav-text">Struts2 是干嘛的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jsp-%E6%8C%87%E4%BB%A4%E4%B8%8E-jsp-%E5%8A%A8%E4%BD%9C"><span class="nav-number">6.2.</span> <span class="nav-text">jsp 指令与 jsp 动作？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E4%B8%80%E4%B8%AA-jsp-%E9%A1%B5%E9%87%8C%E5%A6%82%E4%BD%95%E6%8A%8A%E8%A1%A8%E5%8D%95%E4%BC%A0%E9%80%92%E7%BB%99%E5%8F%A6%E4%B8%80%E4%B8%AA-jsp-%E9%A1%B5%E5%8F%A6%E4%B8%80%E4%B8%AA-jsp-%E9%A1%B5%E5%A6%82%E4%BD%95%E6%8E%A5%E6%94%B6"><span class="nav-number">6.3.</span> <span class="nav-text">在一个
 jsp 页里，如何把表单传递给另一个 jsp 页？另一个 jsp 页如何接收？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E5%92%8C%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91"><span class="nav-number">6.4.</span> <span class="nav-text">重定向和请求转发？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%82%B9%E4%B8%80%E4%B8%AA%E6%8C%89%E9%92%AE%E5%87%BA%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%96%B0%E8%A1%A8%E5%8D%95"><span class="nav-number">6.5.</span> <span class="nav-text">如何实现点一个按钮出现一个新表单？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">6.6.</span> <span class="nav-text">Filter 是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-jdbc-%E8%BF%9E%E6%8E%A5-mysql"><span class="nav-number">6.7.</span> <span class="nav-text">如何使用 JDBC 连接 MySQL？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">6.8.</span> <span class="nav-text">插入的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">6.9.</span> <span class="nav-text">乱码的问题</span></a></li></ol></li></ol></div>
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Ruofan</p>
-  <div class="site-description" itemprop="description"></div>
+</div>
+<!--/noindex-->
+<div class="site-overview-wrap sidebar-panel">
+<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<p class="site-author-name" itemprop="name">Ruofan</p>
+<div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/blog/archives/">
-          <span class="site-state-item-count">32</span>
-          <span class="site-state-item-name">笔记</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/blog/categories/">
-        <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-  </nav>
+<nav class="site-state">
+<div class="site-state-item site-state-posts">
+<a href="/blog/archives/">
+<span class="site-state-item-count">32</span>
+<span class="site-state-item-name">笔记</span>
+</a>
 </div>
-
-        </div>
-      </div>
-    </div>
-
-    
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner post posts-expand">
-
-
-  
-
-
+<div class="site-state-item site-state-categories">
+<a href="/blog/categories/">
+<span class="site-state-item-count">3</span>
+<span class="site-state-item-name">分类</span></a>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<div class="main-inner post posts-expand">
 <div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/java-web.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="Ruofan">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="若凡的笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="JavaWeb | 若凡的笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/java-web.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="JavaWeb | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h1 class="post-title" itemprop="name headline">
           JavaWeb
         </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-04-15 16:32:00" itemprop="dateCreated datePublished" datetime="2024-04-15T16:32:00+08:00">2024-04-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-22 17:17:44" itemprop="dateModified" datetime="2024-05-22T17:17:44+08:00">2024-05-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/%E5%AE%9E%E7%94%A8%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">实用系列</span></a>
-        </span>
-    </span>
-
-  
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2024-04-15T16:32:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-04-15 16:32:00">2024-04-15</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-05-22T17:17:44+08:00" itemprop="dateModified" title="修改时间：2024-05-22 17:17:44">2024-05-22</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">实用系列</span></a>
+</span>
+</span>
 </div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody"><blockquote>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody"><blockquote>
 <p>Web 是一种分布式的应用框架。基于 Web
 的应用是典型的浏览器/服务器（B/S）架构。</p>
 </blockquote>
@@ -245,8 +197,8 @@ flowchart LR
         compute[Compute.java]
     end
 
-    input-->selectShape
-    compute-->result
+    input--&gt;selectShape
+    compute--&gt;result
     compute--oBeans</pre>
 <h2 id="整-1">整</h2>
 <pre class="mermaid">%%{
@@ -273,20 +225,20 @@ flowchart LR
     db[(Database)]
 
     display--o|查询所有|DBUtil--odb
-    display-.->|重定向|result
-    result-->|查询某个|Query--o|查询某个|DBUtil
-    Query-.->|重定向|result
-    result-->|插入某个|register-->|POST|Insert--o|插入某个|DBUtil
-    Insert-.->|重定向|display
-    result-->|删除某个|Delete--o|删除某个|DBUtil
-    Delete-.->|重定向|display
-    result-->|修改某个|Update--o|修改某个|DBUtil
-    Update-.->|重定向|display</pre>
+    display-.-&gt;|重定向|result
+    result--&gt;|查询某个|Query--o|查询某个|DBUtil
+    Query-.-&gt;|重定向|result
+    result--&gt;|插入某个|register--&gt;|POST|Insert--o|插入某个|DBUtil
+    Insert-.-&gt;|重定向|display
+    result--&gt;|删除某个|Delete--o|删除某个|DBUtil
+    Delete-.-&gt;|重定向|display
+    result--&gt;|修改某个|Update--o|修改某个|DBUtil
+    Update-.-&gt;|重定向|display</pre>
 <h2 id="新建工程">新建工程</h2>
 <p>据笔者测试，用 VSCode 和最新的 IDEA 社区版都没办法格式化 JSP
 代码，或者是暂时没找到解决方法。</p>
 <p><strong>用 VSCode 或 IDEA</strong></p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn archetype:generate &quot;-DgroupId=com.example&quot; &quot;-DartifactId=demo&quot; &quot;-DarchetypeArtifactId=maven-archetype-webapp&quot; &quot;-DinteractiveMode=true&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">mvn archetype:generate "-DgroupId=com.example" "-DartifactId=demo" "-DarchetypeArtifactId=maven-archetype-webapp" "-DinteractiveMode=true"</span><br/></pre></td></tr></table></figure>
 <p>VSCode 使用 Community Server Connectors 插件</p>
 <p>IDEA 使用 Smart Tomcat 插件</p>
 <p><strong>用 Eclipse 2020-03 (4.15.0)</strong></p>
@@ -295,7 +247,7 @@ flowchart LR
 <p>按 Ctrl + Shift + F 格式化代码——這個快捷鍵會和 Win10
 的微軟拼音輸入法簡繁體切換功能衝突。解决方法除了再按一次，还可以右击你任务栏上的[中]，进输入法设置，把热键关了。</p>
 <h2 id="一个-jsp-文件的示例">一个 JSP 文件的示例</h2>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">&quot;java&quot;</span> contentType=<span class="string">&quot;text/html; charset=UTF-8&quot;</span></span><br><span class="line">	pageEncoding=<span class="string">&quot;UTF-8&quot;</span> <span class="keyword">import</span>=<span class="string">&quot;java.util.Date&quot;</span>%&gt;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">&lt;title&gt;&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;%</span><br><span class="line">		<span class="type">Date</span> <span class="variable">now</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">	%&gt;</span><br><span class="line">	&lt;%=now%&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br/><span class="line">	pageEncoding=<span class="string">"UTF-8"</span> <span class="keyword">import</span>=<span class="string">"java.util.Date"</span>%&gt;</span><br/><span class="line">&lt;!DOCTYPE html&gt;</span><br/><span class="line">&lt;html&gt;</span><br/><span class="line">&lt;head&gt;</span><br/><span class="line">&lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br/><span class="line">&lt;title&gt;&lt;/title&gt;</span><br/><span class="line">&lt;/head&gt;</span><br/><span class="line">&lt;body&gt;</span><br/><span class="line">	&lt;%</span><br/><span class="line">		<span class="type">Date</span> <span class="variable">now</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br/><span class="line">	%&gt;</span><br/><span class="line">	&lt;%=now%&gt;</span><br/><span class="line">&lt;/body&gt;</span><br/><span class="line">&lt;/html&gt;</span><br/></pre></td></tr></table></figure>
 <p>它在 html 的基础上扩展了一些标签。可以使用 Java 库。</p>
 <h2 id="jsp-运行的原理">JSP 运行的原理</h2>
 <ol type="1">
@@ -304,12 +256,12 @@ flowchart LR
 <p>你可以使用 Fiddler 来抓包。在 Eclipse 里按“播放键”之后，Eclipse 向
 <code>localhost:8080</code> 发送了一个 GET 请求。</p>
 <p>使用</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano | grep <span class="number">8080</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">netstat -ano | grep <span class="number">8080</span></span><br/></pre></td></tr></table></figure>
 <p>查与 8080 端口有关的进程号。再打开任务管理器的详细信息，查到进程为
 <code>javaw.exe</code>。右击打开文件所在位置，在你 Eclipse
 首选项里设置的 JDK 目录的 bin 目录里面。</p>
 <p>使用</p>
-<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jcmd</span><br></pre></td></tr></table></figure>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">jcmd</span><br/></pre></td></tr></table></figure>
 <p>查看 java 进程，为
 <code>org.apache.catalina.startup.Bootstrap start</code></p>
 <ol start="2" type="1">
@@ -336,18 +288,17 @@ MVC 架构中的控制器，jsp 充当视图，JavaBean 充当模型。</p>
 <h3 id="jsp-指令与-jsp-动作">jsp 指令与 jsp 动作？</h3>
 <p>前者是静态的，后者是动态的（感性认识）</p>
 <p>前者类似</p>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ <span class="type">include</span> <span class="variable">file</span> <span class="operator">=</span> <span class="string">&quot;sub.jsp&quot;</span> %&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">&lt;%@ <span class="type">include</span> <span class="variable">file</span> <span class="operator">=</span> <span class="string">"sub.jsp"</span> %&gt;</span><br/></pre></td></tr></table></figure>
 <p>后者类似</p>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;jsp:<span class="type">include</span> <span class="variable">page</span> <span class="operator">=</span> <span class="string">&quot;sub.jsp&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
-<h3
-id="在一个-jsp-页里如何把表单传递给另一个-jsp-页另一个-jsp-页如何接收">在一个
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">&lt;jsp:<span class="type">include</span> <span class="variable">page</span> <span class="operator">=</span> <span class="string">"sub.jsp"</span>/&gt;</span><br/></pre></td></tr></table></figure>
+<h3 id="在一个-jsp-页里如何把表单传递给另一个-jsp-页另一个-jsp-页如何接收">在一个
 jsp 页里，如何把表单传递给另一个 jsp 页？另一个 jsp 页如何接收？</h3>
 <p>三种方式：（使用 get 方法会在 url 里看到请求参数，post 不会）</p>
 <ol type="1">
 <li>【包含对面的】 <code>jsp:include</code> 配合
 <code>jsp:param</code>。这是把另一个 jsp 页包含进来。</li>
 </ol>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;form method=<span class="string">&quot;get&quot;</span>&gt;</span><br><span class="line">    请输入圆的半径：</span><br><span class="line">    &lt;input type=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;radius&quot;</span> /&gt;</span><br><span class="line">    &lt;input type=<span class="string">&quot;submit&quot;</span> value=<span class="string">&quot;提交&quot;</span> /&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;jsp:include page=<span class="string">&quot;computeAreaOfCircle.jsp&quot;</span>&gt;</span><br><span class="line">    &lt;jsp:param value=<span class="string">&quot;$&#123;param.radius&#125;&quot;</span> name=<span class="string">&quot;radius&quot;</span> /&gt;</span><br><span class="line">&lt;/jsp:include&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/></pre></td><td class="code"><pre><span class="line">&lt;form method=<span class="string">"get"</span>&gt;</span><br/><span class="line">    请输入圆的半径：</span><br/><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"radius"</span> /&gt;</span><br/><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交"</span> /&gt;</span><br/><span class="line">&lt;/form&gt;</span><br/><span class="line">&lt;jsp:include page=<span class="string">"computeAreaOfCircle.jsp"</span>&gt;</span><br/><span class="line">    &lt;jsp:param value=<span class="string">"${param.radius}"</span> name=<span class="string">"radius"</span> /&gt;</span><br/><span class="line">&lt;/jsp:include&gt;</span><br/></pre></td></tr></table></figure>
 <ol start="2" type="1">
 <li>【请求转发】先使用本页面的 Java 代码处理表单，再使用
 <code>jsp:forward</code> 配合 <code>jsp:param</code>，把 request
@@ -355,7 +306,7 @@ jsp 页里，如何把表单传递给另一个 jsp 页？另一个 jsp 页如何
 </ol>
 <p>这种把 JSP 标签和 Java 代码混在一起的写法很新鲜：</p>
 <p>接收方用 <code>request.getParameter("name")</code> 接收</p>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;form method=<span class="string">&quot;post&quot;</span> action=<span class="string">&quot;&quot;</span>&gt;</span><br><span class="line">    请选择一个图形：&lt;br /&gt;</span><br><span class="line">    &lt;input type=<span class="string">&quot;radio&quot;</span> name=<span class="string">&quot;shape&quot;</span> id=<span class="string">&quot;circle&quot;</span> value=<span class="string">&quot;circle&quot;</span> /&gt;圆形&lt;br /&gt;</span><br><span class="line">    &lt;input type=<span class="string">&quot;radio&quot;</span> name=<span class="string">&quot;shape&quot;</span> id=<span class="string">&quot;rectangle&quot;</span> value=<span class="string">&quot;rectangle&quot;</span> /&gt;矩形&lt;br /&gt;</span><br><span class="line">    &lt;input type=<span class="string">&quot;submit&quot;</span> value=<span class="string">&quot;提交&quot;</span> /&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;%</span><br><span class="line">	<span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line"><span class="type">String</span> <span class="variable">shape</span> <span class="operator">=</span> request.getParameter(<span class="string">&quot;shape&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (shape != <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (shape.equals(<span class="string">&quot;circle&quot;</span>)) &#123;</span><br><span class="line">        <span class="type">double</span> <span class="variable">radius</span> <span class="operator">=</span> <span class="number">100</span> * random.nextDouble();</span><br><span class="line">%&gt;</span><br><span class="line">&lt;jsp:forward page=<span class="string">&quot;process.jsp&quot;</span>&gt;</span><br><span class="line">    &lt;jsp:param value=<span class="string">&quot;&lt;%=shape%&gt;&quot;</span> name=<span class="string">&quot;shape&quot;</span> /&gt;</span><br><span class="line">    &lt;jsp:param value=<span class="string">&quot;&lt;%=radius%&gt;&quot;</span> name=<span class="string">&quot;radius&quot;</span> /&gt;</span><br><span class="line">&lt;/jsp:forward&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (shape.equals(<span class="string">&quot;rectangle&quot;</span>)) &#123;</span><br><span class="line">    <span class="type">double</span> <span class="variable">width</span> <span class="operator">=</span> <span class="number">100</span> * random.nextDouble();</span><br><span class="line">    <span class="type">double</span> <span class="variable">height</span> <span class="operator">=</span> <span class="number">100</span> * random.nextDouble();</span><br><span class="line">%&gt;</span><br><span class="line">&lt;jsp:forward page=<span class="string">&quot;process.jsp&quot;</span>&gt;</span><br><span class="line">    &lt;jsp:param value=<span class="string">&quot;&lt;%=shape%&gt;&quot;</span> name=<span class="string">&quot;shape&quot;</span> /&gt;</span><br><span class="line">    &lt;jsp:param value=<span class="string">&quot;&lt;%=width%&gt;&quot;</span> name=<span class="string">&quot;width&quot;</span> /&gt;</span><br><span class="line">    &lt;jsp:param value=<span class="string">&quot;&lt;%=height%&gt;&quot;</span> name=<span class="string">&quot;height&quot;</span> /&gt;</span><br><span class="line">&lt;/jsp:forward&gt;</span><br><span class="line">&lt;%</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/></pre></td><td class="code"><pre><span class="line">&lt;form method=<span class="string">"post"</span> action=<span class="string">""</span>&gt;</span><br/><span class="line">    请选择一个图形：&lt;br /&gt;</span><br/><span class="line">    &lt;input type=<span class="string">"radio"</span> name=<span class="string">"shape"</span> id=<span class="string">"circle"</span> value=<span class="string">"circle"</span> /&gt;圆形&lt;br /&gt;</span><br/><span class="line">    &lt;input type=<span class="string">"radio"</span> name=<span class="string">"shape"</span> id=<span class="string">"rectangle"</span> value=<span class="string">"rectangle"</span> /&gt;矩形&lt;br /&gt;</span><br/><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交"</span> /&gt;</span><br/><span class="line">&lt;/form&gt;</span><br/><span class="line">&lt;%</span><br/><span class="line">	<span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br/><span class="line"><span class="type">String</span> <span class="variable">shape</span> <span class="operator">=</span> request.getParameter(<span class="string">"shape"</span>);</span><br/><span class="line"><span class="keyword">if</span> (shape != <span class="literal">null</span>) {</span><br/><span class="line">    <span class="keyword">if</span> (shape.equals(<span class="string">"circle"</span>)) {</span><br/><span class="line">        <span class="type">double</span> <span class="variable">radius</span> <span class="operator">=</span> <span class="number">100</span> * random.nextDouble();</span><br/><span class="line">%&gt;</span><br/><span class="line">&lt;jsp:forward page=<span class="string">"process.jsp"</span>&gt;</span><br/><span class="line">    &lt;jsp:param value=<span class="string">"&lt;%=shape%&gt;"</span> name=<span class="string">"shape"</span> /&gt;</span><br/><span class="line">    &lt;jsp:param value=<span class="string">"&lt;%=radius%&gt;"</span> name=<span class="string">"radius"</span> /&gt;</span><br/><span class="line">&lt;/jsp:forward&gt;</span><br/><span class="line">&lt;%</span><br/><span class="line">    } <span class="keyword">else</span> <span class="keyword">if</span> (shape.equals(<span class="string">"rectangle"</span>)) {</span><br/><span class="line">    <span class="type">double</span> <span class="variable">width</span> <span class="operator">=</span> <span class="number">100</span> * random.nextDouble();</span><br/><span class="line">    <span class="type">double</span> <span class="variable">height</span> <span class="operator">=</span> <span class="number">100</span> * random.nextDouble();</span><br/><span class="line">%&gt;</span><br/><span class="line">&lt;jsp:forward page=<span class="string">"process.jsp"</span>&gt;</span><br/><span class="line">    &lt;jsp:param value=<span class="string">"&lt;%=shape%&gt;"</span> name=<span class="string">"shape"</span> /&gt;</span><br/><span class="line">    &lt;jsp:param value=<span class="string">"&lt;%=width%&gt;"</span> name=<span class="string">"width"</span> /&gt;</span><br/><span class="line">    &lt;jsp:param value=<span class="string">"&lt;%=height%&gt;"</span> name=<span class="string">"height"</span> /&gt;</span><br/><span class="line">&lt;/jsp:forward&gt;</span><br/><span class="line">&lt;%</span><br/><span class="line">	}</span><br/><span class="line">}</span><br/><span class="line">%&gt;</span><br/></pre></td></tr></table></figure>
 <ol start="3" type="1">
 <li>【重定向】<code>response.sendRedirect("result.jsp")</code> 不会把
 request 对象传递过去</li>
@@ -366,19 +317,18 @@ request 对象传递过去</li>
 <h3 id="重定向和请求转发">重定向和请求转发？</h3>
 <p>重定向会丢失 request 对象，请求转发不会。</p>
 <p>在 JSP 或者 Servert 里请求转发：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">request.setAttribute(<span class="string">&quot;studentList&quot;</span>, studentList);</span><br><span class="line"><span class="type">RequestDispatcher</span> <span class="variable">dispatcher</span> <span class="operator">=</span> request.getRequestDispatcher(<span class="string">&quot;result.jsp&quot;</span>);</span><br><span class="line">dispatcher.forward(request, response);</span><br></pre></td></tr></table></figure>
-<h3
-id="如何实现点一个按钮出现一个新表单">如何实现点一个按钮出现一个新表单？</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">request.setAttribute(<span class="string">"studentList"</span>, studentList);</span><br/><span class="line"><span class="type">RequestDispatcher</span> <span class="variable">dispatcher</span> <span class="operator">=</span> request.getRequestDispatcher(<span class="string">"result.jsp"</span>);</span><br/><span class="line">dispatcher.forward(request, response);</span><br/></pre></td></tr></table></figure>
+<h3 id="如何实现点一个按钮出现一个新表单">如何实现点一个按钮出现一个新表单？</h3>
 <p>在第一个表单里加一个隐藏的 <code>&lt;input&gt;</code>
 标签，第一个表单提交给本页面，然后在本页面里写 Java 代码：</p>
 <p>笔者觉得这比 JS 操作 DOM 看起来新鲜，很好玩。</p>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">&quot;&quot;</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">&quot;hidden&quot;</span> name=<span class="string">&quot;showInput&quot;</span> value=<span class="string">&quot;true&quot;</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">&quot;submit&quot;</span> value=<span class="string">&quot;查找&quot;</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;%</span><br><span class="line">    <span class="type">String</span> <span class="variable">showInput</span> <span class="operator">=</span> request.getParameter(<span class="string">&quot;showInput&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (showInput != <span class="literal">null</span> &amp;&amp; showInput.equals(<span class="string">&quot;true&quot;</span>)) &#123;</span><br><span class="line">%&gt;</span><br><span class="line">&lt;form action=<span class="string">&quot;Query&quot;</span> method=<span class="string">&quot;get&quot;</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;id&quot;</span> placeholder=<span class="string">&quot;输入学号&quot;</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">&quot;submit&quot;</span> value=<span class="string">&quot;提交&quot;</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;%</span><br><span class="line">&#125;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">""</span>&gt;</span><br/><span class="line">    &lt;input type=<span class="string">"hidden"</span> name=<span class="string">"showInput"</span> value=<span class="string">"true"</span>&gt;</span><br/><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"查找"</span>&gt;</span><br/><span class="line">&lt;/form&gt;</span><br/><span class="line">&lt;%</span><br/><span class="line">    <span class="type">String</span> <span class="variable">showInput</span> <span class="operator">=</span> request.getParameter(<span class="string">"showInput"</span>);</span><br/><span class="line"><span class="keyword">if</span> (showInput != <span class="literal">null</span> &amp;&amp; showInput.equals(<span class="string">"true"</span>)) {</span><br/><span class="line">%&gt;</span><br/><span class="line">&lt;form action=<span class="string">"Query"</span> method=<span class="string">"get"</span>&gt;</span><br/><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"id"</span> placeholder=<span class="string">"输入学号"</span>&gt;</span><br/><span class="line">    &lt;input type=<span class="string">"submit"</span> value=<span class="string">"提交"</span>&gt;</span><br/><span class="line">&lt;/form&gt;</span><br/><span class="line">&lt;%</span><br/><span class="line">}</span><br/><span class="line">%&gt;</span><br/></pre></td></tr></table></figure>
 <h3 id="filter-是什么">Filter 是什么？</h3>
 <p>一个实现了 <code>javax.servlet.Filter</code> 接口的类。可在
 <code>doFilter</code> 方法里对请求预处理，响应后处理：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebFilter(&quot;/*&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ProZhInput</span> <span class="keyword">implements</span> <span class="title class_">Filter</span> &#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException &#123;</span><br><span class="line">        request.setCharacterEncoding(<span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">        response.setCharacterEncoding(<span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">        response.setContentType(<span class="string">&quot;text/html;charset=UTF-8&quot;</span>);</span><br><span class="line">        chain.doFilter(request, response);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">@WebFilter("/*")</span></span><br/><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ProZhInput</span> <span class="keyword">implements</span> <span class="title class_">Filter</span> {</span><br/><span class="line">    <span class="comment">//...</span></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">doFilter</span><span class="params">(ServletRequest request, ServletResponse response, FilterChain chain)</span> <span class="keyword">throws</span> IOException, ServletException {</span><br/><span class="line">        request.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br/><span class="line">        response.setCharacterEncoding(<span class="string">"UTF-8"</span>);</span><br/><span class="line">        response.setContentType(<span class="string">"text/html;charset=UTF-8"</span>);</span><br/><span class="line">        chain.doFilter(request, response);</span><br/><span class="line">    }</span><br/><span class="line">    <span class="comment">//...</span></span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
 <h3 id="如何使用-jdbc-连接-mysql">如何使用 JDBC 连接 MySQL？</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DBUtil</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Connection</span> <span class="variable">connection</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">createConnection</span><span class="params">()</span>  &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">&quot;jdbc:mysql://localhost:3306/yourdbname?serverTimezone=UTC&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">user</span> <span class="operator">=</span> <span class="string">&quot;yourname&quot;</span>;</span><br><span class="line">        <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="string">&quot;yourpassword&quot;</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Class.forName(<span class="string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);<span class="comment">// 注册MySQL JDBC驱动程序</span></span><br><span class="line">            connection = DriverManager.getConnection(url, user, password);</span><br><span class="line">            <span class="keyword">if</span> (connection != <span class="literal">null</span>) &#123;</span><br><span class="line">            	System.out.println(<span class="string">&quot;成功连接到数据库！&quot;</span>);</span><br><span class="line">            	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DBUtil</span> {</span><br/><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">Connection</span> <span class="variable">connection</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br/><span class="line"></span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">createConnection</span><span class="params">()</span>  {</span><br/><span class="line">        <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">"jdbc:mysql://localhost:3306/yourdbname?serverTimezone=UTC"</span>;</span><br/><span class="line">        <span class="type">String</span> <span class="variable">user</span> <span class="operator">=</span> <span class="string">"yourname"</span>;</span><br/><span class="line">        <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> <span class="string">"yourpassword"</span>;</span><br/><span class="line">        <span class="keyword">try</span> {</span><br/><span class="line">            Class.forName(<span class="string">"com.mysql.cj.jdbc.Driver"</span>);<span class="comment">// 注册MySQL JDBC驱动程序</span></span><br/><span class="line">            connection = DriverManager.getConnection(url, user, password);</span><br/><span class="line">            <span class="keyword">if</span> (connection != <span class="literal">null</span>) {</span><br/><span class="line">            	System.out.println(<span class="string">"成功连接到数据库！"</span>);</span><br/><span class="line">            	<span class="keyword">return</span> <span class="literal">true</span>;</span><br/><span class="line">            }</span><br/><span class="line">        } <span class="keyword">catch</span> (SQLException e) {</span><br/><span class="line">            e.printStackTrace();</span><br/><span class="line">        } <span class="keyword">catch</span> (ClassNotFoundException e) {</span><br/><span class="line">            e.printStackTrace();</span><br/><span class="line">        }</span><br/><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
 <ol type="1">
 <li>下载驱动 Jar 包 https://dev.mysql.com/downloads/connector/j/</li>
 <li>把 Jar 包 复制到
@@ -400,98 +350,55 @@ id），级联更新和删除。如何插入“一条”id
 <li>MySQL 数据库表的编码</li>
 <li></li>
 </ol>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">&quot;java&quot;</span> contentType=<span class="string">&quot;text/html; charset=UTF-8&quot;</span></span><br><span class="line">	pageEncoding=<span class="string">&quot;UTF-8&quot;</span>%&gt;</span><br></pre></td></tr></table></figure>
-
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/blog/jz-exam.html" rel="prev" title="《计算机组成原理》应试技巧">
-                  <i class="fa fa-chevron-left"></i> 《计算机组成原理》应试技巧
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span><br/><span class="line">	pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><br/></pre></td></tr></table></figure>
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/jz-exam.html" rel="prev" title="《计算机组成原理》应试技巧">
+<i class="fa fa-chevron-left"></i> 《计算机组成原理》应试技巧
                 </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/blog/python.html" rel="next" title="Python">
+</div>
+<div class="post-nav-item">
+<a href="/blog/python.html" rel="next" title="Python">
                   Python <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
+</a>
 </div>
-
-
-
-
-
-
 </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
 <div class="copyright">
   2023 – 
   <span itemprop="copyrightYear">2024</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Ruofan</span>
+<span class="with-love">
+<i class="fa fa-heart"></i>
+</span>
+<span class="author" itemprop="copyrightHolder">Ruofan</span>
 </div>
-
-    </div>
-  </footer>
-
-  
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-
+</div>
+</footer>
+<div aria-label="返回顶部" class="back-to-top" role="button">
+<i class="fa fa-arrow-up fa-lg"></i>
+<span>0%</span>
+</div>
+<div class="reading-progress-bar"></div>
 <noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
 <script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
-
-  
-
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
-  <script src="/blog/js/third-party/tags/mermaid.js"></script>
-
-
-
-
-
-  
-
-
-
-
-  
-
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+<script src="/blog/js/third-party/tags/mermaid.js"></script>
+<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/java-web.html"}</script>
-  <script src="/blog/js/third-party/quicklink.js"></script>
-
+<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/java-web.html"}</script>
+<script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>

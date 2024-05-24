@@ -1,217 +1,163 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
-
-
-<link rel="stylesheet" href="/blog/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
-
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
+<link href="/blog/css/main.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-
-    <meta name="description" content="数据：《数据挖掘导论》这本书里的所有符号 信息：此笔记 知识： 决策：通过知识得出的解决方案  从【信息】到【知识】的这一步，叫【数据挖掘】">
-<meta property="og:type" content="article">
-<meta property="og:title" content="数据挖掘">
-<meta property="og:url" content="https://hrfis.me/blog/data-mining.html">
-<meta property="og:site_name" content="若凡的笔记">
-<meta property="og:description" content="数据：《数据挖掘导论》这本书里的所有符号 信息：此笔记 知识： 决策：通过知识得出的解决方案  从【信息】到【知识】的这一步，叫【数据挖掘】">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://hrfis.me/blog/images/decision-tree.webp">
-<meta property="article:published_time" content="2024-02-28T13:35:00.000Z">
-<meta property="article:modified_time" content="2024-05-20T12:59:09.505Z">
-<meta property="article:author" content="Ruofan">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://hrfis.me/blog/images/decision-tree.webp">
-
-
-<link rel="canonical" href="https://hrfis.me/blog/data-mining">
-
-
-
+<meta content="数据：《数据挖掘导论》这本书里的所有符号
+ 信息：此笔记
+ 知识：
+ 决策：通过知识得出的解决方案
+ 
+ 从【信息】到【知识】的这一步，叫【数据挖掘】" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="数据挖掘" property="og:title"/>
+<meta content="https://hrfis.me/blog/data-mining.html" property="og:url"/>
+<meta content="若凡的笔记" property="og:site_name"/>
+<meta content="数据：《数据挖掘导论》这本书里的所有符号
+ 信息：此笔记
+ 知识：
+ 决策：通过知识得出的解决方案
+ 
+ 从【信息】到【知识】的这一步，叫【数据挖掘】" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="https://hrfis.me/blog/images/decision-tree.webp" property="og:image"/>
+<meta content="2024-02-28T13:35:00.000Z" property="article:published_time"/>
+<meta content="2024-05-20T12:59:09.505Z" property="article:modified_time"/>
+<meta content="Ruofan" property="article:author"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://hrfis.me/blog/images/decision-tree.webp" name="twitter:image"/>
+<link href="https://hrfis.me/blog/data-mining" rel="canonical"/>
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/data-mining.html","path":"/data-mining.html","title":"数据挖掘"}</script>
-
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>数据挖掘 | 若凡的笔记</title>
-  
-
-
-
-
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/blog/css/noscript.css">
-  </noscript>
+<noscript>
+<link href="/blog/css/noscript.css" rel="stylesheet"/>
+</noscript>
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/blog/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">若凡的笔记</p>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
-    </div>
-  </div>
+<body itemscope="" itemtype="http://schema.org/WebPage">
+<div class="headband"></div>
+<main class="main">
+<div class="column">
+<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+<div class="site-nav-toggle">
+<div aria-label="切换导航栏" class="toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
 </div>
-
-
-
+</div>
+<div class="site-meta">
+<a class="brand" href="/blog/" rel="start">
+<i class="logo-line"></i>
+<p class="site-title">若凡的笔记</p>
+<i class="logo-line"></i>
+</a>
+</div>
+<div class="site-nav-right">
+<div aria-label="搜索" class="toggle popup-trigger" role="button">
+</div>
+</div>
+</div>
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-  </ul>
+<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+</ul>
 </nav>
-
-
-
-
 </header>
-        
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
+<aside class="sidebar">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<ul class="sidebar-nav">
+<li class="sidebar-nav-toc">
           文章目录
         </li>
-        <li class="sidebar-nav-overview">
+<li class="sidebar-nav-overview">
           站点概览
         </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.1.</span> <span class="nav-text">数据挖掘的任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%BA%A6%E9%87%8F"><span class="nav-number">1.2.</span> <span class="nav-text">属性与度量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">1.3.</span> <span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90"><span class="nav-number">1.4.</span> <span class="nav-text">关联分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#id3-%E7%AE%97%E6%B3%95"><span class="nav-number">1.5.</span> <span class="nav-text">ID3 算法</span></a></li></ol></li></ol></div>
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Ruofan</p>
-  <div class="site-description" itemprop="description"></div>
+</ul>
+<div class="sidebar-panel-container">
+<!--noindex-->
+<div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.1.</span> <span class="nav-text">数据挖掘的任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%BA%A6%E9%87%8F"><span class="nav-number">1.2.</span> <span class="nav-text">属性与度量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">1.3.</span> <span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90"><span class="nav-number">1.4.</span> <span class="nav-text">关联分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#id3-%E7%AE%97%E6%B3%95"><span class="nav-number">1.5.</span> <span class="nav-text">ID3 算法</span></a></li></ol></li></ol></div>
+</div>
+<!--/noindex-->
+<div class="site-overview-wrap sidebar-panel">
+<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<p class="site-author-name" itemprop="name">Ruofan</p>
+<div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/blog/archives/">
-          <span class="site-state-item-count">32</span>
-          <span class="site-state-item-name">笔记</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/blog/categories/">
-        <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-  </nav>
+<nav class="site-state">
+<div class="site-state-item site-state-posts">
+<a href="/blog/archives/">
+<span class="site-state-item-count">32</span>
+<span class="site-state-item-name">笔记</span>
+</a>
 </div>
-
-        </div>
-      </div>
-    </div>
-
-    
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner post posts-expand">
-
-
-  
-
-
+<div class="site-state-item site-state-categories">
+<a href="/blog/categories/">
+<span class="site-state-item-count">3</span>
+<span class="site-state-item-name">分类</span></a>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<div class="main-inner post posts-expand">
 <div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/data-mining.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="Ruofan">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="若凡的笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="数据挖掘 | 若凡的笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/data-mining.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="数据挖掘 | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h1 class="post-title" itemprop="name headline">
           数据挖掘
         </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-02-28 21:35:00" itemprop="dateCreated datePublished" datetime="2024-02-28T21:35:00+08:00">2024-02-28</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-20 20:59:09" itemprop="dateModified" datetime="2024-05-20T20:59:09+08:00">2024-05-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/%E6%B0%B8%E8%BF%9C%E4%B8%8D%E7%9C%8B%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">永远不看系列</span></a>
-        </span>
-    </span>
-
-  
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2024-02-28T21:35:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-02-28 21:35:00">2024-02-28</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-05-20T20:59:09+08:00" itemprop="dateModified" title="修改时间：2024-05-20 20:59:09">2024-05-20</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/u/" itemprop="url" rel="index"><span itemprop="name">永远不看系列</span></a>
+</span>
+</span>
 </div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody"><ul>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody"><ul>
 <li>数据：《数据挖掘导论》这本书里的所有符号</li>
 <li>信息：此笔记</li>
 <li>知识：</li>
@@ -282,7 +228,7 @@
 </ul></li>
 </ul>
 <h3 id="关联分析">关联分析</h3>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">AssociationRule</span>(namedtuple(<span class="string">&quot;AssociationRule&quot;</span>, [<span class="string">&quot;X&quot;</span>, <span class="string">&quot;Y&quot;</span>])):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    关联规则，是两个不相交集合的蕴含表达式</span></span><br><span class="line"><span class="string">    &#123;牛奶，尿布&#125; -&gt; &#123;啤酒&#125;</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__new__</span>(<span class="params">cls, X: <span class="built_in">set</span>, Y: <span class="built_in">set</span></span>):</span><br><span class="line">        <span class="keyword">assert</span> X.isdisjoint(Y)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">super</span>().__new__(cls, X, Y)</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">AssociationRule</span>(namedtuple(<span class="string">"AssociationRule"</span>, [<span class="string">"X"</span>, <span class="string">"Y"</span>])):</span><br/><span class="line">    <span class="string">"""</span></span><br/><span class="line"><span class="string">    关联规则，是两个不相交集合的蕴含表达式</span></span><br/><span class="line"><span class="string">    {牛奶，尿布} -&gt; {啤酒}</span></span><br/><span class="line"><span class="string">    """</span></span><br/><span class="line"></span><br/><span class="line">    <span class="keyword">def</span> <span class="title function_">__new__</span>(<span class="params">cls, X: <span class="built_in">set</span>, Y: <span class="built_in">set</span></span>):</span><br/><span class="line">        <span class="keyword">assert</span> X.isdisjoint(Y)</span><br/><span class="line">        <span class="keyword">return</span> <span class="built_in">super</span>().__new__(cls, X, Y)</span><br/></pre></td></tr></table></figure>
 <p>支持度计数sigma，即事务列表里，项集的超集个数</p>
 <p>支持度，即项集的超集个数与集合总个数（事务个数）的比值</p>
 <p>大于等于最小支持度（计数）的项集，称为频繁项集</p>
@@ -296,100 +242,57 @@
 <p>对于一组数据集，其每一个数据有它的几个属性的值，和一个分类标签。</p>
 <p>如：我们可以给一系列人的数据集：</p>
 <p>（方便理解，学习用，无歧视）</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 特征列表</span></span><br><span class="line">features = [<span class="string">&quot;性别&quot;</span>, <span class="string">&quot;使用手机的牌子&quot;</span>, <span class="string">&quot;年龄&quot;</span>, <span class="string">&quot;是否赌博&quot;</span>, <span class="string">&quot;喜欢玩的游戏&quot;</span>, <span class="string">&quot;喜欢音乐的曲风&quot;</span>]</span><br><span class="line">dataset = [</span><br><span class="line">    <span class="comment"># 最后一个是分类标签</span></span><br><span class="line">    [<span class="string">&quot;男&quot;</span>, <span class="string">&quot;小米&quot;</span>, <span class="string">&quot;中&quot;</span>, <span class="string">&quot;否&quot;</span>, <span class="string">&quot;王者荣耀&quot;</span>, <span class="string">&quot;前卫摇滚&quot;</span>, <span class="string">&quot;有病&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;男&quot;</span>, <span class="string">&quot;华为&quot;</span>, <span class="string">&quot;中&quot;</span>, <span class="string">&quot;否&quot;</span>, <span class="string">&quot;和平精英&quot;</span>, <span class="string">&quot;前卫摇滚&quot;</span>, <span class="string">&quot;有病&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;男&quot;</span>, <span class="string">&quot;苹果&quot;</span>, <span class="string">&quot;中&quot;</span>, <span class="string">&quot;否&quot;</span>, <span class="string">&quot;明日方舟&quot;</span>, <span class="string">&quot;前卫摇滚&quot;</span>, <span class="string">&quot;有病&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;女&quot;</span>, <span class="string">&quot;小米&quot;</span>, <span class="string">&quot;中&quot;</span>, <span class="string">&quot;是&quot;</span>, <span class="string">&quot;王者荣耀&quot;</span>, <span class="string">&quot;前卫摇滚&quot;</span>, <span class="string">&quot;有病&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;女&quot;</span>, <span class="string">&quot;小米&quot;</span>, <span class="string">&quot;中&quot;</span>, <span class="string">&quot;否&quot;</span>, <span class="string">&quot;和平精英&quot;</span>, <span class="string">&quot;前卫摇滚&quot;</span>, <span class="string">&quot;有病&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;女&quot;</span>, <span class="string">&quot;华为&quot;</span>, <span class="string">&quot;小&quot;</span>, <span class="string">&quot;否&quot;</span>, <span class="string">&quot;明日方舟&quot;</span>, <span class="string">&quot;前卫摇滚&quot;</span>, <span class="string">&quot;有病&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;男&quot;</span>, <span class="string">&quot;华为&quot;</span>, <span class="string">&quot;小&quot;</span>, <span class="string">&quot;否&quot;</span>, <span class="string">&quot;王者荣耀&quot;</span>, <span class="string">&quot;前卫摇滚&quot;</span>, <span class="string">&quot;有病&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;男&quot;</span>, <span class="string">&quot;苹果&quot;</span>, <span class="string">&quot;小&quot;</span>, <span class="string">&quot;否&quot;</span>, <span class="string">&quot;和平精英&quot;</span>, <span class="string">&quot;前卫摇滚&quot;</span>, <span class="string">&quot;有病&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;男&quot;</span>, <span class="string">&quot;苹果&quot;</span>, <span class="string">&quot;大&quot;</span>, <span class="string">&quot;否&quot;</span>, <span class="string">&quot;明日方舟&quot;</span>, <span class="string">&quot;华语流行&quot;</span>, <span class="string">&quot;没病&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;女&quot;</span>, <span class="string">&quot;小米&quot;</span>, <span class="string">&quot;大&quot;</span>, <span class="string">&quot;否&quot;</span>, <span class="string">&quot;王者荣耀&quot;</span>, <span class="string">&quot;华语流行&quot;</span>, <span class="string">&quot;没病&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;女&quot;</span>, <span class="string">&quot;小米&quot;</span>, <span class="string">&quot;大&quot;</span>, <span class="string">&quot;否&quot;</span>, <span class="string">&quot;和平精英&quot;</span>, <span class="string">&quot;前卫摇滚&quot;</span>, <span class="string">&quot;没病&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;女&quot;</span>, <span class="string">&quot;华为&quot;</span>, <span class="string">&quot;小&quot;</span>, <span class="string">&quot;否&quot;</span>, <span class="string">&quot;明日方舟&quot;</span>, <span class="string">&quot;华语流行&quot;</span>, <span class="string">&quot;没病&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;男&quot;</span>, <span class="string">&quot;华为&quot;</span>, <span class="string">&quot;中&quot;</span>, <span class="string">&quot;否&quot;</span>, <span class="string">&quot;王者荣耀&quot;</span>, <span class="string">&quot;前卫摇滚&quot;</span>, <span class="string">&quot;没病&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;女&quot;</span>, <span class="string">&quot;苹果&quot;</span>, <span class="string">&quot;中&quot;</span>, <span class="string">&quot;否&quot;</span>, <span class="string">&quot;明日方舟&quot;</span>, <span class="string">&quot;前卫摇滚&quot;</span>, <span class="string">&quot;没病&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;男&quot;</span>, <span class="string">&quot;苹果&quot;</span>, <span class="string">&quot;中&quot;</span>, <span class="string">&quot;否&quot;</span>, <span class="string">&quot;明日方舟&quot;</span>, <span class="string">&quot;华语流行&quot;</span>, <span class="string">&quot;没病&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;女&quot;</span>, <span class="string">&quot;小米&quot;</span>, <span class="string">&quot;中&quot;</span>, <span class="string">&quot;否&quot;</span>, <span class="string">&quot;和平精英&quot;</span>, <span class="string">&quot;华语流行&quot;</span>, <span class="string">&quot;没病&quot;</span>],</span><br><span class="line">    [<span class="string">&quot;男&quot;</span>, <span class="string">&quot;华为&quot;</span>, <span class="string">&quot;中&quot;</span>, <span class="string">&quot;否&quot;</span>, <span class="string">&quot;明日方舟&quot;</span>, <span class="string">&quot;日语流行&quot;</span>, <span class="string">&quot;没病&quot;</span>],</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/></pre></td><td class="code"><pre><span class="line"><span class="comment"># 特征列表</span></span><br/><span class="line">features = [<span class="string">"性别"</span>, <span class="string">"使用手机的牌子"</span>, <span class="string">"年龄"</span>, <span class="string">"是否赌博"</span>, <span class="string">"喜欢玩的游戏"</span>, <span class="string">"喜欢音乐的曲风"</span>]</span><br/><span class="line">dataset = [</span><br/><span class="line">    <span class="comment"># 最后一个是分类标签</span></span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"小米"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"王者荣耀"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"有病"</span>],</span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"华为"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"和平精英"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"有病"</span>],</span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"苹果"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"明日方舟"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"有病"</span>],</span><br/><span class="line">    [<span class="string">"女"</span>, <span class="string">"小米"</span>, <span class="string">"中"</span>, <span class="string">"是"</span>, <span class="string">"王者荣耀"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"有病"</span>],</span><br/><span class="line">    [<span class="string">"女"</span>, <span class="string">"小米"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"和平精英"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"有病"</span>],</span><br/><span class="line">    [<span class="string">"女"</span>, <span class="string">"华为"</span>, <span class="string">"小"</span>, <span class="string">"否"</span>, <span class="string">"明日方舟"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"有病"</span>],</span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"华为"</span>, <span class="string">"小"</span>, <span class="string">"否"</span>, <span class="string">"王者荣耀"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"有病"</span>],</span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"苹果"</span>, <span class="string">"小"</span>, <span class="string">"否"</span>, <span class="string">"和平精英"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"有病"</span>],</span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"苹果"</span>, <span class="string">"大"</span>, <span class="string">"否"</span>, <span class="string">"明日方舟"</span>, <span class="string">"华语流行"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">    [<span class="string">"女"</span>, <span class="string">"小米"</span>, <span class="string">"大"</span>, <span class="string">"否"</span>, <span class="string">"王者荣耀"</span>, <span class="string">"华语流行"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">    [<span class="string">"女"</span>, <span class="string">"小米"</span>, <span class="string">"大"</span>, <span class="string">"否"</span>, <span class="string">"和平精英"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">    [<span class="string">"女"</span>, <span class="string">"华为"</span>, <span class="string">"小"</span>, <span class="string">"否"</span>, <span class="string">"明日方舟"</span>, <span class="string">"华语流行"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"华为"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"王者荣耀"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">    [<span class="string">"女"</span>, <span class="string">"苹果"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"明日方舟"</span>, <span class="string">"前卫摇滚"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"苹果"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"明日方舟"</span>, <span class="string">"华语流行"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">    [<span class="string">"女"</span>, <span class="string">"小米"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"和平精英"</span>, <span class="string">"华语流行"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">    [<span class="string">"男"</span>, <span class="string">"华为"</span>, <span class="string">"中"</span>, <span class="string">"否"</span>, <span class="string">"明日方舟"</span>, <span class="string">"日语流行"</span>, <span class="string">"没病"</span>],</span><br/><span class="line">]</span><br/></pre></td></tr></table></figure>
 <p>生成类似这样的决策树：</p>
-<p><img src="/blog/images/decision-tree.webp"></p>
-
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/blog/that.html" rel="prev" title="童年·在人间·我的大学">
-                  <i class="fa fa-chevron-left"></i> 童年·在人间·我的大学
+<p><img src="/blog/images/decision-tree.webp"/></p>
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/that.html" rel="prev" title="童年·在人间·我的大学">
+<i class="fa fa-chevron-left"></i> 童年·在人间·我的大学
                 </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/blog/computer-organization.html" rel="next" title="计算机组成原理">
+</div>
+<div class="post-nav-item">
+<a href="/blog/computer-organization.html" rel="next" title="计算机组成原理">
                   计算机组成原理 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
+</a>
 </div>
-
-
-
-
-
-
 </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
 <div class="copyright">
   2023 – 
   <span itemprop="copyrightYear">2024</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Ruofan</span>
+<span class="with-love">
+<i class="fa fa-heart"></i>
+</span>
+<span class="author" itemprop="copyrightHolder">Ruofan</span>
 </div>
-
-    </div>
-  </footer>
-
-  
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-
+</div>
+</footer>
+<div aria-label="返回顶部" class="back-to-top" role="button">
+<i class="fa fa-arrow-up fa-lg"></i>
+<span>0%</span>
+</div>
+<div class="reading-progress-bar"></div>
 <noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
 <script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
-
-  
-
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
-  <script src="/blog/js/third-party/tags/mermaid.js"></script>
-
-
-
-
-
-  
-
-
-
-
-  
-
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+<script src="/blog/js/third-party/tags/mermaid.js"></script>
+<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/data-mining.html"}</script>
-  <script src="/blog/js/third-party/quicklink.js"></script>
-
+<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/data-mining.html"}</script>
+<script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>

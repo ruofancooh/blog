@@ -1,215 +1,163 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
-
-
-<link rel="stylesheet" href="/blog/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
-
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
+<link href="/blog/css/main.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-
-    <meta name="description" content="HDFS 和 YARN 都是主从架构，当主节点挂了或者系统升级，集群会无法正常工作。高可用是指 7x24 小时系统可用，为此设置多个主节点。 对于 HDFS，主节点是 NameNode，它负责保存文件系统快照、操作日志、处理客户端读写请求，2NN 负责定期合并文件系统快照和操作日志。为实现高可用，设置多个 NameNode 和 JournalNode。同一时间只能有一个 NameNod">
-<meta property="og:type" content="article">
-<meta property="og:title" content="搭建 Hadoop 高可用集群">
-<meta property="og:url" content="https://hrfis.me/blog/hadoop-ha.html">
-<meta property="og:site_name" content="若凡的笔记">
-<meta property="og:description" content="HDFS 和 YARN 都是主从架构，当主节点挂了或者系统升级，集群会无法正常工作。高可用是指 7x24 小时系统可用，为此设置多个主节点。 对于 HDFS，主节点是 NameNode，它负责保存文件系统快照、操作日志、处理客户端读写请求，2NN 负责定期合并文件系统快照和操作日志。为实现高可用，设置多个 NameNode 和 JournalNode。同一时间只能有一个 NameNod">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-01-19T00:31:00.000Z">
-<meta property="article:modified_time" content="2024-05-15T08:01:01.743Z">
-<meta property="article:author" content="Ruofan">
-<meta name="twitter:card" content="summary">
-
-
-<link rel="canonical" href="https://hrfis.me/blog/hadoop-ha">
-
-
-
+<meta content="HDFS 和 YARN
+ 都是主从架构，当主节点挂了或者系统升级，集群会无法正常工作。高可用是指
+ 7x24 小时系统可用，为此设置多个主节点。
+ 对于 HDFS，主节点是
+ NameNode，它负责保存文件系统快照、操作日志、处理客户端读写请求，2NN
+ 负责定期合并文件系统快照和操作日志。为实现高可用，设置多个 NameNode 和
+ JournalNode。同一时间只能有一个 NameNod" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="搭建 Hadoop 高可用集群" property="og:title"/>
+<meta content="https://hrfis.me/blog/hadoop-ha.html" property="og:url"/>
+<meta content="若凡的笔记" property="og:site_name"/>
+<meta content="HDFS 和 YARN
+ 都是主从架构，当主节点挂了或者系统升级，集群会无法正常工作。高可用是指
+ 7x24 小时系统可用，为此设置多个主节点。
+ 对于 HDFS，主节点是
+ NameNode，它负责保存文件系统快照、操作日志、处理客户端读写请求，2NN
+ 负责定期合并文件系统快照和操作日志。为实现高可用，设置多个 NameNode 和
+ JournalNode。同一时间只能有一个 NameNod" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="2024-01-19T00:31:00.000Z" property="article:published_time"/>
+<meta content="2024-05-15T08:01:01.743Z" property="article:modified_time"/>
+<meta content="Ruofan" property="article:author"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://hrfis.me/blog/hadoop-ha" rel="canonical"/>
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/hadoop-ha.html","path":"/hadoop-ha.html","title":"搭建 Hadoop 高可用集群"}</script>
-
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>搭建 Hadoop 高可用集群 | 若凡的笔记</title>
-  
-
-
-
-
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/blog/css/noscript.css">
-  </noscript>
+<noscript>
+<link href="/blog/css/noscript.css" rel="stylesheet"/>
+</noscript>
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/blog/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">若凡的笔记</p>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
-    </div>
-  </div>
+<body itemscope="" itemtype="http://schema.org/WebPage">
+<div class="headband"></div>
+<main class="main">
+<div class="column">
+<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+<div class="site-nav-toggle">
+<div aria-label="切换导航栏" class="toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
 </div>
-
-
-
+</div>
+<div class="site-meta">
+<a class="brand" href="/blog/" rel="start">
+<i class="logo-line"></i>
+<p class="site-title">若凡的笔记</p>
+<i class="logo-line"></i>
+</a>
+</div>
+<div class="site-nav-right">
+<div aria-label="搜索" class="toggle popup-trigger" role="button">
+</div>
+</div>
+</div>
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-  </ul>
+<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+</ul>
 </nav>
-
-
-
-
 </header>
-        
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
+<aside class="sidebar">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<ul class="sidebar-nav">
+<li class="sidebar-nav-toc">
           文章目录
         </li>
-        <li class="sidebar-nav-overview">
+<li class="sidebar-nav-overview">
           站点概览
         </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hdfs-ha"><span class="nav-number">1.</span> <span class="nav-text">HDFS-HA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">1.2.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.</span> <span class="nav-text">自动故障转移配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB%E5%AE%9E%E9%AA%8C"><span class="nav-number">1.4.</span> <span class="nav-text">自动故障转移实验</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yarn-ha"><span class="nav-number">2.</span> <span class="nav-text">YARN-HA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-1"><span class="nav-number">2.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C-1"><span class="nav-number">2.2.</span> <span class="nav-text">实验</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3-jsch-%E8%AE%A4%E8%AF%81%E5%A4%B1%E8%B4%A5"><span class="nav-number">3.</span> <span class="nav-text">解决 JSch 认证失败</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E6%9D%80%E6%8E%89-acitive-%E7%9A%84-nn-%E8%BF%87%E7%A8%8B%E4%B8%AD"><span class="nav-number">3.1.</span> <span class="nav-text">在杀掉 Acitive 的 NN 过程中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC"><span class="nav-number">3.2.</span> <span class="nav-text">软件版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E6%97%A5%E5%BF%97"><span class="nav-number">3.3.</span> <span class="nav-text">关键日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%80%9D%E8%B7%AF"><span class="nav-number">3.4.</span> <span class="nav-text">解决思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E6%98%AF%E9%97%AE%E9%A2%98%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">不是问题的问题</span></a></li></ol></div>
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Ruofan</p>
-  <div class="site-description" itemprop="description"></div>
+</ul>
+<div class="sidebar-panel-container">
+<!--noindex-->
+<div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hdfs-ha"><span class="nav-number">1.</span> <span class="nav-text">HDFS-HA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">1.2.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.</span> <span class="nav-text">自动故障转移配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB%E5%AE%9E%E9%AA%8C"><span class="nav-number">1.4.</span> <span class="nav-text">自动故障转移实验</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yarn-ha"><span class="nav-number">2.</span> <span class="nav-text">YARN-HA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-1"><span class="nav-number">2.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C-1"><span class="nav-number">2.2.</span> <span class="nav-text">实验</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3-jsch-%E8%AE%A4%E8%AF%81%E5%A4%B1%E8%B4%A5"><span class="nav-number">3.</span> <span class="nav-text">解决 JSch 认证失败</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E6%9D%80%E6%8E%89-acitive-%E7%9A%84-nn-%E8%BF%87%E7%A8%8B%E4%B8%AD"><span class="nav-number">3.1.</span> <span class="nav-text">在杀掉 Acitive 的 NN 过程中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC"><span class="nav-number">3.2.</span> <span class="nav-text">软件版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E6%97%A5%E5%BF%97"><span class="nav-number">3.3.</span> <span class="nav-text">关键日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%80%9D%E8%B7%AF"><span class="nav-number">3.4.</span> <span class="nav-text">解决思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E6%98%AF%E9%97%AE%E9%A2%98%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">不是问题的问题</span></a></li></ol></div>
+</div>
+<!--/noindex-->
+<div class="site-overview-wrap sidebar-panel">
+<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<p class="site-author-name" itemprop="name">Ruofan</p>
+<div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/blog/archives/">
-          <span class="site-state-item-count">32</span>
-          <span class="site-state-item-name">笔记</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/blog/categories/">
-        <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-  </nav>
+<nav class="site-state">
+<div class="site-state-item site-state-posts">
+<a href="/blog/archives/">
+<span class="site-state-item-count">32</span>
+<span class="site-state-item-name">笔记</span>
+</a>
 </div>
-
-        </div>
-      </div>
-    </div>
-
-    
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner post posts-expand">
-
-
-  
-
-
+<div class="site-state-item site-state-categories">
+<a href="/blog/categories/">
+<span class="site-state-item-count">3</span>
+<span class="site-state-item-name">分类</span></a>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<div class="main-inner post posts-expand">
 <div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/hadoop-ha.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="Ruofan">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="若凡的笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="搭建 Hadoop 高可用集群 | 若凡的笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/hadoop-ha.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="搭建 Hadoop 高可用集群 | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h1 class="post-title" itemprop="name headline">
           搭建 Hadoop 高可用集群
         </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-01-19 08:31:00" itemprop="dateCreated datePublished" datetime="2024-01-19T08:31:00+08:00">2024-01-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-15 16:01:01" itemprop="dateModified" datetime="2024-05-15T16:01:01+08:00">2024-05-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/%E6%B0%B8%E8%BF%9C%E4%B8%8D%E7%9C%8B%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">永远不看系列</span></a>
-        </span>
-    </span>
-
-  
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2024-01-19T08:31:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-01-19 08:31:00">2024-01-19</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-05-15T16:01:01+08:00" itemprop="dateModified" title="修改时间：2024-05-15 16:01:01">2024-05-15</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/u/" itemprop="url" rel="index"><span itemprop="name">永远不看系列</span></a>
+</span>
+</span>
 </div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody"><p>HDFS 和 YARN
+</div>
+</header>
+<div class="post-body" itemprop="articleBody"><p>HDFS 和 YARN
 都是主从架构，当主节点挂了或者系统升级，集群会无法正常工作。高可用是指
 7x24 小时系统可用，为此设置多个主节点。</p>
 <p>对于 HDFS，主节点是
@@ -221,8 +169,7 @@ FsImage，其他 NameNode 为 Standby，拉取同步 FsImage，还起到 2NN
 负责监控集群，如果 Active 的 NameNode 挂了，通过 ZKFC 进行故障转移。</p>
 <p>对于 YARN，主节点是 ResourceManager，从节点是
 NodeManager。为此配置多个 ResourceManager。</p>
-<p><a
-target="_blank" rel="noopener" href="https://hadoop.apache.org/docs/r3.3.6/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html">文档</a></p>
+<p><a href="https://hadoop.apache.org/docs/r3.3.6/hadoop-project-dist/hadoop-hdfs/HDFSHighAvailabilityWithQJM.html" rel="noopener" target="_blank">文档</a></p>
 <span id="more"></span>
 <h2 id="hdfs-ha">HDFS-HA</h2>
 <p>把原来的非高可用的 Hadoop
@@ -261,8 +208,8 @@ namenode，启动该机器的 namenode 服务，然后在另两台机器上同�
 开头，不然报错。以及小心各种拼写错误。</p>
 <table>
 <colgroup>
-<col style="width: 38%" />
-<col style="width: 61%" />
+<col style="width: 38%"/>
+<col style="width: 61%"/>
 </colgroup>
 <thead>
 <tr class="header">
@@ -277,15 +224,15 @@ namenode，启动该机器的 namenode 服务，然后在另两台机器上同�
 </tr>
 <tr class="even">
 <td>dfs.namenode.name.dir</td>
-<td><code>file://$&#123;hadoop.tmp.dir&#125;/name</code></td>
+<td><code>file://${hadoop.tmp.dir}/name</code></td>
 </tr>
 <tr class="odd">
 <td>dfs.datanode.data.dir</td>
-<td><code>file://$&#123;hadoop.tmp.dir&#125;/data</code></td>
+<td><code>file://${hadoop.tmp.dir}/data</code></td>
 </tr>
 <tr class="even">
 <td>dfs.journalnode.edits.dir</td>
-<td><code>$&#123;hadoop.tmp.dir&#125;/journalnode</code></td>
+<td><code>${hadoop.tmp.dir}/journalnode</code></td>
 </tr>
 <tr class="odd">
 <td>dfs.ha.namenodes.mycluster</td>
@@ -335,18 +282,18 @@ namenode，启动该机器的 namenode 服务，然后在另两台机器上同�
 </table>
 <h3 id="实验">实验</h3>
 <p>在每一台机器上启动 JournalNode 服务：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs --daemon start journalnode</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs --daemon start journalnode</span><br/></pre></td></tr></table></figure>
 <p>在 101 机器上对 namenode 进行格式化，并启动 namenode：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hdfs namenode -format</span><br><span class="line">hdfs --daemon start namenode</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">hdfs namenode -format</span><br/><span class="line">hdfs --daemon start namenode</span><br/></pre></td></tr></table></figure>
 <p>在 Web 界面查看，为 Standby。</p>
 <p>在另两台机器上同步 namenode1 的元数据信息，并启动 namenode：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hdfs namenode -bootstrapStandby</span><br><span class="line">hdfs --daemon start namenode</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">hdfs namenode -bootstrapStandby</span><br/><span class="line">hdfs --daemon start namenode</span><br/></pre></td></tr></table></figure>
 <p>在每一台机器上启动 DataNode：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs --daemon start datanode</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs --daemon start datanode</span><br/></pre></td></tr></table></figure>
 <p>把 namenode2 切换成 Active 状态：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs haadmin -transitionToActive namenode2</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs haadmin -transitionToActive namenode2</span><br/></pre></td></tr></table></figure>
 <p>模拟 namenode2 挂掉：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -9 &lt;进程号&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> -9 &lt;进程号&gt;</span><br/></pre></td></tr></table></figure>
 <p>这时 namenode1 和 namenode3 还是 Standby。如果手动激活某一个，会显示
 102 拒绝连接。</p>
 <p>重启 namenode2 后，三个 namenode 还是
@@ -394,14 +341,14 @@ Active。为了准确无误地知道它是否挂了，需要配置 ZooKeeper 监
 <h3 id="自动故障转移实验">自动故障转移实验</h3>
 <p>必须在 stop-dfs 之后，并启动 ZooKeeper
 集群成功后，再在任意一台机器上初始化 HA 在 Zookeeper 中状态。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs zkfc –formatZK</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs zkfc –formatZK</span><br/></pre></td></tr></table></figure>
 <p>然后 start-dfs。formatZK 成功后，以后启动集群需要先启动 ZK
 服务端，后启动 dfs。如果先启动 dfs，这时会有 ZKFC 进程，再启动 ZK
 服务端后，ZKFC 进程被挤掉了，所有 namenode 都是 Standby。</p>
 <p>查看当前活跃节点：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs haadmin -getAllServiceState</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs haadmin -getAllServiceState</span><br/></pre></td></tr></table></figure>
 <p>或者在 ZK 客户端查看选举锁：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get -s /hadoop-ha/mycluster/ActiveStandbyElectorLock</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">get -s /hadoop-ha/mycluster/ActiveStandbyElectorLock</span><br/></pre></td></tr></table></figure>
 <p>验证集群会不会进行故障转移：kill 掉 Active 的 namenode</p>
 <h2 id="yarn-ha">YARN-HA</h2>
 <h3 id="配置-1">配置</h3>
@@ -409,8 +356,8 @@ Active。为了准确无误地知道它是否挂了，需要配置 ZooKeeper 监
 <p><code>yarn-site.xml</code>:</p>
 <table>
 <colgroup>
-<col style="width: 28%" />
-<col style="width: 71%" />
+<col style="width: 28%"/>
+<col style="width: 71%"/>
 </colgroup>
 <thead>
 <tr class="header">
@@ -515,7 +462,7 @@ Active。为了准确无误地知道它是否挂了，需要配置 ZooKeeper 监
 </table>
 <h3 id="实验-1">实验</h3>
 <p>查看当前活跃节点：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn rmadmin -getAllServiceState</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">yarn rmadmin -getAllServiceState</span><br/></pre></td></tr></table></figure>
 <p>如果浏览器访问 Standby 节点的 8088 端口（RM），会自动跳转到 Active
 节点。</p>
 <h2 id="解决-jsch-认证失败">解决 JSch 认证失败</h2>
@@ -556,8 +503,7 @@ org.apache.hadoop.ha.SshFenceByTcpPort，里面用了 JSch
 <p>客户端（Standby 上的
 org.apache.hadoop.ha.SshFenceByTcpPort.jsch）：</p>
 <ul>
-<li>Hadoop 3.3.6 <a
-target="_blank" rel="noopener" href="https://github.com/apache/hadoop/blob/branch-3.3.6/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/ha/SshFenceByTcpPort.java">SshFenceByTcpPort
+<li>Hadoop 3.3.6 <a href="https://github.com/apache/hadoop/blob/branch-3.3.6/hadoop-common-project/hadoop-common/src/main/java/org/apache/hadoop/ha/SshFenceByTcpPort.java" rel="noopener" target="_blank">SshFenceByTcpPort
 源码</a></li>
 <li>JSch 0.1.55</li>
 </ul>
@@ -567,114 +513,71 @@ target="_blank" rel="noopener" href="https://github.com/apache/hadoop/blob/branc
 sshd</li>
 </ul>
 <p>生成密钥时用的命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -m PEM</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -m PEM</span><br/></pre></td></tr></table></figure>
 <h3 id="关键日志">关键日志</h3>
 <p>原来为 Standby 的 NN 上的 ZKFC 日志：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">INFO org.apache.hadoop.ha.SshFenceByTcpPort.jsch:</span><br><span class="line">//...</span><br><span class="line">Remote version string: SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.6</span><br><span class="line">Local version string: SSH-2.0-JSCH-0.1.54</span><br><span class="line">// JSch 0.1.55 的源码里，写的字符串就是 0.1.54，这个应该不影响</span><br><span class="line">//...</span><br><span class="line">Authentications that can continue: publickey,keyboard-interactive,password</span><br><span class="line">Next authentication method: publickey</span><br><span class="line">// 这里用公钥认证失败了</span><br><span class="line">Authentications that can continue: password</span><br><span class="line">Next authentication method: password</span><br><span class="line">Disconnecting from ubuntu103 port 22</span><br><span class="line">WARN org.apache.hadoop.ha.SshFenceByTcpPort: Unable to connect to ubuntu103 as user rc</span><br><span class="line">com.jcraft.jsch.JSchException: Auth fail</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/></pre></td><td class="code"><pre><span class="line">INFO org.apache.hadoop.ha.SshFenceByTcpPort.jsch:</span><br/><span class="line">//...</span><br/><span class="line">Remote version string: SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.6</span><br/><span class="line">Local version string: SSH-2.0-JSCH-0.1.54</span><br/><span class="line">// JSch 0.1.55 的源码里，写的字符串就是 0.1.54，这个应该不影响</span><br/><span class="line">//...</span><br/><span class="line">Authentications that can continue: publickey,keyboard-interactive,password</span><br/><span class="line">Next authentication method: publickey</span><br/><span class="line">// 这里用公钥认证失败了</span><br/><span class="line">Authentications that can continue: password</span><br/><span class="line">Next authentication method: password</span><br/><span class="line">Disconnecting from ubuntu103 port 22</span><br/><span class="line">WARN org.apache.hadoop.ha.SshFenceByTcpPort: Unable to connect to ubuntu103 as user rc</span><br/><span class="line">com.jcraft.jsch.JSchException: Auth fail</span><br/></pre></td></tr></table></figure>
 <h3 id="解决思路">解决思路</h3>
 <p>看 sshd 的日志：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">userauth_pubkey: key type ssh-rsa not in PubkeyAcceptedAlgorithms</span><br><span class="line">error: Received disconnect from 192.168.78.101 port 49968:3: com.jcraft.jsch.JSchException: Auth fail</span><br><span class="line">Disconnected from authenticating user rc 192.168.78.101 port 49968</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PubkeyAuthentication yes</span><br><span class="line">PubkeyAcceptedAlgorithms +ssh-rsa</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart sshd</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">userauth_pubkey: key type ssh-rsa not in PubkeyAcceptedAlgorithms</span><br/><span class="line">error: Received disconnect from 192.168.78.101 port 49968:3: com.jcraft.jsch.JSchException: Auth fail</span><br/><span class="line">Disconnected from authenticating user rc 192.168.78.101 port 49968</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo vi /etc/ssh/sshd_config</span><br/></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">PubkeyAuthentication yes</span><br/><span class="line">PubkeyAcceptedAlgorithms +ssh-rsa</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo systemctl restart sshd</span><br/></pre></td></tr></table></figure>
 <h2 id="不是问题的问题">不是问题的问题</h2>
 <p>用</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs haadmin -getAllServiceState</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs haadmin -getAllServiceState</span><br/></pre></td></tr></table></figure>
 <p>查看 Active 转移成功了，但是联系不上被杀的那一方。</p>
 <p>具体地说，转移成功之后，三个方的 DN 都一直在尝试连被杀那一方的
 NN，一直在写日志。除此之外上传下载都没问题。</p>
 <p>这应该是集群自带的心跳机制，不是问题。</p>
-
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/blog/discrete-mathematics.html" rel="prev" title="离散数学">
-                  <i class="fa fa-chevron-left"></i> 离散数学
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/discrete-mathematics.html" rel="prev" title="离散数学">
+<i class="fa fa-chevron-left"></i> 离散数学
                 </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/blog/flume.html" rel="next" title="使用 Flume">
+</div>
+<div class="post-nav-item">
+<a href="/blog/flume.html" rel="next" title="使用 Flume">
                   使用 Flume <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
+</a>
 </div>
-
-
-
-
-
-
 </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
 <div class="copyright">
   2023 – 
   <span itemprop="copyrightYear">2024</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Ruofan</span>
+<span class="with-love">
+<i class="fa fa-heart"></i>
+</span>
+<span class="author" itemprop="copyrightHolder">Ruofan</span>
 </div>
-
-    </div>
-  </footer>
-
-  
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-
+</div>
+</footer>
+<div aria-label="返回顶部" class="back-to-top" role="button">
+<i class="fa fa-arrow-up fa-lg"></i>
+<span>0%</span>
+</div>
+<div class="reading-progress-bar"></div>
 <noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
 <script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
-
-  
-
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
-  <script src="/blog/js/third-party/tags/mermaid.js"></script>
-
-
-
-
-
-  
-
-
-
-
-  
-
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+<script src="/blog/js/third-party/tags/mermaid.js"></script>
+<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/hadoop-ha.html"}</script>
-  <script src="/blog/js/third-party/quicklink.js"></script>
-
+<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/hadoop-ha.html"}</script>
+<script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>

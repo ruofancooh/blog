@@ -1,217 +1,158 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
-
-
-<link rel="stylesheet" href="/blog/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
-
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
+<link href="/blog/css/main.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-
-    <meta name="description" content="只有当笔者意识到：写教程是在浪费时间的时候，说明笔者是真的学会了。 理由：这些文档在各个软件的网站上，别人早就写好了。或者在你软件安装的目录里面，有一个大大的 doc 文件夹。 回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就过程">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hadoop">
-<meta property="og:url" content="https://hrfis.me/blog/hadoop.html">
-<meta property="og:site_name" content="若凡的笔记">
-<meta property="og:description" content="只有当笔者意识到：写教程是在浪费时间的时候，说明笔者是真的学会了。 理由：这些文档在各个软件的网站上，别人早就写好了。或者在你软件安装的目录里面，有一个大大的 doc 文件夹。 回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就过程">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-04-26T09:45:00.000Z">
-<meta property="article:modified_time" content="2024-05-20T12:39:23.312Z">
-<meta property="article:author" content="Ruofan">
-<meta name="twitter:card" content="summary">
-
-
-<link rel="canonical" href="https://hrfis.me/blog/hadoop">
-
-
-
+<meta content="只有当笔者意识到：写教程是在浪费时间的时候，说明笔者是真的学会了。
+ 理由：这些文档在各个软件的网站上，别人早就写好了。或者在你软件安装的目录里面，有一个大大的 doc
+ 文件夹。
+ 回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就过程" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="Hadoop" property="og:title"/>
+<meta content="https://hrfis.me/blog/hadoop.html" property="og:url"/>
+<meta content="若凡的笔记" property="og:site_name"/>
+<meta content="只有当笔者意识到：写教程是在浪费时间的时候，说明笔者是真的学会了。
+ 理由：这些文档在各个软件的网站上，别人早就写好了。或者在你软件安装的目录里面，有一个大大的 doc
+ 文件夹。
+ 回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就过程" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="2024-04-26T09:45:00.000Z" property="article:published_time"/>
+<meta content="2024-05-20T12:39:23.312Z" property="article:modified_time"/>
+<meta content="Ruofan" property="article:author"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://hrfis.me/blog/hadoop" rel="canonical"/>
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/hadoop.html","path":"/hadoop.html","title":"Hadoop"}</script>
-
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Hadoop | 若凡的笔记</title>
-  
-
-
-
-
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/blog/css/noscript.css">
-  </noscript>
+<noscript>
+<link href="/blog/css/noscript.css" rel="stylesheet"/>
+</noscript>
 </head>
-
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/blog/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">若凡的笔记</p>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
-    </div>
-  </div>
+<body itemscope="" itemtype="http://schema.org/WebPage">
+<div class="headband"></div>
+<main class="main">
+<div class="column">
+<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+<div class="site-nav-toggle">
+<div aria-label="切换导航栏" class="toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
 </div>
-
-
-
+</div>
+<div class="site-meta">
+<a class="brand" href="/blog/" rel="start">
+<i class="logo-line"></i>
+<p class="site-title">若凡的笔记</p>
+<i class="logo-line"></i>
+</a>
+</div>
+<div class="site-nav-right">
+<div aria-label="搜索" class="toggle popup-trigger" role="button">
+</div>
+</div>
+</div>
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-  </ul>
+<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+</ul>
 </nav>
-
-
-
-
 </header>
-        
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
+<aside class="sidebar">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<ul class="sidebar-nav">
+<li class="sidebar-nav-toc">
           文章目录
         </li>
-        <li class="sidebar-nav-overview">
+<li class="sidebar-nav-overview">
           站点概览
         </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java-%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">Java 代码运行环境的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ubuntu"><span class="nav-number">2.</span> <span class="nav-text">安装 Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-hadoop"><span class="nav-number">3.</span> <span class="nav-text">安装 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-hadoop"><span class="nav-number">4.</span> <span class="nav-text">配置 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr"><span class="nav-number">5.</span> <span class="nav-text">MR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hdfs"><span class="nav-number">6.</span> <span class="nav-text">HDFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zookeeper"><span class="nav-number">7.</span> <span class="nav-text">ZooKeeper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hbase"><span class="nav-number">8.</span> <span class="nav-text">HBase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spark"><span class="nav-number">9.</span> <span class="nav-text">Spark</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C"><span class="nav-number">10.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh"><span class="nav-number">11.</span> <span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number">12.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-number">13.</span> <span class="nav-text">持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">13.1.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E8%84%9A%E6%9C%AC"><span class="nav-number">13.2.</span> <span class="nav-text">集群脚本</span></a></li></ol></li></ol></div>
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Ruofan</p>
-  <div class="site-description" itemprop="description"></div>
+</ul>
+<div class="sidebar-panel-container">
+<!--noindex-->
+<div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java-%E4%BB%A3%E7%A0%81%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">Java 代码运行环境的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-ubuntu"><span class="nav-number">2.</span> <span class="nav-text">安装 Ubuntu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-hadoop"><span class="nav-number">3.</span> <span class="nav-text">安装 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE-hadoop"><span class="nav-number">4.</span> <span class="nav-text">配置 Hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mr"><span class="nav-number">5.</span> <span class="nav-text">MR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hdfs"><span class="nav-number">6.</span> <span class="nav-text">HDFS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zookeeper"><span class="nav-number">7.</span> <span class="nav-text">ZooKeeper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hbase"><span class="nav-number">8.</span> <span class="nav-text">HBase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spark"><span class="nav-number">9.</span> <span class="nav-text">Spark</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C"><span class="nav-number">10.</span> <span class="nav-text">网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh"><span class="nav-number">11.</span> <span class="nav-text">SSH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B6%85%E9%93%BE%E6%8E%A5"><span class="nav-number">12.</span> <span class="nav-text">超链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%81%E4%B9%85%E5%8C%96"><span class="nav-number">13.</span> <span class="nav-text">持久化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4"><span class="nav-number">13.1.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E8%84%9A%E6%9C%AC"><span class="nav-number">13.2.</span> <span class="nav-text">集群脚本</span></a></li></ol></li></ol></div>
+</div>
+<!--/noindex-->
+<div class="site-overview-wrap sidebar-panel">
+<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<p class="site-author-name" itemprop="name">Ruofan</p>
+<div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/blog/archives/">
-          <span class="site-state-item-count">32</span>
-          <span class="site-state-item-name">笔记</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/blog/categories/">
-        <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-  </nav>
+<nav class="site-state">
+<div class="site-state-item site-state-posts">
+<a href="/blog/archives/">
+<span class="site-state-item-count">32</span>
+<span class="site-state-item-name">笔记</span>
+</a>
 </div>
-
-        </div>
-      </div>
-    </div>
-
-    
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner post posts-expand">
-
-
-  
-
-
+<div class="site-state-item site-state-categories">
+<a href="/blog/categories/">
+<span class="site-state-item-count">3</span>
+<span class="site-state-item-name">分类</span></a>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<div class="main-inner post posts-expand">
 <div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://hrfis.me/blog/hadoop.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
-      <meta itemprop="name" content="Ruofan">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="若凡的笔记">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hadoop | 若凡的笔记">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/hadoop.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="Hadoop | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h1 class="post-title" itemprop="name headline">
           Hadoop
         </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-04-26 17:45:00" itemprop="dateCreated datePublished" datetime="2024-04-26T17:45:00+08:00">2024-04-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-05-20 20:39:23" itemprop="dateModified" datetime="2024-05-20T20:39:23+08:00">2024-05-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/blog/categories/%E5%AE%9E%E7%94%A8%E7%B3%BB%E5%88%97/" itemprop="url" rel="index"><span itemprop="name">实用系列</span></a>
-        </span>
-    </span>
-
-  
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2024-04-26T17:45:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-04-26 17:45:00">2024-04-26</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-05-20T20:39:23+08:00" itemprop="dateModified" title="修改时间：2024-05-20 20:39:23">2024-05-20</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">实用系列</span></a>
+</span>
+</span>
 </div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody"><p>只有当笔者意识到：写教程是在浪费时间的时候，说明笔者是真的学会了。</p>
-<p>理由：这些文档在各个软件的网站上，别人早就写好了。或者<span
-class="red-text">在你软件安装的目录里面，有一个大大的 doc
+</div>
+</header>
+<div class="post-body" itemprop="articleBody"><p>只有当笔者意识到：写教程是在浪费时间的时候，说明笔者是真的学会了。</p>
+<p>理由：这些文档在各个软件的网站上，别人早就写好了。或者<span class="red-text">在你软件安装的目录里面，有一个大大的 doc
 文件夹。</span></p>
 <p>回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就过程看来，笔者确实没有做到，因为笔者去纠结软件了。</p>
 <p>不作死就不会死。用 Ubuntu + VM Player
@@ -225,8 +166,7 @@ class="red-text">在你软件安装的目录里面，有一个大大的 doc
 <ol type="1">
 <li>改用
 WSL（有三层动机，就第一种，笔者还是有点叛逆的想法；第二种，据说它比虚拟机的性能好，实际上，它几秒钟就能开机；第三种，笔者没有自信以看日志的方式解决卡死的问题）</li>
-<li>以后安装各种软件，先看文档。配置文件能不改就不改，能用默认的就用默认的，改了费时费力。有一种心法是：<span
-class="red-text">在软件安装完之后，什么配置都别写，上来先启动了再说。然后查看日志，搜索
+<li>以后安装各种软件，先看文档。配置文件能不改就不改，能用默认的就用默认的，改了费时费力。有一种心法是：<span class="red-text">在软件安装完之后，什么配置都别写，上来先启动了再说。然后查看日志，搜索
 <code>WARN</code>
 <code>ERROR</code>。这样做你才能知道，哪些配置是必须有的，而哪些配置是多余的（或者人家默认配置好的）。</span></li>
 </ol>
@@ -240,7 +180,7 @@ class="red-text">在软件安装完之后，什么配置都别写，上来先启
 <li>给虚拟机扩容：<code>https://hrfis.me/blog/linux.html#扩容</code></li>
 </ul>
 <span id="more"></span>
-<hr />
+<hr/>
 <p>Hadoop 是一个软件，它是用 Java 写的，需要运行在 Java
 虚拟机上。你以后还要通过写 Java 代码来连接它其中的一个组件，叫
 HDFS。所有 Java 代码都得过一道 Java 编译器，然后在 JVM（Java
@@ -267,7 +207,7 @@ HDFS。所有 Java 代码都得过一道 Java 编译器，然后在 JVM（Java
 JVM</strong>，称为“客户端”。这个 JVM 要与另一个 JVM 通信，那个 JVM 叫
 <strong>NameNode</strong>。</p>
 <p>怎么通信？虽然不知道细节，但你可能看过这样的代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.net.URI;</span><br><span class="line"><span class="keyword">import</span> java.net.URISyntaxException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FileStatus;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FileSystem;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">App</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, URISyntaxException &#123;</span><br><span class="line">        <span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br><span class="line">        <span class="type">FileSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(<span class="keyword">new</span> <span class="title class_">URI</span>(<span class="string">&quot;hdfs://ubuntu101:9820&quot;</span>), conf);</span><br><span class="line">        FileStatus[] fileStatuses = fs.listStatus(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">&quot;/&quot;</span>));</span><br><span class="line">        <span class="keyword">for</span> (FileStatus status : fileStatuses) &#123;</span><br><span class="line">            System.out.println(status.getPath());</span><br><span class="line">        &#125;</span><br><span class="line">        fs.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br/><span class="line"><span class="keyword">import</span> java.net.URI;</span><br/><span class="line"><span class="keyword">import</span> java.net.URISyntaxException;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FileStatus;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FileSystem;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">App</span> {</span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, URISyntaxException {</span><br/><span class="line">        <span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br/><span class="line">        <span class="type">FileSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(<span class="keyword">new</span> <span class="title class_">URI</span>(<span class="string">"hdfs://ubuntu101:9820"</span>), conf);</span><br/><span class="line">        FileStatus[] fileStatuses = fs.listStatus(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"/"</span>));</span><br/><span class="line">        <span class="keyword">for</span> (FileStatus status : fileStatuses) {</span><br/><span class="line">            System.out.println(status.getPath());</span><br/><span class="line">        }</span><br/><span class="line">        fs.close();</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
 <p>现在的问题在于：</p>
 <ol type="1">
 <li><b><span class="red-text">它 <code>import</code>
@@ -281,7 +221,7 @@ JVM</strong>，称为“客户端”。这个 JVM 要与另一个 JVM 通信，�
 </ol>
 <p>先回答第四个问题：<strong>IDE 起的是工具人的作用</strong>。如果你用的
 IDEA，并且成功连接 HDFS 了，你会在 IDEA 的命令行看到：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/lib/jvm/java-8-openjdk-amd64/bin/java\ -javaagent:/opt/idea-IC-241.15989.150/lib/idea_rt.jar=43273:/opt/idea-IC-241.15989.150/bin\</span><br><span class="line">                                        -Dfile.encoding=UTF-8\</span><br><span class="line">                                        -classpath /lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/后面全都是Jar包的路径</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">/lib/jvm/java-8-openjdk-amd64/bin/java\ -javaagent:/opt/idea-IC-241.15989.150/lib/idea_rt.jar=43273:/opt/idea-IC-241.15989.150/bin\</span><br/><span class="line">                                        -Dfile.encoding=UTF-8\</span><br/><span class="line">                                        -classpath /lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/后面全都是Jar包的路径</span><br/></pre></td></tr></table></figure>
 <p>它就是执行了一条命令：打开你的 JDK 目录里的 <code>java</code>
 ，然后向这个东西传了几个参数：工具人、文件编码、classpath</p>
 <p>关键的就是 classpath，<strong>你需要保证你代码“运行时”的东西能在
@@ -337,8 +277,7 @@ Windows 操作系统上</li>
 </ol>
 <p>如果你用的是 WSL，你在它上面开一个端口，可以直接在物理机上使用
 <code>localhost:port</code> 访问。<strong>如果你装了两台 WSL，它们的 IP
-会是相同的</strong>，这个问题不好解决。据说<span
-class="red-text">学大数据的都找不到大数据相关工作</span>。那我们就退而求其次，根本没有必要搭分布式集群，在一台机器上搭个伪分布式就行了，文件分片只分一片。这样配置文件还不至于备份来备份去，只保留一份配置文件。</p>
+会是相同的</strong>，这个问题不好解决。据说<span class="red-text">学大数据的都找不到大数据相关工作</span>。那我们就退而求其次，根本没有必要搭分布式集群，在一台机器上搭个伪分布式就行了，文件分片只分一片。这样配置文件还不至于备份来备份去，只保留一份配置文件。</p>
 <ol start="5" type="1">
 <li><p>配置 Ubuntu 软件源
 https://mirrors.ustc.edu.cn/help/ubuntu.html</p></li>
@@ -374,7 +313,7 @@ Remote-SSH 插件可以直接修改虚拟机内的文件，如果你用的是 WS
 </ol>
 <p><span class="red-text">在
 https://hadoop.apache.org/docs/r3.3.6/index.html
-左下角有默认的配置文件。</p>
+左下角有默认的配置文件。</span></p>
 <ul>
 <li><code>hadoop-env.sh</code> 指定 JAVA_HOME，启动 JVM 时的参数</li>
 <li><code>core-site.xml</code> 指定 hdfs 的
@@ -421,53 +360,52 @@ HDFS</li>
 <li>不需要 <code>start-yarn.sh</code></li>
 <li></li>
 </ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span></span><br><span class="line">vi 1.txt</span><br><span class="line">hdfs dfs -put 1.txt /wcinput</span><br><span class="line">hadoop jar <span class="variable">$HADOOP_HOME</span>/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar wordcount /wcinput /wcoutput</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mapred --daemon start historyserver</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span></span><br/><span class="line">vi 1.txt</span><br/><span class="line">hdfs dfs -put 1.txt /wcinput</span><br/><span class="line">hadoop jar <span class="variable">$HADOOP_HOME</span>/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar wordcount /wcinput /wcoutput</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">mapred --daemon start historyserver</span><br/></pre></td></tr></table></figure>
 <h2 id="hdfs">HDFS</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start-dfs.sh</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs oev -p XML -i edits_xxxx -o ./edits_xxxx.xml</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hdfs oiv -p XML -i fsimage_xxxx -o ./fsimage_xxxx.xml</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">start-dfs.sh</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs oev -p XML -i edits_xxxx -o ./edits_xxxx.xml</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">hdfs oiv -p XML -i fsimage_xxxx -o ./fsimage_xxxx.xml</span><br/></pre></td></tr></table></figure>
 <p>EditLog 和 FsImage 在：</p>
 <ul>
-<li>NN 的 <code>$&#123;hadoop.tmp.dir&#125;/dfs/name/current</code></li>
+<li>NN 的 <code>${hadoop.tmp.dir}/dfs/name/current</code></li>
 <li>2NN 的
-<code>$&#123;hadoop.tmp.dir&#125;/data/dfs/namesecondary/current</code></li>
+<code>${hadoop.tmp.dir}/data/dfs/namesecondary/current</code></li>
 </ul>
 <h2 id="zookeeper">ZooKeeper</h2>
 <p>ZooKeeper
 特点是只要有半数以上的节点正常工作，整个集群就能正常工作，所以适合装到奇数台服务器上。</p>
 <p>配置 <code>zkData/myid</code></p>
 <p>配置 <code>conf/zoo.cfg</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dataDir=/usr/local/zookeeper-3.8.2/zkData</span><br><span class="line">server.101=master:2888:3888</span><br><span class="line">server.102=worker1:2888:3888</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">dataDir=/usr/local/zookeeper-3.8.2/zkData</span><br/><span class="line">server.101=master:2888:3888</span><br/><span class="line">server.102=worker1:2888:3888</span><br/></pre></td></tr></table></figure>
 <h2 id="hbase">HBase</h2>
 <p>https://hbase.apache.org/book.html#standalone_dist</p>
 <p>https://hbase.apache.org/book.html#shell_exercises</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">start-dfs.sh</span><br><span class="line">start-hbase.sh</span><br><span class="line">hbase shell</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">help</span></span><br><span class="line">list</span><br><span class="line">create <span class="string">&#x27;tablename&#x27;</span>,<span class="string">&#x27;cfname1&#x27;</span>,<span class="string">&#x27;cfname2&#x27;</span></span><br><span class="line">put <span class="string">&#x27;tablename&#x27;</span>,<span class="string">&#x27;rowname&#x27;</span>,<span class="string">&#x27;cfname1:qualifiername1&#x27;</span>,<span class="string">&#x27;value&#x27;</span></span><br><span class="line">put <span class="string">&#x27;tablename&#x27;</span>,<span class="string">&#x27;rowname&#x27;</span>,<span class="string">&#x27;cfname2:&#x27;</span>,<span class="string">&#x27;value&#x27;</span></span><br><span class="line">scan <span class="string">&#x27;tablename&#x27;</span></span><br><span class="line">scan <span class="string">&#x27;tablename&#x27;</span>,&#123;COLUMNS=&gt;<span class="string">&#x27;cfname1&#x27;</span>&#125;</span><br><span class="line">get <span class="string">&#x27;tablename&#x27;</span>,<span class="string">&#x27;rowname&#x27;</span></span><br><span class="line">describe <span class="string">&#x27;tablename&#x27;</span></span><br><span class="line">drop <span class="string">&#x27;tablename&#x27;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">start-dfs.sh</span><br/><span class="line">start-hbase.sh</span><br/><span class="line">hbase shell</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">help</span></span><br/><span class="line">list</span><br/><span class="line">create <span class="string">'tablename'</span>,<span class="string">'cfname1'</span>,<span class="string">'cfname2'</span></span><br/><span class="line">put <span class="string">'tablename'</span>,<span class="string">'rowname'</span>,<span class="string">'cfname1:qualifiername1'</span>,<span class="string">'value'</span></span><br/><span class="line">put <span class="string">'tablename'</span>,<span class="string">'rowname'</span>,<span class="string">'cfname2:'</span>,<span class="string">'value'</span></span><br/><span class="line">scan <span class="string">'tablename'</span></span><br/><span class="line">scan <span class="string">'tablename'</span>,{COLUMNS=&gt;<span class="string">'cfname1'</span>}</span><br/><span class="line">get <span class="string">'tablename'</span>,<span class="string">'rowname'</span></span><br/><span class="line">describe <span class="string">'tablename'</span></span><br/><span class="line">drop <span class="string">'tablename'</span></span><br/></pre></td></tr></table></figure>
 <p>如果你没有在 <code>hbase-env.sh</code> 里配置
 <code>JAVA_HOME</code>，你会看到：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1: +======================================================================+</span><br><span class="line">127.0.0.1: |                    Error: JAVA_HOME is not set                       |</span><br><span class="line">127.0.0.1: +----------------------------------------------------------------------+</span><br><span class="line">127.0.0.1: | Please download the latest Sun JDK from the Sun Java web site        |</span><br><span class="line">127.0.0.1: |     &gt; http://www.oracle.com/technetwork/java/javase/downloads        |</span><br><span class="line">127.0.0.1: |                                                                      |</span><br><span class="line">127.0.0.1: | HBase requires Java 1.8 or later.                                    |</span><br><span class="line">127.0.0.1: +======================================================================+</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/></pre></td><td class="code"><pre><span class="line">127.0.0.1: +======================================================================+</span><br/><span class="line">127.0.0.1: |                    Error: JAVA_HOME is not set                       |</span><br/><span class="line">127.0.0.1: +----------------------------------------------------------------------+</span><br/><span class="line">127.0.0.1: | Please download the latest Sun JDK from the Sun Java web site        |</span><br/><span class="line">127.0.0.1: |     &gt; http://www.oracle.com/technetwork/java/javase/downloads        |</span><br/><span class="line">127.0.0.1: |                                                                      |</span><br/><span class="line">127.0.0.1: | HBase requires Java 1.8 or later.                                    |</span><br/><span class="line">127.0.0.1: +======================================================================+</span><br/></pre></td></tr></table></figure>
 <p><code>hbase-site.xml</code>：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.cluster.distributed<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://localhost:9820/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.wal.provider<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>filesystem<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.cluster.distributed<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://localhost:9820/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br/><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.wal.provider<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br/><span class="line">  <span class="tag">&lt;<span class="name">value</span>&gt;</span>filesystem<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br/><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br/></pre></td></tr></table></figure>
 <p>第三个配置项是为了解决：参见
 https://hbase.apache.org/book.html#wal.providers</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR [RS-EventLoopGroup-3-2] util.NettyFutureUtils (NettyFutureUtils.java:lambda$addListener$0(58)) - Unexpected error caught when processing netty</span><br><span class="line">java.lang.IllegalArgumentException: object is not an instance of declaring class</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">ERROR [RS-EventLoopGroup-3-2] util.NettyFutureUtils (NettyFutureUtils.java:lambda$addListener$0(58)) - Unexpected error caught when processing netty</span><br/><span class="line">java.lang.IllegalArgumentException: object is not an instance of declaring class</span><br/></pre></td></tr></table></figure>
 <h2 id="spark">Spark</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">start-master.sh</span><br><span class="line">start-workers.sh</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-submit --class org.apache.spark.examples.SparkPi --master yarn <span class="variable">$SPARK_HOME</span>/examples/jars/spark-examples_2.12-3.5.1.jar</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spark-shell --master yarn</span><br><span class="line">val textFile = sc.textFile(<span class="string">&quot;hdfs://localhost:9820/wcinput&quot;</span>)</span><br><span class="line">textFile.count()</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">start-master.sh</span><br/><span class="line">start-workers.sh</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">spark-submit --class org.apache.spark.examples.SparkPi --master yarn <span class="variable">$SPARK_HOME</span>/examples/jars/spark-examples_2.12-3.5.1.jar</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">spark-shell --master yarn</span><br/><span class="line">val textFile = sc.textFile(<span class="string">"hdfs://localhost:9820/wcinput"</span>)</span><br/><span class="line">textFile.count()</span><br/></pre></td></tr></table></figure>
 <p><code>spark-env.sh</code>：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> SPARK_DIST_CLASSPATH=$(/opt/hadoop-3.3.6/bin/hadoop classpath)</span><br><span class="line"><span class="built_in">export</span> HADOOP_CONF_DIR=/opt/hadoop-3.3.6/etc/hadoop</span><br><span class="line"><span class="built_in">export</span> SPARK_MASTER_HOST=localhost</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> SPARK_DIST_CLASSPATH=$(/opt/hadoop-3.3.6/bin/hadoop classpath)</span><br/><span class="line"><span class="built_in">export</span> HADOOP_CONF_DIR=/opt/hadoop-3.3.6/etc/hadoop</span><br/><span class="line"><span class="built_in">export</span> SPARK_MASTER_HOST=localhost</span><br/></pre></td></tr></table></figure>
 <p><code>workers</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">localhost</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">localhost</span><br/></pre></td></tr></table></figure>
 <h2 id="网络">网络</h2>
 <p>如果你用的 WSL + 单机伪分布式，只需要修改
 <code>/etc/wsl.conf</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[network]</span><br><span class="line">hostname=localhost</span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br><span class="line">wsl --shutdown</span><br><span class="line">wsl</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">[network]</span><br/><span class="line">hostname=localhost</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br/><span class="line">wsl --shutdown</span><br/><span class="line">wsl</span><br/></pre></td></tr></table></figure>
 <p>如果你用的 VM + Ubuntu 22.04:</p>
-<p>编辑<code>/etc/netplan</code>下的<code>00-installer-config.yaml</code>文件。<a
-target="_blank" rel="noopener" href="https://netplan.readthedocs.io/en/stable/netplan-tutorial/">netplan
+<p>编辑<code>/etc/netplan</code>下的<code>00-installer-config.yaml</code>文件。<a href="https://netplan.readthedocs.io/en/stable/netplan-tutorial/" rel="noopener" target="_blank">netplan
 文档</a></p>
 <p>选择<code>192.168.78</code>的依据是：</p>
 <ul>
@@ -476,40 +414,33 @@ target="_blank" rel="noopener" href="https://netplan.readthedocs.io/en/stable/ne
 <li>查看 <code>C:\ProgramData\VMware\vmnetnat.conf</code> 里的 NAT
 网关地址<code>192.168.78.2</code></li>
 </ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">network:</span></span><br><span class="line">  <span class="attr">version:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">ethernets:</span></span><br><span class="line">    <span class="attr">ens33:</span></span><br><span class="line">      <span class="attr">dhcp4:</span> <span class="literal">false</span></span><br><span class="line">      <span class="attr">dhcp6:</span> <span class="literal">false</span></span><br><span class="line">      <span class="attr">addresses:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.101</span><span class="string">/24</span> <span class="comment"># 每台机器设置成不同的</span></span><br><span class="line">      <span class="attr">routes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">to:</span> <span class="string">default</span></span><br><span class="line">          <span class="attr">via:</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.2</span></span><br><span class="line">      <span class="attr">nameservers:</span></span><br><span class="line">        <span class="attr">addresses:</span></span><br><span class="line">          <span class="bullet">-</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.2</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netplan try</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/></pre></td><td class="code"><pre><span class="line"><span class="attr">network:</span></span><br/><span class="line">  <span class="attr">version:</span> <span class="number">2</span></span><br/><span class="line">  <span class="attr">ethernets:</span></span><br/><span class="line">    <span class="attr">ens33:</span></span><br/><span class="line">      <span class="attr">dhcp4:</span> <span class="literal">false</span></span><br/><span class="line">      <span class="attr">dhcp6:</span> <span class="literal">false</span></span><br/><span class="line">      <span class="attr">addresses:</span></span><br/><span class="line">        <span class="bullet">-</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.101</span><span class="string">/24</span> <span class="comment"># 每台机器设置成不同的</span></span><br/><span class="line">      <span class="attr">routes:</span></span><br/><span class="line">        <span class="bullet">-</span> <span class="attr">to:</span> <span class="string">default</span></span><br/><span class="line">          <span class="attr">via:</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.2</span></span><br/><span class="line">      <span class="attr">nameservers:</span></span><br/><span class="line">        <span class="attr">addresses:</span></span><br/><span class="line">          <span class="bullet">-</span> <span class="number">192.168</span><span class="number">.78</span><span class="number">.2</span></span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo netplan try</span><br/></pre></td></tr></table></figure>
 <h2 id="ssh">SSH</h2>
 <p>如果你用的 WSL + 单机伪分布式，下面两条命令只用做一次。</p>
 <p>如果你搭的分布式：每台机器上都执行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -m PEM</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -m PEM</span><br/></pre></td></tr></table></figure>
 <p>笔者这里的版本是
 <code>OpenSSH_8.9p1 Ubuntu-3ubuntu0.6, OpenSSL 3.0.2 15 Mar 2022</code>，要加上
 <code>-m PEM</code>，确保私钥以 -----BEGIN <strong>RSA</strong> PRIVATE
-KEY----- 开头。<a
-target="_blank" rel="noopener" href="https://www.cnblogs.com/simple-li/p/14654812.html">后续错误</a></p>
+KEY----- 开头。<a href="https://www.cnblogs.com/simple-li/p/14654812.html" rel="noopener" target="_blank">后续错误</a></p>
 <p>每台机器上都执行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id ubuntu101</span><br><span class="line">ssh-copy-id ubuntu102</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">ssh-copy-id ubuntu101</span><br/><span class="line">ssh-copy-id ubuntu102</span><br/><span class="line">...</span><br/></pre></td></tr></table></figure>
 <h2 id="超链接">超链接</h2>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2020/08/rsync.html">rsync
+<li><a href="https://www.ruanyifeng.com/blog/2020/08/rsync.html" rel="noopener" target="_blank">rsync
 用法教程</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://hadoop.apache.org/docs/r3.3.6/hadoop-project-dist/hadoop-common/FileSystemShell.html">FileSystem
+<li><a href="https://hadoop.apache.org/docs/r3.3.6/hadoop-project-dist/hadoop-common/FileSystemShell.html" rel="noopener" target="_blank">FileSystem
 Shell</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://hadoop.apache.org/docs/r3.3.6/api/org/apache/hadoop/fs/FileSystem.html">FileSystem
+<li><a href="https://hadoop.apache.org/docs/r3.3.6/api/org/apache/hadoop/fs/FileSystem.html" rel="noopener" target="_blank">FileSystem
 API</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://hadoop.apache.org/docs/r3.3.6/api/org/apache/hadoop/fs/FileUtil.html">FileUtil
+<li><a href="https://hadoop.apache.org/docs/r3.3.6/api/org/apache/hadoop/fs/FileUtil.html" rel="noopener" target="_blank">FileUtil
 API</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://hadoop.apache.org/docs/r3.3.6/api/org/apache/hadoop/fs/FileStatus.html">FileStatus
+<li><a href="https://hadoop.apache.org/docs/r3.3.6/api/org/apache/hadoop/fs/FileStatus.html" rel="noopener" target="_blank">FileStatus
 API</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://zookeeper.apache.org/doc/r3.8.2/zookeeperCLI.html">zookeeper
+<li><a href="https://zookeeper.apache.org/doc/r3.8.2/zookeeperCLI.html" rel="noopener" target="_blank">zookeeper
 CLI</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://zookeeper.apache.org/doc/r3.8.2/apidocs/zookeeper-server/index.html">zookeeper
+<li><a href="https://zookeeper.apache.org/doc/r3.8.2/apidocs/zookeeper-server/index.html" rel="noopener" target="_blank">zookeeper
 Server API</a></li>
 </ul>
 <h2 id="持久化">持久化</h2>
@@ -527,105 +458,62 @@ DNS，<code>PATH</code> 和物理路径的中间商叫命令行解释器。</p>
 <h3 id="集群脚本">集群脚本</h3>
 <p>前提是你搭了集群。笔者已经放弃集群了，太麻烦了。</p>
 <p><strong>all：对集群的所有机器执行操作</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Error: Please provide at least one argument.&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="keyword">for</span> host <span class="keyword">in</span> ubuntu101 ubuntu102</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;============ <span class="variable">$host</span> ===========&quot;</span></span><br><span class="line">        ssh <span class="variable">$host</span> <span class="string">&quot;<span class="variable">$@</span>&quot;</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br/><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -eq 0 ]; <span class="keyword">then</span></span><br/><span class="line">    <span class="built_in">echo</span> <span class="string">"Error: Please provide at least one argument."</span></span><br/><span class="line">    <span class="built_in">exit</span> 1</span><br/><span class="line"><span class="keyword">else</span></span><br/><span class="line">    <span class="keyword">for</span> host <span class="keyword">in</span> ubuntu101 ubuntu102</span><br/><span class="line">    <span class="keyword">do</span></span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"============ <span class="variable">$host</span> ==========="</span></span><br/><span class="line">        ssh <span class="variable">$host</span> <span class="string">"<span class="variable">$@</span>"</span></span><br/><span class="line">    <span class="keyword">done</span></span><br/><span class="line"><span class="keyword">fi</span></span><br/></pre></td></tr></table></figure>
 <p><strong>xsync：同步文件/目录到所有机器</strong></p>
 <p>先测试从一台机器上同步到另一台机器上：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -av /path/to/src ubuntu102:/path/to/dst</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">rsync -av /path/to/src ubuntu102:/path/to/dst</span><br/></pre></td></tr></table></figure>
 <p>从某台机器上同步到所有机器上：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -lt 1 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> Not Enough Argument!</span><br><span class="line">    <span class="built_in">exit</span>;</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> host <span class="keyword">in</span> ubuntu101 ubuntu102 ubuntu103</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    <span class="built_in">echo</span> ==================== <span class="variable">$host</span> ====================</span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> <span class="variable">$@</span></span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">        <span class="keyword">if</span> [ -e <span class="variable">$file</span> ]</span><br><span class="line">        <span class="keyword">then</span></span><br><span class="line">            pdir=$(<span class="built_in">cd</span> -P $(<span class="built_in">dirname</span> <span class="variable">$file</span>); <span class="built_in">pwd</span>)</span><br><span class="line">            fname=$(<span class="built_in">basename</span> <span class="variable">$file</span>)</span><br><span class="line">            ssh <span class="variable">$host</span> <span class="string">&quot;mkdir -p <span class="variable">$pdir</span>&quot;</span></span><br><span class="line">            rsync -av <span class="variable">$pdir</span>/<span class="variable">$fname</span> <span class="variable">$host</span>:<span class="variable">$pdir</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="variable">$file</span> does not exists!</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br/><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> -lt 1 ]</span><br/><span class="line"><span class="keyword">then</span></span><br/><span class="line">    <span class="built_in">echo</span> Not Enough Argument!</span><br/><span class="line">    <span class="built_in">exit</span>;</span><br/><span class="line"><span class="keyword">fi</span></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">for</span> host <span class="keyword">in</span> ubuntu101 ubuntu102 ubuntu103</span><br/><span class="line"><span class="keyword">do</span></span><br/><span class="line">    <span class="built_in">echo</span> ==================== <span class="variable">$host</span> ====================</span><br/><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> <span class="variable">$@</span></span><br/><span class="line">    <span class="keyword">do</span></span><br/><span class="line">        <span class="keyword">if</span> [ -e <span class="variable">$file</span> ]</span><br/><span class="line">        <span class="keyword">then</span></span><br/><span class="line">            pdir=$(<span class="built_in">cd</span> -P $(<span class="built_in">dirname</span> <span class="variable">$file</span>); <span class="built_in">pwd</span>)</span><br/><span class="line">            fname=$(<span class="built_in">basename</span> <span class="variable">$file</span>)</span><br/><span class="line">            ssh <span class="variable">$host</span> <span class="string">"mkdir -p <span class="variable">$pdir</span>"</span></span><br/><span class="line">            rsync -av <span class="variable">$pdir</span>/<span class="variable">$fname</span> <span class="variable">$host</span>:<span class="variable">$pdir</span></span><br/><span class="line">        <span class="keyword">else</span></span><br/><span class="line">            <span class="built_in">echo</span> <span class="variable">$file</span> does not exists!</span><br/><span class="line">        <span class="keyword">fi</span></span><br/><span class="line">    <span class="keyword">done</span></span><br/><span class="line"><span class="keyword">done</span></span><br/></pre></td></tr></table></figure>
 <p><strong>myhadoop</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">    <span class="string">&quot;start&quot;</span>)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;============ 启动 hadoop 集群 ============&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;-------- 启动 HDFS --------&quot;</span></span><br><span class="line">        ssh <span class="string">&quot;ubuntu101&quot;</span> <span class="string">&quot;<span class="variable">$HADOOP_HOME</span>/sbin/start-dfs.sh&quot;</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;-------- 启动 YARN --------&quot;</span></span><br><span class="line">        ssh <span class="string">&quot;ubuntu102&quot;</span> <span class="string">&quot;<span class="variable">$HADOOP_HOME</span>/sbin/start-yarn.sh&quot;</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;-------- 启动 historyserver --------&quot;</span></span><br><span class="line">        ssh <span class="string">&quot;ubuntu102&quot;</span> <span class="string">&quot;<span class="variable">$HADOOP_HOME</span>/bin/mapred --daemon start historyserver&quot;</span></span><br><span class="line"></span><br><span class="line">        all jps</span><br><span class="line">        ;;</span><br><span class="line">    <span class="string">&quot;stop&quot;</span>)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;============ 关闭 hadoop 集群 ============&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;-------- 关闭 historyserver --------&quot;</span></span><br><span class="line">        ssh <span class="string">&quot;ubuntu102&quot;</span> <span class="string">&quot;<span class="variable">$HADOOP_HOME</span>/bin/mapred --daemon stop historyserver&quot;</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;-------- 关闭 YARN --------&quot;</span></span><br><span class="line">        ssh <span class="string">&quot;ubuntu102&quot;</span> <span class="string">&quot;<span class="variable">$HADOOP_HOME</span>/sbin/stop-yarn.sh&quot;</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;-------- 关闭 HDFS --------&quot;</span></span><br><span class="line">        ssh <span class="string">&quot;ubuntu101&quot;</span> <span class="string">&quot;<span class="variable">$HADOOP_HOME</span>/sbin/stop-dfs.sh&quot;</span></span><br><span class="line"></span><br><span class="line">        all jps</span><br><span class="line">        ;;</span><br><span class="line">    *)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">&quot;Invalid parameter!&quot;</span></span><br><span class="line">        <span class="built_in">exit</span> 1</span><br><span class="line">        ;;</span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
-
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/blog/python.html" rel="prev" title="Python">
-                  <i class="fa fa-chevron-left"></i> Python
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/><span class="line">29</span><br/><span class="line">30</span><br/><span class="line">31</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br/><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br/><span class="line">    <span class="string">"start"</span>)</span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"============ 启动 hadoop 集群 ============"</span></span><br/><span class="line"></span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"-------- 启动 HDFS --------"</span></span><br/><span class="line">        ssh <span class="string">"ubuntu101"</span> <span class="string">"<span class="variable">$HADOOP_HOME</span>/sbin/start-dfs.sh"</span></span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"-------- 启动 YARN --------"</span></span><br/><span class="line">        ssh <span class="string">"ubuntu102"</span> <span class="string">"<span class="variable">$HADOOP_HOME</span>/sbin/start-yarn.sh"</span></span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"-------- 启动 historyserver --------"</span></span><br/><span class="line">        ssh <span class="string">"ubuntu102"</span> <span class="string">"<span class="variable">$HADOOP_HOME</span>/bin/mapred --daemon start historyserver"</span></span><br/><span class="line"></span><br/><span class="line">        all jps</span><br/><span class="line">        ;;</span><br/><span class="line">    <span class="string">"stop"</span>)</span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"============ 关闭 hadoop 集群 ============"</span></span><br/><span class="line"></span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"-------- 关闭 historyserver --------"</span></span><br/><span class="line">        ssh <span class="string">"ubuntu102"</span> <span class="string">"<span class="variable">$HADOOP_HOME</span>/bin/mapred --daemon stop historyserver"</span></span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"-------- 关闭 YARN --------"</span></span><br/><span class="line">        ssh <span class="string">"ubuntu102"</span> <span class="string">"<span class="variable">$HADOOP_HOME</span>/sbin/stop-yarn.sh"</span></span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"-------- 关闭 HDFS --------"</span></span><br/><span class="line">        ssh <span class="string">"ubuntu101"</span> <span class="string">"<span class="variable">$HADOOP_HOME</span>/sbin/stop-dfs.sh"</span></span><br/><span class="line"></span><br/><span class="line">        all jps</span><br/><span class="line">        ;;</span><br/><span class="line">    *)</span><br/><span class="line">        <span class="built_in">echo</span> <span class="string">"Invalid parameter!"</span></span><br/><span class="line">        <span class="built_in">exit</span> 1</span><br/><span class="line">        ;;</span><br/><span class="line"><span class="keyword">esac</span></span><br/></pre></td></tr></table></figure>
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/python.html" rel="prev" title="Python">
+<i class="fa fa-chevron-left"></i> Python
                 </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/blog/myclock.html" rel="next" title="用C语言模拟一个像素时钟">
+</div>
+<div class="post-nav-item">
+<a href="/blog/myclock.html" rel="next" title="用C语言模拟一个像素时钟">
                   用C语言模拟一个像素时钟 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
+</a>
 </div>
-
-
-
-
-
-
 </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
 <div class="copyright">
   2023 – 
   <span itemprop="copyrightYear">2024</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Ruofan</span>
+<span class="with-love">
+<i class="fa fa-heart"></i>
+</span>
+<span class="author" itemprop="copyrightHolder">Ruofan</span>
 </div>
-
-    </div>
-  </footer>
-
-  
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-  <div class="reading-progress-bar"></div>
-
+</div>
+</footer>
+<div aria-label="返回顶部" class="back-to-top" role="button">
+<i class="fa fa-arrow-up fa-lg"></i>
+<span>0%</span>
+</div>
+<div class="reading-progress-bar"></div>
 <noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-
-
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
 <script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
-
-  
-
-  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
-  <script src="/blog/js/third-party/tags/mermaid.js"></script>
-
-
-
-
-
-  
-
-
-
-
-  
-
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+<script src="/blog/js/third-party/tags/mermaid.js"></script>
+<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/hadoop.html"}</script>
-  <script src="/blog/js/third-party/quicklink.js"></script>
-
+<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/hadoop.html"}</script>
+<script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
