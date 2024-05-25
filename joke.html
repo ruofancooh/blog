@@ -8,15 +8,19 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="可以说所有笑话的原理都是预期违背/状态转移/跳跃：到达（或稳定在）预期状态的失败过程。" name="description"/>
+<meta content="可以说所有笑话的原理都是预期违背/状态转移/跳跃：到达（或稳定在）预期状态的失败过程。
+ 这只是在报菜名、给菜分到各个菜系里。如果真正地要研究什么东西，你起码要用数学的方式，给出各个概念的详细定义和符号表示，再给出公理，给出形式化证明。或者像
+ def NLU(str) -&gt; emotion。" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="笑话原理研究" property="og:title"/>
 <meta content="https://hrfis.me/blog/joke.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="可以说所有笑话的原理都是预期违背/状态转移/跳跃：到达（或稳定在）预期状态的失败过程。" property="og:description"/>
+<meta content="可以说所有笑话的原理都是预期违背/状态转移/跳跃：到达（或稳定在）预期状态的失败过程。
+ 这只是在报菜名、给菜分到各个菜系里。如果真正地要研究什么东西，你起码要用数学的方式，给出各个概念的详细定义和符号表示，再给出公理，给出形式化证明。或者像
+ def NLU(str) -&gt; emotion。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-05-22T16:00:00.000Z" property="article:published_time"/>
-<meta content="2024-05-24T09:36:43.394Z" property="article:modified_time"/>
+<meta content="2024-05-25T06:15:17.503Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/joke" rel="canonical"/>
@@ -69,7 +73,8 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E4%BE%8B%E5%AD%90%E5%85%A5%E6%89%8B"><span class="nav-number">1.</span> <span class="nav-text">从例子入手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%92%88%E5%AF%B9%E6%95%85%E4%BA%8B%E5%8F%A5%E5%AD%90%E6%9C%AC%E8%BA%AB%E7%9A%84"><span class="nav-number">2.</span> <span class="nav-text">针对故事/句子本身的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E4%BA%8B%E7%BA%BF%E4%B8%8A%E7%9A%84%E7%BA%BF%E6%80%A7%E5%9C%BA%E6%99%AF%E8%B7%B3%E8%B7%83%E4%BB%8E%E6%AD%A3%E7%BB%8F%E5%88%B0%E4%B8%8D%E6%AD%A3%E7%BB%8F"><span class="nav-number">2.1.</span> <span class="nav-text">故事线上的线性场景跳跃：从正经到不正经</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E4%BA%8B%E7%BA%BF%E4%B8%8A%E7%9A%84%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%9C%BA%E6%99%AF%E8%B7%B3%E8%B7%83%E5%A4%8D%E8%AF%BB%E6%9C%BA%E5%A4%9A%E6%AC%A1%E8%A7%A6%E5%8F%91%E5%9E%8B%E5%9B%9E%E9%A1%BEgoto"><span class="nav-number">2.2.</span> <span class="nav-text">故事线上的非线性场景跳跃：复读机、多次触发型、回顾、goto</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E4%BA%8B%E7%BA%BF%E9%97%B4%E7%9A%84%E5%9C%BA%E6%99%AF%E8%B7%B3%E8%B7%83%E4%B9%B1%E7%82%96%E4%B8%8D%E5%90%8C%E5%9C%BA%E6%99%AF%E5%85%B8%E6%95%85%E5%88%87%E6%8D%A2"><span class="nav-number">2.3.</span> <span class="nav-text">故事线间的场景跳跃：乱炖、不同场景/典故切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8C%E4%B8%80%E6%97%B6%E9%97%B4%E4%B8%8A%E7%9A%84%E5%9C%BA%E6%99%AF%E9%87%8D%E5%8F%A0%E5%8F%8C%E5%85%B3%E5%9B%9E%E5%91%B3%E6%97%B6%E9%97%B4%E9%95%BF"><span class="nav-number">2.4.</span> <span class="nav-text">同一时间上的场景重叠：双关，回味时间长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%9D%A2%E5%A2%99%E4%B8%A4%E5%A4%B4%E7%9A%84%E5%9C%BA%E6%99%AF%E8%B7%B3%E8%B7%83%E6%AD%A3%E5%B8%B8%E4%BA%BA%E4%B8%8D%E4%BC%9A%E8%BF%99%E4%B9%88%E5%B9%B2"><span class="nav-number">2.5.</span> <span class="nav-text">第四面墙两头的场景跳跃：正常人不会这么干</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%92%88%E5%AF%B9%E8%A7%82%E4%BC%97%E6%89%80%E6%84%9F%E5%8F%97%E5%88%B0%E7%9A%84%E6%95%85%E4%BA%8B%E5%8F%A5%E5%AD%90%E4%BC%A0%E9%80%92%E4%B8%8A%E7%9A%84"><span class="nav-number">3.</span> <span class="nav-text">针对观众所感受到的故事/句子传递上的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%BC%E9%9F%B5"><span class="nav-number">3.1.</span> <span class="nav-text">押韵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%A4%8D"><span class="nav-number">3.2.</span> <span class="nav-text">重复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E6%8C%87"><span class="nav-number">3.3.</span> <span class="nav-text">自指</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E6%9C%89%E5%88%B0%E6%97%A0%E7%9A%84%E8%B7%B3%E8%B7%83%E7%8A%B6%E6%80%81%E5%BD%92%E9%9B%B6"><span class="nav-number">3.4.</span> <span class="nav-text">从有到无的跳跃：状态归零</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%99%E8%BF%B0%E6%80%A7%E8%AF%A1%E8%AE%A1"><span class="nav-number">3.5.</span> <span class="nav-text">叙述性诡计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E5%88%86%E4%BF%A1%E6%81%AF%E7%BC%BA%E5%A4%B1"><span class="nav-number">3.6.</span> <span class="nav-text">部分信息缺失</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E6%96%B9%E8%B7%B3%E8%B7%83%E5%8F%A5%E5%AD%90%E8%87%AA%E8%BA%AB%E5%8F%A5%E4%B9%89%E5%89%A7%E6%83%85%E5%8F%A5%E5%AD%90%E7%9A%84%E8%BD%BD%E4%BD%93%E5%B9%B3%E5%8F%B0"><span class="nav-number">3.7.</span> <span class="nav-text">三方跳跃：句子自身、句义（剧情）、句子的载体（平台）</span></a></li></ol></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E4%BE%8B%E5%AD%90%E5%85%A5%E6%89%8B"><span class="nav-number">1.</span> <span class="nav-text">从例子入手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%9D%A2%E5%A2%99%E4%B9%8B%E5%86%85%E7%9A%84%E5%9C%BA%E6%99%AF%E8%B7%B3%E8%B7%83"><span class="nav-number">2.</span> <span class="nav-text">第四面墙之内的场景跳跃</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E4%BA%8B%E7%BA%BF%E4%B8%8A%E7%9A%84%E7%BA%BF%E6%80%A7%E5%9C%BA%E6%99%AF%E8%B7%B3%E8%B7%83%E4%BB%8E%E6%AD%A3%E7%BB%8F%E5%88%B0%E4%B8%8D%E6%AD%A3%E7%BB%8F"><span class="nav-number">2.1.</span> <span class="nav-text">故事线上的线性场景跳跃：从正经到不正经</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E4%BA%8B%E7%BA%BF%E4%B8%8A%E7%9A%84%E9%9D%9E%E7%BA%BF%E6%80%A7%E5%9C%BA%E6%99%AF%E8%B7%B3%E8%B7%83callback"><span class="nav-number">2.2.</span> <span class="nav-text">故事线上的非线性场景跳跃：callback</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E4%BA%8B%E7%BA%BF%E9%97%B4%E7%9A%84%E5%9C%BA%E6%99%AF%E8%B7%B3%E8%B7%83%E4%B9%B1%E7%82%96%E4%B8%8D%E5%90%8C%E5%9C%BA%E6%99%AF%E5%85%B8%E6%95%85%E5%88%87%E6%8D%A2"><span class="nav-number">2.3.</span> <span class="nav-text">故事线间的场景跳跃：乱炖、不同场景/典故切换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E4%B8%80%E6%97%B6%E9%97%B4%E4%B8%8A%E7%9A%84%E5%9C%BA%E6%99%AF%E9%87%8D%E5%8F%A0%E5%8F%8C%E5%85%B3"><span class="nav-number">3.</span> <span class="nav-text">同一时间上的场景重叠：双关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%9D%A2%E5%A2%99%E4%B8%A4%E5%A4%B4%E7%9A%84%E5%9C%BA%E6%99%AF%E8%B7%B3%E8%B7%83%E6%AD%A3%E5%B8%B8%E4%BA%BA%E4%B8%8D%E4%BC%9A%E8%BF%99%E4%B9%88%E5%B9%B2"><span class="nav-number">4.</span> <span class="nav-text">第四面墙两头的场景跳跃：正常人不会这么干</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B8%E6%95%85%E9%87%8D%E5%86%99%E5%85%B8%E6%95%85%E4%B8%8E%E7%99%BD%E8%AF%9D%E4%BA%92%E7%9B%B8%E5%88%87%E6%8D%A2"><span class="nav-number">4.1.</span> <span class="nav-text">典故重写、典故与白话互相切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%84%8F%E6%96%99%E4%B9%8B%E5%A4%96%E7%9A%84%E5%8F%91%E5%B1%95%E6%8A%8A%E4%B8%8D%E7%9B%B8%E5%85%B3%E7%9A%84%E4%BA%8B%E7%89%A9%E5%85%B3%E8%81%94%E8%B5%B7%E6%9D%A5%E9%99%A4%E4%BA%86%E7%8E%B0%E5%AE%9E%E5%85%A8%E6%98%AF%E9%AD%94%E5%B9%BB"><span class="nav-number">4.2.</span> <span class="nav-text">意料之外的发展：把不相关的事物关联起来、除了现实全是魔幻</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E7%8B%B1%E7%AC%91%E8%AF%9D%E5%BD%93%E4%BA%8B%E4%BA%BA%E4%B8%8D%E4%BC%9A%E8%A7%89%E5%BE%97%E5%A5%BD%E7%AC%91"><span class="nav-number">4.3.</span> <span class="nav-text">地狱笑话：当事人不会觉得好笑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E7%90%86%E6%80%A7%E6%8C%AA%E7%94%A8%E5%BD%92%E5%9B%A0%E5%9B%A0%E6%9E%9C%E9%A2%A0%E5%80%92%E6%89%A9%E5%A4%A7%E7%BC%A9%E5%B0%8F%E8%AF%8D%E4%B9%89"><span class="nav-number">4.4.</span> <span class="nav-text">非理性挪用归因：因果颠倒、扩大/缩小词义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E6%A0%BC%E5%BC%B1%E6%99%BA%E8%AF%B4%E4%B8%8D%E5%AE%9A%E6%98%AF%E7%9C%9F%E7%9A%84%E5%BC%B1%E6%99%BA"><span class="nav-number">4.5.</span> <span class="nav-text">本格弱智：说不定是真的弱智</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%85%E4%BA%8B%E4%BC%A0%E9%80%92%E4%B8%8A%E7%9A%84%E8%B7%B3%E8%B7%83"><span class="nav-number">5.</span> <span class="nav-text">故事传递上的跳跃</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%BC%E9%9F%B5%E5%90%AC%E8%A7%89%E4%B8%8A%E7%9A%84-callback"><span class="nav-number">5.1.</span> <span class="nav-text">押韵：听觉上的 callback</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%A4%8D%E5%90%AC%E8%A7%89%E4%B8%8E%E8%A7%86%E8%A7%89%E4%B8%8A%E7%9A%84-callback"><span class="nav-number">5.2.</span> <span class="nav-text">重复：听觉与视觉上的 callback</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E6%8C%87%E8%A7%86%E8%A7%89%E4%B8%8A%E7%9A%84-callback"><span class="nav-number">5.3.</span> <span class="nav-text">自指：视觉上的 callback</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E6%9C%89%E5%88%B0%E6%97%A0%E7%9A%84%E8%B7%B3%E8%B7%83return-0%E5%BA%9F%E8%AF%9D%E6%96%87%E5%AD%A6"><span class="nav-number">5.4.</span> <span class="nav-text">从有到无的跳跃：return
+0、废话文学</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%99%E8%BF%B0%E6%80%A7%E8%AF%A1%E8%AE%A1%E5%8F%99%E8%BF%B0%E8%80%85%E4%B8%8E%E6%8E%A5%E6%94%B6%E8%80%85%E4%BF%A1%E6%81%AF%E4%B8%8D%E5%AF%B9%E7%AD%89"><span class="nav-number">5.5.</span> <span class="nav-text">叙述性诡计：叙述者与接收者信息不对等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E5%88%86%E4%BF%A1%E6%81%AF%E7%BC%BA%E5%A4%B1%E5%86%B0%E5%B1%B1%E4%B9%8B%E4%B8%8A%E4%B9%8B%E4%B8%8B%E4%BF%A1%E6%81%AF%E4%B8%8D%E5%AF%B9%E7%AD%89"><span class="nav-number">5.6.</span> <span class="nav-text">部分信息缺失：冰山之上、之下信息不对等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E6%96%B9%E8%B7%B3%E8%B7%83%E5%8F%A5%E5%AD%90%E8%87%AA%E8%BA%AB%E5%8F%A5%E4%B9%89%E5%89%A7%E6%83%85%E5%8F%A5%E5%AD%90%E7%9A%84%E8%BD%BD%E4%BD%93%E5%B9%B3%E5%8F%B0"><span class="nav-number">5.7.</span> <span class="nav-text">三方跳跃：句子自身、句义（剧情）、句子的载体（平台）</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -81,7 +86,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/archives/">
-<span class="site-state-item-count">30</span>
+<span class="site-state-item-count">31</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -131,7 +136,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-24T17:36:43+08:00" itemprop="dateModified" title="修改时间：2024-05-24 17:36:43">2024-05-24</time>
+<time datetime="2024-05-25T14:15:17+08:00" itemprop="dateModified" title="修改时间：2024-05-25 14:15:17">2024-05-25</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -146,6 +151,8 @@
 </div>
 </header>
 <div class="post-body" itemprop="articleBody"><p>可以说所有笑话的原理都是预期违背/状态转移/跳跃：到达（或稳定在）预期状态的失败过程。</p>
+<p>这只是在报菜名、给菜分到各个菜系里。如果真正地要研究什么东西，你起码要用数学的方式，给出各个概念的详细定义和符号表示，再给出公理，给出形式化证明。或者像
+<code>def NLU(str) -&gt; emotion</code>。</p>
 <span id="more"></span>
 <h2 id="从例子入手">从例子入手</h2>
 <blockquote>
@@ -157,7 +164,7 @@
 <p>第三部分又是一个导引，勾起你的好奇心。</p>
 <p>第四部分是一个双关，造成一个场景重叠。</p>
 <p>下面举的例子可能用到不止一种手法</p>
-<h2 id="针对故事句子本身的">针对故事/句子本身的</h2>
+<h2 id="第四面墙之内的场景跳跃">第四面墙之内的场景跳跃</h2>
 <h3 id="故事线上的线性场景跳跃从正经到不正经">故事线上的线性场景跳跃：从正经到不正经</h3>
 <p>埋梗再触梗、把包袱包起来再抖出来</p>
 <blockquote>
@@ -167,7 +174,7 @@
 <blockquote>
 <p>母猪的产后护理，拿错书了</p>
 </blockquote>
-<h3 id="故事线上的非线性场景跳跃复读机多次触发型回顾goto">故事线上的非线性场景跳跃：复读机、多次触发型、回顾、goto</h3>
+<h3 id="故事线上的非线性场景跳跃callback">故事线上的非线性场景跳跃：callback</h3>
 <blockquote>
 <p>逗你玩儿</p>
 </blockquote>
@@ -175,51 +182,68 @@
 <blockquote>
 <p>镇关西挨了三拳后心领神会，晚上三更准时来到鲁提辖的房间</p>
 </blockquote>
-<h3 id="同一时间上的场景重叠双关回味时间长">同一时间上的场景重叠：双关，回味时间长</h3>
+<h2 id="同一时间上的场景重叠双关">同一时间上的场景重叠：双关</h2>
 <ul>
 <li>句义/段义上的（郭德纲的荤段子：你以为呢）</li>
 <li>词义与词性活用上的（顾客就是上帝，所以客观就是主观）</li>
 <li>谐音双关（大清律法又叫大盐酸法）</li>
 <li>断句双关（车站门口卖榴莲，臭外地的）</li>
 <li>缩写词的扩展与收缩</li>
-<li>空目/拆字/拼字双关（成长为什么会有痛苦，因为宝宝去掉宝盖头就玉玉了）</li>
+<li>空目双关（“看看扔子。”刘备接过赵云手里手中的阿斗说）</li>
+<li>拆字/拼字双关（成长为什么会有痛苦，因为宝宝去掉宝盖头就玉玉了）</li>
 <li>类比、挪用概念</li>
 </ul>
-<h3 id="第四面墙两头的场景跳跃正常人不会这么干">第四面墙两头的场景跳跃：正常人不会这么干</h3>
-<ul>
-<li>典故与白话切换</li>
-<li>地狱笑话（医院床位那么紧张，为什么不弄成上下铺呢）</li>
-<li>非理性挪用归因</li>
-<li>把不相关的事物关联起来/规则怪谈</li>
-<li>意料之外的发展（王警官系列）</li>
-<li>本格弱智</li>
-</ul>
+<h2 id="第四面墙两头的场景跳跃正常人不会这么干">第四面墙两头的场景跳跃：正常人不会这么干</h2>
+<h3 id="典故重写典故与白话互相切换">典故重写、典故与白话互相切换</h3>
+<blockquote>
+<p>我的这张旧船票还能否登上你的破船</p>
+</blockquote>
+<blockquote>
+<p>后来怎么样了？涛声依旧了</p>
+</blockquote>
+<h3 id="意料之外的发展把不相关的事物关联起来除了现实全是魔幻">意料之外的发展：把不相关的事物关联起来、除了现实全是魔幻</h3>
+<p>王警官系列、食人族系列、规则怪谈</p>
+<h3 id="地狱笑话当事人不会觉得好笑">地狱笑话：当事人不会觉得好笑</h3>
+<blockquote>
+<p>医院床位那么紧张，为什么不弄成上下铺呢</p>
+</blockquote>
+<blockquote>
+<p>杨过只剩一只手都这么厉害，两只手都没了还得了？</p>
+</blockquote>
+<h3 id="非理性挪用归因因果颠倒扩大缩小词义">非理性挪用归因：因果颠倒、扩大/缩小词义</h3>
 <blockquote>
 <p>早知道最后被第三志愿录取，第三志愿就应该填清华的</p>
 </blockquote>
-<h2 id="针对观众所感受到的故事句子传递上的">针对观众所感受到的故事/句子传递上的</h2>
-<h3 id="押韵">押韵</h3>
+<blockquote>
+<p>你这个双人份的薯条套餐为什么只有奇数根</p>
+</blockquote>
+<h3 id="本格弱智说不定是真的弱智">本格弱智：说不定是真的弱智</h3>
+<blockquote>
+<p>我从 1 数到 1000 都没有发现两个相同的数字</p>
+</blockquote>
+<h2 id="故事传递上的跳跃">故事传递上的跳跃</h2>
+<h3 id="押韵听觉上的-callback">押韵：听觉上的 callback</h3>
 <blockquote>
 <p>我叫白云，我叫黑土；我七十一，我七十五；我属鸡，我属虎</p>
 </blockquote>
-<h3 id="重复">重复</h3>
+<h3 id="重复听觉与视觉上的-callback">重复：听觉与视觉上的 callback</h3>
 <blockquote>
 <p>叠词词，恶心心</p>
 </blockquote>
-<h3 id="自指">自指</h3>
+<h3 id="自指视觉上的-callback">自指：视觉上的 callback</h3>
 <blockquote>
 <p>冷知识：句子前面的才是冷知识</p>
 </blockquote>
-<h3 id="从有到无的跳跃状态归零">从有到无的跳跃：状态归零</h3>
-<p>废话文学</p>
+<h3 id="从有到无的跳跃return-0废话文学">从有到无的跳跃：return
+0、废话文学</h3>
 <blockquote>
 <p>据说每个胖子都是潜力股，瘦下来的话就会很瘦</p>
 </blockquote>
-<h3 id="叙述性诡计">叙述性诡计</h3>
+<h3 id="叙述性诡计叙述者与接收者信息不对等">叙述性诡计：叙述者与接收者信息不对等</h3>
 <blockquote>
 <p>“你是清朝来的吧？”人们纷纷赞叹朱元璋思想先进</p>
 </blockquote>
-<h3 id="部分信息缺失">部分信息缺失</h3>
+<h3 id="部分信息缺失冰山之上之下信息不对等">部分信息缺失：冰山之上、之下信息不对等</h3>
 <blockquote>
 <p>评论区留下身份证号后两位，一样的在一起</p>
 </blockquote>
@@ -240,6 +264,9 @@
                 </a>
 </div>
 <div class="post-nav-item">
+<a href="/blog/1.html" rel="next" title="建站一周年纪念与总结">
+                  建站一周年纪念与总结 <i class="fa fa-chevron-right"></i>
+</a>
 </div>
 </div>
 </footer>
