@@ -372,7 +372,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-24T22:57:58+08:00" itemprop="dateModified" title="修改时间：2024-05-24 22:57:58">2024-05-24</time>
+<time datetime="2024-05-27T19:20:27+08:00" itemprop="dateModified" title="修改时间：2024-05-27 19:20:27">2024-05-27</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -387,34 +387,13 @@
 </div>
 </header>
 <div class="post-body" itemprop="articleBody">
-<p>只有当笔者意识到：写教程是在浪费时间的时候，说明笔者是真的学会了。</p>
-<p>理由：这些文档在各个软件的网站上，别人早就写好了。或者<span class="red-text">在你软件安装的目录里面，有一个大大的 doc
-文件夹。</span></p>
-<p>回想起来，笔者当初为什么选大数据这个专业？就是它相对于其他计算机专业简单，用的软件都是别人已经写好的，它对于你的数学底子要求不高，没有《编译原理》这种听上去就很吓人的课。笔者想借此把时间倾斜到其他通识的东西上。就过程看来，笔者确实没有做到，因为笔者去纠结软件了。</p>
-<p>不作死就不会死。用 Ubuntu + VM Player
-的后果是：隔一段时间系统就会卡死（与 Hadoop 无关），挂起再开后，watchdog
-说：软锁定，你的 CPU 又卡住了好几十秒。</p>
-<style>
-    .red-text {
-        color: red;
-    }
-</style>
 <ol type="1">
-<li>改用
-WSL（有三层动机，就第一种，笔者还是有点叛逆的想法；第二种，据说它比虚拟机的性能好，实际上，它几秒钟就能开机；第三种，笔者没有自信以看日志的方式解决卡死的问题）</li>
-<li>以后安装各种软件，先看文档。配置文件能不改就不改，能用默认的就用默认的，改了费时费力。有一种心法是：<span class="red-text">在软件安装完之后，什么配置都别写，上来先启动了再说。然后查看日志，搜索
-<code>WARN</code>
-<code>ERROR</code>。这样做你才能知道，哪些配置是必须有的，而哪些配置是多余的（或者人家默认配置好的）。</span></li>
+<li>在你软件安装的目录里面，通常有一个 doc 文件夹</li>
+<li>在解压软件包之后，什么配置都别写，上来先启动了再说</li>
+<li>找到你软件的日志文件在哪里</li>
+<li>在日志里搜索 <code>WARN</code> <code>ERROR</code></li>
 </ol>
-<p>真的，笔者有想把软件全部转移到 C 盘的冲动，把 C 盘和 D
-盘合并，东西全放在桌面上，这样做比较不反人类。就事实看来，这几年根本没有出现系统崩了导致文件丢了的情况；仅就学术价值看来，没有对笔者来说重要顶过天的文件；就个人价值看来，也没有，因为笔者是一个俗人。</p>
-<ul>
-<li>使用 https://www.diskgenius.cn/ 可以把你 D 盘的空间向 C
-盘匀一点。如果你有多余的恢复分区，可以把它删了，只保留一个。</li>
-<li>使用 https://github.com/redtrillix/SpaceSniffer
-可以可视化地展示你硬盘的占用情况。</li>
-<li>给虚拟机扩容：<code>https://hrfis.me/blog/linux.html#扩容</code></li>
-</ul>
+<p>为什么呢？因为你迟早会遇到报错，没遇到报错才不正常。你把别人的配置文件复制过来，别人的软件不一定和你的版本号相同。没有遇到报错，说明你运气好。</p>
 <!--noindex-->
 <div class="post-button">
 <a class="btn" href="/blog/hadoop.html#more" rel="contents">
