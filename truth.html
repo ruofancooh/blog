@@ -20,7 +20,7 @@
 <meta content="https://hrfis.me/blog/images/peace-1.webp" property="og:image"/>
 <meta content="https://hrfis.me/blog/images/peace-2.webp" property="og:image"/>
 <meta content="2024-04-14T14:41:00.000Z" property="article:published_time"/>
-<meta content="2024-05-23T12:30:22.218Z" property="article:modified_time"/>
+<meta content="2024-05-27T05:50:41.668Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/weierstrassa=0.5b=13.webp" name="twitter:image"/>
@@ -136,7 +136,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-23T20:30:22+08:00" itemprop="dateModified" title="修改时间：2024-05-23 20:30:22">2024-05-23</time>
+<time datetime="2024-05-27T13:50:41+08:00" itemprop="dateModified" title="修改时间：2024-05-27 13:50:41">2024-05-27</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -172,23 +172,12 @@ x)\)</span>，只是与它宏观看起来相似而已。</p>
 <p><img src="/blog/images/2cospix.webp"/></p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br/><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br/><span class="line"></span><br/><span class="line">a = <span class="number">0.5</span></span><br/><span class="line">b = <span class="number">13</span></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">assert</span> a &gt; <span class="number">0</span> <span class="keyword">and</span> a &lt; <span class="number">1</span></span><br/><span class="line"><span class="keyword">assert</span> b &gt;= <span class="number">7</span> <span class="keyword">and</span> b % <span class="number">2</span> == <span class="number">1</span></span><br/><span class="line"><span class="keyword">assert</span> (a * b) &gt; (<span class="number">1</span> + <span class="number">1.5</span> * np.pi)</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">weierstrass</span>(<span class="params">x, a, b, N=<span class="number">100</span></span>):</span><br/><span class="line">    result = <span class="number">0</span></span><br/><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br/><span class="line">        result += a**n * np.cos(b**n * np.pi * x)</span><br/><span class="line">    <span class="keyword">return</span> result</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line">x = np.arange(-<span class="number">2</span>, <span class="number">2</span>, <span class="number">0.0001</span>)</span><br/><span class="line">y1 = <span class="number">2</span> * np.cos(np.pi * x)</span><br/><span class="line">y2 = weierstrass(x, a, b)</span><br/><span class="line"></span><br/><span class="line">plt.figure(<span class="number">1</span>)</span><br/><span class="line">plt.plot(x, y1, <span class="string">"b"</span>)</span><br/><span class="line">plt.figure(<span class="number">2</span>)</span><br/><span class="line">plt.plot(x, y2, <span class="string">"r"</span>)</span><br/><span class="line"></span><br/><span class="line">plt.show()</span><br/></pre></td></tr></table></figure>
 <h2 id="关于本人现在病情的发展情况">关于本人现在病情的发展情况</h2>
-<ol type="1">
-<li><p>大部分时间脑子一片空白</p></li>
-<li><p>如果在想一件事的同时，听到别人说话了，且需要回应，这时回应的进程会抢在解码的进程之前出现。</p></li>
-</ol>
-<p>可以理解为：我需要回话，但是“我需要回话”这个想法的占比比“理解听到话的意思”和“思考怎么回话”的占比都多。</p>
-<ol start="3" type="1">
-<li><p>在打一句话还没打完的同时，突然出现打另一句话的想法了，上一句话会忘记。</p></li>
-<li><p>在电脑前面，经常忘记自己下一步要做什么。</p></li>
-</ol>
-<p>你可以理解为注意力不集中，但这么说不准确。如果对话出现在互联网上，因为互联网是有上下文的，它不是只说一次就不能回看了，所以【我】不至于不明白【你】在说什么。</p>
-<p>或者是在空气介质上，【我】【主动找】【他人】开一个聊天的线程，因为这时【我】是有主动权的，所以注意力会集中到听你在说什么。</p>
-<p>又或者，当我主动把注意力转移到外部后，我能明白你在说什么。</p>
-<p>信不信由你。</p>
-<p>我们总是认为，所有事都得解决了才舒服。带着这些解决不了的事，照样能走下去。</p>
+<p>容易忘记事。除了这个之外，好像没什么别的问题。</p>
+<p>打字经常换行是因为看一大段文字感觉太多了，有点看不下去大段文字。</p>
+<p>还有就是容易忘记事。除了这个之外，好像没什么别的问题。</p>
+<p>打字经常换行是因为看一大段文字感觉太多了。还有就是容易忘记事，除了这个之外，好像没什么别的问题。</p>
 <h2 id="一种自我保护的机制">一种自我保护的机制</h2>
-<p>这种机制最早出现于笔者高中时期，成熟于近几个星期。</p>
-<p>最初你的摄像机是和你眼睛绑定在一起的。有一天它挪开了。</p>
+<p>这种机制最早出现于笔者高中时期，成熟于近几个星期。最初你的摄像机是和你眼睛绑定在一起的。有一天它挪开了。</p>
 <p>当你的心理状态切换时，脑内下层会被一股黑色的东西淹没，上表面有一台摄像机在看着：看吧，这个人居然落到了如此境地。</p>
 <p>副作用是：笔者好像永远都哭不出来了，因为在黑色东西出现的同时，另一个人格就在看笑话。至少三年没哭了。</p>
 <p>（在 2024 年 5 月 15
@@ -196,8 +185,13 @@ x)\)</span>，只是与它宏观看起来相似而已。</p>
 <h2 id="关于有没有真实的自我">关于有没有真实的自我</h2>
 <p>这个问题和“一艘船换了全部零件还是不是原来的船”、“踏入几次河流”差不多。</p>
 <p>“自我”不用说，什么叫“真实”？先给笔者以某种情绪下看到的“真实”下一个定义：</p>
-<p>有这样一个人，他/她在任何场合下说出的话都是不违心的。</p>
+<p><strong>有这样一个人，他/她在任何场合下说出的话都是不违心的</strong>。</p>
 <p>如果由此推，“我”大概率会在不同的场合说出不同的话，或者在同一种场合以不同的情绪说出不同的话，所以根本就没有“真实的我”。</p>
+<p>在明尼苏达多相人格测试里有这样一道题目：</p>
+<blockquote>
+<p>有时我也讲假话</p>
+</blockquote>
+<p>如果你回答“否”，它会给你的“说谎”量表加一分。什么意思？这说明制定测试题目的人，默认认为做这个测试的所有人都是讲过假话的。如果你说自己从来没讲过假话，它反而会认为你在说谎。</p>
 <p>“人是一切社会关系的总和”这个命题从“呼吸、分子热运动”的角度来看太大了。</p>
 <p>你可以由此感性地理解：大到“测量误差”，小到“测不准定理”。仪器，和使用仪器的人都不是完美的旁观者。</p>
 <p>你可以由此感性地理解：“生气”是因为你的温度与对方的温度相差太大了，热力环流形成风。把风加上病字头，我们称之为精神病人。</p>
