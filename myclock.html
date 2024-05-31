@@ -9,18 +9,16 @@
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
 <meta content="大概是三年前为了熟悉 C
- 语言写的一个玩具。回头再看，刚开始的变量和函数命名都很离谱，现在改得易读了。感觉挺有意思的，但是没什么实用价值。
- 现在为什么要发出来：增强自信。当然说“建立起自信”是更准确的说法。" name="description"/>
+ 语言写的一个玩具。回头再看，刚开始的变量和函数命名都很离谱，现在改得易读了。感觉挺有意思的，但是没什么实用价值。现在为什么要发出来：增强自信。当然说“建立起自信”是更准确的说法。" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="用C语言模拟一个像素时钟" property="og:title"/>
 <meta content="https://hrfis.me/blog/myclock.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
 <meta content="大概是三年前为了熟悉 C
- 语言写的一个玩具。回头再看，刚开始的变量和函数命名都很离谱，现在改得易读了。感觉挺有意思的，但是没什么实用价值。
- 现在为什么要发出来：增强自信。当然说“建立起自信”是更准确的说法。" property="og:description"/>
+ 语言写的一个玩具。回头再看，刚开始的变量和函数命名都很离谱，现在改得易读了。感觉挺有意思的，但是没什么实用价值。现在为什么要发出来：增强自信。当然说“建立起自信”是更准确的说法。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-05-08T06:00:00.000Z" property="article:published_time"/>
-<meta content="2024-05-27T14:03:20.056Z" property="article:modified_time"/>
+<meta content="2024-05-31T05:20:57.921Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/myclock" rel="canonical"/>
@@ -135,7 +133,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-27T22:03:20+08:00" itemprop="dateModified" title="修改时间：2024-05-27 22:03:20">2024-05-27</time>
+<time datetime="2024-05-31T13:20:57+08:00" itemprop="dateModified" title="修改时间：2024-05-31 13:20:57">2024-05-31</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -150,8 +148,7 @@
 </div>
 </header>
 <div class="post-body" itemprop="articleBody"><p>大概是三年前为了熟悉 C
-语言写的一个玩具。回头再看，刚开始的变量和函数命名都很离谱，现在改得易读了。感觉挺有意思的，但是没什么实用价值。</p>
-<p>现在为什么要发出来：增强自信。当然说“建立起自信”是更准确的说法。</p>
+语言写的一个玩具。回头再看，刚开始的变量和函数命名都很离谱，现在改得易读了。感觉挺有意思的，但是没什么实用价值。现在为什么要发出来：增强自信。当然说“建立起自信”是更准确的说法。</p>
 <span id="more"></span>
 <h2 id="myclock.h">myclock.h</h2>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> YIN <span class="string">' '</span></span></span><br/><span class="line"><span class="meta">#<span class="keyword">define</span> YANG <span class="string">'O'</span></span></span><br/><span class="line"><span class="meta">#<span class="keyword">define</span> SCREEN_WIDTH 34</span></span><br/><span class="line"><span class="meta">#<span class="keyword">define</span> SCREEN_HEIGHT 7</span></span><br/><span class="line"><span class="meta">#<span class="keyword">define</span> PROBE_NUM 4</span></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">extern</span> <span class="type">char</span> screen[SCREEN_HEIGHT][SCREEN_WIDTH]; <span class="comment">// 模拟屏幕，34 * 7 像素</span></span><br/><span class="line"><span class="keyword">extern</span> <span class="type">const</span> <span class="type">int</span> hOffset[<span class="number">6</span>];                     <span class="comment">// 水平方向上的偏移量，每位数字的左上角</span></span><br/><span class="line"><span class="keyword">extern</span> <span class="type">char</span> *probe[PROBE_NUM];                   <span class="comment">// 一排四个探针，存放四个像素的地址</span></span><br/><span class="line"><span class="keyword">extern</span> <span class="type">const</span> <span class="type">int</span> model[<span class="number">10</span>][SCREEN_HEIGHT];       <span class="comment">// 每行是一个数字模型的像素情况，每行里的一个记录代表数字模型的一行</span></span><br/><span class="line"><span class="keyword">extern</span> <span class="type">int</span> timeDidits[<span class="number">6</span>];                        <span class="comment">// 18:44:02</span></span><br/><span class="line"></span><br/><span class="line"><span class="type">void</span> <span class="title function_">probeReset</span><span class="params">()</span>;                 <span class="comment">// 探针回到原点，屏幕左上角</span></span><br/><span class="line"><span class="type">void</span> <span class="title function_">probeMoveDown1Px</span><span class="params">()</span>;           <span class="comment">// 探针向下移动一个像素</span></span><br/><span class="line"><span class="type">void</span> <span class="title function_">probeMoveRightPx</span><span class="params">(<span class="type">int</span> offset)</span>; <span class="comment">// 探针向右移动多个像素</span></span><br/><span class="line"></span><br/><span class="line"><span class="type">void</span> <span class="title function_">getTimeDidits</span><span class="params">()</span>;                    <span class="comment">// 获取本地时间的六个数字</span></span><br/><span class="line"><span class="type">void</span> <span class="title function_">writeTimeToScreen</span><span class="params">()</span>;                <span class="comment">// 写六个数字</span></span><br/><span class="line"><span class="type">void</span> <span class="title function_">writeDigit</span><span class="params">(<span class="type">int</span> digit, <span class="type">int</span> hOffset)</span>; <span class="comment">// 按偏移量写一个数字</span></span><br/></pre></td></tr></table></figure>
