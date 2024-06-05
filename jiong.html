@@ -8,17 +8,23 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="大数据 + 不自学 = 大冤种。
- 大作业 - 不自学 = 大模型。" name="description"/>
+<meta content="做任何事情千万不要多线程并行。
+ 在把自己会的东西实现之前，千万不要考虑不会的。
+ 在没熟悉为什么这么做之前，千万不要一上来就拆分文件。
+ 在这一个问题解决之前，不要问大模型下一个问题。
+ 困了就睡。" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="囧" property="og:title"/>
 <meta content="https://hrfis.me/blog/jiong.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="大数据 + 不自学 = 大冤种。
- 大作业 - 不自学 = 大模型。" property="og:description"/>
+<meta content="做任何事情千万不要多线程并行。
+ 在把自己会的东西实现之前，千万不要考虑不会的。
+ 在没熟悉为什么这么做之前，千万不要一上来就拆分文件。
+ 在这一个问题解决之前，不要问大模型下一个问题。
+ 困了就睡。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-06-04T08:00:00.000Z" property="article:published_time"/>
-<meta content="2024-06-04T14:49:32.995Z" property="article:modified_time"/>
+<meta content="2024-06-05T14:17:23.915Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/jiong" rel="canonical"/>
@@ -71,7 +77,8 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">关键点</span></a></li></ol></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E9%97%AE%E9%A2%98"><span class="nav-number">1.1.</span> <span class="nav-text">关键问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%87%8C%E7%9A%84%E8%A1%A8"><span class="nav-number">1.2.</span> <span class="nav-text">数据库里的表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#api-%E6%96%87%E6%A1%A3"><span class="nav-number">2.</span> <span class="nav-text">API 文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#apiauthsignup-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C-post"><span class="nav-number">2.1.</span> <span class="nav-text">/api/auth/signup 用户注册 POST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apiauthsignin-%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95-post"><span class="nav-number">2.2.</span> <span class="nav-text">/api/auth/signin 用户登录 POST</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apiauthsignout-%E7%94%A8%E6%88%B7%E6%B3%A8%E9%94%80-post"><span class="nav-number">2.3.</span> <span class="nav-text">/api/auth/signout 用户注销
+POST</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -126,7 +133,14 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2024-06-04T16:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-06-04 16:00:00 / 修改时间：22:49:32">2024-06-04</time>
+<time datetime="2024-06-04T16:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-06-04 16:00:00">2024-06-04</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-06-05T22:17:23+08:00" itemprop="dateModified" title="修改时间：2024-06-05 22:17:23">2024-06-05</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -140,21 +154,29 @@
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>大数据 + 不自学 = 大冤种。</p>
-<p>大作业 - 不自学 = 大模型。</p>
+<div class="post-body" itemprop="articleBody"><ol type="1">
+<li>做任何事情千万不要多线程并行。</li>
+<li>在把自己会的东西实现之前，千万不要考虑不会的。</li>
+<li>在没熟悉为什么这么做之前，千万不要一上来就拆分文件。</li>
+<li>在这一个问题解决之前，不要问大模型下一个问题。</li>
+<li>困了就睡。</li>
+</ol>
 <span id="more"></span>
-<p>仅限笔者自身在这一届的经历，如果你不提前自学而是在每个学期里只完成这个学期之内课程的任务，你会：</p>
-<p>在大三之前没有《Linux
-操作系统》这门课，当然之后也没有。如果你运气好的话会遇到让你使用命令行的老师；如果你运气不好你可能不知道
+<p>仅限笔者自身在这一届的经历，如果你不<strong>提前</strong>自学而是在每个学期里只完成这个学期<strong>之内</strong>课程的任务，你会：</p>
+<p>在大三之前 <strong>没有《Linux 操作系统》</strong>
+这门课，当然之后也没有。如果你运气好的话会遇到让你使用命令行的老师；如果你运气不好你可能不知道
 <code>gcc</code>
-是什么。在大三上学期，一边的《大规模分布式系统》让你装两台或以上的 Linux
-虚拟机，使用命令行并装一个几百来兆的 Java
+是什么。在大三<strong>上学期</strong>，一边的《大规模分布式系统》让你装两台或以上的
+Linux 虚拟机，使用命令行并装一个几百来兆的 Java
 软件；另一边的《网络编程技术》在讲 Java
-的基本语法，按课程名来看是在补《Java
-程序设计》这门课。在大三上学期末，一些课程的大作业会要求你做一个前后端交互的系统出来，前端的框架自然是不在教学范围里的。在大三下学期《J2EE
+的基本语法，按课程名来看是在补教学计划里<strong>没有</strong>的
+<strong>《Java
+程序设计》</strong>这门课。在大三上学期末，一些课程的大作业会要求你做一个前后端交互的系统出来，前端的框架自然是不在教学范围里的。在大三<strong>下学期</strong>
+《J2EE
 技术》姗姗来迟，你第一次在你的电脑上装了一个叫服务器的东西。如果你到了期末还是没有自学前后端框架的话，后面也没有课程会教你了，于是你继续重复上学期的大作业窘境。</p>
 <h2 id="需求分析">需求分析</h2>
-<p>搞一个家政管理系统出来。我们的最终目的是搞出来一个能看的东西，所以简单一点，先不要在意样式。</p>
+<p>Vue 3 + Spring Boot + Axios + HBase</p>
+<p>搞一个家政管理系统出来。我们的最终目的是搞出来一个能看的东西，搞一个“原型”。所以简单一点，不要在意样式，也不要在意能不能真的拿来用，因为百分之百是没人会拿来用的。</p>
 <p>用户：服务提供者（接单的）、服务需求者（订单的）、系统管理员（管账的）</p>
 <p>服务项目：清洁、护理、家教、搬家</p>
 <p>需求者可以访问的页面：个人信息页面、下新单的页面、历史下单记录（包括刚下的）、每一单的详情页面</p>
@@ -165,10 +187,43 @@
 给系统。系统生成一个订单号，完善订单信息，写到数据库里</p>
 <p>服务提供者在其接新单的页面里刷新，GET，系统根据提供者的地址返回与其地址匹配的单。</p>
 <p>提供者可选择一个单接，且不能选择与已有单时间冲突的。完成之后由需求者点击完成。</p>
-<h3 id="关键点">关键点</h3>
-<p>先搞一个注册/登录的东西出来。</p>
-<p>怎么判断浏览器面前的是谁。</p>
-<p>怎么用两个浏览器模拟下单者和接单者。</p>
+<h3 id="关键问题">关键问题</h3>
+<ol type="1">
+<li>注册 signup</li>
+</ol>
+<h3 id="数据库里的表">数据库里的表</h3>
+<ul>
+<li>HouseKeepingUser
+<ul>
+<li>role:id</li>
+<li>role:pwd</li>
+<li>role:type 三种类型：customer receiver admin</li>
+<li>info:name</li>
+<li>info:sex</li>
+<li>info:age</li>
+<li>info:phone</li>
+<li>info:address</li>
+</ul></li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">create <span class="string">'HouseKeepingUser'</span>, <span class="string">'role'</span>, <span class="string">'info'</span></span><br/></pre></td></tr></table></figure>
+<h2 id="api-文档">API 文档</h2>
+<p>所有请求和响应体都是
+<code>application/json</code>，或者没有请求体</p>
+<p>请求头里含有 Cookie 字段</p>
+<p>所有响应的 json 都有三个字段：code、msg、data</p>
+<h3 id="apiauthsignup-用户注册-post">/api/auth/signup 用户注册 POST</h3>
+<p>请求：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"name"</span><span class="punctuation">:</span> <span class="string">"example"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"pwd"</span><span class="punctuation">:</span> <span class="string">"123456"</span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></table></figure>
+<p>响应</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"code"</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"msg"</span><span class="punctuation">:</span> <span class="string">"注册成功"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"data"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">null</span></span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></table></figure>
+<h3 id="apiauthsignin-用户登录-post">/api/auth/signin 用户登录 POST</h3>
+<p>请求：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"name"</span><span class="punctuation">:</span> <span class="string">"example"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"pwd"</span><span class="punctuation">:</span> <span class="string">"123456"</span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></table></figure>
+<p>响应</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"code"</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"msg"</span><span class="punctuation">:</span> <span class="string">"登录成功"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"data"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">null</span></span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></table></figure>
+<h3 id="apiauthsignout-用户注销-post">/api/auth/signout 用户注销
+POST</h3>
+<p>无请求体</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
