@@ -35,7 +35,7 @@
 <meta content="zh_CN" property="og:locale"/>
 <meta content="https://flume.apache.org/_images/DevGuide_image00.png" property="og:image"/>
 <meta content="2024-04-26T09:45:00.000Z" property="article:published_time"/>
-<meta content="2024-06-06T15:16:31.413Z" property="article:modified_time"/>
+<meta content="2024-06-07T07:14:23.504Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://flume.apache.org/_images/DevGuide_image00.png" name="twitter:image"/>
@@ -158,7 +158,7 @@ HDFS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-lin
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-06-06T23:16:31+08:00" itemprop="dateModified" title="修改时间：2024-06-06 23:16:31">2024-06-06</time>
+<time datetime="2024-06-07T15:14:23+08:00" itemprop="dateModified" title="修改时间：2024-06-07 15:14:23">2024-06-07</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -440,7 +440,7 @@ YARN，它默认为 local）</li>
 <p>https://hbase.apache.org/book.html#shell_exercises</p>
 <h3 id="命令">命令</h3>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">start-dfs.sh</span><br/><span class="line">start-hbase.sh</span><br/><span class="line">hbase shell</span><br/></pre></td></tr></table></figure>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">help</span></span><br/><span class="line">list</span><br/><span class="line">create <span class="string">'tablename'</span>,<span class="string">'cfname1'</span>,<span class="string">'cfname2'</span></span><br/><span class="line">put <span class="string">'tablename'</span>,<span class="string">'rowkey'</span>,<span class="string">'cfname1:qualifiername1'</span>,<span class="string">'value'</span></span><br/><span class="line">put <span class="string">'tablename'</span>,<span class="string">'rowkey'</span>,<span class="string">'cfname2:'</span>,<span class="string">'value'</span></span><br/><span class="line">scan <span class="string">'tablename'</span></span><br/><span class="line">scan <span class="string">'tablename'</span>,{COLUMNS=&gt;<span class="string">'cfname1'</span>}</span><br/><span class="line">get <span class="string">'tablename'</span>,<span class="string">'rowkey'</span></span><br/><span class="line">describe <span class="string">'tablename'</span></span><br/><span class="line">drop <span class="string">'tablename'</span></span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">help</span></span><br/><span class="line">list</span><br/><span class="line">create <span class="string">'tablename'</span>,<span class="string">'cfname1'</span>,<span class="string">'cfname2'</span></span><br/><span class="line">put <span class="string">'tablename'</span>,<span class="string">'rowkey'</span>,<span class="string">'cfname1:qualifiername1'</span>,<span class="string">'value'</span></span><br/><span class="line">put <span class="string">'tablename'</span>,<span class="string">'rowkey'</span>,<span class="string">'cfname2:'</span>,<span class="string">'value'</span></span><br/><span class="line">scan <span class="string">'tablename'</span></span><br/><span class="line">scan <span class="string">'tablename'</span>,{COLUMNS=&gt;<span class="string">'cfname1'</span>}</span><br/><span class="line">get <span class="string">'tablename'</span>,<span class="string">'rowkey'</span></span><br/><span class="line">describe <span class="string">'tablename'</span></span><br/><span class="line"><span class="built_in">truncate</span> <span class="string">'tablename'</span></span><br/><span class="line">drop <span class="string">'tablename'</span></span><br/></pre></td></tr></table></figure>
 <h3 id="配置-3">配置</h3>
 <p>如果你没有在 <code>hbase-env.sh</code> 里配置
 <code>JAVA_HOME</code>，你会看到：</p>
