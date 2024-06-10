@@ -11,7 +11,8 @@
 <meta content="JSON（JavaScript Object Notation，JavaScript
  对象表示法）是一种轻量级的数据交换格式，可以看成是字符串。
  和 JavaScript 没什么关系，就像 JavaScript 和 Java
- 没什么关系一样。" name="description"/>
+ 没什么关系一样。
+ 从 Python 的角度来看，一个 JSON 文件是一系列列表和字典的嵌套。" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="JSON" property="og:title"/>
 <meta content="https://hrfis.me/blog/json.html" property="og:url"/>
@@ -19,10 +20,11 @@
 <meta content="JSON（JavaScript Object Notation，JavaScript
  对象表示法）是一种轻量级的数据交换格式，可以看成是字符串。
  和 JavaScript 没什么关系，就像 JavaScript 和 Java
- 没什么关系一样。" property="og:description"/>
+ 没什么关系一样。
+ 从 Python 的角度来看，一个 JSON 文件是一系列列表和字典的嵌套。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-05-26T10:21:43.000Z" property="article:published_time"/>
-<meta content="2024-05-15T08:01:56.971Z" property="article:modified_time"/>
+<meta content="2024-06-10T04:57:47.134Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/json" rel="canonical"/>
@@ -87,7 +89,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/">
-<span class="site-state-item-count">32</span>
+<span class="site-state-item-count">27</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -137,7 +139,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-15T16:01:56+08:00" itemprop="dateModified" title="修改时间：2024-05-15 16:01:56">2024-05-15</time>
+<time datetime="2024-06-10T12:57:47+08:00" itemprop="dateModified" title="修改时间：2024-06-10 12:57:47">2024-06-10</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -155,11 +157,12 @@
 对象表示法）是一种轻量级的数据交换格式，可以看成是字符串。</p>
 <p>和 JavaScript 没什么关系，就像 JavaScript 和 Java
 没什么关系一样。</p>
+<p>从 Python 的角度来看，一个 JSON 文件是一系列列表和字典的嵌套。</p>
 <span id="more"></span>
 <h2 id="js">JS</h2>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">jsonStr = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(jsObj);</span><br/><span class="line">jsObj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(jsonStr);</span><br/></pre></td></tr></table></figure>
 <h2 id="python">Python</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br/><span class="line">json_str = json.dumps(py_dic)</span><br/><span class="line">py_dic = json.loads(json_str)</span><br/></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br/><span class="line">json_str = json.dumps(py_obj)</span><br/><span class="line">py_obj = json.loads(json_str)</span><br/></pre></td></tr></table></figure>
 </div>
 <footer class="post-footer">
 <div class="post-nav">

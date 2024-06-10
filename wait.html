@@ -11,8 +11,8 @@
 <meta content="一些写了之后再也没看过，以后也不一定会看的笔记。
  即“永远不看系列”" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="Hadoop 的历史遗留问题" property="og:title"/>
-<meta content="https://hrfis.me/blog/hadoop-wait.html" property="og:url"/>
+<meta content="未整理的笔记" property="og:title"/>
+<meta content="https://hrfis.me/blog/wait.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
 <meta content="一些写了之后再也没看过，以后也不一定会看的笔记。
  即“永远不看系列”" property="og:description"/>
@@ -20,14 +20,14 @@
 <meta content="https://hrfis.me/blog/images/MapReduce.webp" property="og:image"/>
 <meta content="https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/yarn_architecture.gif" property="og:image"/>
 <meta content="2023-09-26T09:45:00.000Z" property="article:published_time"/>
-<meta content="2024-05-15T08:35:50.725Z" property="article:modified_time"/>
+<meta content="2024-06-10T05:13:14.856Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/MapReduce.webp" name="twitter:image"/>
-<link href="https://hrfis.me/blog/hadoop-wait" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/hadoop-wait.html","path":"/hadoop-wait.html","title":"Hadoop 的历史遗留问题"}</script>
+<link href="https://hrfis.me/blog/wait" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/wait.html","path":"/wait.html","title":"未整理的笔记"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hadoop 的历史遗留问题 | 若凡的笔记</title>
+<title>未整理的笔记 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -74,8 +74,9 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mapreduce%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8"><span class="nav-number">1.</span> <span class="nav-text">MapReduce编程入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#wordcountmapper.java"><span class="nav-number">1.1.</span> <span class="nav-text">WordCountMapper.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wordcountreducer.java"><span class="nav-number">1.2.</span> <span class="nav-text">WordCountReducer.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wordcountdriver.java"><span class="nav-number">1.3.</span> <span class="nav-text">WordCountDriver.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95"><span class="nav-number">1.4.</span> <span class="nav-text">本地测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E6%B5%8B%E8%AF%95"><span class="nav-number">1.5.</span> <span class="nav-text">集群测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">1.6.</span> <span class="nav-text">遇到的错误及解决方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hadoop-%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%A1%88%E4%BE%8B"><span class="nav-number">2.</span> <span class="nav-text">Hadoop 的序列化案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#javabean"><span class="nav-number">2.1.</span> <span class="nav-text">JavaBean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B"><span class="nav-number">2.2.</span> <span class="nav-text">案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#score.txt"><span class="nav-number">2.3.</span> <span class="nav-text">score.txt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scorebean.java"><span class="nav-number">2.4.</span> <span class="nav-text">ScoreBean.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scorestatsmapper.java"><span class="nav-number">2.5.</span> <span class="nav-text">ScoreStatsMapper.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scorestatsreducer.java"><span class="nav-number">2.6.</span> <span class="nav-text">ScoreStatsReducer.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scorestatsdriver.java"><span class="nav-number">2.7.</span> <span class="nav-text">ScoreStatsDriver.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C"><span class="nav-number">2.8.</span> <span class="nav-text">输出结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9-hadoop-%E9%9B%86%E7%BE%A4%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC%E7%9A%84%E6%B3%A8%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">对 Hadoop 集群启动脚本的注解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hadoop_homesbinstart-all.sh"><span class="nav-number">3.1.</span> <span class="nav-text">$HADOOP_HOME/sbin/start-all.sh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hadoop_homesbinstart-dfs.sh"><span class="nav-number">3.2.</span> <span class="nav-text">$HADOOP_HOME/sbin/start-dfs.sh</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zookeeper-%E7%9A%84-shell-%E5%91%BD%E4%BB%A4%E5%92%8C-java-api-%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">ZooKeeper 的 Shell
-命令和 Java API 操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#shell-%E5%91%BD%E4%BB%A4"><span class="nav-number">4.1.</span> <span class="nav-text">shell 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#javaapi-%E6%93%8D%E4%BD%9C"><span class="nav-number">4.2.</span> <span class="nav-text">JavaAPI 操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-znode"><span class="nav-number">4.3.</span> <span class="nav-text">创建 Znode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%AD%90%E8%8A%82%E7%82%B9%E5%B9%B6%E7%9B%91%E5%90%AC%E8%8A%82%E7%82%B9%E5%8F%98%E5%8C%96"><span class="nav-number">4.4.</span> <span class="nav-text">获取子节点并监听节点变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E8%8A%82%E7%82%B9%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="nav-number">4.5.</span> <span class="nav-text">判断节点是否存在</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8A%A8%E6%80%81%E4%B8%8A%E4%B8%8B%E7%BA%BF%E6%A1%88%E4%BE%8B"><span class="nav-number">4.6.</span> <span class="nav-text">服务器动态上下线案例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yarn-%E6%A6%82%E8%BF%B0%E5%8F%8A%E6%A1%88%E4%BE%8B"><span class="nav-number">5.</span> <span class="nav-text">YARN 概述及案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">5.1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90-1-%E4%B8%AA-g-%E7%9A%84%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6"><span class="nav-number">5.2.</span> <span class="nav-text">生成 1 个 G 的文本文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE%E6%A1%88%E4%BE%8B"><span class="nav-number">5.3.</span> <span class="nav-text">核心参数配置案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%B9%E9%87%8F%E8%B0%83%E5%BA%A6%E5%99%A8%E5%A4%9A%E9%98%9F%E5%88%97%E6%8F%90%E4%BA%A4%E6%A1%88%E4%BE%8B"><span class="nav-number">5.4.</span> <span class="nav-text">容量调度器多队列提交案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E9%98%9F%E5%88%97%E5%8F%8A%E5%AE%B9%E9%87%8F"><span class="nav-number">5.4.1.</span> <span class="nav-text">配置多个队列及容量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E8%A6%81%E6%8F%90%E4%BA%A4%E5%88%B0%E7%9A%84%E9%98%9F%E5%88%97"><span class="nav-number">5.4.2.</span> <span class="nav-text">选择要提交到的队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%80%E5%A4%A7%E4%BB%BB%E5%8A%A1%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">5.4.3.</span> <span class="nav-text">配置最大任务优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E8%B5%84%E6%BA%90%E7%B4%A7%E5%BC%A0%E7%8E%AF%E5%A2%83"><span class="nav-number">5.4.4.</span> <span class="nav-text">模拟资源紧张环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E4%B8%AD%E4%BF%AE%E6%94%B9%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">5.4.5.</span> <span class="nav-text">执行过程中修改优先级</span></a></li></ol></li></ol></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#vscode"><span class="nav-number">1.</span> <span class="nav-text">VSCode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E9%9B%86%E6%88%90%E7%BB%88%E7%AB%AF%E6%8C%89%E9%94%AE%E4%B8%8E%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%86%B2%E7%AA%81"><span class="nav-number">1.1.</span> <span class="nav-text">解决集成终端按键与快捷键冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E9%99%84%E5%8A%A0%E8%B0%83%E8%AF%95"><span class="nav-number">1.2.</span> <span class="nav-text">远程附加调试</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8-browser-sync-%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">用
+browser-sync 实现在文件内容改变后立即刷新页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mapreduce-%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8"><span class="nav-number">3.</span> <span class="nav-text">MapReduce 编程入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#wordcountmapper.java"><span class="nav-number">3.1.</span> <span class="nav-text">WordCountMapper.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wordcountreducer.java"><span class="nav-number">3.2.</span> <span class="nav-text">WordCountReducer.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wordcountdriver.java"><span class="nav-number">3.3.</span> <span class="nav-text">WordCountDriver.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95"><span class="nav-number">3.4.</span> <span class="nav-text">本地测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E6%B5%8B%E8%AF%95"><span class="nav-number">3.5.</span> <span class="nav-text">集群测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">3.6.</span> <span class="nav-text">遇到的错误及解决方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hadoop-%E7%9A%84%E5%BA%8F%E5%88%97%E5%8C%96%E6%A1%88%E4%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">Hadoop 的序列化案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#javabean"><span class="nav-number">4.1.</span> <span class="nav-text">JavaBean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B"><span class="nav-number">4.2.</span> <span class="nav-text">案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#score.txt"><span class="nav-number">4.3.</span> <span class="nav-text">score.txt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scorebean.java"><span class="nav-number">4.4.</span> <span class="nav-text">ScoreBean.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scorestatsmapper.java"><span class="nav-number">4.5.</span> <span class="nav-text">ScoreStatsMapper.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scorestatsreducer.java"><span class="nav-number">4.6.</span> <span class="nav-text">ScoreStatsReducer.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scorestatsdriver.java"><span class="nav-number">4.7.</span> <span class="nav-text">ScoreStatsDriver.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C"><span class="nav-number">4.8.</span> <span class="nav-text">输出结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9-hadoop-%E9%9B%86%E7%BE%A4%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC%E7%9A%84%E6%B3%A8%E8%A7%A3"><span class="nav-number">5.</span> <span class="nav-text">对 Hadoop 集群启动脚本的注解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hadoop_homesbinstart-all.sh"><span class="nav-number">5.1.</span> <span class="nav-text">$HADOOP_HOME/sbin/start-all.sh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hadoop_homesbinstart-dfs.sh"><span class="nav-number">5.2.</span> <span class="nav-text">$HADOOP_HOME/sbin/start-dfs.sh</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zookeeper-%E7%9A%84-shell-%E5%91%BD%E4%BB%A4%E5%92%8C-java-api-%E6%93%8D%E4%BD%9C"><span class="nav-number">6.</span> <span class="nav-text">ZooKeeper 的 Shell
+命令和 Java API 操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#shell-%E5%91%BD%E4%BB%A4"><span class="nav-number">6.1.</span> <span class="nav-text">shell 命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#javaapi-%E6%93%8D%E4%BD%9C"><span class="nav-number">6.2.</span> <span class="nav-text">JavaAPI 操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-znode"><span class="nav-number">6.3.</span> <span class="nav-text">创建 Znode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%AD%90%E8%8A%82%E7%82%B9%E5%B9%B6%E7%9B%91%E5%90%AC%E8%8A%82%E7%82%B9%E5%8F%98%E5%8C%96"><span class="nav-number">6.4.</span> <span class="nav-text">获取子节点并监听节点变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A4%E6%96%AD%E8%8A%82%E7%82%B9%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="nav-number">6.5.</span> <span class="nav-text">判断节点是否存在</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8A%A8%E6%80%81%E4%B8%8A%E4%B8%8B%E7%BA%BF%E6%A1%88%E4%BE%8B"><span class="nav-number">6.6.</span> <span class="nav-text">服务器动态上下线案例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yarn-%E6%A6%82%E8%BF%B0%E5%8F%8A%E6%A1%88%E4%BE%8B"><span class="nav-number">7.</span> <span class="nav-text">YARN 概述及案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">7.1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90-1-%E4%B8%AA-g-%E7%9A%84%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6"><span class="nav-number">7.2.</span> <span class="nav-text">生成 1 个 G 的文本文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE%E6%A1%88%E4%BE%8B"><span class="nav-number">7.3.</span> <span class="nav-text">核心参数配置案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%B9%E9%87%8F%E8%B0%83%E5%BA%A6%E5%99%A8%E5%A4%9A%E9%98%9F%E5%88%97%E6%8F%90%E4%BA%A4%E6%A1%88%E4%BE%8B"><span class="nav-number">7.4.</span> <span class="nav-text">容量调度器多队列提交案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AA%E9%98%9F%E5%88%97%E5%8F%8A%E5%AE%B9%E9%87%8F"><span class="nav-number">7.4.1.</span> <span class="nav-text">配置多个队列及容量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E8%A6%81%E6%8F%90%E4%BA%A4%E5%88%B0%E7%9A%84%E9%98%9F%E5%88%97"><span class="nav-number">7.4.2.</span> <span class="nav-text">选择要提交到的队列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E6%9C%80%E5%A4%A7%E4%BB%BB%E5%8A%A1%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">7.4.3.</span> <span class="nav-text">配置最大任务优先级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E8%B5%84%E6%BA%90%E7%B4%A7%E5%BC%A0%E7%8E%AF%E5%A2%83"><span class="nav-number">7.4.4.</span> <span class="nav-text">模拟资源紧张环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E4%B8%AD%E4%BF%AE%E6%94%B9%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">7.4.5.</span> <span class="nav-text">执行过程中修改优先级</span></a></li></ol></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -87,7 +88,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/">
-<span class="site-state-item-count">32</span>
+<span class="site-state-item-count">27</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -106,7 +107,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/hadoop-wait.html" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/wait.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -116,12 +117,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="Hadoop 的历史遗留问题 | 若凡的笔记" itemprop="name"/>
+<meta content="未整理的笔记 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          Hadoop 的历史遗留问题
+          未整理的笔记
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -137,7 +138,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-15T16:35:50+08:00" itemprop="dateModified" title="修改时间：2024-05-15 16:35:50">2024-05-15</time>
+<time datetime="2024-06-10T13:13:14+08:00" itemprop="dateModified" title="修改时间：2024-06-10 13:13:14">2024-06-10</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -154,7 +155,32 @@
 <div class="post-body" itemprop="articleBody"><p>一些写了之后再也没看过，以后也不一定会看的笔记。</p>
 <p>即“永远不看系列”</p>
 <span id="more"></span>
-<h2 id="mapreduce编程入门">MapReduce编程入门</h2>
+<h2 id="vscode">VSCode</h2>
+<p>工具没用明白</p>
+<p>https://code.visualstudio.com/docs/</p>
+<h3 id="解决集成终端按键与快捷键冲突">解决集成终端按键与快捷键冲突</h3>
+<p><code>Ctrl + Shift + P</code> 打开命令面板，搜键盘快捷方式</p>
+<p>搜冲突的按键，右键更改 When 表达式，加上
+<code>&amp;&amp; !terminalFocus</code></p>
+<h3 id="远程附加调试">远程附加调试</h3>
+<p>hadoop-env.sh</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> 某某_OPTS=<span class="string">"-agentlib:jdwp=transport=dt_socket,address=8888,server=y,suspend=n"</span></span><br/></pre></td></tr></table></figure>
+<p>launch.json</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"version"</span><span class="punctuation">:</span> <span class="string">"0.2.0"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"configurations"</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br/><span class="line">    <span class="punctuation">{</span></span><br/><span class="line">      <span class="attr">"type"</span><span class="punctuation">:</span> <span class="string">"java"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"name"</span><span class="punctuation">:</span> <span class="string">"Hadoop 某某"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"request"</span><span class="punctuation">:</span> <span class="string">"attach"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"hostName"</span><span class="punctuation">:</span> <span class="string">"ubuntu101"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"port"</span><span class="punctuation">:</span> <span class="number">8888</span></span><br/><span class="line">    <span class="punctuation">}</span></span><br/><span class="line">  <span class="punctuation">]</span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></table></figure>
+<h2 id="用-browser-sync-实现在文件内容改变后立即刷新页面">用
+browser-sync 实现在文件内容改变后立即刷新页面</h2>
+<p>起因是：</p>
+<p>不管是直接打开 html
+文件，还是用<code>python -m http.server 8000 --bind 127.0.0.1</code>，在修改保存
+html 文件后浏览器都不能立马刷新。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">npm install browser-sync</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">npx browser-sync start --server --files <span class="string">"."</span></span><br/></pre></td></tr></table></figure>
+<p><code>--files</code> 后指定要监视的文件。</p>
+<p><code>.</code> 表示监视当前目录以及子目录下的所有文件。</p>
+<p>可以改成 <code>*.html</code>，<code>public/*.*</code> 等。</p>
+<p>html
+文件里至少得有一对<code>&lt;body&gt;</code>标签，要么没法自动刷新。</p>
+<h2 id="mapreduce-编程入门">MapReduce 编程入门</h2>
 <p><a href="https://github.com/apache/hadoop/blob/branch-3.3.6/hadoop-mapreduce-project/hadoop-mapreduce-client/hadoop-mapreduce-client-core/src/site/markdown/MapReduceTutorial.md" rel="noopener" target="_blank">官方教程</a></p>
 <p><img src="/blog/images/MapReduce.webp"/></p>
 <p>我们想统计一篇英文文章里的单词，每个都出现了多少次。假设这个文本文件只有英文单词、空格和换行符（LF
@@ -441,7 +467,7 @@ default,队列名</li>
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/hadoop-wait.html"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/wait.html"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
