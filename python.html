@@ -18,7 +18,7 @@
  这门语言相对于其他语言是写得最多的（指调过的库）。其他语言基本没写过。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-23T12:24:00.000Z" property="article:published_time"/>
-<meta content="2024-05-31T05:09:53.855Z" property="article:modified_time"/>
+<meta content="2024-06-10T10:06:05.175Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/python" rel="canonical"/>
@@ -133,7 +133,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-05-31T13:09:53+08:00" itemprop="dateModified" title="修改时间：2024-05-31 13:09:53">2024-05-31</time>
+<time datetime="2024-06-10T18:06:05+08:00" itemprop="dateModified" title="修改时间：2024-06-10 18:06:05">2024-06-10</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -153,7 +153,12 @@
 <h2 id="报菜名">报菜名</h2>
 <p>Python 的标准库有上百个。用 <code>import</code> 还是
 <code>from ... import ...</code>，后面加不加 <code>as</code>
-，以易读为主。因为代码是给人看的。</p>
+，以易读为主。因为代码是给人看的。不要使用
+<code>from xxx import *</code>。这种行为类似于：你在搭积木的时候，闭着眼睛把一整个塑料袋的积木全倒出来，然后闭着眼睛摸一个、闭着眼睛摸一个。<code>import</code>
+语句的顺序是：标准库、第三方库、自定义库。可通过 VSCode 插件 isort
+解决，按 Ctrl + Shift + O 排序。在你的工程目录下面，使用
+https://github.com/bndr/pipreqs 可以把你用到的所有第三方库写到依赖文件
+<code>requirements.txt</code> 里。</p>
 <p>虽然 Python
 的一个变量名可以赋多个类型，但在有必要的情况下，还是加上类型注解。这对
 VSCode
@@ -161,12 +166,6 @@ VSCode
 <code>Any</code>，这时候你在它后面加 <code>.</code>，VSCode
 没法给你列出它的方法。这时候你需要显式标注它的类型，比如
 <code>foo: Bar</code>。或者 <code>assert isinstance(foo, Bar)</code></p>
-<p>不要使用
-<code>from xxx import *</code>。这种行为类似于：你在搭积木的时候，闭着眼睛把一整个塑料袋的积木全倒出来，然后闭着眼睛摸一个、闭着眼睛摸一个。</p>
-<p><code>import</code> 语句的顺序是：标准库、第三方库、自定义库。可通过
-VSCode 插件 isort 解决，按 Ctrl + Shift + O 排序。</p>
-<p>在你的工程目录下面，使用 https://github.com/bndr/pipreqs
-可以把你用到的所有第三方库写到依赖文件 <code>requirements.txt</code></p>
 <h2 id="输出函数名和本地时间">输出函数名和本地时间</h2>
 <p>使用装饰器：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">log</span>(<span class="params">func</span>):</span><br/><span class="line">    <span class="keyword">def</span> <span class="title function_">wrapper</span>(<span class="params">*args, **kwargs</span>):</span><br/><span class="line">        <span class="built_in">print</span>(<span class="string">f"<span class="subst">{func.__name__}</span>，系统时间：<span class="subst">{datetime.datetime.now()}</span>"</span>)</span><br/><span class="line">        <span class="keyword">return</span> func(*args, **kwargs)</span><br/><span class="line"></span><br/><span class="line">    <span class="keyword">return</span> wrapper</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="meta">@log</span></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>(): ...</span><br/><span class="line"></span><br/><span class="line">test()</span><br/></pre></td></tr></table></figure>

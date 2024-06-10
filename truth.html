@@ -20,7 +20,7 @@
 <meta content="https://hrfis.me/blog/images/peace-1.webp" property="og:image"/>
 <meta content="https://hrfis.me/blog/images/peace-2.webp" property="og:image"/>
 <meta content="2024-04-14T14:41:00.000Z" property="article:published_time"/>
-<meta content="2024-06-07T11:40:04.156Z" property="article:modified_time"/>
+<meta content="2024-06-10T10:15:06.478Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/weierstrassa=0.5b=13.webp" name="twitter:image"/>
@@ -136,7 +136,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-06-07T19:40:04+08:00" itemprop="dateModified" title="修改时间：2024-06-07 19:40:04">2024-06-07</time>
+<time datetime="2024-06-10T18:15:06+08:00" itemprop="dateModified" title="修改时间：2024-06-10 18:15:06">2024-06-10</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -153,45 +153,35 @@
 <div class="post-body" itemprop="articleBody"><p>如题。</p>
 <span id="more"></span>
 <h2 id="症状自述悖论">症状自述悖论</h2>
-<p>“症状自述悖论”是笔者生造的一个词，指的是这样一种心理变化：</p>
 <ol type="1">
 <li>当症状出现时，无法用语言描述自己的想法。</li>
 <li>一旦想用语言描述这个症状，开始组织语言的时候，症状就消失了。</li>
-<li>最后，为了使用文字描述这个症状，不得不舍弃一些准确性，来换取一段看似合理的，对症状的描述。</li>
+<li>最后为了使用文字描述这个症状，不得不舍弃一些准确性，来换取一段看似合理的对症状的描述。</li>
 </ol>
-<p>这个看似"合理"的描述只是事后想象出来的。而当事情真正发生的时候，是没有办法使用语言描述的。</p>
-<p>用函数图像打比方：语言描述就是求导，你发病的症状是魏尔斯特拉斯函数，处处连续，处处不可导。</p>
+<p>用函数图像打比方：语言描述就是求导，你发病的症状是魏尔斯特拉斯函数，处处连续，处处不可导：</p>
 <p><span class="math display">\[
 W(x) = \sum\limits_{n=0}^{\infty}a^{n}\cos(b^n \pi x) \quad a=0.5,b=13
 \]</span></p>
 <p><img src="/blog/images/weierstrassa=0.5b=13.webp"/></p>
 <p>而你事后描述出来的症状是 <span class="math inline">\(2\cos(\pi
-x)\)</span>，只是与它宏观看起来相似而已。</p>
+x)\)</span>，只是与它宏观看起来相似而已：</p>
 <p><img src="/blog/images/2cospix.webp"/></p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br/><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br/><span class="line"></span><br/><span class="line">a = <span class="number">0.5</span></span><br/><span class="line">b = <span class="number">13</span></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">assert</span> a &gt; <span class="number">0</span> <span class="keyword">and</span> a &lt; <span class="number">1</span></span><br/><span class="line"><span class="keyword">assert</span> b &gt;= <span class="number">7</span> <span class="keyword">and</span> b % <span class="number">2</span> == <span class="number">1</span></span><br/><span class="line"><span class="keyword">assert</span> (a * b) &gt; (<span class="number">1</span> + <span class="number">1.5</span> * np.pi)</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">weierstrass</span>(<span class="params">x, a, b, N=<span class="number">100</span></span>):</span><br/><span class="line">    result = <span class="number">0</span></span><br/><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br/><span class="line">        result += a**n * np.cos(b**n * np.pi * x)</span><br/><span class="line">    <span class="keyword">return</span> result</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line">x = np.arange(-<span class="number">2</span>, <span class="number">2</span>, <span class="number">0.0001</span>)</span><br/><span class="line">y1 = <span class="number">2</span> * np.cos(np.pi * x)</span><br/><span class="line">y2 = weierstrass(x, a, b)</span><br/><span class="line"></span><br/><span class="line">plt.figure(<span class="number">1</span>)</span><br/><span class="line">plt.plot(x, y1, <span class="string">"b"</span>)</span><br/><span class="line">plt.figure(<span class="number">2</span>)</span><br/><span class="line">plt.plot(x, y2, <span class="string">"r"</span>)</span><br/><span class="line"></span><br/><span class="line">plt.show()</span><br/></pre></td></tr></table></figure>
 <h2 id="关于本人现在病情的发展情况">关于本人现在病情的发展情况</h2>
 <p>容易忘记事。除了这个之外，好像没什么别的问题。</p>
-<p>准确地说是思维不连贯。你可以这么理解：用一个【递归日志记录器】打比方：</p>
-<p>有一个日志记录器，在它每记录一条日志的时候，又记录了一条【我记录了前面那条日志】</p>
-<p>有一个人，在他准备干一件事 A 的时候，又在准备干一件事
-B【我要准备干前面那件事 A】，然后忘记前面那件事 A 是什么。</p>
-<p>比如：当我想要更新这个文件的这里的时候，打开 VScode
+<p>用一个递归日志记录器打比方：有一个日志记录器，在它每记录一条日志的时候，又记录了一条我记录了前面那条日志；有一个人，在他准备干一件事
+A 的时候，又在准备干一件事 B：我要准备干前面那件事 A，然后忘记前面那件事
+A 是什么。比如：当我想要更新这个文件的这里的时候，打开 VScode
 之后，依稀记得自己要修改一个文件，但是只知道要修改文件，会卡一会壳。</p>
 <h2 id="关于有没有真实的自我">关于有没有真实的自我</h2>
-<p>这个问题和“一艘船换了全部零件还是不是原来的船”、“踏入几次河流”差不多。</p>
-<p>“自我”不用说，什么叫“真实”？先给笔者以某种情绪下看到的“真实”下一个定义：</p>
-<p><strong>有这样一个人，他/她在任何场合下说出的话都是不违心的</strong>。</p>
-<p>如果由此推，“我”大概率会在不同的场合说出不同的话，或者在同一种场合以不同的情绪说出不同的话，所以根本就没有“真实的我”。</p>
-<p>在明尼苏达多相人格测试里有这样一道题目：</p>
+<p>这个问题和“一艘船换了全部零件还是不是原来的船”、“踏入几次河流”差不多。“自我”不用说，什么叫“真实”？先给笔者以某种情绪下看到的“真实”下一个定义：有这样一个人，他/她在任何场合下说出的话都是不违心的。如果由此推，“我”大概率会在不同的场合说出不同的话，或者在同一种场合以不同的情绪说出不同的话，所以根本就没有“真实的我”。在明尼苏达多相人格测试里有这样一道题目：</p>
 <blockquote>
 <p>有时我也讲假话</p>
 </blockquote>
 <p>如果你回答“否”，它会给你的“说谎”量表加一分。什么意思？这说明制定测试题目的人，默认认为做这个测试的所有人都是讲过假话的。如果你说自己从来没讲过假话，它反而会认为你在说谎。</p>
 <p>“人是一切社会关系的总和”这个命题从“呼吸、分子热运动”的角度来看太大了。你可以由此感性地理解：大到“测量误差”，小到“测不准定理”：仪器，和使用仪器的人都不是完美的旁观者。你可以由此感性地理解：“生气”是因为你的温度与对方的温度相差太大了，热力环流形成风。把风加上病字头，我们称之为精神病人。</p>
 <h2 id="和平精英游戏操作二指转四指的心得">《和平精英》游戏操作二指转四指的心得</h2>
-<p>当你逐渐习惯四指操作后，你会发现：匹配到的对手全都会四指，该打不过还是打不过。</p>
-<p>当你高兴的时候，对面在摔手机；当你摔手机的时候，对面在高兴。这就是摔手机守恒定律。</p>
-<p>这造成一种必然的现象：你，或者你匹配到的队友，在某局游戏里会有一种异常行为，包括但不限于：开船回出生岛转一圈、驾车绕沙漠公路环行一周、把汽车喇叭或枪声打出节奏感、以及挑战不捡任何东西吃鸡。</p>
+<p>当你逐渐习惯四指操作后，你会发现：匹配到的对手全都会四指，该打不过还是打不过。当你高兴的时候，对面在摔手机；当你摔手机的时候，对面在高兴。这就是摔手机守恒定律。这造成一种必然的现象：你，或者你匹配到的队友，在某局游戏里会有一种异常行为，包括但不限于：开船回出生岛转一圈、驾车绕沙漠公路环行一周、把汽车喇叭或枪声打出节奏感、以及挑战不捡任何东西吃鸡。</p>
 <p>以上都不属于“消极游戏”。属于“消极游戏”的一套操作：</p>
 <ol type="1">
 <li>在超体对抗模式选“战地医师”</li>
