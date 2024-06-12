@@ -8,8 +8,7 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="做任何事情千万不要多线程并行。
- 在把自己会的东西实现之前，千万不要考虑不会的。
+<meta content="在把自己会的东西实现之前，千万不要考虑不会的。
  在没熟悉为什么这么做之前，千万不要一上来就拆分文件。
  在这一个问题解决之前，不要问大模型下一个问题。
  困了就睡。" name="description"/>
@@ -17,14 +16,13 @@
 <meta content="囧" property="og:title"/>
 <meta content="https://hrfis.me/blog/jiong.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="做任何事情千万不要多线程并行。
- 在把自己会的东西实现之前，千万不要考虑不会的。
+<meta content="在把自己会的东西实现之前，千万不要考虑不会的。
  在没熟悉为什么这么做之前，千万不要一上来就拆分文件。
  在这一个问题解决之前，不要问大模型下一个问题。
  困了就睡。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-06-04T08:00:00.000Z" property="article:published_time"/>
-<meta content="2024-06-10T09:39:53.058Z" property="article:modified_time"/>
+<meta content="2024-06-12T14:46:12.875Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/jiong" rel="canonical"/>
@@ -77,13 +75,13 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.1.</span> <span class="nav-text">数据表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E5%9B%BE"><span class="nav-number">1.2.</span> <span class="nav-text">系统层次图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E7%A8%8B%E7%9B%AE%E5%BD%95"><span class="nav-number">1.3.</span> <span class="nav-text">工程目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E9%97%AE%E9%A2%98"><span class="nav-number">1.4.</span> <span class="nav-text">关键问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95%E6%B3%A8%E9%94%80%E9%80%BB%E8%BE%91"><span class="nav-number">1.5.</span> <span class="nav-text">注册登录注销逻辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8F%9C%E5%8D%95"><span class="nav-number">1.6.</span> <span class="nav-text">菜单</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%87%8C%E7%9A%84%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">数据库里的表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#token%E6%AF%8F%E6%AC%A1%E6%8E%A5%E6%94%B6%E5%88%B0%E8%AF%B7%E6%B1%82%E9%83%BD%E8%A6%81%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.1.</span> <span class="nav-text">Token：每次接收到请求都要查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#user%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">2.2.</span> <span class="nav-text">User：用户信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#order%E8%AE%A2%E5%8D%95"><span class="nav-number">2.3.</span> <span class="nav-text">Order：订单</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#api-%E6%96%87%E6%A1%A3"><span class="nav-number">3.</span> <span class="nav-text">API 文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E9%9C%80%E8%A6%81-token-%E7%9A%84-api"><span class="nav-number">4.</span> <span class="nav-text">不需要 token 的 API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#post-apiauthsignup-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C-201-409"><span class="nav-number">4.1.</span> <span class="nav-text">POST /api/auth/signup
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">需求分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%B1%82%E6%AC%A1%E5%9B%BE"><span class="nav-number">1.1.</span> <span class="nav-text">系统层次图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E7%A8%8B%E7%9B%AE%E5%BD%95"><span class="nav-number">1.2.</span> <span class="nav-text">工程目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.</span> <span class="nav-text">关键问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95%E6%B3%A8%E9%94%80%E9%80%BB%E8%BE%91"><span class="nav-number">1.4.</span> <span class="nav-text">注册登录注销逻辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8F%9C%E5%8D%95"><span class="nav-number">1.5.</span> <span class="nav-text">菜单</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%87%8C%E7%9A%84%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">数据库里的表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#token%E6%AF%8F%E6%AC%A1%E6%8E%A5%E6%94%B6%E5%88%B0%E8%AF%B7%E6%B1%82%E9%83%BD%E8%A6%81%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.1.</span> <span class="nav-text">Token：每次接收到请求都要查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#user%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF"><span class="nav-number">2.2.</span> <span class="nav-text">User：用户信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#order%E8%AE%A2%E5%8D%95"><span class="nav-number">2.3.</span> <span class="nav-text">Order：订单</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#api-%E6%96%87%E6%A1%A3"><span class="nav-number">3.</span> <span class="nav-text">API 文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E9%9C%80%E8%A6%81-token-%E7%9A%84-api"><span class="nav-number">4.</span> <span class="nav-text">不需要 token 的 API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#post-apiauthsignup-%E7%94%A8%E6%88%B7%E6%B3%A8%E5%86%8C-201-409"><span class="nav-number">4.1.</span> <span class="nav-text">POST /api/auth/signup
 用户注册 201 | 409</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#post-apiauthlogin-%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95-201-401"><span class="nav-number">4.2.</span> <span class="nav-text">POST /api/auth/login
 用户登录 201 | 401</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E8%A6%81-token-%E7%9A%84-api"><span class="nav-number">5.</span> <span class="nav-text">需要 token 的 API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#get-apiuserinfo-%E8%8E%B7%E5%8F%96%E6%9C%AC%E4%BA%BA%E4%BF%A1%E6%81%AF-200"><span class="nav-number">5.1.</span> <span class="nav-text">GET /api/user/info
-获取本人信息 200</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delete-apiuserlogout-%E6%B3%A8%E9%94%80%E7%99%BB%E5%BD%95-204"><span class="nav-number">5.2.</span> <span class="nav-text">DELETE /api/user/logout
-注销登录 204</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#post-apiorder-%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E8%AE%A2%E5%8D%95-201"><span class="nav-number">5.3.</span> <span class="nav-text">POST /api/order 创建新的订单
-201</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get-apiorderid-%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9A-id-%E7%9A%84%E8%AE%A2%E5%8D%95-200-404"><span class="nav-number">5.4.</span> <span class="nav-text">GET /api/order/{id}
-获取指定 ID 的订单 200 | 404</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get-apiorder-%E8%8E%B7%E5%8F%96%E5%8E%86%E5%8F%B2%E8%AE%A2%E5%8D%95-200"><span class="nav-number">5.5.</span> <span class="nav-text">GET /api/order 获取历史订单
+获取本人信息 200</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#put-apiuserinfo-%E6%9B%B4%E6%96%B0%E6%9C%AC%E4%BA%BA%E4%BF%A1%E6%81%AF-204"><span class="nav-number">5.2.</span> <span class="nav-text">PUT /api/user/info
+更新本人信息 204</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delete-apiuserlogout-%E6%B3%A8%E9%94%80%E7%99%BB%E5%BD%95-204"><span class="nav-number">5.3.</span> <span class="nav-text">DELETE /api/user/logout
+注销登录 204</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#post-apiorder-%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E8%AE%A2%E5%8D%95-201"><span class="nav-number">5.4.</span> <span class="nav-text">POST /api/order 创建新的订单
+201</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#get-apiorder-%E8%8E%B7%E5%8F%96%E5%8E%86%E5%8F%B2%E8%AE%A2%E5%8D%95-200"><span class="nav-number">5.5.</span> <span class="nav-text">GET /api/order 获取历史订单
 200</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
@@ -146,7 +144,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-06-10T17:39:53+08:00" itemprop="dateModified" title="修改时间：2024-06-10 17:39:53">2024-06-10</time>
+<time datetime="2024-06-12T22:46:12+08:00" itemprop="dateModified" title="修改时间：2024-06-12 22:46:12">2024-06-12</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -161,7 +159,6 @@
 </div>
 </header>
 <div class="post-body" itemprop="articleBody"><ol type="1">
-<li>做任何事情千万不要多线程并行。</li>
 <li>在把自己会的东西实现之前，千万不要考虑不会的。</li>
 <li>在没熟悉为什么这么做之前，千万不要一上来就拆分文件。</li>
 <li>在这一个问题解决之前，不要问大模型下一个问题。</li>
@@ -179,10 +176,6 @@
 <p>JDK 8 + Spring Boot Starter 2.7.18（Tomcat 9.0.83 + JUnit 5.8.2 +
 SLF4J 1.7.36）+ HBase 2.5.8</p>
 <p>搞一个家政服务管理系统出来。我们的最终目的是搞出来一个能看的东西，搞一个“原型”。所以简单一点，不要在意样式，也不要在意能不能真的拿来用，因为百分之百是没人会拿来用的。</p>
-<h3 id="数据表示">数据表示</h3>
-<p>服务类型：清洁 1、护理 2、家教 3</p>
-<p>服务描述：字符串</p>
-<p>时间：64 位时间戳</p>
 <h3 id="系统层次图">系统层次图</h3>
 <pre class="mermaid">%%{
     init: {
@@ -193,10 +186,9 @@ SLF4J 1.7.36）+ HBase 2.5.8</p>
 flowchart LR
     J[家政服务管理系统]--&gt;D["登录与注册模块(下单者/接单者)"]
     J--&gt;X["下单模块(下单者)"]--&gt;创建新订单
-    J--&gt;L["订单管理模块"]--&gt;VV["查看历史订单(下单者/接单者/管理员)"] &amp; V[查看每一个订单]
+    J--&gt;L["订单管理模块"]--&gt;VV["查看历史订单(下单者/接单者)"] &amp; V[查看每一个订单]
     V--&gt;Q["取消订单(下单者)"] &amp; QQ["标记订单已完成(下单者)"] &amp; QQQ["接单(接单者)"] &amp; QQQQ["取消接单(接单者)"]
-    J--&gt;F[订单分配模块]--&gt;分配订单给相近地址的接单者
-    J--&gt;G[个人信息管理模块]--&gt;查看个人信息 &amp; 修改个人信息 &amp; 注销登录 &amp; 注销账号</pre>
+    J--&gt;G[个人信息管理模块]--&gt;查看个人信息 &amp; 修改个人信息 &amp; 注销登录</pre>
 <h3 id="工程目录">工程目录</h3>
 <p>后端：</p>
 <ul>
@@ -209,7 +201,12 @@ flowchart LR
 Programming Interface），即表述性状态转移风格的应用程序编程接口。</p>
 <p>HTTP 状态码：1 开头的是请求正在被处理，2 开头的是请求成功，3
 开头的是重定向，4 开头的是客户端错误，5 开头的是服务器错误。</p>
-<p><strong>已解决</strong>：火狐上可以正常注册、登录、查询个人信息、注销登录。</p>
+<p><strong>已解决</strong>：</p>
+<ul>
+<li>火狐上可以正常注册、登录、查询个人信息、注销登录。</li>
+<li>修改个人信息</li>
+<li>创建订单</li>
+</ul>
 <p><strong>未解决</strong>：</p>
 <ul>
 <li>跨域的问题：Edge 和 Chrome 在登录之后，照样向 localStorage 里写
@@ -219,8 +216,9 @@ token 了，但是之后的操作它们发了两个请求，一个带 Authorizat
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">userinfo:1 Access to XMLHttpRequest at 'http://localhost:8080/api/user/info' from origin 'http://localhost:54322' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.</span><br/></pre></td></tr></table></figure>
 <ul>
-<li>修改个人信息</li>
-<li>创建订单</li>
+<li>取消订单</li>
+<li>接单</li>
+<li>标记订单完成</li>
 </ul>
 <h3 id="注册登录注销逻辑">注册登录注销逻辑</h3>
 <ol type="1">
@@ -280,11 +278,11 @@ UserService.who 根据 User 手机号查身份</li>
 </table>
 <h3 id="user用户信息">User：用户信息</h3>
 <p>图方便，把密码和其他东西存在一起。</p>
-<table>
+<table style="width:100%;">
 <colgroup>
-<col style="width: 19%"/>
-<col style="width: 46%"/>
-<col style="width: 33%"/>
+<col style="width: 20%"/>
+<col style="width: 44%"/>
+<col style="width: 34%"/>
 </colgroup>
 <thead>
 <tr class="header">
@@ -301,7 +299,7 @@ UserService.who 根据 User 手机号查身份</li>
 </tr>
 <tr class="even">
 <td></td>
-<td>role -&gt; customer/provider/admin</td>
+<td>role -&gt; 下单者/接单者/管理员</td>
 <td>sex -&gt; 男</td>
 </tr>
 <tr class="odd">
@@ -309,20 +307,15 @@ UserService.who 根据 User 手机号查身份</li>
 <td></td>
 <td>age -&gt; 23</td>
 </tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td>adcode -&gt; 420112</td>
-</tr>
 </tbody>
 </table>
 <h3 id="order订单">Order：订单</h3>
 <table>
 <colgroup>
-<col style="width: 12%"/>
-<col style="width: 22%"/>
-<col style="width: 37%"/>
-<col style="width: 27%"/>
+<col style="width: 13%"/>
+<col style="width: 20%"/>
+<col style="width: 41%"/>
+<col style="width: 24%"/>
 </colgroup>
 <thead>
 <tr class="header">
@@ -347,14 +340,14 @@ UserService.who 根据 User 手机号查身份</li>
 </tr>
 <tr class="odd">
 <td></td>
-<td>order_time -&gt; 64 位时间戳</td>
-<td>address -&gt; 湖北省武汉市东西湖区</td>
-<td>acceptance_time -&gt; 64 位时间戳</td>
+<td>order_time -&gt; 时间戳</td>
+<td>adcode -&gt; 420112</td>
+<td>acceptance_time -&gt; 时间戳</td>
 </tr>
 <tr class="even">
 <td></td>
 <td></td>
-<td>adcode -&gt; 420112</td>
+<td>address -&gt; 湖北省武汉市东西湖区</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -390,25 +383,24 @@ UserService.who 根据 User 手机号查身份</li>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"message"</span><span class="punctuation">:</span> <span class="string">"登录成功"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"token"</span><span class="punctuation">:</span> <span class="string">"xxxxxx"</span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></table></figure>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"error"</span><span class="punctuation">:</span> <span class="string">"手机号或密码错误"</span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></table></figure>
 <h2 id="需要-token-的-api">需要 token 的 API</h2>
-<p>后端验证身份，根据管理员/下单者/接单者身份返回不同的响应。</p>
+<p>后端验证身份，根据下单者/接单者身份返回不同的响应。</p>
 <h3 id="get-apiuserinfo-获取本人信息-200">GET /api/user/info
 获取本人信息 200</h3>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"name"</span><span class="punctuation">:</span> <span class="string">"黄若凡"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"sex"</span><span class="punctuation">:</span> <span class="string">"男"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"age"</span><span class="punctuation">:</span> <span class="string">"23"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"role"</span><span class="punctuation">:</span> <span class="string">"admin"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"adcode"</span><span class="punctuation">:</span> <span class="string">"420112"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"phone"</span><span class="punctuation">:</span> <span class="string">"13333333333"</span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"name"</span><span class="punctuation">:</span> <span class="string">"黄若凡"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"sex"</span><span class="punctuation">:</span> <span class="string">"男"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"age"</span><span class="punctuation">:</span> <span class="string">"23"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"role"</span><span class="punctuation">:</span> <span class="string">"admin"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"phone"</span><span class="punctuation">:</span> <span class="string">"13333333333"</span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></table></figure>
+<h3 id="put-apiuserinfo-更新本人信息-204">PUT /api/user/info
+更新本人信息 204</h3>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"name"</span><span class="punctuation">:</span> <span class="string">"黄若凡"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"sex"</span><span class="punctuation">:</span> <span class="string">"男"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"age"</span><span class="punctuation">:</span> <span class="string">"23"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"role"</span><span class="punctuation">:</span> <span class="string">"admin"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"phone"</span><span class="punctuation">:</span> <span class="string">"13333333333"</span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></table></figure>
 <h3 id="delete-apiuserlogout-注销登录-204">DELETE /api/user/logout
 注销登录 204</h3>
 <p>无响应体</p>
 <h3 id="post-apiorder-创建新的订单-201">POST /api/order 创建新的订单
 201</h3>
 <p>只有下单者有权限。</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"item"</span><span class="punctuation">:</span> <span class="string">""</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"address"</span><span class="punctuation">:</span> <span class="string">""</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"adcode"</span><span class="punctuation">:</span> <span class="string">"420112"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"description"</span><span class="punctuation">:</span> <span class="string">""</span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></table></figure>
-<h3 id="get-apiorderid-获取指定-id-的订单-200-404">GET /api/order/{id}
-获取指定 ID 的订单 200 | 404</h3>
-<p>至多返回这些项：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"id"</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"placer"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br/><span class="line">    <span class="attr">"name"</span><span class="punctuation">:</span> <span class="string">"李四"</span><span class="punctuation">,</span></span><br/><span class="line">    <span class="attr">"phone"</span><span class="punctuation">:</span> <span class="string">"14444444444"</span><span class="punctuation">,</span></span><br/><span class="line">    <span class="attr">"order_time"</span><span class="punctuation">:</span> <span class="string">""</span></span><br/><span class="line">  <span class="punctuation">}</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"order"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br/><span class="line">    <span class="attr">"item"</span><span class="punctuation">:</span> <span class="string">""</span><span class="punctuation">,</span></span><br/><span class="line">    <span class="attr">"address"</span><span class="punctuation">:</span> <span class="string">""</span><span class="punctuation">,</span></span><br/><span class="line">    <span class="attr">"adcode"</span><span class="punctuation">:</span> <span class="string">"420112"</span><span class="punctuation">,</span></span><br/><span class="line">    <span class="attr">"description"</span><span class="punctuation">:</span> <span class="string">""</span><span class="punctuation">,</span></span><br/><span class="line">    <span class="attr">"end_time"</span><span class="punctuation">:</span> <span class="string">""</span></span><br/><span class="line">  <span class="punctuation">}</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"receiver"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br/><span class="line">    <span class="attr">"name"</span><span class="punctuation">:</span> <span class="string">"张师傅"</span><span class="punctuation">,</span></span><br/><span class="line">    <span class="attr">"phone"</span><span class="punctuation">:</span> <span class="string">"15555555555"</span><span class="punctuation">,</span></span><br/><span class="line">    <span class="attr">"acceptance_time"</span><span class="punctuation">:</span> <span class="string">""</span></span><br/><span class="line">  <span class="punctuation">}</span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"item"</span><span class="punctuation">:</span> <span class="string">"清洁"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"address"</span><span class="punctuation">:</span> <span class="string">"21231"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"description"</span><span class="punctuation">:</span> <span class="string">"123"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"adcode"</span><span class="punctuation">:</span> <span class="string">"130306"</span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></table></figure>
 <h3 id="get-apiorder-获取历史订单-200">GET /api/order 获取历史订单
 200</h3>
 <p>下单者/接单者获取与本人关联的。管理员获取所有的。没有也返回一个空的。</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br/><span class="line">  <span class="punctuation">{</span></span><br/><span class="line">    <span class="attr">"id"</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br/><span class="line">    <span class="attr">"placer"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br/><span class="line">      <span class="attr">"name"</span><span class="punctuation">:</span> <span class="string">"李四"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"phone"</span><span class="punctuation">:</span> <span class="string">"14444444444"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"order_time"</span><span class="punctuation">:</span> <span class="string">""</span></span><br/><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br/><span class="line">    <span class="attr">"order"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br/><span class="line">      <span class="attr">"item"</span><span class="punctuation">:</span> <span class="string">""</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"address"</span><span class="punctuation">:</span> <span class="string">""</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"adcode"</span><span class="punctuation">:</span> <span class="string">"420112"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"description"</span><span class="punctuation">:</span> <span class="string">""</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"end_time"</span><span class="punctuation">:</span> <span class="string">""</span></span><br/><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br/><span class="line">    <span class="attr">"receiver"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br/><span class="line">      <span class="attr">"name"</span><span class="punctuation">:</span> <span class="string">"张师傅"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"phone"</span><span class="punctuation">:</span> <span class="string">"15555555555"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"acceptance_time"</span><span class="punctuation">:</span> <span class="string">""</span></span><br/><span class="line">    <span class="punctuation">}</span></span><br/><span class="line">  <span class="punctuation">}</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="punctuation">{</span></span><br/><span class="line">    <span class="attr">"id"</span><span class="punctuation">:</span> <span class="number">2</span></span><br/><span class="line">    <span class="comment">//...</span></span><br/><span class="line">  <span class="punctuation">}</span></span><br/><span class="line"><span class="punctuation">]</span></span><br/></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br/><span class="line">  <span class="punctuation">{</span></span><br/><span class="line">    <span class="attr">"id"</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br/><span class="line">    <span class="attr">"placer"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br/><span class="line">      <span class="attr">"name"</span><span class="punctuation">:</span> <span class="string">"李四"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"phone"</span><span class="punctuation">:</span> <span class="string">"14444444444"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"order_time"</span><span class="punctuation">:</span> <span class="string">""</span></span><br/><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br/><span class="line">    <span class="attr">"order"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br/><span class="line">      <span class="attr">"item"</span><span class="punctuation">:</span> <span class="string">""</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"address"</span><span class="punctuation">:</span> <span class="string">""</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"description"</span><span class="punctuation">:</span> <span class="string">""</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"end_time"</span><span class="punctuation">:</span> <span class="string">""</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"status"</span><span class="punctuation">:</span> <span class="string">""</span></span><br/><span class="line">    <span class="punctuation">}</span><span class="punctuation">,</span></span><br/><span class="line">    <span class="attr">"receiver"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br/><span class="line">      <span class="attr">"name"</span><span class="punctuation">:</span> <span class="string">"张师傅"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"phone"</span><span class="punctuation">:</span> <span class="string">"15555555555"</span><span class="punctuation">,</span></span><br/><span class="line">      <span class="attr">"acceptance_time"</span><span class="punctuation">:</span> <span class="string">""</span></span><br/><span class="line">    <span class="punctuation">}</span></span><br/><span class="line">  <span class="punctuation">}</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="punctuation">{</span></span><br/><span class="line">    <span class="comment">//...</span></span><br/><span class="line">  <span class="punctuation">}</span></span><br/><span class="line"><span class="punctuation">]</span></span><br/></pre></td></tr></table></figure>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
