@@ -22,7 +22,7 @@
  困了就睡。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-06-04T08:00:00.000Z" property="article:published_time"/>
-<meta content="2024-06-12T14:46:12.875Z" property="article:modified_time"/>
+<meta content="2024-06-13T06:37:14.403Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/jiong" rel="canonical"/>
@@ -144,7 +144,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-06-12T22:46:12+08:00" itemprop="dateModified" title="修改时间：2024-06-12 22:46:12">2024-06-12</time>
+<time datetime="2024-06-13T14:37:14+08:00" itemprop="dateModified" title="修改时间：2024-06-13 14:37:14">2024-06-13</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -226,10 +226,10 @@ token 了，但是之后的操作它们发了两个请求，一个带 Authorizat
 <li>全局前置守卫判断该页面是否需要认证，如果需要认证，判断 localStorage
 里有没有 token。如果不需要认证或者 localStorage 里有
 token，放行。如果需要认证且 localStorage 里没有 token，清除 token 和
-axios 请求头的 Authorization 字段，并导航到 /auth</li>
+axios 请求头的 Authorization 字段，并导航到 /login</li>
 <li>某个组件挂载之后发请求，或点击组件发请求之后，axios 请求拦截器检查
 localStorage 里有没有 token，如果有，设置为请求头的 Authorization
-字段。如果没有，导航到 /auth</li>
+字段。如果没有，导航到 /login</li>
 <li>前端在 /api/auth 下的请求都不带
 token，其他路径下的都会被后端拦截，验证 token。</li>
 <li>后端放行 /api/auth/signup
