@@ -20,7 +20,7 @@
 <meta content="https://hrfis.me/blog/images/peace-1.webp" property="og:image"/>
 <meta content="https://hrfis.me/blog/images/peace-2.webp" property="og:image"/>
 <meta content="2024-04-14T14:41:00.000Z" property="article:published_time"/>
-<meta content="2024-06-13T09:11:09.849Z" property="article:modified_time"/>
+<meta content="2024-06-13T12:21:27.593Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/weierstrassa=0.5b=13.webp" name="twitter:image"/>
@@ -136,7 +136,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-06-13T17:11:09+08:00" itemprop="dateModified" title="修改时间：2024-06-13 17:11:09">2024-06-13</time>
+<time datetime="2024-06-13T20:21:27+08:00" itemprop="dateModified" title="修改时间：2024-06-13 20:21:27">2024-06-13</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -179,11 +179,19 @@ x)\)</span>，只是与它宏观看起来相似而已：</p>
 <p><img src="/blog/images/2cospix.webp"/></p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br/><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br/><span class="line"></span><br/><span class="line">a = <span class="number">0.5</span></span><br/><span class="line">b = <span class="number">13</span></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">assert</span> a &gt; <span class="number">0</span> <span class="keyword">and</span> a &lt; <span class="number">1</span></span><br/><span class="line"><span class="keyword">assert</span> b &gt;= <span class="number">7</span> <span class="keyword">and</span> b % <span class="number">2</span> == <span class="number">1</span></span><br/><span class="line"><span class="keyword">assert</span> (a * b) &gt; (<span class="number">1</span> + <span class="number">1.5</span> * np.pi)</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">weierstrass</span>(<span class="params">x, a, b, N=<span class="number">100</span></span>):</span><br/><span class="line">    result = <span class="number">0</span></span><br/><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br/><span class="line">        result += a**n * np.cos(b**n * np.pi * x)</span><br/><span class="line">    <span class="keyword">return</span> result</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line">x = np.arange(-<span class="number">2</span>, <span class="number">2</span>, <span class="number">0.0001</span>)</span><br/><span class="line">y1 = <span class="number">2</span> * np.cos(np.pi * x)</span><br/><span class="line">y2 = weierstrass(x, a, b)</span><br/><span class="line"></span><br/><span class="line">plt.figure(<span class="number">1</span>)</span><br/><span class="line">plt.plot(x, y1, <span class="string">"b"</span>)</span><br/><span class="line">plt.figure(<span class="number">2</span>)</span><br/><span class="line">plt.plot(x, y2, <span class="string">"r"</span>)</span><br/><span class="line"></span><br/><span class="line">plt.show()</span><br/></pre></td></tr></table></figure>
 <h2 id="关于本人现在病情的发展情况">关于本人现在病情的发展情况</h2>
-<p>容易忘记事。除了这个之外，好像没什么别的问题。</p>
+<ol type="1">
+<li>容易忘记事</li>
+</ol>
 <p>用一个递归日志记录器打比方：有一个日志记录器，在它每记录一条日志的时候，又记录了一条我记录了前面那条日志；有一个人，在他准备干一件事
 A 的时候，又在准备干一件事 B：我要准备干前面那件事 A，然后忘记前面那件事
 A 是什么。比如：当我想要更新这个文件的这里的时候，打开 VScode
 之后，依稀记得自己要修改一个文件，但是只知道要修改文件，会卡一会壳。</p>
+<ol start="2" type="1">
+<li>事情一多容易乱阵脚，最后导致什么事情都做不出来</li>
+<li>非常喜欢高估自己的能力，喜欢把时间浪费在并不属于某一个课程之内的任务，浪费在细枝末节的事情上，最后导致什么事情都做不出来</li>
+<li>惯性大，在做出一个错误选择之后继续延续错误选择，最后导致什么事情都做不出来</li>
+<li>做事没有规划，最后导致什么事情都做不出来</li>
+</ol>
 <h2 id="关于有没有真实的自我">关于有没有真实的自我</h2>
 <p>这个问题和“一艘船换了全部零件还是不是原来的船”、“踏入几次河流”差不多。“自我”不用说，什么叫“真实”？先给笔者以某种情绪下看到的“真实”下一个定义：有这样一个人，他/她在任何场合下说出的话都是不违心的。如果由此推，“我”大概率会在不同的场合说出不同的话，或者在同一种场合以不同的情绪说出不同的话，所以根本就没有“真实的我”。在明尼苏达多相人格测试里有这样一道题目：</p>
 <blockquote>
