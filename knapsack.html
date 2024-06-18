@@ -8,27 +8,23 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="JSON（JavaScript Object Notation，JavaScript
- 对象表示法）是一种轻量级的数据交换格式，可以看成是字符串。和 JavaScript
- 没什么关系，就像 JavaScript 和 Java 没什么关系一样。从 Python
- 的角度来看，一个 JSON 文件是一系列列表和字典的嵌套。" name="description"/>
+<meta content="在解决背包问题之前，我们得先把它的定义弄明白。" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="JSON" property="og:title"/>
-<meta content="https://hrfis.me/blog/json.html" property="og:url"/>
+<meta content="背包问题的定义" property="og:title"/>
+<meta content="https://hrfis.me/blog/knapsack.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="JSON（JavaScript Object Notation，JavaScript
- 对象表示法）是一种轻量级的数据交换格式，可以看成是字符串。和 JavaScript
- 没什么关系，就像 JavaScript 和 Java 没什么关系一样。从 Python
- 的角度来看，一个 JSON 文件是一系列列表和字典的嵌套。" property="og:description"/>
+<meta content="在解决背包问题之前，我们得先把它的定义弄明白。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2023-05-26T10:21:43.000Z" property="article:published_time"/>
-<meta content="2024-06-10T10:01:22.666Z" property="article:modified_time"/>
+<meta content="https://hrfis.me/blog/images/tree.webp" property="og:image"/>
+<meta content="2024-06-18T07:30:00.000Z" property="article:published_time"/>
+<meta content="2024-06-18T07:38:57.950Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/json" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/json.html","path":"/json.html","title":"JSON"}</script>
+<meta content="https://hrfis.me/blog/images/tree.webp" name="twitter:image"/>
+<link href="https://hrfis.me/blog/knapsack" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/knapsack.html","path":"/knapsack.html","title":"背包问题的定义"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>JSON | 若凡的笔记</title>
+<title>背包问题的定义 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -75,7 +71,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#js"><span class="nav-number">1.</span> <span class="nav-text">JS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python"><span class="nav-number">2.</span> <span class="nav-text">Python</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">背包问题的定义</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -106,7 +102,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/json.html" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/knapsack.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -116,12 +112,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="JSON | 若凡的笔记" itemprop="name"/>
+<meta content="背包问题的定义 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          JSON
+          背包问题的定义
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -130,14 +126,7 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2023-05-26T18:21:43+08:00" itemprop="dateCreated datePublished" title="创建时间：2023-05-26 18:21:43">2023-05-26</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2024-06-10T18:01:22+08:00" itemprop="dateModified" title="修改时间：2024-06-10 18:01:22">2024-06-10</time>
+<time datetime="2024-06-18T15:30:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-06-18 15:30:00 / 修改时间：15:38:57">2024-06-18</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -145,30 +134,102 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/u/" itemprop="url" rel="index"><span itemprop="name">永远不看系列</span></a>
+<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">实用系列</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>JSON（JavaScript Object Notation，JavaScript
-对象表示法）是一种轻量级的数据交换格式，可以看成是字符串。和 JavaScript
-没什么关系，就像 JavaScript 和 Java 没什么关系一样。从 Python
-的角度来看，一个 JSON 文件是一系列列表和字典的嵌套。</p>
+<div class="post-body" itemprop="articleBody"><p>在解决背包问题之前，我们得先把它的定义弄明白。</p>
 <span id="more"></span>
-<h2 id="js">JS</h2>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">jsonStr = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(jsObj);</span><br/><span class="line">jsObj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(jsonStr);</span><br/></pre></td></tr></table></figure>
-<h2 id="python">Python</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br/><span class="line">json_str = json.dumps(py_obj)</span><br/><span class="line">py_obj = json.loads(json_str)</span><br/></pre></td></tr></table></figure>
+<h2 id="背包问题的定义">背包问题的定义</h2>
+<p>你是一个小偷，现在有四样东西（且每样只有一个）：</p>
+<ul>
+<li>计算机 20 元 130 克</li>
+<li>手机 200 元 87 克</li>
+<li>游戏机 600 元 170 克</li>
+<li>订书机 8 元 208 克</li>
+</ul>
+<p>你的背包只能装 400
+克的东西，问你选哪几样装，使得你偷的东西价值最大。</p>
+<ul>
+<li>聪明的你肯定会选前三样，记作 1110</li>
+<li>一个比较笨的小偷可能会选后两样，记作 0011</li>
+<li>更笨的小偷会只选最后一样，记作 0001</li>
+</ul>
+<p>这个最终的选择序列里只有 0 和 1，就叫 0-1 背包问题</p>
+<p>它是一颗横向的完美二叉树（perfect binary
+tree），横轴是时间轴，每一层是一个时间断面（宙）</p>
+<p>根节点为第 0 层，这是你刚撬开锁的时候，然后你看到一台计算机了</p>
+<p>你琢磨：我是装它还是不装它？</p>
+<p>不管你装还是不装它，对于这台计算机，你只有两种选择</p>
+<p>当你做出任意一个选择的时候，你的宇宙就会被分裂出来一条支路。类似这样：</p>
+<p><img src="/blog/images/tree.webp"/></p>
+<p>现在你做出第一个选择了，二叉树会变成这样：</p>
+<pre class="mermaid">%%{
+    init: {
+        "theme": "neutral",
+        "fontFamily": "Times New Roman"
+    }
+}%%
+graph LR
+    A((撬开锁了))--装计算机--&gt;B1((选完了))
+    A--不装计算机--&gt;B2((选完了))</pre>
+<p>这颗二叉树就是多重宇宙。横轴为宙，纵轴为宇</p>
+<p>当你做出所有选择之后，它会变成这样：</p>
+<pre class="mermaid">%%{
+    init: {
+        "theme": "neutral",
+        "fontFamily": "Times New Roman"
+    }
+}%%
+graph LR
+    A((撬开锁了))--装计算机--&gt;B1((选完了))
+    A--不装计算机--&gt;B2((选完了))
+    B1--装手机--&gt;C1((选完了))
+    B1--不装手机--&gt;C2((选完了))
+    B2--装手机--&gt;C3((选完了))
+    B2--不装手机--&gt;C4((选完了))
+    C1--装游戏机--&gt;D1((选完了))
+    C1--不装游戏机--&gt;D2((选完了))
+    C2--装游戏机--&gt;D3((选完了))
+    C2--不装游戏机--&gt;D4((选完了))
+    C3--装游戏机--&gt;D5((选完了))
+    C3--不装游戏机--&gt;D6((选完了))
+    C4--装游戏机--&gt;D7((选完了))
+    C4--不装游戏机--&gt;D8((选完了))
+    D1--装订书机--&gt;E1((走人))
+    D1--不装订书机--&gt;E2((走人))
+    D2--装订书机--&gt;E3((走人))
+    D2--不装订书机--&gt;E4((走人))
+    D3--装订书机--&gt;E5((走人))
+    D3--不装订书机--&gt;E6((走人))
+    D4--装订书机--&gt;E7((走人))
+    D4--不装订书机--&gt;E8((走人))
+    D5--装订书机--&gt;E9((走人))
+    D5--不装订书机--&gt;E10((走人))
+    D6--装订书机--&gt;E11((走人))
+    D6--不装订书机--&gt;E12((走人))
+    D7--装订书机--&gt;E13((走人))
+    D7--不装订书机--&gt;E14((走人))
+    D8--装订书机--&gt;E15((走人))
+    D8--不装订书机--&gt;E16((走人))</pre>
+<p>其中每一个节点都是一个背包。有两个属性：【当前重量】和【当前价格】</p>
+<p>解决背包问题，就是找到这样一个背包：</p>
+<ol type="1">
+<li>它在最后一个时间断面里</li>
+<li>它的【当前重量】小于等于 400 克</li>
+<li>它是在所有满足前两条的背包里【当前价格】最大的</li>
+</ol>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
+<a href="/blog/defense.html" rel="prev" title="防御">
+<i class="fa fa-chevron-left"></i> 防御
+                </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/magisk.html" rel="next" title="用 Magisk 获取 Android 手机的 root 权限">
-                  用 Magisk 获取 Android 手机的 root 权限 <i class="fa fa-chevron-right"></i>
-</a>
 </div>
 </div>
 </footer>
@@ -204,7 +265,7 @@
 <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/json.html"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/knapsack.html"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
