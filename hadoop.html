@@ -35,7 +35,7 @@
 <meta content="zh_CN" property="og:locale"/>
 <meta content="https://flume.apache.org/_images/DevGuide_image00.png" property="og:image"/>
 <meta content="2024-04-26T09:45:00.000Z" property="article:published_time"/>
-<meta content="2024-06-07T07:14:23.504Z" property="article:modified_time"/>
+<meta content="2024-06-19T08:12:02.140Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://flume.apache.org/_images/DevGuide_image00.png" name="twitter:image"/>
@@ -158,7 +158,7 @@ HDFS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-lin
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-06-07T15:14:23+08:00" itemprop="dateModified" title="修改时间：2024-06-07 15:14:23">2024-06-07</time>
+<time datetime="2024-06-19T16:12:02+08:00" itemprop="dateModified" title="修改时间：2024-06-19 16:12:02">2024-06-19</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -257,6 +257,21 @@ NameNode（如果你物理机搞成功了）</li>
 里（这里用的是 IDEA），按播放键运行。如果报找不到类的错误，注意：在
 <code>$HADOOP_HOME/share/hadoop/子文件夹</code> 下还有一个叫
 <code>lib</code> 的文件夹。</p>
+<p>但是这种方法存在一个潜在的问题：<b><span class="red-text">Jar
+包冲突</span></b>。如果你新建了一个 Scala 2.12.15 的工程，用到 Spark 和
+HDFS，并且在 <code>build.sbt</code> 里什么依赖都没写，只是把 Hadoop
+3.3.6 和 Spark 3.5.1 自带的 Jar 包导进去了，你会遇到这样一个错误：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">Scala module 2.15.2 requires Jackson Databind version &gt;= 2.15.0 and &lt; 2.16.0</span><br/><span class="line">- Found jackson-databind version 2.12.7</span><br/></pre></td></tr></table></figure>
+<p>这又是几个问题：</p>
+<ol type="1">
+<li>Scala module 2.15.2 是怎么回事？不是 2.12.15 吗？</li>
+<li>Found jackson-databind version 2.12.7 是哪里来的？是 Hadoop 的 Share
+文件夹里的：common 目录下一个，hdfs
+目录下一个。如果把它们删了，上面的报错问题可以解决，但是 NameNode
+会起不起来了。</li>
+</ol>
+<p>幸运的是：在笔者重建了一次工程之后，这个问题就没有出现了。所以可能是
+IDEA 的锅。</p>
 <h2 id="安装-ubuntu-22.04.3">安装 Ubuntu 22.04.3</h2>
 <ol type="1">
 <li>下载 Linux
