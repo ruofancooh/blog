@@ -16,7 +16,7 @@
 <meta content="永远不看系列。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-03-02T10:20:00.000Z" property="article:published_time"/>
-<meta content="2024-06-10T05:11:55.382Z" property="article:modified_time"/>
+<meta content="2024-06-26T10:55:30.791Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/computer-organization" rel="canonical"/>
@@ -131,7 +131,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-06-10T13:11:55+08:00" itemprop="dateModified" title="修改时间：2024-06-10 13:11:55">2024-06-10</time>
+<time datetime="2024-06-26T18:55:30+08:00" itemprop="dateModified" title="修改时间：2024-06-26 18:55:30">2024-06-26</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -207,6 +207,12 @@ P E B</p>
 等于时钟周期总数。时间就是时钟周期总数乘上每个时钟周期所占的时间长度。</p>
 <p>在纸上画图：一个秒被切割成了一系列时钟周期，每个时钟周期执行一条指令。直接设未知数，列方程。</p>
 <h3 id="运算方法和运算器">运算方法和运算器</h3>
+<p>魔法口诀：幺二八六四 三二幺六 八四二幺 五二五一二五 零六二五</p>
+<p>或者在发草稿纸之后，直接把 0 到 F
+全写下来（想当年笔者可以把元素周期表画下来（除了镧系和锕系），包括一直到气奥的各个元素名、绝大部分元素符号以及常见的相对原子质量，还有
+38324 14122 横批 4546 之类的。但是现在不行了。还有 2^31 - 1 =
+2147483647，这是四字节 int
+类型的最大值，这个数字最早在《植物大战僵尸》的修改器里见到，如果你无尽模式或者自选关过了这一波，它的程序会崩掉）</p>
 <blockquote>
 <p>原码反码补码移码？</p>
 </blockquote>
@@ -215,7 +221,10 @@ P E B</p>
 1，后面为它的二进制形式按照某一个特定的位数表示，前面补零。</p>
 <p>负整数的反码，为原码除符号位的所有位按位取反后的结果。</p>
 <p>负整数的补码，为其反码 + 1，按位截断。</p>
-<p>移码 = 补码符号位取反</p>
+<p>移码 = 【真值 + （最高位所代表的 2 的次方值 -
+1）】的无符号整数表示</p>
+<p>如八位下 5 的移码是 <code>5 + 2^(8-1)</code> = <code>5 + 127</code> =
+<code>4 + 128</code> = <code>1000 0100</code></p>
 <blockquote>
 <p>八位下，零的表示形式？</p>
 </blockquote>
