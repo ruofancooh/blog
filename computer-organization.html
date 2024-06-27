@@ -16,7 +16,7 @@
 <meta content="永远不看系列。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-03-02T10:20:00.000Z" property="article:published_time"/>
-<meta content="2024-06-26T10:55:30.791Z" property="article:modified_time"/>
+<meta content="2024-06-27T12:41:13.847Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/computer-organization" rel="canonical"/>
@@ -131,7 +131,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-06-26T18:55:30+08:00" itemprop="dateModified" title="修改时间：2024-06-26 18:55:30">2024-06-26</time>
+<time datetime="2024-06-27T20:41:13+08:00" itemprop="dateModified" title="修改时间：2024-06-27 20:41:13">2024-06-27</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -207,8 +207,9 @@ P E B</p>
 等于时钟周期总数。时间就是时钟周期总数乘上每个时钟周期所占的时间长度。</p>
 <p>在纸上画图：一个秒被切割成了一系列时钟周期，每个时钟周期执行一条指令。直接设未知数，列方程。</p>
 <h3 id="运算方法和运算器">运算方法和运算器</h3>
-<p>魔法口诀：幺二八六四 三二幺六 八四二幺 五二五一二五 零六二五</p>
-<p>或者在发草稿纸之后，直接把 0 到 F
+<p>交叉引用<a href="#普通十进制数转单精度浮点数">普通十进制数转单精度浮点数</a>|<a href="#十进制与-k-进制小数互转">十进制与 k 进制小数互转</a></p>
+<p>魔法口诀：幺二八六四 三二幺六 八四二幺 五二五幺二五 零六二五</p>
+<p>在发草稿纸之后，直接把 0 到 F
 全写下来（想当年笔者可以把元素周期表画下来（除了镧系和锕系），包括一直到气奥的各个元素名、绝大部分元素符号以及常见的相对原子质量，还有
 38324 14122 横批 4546 之类的。但是现在不行了。还有 2^31 - 1 =
 2147483647，这是四字节 int
@@ -252,7 +253,10 @@ P E B</p>
 <p>分向十进制转、从十进制向外转、二八十六互转。</p>
 <p>向十进制转：各个位的十进制值乘上以原进制为底、该位与小数点的相对位置为指数的幂，再相加。其中小数点左边一位的相对位置为零，小数点右边一位的相对位置为负一，以此类推。</p>
 <p>从十进制向外转：除 k 取余法+乘 k
-取整法。整数部分用短除法列竖式，用新进制的基数去除，除到余数为零为止，之前的所有余数从下向上排列为新数的整数部分；小数部分乘上新进制的基数，取积的整数部分为新数的小数部分，积的小数部分继续与基数乘，直到积的小数部分为零或者出现循环节为止。</p>
+取整法。整数部分用短除法列竖式，用新进制的基数去除，除到商为零为止，之前的所有余数从下向上排列为新数的整数部分；小数部分乘上新进制的基数，取积的整数部分为新数的小数部分，积的小数部分继续与基数乘，直到积的小数部分为零或者出现循环节为止。</p>
+<p>对于一个 1000 以内的十进制数转成二进制，除 k
+取余法还是太教科书了，你可以直接把它拆分成 2
+的幂相加，因为加减法不容易出错。</p>
 <p>二八十六互转：四位二进制位与一位十六进制位在[0,16)这个整数范围内一一对应。小数点前后的部分直接按片段替换。三位二进制位与一位八进制位在[0,8)这个整数范围内一一对应。小数点前后的部分直接按片段替换。八与十六互转时，以二作为桥梁。</p>
 <blockquote>
 <p>浮点数的编码方式？</p>
@@ -263,9 +267,10 @@ P E B</p>
 <p>浮点数转真值：把 1.与 23
 位尾数缝合起来，转成十进制；把阶码作为移码求真值，作为 2
 的指数；两者相乘，带上符号位。</p>
-<p>普通数转浮点数：先转成二进制，小数点挪到第一个 1
-的后面，为符号(1.xxx)乘 2^指数；符号放最高位；指数转为移码放后 8
+<p>普通数转浮点数：把<strong>绝对值</strong>先转成二进制，小数点挪到第一个
+1 的后面，为符号(1.xxx)乘 2^指数；符号放最高位；指数转为移码放后 8
 位；小数点后的部分取“0 舍 1 入”的 23 位。</p>
+<p>（意思就是：1.7 和 -1.7 只差一个符号位）</p>
 <p>对于 64 位双精度浮点数 double：阶码变成了 11 位</p>
 <blockquote>
 <p>float 的五种形式？</p>
@@ -552,68 +557,67 @@ N_\mathrm{C}\)</span></p>
 </ol>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br/><span class="line"></span><br/><span class="line">truth = (<span class="literal">True</span>, <span class="literal">False</span>)</span><br/><span class="line">numbers = <span class="built_in">tuple</span>(product(truth, repeat=<span class="number">4</span>))</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">adder</span>(<span class="params">a: <span class="built_in">tuple</span>[<span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>], b: <span class="built_in">tuple</span>[<span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>, <span class="built_in">bool</span>]</span>):</span><br/><span class="line">    s1, c1 = full_adder(a[-<span class="number">1</span>], b[-<span class="number">1</span>], <span class="literal">False</span>)</span><br/><span class="line">    s2, c2 = full_adder(a[-<span class="number">2</span>], b[-<span class="number">2</span>], c1)</span><br/><span class="line">    s3, c3 = full_adder(a[-<span class="number">3</span>], b[-<span class="number">3</span>], c2)</span><br/><span class="line">    s4, c4 = full_adder(a[-<span class="number">4</span>], b[-<span class="number">4</span>], c3)</span><br/><span class="line">    <span class="keyword">return</span> c4, s4, s3, s2, s1</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">to_number</span>(<span class="params">a: <span class="built_in">tuple</span>[<span class="built_in">bool</span>, ...]</span>):</span><br/><span class="line">    binary_string = <span class="string">""</span>.join(<span class="built_in">str</span>(<span class="built_in">int</span>(elem)) <span class="keyword">for</span> elem <span class="keyword">in</span> a)</span><br/><span class="line">    decimal_number = <span class="built_in">int</span>(binary_string, <span class="number">2</span>)</span><br/><span class="line">    <span class="keyword">return</span> decimal_number</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> numbers:</span><br/><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> numbers:</span><br/><span class="line">        result = adder(a, b)</span><br/><span class="line">        <span class="built_in">print</span>(<span class="string">f"<span class="subst">{to_number(a)}</span> + <span class="subst">{to_number(b)}</span> = <span class="subst">{to_number(result)}</span>"</span>)</span><br/></pre></td></tr></table></figure>
 <h2 id="普通十进制数转单精度浮点数">普通十进制数转单精度浮点数</h2>
+<p>交叉引用<a href="#运算方法和运算器">运算方法和运算器</a></p>
 <ul>
 <li>在 IEEE 754 标准下</li>
 </ul>
 <p>单精度浮点数，即 32 位二进制浮点数，包含：</p>
 <p>一位符号位 + 八位指数位 + 二十三位尾数位</p>
+<p>下面的例子中，没有带尾缀的都是十进制，带尾缀 <span class="math inline">\(\mathrm{B}\)</span> 的是二进制</p>
 <h3 id="例一">例一</h3>
-<p>以 <span class="math inline">\(0.1_{10}\)</span> 为例：</p>
+<p>以 <span class="math inline">\(0.1\)</span> 为例：</p>
 <ol type="1">
-<li><p>把十进制转换为二进制 <span class="math inline">\(0.1 _{10} =
-0.0\dot{0}01\dot{1}... _{2}\)</span></p></li>
-<li><p>用以 <span class="math inline">\(2_{10}\)</span>
-为基数的科学计数法表示，并保证【尾数的小数点前是 <span class="math inline">\(1_{2}\)</span>】 <span class="math inline">\(=
-1.\dot{1}00\dot{1}..._{2} \times (2^{-4})_{10}\)</span> 可以看到指数是
-<span class="math inline">\(-4_{10}\)</span></p></li>
-<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<li><p>把十进制转换为二进制 <span class="math inline">\(0.1 =
+0.0\dot{0}01\dot{1}... \mathrm{B}\)</span></p></li>
+<li><p>用以 <span class="math inline">\(2\)</span>
+为基数的科学计数法表示，并保证【尾数的小数点前是 <span class="math inline">\(1 \mathrm{B}\)</span>】 <span class="math inline">\(= 1.\dot{1}00\dot{1}...\mathrm{B} \times
+(2^{-4})\)</span> 可以看到指数是 <span class="math inline">\(-4\)</span></p></li>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span class="math inline">\((2^{e-1}-1)\)</span></p>
 <p>这里 <span class="math inline">\(e\)</span>
-等于【用于表示指数位的位数】 <span class="math inline">\(8_{10}\)</span>，所以偏移量为 <span class="math inline">\(127_{10}\)</span></p>
-<p>则阶码为 <span class="math inline">\(-4_{10} + 127_{10} =
-123_{10}\)</span></p>
+等于【用于表示指数位的位数】 <span class="math inline">\(8\)</span>，所以偏移量为 <span class="math inline">\(127\)</span></p>
+<p>则阶码为 <span class="math inline">\(-4 + 127 = 123\)</span></p>
 <p>阶码的二进制为 <code>0111 1011</code>，注意
-<em>阶码始终为无符号整数</em></p></li>
+<em>阶码为无符号整数</em></p></li>
 <li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是无限的，所以要舍去一部分</p>
 <p>它的前二十位是：<code>1001 1001 1001 1001 1001</code></p>
 <p>二十一至二十八位是：<code>1001 1001</code></p>
 <p>所以二十一至二十三位，要么取 <code>100</code>，要么取
 <code>101</code>。</p>
-<p>通常是舍入到最接近的，一样接近则偶数（末尾为
-<code>0</code>）优先，这里 <code>101</code> 更接近。</p></li>
+<p>第二十四位是 <code>1</code>，0 舍 1 入，所以取
+<code>101</code></p></li>
 <li><p>把符号位连同阶码、尾数位缝合起来</p>
 <p><code>0 | 0111 1011 | 1001 1001 1001 1001 1001 101</code></p></li>
 </ol>
 <h3 id="例二">例二</h3>
-<p>以 <span class="math inline">\(12_{10} = 1.5_{10} \times
-(2^{3})_{10}\)</span> 为例，和上面的步骤一样：</p>
+<p>以 <span class="math inline">\(-12 = 1.5 \times (2^{3})\)</span>
+为例：</p>
 <ol type="1">
 <li><p>把十进制转换为二进制</p>
-<p><span class="math inline">\(12 _{10} = 1100 _{2}\)</span></p></li>
+<p><span class="math inline">\(12 = 1100 \mathrm{B}\)</span></p></li>
 <li><p>用以 <span class="math inline">\(2\)</span>
 为基数的科学计数法表示，并保证【尾数的小数点前是 <span class="math inline">\(1\)</span>】</p>
-<p><span class="math inline">\(= 1.1_{2} \times (2^3)_{10}\)</span></p>
-<p>可以看到指数是 <span class="math inline">\(3_{10}\)</span></p></li>
-<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span class="math inline">\((2^{e-1}-1)_{10}\)</span></p>
+<p><span class="math inline">\(= 1.1\mathrm{B} \times (2^3)\)</span></p>
+<p>可以看到指数是 <span class="math inline">\(3\)</span></p></li>
+<li><p>计算指数位（又叫阶码），用指数加上偏移量 <span class="math inline">\((2^{e-1}-1)\)</span></p>
 <p>这里 <span class="math inline">\(e\)</span>
-等于【用于表示指数位的位数】 <span class="math inline">\(8_{10}\)</span>，所以偏移量为 <span class="math inline">\(127_{10}\)</span></p>
-<p>则阶码为 <span class="math inline">\(3_{10} + 127_{10} =
-130_{10}\)</span></p>
+等于【用于表示指数位的位数】 <span class="math inline">\(8\)</span>，所以偏移量为 <span class="math inline">\(127\)</span></p>
+<p>则阶码为 <span class="math inline">\(3 + 127 = 130\)</span></p>
 <p>阶码的二进制为 <code>1000 0010</code>，注意
-<em>阶码始终为无符号整数</em></p></li>
+<em>阶码为无符号整数</em></p></li>
 <li><p>取科学计数法的【小数点后二十三位】作为【尾数位】，因为是有限的，所以后面直接补零</p>
 <p>小数点后二十三位是：<code>1000 0000 0000 0000 000</code></p></li>
 <li><p>把符号位连同阶码、尾数位缝合起来</p>
-<p><code>0 | 1000 0010 | 1000 0000 0000 0000 000</code></p></li>
+<p><code>1 | 1000 0010 | 1000 0000 0000 0000 000</code></p></li>
 </ol>
 <h3 id="如何验证">如何验证</h3>
 <ul>
 <li><a href="https://baseconvert.com/ieee-754-floating-point" rel="noopener" target="_blank">在线转换</a></li>
 <li><a href="https://en.wikipedia.org/wiki/IEEE_754" rel="noopener" target="_blank">Wikipedia</a> | <a href="https://zh.wikipedia.org/wiki/IEEE_754" rel="noopener" target="_blank">维基百科</a></li>
-<li>获取国际标准文件 IEEE 754 标准是电气与电子工程师协会（Institute of
+<li>获取国际标准文件。IEEE 754 标准是电气与电子工程师协会（Institute of
 Electrical and Electronics
 Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <a href="https://standards.ieee.org/ieee/754/6210/" rel="noopener" target="_blank">IEEE
 754-2019</a>，对应国际标准 <a href="https://www.iso.org/cms/%20render/live/en/sites/isoorg/contents/data/standard/08/09/80985.html" rel="noopener" target="_blank">ISO/IEC
-60559:2020</a>，预计下一次在 2028 年修订。 http://snti.ru/
+60559:2020</a>，预计下一次在 2028 年修订。http://snti.ru/
 这个网站分享了各种国际标准文件的磁力链接，但是可以免费下载的不全，IEC
 的只有 61xxx。据说可以给站长发邮件要
 <code>popov_al@perm.ru</code>，每个文件一刀乐。在 ISO 官网上下载需要 187
@@ -653,10 +657,11 @@ Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <
 <p>输出四个字节，结果：</p>
 <p><code>0x61fe1c: 00111111110110011001100110011010</code></p>
 <h2 id="十进制与-k-进制小数互转">十进制与 K 进制小数互转</h2>
+<p>交叉引用<a href="#运算方法和运算器">运算方法和运算器</a></p>
 <p>K 转 10：每一位分别乘上 K 的次方，再相加。</p>
 <h3 id="转-10">2 转 10</h3>
 <p><strong>有限小数</strong></p>
-<p><span class="math inline">\(11.1011_{2} = 3.6875_{10}\)</span></p>
+<p><span class="math inline">\(11.1011\mathrm{B} = 3.6875\)</span></p>
 <table>
 <thead>
 <tr class="header">
@@ -696,24 +701,23 @@ Engineers）制定的关于浮点数表示和运算的标准。最新标准是 <
 </tbody>
 </table>
 <p><strong>无限循环小数</strong></p>
-<p><span class="math inline">\(1.1 \dot{0} 11 \dot{0} ... _{2} =
-1.7_{10}\)</span></p>
+<p><span class="math inline">\(1.1 \dot{0} 11 \dot{0} ... \mathrm{B} =
+1.7\)</span></p>
 <p>可以转换成分数计算：</p>
 <p><span class="math display">\[
 \begin{aligned}
-1.1 \dot{0} 11 \dot{0} ... _{2} &amp; = x \\
-11.\dot{0} 11 \dot{0} ... _{2} &amp; = 2_{10}x \\
-110110. \dot{0} 11 \dot{0} ... _{2} &amp; = 32_{10}x \\
-两式相减，110011_{2} &amp; = 30_{10}x \\
-x &amp; = \frac{110011_{2}}{30_{10}} = \frac{51_{10}}{30_{10}} =
-1.7_{10}
+1.1 \dot{0} 11 \dot{0} ... \mathrm{B} &amp; = x \\
+11.\dot{0} 11 \dot{0} ... \mathrm{B} &amp; = 2x \\
+110110. \dot{0} 11 \dot{0} ... \mathrm{B} &amp; = 32x \\
+两式相减，110011\mathrm{B} &amp; = 30x \\
+x &amp; = \frac{110011\mathrm{B}}{30} = \frac{51}{30} = 1.7
 \end{aligned}
 \]</span></p>
 <p>10 转 K：</p>
 <p>整数部分仍然除 K 取余，小数部分乘 K 取整，然后相加。</p>
 <h3 id="转-2">10 转 2</h3>
-<p><span class="math inline">\(0.7 _{10} = 0.1 \dot{0} 11 \dot{0} ...
-_{2}\)</span></p>
+<p><span class="math inline">\(0.7 = 0.1 \dot{0} 11 \dot{0} ...
+\mathrm{B}\)</span></p>
 <table>
 <thead>
 <tr class="header">
@@ -749,7 +753,7 @@ _{2}\)</span></p>
 </tbody>
 </table>
 <h3 id="转-16">10 转 16</h3>
-<p><span class="math inline">\(0.7 _{10} = 0.\mathrm{B} \dot{3} ...
+<p><span class="math inline">\(0.7 = 0.\mathrm{B} \dot{3} ...
 _{16}\)</span></p>
 <table>
 <thead>
