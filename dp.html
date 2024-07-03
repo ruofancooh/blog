@@ -17,7 +17,7 @@
 <meta content="zh_CN" property="og:locale"/>
 <meta content="https://hrfis.me/blog/images/tree.webp" property="og:image"/>
 <meta content="2024-06-18T07:30:00.000Z" property="article:published_time"/>
-<meta content="2024-07-01T05:25:52.165Z" property="article:modified_time"/>
+<meta content="2024-07-03T09:21:51.402Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/tree.webp" name="twitter:image"/>
@@ -71,7 +71,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84%E6%80%8E%E4%B9%88%E6%BB%9A"><span class="nav-number">1.</span> <span class="nav-text">滚动数组怎么滚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%88%AC%E6%A5%BC%E6%A2%AF"><span class="nav-number">2.</span> <span class="nav-text">70.爬楼梯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%9C%80%E5%B0%8F%E8%8A%B1%E8%B4%B9%E7%88%AC%E6%A5%BC%E6%A2%AF"><span class="nav-number">3.</span> <span class="nav-text">746.使用最小花费爬楼梯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">4.</span> <span class="nav-text">背包问题的定义</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84%E6%80%8E%E4%B9%88%E6%BB%9A"><span class="nav-number">1.</span> <span class="nav-text">滚动数组怎么滚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%88%AC%E6%A5%BC%E6%A2%AF"><span class="nav-number">2.</span> <span class="nav-text">70.爬楼梯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%9C%80%E5%B0%8F%E8%8A%B1%E8%B4%B9%E7%88%AC%E6%A5%BC%E6%A2%AF"><span class="nav-number">3.</span> <span class="nav-text">746.使用最小花费爬楼梯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D"><span class="nav-number">4.</span> <span class="nav-text">198.打家劫舍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">5.</span> <span class="nav-text">背包问题的定义</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -133,7 +133,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-07-01T13:25:52+08:00" itemprop="dateModified" title="修改时间：2024-07-01 13:25:52">2024-07-01</time>
+<time datetime="2024-07-03T17:21:51+08:00" itemprop="dateModified" title="修改时间：2024-07-03 17:21:51">2024-07-03</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -162,7 +162,7 @@
 </ol></li>
 <li>返回第三个</li>
 </ol>
-<p>笔者认为这种写法符合人的直觉。</p>
+<p>笔者认为这种写法符合人的直觉，且不容易出错。</p>
 <h2 id="爬楼梯">70.爬楼梯</h2>
 <blockquote>
 <p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。每次你可以爬 1 或 2
@@ -200,6 +200,18 @@ cost[i-2])</p>
 <p>边界为 dp[0]=dp[1]=0，返回值为 dp[n]，下标 n 在楼梯的顶层，cost
 数组右边一个位置，等于 cost 数组长。用滚动数组，循环 [2, cost 长]</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">minCostClimbingStairs</span><span class="params">(<span class="type">int</span>* cost, <span class="type">int</span> costSize)</span> {</span><br/><span class="line">    <span class="type">int</span> a = <span class="number">0</span>, b = <span class="number">0</span>, c;</span><br/><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= costSize; i++) {</span><br/><span class="line">        c = fmin(a + cost[i - <span class="number">2</span>], b + cost[i - <span class="number">1</span>]);</span><br/><span class="line">        a = b;</span><br/><span class="line">        b = c;</span><br/><span class="line">    }</span><br/><span class="line">    <span class="keyword">return</span> c;</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
+<h2 id="打家劫舍">198.打家劫舍</h2>
+<p>我们把问题描述改写一下：</p>
+<p>给你一个长度[1,100]的非负整数数组，让你选一些数求和，要求选的这些数间隔至少为
+1，返回最大和</p>
+<p>虚空设一个数 dp[i]表示你对 i
+号下标纠结之后的和，你正在纠结打还是不打</p>
+<ul>
+<li>如果打 i，就不能打 i-1，dp[i] = dp[i-2] + value[i]</li>
+<li>如果不打 i，就可以打 i-1，dp[i] = dp[i-1]</li>
+</ul>
+<p>这两种情况求大的</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">rob</span><span class="params">(<span class="type">int</span>* nums, <span class="type">int</span> numsSize)</span> {</span><br/><span class="line">    <span class="keyword">if</span> (numsSize == <span class="number">1</span>) {</span><br/><span class="line">        <span class="keyword">return</span> nums[<span class="number">0</span>];</span><br/><span class="line">    } <span class="keyword">else</span> <span class="keyword">if</span> (numsSize == <span class="number">2</span>) {</span><br/><span class="line">        <span class="keyword">return</span> fmax(nums[<span class="number">0</span>], nums[<span class="number">1</span>]);</span><br/><span class="line">    }</span><br/><span class="line">    <span class="type">int</span> a = nums[<span class="number">0</span>];</span><br/><span class="line">    <span class="type">int</span> b = fmax(nums[<span class="number">0</span>], nums[<span class="number">1</span>]);</span><br/><span class="line">    <span class="type">int</span> c;</span><br/><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt; numsSize; i++) {</span><br/><span class="line">        c = fmax(a + nums[i], b);</span><br/><span class="line">        a = b;</span><br/><span class="line">        b = c;</span><br/><span class="line">    }</span><br/><span class="line">    <span class="keyword">return</span> c;</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
 <h2 id="背包问题的定义">背包问题的定义</h2>
 <p>你是一个小偷，现在有四样东西（且每样只有一个）：</p>
 <ul>
