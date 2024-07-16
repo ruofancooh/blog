@@ -10,17 +10,19 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
 <meta content="期号为本周一的六位年月日，内容为本周一到本周日的所有时间记录，时间范围为上周日睡前至本周日睡前。标准差为样本标准差，即（每一天的样本与这
  7 天的样本均值的差）的平方和除以 6 再开根号，使用 numpy.std
- 计算。" name="description"/>
+ 计算，刻画的是这 7
+ 天数据的离散程度，越少说明越均匀，标准差为零说明所有样本数据相等。" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="每周生命简报" property="og:title"/>
 <meta content="https://hrfis.me/blog/life.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
 <meta content="期号为本周一的六位年月日，内容为本周一到本周日的所有时间记录，时间范围为上周日睡前至本周日睡前。标准差为样本标准差，即（每一天的样本与这
  7 天的样本均值的差）的平方和除以 6 再开根号，使用 numpy.std
- 计算。" property="og:description"/>
+ 计算，刻画的是这 7
+ 天数据的离散程度，越少说明越均匀，标准差为零说明所有样本数据相等。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-07-14T14:00:00.000Z" property="article:published_time"/>
-<meta content="2024-07-14T16:21:46.346Z" property="article:modified_time"/>
+<meta content="2024-07-15T04:28:25.520Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/life" rel="canonical"/>
@@ -85,7 +87,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/">
-<span class="site-state-item-count">32</span>
+<span class="site-state-item-count">34</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -135,7 +137,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-07-15T00:21:46+08:00" itemprop="dateModified" title="修改时间：2024-07-15 00:21:46">2024-07-15</time>
+<time datetime="2024-07-15T12:28:25+08:00" itemprop="dateModified" title="修改时间：2024-07-15 12:28:25">2024-07-15</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -151,7 +153,8 @@
 </header>
 <div class="post-body" itemprop="articleBody"><p>期号为本周一的六位年月日，内容为本周一到本周日的所有时间记录，时间范围为上周日睡前至本周日睡前。标准差为样本标准差，即（每一天的样本与这
 7 天的样本均值的差）的平方和除以 6 再开根号，使用 <code>numpy.std</code>
-计算。</p>
+计算，刻画的是这 7
+天数据的离散程度，越少说明越均匀，标准差为零说明所有样本数据相等。</p>
 <span id="more"></span>
 <h2 id="关键信息模板">关键信息模板</h2>
 <ul>
@@ -249,6 +252,9 @@
                 </a>
 </div>
 <div class="post-nav-item">
+<a href="/blog/conflict.html" rel="next" title="7月16日 11点40分">
+                  7月16日 11点40分 <i class="fa fa-chevron-right"></i>
+</a>
 </div>
 </div>
 </footer>
