@@ -8,34 +8,16 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="在你软件安装的目录里面，通常有一个 doc 文件夹
- 在解压软件包之后，什么配置都别写，上来先启动了再说
- 找到你软件的日志文件在哪里
- 在日志里搜索 WARN ERROR
- 
- 为什么呢。因为你迟早会遇到报错，没遇到报错才不正常。如果你一次报错都没遇到，你可以去买彩票了。
- 
-     .red-text {
-         color: red;
-     }" name="description"/>
+<meta content="Hadoop 基础不牢（发自内心地）。" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="Hadoop" property="og:title"/>
 <meta content="https://hrfis.me/blog/hadoop.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="在你软件安装的目录里面，通常有一个 doc 文件夹
- 在解压软件包之后，什么配置都别写，上来先启动了再说
- 找到你软件的日志文件在哪里
- 在日志里搜索 WARN ERROR
- 
- 为什么呢。因为你迟早会遇到报错，没遇到报错才不正常。如果你一次报错都没遇到，你可以去买彩票了。
- 
-     .red-text {
-         color: red;
-     }" property="og:description"/>
+<meta content="Hadoop 基础不牢（发自内心地）。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="https://flume.apache.org/_images/DevGuide_image00.png" property="og:image"/>
 <meta content="2024-04-26T09:45:00.000Z" property="article:published_time"/>
-<meta content="2024-06-19T08:12:02.140Z" property="article:modified_time"/>
+<meta content="2024-07-30T06:47:44.010Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://flume.apache.org/_images/DevGuide_image00.png" name="twitter:image"/>
@@ -158,7 +140,7 @@ HDFS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-lin
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-06-19T16:12:02+08:00" itemprop="dateModified" title="修改时间：2024-06-19 16:12:02">2024-06-19</time>
+<time datetime="2024-07-30T14:47:44+08:00" itemprop="dateModified" title="修改时间：2024-07-30 14:47:44">2024-07-30</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -172,19 +154,16 @@ HDFS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-lin
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><ol type="1">
+<div class="post-body" itemprop="articleBody"><p>Hadoop 基础不牢（发自内心地）。</p>
+<span id="more"></span>
+<p>分享一种不看完整教程把集群搭起来的方法：</p>
+<ol type="1">
 <li>在你软件安装的目录里面，通常有一个 doc 文件夹</li>
 <li>在解压软件包之后，什么配置都别写，上来先启动了再说</li>
 <li>找到你软件的日志文件在哪里</li>
 <li>在日志里搜索 <code>WARN</code> <code>ERROR</code></li>
+<li>在网上搜索或者问 GPT 为什么会出现这个错误</li>
 </ol>
-<p>为什么呢。因为你<span class="red-text">迟早会遇到报错，没遇到报错才不正常</span>。如果你一次报错都没遇到，你可以去买彩票了。</p>
-<style>
-    .red-text {
-        color: red;
-    }
-</style>
-<span id="more"></span>
 <style>
     .main{
         width:100%
@@ -206,35 +185,32 @@ HDFS。所有 Java 代码都得过一道 Java 编译器，然后在 JVM（Java
 <li>Hadoop 可以运行在 Windows 上</li>
 </ol>
 <h2 id="java-代码运行环境的问题">Java 代码运行环境的问题</h2>
-<p>你只要想“连接”一个什么东西，一定会碰到这个问题。</p>
-<p>“连接 HDFS”是什么意思？</p>
-<p>再往前问：你是如何知道你的“集群”是正在运行着的？用 <code>jps</code>
-查看 Java 进程。</p>
+<p>“连接
+HDFS”是什么意思？再往前问：你是如何知道你的“集群”是正在运行着的？用
+<code>jps</code> 查看 Java 进程。</p>
 <p><code>jps</code> 查看的是什么？是所有正在运行着的 JVM
 实例，每一个进程是一个单独的 JVM。</p>
-<p>“连接 HDFS”的意思是：<strong>再运行一个新的
-JVM</strong>，称为“客户端”。这个 JVM 要与另一个 JVM 通信，那个 JVM 叫
-<strong>NameNode</strong>。</p>
-<p>怎么通信？虽然不知道细节，但你可能看过这样的代码：</p>
+<p>“连接 HDFS”的意思是：再运行一个新的 JVM，称为“客户端”。这个 JVM
+要与另一个 JVM 通信，那个 JVM 叫
+NameNode。怎么通信？虽然不知道细节，但你可能看过这样的代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br/><span class="line"><span class="keyword">import</span> java.net.URI;</span><br/><span class="line"><span class="keyword">import</span> java.net.URISyntaxException;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FileStatus;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.FileSystem;</span><br/><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br/><span class="line"></span><br/><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">App</span> {</span><br/><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, URISyntaxException {</span><br/><span class="line">        <span class="type">Configuration</span> <span class="variable">conf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Configuration</span>();</span><br/><span class="line">        <span class="type">FileSystem</span> <span class="variable">fs</span> <span class="operator">=</span> FileSystem.get(<span class="keyword">new</span> <span class="title class_">URI</span>(<span class="string">"hdfs://ubuntu101:9820"</span>), conf);</span><br/><span class="line">        FileStatus[] fileStatuses = fs.listStatus(<span class="keyword">new</span> <span class="title class_">Path</span>(<span class="string">"/"</span>));</span><br/><span class="line">        <span class="keyword">for</span> (FileStatus status : fileStatuses) {</span><br/><span class="line">            System.out.println(status.getPath());</span><br/><span class="line">        }</span><br/><span class="line">        fs.close();</span><br/><span class="line">    }</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
 <p>现在的问题在于：</p>
 <ol type="1">
-<li><b><span class="red-text">它 <code>import</code>
-的东西是怎么来的？</span></b></li>
-<li><b><span class="red-text">在它编译完之后，放到 JVM
+<li><b>它 <code>import</code> 的东西是怎么来的？</b></li>
+<li><b>在它编译完之后，放到 JVM
 上运行的时候（即“运行时”），它还需不需要它 <code>import</code>
-的东西？</span></b></li>
-<li><b><span class="red-text">它运行时的 JVM
-在哪里，在虚拟机上还是在物理机上？如果在物理机上，它能不能与虚拟机通信？</span></b></li>
-<li><b><span class="red-text">IDE 起的是什么作用？</span></b></li>
+的东西？</b></li>
+<li><b>它运行时的 JVM
+在哪里，在虚拟机上还是在物理机上？如果在物理机上，它能不能与虚拟机通信？</b></li>
+<li><b>IDE 起的是什么作用？</b></li>
 </ol>
-<p>先回答第四个问题：<strong>IDE 起的是工具人的作用</strong>。如果你用的
+<p>先回答第四个问题：IDE 起的是工具人的作用。如果你用的
 IDEA，并且成功连接 HDFS 了，你会在 IDEA 的命令行看到：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">/lib/jvm/java-8-openjdk-amd64/bin/java -javaagent:/opt/idea-IC-241.15989.150/lib/idea_rt.jar=43273:/opt/idea-IC-241.15989.150/bin\</span><br/><span class="line">                                        -Dfile.encoding=UTF-8\</span><br/><span class="line">                                        -classpath /lib/jvm/java-8-openjdk-amd64/jre/lib/charsets.jar:/后面全都是Jar包的路径</span><br/></pre></td></tr></table></figure>
 <p>它就是执行了一条命令：打开你的 JDK 目录里的 <code>java</code>
 ，然后向这个东西传了几个参数：工具人、文件编码、classpath</p>
-<p>关键的就是 classpath，<strong>你需要保证你代码“运行时”的东西能在
-classpath 里找到</strong>。</p>
+<p>关键的就是 classpath，你需要保证你代码“运行时”的东西能在 classpath
+里找到。</p>
 <p>再回答第二个问题：它 <code>import</code>
 的东西都是它的“运行时”需要的东西吗？</p>
 <p>不一定，这是它“编译时”需要的东西。当他报错报找不到某个类的时候，就是它“运行时”需要的东西。</p>
@@ -257,8 +233,8 @@ NameNode（如果你物理机搞成功了）</li>
 里（这里用的是 IDEA），按播放键运行。如果报找不到类的错误，注意：在
 <code>$HADOOP_HOME/share/hadoop/子文件夹</code> 下还有一个叫
 <code>lib</code> 的文件夹。</p>
-<p>但是这种方法存在一个潜在的问题：<b><span class="red-text">Jar
-包冲突</span></b>。如果你新建了一个 Scala 2.12.15 的工程，用到 Spark 和
+<p>但是这种方法存在一个潜在的问题：<b>Jar
+包冲突</b>。如果你新建了一个 Scala 2.12.15 的工程，用到 Spark 和
 HDFS，并且在 <code>build.sbt</code> 里什么依赖都没写，只是把 Hadoop
 3.3.6 和 Spark 3.5.1 自带的 Jar 包导进去了，你会遇到这样一个错误：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">Scala module 2.15.2 requires Jackson Databind version &gt;= 2.15.0 and &lt; 2.16.0</span><br/><span class="line">- Found jackson-databind version 2.12.7</span><br/></pre></td></tr></table></figure>
@@ -301,7 +277,7 @@ Windows 操作系统上</li>
 </ol>
 <p>如果你用的是 WSL，你在它上面开一个端口，可以直接在物理机上使用
 <code>localhost:port</code> 访问。<strong>如果你装了两台 WSL，它们的 IP
-会是相同的</strong>，这个问题不好解决。据说<span class="red-text">学大数据的都找不到大数据相关工作</span>。那我们就退而求其次，根本没有必要搭分布式集群，在一台机器上搭个伪分布式就行了，文件分片只分一片。这样配置文件还不至于备份来备份去，只保留一份配置文件。</p>
+会是相同的</strong>，这个问题不好解决。据说学大数据的都找不到大数据相关工作。那我们就退而求其次，根本没有必要搭分布式集群，在一台机器上搭个伪分布式就行了，文件分片只分一片。这样配置文件还不至于备份来备份去，只保留一份配置文件。</p>
 <ol start="5" type="1">
 <li><p>配置 Ubuntu 软件源
 https://mirrors.ustc.edu.cn/help/ubuntu.html</p></li>
@@ -374,8 +350,8 @@ KEY----- 开头。<a href="https://www.cnblogs.com/simple-li/p/14654812.html" re
 Remote-SSH 插件可以直接修改虚拟机内的文件，如果你用的是 WSL
 更方便。</li>
 </ol>
-<p><span class="red-text">在 $HADOOP_HOME/share/doc/hadoop/index.html
-左下角有默认的配置文件。</span></p>
+<p>在 $HADOOP_HOME/share/doc/hadoop/index.html
+左下角有默认的配置文件。</p>
 <ul>
 <li><code>hadoop-env.sh</code> 指定 JAVA_HOME，启动 JVM 时的参数</li>
 <li><code>core-site.xml</code> 指定 hdfs 的
@@ -406,8 +382,8 @@ HDFS；</li>
 <li>我们为什么要在 <code>core-site.xml</code> 里配置
 <code>hadoop.http.staticuser.user</code>
 ？因为如果不配置，只有读的权限，没有写的权限；</li>
-<li>我们为什么可以不在 <code>hadoop-env.sh</code>
-里配置各种用户名？因为还没有遇到报错的时候</li>
+<li><del>我们为什么可以不在 <code>hadoop-env.sh</code>
+里配置各种用户名？因为还没有遇到报错的时候</del></li>
 </ul>
 <ol start="12" type="1">
 <li>在 NameNode 上执行 <code>hdfs -namenode format</code>，把 Hadoop

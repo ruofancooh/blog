@@ -8,17 +8,15 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="Python
- 这门语言相对于其他语言是写得最多的（指调过的库）。其他语言基本没写过。" name="description"/>
+<meta content="Python 基础不牢。" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="Python" property="og:title"/>
 <meta content="https://hrfis.me/blog/python.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="Python
- 这门语言相对于其他语言是写得最多的（指调过的库）。其他语言基本没写过。" property="og:description"/>
+<meta content="Python 基础不牢。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-23T12:24:00.000Z" property="article:published_time"/>
-<meta content="2024-06-10T10:06:05.175Z" property="article:modified_time"/>
+<meta content="2024-07-30T06:07:12.375Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/python" rel="canonical"/>
@@ -133,7 +131,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-06-10T18:06:05+08:00" itemprop="dateModified" title="修改时间：2024-06-10 18:06:05">2024-06-10</time>
+<time datetime="2024-07-30T14:07:12+08:00" itemprop="dateModified" title="修改时间：2024-07-30 14:07:12">2024-07-30</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -147,18 +145,19 @@
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>Python
-这门语言相对于其他语言是写得最多的（指调过的库）。其他语言基本没写过。</p>
+<div class="post-body" itemprop="articleBody"><p>Python 基础不牢。</p>
 <span id="more"></span>
 <h2 id="报菜名">报菜名</h2>
 <p>Python 的标准库有上百个。用 <code>import</code> 还是
 <code>from ... import ...</code>，后面加不加 <code>as</code>
-，以易读为主。因为代码是给人看的。不要使用
-<code>from xxx import *</code>。这种行为类似于：你在搭积木的时候，闭着眼睛把一整个塑料袋的积木全倒出来，然后闭着眼睛摸一个、闭着眼睛摸一个。<code>import</code>
-语句的顺序是：标准库、第三方库、自定义库。可通过 VSCode 插件 isort
-解决，按 Ctrl + Shift + O 排序。在你的工程目录下面，使用
-https://github.com/bndr/pipreqs 可以把你用到的所有第三方库写到依赖文件
-<code>requirements.txt</code> 里。</p>
+，以易读为主。因为代码是给人看的。</p>
+<p>使用 <code>from xxx import *</code>
+类似于：你在搭积木的时候，闭着眼睛把一整个塑料袋的积木全倒出来，然后闭着眼睛摸一个、闭着眼睛摸一个。</p>
+<p><code>import</code> 语句的顺序是：标准库、第三方库、自定义库。可通过
+VSCode 插件 isort 解决，按 Ctrl + Shift + O 排序。</p>
+<p>在你的工程目录下面，使用 https://github.com/bndr/pipreqs
+可以把你用到的所有第三方库写到依赖文件 <code>requirements.txt</code>
+里。</p>
 <p>虽然 Python
 的一个变量名可以赋多个类型，但在有必要的情况下，还是加上类型注解。这对
 VSCode
@@ -172,7 +171,6 @@ VSCode
 <p>上面是一种很笨的方法，我们可以用其自带的 logging
 模块记录日志到文件：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> datetime</span><br/><span class="line"><span class="keyword">import</span> logging</span><br/><span class="line"></span><br/><span class="line">logging.basicConfig(</span><br/><span class="line">    filename=<span class="string">f"<span class="subst">{datetime.date.today()}</span>.log"</span>,</span><br/><span class="line">    filemode=<span class="string">"w"</span>,</span><br/><span class="line">    encoding=<span class="string">"utf-8"</span>,</span><br/><span class="line">    level=logging.INFO,</span><br/><span class="line">    <span class="built_in">format</span>=<span class="string">"%(asctime)s - %(levelname)s - %(message)s"</span>,</span><br/><span class="line">)</span><br/><span class="line">logging.info(...)</span><br/><span class="line">logging.warning(...)</span><br/><span class="line">logging.error(...)</span><br/></pre></td></tr></table></figure>
-<p>你只要写一个稍微像样的项目，都不可能不用模块/库，不拆分文件。这只能说明笔者代码写得实在太少了。</p>
 <p>日志有五个等级：DEBUG 调试诊断用的；INFO 确认正常运行；WARNING
 是不影响正常运行的错误，如向数据库里插入一条已经存在的记录，然后忽略它；ERROR
 是影响正常运行的错误，如数据库连接失败（但是你系统的其他功能可用）；CRITICAL
