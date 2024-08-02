@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
+<link href="/blog/css/main.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
+<meta content="可以说所有笑话的原理都是预期违背/状态转移/跳跃：到达（或稳定在）预期状态的失败过程。" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="笑话的原理" property="og:title"/>
+<meta content="https://hrfis.me/blog/joke.html" property="og:url"/>
+<meta content="若凡的笔记" property="og:site_name"/>
+<meta content="可以说所有笑话的原理都是预期违背/状态转移/跳跃：到达（或稳定在）预期状态的失败过程。" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="2024-05-22T16:00:00.000Z" property="article:published_time"/>
+<meta content="2024-07-30T13:08:03.840Z" property="article:modified_time"/>
+<meta content="Ruofan" property="article:author"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://hrfis.me/blog/joke" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/joke.html","path":"/joke.html","title":"笑话的原理"}</script>
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>笑话的原理 | 若凡的笔记</title>
+<noscript>
+<link href="/blog/css/noscript.css" rel="stylesheet"/>
+</noscript>
+</head>
+<body itemscope="" itemtype="http://schema.org/WebPage">
+<div class="headband"></div>
+<main class="main">
+<div class="column">
+<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+<div class="site-nav-toggle">
+<div aria-label="切换导航栏" class="toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+</div>
+</div>
+<div class="site-meta">
+<a class="brand" href="/blog/" rel="start">
+<i class="logo-line"></i>
+<p class="site-title">若凡的笔记</p>
+<i class="logo-line"></i>
+</a>
+</div>
+<div class="site-nav-right">
+<div aria-label="搜索" class="toggle popup-trigger" role="button">
+</div>
+</div>
+</div>
+<nav class="site-nav">
+<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+</ul>
+</nav>
+</header>
+<aside class="sidebar">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<ul class="sidebar-nav">
+<li class="sidebar-nav-toc">
+          文章目录
+        </li>
+<li class="sidebar-nav-overview">
+          站点概览
+        </li>
+</ul>
+<div class="sidebar-panel-container">
+<!--noindex-->
+<div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E4%BE%8B%E5%AD%90%E5%85%A5%E6%89%8B"><span class="nav-number">1.</span> <span class="nav-text">从例子入手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%9D%A2%E5%A2%99%E4%B9%8B%E5%86%85%E7%9A%84%E5%9C%BA%E6%99%AF%E8%B7%B3%E8%B7%83"><span class="nav-number">2.</span> <span class="nav-text">第四面墙之内的场景跳跃</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%BA%E5%BA%8F%E4%BB%8E%E6%AD%A3%E7%BB%8F%E5%88%B0%E4%B8%8D%E6%AD%A3%E7%BB%8F"><span class="nav-number">2.1.</span> <span class="nav-text">顺序：从正经到不正经</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%86%E5%BA%8Fcallback"><span class="nav-number">2.2.</span> <span class="nav-text">逆序：callback</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8C%E4%B8%80%E6%97%B6%E9%97%B4%E4%B8%8A%E7%9A%84%E5%9C%BA%E6%99%AF%E9%87%8D%E5%8F%A0%E5%8F%8C%E5%85%B3"><span class="nav-number">3.</span> <span class="nav-text">同一时间上的场景重叠：双关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%BB%E9%9F%B3%E6%B4%BB%E7%94%A8%E8%B0%90%E9%9F%B3%E5%8F%8C%E5%85%B3"><span class="nav-number">3.1.</span> <span class="nav-text">读音活用：谐音双关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E5%BD%A2%E6%B4%BB%E7%94%A8%E7%A9%BA%E7%9B%AE%E5%8F%8C%E5%85%B3"><span class="nav-number">3.2.</span> <span class="nav-text">字形活用：空目双关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%8D%E6%80%A7%E6%B4%BB%E7%94%A8%E6%96%AD%E5%8F%A5%E5%8F%8C%E5%85%B3"><span class="nav-number">3.3.</span> <span class="nav-text">词性活用：断句双关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%E6%B4%BB%E7%94%A8%E7%B1%BB%E6%AF%94%E5%8F%8C%E5%85%B3"><span class="nav-number">3.4.</span> <span class="nav-text">概念活用：类比双关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E9%9D%A2%E5%A2%99%E4%B8%A4%E5%A4%B4%E7%9A%84%E5%9C%BA%E6%99%AF%E8%B7%B3%E8%B7%83%E6%AD%A3%E5%B8%B8%E4%BA%BA%E4%B8%8D%E4%BC%9A%E8%BF%99%E4%B9%88%E5%B9%B2"><span class="nav-number">4.</span> <span class="nav-text">第四面墙两头的场景跳跃：正常人不会这么干</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%BA%E4%BA%8B%E7%89%A9%E4%B8%8E%E7%8E%AF%E5%A2%83%E4%B8%8D%E5%8C%B9%E9%85%8D"><span class="nav-number">4.1.</span> <span class="nav-text">人、事、物与环境不匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%90%8C%E5%9C%BA%E6%99%AF%E5%85%B8%E6%95%85%E5%88%87%E6%8D%A2%E4%B9%B1%E7%82%96"><span class="nav-number">4.2.</span> <span class="nav-text">不同场景/典故切换、乱炖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B8%E6%95%85%E9%87%8D%E5%86%99%E5%85%B8%E6%95%85%E4%B8%8E%E7%99%BD%E8%AF%9D%E4%BA%92%E7%9B%B8%E5%88%87%E6%8D%A2"><span class="nav-number">4.3.</span> <span class="nav-text">典故重写、典故与白话互相切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%B0%E7%8B%B1%E7%AC%91%E8%AF%9D%E5%BD%93%E4%BA%8B%E4%BA%BA%E4%B8%8D%E4%BC%9A%E8%A7%89%E5%BE%97%E5%A5%BD%E7%AC%91"><span class="nav-number">4.4.</span> <span class="nav-text">地狱笑话：当事人不会觉得好笑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%92%E5%9B%A0%E5%81%8F%E5%B7%AE%E5%9B%A0%E6%9E%9C%E9%A2%A0%E5%80%92%E6%89%A9%E5%A4%A7%E7%BC%A9%E5%B0%8F%E8%AF%8D%E4%B9%89"><span class="nav-number">4.5.</span> <span class="nav-text">归因偏差：因果颠倒、扩大/缩小词义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E6%A0%BC%E5%BC%B1%E6%99%BA%E8%AF%B4%E4%B8%8D%E5%AE%9A%E6%98%AF%E7%9C%9F%E7%9A%84%E5%BC%B1%E6%99%BA"><span class="nav-number">4.6.</span> <span class="nav-text">本格弱智：说不定是真的弱智</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%85%E4%BA%8B%E4%BC%A0%E9%80%92%E4%B8%8A%E7%9A%84%E8%B7%B3%E8%B7%83"><span class="nav-number">5.</span> <span class="nav-text">故事传递上的跳跃</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%BC%E9%9F%B5%E5%90%AC%E8%A7%89%E4%B8%8A%E7%9A%84-callback"><span class="nav-number">5.1.</span> <span class="nav-text">押韵：听觉上的 callback</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%A4%8D%E5%90%AC%E8%A7%89%E4%B8%8E%E8%A7%86%E8%A7%89%E4%B8%8A%E7%9A%84-callback"><span class="nav-number">5.2.</span> <span class="nav-text">重复：听觉与视觉上的 callback</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E6%8C%87%E8%A7%86%E8%A7%89%E4%B8%8A%E7%9A%84-callback"><span class="nav-number">5.3.</span> <span class="nav-text">自指：视觉上的 callback</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%86%E5%AD%97%E8%A7%86%E8%A7%89%E4%B8%8A%E7%9A%84-callback"><span class="nav-number">5.4.</span> <span class="nav-text">拆字：视觉上的 callback</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E%E6%9C%89%E5%88%B0%E6%97%A0%E7%9A%84%E8%B7%B3%E8%B7%83return-0%E5%BA%9F%E8%AF%9D%E6%96%87%E5%AD%A6"><span class="nav-number">5.5.</span> <span class="nav-text">从有到无的跳跃：return
+0、废话文学</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%99%E8%BF%B0%E6%80%A7%E8%AF%A1%E8%AE%A1%E5%8F%99%E8%BF%B0%E8%80%85%E4%B8%8E%E6%8E%A5%E6%94%B6%E8%80%85%E4%BF%A1%E6%81%AF%E4%B8%8D%E5%AF%B9%E7%AD%89"><span class="nav-number">5.6.</span> <span class="nav-text">叙述性诡计：叙述者与接收者信息不对等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E5%88%86%E4%BF%A1%E6%81%AF%E7%BC%BA%E5%A4%B1%E5%86%B0%E5%B1%B1%E4%B9%8B%E4%B8%8A%E4%B9%8B%E4%B8%8B%E4%BF%A1%E6%81%AF%E4%B8%8D%E5%AF%B9%E7%AD%89"><span class="nav-number">5.7.</span> <span class="nav-text">部分信息缺失：冰山之上、之下信息不对等</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E6%96%B9%E8%B7%B3%E8%B7%83%E5%8F%A5%E5%AD%90%E8%87%AA%E8%BA%AB%E7%AC%A6%E5%8F%B7%E5%8F%A5%E4%B9%89%E5%89%A7%E6%83%85%E5%8F%A5%E5%AD%90%E7%9A%84%E8%BD%BD%E4%BD%93%E5%B9%B3%E5%8F%B0"><span class="nav-number">5.8.</span> <span class="nav-text">三方跳跃：句子自身（符号）、句义（剧情）、句子的载体（平台）</span></a></li></ol></li></ol></div>
+</div>
+<!--/noindex-->
+<div class="site-overview-wrap sidebar-panel">
+<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<p class="site-author-name" itemprop="name">Ruofan</p>
+<div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+<nav class="site-state">
+<div class="site-state-item site-state-posts">
+<a href="/blog/">
+<span class="site-state-item-count">34</span>
+<span class="site-state-item-name">笔记</span>
+</a>
+</div>
+<div class="site-state-item site-state-categories">
+<a href="/blog/categories/">
+<span class="site-state-item-count">3</span>
+<span class="site-state-item-name">分类</span></a>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<div class="main-inner post posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/joke.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="笑话的原理 | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h1 class="post-title" itemprop="name headline">
+          笑话的原理
+        </h1>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2024-05-23T00:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-05-23 00:00:00">2024-05-23</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-07-30T21:08:03+08:00" itemprop="dateModified" title="修改时间：2024-07-30 21:08:03">2024-07-30</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/m/" itemprop="url" rel="index"><span itemprop="name">牢骚系列</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody"><p>可以说所有笑话的原理都是预期违背/状态转移/跳跃：到达（或稳定在）预期状态的失败过程。</p>
+<span id="more"></span>
+<h2 id="从例子入手">从例子入手</h2>
+<blockquote>
+<p>重大发现！碗可以装饭原来是应用了纳米技术</p>
+</blockquote>
+<p>这条弱智吧段子分为四个部分：第一部分是一个导引，导引你向一个“重大发现”去想；第二个部分是一个预期违背：从高期望到低现实；第三部分又是一个导引，勾起你的好奇心；第四部分是一个双关，造成一个场景重叠。下面举的例子可能用到不止一种手法，段子来自<a href="https://www.weibo.com/u/7031421269" rel="noopener" target="_blank">弱智吧官微</a>和<a href="http://www.zhaobenshan.org/online/" rel="noopener" target="_blank">赵本山小品</a>。</p>
+<h2 id="第四面墙之内的场景跳跃">第四面墙之内的场景跳跃</h2>
+<h3 id="顺序从正经到不正经">顺序：从正经到不正经</h3>
+<blockquote>
+<p>我就寻思度蜜月之前我得先美美容，把这俩门牙装上，装个烤瓷的<br/>
+高级的<br/> 嗯，然后再整整容，做个拉皮儿<br/> 我拍个黄瓜</p>
+</blockquote>
+<blockquote>
+<p>坐好啊！下面请听第一个话题：母猪的产后护理</p>
+</blockquote>
+<p>在不正经之后通常会有一句话把它兜回来，类似相声的“去你的吧”“就这个啊”“没听说过”：</p>
+<blockquote>
+<p>您要是弄个拉皮儿，拍个黄瓜，我就只能烫壶酒了。说着说着下酒菜都出来了</p>
+</blockquote>
+<blockquote>
+<p>拿错书了</p>
+</blockquote>
+<h3 id="逆序callback">逆序：callback</h3>
+<blockquote>
+<p>逗你玩儿</p>
+</blockquote>
+<blockquote>
+<p>赵忠祥是我的心中偶像<br/> 我十分想见赵忠祥</p>
+</blockquote>
+<h2 id="同一时间上的场景重叠双关">同一时间上的场景重叠：双关</h2>
+<p>双关的表和里：表是通常意义上、一般的词义；里是特化的词义，是段子作者真正想要读者意识到的词义。</p>
+<p>笔者认为：能让读者先意识到里、后意识到表的笑话，可能会比先意识到表、后意识到里的笑话更好笑。</p>
+<h3 id="读音活用谐音双关">读音活用：谐音双关</h3>
+<blockquote>
+<p>刘邦今年读高一，正是打击楚的时候</p>
+</blockquote>
+<blockquote>
+<p>“我让你把碳酸钠和盐酸拿来，怎么就拿来一瓶生理盐水？”
+“我道上混的。”</p>
+</blockquote>
+<h3 id="字形活用空目双关">字形活用：空目双关</h3>
+<blockquote>
+<p>“看看扔子。”刘备接过赵云手里手中的阿斗说道</p>
+</blockquote>
+<h3 id="词性活用断句双关">词性活用：断句双关</h3>
+<blockquote>
+<p>车站门口卖榴莲，臭外地的</p>
+</blockquote>
+<blockquote>
+<p>顾客就是上帝，所以客观就是主观</p>
+</blockquote>
+<blockquote>
+<p>导师让我帮他端杯水，我忙着搞学术不端</p>
+</blockquote>
+<h3 id="概念活用类比双关">概念活用：类比双关</h3>
+<blockquote>
+<p>死刑犯没有吃最后一顿饭，因为他坚信少吃一顿不会死</p>
+</blockquote>
+<blockquote>
+<p>如果你想在这个城市站稳脚跟，你的年龄最好要达到一周岁</p>
+</blockquote>
+<blockquote>
+<p>被门夹过的核桃还能补脑吗</p>
+</blockquote>
+<h2 id="第四面墙两头的场景跳跃正常人不会这么干">第四面墙两头的场景跳跃：正常人不会这么干</h2>
+<h3 id="人事物与环境不匹配">人、事、物与环境不匹配</h3>
+<p>王警官系列、食人族系列、规则怪谈</p>
+<blockquote>
+<p>学校出现电锯杀人狂，校方反应迅速组织人员前来没收其大功率电器</p>
+</blockquote>
+<h3 id="不同场景典故切换乱炖">不同场景/典故切换、乱炖</h3>
+<blockquote>
+<p>镇关西挨了三拳后心领神会，晚上三更准时来到鲁提辖的房间</p>
+</blockquote>
+<blockquote>
+<p>机智的诸葛亮将稻草人涂黑，成功从美国警察处借来十万颗子弹</p>
+</blockquote>
+<h3 id="典故重写典故与白话互相切换">典故重写、典故与白话互相切换</h3>
+<blockquote>
+<p>我的这张旧船票还能否登上你的破船</p>
+</blockquote>
+<blockquote>
+<p>后来怎么样了？涛声依旧了</p>
+</blockquote>
+<blockquote>
+<p>开会的时候只有 18g 水要分给 6.02x10^23 个领导该怎么分？</p>
+</blockquote>
+<h3 id="地狱笑话当事人不会觉得好笑">地狱笑话：当事人不会觉得好笑</h3>
+<blockquote>
+<p>医院床位那么紧张，为什么不弄成上下铺呢</p>
+</blockquote>
+<blockquote>
+<p>杨过只剩一只手都这么厉害，两只手都没了还得了？</p>
+</blockquote>
+<h3 id="归因偏差因果颠倒扩大缩小词义">归因偏差：因果颠倒、扩大/缩小词义</h3>
+<blockquote>
+<p>早知道最后被第三志愿录取，第三志愿就应该填清华的</p>
+</blockquote>
+<blockquote>
+<p>你这个双人份的薯条套餐为什么只有奇数根</p>
+</blockquote>
+<h3 id="本格弱智说不定是真的弱智">本格弱智：说不定是真的弱智</h3>
+<blockquote>
+<p>我从 1 一直数到了 10000 都没有发现两个相同的数字</p>
+</blockquote>
+<h2 id="故事传递上的跳跃">故事传递上的跳跃</h2>
+<h3 id="押韵听觉上的-callback">押韵：听觉上的 callback</h3>
+<blockquote>
+<p>我叫白云，我叫黑土；我七十一，我七十五；我属鸡，我属虎</p>
+</blockquote>
+<blockquote>
+<p>他这个人就好比当年的三毛、哪吒、金刚葫芦娃</p>
+</blockquote>
+<h3 id="重复听觉与视觉上的-callback">重复：听觉与视觉上的 callback</h3>
+<blockquote>
+<p>叠词词，恶心心</p>
+</blockquote>
+<h3 id="自指视觉上的-callback">自指：视觉上的 callback</h3>
+<blockquote>
+<p>冷知识：冒号前面的才是冷知识</p>
+</blockquote>
+<h3 id="拆字视觉上的-callback">拆字：视觉上的 callback</h3>
+<blockquote>
+<p>要不是有耳朵，川普就变成晋三了</p>
+</blockquote>
+<blockquote>
+<p>成长为什么会有痛苦，因为宝宝去掉宝盖头就玉玉了</p>
+</blockquote>
+<h3 id="从有到无的跳跃return-0废话文学">从有到无的跳跃：return
+0、废话文学</h3>
+<blockquote>
+<p>据说每个胖子都是潜力股，瘦下来的话就会很瘦</p>
+</blockquote>
+<h3 id="叙述性诡计叙述者与接收者信息不对等">叙述性诡计：叙述者与接收者信息不对等</h3>
+<blockquote>
+<p>“你是清朝来的吧？”人们纷纷赞叹朱元璋思想先进</p>
+</blockquote>
+<h3 id="部分信息缺失冰山之上之下信息不对等">部分信息缺失：冰山之上、之下信息不对等</h3>
+<blockquote>
+<p>评论区留下身份证号后两位，一样的在一起</p>
+</blockquote>
+<h3 id="三方跳跃句子自身符号句义剧情句子的载体平台">三方跳跃：句子自身（符号）、句义（剧情）、句子的载体（平台）</h3>
+<ul>
+<li>句子的排版表意</li>
+</ul>
+<blockquote>
+<p>不义不义不义<br/> 不义自己不义<br/> 不义不义不义<br/></p>
+</blockquote>
+<ul>
+<li>句子的自我表达</li>
+</ul>
+<blockquote>
+<p>本次“最快抄写自己名字一百遍”比赛的获胜者是：</p>
+</blockquote>
+<p>正方辩题：白色不可以作为字体的颜色。反方辩题：<span style="color:#fff">白色可以作为字体的颜色<span></span></span></p>
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/myclock.html" rel="prev" title="用C语言模拟一个像素时钟">
+<i class="fa fa-chevron-left"></i> 用C语言模拟一个像素时钟
+                </a>
+</div>
+<div class="post-nav-item">
+<a href="/blog/1.html" rel="next" title="年中总结">
+                  年中总结 <i class="fa fa-chevron-right"></i>
+</a>
+</div>
+</div>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
+<div class="copyright">
+  2023 – 
+  <span itemprop="copyrightYear">2024</span>
+<span class="with-love">
+<i class="fa fa-heart"></i>
+</span>
+<span class="author" itemprop="copyrightHolder">Ruofan</span>
+</div>
+</div>
+</footer>
+<div aria-label="返回顶部" class="back-to-top" role="button">
+<i class="fa fa-arrow-up fa-lg"></i>
+<span>0%</span>
+</div>
+<div class="reading-progress-bar"></div>
+<noscript>
+<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+<script src="/blog/js/third-party/tags/mermaid.js"></script>
+<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/blog/js/third-party/math/mathjax.js"></script>
+<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/joke.html"}</script>
+<script src="/blog/js/third-party/quicklink.js"></script>
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
+<link href="/blog/css/main.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
+<meta content="学习能力不强。
+ 参考书：西瓜书和南瓜书。
+ 第 2 次更新。" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="机器学习导论" property="og:title"/>
+<meta content="https://hrfis.me/blog/ml.html" property="og:url"/>
+<meta content="若凡的笔记" property="og:site_name"/>
+<meta content="学习能力不强。
+ 参考书：西瓜书和南瓜书。
+ 第 2 次更新。" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="https://hrfis.me/blog/images/ml-1.webp" property="og:image"/>
+<meta content="2024-07-21T11:00:00.000Z" property="article:published_time"/>
+<meta content="2024-08-01T11:49:37.317Z" property="article:modified_time"/>
+<meta content="Ruofan" property="article:author"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://hrfis.me/blog/images/ml-1.webp" name="twitter:image"/>
+<link href="https://hrfis.me/blog/ml" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/ml.html","path":"/ml.html","title":"机器学习导论"}</script>
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>机器学习导论 | 若凡的笔记</title>
+<noscript>
+<link href="/blog/css/noscript.css" rel="stylesheet"/>
+</noscript>
+</head>
+<body itemscope="" itemtype="http://schema.org/WebPage">
+<div class="headband"></div>
+<main class="main">
+<div class="column">
+<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+<div class="site-nav-toggle">
+<div aria-label="切换导航栏" class="toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+</div>
+</div>
+<div class="site-meta">
+<a class="brand" href="/blog/" rel="start">
+<i class="logo-line"></i>
+<p class="site-title">若凡的笔记</p>
+<i class="logo-line"></i>
+</a>
+</div>
+<div class="site-nav-right">
+<div aria-label="搜索" class="toggle popup-trigger" role="button">
+</div>
+</div>
+</div>
+<nav class="site-nav">
+<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+</ul>
+</nav>
+</header>
+<aside class="sidebar">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<ul class="sidebar-nav">
+<li class="sidebar-nav-toc">
+          文章目录
+        </li>
+<li class="sidebar-nav-overview">
+          站点概览
+        </li>
+</ul>
+<div class="sidebar-panel-container">
+<!--noindex-->
+<div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">有意思的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E6%8F%90%E7%9F%A5%E8%AF%86%E5%92%8C%E8%BF%90%E7%AE%97%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">前提知识和运算方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sigmoid-%E5%87%BD%E6%95%B0%E5%AF%B9%E6%95%B0%E5%87%A0%E7%8E%87%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">Sigmoid 函数（对数几率函数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%92%8C%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E5%87%A0%E4%BD%95%E6%84%8F%E4%B9%89"><span class="nav-number">2.2.</span> <span class="nav-text">矩阵和行列式的几何意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E4%BD%99%E5%AD%90%E5%BC%8F-m_ij-%E5%92%8C%E4%BB%A3%E6%95%B0%E4%BD%99%E5%AD%90%E5%BC%8F-a_ij"><span class="nav-number">2.3.</span> <span class="nav-text">方阵的余子式 \(M_{ij}\) 和代数余子式 \(A_{ij}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E9%A1%BA%E5%BA%8F%E4%B8%BB%E5%AD%90%E5%BC%8F"><span class="nav-number">2.4.</span> <span class="nav-text">方阵的顺序主子式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E4%BC%B4%E9%9A%8F%E7%9F%A9%E9%98%B5-a"><span class="nav-number">2.5.</span> <span class="nav-text">方阵的伴随矩阵 \(A^*\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E9%80%86%E7%9F%A9%E9%98%B5-a-1"><span class="nav-number">2.6.</span> <span class="nav-text">方阵的逆矩阵 \(A^{-1}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC-lambda-%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F"><span class="nav-number">2.7.</span> <span class="nav-text">方阵的特征值 \(\lambda\) 和特征向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5"><span class="nav-number">2.8.</span> <span class="nav-text">正定矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n-%E5%85%83%E5%87%BD%E6%95%B0-fboldsymbolx"><span class="nav-number">2.9.</span> <span class="nav-text">\(n\)
+元函数 \(f(\boldsymbol{x})\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%80%E9%98%B6%E5%AF%BC%E6%95%B0-nabla-fboldsymbolx-dfracpartial-fboldsymbolxpartial-boldsymbolx"><span class="nav-number">2.10.</span> <span class="nav-text">梯度（一阶导数）
+\(\nabla f(\boldsymbol{x}) = \dfrac{\partial
+f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%B7%E6%A3%AE%E7%9F%A9%E9%98%B5%E4%BA%8C%E9%98%B6%E5%AF%BC%E6%95%B0-nabla2-fboldsymbolx-dfracpartial2-fboldsymbolxpartial-boldsymbolxpartial-boldsymbolxt"><span class="nav-number">2.11.</span> <span class="nav-text">海森矩阵（二阶导数）
+\(\nabla^2 f(\boldsymbol{x}) =
+\dfrac{\partial^2 f(\boldsymbol{x})}{\partial \boldsymbol{x}{\partial
+\boldsymbol{x}}^T}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%B8%E5%87%BD%E6%95%B0"><span class="nav-number">2.12.</span> <span class="nav-text">凸函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86%E5%85%AC%E5%BC%8F"><span class="nav-number">2.13.</span> <span class="nav-text">矩阵微分公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">3.</span> <span class="nav-text">一元线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-number">3.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">3.2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F"><span class="nav-number">3.3.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84"><span class="nav-number">3.4.</span> <span class="nav-text">公式是怎么来的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">4.</span> <span class="nav-text">多元线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-1"><span class="nav-number">4.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-1"><span class="nav-number">4.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84-1"><span class="nav-number">4.3.</span> <span class="nav-text">公式是怎么来的</span></a></li></ol></li></ol></div>
+</div>
+<!--/noindex-->
+<div class="site-overview-wrap sidebar-panel">
+<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<p class="site-author-name" itemprop="name">Ruofan</p>
+<div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+<nav class="site-state">
+<div class="site-state-item site-state-posts">
+<a href="/blog/">
+<span class="site-state-item-count">34</span>
+<span class="site-state-item-name">笔记</span>
+</a>
+</div>
+<div class="site-state-item site-state-categories">
+<a href="/blog/categories/">
+<span class="site-state-item-count">3</span>
+<span class="site-state-item-name">分类</span></a>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<div class="main-inner post posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/ml.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="机器学习导论 | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h1 class="post-title" itemprop="name headline">
+          机器学习导论
+        </h1>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2024-07-21T19:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-07-21 19:00:00">2024-07-21</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-08-01T19:49:37+08:00" itemprop="dateModified" title="修改时间：2024-08-01 19:49:37">2024-08-01</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">实用系列</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody"><p>学习能力不强。</p>
+<p>参考书：西瓜书和南瓜书。</p>
+<p>第 2 次更新。</p>
+<span id="more"></span>
+<h2 id="有意思的概念">有意思的概念</h2>
+<p>归纳法和演绎法：前者是从特殊到一般，后者是从一般到特殊</p>
+<p>奥卡姆剃刀：若有多个假设与观察一致，选择最简单的那个。但是我们对简单的定义是不同的</p>
+<p>没有免费的午餐定理：</p>
+<ul>
+<li>如果所有问题是同等重要的，那么所有学习算法的期望性能相同</li>
+<li>如果现实中所有问题不是同等重要的，那么必定某些算法适合解决某些特定的问题而不适合解决另一些特定的问题</li>
+<li>从某个数据集里通过某种算法学出来的模型，不一定比从另一个特定的数据集里学出来的另一个模型“好”</li>
+</ul>
+<h2 id="前提知识和运算方法">前提知识和运算方法</h2>
+<p>我们用 <span class="math inline">\(m\)</span> 表示样本数量，与维度
+<span class="math inline">\(n\)</span> 区分开。用 <span class="math inline">\(d\)</span> 表示属性的个数。</p>
+<p>粗斜体小写字母为列向量，如 <span class="math inline">\(\boldsymbol{x}=(1;2;3)\)</span>，使用分号分隔。其转置为行向量，使用逗号分隔。</p>
+<p>粗斜体大写字母为矩阵。</p>
+<ul>
+<li><span class="math inline">\(\boldsymbol{a}^T \boldsymbol{b} =
+\boldsymbol{b}^T \boldsymbol{a}\)</span></li>
+<li><span class="math inline">\((\boldsymbol{A} + \boldsymbol{B})^T =
+\boldsymbol{A}^T + \boldsymbol{B}^T\)</span></li>
+<li><span class="math inline">\((\boldsymbol{AB})^T =
+\boldsymbol{B}^T\boldsymbol{A}^T\)</span></li>
+<li>矩阵和向量乘法分配律注意保证顺序不变，因为没有乘法交换律</li>
+<li>积的求和可以改写成两向量相乘 <span class="math inline">\(\sum_{i=1}^m x_iy_i =
+\boldsymbol{x}^T\boldsymbol{y}\)</span></li>
+<li>遇到“行向量乘列向量加标量”的形式，可以把标量拆分成 1
+和它本身，再分别补到前面那两个向量的尾巴上</li>
+<li><span class="math inline">\(\boldsymbol{A}\boldsymbol{b} =
+\boldsymbol{c}\)</span></li>
+<li><span class="math inline">\(\boldsymbol{a}^T \boldsymbol{B} =
+\boldsymbol{c}^T\)</span></li>
+<li><span class="math inline">\(\sum_{i=1}^{m}x = m\bar{x}\)</span></li>
+<li><span class="math inline">\((\sum_{i=1}^{m} x_i)^2 = \sum_{i=1}^{m}
+x_i^2 + 2\sum_{1 \leq i &lt; j \leq m} x_i x_j\)</span></li>
+<li>复合函数求导法则：把内层的中介写一遍，连乘</li>
+<li>行列式为零、非满秩、不可逆的方阵称为奇异矩阵</li>
+<li>矩阵的秩：变换为行阶梯型矩阵后的非零行数</li>
+</ul>
+<h3 id="sigmoid-函数对数几率函数">Sigmoid 函数（对数几率函数）</h3>
+<p><span class="math inline">\(S(x) =
+\dfrac{1}{1+e^{-x}}\)</span>，该函数图像长得和 <span class="math inline">\(\dfrac{1}{\pi} \arctan x + \dfrac{1}{2}\)</span>
+差不多</p>
+<p><span class="math display">\[
+\dfrac{1}{1+a^{-x}} + \dfrac{1}{1+a^{x}} = 1
+\]</span></p>
+<h3 id="矩阵和行列式的几何意义">矩阵和行列式的几何意义</h3>
+<ul>
+<li><p>矩阵可表示多个向量：</p>
+<ul>
+<li>二阶行列式的绝对值是矩阵的两个列向量所张成的平行四边形的面积；</li>
+<li>三阶行列式的绝对值是矩阵的三个列向量所张成的平行六面体的体积；</li>
+<li>矩阵的秩是各向量张成空间的维数</li>
+</ul></li>
+<li><p>矩阵可表示对一个空间基（单位格子）的线性变换：</p>
+<ul>
+<li>用变换矩阵左乘一个向量，就是把该向量所在的空间做了变换。新坐标在旧空间里的位置与旧坐标在新空间里的位置一致。变换矩阵的行列式为新空间的单位格子相对于旧空间单位格子的面积/体积改变的倍数。</li>
+<li>行列式为零说明是降维打击，损失了信息，变换不可逆。</li>
+<li>行列式为负说明空间的手性改变了</li>
+</ul></li>
+</ul>
+<h3 id="方阵的余子式-m_ij-和代数余子式-a_ij">方阵的余子式 <span class="math inline">\(M_{ij}\)</span> 和代数余子式 <span class="math inline">\(A_{ij}\)</span></h3>
+<p>余子式为划掉原方阵第 <span class="math inline">\(i\)</span> 行 <span class="math inline">\(j\)</span> 列后剩余的方阵的行列式。</p>
+<p>代数余子式为余子式加一个正/负号，看 <span class="math inline">\(i+j\)</span> 是偶数还是奇数。</p>
+<p>它们都是行列式，可以求值。</p>
+<h3 id="方阵的顺序主子式">方阵的顺序主子式</h3>
+<p>一个正方形框从左上角开始拉。</p>
+<p>它们都是行列式，可以求值。</p>
+<h3 id="方阵的伴随矩阵-a">方阵的伴随矩阵 <span class="math inline">\(A^*\)</span></h3>
+<p>它是这样一个矩阵：新矩阵上每个位置的元素是原矩阵的一个代数余子式，代数余子式的下标和新矩阵位置的下标行列互换。</p>
+<p>对于二阶矩阵，它的伴随矩阵是主交换、副取反。</p>
+<h3 id="方阵的逆矩阵-a-1">方阵的逆矩阵 <span class="math inline">\(A^{-1}\)</span></h3>
+<p>逆矩阵等于伴随矩阵乘上行列式的倒数。</p>
+<p>高斯-若尔当方法：把增广矩阵 <span class="math inline">\(A|I\)</span>
+初等行变换为 <span class="math inline">\(I|A^{-1}\)</span></p>
+<h3 id="方阵的特征值-lambda-和特征向量">方阵的特征值 <span class="math inline">\(\lambda\)</span> 和特征向量</h3>
+<p>方阵左乘它的特征向量，等于把这个特征向量在它的方向上伸缩/反转 <span class="math inline">\(\lambda\)</span> 倍。</p>
+<p>如何求：令特征多项式 <span class="math inline">\(|\lambda
+\boldsymbol{E} - \boldsymbol{A}| = 0\)</span></p>
+<h3 id="正定矩阵">正定矩阵</h3>
+<p>充要条件：其所有特征值都为正。或者所有顺序主子式为正。</p>
+<h3 id="n-元函数-fboldsymbolx"><span class="math inline">\(n\)</span>
+元函数 <span class="math inline">\(f(\boldsymbol{x})\)</span></h3>
+<p>自变量有 <span class="math inline">\(n\)</span> 个，记作一个 <span class="math inline">\(n\)</span> 维列向量 <span class="math inline">\(\boldsymbol{x}\)</span>。</p>
+<h3 id="梯度一阶导数-nabla-fboldsymbolx-dfracpartial-fboldsymbolxpartial-boldsymbolx">梯度（一阶导数）
+<span class="math inline">\(\nabla f(\boldsymbol{x}) = \dfrac{\partial
+f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></h3>
+<p>梯度是一个 <span class="math inline">\(n\)</span>
+维向量，各个分量是原函数在其各个自变量分量上的偏导函数 <span class="math inline">\(\dfrac{\partial f(\boldsymbol{x})}{\partial
+{x_i}}\)</span>，前提是各个偏导数都存在。</p>
+<p>如：</p>
+<p><span class="math display">\[
+\nabla (5x_1+4x_1x_2+x_3) = (5+4x_2,4x_1,1)
+\]</span></p>
+<h3 id="海森矩阵二阶导数-nabla2-fboldsymbolx-dfracpartial2-fboldsymbolxpartial-boldsymbolxpartial-boldsymbolxt">海森矩阵（二阶导数）
+<span class="math inline">\(\nabla^2 f(\boldsymbol{x}) =
+\dfrac{\partial^2 f(\boldsymbol{x})}{\partial \boldsymbol{x}{\partial
+\boldsymbol{x}}^T}\)</span></h3>
+<p>海森方阵的每一个元素是原函数的二阶偏导数，前提是各个二阶偏导数都存在。</p>
+<p>如：</p>
+<p><span class="math display">\[
+\nabla^2(2x_1 + x_1x_2) =
+\begin{pmatrix}
+0 &amp; 1 \\
+1 &amp; 0
+\end{pmatrix}
+\]</span></p>
+<h3 id="凸函数">凸函数</h3>
+<p>这里的凸函数指下凸函数。</p>
+<p>凸函数任意两点的连线一定在函数图像上面，或与函数图像重合。如果一定在上面，我们称它为严格的凸函数。</p>
+<p>一元严格凸函数的例子：<span class="math inline">\(y =
+x^2\)</span></p>
+<p>一元非严格凸函数的例子： <span class="math inline">\(y = x +
+1\)</span></p>
+<p>如何判定一元函数是凸函数/严格凸函数：其二阶导数在区间上恒大于等于/大于零</p>
+<p>如何判定<strong>多元函数</strong>是凸函数/<strong>严格凸函数</strong>：其<strong>海森矩阵</strong>在区间上是半正定/<strong>正定</strong>的</p>
+<h3 id="矩阵微分公式">矩阵微分公式</h3>
+<ul>
+<li><p><span class="math inline">\(\frac{\partial \boldsymbol{a}^T
+\boldsymbol{x}}{\partial \boldsymbol{x}} = \frac{\partial
+\boldsymbol{x}^T \boldsymbol{a}}{\partial \boldsymbol{x}} =
+\boldsymbol{a}\)</span> （南瓜书）</p></li>
+<li><p><span class="math inline">\(\frac{\partial \boldsymbol{A}
+\boldsymbol{x}}{\partial \boldsymbol{x}^T} = \boldsymbol{A}\)</span>
+（南瓜书）</p></li>
+<li><p><span class="math inline">\(\frac{\partial \boldsymbol{A}
+\boldsymbol{x}}{\partial \boldsymbol{x}} = \boldsymbol{A}^T\)</span>
+（https://en.wikipedia.org/wiki/Matrix_calculus
+的<strong>分母布局</strong>）</p></li>
+<li><p><span class="math inline">\(\frac{\partial \boldsymbol{x}^T
+\boldsymbol{A} \boldsymbol{x}}{\partial \boldsymbol{x}} =
+(\boldsymbol{A} + \boldsymbol{A}^T)
+\boldsymbol{x}\)</span>（南瓜书）</p></li>
+</ul>
+<h2 id="一元线性回归">一元线性回归</h2>
+<h3 id="目的">目的</h3>
+<p>找出与平面直角坐标系上的 <span class="math inline">\(m\)</span>
+个散点 <span class="math inline">\((x_i,y_i)\)</span> 最接近的直线 <span class="math inline">\(\hat{y} = wx+b\)</span></p>
+<p>找出使残差平方和最小的直线的斜率、截距，即求：</p>
+<p><span class="math display">\[
+(w^*,b^*) = \underset{(w,b)}{\mathrm{arg\ min}} \sum_{i=1}^{m}
+(y_i-wx_i-b)^2
+\]</span></p>
+<h3 id="基本概念">基本概念</h3>
+<p><img src="/blog/images/ml-1.webp"/></p>
+<p>观测值（已知的，用于训练模型的样本 <span class="math inline">\(y\)</span> 值）：<span class="math inline">\(y_i\)</span></p>
+<p>估计值（给定一个 <span class="math inline">\(x_i\)</span> 用模型
+<span class="math inline">\(\hat{y} = wx+b\)</span> 算出来的值）：<span class="math inline">\(\hat{y_i}\)</span></p>
+<p>残差：<span class="math inline">\(y_i-\hat{y_i} =
+y_i-wx_i-b\)</span></p>
+<h3 id="公式">公式</h3>
+<p>这个公式是高中数学的内容，可以写成向量形式：</p>
+<p><span class="math display">\[
+\begin{aligned}
+w &amp;= \frac{\boldsymbol{x}^T\boldsymbol{y} - m\bar{x}\bar{y}}
+{\boldsymbol{x}^T\boldsymbol{x}-m\bar{x}^2}
+= \frac{\boldsymbol{x}_d^T \boldsymbol{y}_d}{\boldsymbol{x}_d^T
+\boldsymbol{x}_d} \\
+b &amp;= \bar{y} - w\bar{x}
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\boldsymbol{x}_d\)</span> 的各个分量是
+<span class="math inline">\(x_i - \bar{x}\)</span></p>
+<h3 id="公式是怎么来的">公式是怎么来的</h3>
+<ol type="1">
+<li>残差平方和是关于 <span class="math inline">\(w\)</span> 和 <span class="math inline">\(b\)</span> 的二元函数，其海森矩阵为：</li>
+</ol>
+<p><span class="math display">\[
+\begin{pmatrix}
+2 \sum_{i=1}^m x_i^2 &amp; 2 \sum_{i=1}^m x_i \\
+2 \sum_{i=1}^m x_i &amp; 2m
+\end{pmatrix}
+\]</span></p>
+<p>只要有一个非零的 <span class="math inline">\(x\)</span>
+值，它的一阶主子式就为正；由柯西不等式的一般形式，只要有不相等的 <span class="math inline">\(x\)</span>，它的二阶主子式就为正。做一元线性回归至少需要三个不同的点，如果所有
+<span class="math inline">\(x\)</span>
+值相同，或者都为零，就不用这个公式算了。只要用这个公式算，它的海森矩阵就是正定的，它是严格凸函数。</p>
+<ol start="2" type="1">
+<li>令梯度等于零向量，改写成用矩阵求解线性方程组的形式</li>
+<li>两边左乘系数矩阵的逆矩阵，得到 <span class="math inline">\((w;b)\)</span></li>
+<li>把 <span class="math inline">\(w\)</span> 的分子分母同时除以 <span class="math inline">\(m\)</span></li>
+<li>目标直线必定过均值点</li>
+</ol>
+<h2 id="多元线性回归">多元线性回归</h2>
+<h3 id="目的-1">目的</h3>
+<p>找出 <span class="math inline">\(n+1\)</span> 维欧式空间里与 <span class="math inline">\(m\)</span> 个散点最接近的超平面：</p>
+<p><span class="math inline">\(f(\boldsymbol{x}) = \boldsymbol{w}^T
+\boldsymbol{x} + b\)</span> 的各项参数</p>
+<blockquote>
+<p>注意：这里的所有自变量（元）是一个 <span class="math inline">\(n\)</span> 维向量 <span class="math inline">\(\boldsymbol{x}\)</span>。<span class="math inline">\(\boldsymbol{w}\)</span>
+是各个一次项的系数。函数的解析式是个一次多项式</p>
+</blockquote>
+<p>“最接近”也可表示为 <span class="math inline">\(f(\boldsymbol{x}_i)
+\simeq y_i\)</span>，即用模型算出来的值几乎等于观测值。</p>
+<p>“行向量乘列向量加标量”的形式，把标量 <span class="math inline">\(b\)</span> 拆分成 <span class="math inline">\(b\)</span> 和 <span class="math inline">\(1\)</span>，写到前面那两个向量的尾巴上。记 <span class="math inline">\(\hat{\boldsymbol{w}} =
+(\boldsymbol{w};b)\)</span>，<span class="math inline">\(\hat{\boldsymbol{x}} =
+(\boldsymbol{x};1)\)</span>，则：</p>
+<p><span class="math display">\[
+f(\boldsymbol{x}) = \hat{\boldsymbol{w}}^T \hat{\boldsymbol{x}} =
+\hat{\boldsymbol{x}}^T \hat{\boldsymbol{w}}
+\]</span></p>
+<h3 id="公式-1">公式</h3>
+<p>当 <span class="math inline">\(\boldsymbol{X}^T\boldsymbol{X}\)</span>
+为正定矩阵时，<span class="math inline">\(\hat{\boldsymbol{w}}\)</span>
+的全局最优解为：</p>
+<p><span class="math display">\[
+(\boldsymbol{X}^T\boldsymbol{X})^{-1} \boldsymbol{X}^T\boldsymbol{y}
+\]</span></p>
+<p>此时的模型为：</p>
+<p><span class="math display">\[
+f(\hat{\boldsymbol{x_i}}) = \hat{\boldsymbol{x}}_i^T
+(\boldsymbol{X}^T\boldsymbol{X})^{-1} \boldsymbol{X}^T\boldsymbol{y}
+\]</span></p>
+<h3 id="公式是怎么来的-1">公式是怎么来的</h3>
+<p>找出使残差平方和 <span class="math inline">\(E_{\hat{\boldsymbol{w}}}\)</span>
+最小的各项的系数与常数项向量 <span class="math inline">\(\hat{\boldsymbol{w}}^*\)</span>，即求：</p>
+<p><span class="math display">\[
+\underset{\hat{\boldsymbol{w}}}{\mathrm{arg\ min}}
+\sum_{i=1}^{m}
+(y_i - \hat{\boldsymbol{x}}_i^T \hat{\boldsymbol{w}})^2
+\]</span></p>
+<p>平方求和可改写成向量相乘，把括号里的向下影分身：</p>
+<p><span class="math display">\[
+E_{\hat{\boldsymbol{w}}} =
+\sum_{i=1}^{m}
+(y_i - \hat{\boldsymbol{x}}_i^T \hat{\boldsymbol{w}})^2 =
+(\boldsymbol{y} - \boldsymbol{X} \hat{\boldsymbol{w}})^T
+(\boldsymbol{y} - \boldsymbol{X} \hat{\boldsymbol{w}})
+\]</span></p>
+<blockquote>
+<p>这里影分身后的 <span class="math inline">\(\boldsymbol{y}\)</span> 和
+<span class="math inline">\(\boldsymbol{X}\)</span> 都有 <span class="math inline">\(m\)</span> 行，<span class="math inline">\(\boldsymbol{X}\)</span> 的每一行为 <span class="math inline">\(\hat{\boldsymbol{x}}_i^T\)</span></p>
+</blockquote>
+<p>把 <span class="math inline">\(E_{\hat{\boldsymbol{w}}}\)</span>
+展开，再对 <span class="math inline">\(\hat{\boldsymbol{w}}\)</span>
+求导得：</p>
+<p><span class="math display">\[
+\nabla E_{\hat{\boldsymbol{w}}} =
+2 \boldsymbol{X}^T (\boldsymbol{X} \hat{\boldsymbol{w}} -
+\boldsymbol{y})
+\]</span></p>
+<p><span class="math inline">\(E_{\hat{\boldsymbol{w}}}\)</span>
+的海森矩阵是一阶导数再对 <span class="math inline">\(\hat{\boldsymbol{w}}^T\)</span> 求一次导：</p>
+<p><span class="math display">\[
+\nabla^2 E_{\hat{\boldsymbol{w}}} =
+2 \boldsymbol{X}^T \boldsymbol{X}
+\]</span></p>
+<p>当海森矩阵为正定矩阵时，<span class="math inline">\(E_{\hat{\boldsymbol{w}}}\)</span>
+为严格凸函数。令梯度等于零向量，求得的全局最优解为当 <span class="math inline">\(E_{\hat{\boldsymbol{w}}}\)</span> 取最小值时的
+<span class="math inline">\(\hat{\boldsymbol{w}}\)</span></p>
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/cook.html" rel="prev" title="菜谱">
+<i class="fa fa-chevron-left"></i> 菜谱
+                </a>
+</div>
+<div class="post-nav-item">
+<a href="/blog/drive.html" rel="next" title="驾驶">
+                  驾驶 <i class="fa fa-chevron-right"></i>
+</a>
+</div>
+</div>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
+<div class="copyright">
+  2023 – 
+  <span itemprop="copyrightYear">2024</span>
+<span class="with-love">
+<i class="fa fa-heart"></i>
+</span>
+<span class="author" itemprop="copyrightHolder">Ruofan</span>
+</div>
+</div>
+</footer>
+<div aria-label="返回顶部" class="back-to-top" role="button">
+<i class="fa fa-arrow-up fa-lg"></i>
+<span>0%</span>
+</div>
+<div class="reading-progress-bar"></div>
+<noscript>
+<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+<script src="/blog/js/third-party/tags/mermaid.js"></script>
+<script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/blog/js/third-party/math/mathjax.js"></script>
+<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/ml.html"}</script>
+<script src="/blog/js/third-party/quicklink.js"></script>
+</body>
+</html>
