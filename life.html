@@ -17,7 +17,7 @@
 <meta content="zh_CN" property="og:locale"/>
 <meta content="https://hrfis.me/blog/images/weekly-1.webp" property="og:image"/>
 <meta content="2024-07-14T14:00:00.000Z" property="article:published_time"/>
-<meta content="2024-07-31T15:41:55.644Z" property="article:modified_time"/>
+<meta content="2024-08-04T12:34:53.499Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/weekly-1.webp" name="twitter:image"/>
@@ -71,7 +71,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E4%BF%A1%E6%81%AF%E6%A8%A1%E6%9D%BF"><span class="nav-number">1.</span> <span class="nav-text">关键信息模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F"><span class="nav-number">2.</span> <span class="nav-text">240722 期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F-1"><span class="nav-number">3.</span> <span class="nav-text">240715 期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F-2"><span class="nav-number">4.</span> <span class="nav-text">240708 期</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E6%A0%87%E5%87%86"><span class="nav-number">1.</span> <span class="nav-text">统计标准</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F"><span class="nav-number">2.</span> <span class="nav-text">240729 期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F-1"><span class="nav-number">3.</span> <span class="nav-text">240722 期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F-2"><span class="nav-number">4.</span> <span class="nav-text">240715 期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F-3"><span class="nav-number">5.</span> <span class="nav-text">240708 期</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -133,7 +133,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-07-31T23:41:55+08:00" itemprop="dateModified" title="修改时间：2024-07-31 23:41:55">2024-07-31</time>
+<time datetime="2024-08-04T20:34:53+08:00" itemprop="dateModified" title="修改时间：2024-08-04 20:34:53">2024-08-04</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -153,52 +153,113 @@
 7 天的样本均值的差）的平方和除以 6 再开根号，使用 <code>numpy.std</code>
 计算，刻画的是这 7
 天数据的离散程度，越少说明越均匀，标准差为零说明所有样本数据相等。</p>
-<h2 id="关键信息模板">关键信息模板</h2>
+<h2 id="统计标准">统计标准</h2>
 <ul>
 <li>基本方面：
 <ul>
-<li>吃饭：总时长-早餐未吃顿数-中餐未吃顿数-晚餐未吃顿数-排便次数，包括零食</li>
-<li>睡觉：睡觉时刻最值-起床时刻最值-最值小时数-均值小时数-标准差分钟数-未达标天数（420
-至 540 分钟）</li>
-<li>体重：空腹状态-饱腹状态</li>
-<li>其他个人清洁方面</li>
+<li>吃饭：21 顿</li>
+<li>睡觉：7 至 9 小时</li>
+<li>体重：空腹状态-饱腹状态，可能几个星期一直维持在同一个区间里，统计频次最低</li>
+<li>洗漱：包括前后摇时间</li>
 </ul></li>
 <li>健康方面：
 <ul>
-<li>喝水：均值克数或毫升数（仅统计白水和茶水，不包括饮料和食物里的水）-标准差克数或毫升数-未达标天数（1700
-毫升）
+<li>喝水：1700
+毫升。仅统计白水和茶水，不包括饮料和食物里的水。每天晚上统计写到表格里，如果写了之后还喝了可记为明天
 <ul>
-<li>每天晚上统计写到表格里。如果写了之后还喝了可记为明天</li>
 <li>饮料：只喝奶、果汁、啤酒、黄酒</li>
 <li>水果</li>
 </ul></li>
-<li>运动：总时长-最值步数-均值步数-标准差步数-未达标天数（7000 步）</li>
-<li>游戏：多打单机游戏，少打带排位性质的网游</li>
+<li>运动：7000 步</li>
+<li>游戏：</li>
 <li>听歌：如果睡前听歌有效果则记为睡觉时间，无效果记为听歌时间</li>
 <li>服药：米氮平每周 21 颗，后文省略</li>
 </ul></li>
 <li>工作方面：生产个什么东西出来，或者把什么东西整理了
 <ul>
 <li>家务：包括体力的和脑力的</li>
-<li>写笔记：包括准备时间。边学边写的情况算到学习里</li>
+<li>写笔记：包括准备时间和写时回看的时间。边学边写的情况算到学习里</li>
 </ul></li>
-<li>上进方面：认同超我的时段
+<li>上进方面：
 <ul>
-<li>学习：通过书/视频/事件学习</li>
-<li>聊天：包括吵架。不包括运动、吃饭时的聊天。注意力在场，且四分之一时间为捧哏都计入。如果注意力长时间不在场，直接把时间除以二</li>
+<li>说话：复述看的东西，喉咙发声意义上的说话</li>
+<li>在场：包括吵架。不包括运动、吃饭时的聊天。注意力在场，且五分之一时间为捧哏都计入。如果注意力长时间不在场，直接把时间除以二</li>
 </ul></li>
-<li>探索方面：“冷启动”或“原始积累”的时间。例如在互联网上找资源、看有意思的文字、用秤称杯子重量为
-333 克、刷<a href="https://tieba.baidu.com/f?ie=utf-8&amp;kw=%E5%90%8A%E5%9B%BE" rel="noopener" target="_blank">吊图吧</a>、
+<li>探索方面：
+<ul>
+<li>在互联网上找资源、看有意思的文字、用秤称杯子重量为 333 克、刷<a href="https://tieba.baidu.com/f?ie=utf-8&amp;kw=%E5%90%8A%E5%9B%BE" rel="noopener" target="_blank">吊图吧</a>、
 <a href="https://tieba.baidu.com/f?ie=utf-8&amp;kw=meme%E5%9B%BE" rel="noopener" target="_blank">meme
 图吧</a>和弱智吧微博</li>
-<li>本周浪费时间：认同本我的时段。小时数，包括发呆的时间、纠结的时间、刷信息流的时间（厕所类贴吧、一些微博热搜）和转变情绪的时间
+</ul></li>
+<li>本周浪费时间：包括发呆的时间、纠结的时间、刷信息流的时间（厕所类贴吧、一些微博热搜）和转变情绪的时间
 <ul>
 <li>负面情绪：只统计大的，不统计小的。抑郁持续 30 分钟以上、生气持续 10
 分钟以上的</li>
 </ul></li>
 </ul>
 <p>其他想说的</p>
-<h2 id="期">240722 期</h2>
+<h2 id="期">240729 期</h2>
+<ul>
+<li>基本方面：
+<ul>
+<li>吃饭：4 小时 55 分钟，早餐未吃 1 顿，排便 8 次共 83 分钟</li>
+<li>睡觉：有三天在 12 点之后睡，两天在 10 点之后起，平均时长 9.6
+小时（最值 7 小时和 11 小时，标准差 79 分钟）</li>
+<li>洗漱 86 分钟</li>
+</ul></li>
+<li>健康方面：
+<ul>
+<li>喝水：最小 1450，平均 1843，标准差 212
+<ul>
+<li>饮料：酸奶 880 克，啤酒 330</li>
+<li>水果：葡萄若干</li>
+</ul></li>
+<li>运动：走路 10 小时 44 分钟，有 1 天不满 7000 步，平均步数 9540
+步，标准差 2298
+<ul>
+<li>在海拔方向上至少运动 720 米</li>
+</ul></li>
+<li>游戏：
+<ul>
+<li>《Phigros》15 小时 42 分钟（+10EZ 13HD 12.85rks）</li>
+<li>其他游戏 4 小时</li>
+</ul></li>
+<li>听歌：28 分钟</li>
+</ul></li>
+<li>工作方面：
+<ul>
+<li>写笔记：11 小时</li>
+<li>家务：2.5 小时，包括做饭，剥玉米</li>
+</ul></li>
+<li>上进方面：
+<ul>
+<li>学习：看文字 8.5 小时，复述时间未统计，意思是百分之九十九都忘了</li>
+<li>在场：10.5 小时</li>
+</ul></li>
+<li>探索方面：4 小时</li>
+<li>本周浪费时间：19 小时</li>
+</ul>
+<p>总结：</p>
+<ul>
+<li>好的方面
+<ul>
+<li>本周运动量为历史最高记录，且把家门口几条路的路名和走向弄明白了</li>
+<li>本周 21 顿饭吃了 20 顿（如果延迟的早饭也算）</li>
+<li>本周负面情绪持续时间没有触发统计阈值</li>
+</ul></li>
+<li>坏的方面
+<ul>
+<li>有 1 天走路和喝水未达标</li>
+</ul></li>
+<li>其他想说的
+<ul>
+<li>本周把<a href="/blog/84.html">川牌规则</a>修改了</li>
+<li>《双相》这个游戏前 6
+关和后面几关不是一个难度的，前面几关随便跳跳就能过，从第 7
+关开始要求你压栈了，遂放弃</li>
+</ul></li>
+</ul>
+<h2 id="期-1">240722 期</h2>
 <ul>
 <li>基本方面：
 <ul>
@@ -285,7 +346,7 @@
 </ul></li>
 </ul>
 <p><img src="/blog/images/weekly-1.webp"/></p>
-<h2 id="期-1">240715 期</h2>
+<h2 id="期-2">240715 期</h2>
 <ul>
 <li>基本方面：
 <ul>
@@ -361,7 +422,7 @@
 good，而且由于自信不足，有时候会越打越差的。</li>
 </ul></li>
 </ul>
-<h2 id="期-2">240708 期</h2>
+<h2 id="期-3">240708 期</h2>
 <ul>
 <li>基本方面：
 <ul>
