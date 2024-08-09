@@ -20,7 +20,7 @@
 <meta content="https://hrfis.me/blog/images/peace-1.webp" property="og:image"/>
 <meta content="https://hrfis.me/blog/images/peace-2.webp" property="og:image"/>
 <meta content="2024-04-14T14:41:00.000Z" property="article:published_time"/>
-<meta content="2024-08-02T08:02:55.482Z" property="article:modified_time"/>
+<meta content="2024-08-09T08:44:21.329Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/weierstrassa=0.5b=13.webp" name="twitter:image"/>
@@ -136,7 +136,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-08-02T16:02:55+08:00" itemprop="dateModified" title="修改时间：2024-08-02 16:02:55">2024-08-02</time>
+<time datetime="2024-08-09T16:44:21+08:00" itemprop="dateModified" title="修改时间：2024-08-09 16:44:21">2024-08-09</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -405,12 +405,13 @@
 <p><span class="math display">\[
 W(x) = \sum\limits_{n=0}^{\infty}a^{n}\cos(b^n \pi x) \quad a=0.5,b=13
 \]</span></p>
-<p>感性来看，三角函数本身就代表一种循环，再加上不同振幅和相位无限求和，所以会变成这种鬼样子：</p>
+<p>感性来看，三角函数本身就代表一种循环，再加上不同振幅和相位无限求和，所以会变成这种样子：</p>
 <p><img src="/blog/images/weierstrassa=0.5b=13.webp"/></p>
 <p>而你事后描述出来的症状是 <span class="math inline">\(2\cos(\pi
 x)\)</span>，只是与它宏观看起来相似而已：</p>
 <p><img src="/blog/images/2cospix.webp"/></p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/><span class="line">23</span><br/><span class="line">24</span><br/><span class="line">25</span><br/><span class="line">26</span><br/><span class="line">27</span><br/><span class="line">28</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br/><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br/><span class="line"></span><br/><span class="line">a = <span class="number">0.5</span></span><br/><span class="line">b = <span class="number">13</span></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">assert</span> a &gt; <span class="number">0</span> <span class="keyword">and</span> a &lt; <span class="number">1</span></span><br/><span class="line"><span class="keyword">assert</span> b &gt;= <span class="number">7</span> <span class="keyword">and</span> b % <span class="number">2</span> == <span class="number">1</span></span><br/><span class="line"><span class="keyword">assert</span> (a * b) &gt; (<span class="number">1</span> + <span class="number">1.5</span> * np.pi)</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line"><span class="keyword">def</span> <span class="title function_">weierstrass</span>(<span class="params">x, a, b, N=<span class="number">100</span></span>):</span><br/><span class="line">    result = <span class="number">0</span></span><br/><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br/><span class="line">        result += a**n * np.cos(b**n * np.pi * x)</span><br/><span class="line">    <span class="keyword">return</span> result</span><br/><span class="line"></span><br/><span class="line"></span><br/><span class="line">x = np.arange(-<span class="number">2</span>, <span class="number">2</span>, <span class="number">0.0001</span>)</span><br/><span class="line">y1 = <span class="number">2</span> * np.cos(np.pi * x)</span><br/><span class="line">y2 = weierstrass(x, a, b)</span><br/><span class="line"></span><br/><span class="line">plt.figure(<span class="number">1</span>)</span><br/><span class="line">plt.plot(x, y1, <span class="string">"b"</span>)</span><br/><span class="line">plt.figure(<span class="number">2</span>)</span><br/><span class="line">plt.plot(x, y2, <span class="string">"r"</span>)</span><br/><span class="line"></span><br/><span class="line">plt.show()</span><br/></pre></td></tr></table></figure>
+<p>用<a href="https://dra-m.com/borromean-knot/" rel="noopener" target="_blank">博洛米结</a>看：症状是处于实在界的，语言是处于象征界的。</p>
 <h2 id="关于有没有真实的自我">关于有没有真实的自我</h2>
 <p>这个问题和“一艘船换了全部零件还是不是原来的船”、“踏入几次河流”差不多。“自我”不用说，什么叫“真实”？先给笔者以某种情绪下看到的“真实”下一个定义：有这样一个人，他/她在任何场合下说出的话都是不违心的。如果由此推，“我”大概率会在不同的场合说出不同的话，或者在同一种场合以不同的情绪说出不同的话，所以根本就没有“真实的我”。在明尼苏达多相人格测试里有这样一道题目：</p>
 <blockquote>
@@ -421,6 +422,7 @@ x)\)</span>，只是与它宏观看起来相似而已：</p>
 <p>我是一位心理咨询师，我遇到一位来访者。我可能对他在某些方面很有意见，但是为了保持我的工作状态，不能对他说出过激的话。</p>
 </blockquote>
 <p>可以这么说：你说出的所有话都是为了达成你的某一种“不可告人”的目的，或者给别人留下某一种印象。而笔者在之前的非常长一段时间都认为有这种想法是不对的。</p>
+<p>举一个具体的例子：过年收到红包的时候应该说谢谢，但是笔者是心里说了嘴上没说。发红包收红包是为了维持亲属关系，维持亲属关系是为了以后互相帮助，就是一个社会关系投资的意思。但是我对你什么事情都没做，也没有帮助你，这不是我心安理得的。</p>
 <h2 id="和平精英游戏操作二指转四指的心得">《和平精英》游戏操作二指转四指的心得</h2>
 <p>当你逐渐习惯四指操作后，你会发现：匹配到的对手全都会四指，该打不过还是打不过。当你高兴的时候，对面在摔手机；当你摔手机的时候，对面在高兴。这就是摔手机守恒定律。这造成一种必然的现象：你，或者你匹配到的队友，在某局游戏里会有一种异常行为，包括但不限于：开船回出生岛转一圈、驾车绕沙漠公路环行一周、把汽车喇叭或枪声打出节奏感、以及挑战不捡任何东西吃鸡。</p>
 <p>以上都不属于“消极游戏”。属于“消极游戏”的一套操作：</p>
