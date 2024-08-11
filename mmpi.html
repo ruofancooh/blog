@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
+<link href="/blog/css/main.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
+<meta content="统计学家 George Box
+ 说：所有模型都是错的，有些是有用的。这里研究的是对于明尼苏达多相人格测验（Minnesota
+ Multiphasic Personality
+ Inventory）的一系列判断题，回答是或否对最终结果的影响。依据是知乎网友 aweeee分享的
+ xlsx 文件。" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="明尼苏达多相人格测验" property="og:title"/>
+<meta content="https://hrfis.me/blog/mmpi.html" property="og:url"/>
+<meta content="若凡的笔记" property="og:site_name"/>
+<meta content="统计学家 George Box
+ 说：所有模型都是错的，有些是有用的。这里研究的是对于明尼苏达多相人格测验（Minnesota
+ Multiphasic Personality
+ Inventory）的一系列判断题，回答是或否对最终结果的影响。依据是知乎网友 aweeee分享的
+ xlsx 文件。" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="https://hrfis.me/blog/images/psychoanalysis.webp" property="og:image"/>
+<meta content="https://hrfis.me/blog/images/CBT.webp" property="og:image"/>
+<meta content="https://hrfis.me/blog/images/CBT-2.webp" property="og:image"/>
+<meta content="2024-02-29T16:00:00.000Z" property="article:published_time"/>
+<meta content="2024-08-11T12:07:06.676Z" property="article:modified_time"/>
+<meta content="Ruofan" property="article:author"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://hrfis.me/blog/images/psychoanalysis.webp" name="twitter:image"/>
+<link href="https://hrfis.me/blog/mmpi" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/mmpi.html","path":"/mmpi.html","title":"明尼苏达多相人格测验"}</script>
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>明尼苏达多相人格测验 | 若凡的笔记</title>
+<noscript>
+<link href="/blog/css/noscript.css" rel="stylesheet"/>
+</noscript>
+</head>
+<body itemscope="" itemtype="http://schema.org/WebPage">
+<div class="headband"></div>
+<main class="main">
+<div class="column">
+<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+<div class="site-nav-toggle">
+<div aria-label="切换导航栏" class="toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+</div>
+</div>
+<div class="site-meta">
+<a class="brand" href="/blog/" rel="start">
+<i class="logo-line"></i>
+<p class="site-title">若凡的笔记</p>
+<i class="logo-line"></i>
+</a>
+</div>
+<div class="site-nav-right">
+<div aria-label="搜索" class="toggle popup-trigger" role="button">
+</div>
+</div>
+</div>
+<nav class="site-nav">
+<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+</ul>
+</nav>
+</header>
+<aside class="sidebar">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<ul class="sidebar-nav">
+<li class="sidebar-nav-toc">
+          文章目录
+        </li>
+<li class="sidebar-nav-overview">
+          站点概览
+        </li>
+</ul>
+<div class="sidebar-panel-container">
+<!--noindex-->
+<div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#qquestion%E7%96%91%E9%97%AE%E4%BD%A0%E6%B2%A1%E6%9C%89%E5%9B%9E%E7%AD%94%E7%9A%84%E9%A2%98%E7%9B%AE%E6%95%B0"><span class="nav-number">1.</span> <span class="nav-text">Q（Question）【疑问】：你没有回答的题目数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#llie%E8%AF%B4%E8%B0%8E%E4%BD%A0%E5%BE%80%E5%9C%A3%E4%BA%BA%E6%96%B9%E5%90%91%E9%9D%A0%E7%9A%84%E7%A8%8B%E5%BA%A6"><span class="nav-number">2.</span> <span class="nav-text">L（Lie）【说谎】：你往圣人方向靠的程度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fvalidity%E8%AF%88%E7%97%85%E4%BD%A0%E8%A3%85%E7%97%85%E7%9A%84%E7%A8%8B%E5%BA%A6%E6%88%96%E8%80%85%E5%88%A4%E6%96%AD%E5%8A%9B%E4%B8%A7%E5%A4%B1%E7%9A%84%E7%A8%8B%E5%BA%A6"><span class="nav-number">3.</span> <span class="nav-text">F（Validity）【诈病】：你装病的程度，或者判断力丧失的程度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kcorrection%E6%A0%A1%E6%AD%A3%E4%BD%A0%E5%AF%B9%E8%87%AA%E5%B7%B1%E7%9A%84%E7%A7%81%E4%BA%8B%E9%9A%90%E7%9E%92%E7%9A%84%E7%A8%8B%E5%BA%A6%E9%98%B2%E5%BE%A1%E7%9A%84%E7%A8%8B%E5%BA%A6"><span class="nav-number">4.</span> <span class="nav-text">K（Correction）【校正】：你对自己的私事隐瞒的程度、防御的程度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hshypochondriasis%E7%96%91%E7%97%85%E4%BD%A0%E5%AF%B9%E8%87%AA%E5%B7%B1%E8%BA%AB%E4%BD%93%E8%BF%87%E5%BA%A6%E5%85%B3%E5%BF%83%E7%9A%84%E7%A8%8B%E5%BA%A6"><span class="nav-number">5.</span> <span class="nav-text">Hs（Hypochondriasis）【疑病】：你对自己身体过度关心的程度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ddepression%E6%8A%91%E9%83%81%E4%BD%A0%E6%8A%91%E9%83%81%E7%9A%84%E7%A8%8B%E5%BA%A6"><span class="nav-number">6.</span> <span class="nav-text">D（Depression）【抑郁】：你抑郁的程度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hyhysteria%E7%99%94%E7%97%85%E4%BD%A0%E6%AD%87%E6%96%AF%E5%BA%95%E9%87%8C%E7%9A%84%E7%A8%8B%E5%BA%A6"><span class="nav-number">7.</span> <span class="nav-text">Hy（Hysteria）【癔病】：你“歇斯底里”的程度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E9%A2%98%E7%9B%AE"><span class="nav-number">8.</span> <span class="nav-text">一些有意思的题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B2%BE%E7%A5%9E%E5%88%86%E6%9E%90%E4%B8%8E%E8%AE%A4%E7%9F%A5%E8%A1%8C%E4%B8%BA%E7%96%97%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">9.</span> <span class="nav-text">精神分析与认知行为疗法的区别</span></a></li></ol></div>
+</div>
+<!--/noindex-->
+<div class="site-overview-wrap sidebar-panel">
+<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<p class="site-author-name" itemprop="name">Ruofan</p>
+<div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+<nav class="site-state">
+<div class="site-state-item site-state-posts">
+<a href="/blog/">
+<span class="site-state-item-count">34</span>
+<span class="site-state-item-name">笔记</span>
+</a>
+</div>
+<div class="site-state-item site-state-categories">
+<a href="/blog/categories/">
+<span class="site-state-item-count">3</span>
+<span class="site-state-item-name">分类</span></a>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<div class="main-inner post posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/mmpi.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="明尼苏达多相人格测验 | 若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h1 class="post-title" itemprop="name headline">
+          明尼苏达多相人格测验
+        </h1>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2024-03-01T00:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-03-01 00:00:00">2024-03-01</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-08-11T20:07:06+08:00" itemprop="dateModified" title="修改时间：2024-08-11 20:07:06">2024-08-11</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/m/" itemprop="url" rel="index"><span itemprop="name">牢骚系列</span></a>
+</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody"><p>统计学家 George Box
+说：所有模型都是错的，有些是有用的。这里研究的是对于明尼苏达多相人格测验（Minnesota
+Multiphasic Personality
+Inventory）的一系列判断题，回答是或否对最终结果的影响。依据是<a href="https://zhuanlan.zhihu.com/p/600297840" rel="noopener" target="_blank">知乎网友 aweeee</a>分享的
+<code>xlsx</code> 文件。</p>
+<span id="more"></span>
+<ol type="1">
+<li><p>做一道判断题，回答是或否</p></li>
+<li><p>答完一道题之后，对某一个或者某几个量表加 1 分或不加分</p></li>
+<li><p>答完所有题之后，会得到十四个分，包括四个效度量表（Q L F
+K）和十个临床量表（Hs D Hy Pd Mf Pa Pt Sc Ma
+Si）。这十四个分称作原始分。如果你做的是 566
+道题的，额外会有五个附加量表（MAS Dy Do Re
+Cn）。笔者做的都是两百道题的，只有这十四个分。</p></li>
+<li><p>特别地，对这五个临床量表加上一定比例的 K 分，加完之后的称为 K
+校正分</p>
+<ul>
+<li>Hs += 0.5K</li>
+<li>Pd += 0.4K</li>
+<li>Pt += 1.0K</li>
+<li>Sc += 1.0K</li>
+<li>Ma += 0.2K</li>
+</ul></li>
+<li><p>现在我们有十四个分。对除 Q 之外的十三个分分别计算 T 分：</p>
+<p><span class="math display">\[
+T = 50 + \frac{10 \times (你的得分 - 常模均值)}{常模标准差}
+\]</span></p>
+<p>其中，【常模均值】和【常模标准差】由你的国籍、性别和年龄范围选择。</p>
+<p>【常模均值】是一群正常人（健康人）做的平均分。用你的得分与其相减，刻画的是你与正常人的偏离程度。</p>
+<p>【常模标准差】刻画的是这一群正常人得分的离散程度。用其作分母，可以缩小误差。</p></li>
+</ol>
+<p>四个效度量表，测你做的结果是否有效：</p>
+<h2 id="qquestion疑问你没有回答的题目数">Q（Question）【疑问】：你没有回答的题目数</h2>
+<p>在实际测验中，与“性”有关的几个题目可以选择跳过回答。</p>
+<h2 id="llie说谎你往圣人方向靠的程度">L（Lie）【说谎】：你往圣人方向靠的程度</h2>
+<p>例如</p>
+<blockquote>
+<p>做游戏的时候，我只愿赢而不愿输</p>
+</blockquote>
+<blockquote>
+<p>偶尔我会想到一些坏得说不出口的事</p>
+</blockquote>
+<blockquote>
+<p>有时我也讲假话</p>
+</blockquote>
+<p>等的这一些问题，回答【否】会加分</p>
+<h2 id="fvalidity诈病你装病的程度或者判断力丧失的程度">F（Validity）【诈病】：你装病的程度，或者判断力丧失的程度</h2>
+<p>例如</p>
+<blockquote>
+<p>有人一直想毒死我</p>
+</blockquote>
+<blockquote>
+<p>有时我觉得有鬼神附在我身上</p>
+</blockquote>
+<blockquote>
+<p>我能在我周围看到其他人所看不到的东西、动物和人</p>
+</blockquote>
+<p>等的这一些问题，回答【是】会加分</p>
+<h2 id="kcorrection校正你对自己的私事隐瞒的程度防御的程度">K（Correction）【校正】：你对自己的私事隐瞒的程度、防御的程度</h2>
+<p>例如</p>
+<blockquote>
+<p>当我正在做一件重要事情的时候，如果有人向我请教或打扰我，我会不耐烦的</p>
+</blockquote>
+<blockquote>
+<p>我觉得许多人喜欢夸大自己的不幸，以便得到别人的同情和帮助</p>
+</blockquote>
+<blockquote>
+<p>我不在乎别人对我有什么看法</p>
+</blockquote>
+<p>回答【否】会加分</p>
+<blockquote>
+<p>我几乎没有和家里人吵过嘴</p>
+</blockquote>
+<p>回答【是】会加分</p>
+<p><strong>十个临床量表，测你病的严重程度：</strong></p>
+<h2 id="hshypochondriasis疑病你对自己身体过度关心的程度">Hs（Hypochondriasis）【疑病】：你对自己身体过度关心的程度</h2>
+<p>例如</p>
+<blockquote>
+<p>我的胃口很好</p>
+</blockquote>
+<blockquote>
+<p>我睡得不安，容易被惊醒</p>
+</blockquote>
+<blockquote>
+<p>我的身体和我的大多数朋友一样地健康</p>
+</blockquote>
+<blockquote>
+<p>我常觉得头上好象有一根绷得紧紧的带子</p>
+</blockquote>
+<blockquote>
+<p>我不容易疲倦</p>
+</blockquote>
+<blockquote>
+<p>有时候我觉得我的头顶一碰就疼</p>
+</blockquote>
+<p>问的都是与你身体相关的，如果你给的反常回答太多了：</p>
+<ul>
+<li>如果你说的是实话：说明你确实有这些症状，说明你很反常</li>
+<li>如果你说的是中话：说明你在过度关心得病，说明你很反常</li>
+<li>如果你说的是假话：说明你在诉苦，说明你很反常</li>
+</ul>
+<h2 id="ddepression抑郁你抑郁的程度">D（Depression）【抑郁】：你抑郁的程度</h2>
+<p>前 200 道题里，有 44 道题涉及对【抑郁】这一项加分。</p>
+<ul>
+<li>笔者有一次抑郁的得分是 22，最终【正常】的概率在 90% 以上</li>
+<li>另一次得分 38，【焦虑抑郁障碍】的概率在 90% 以上</li>
+</ul>
+<p>说明这是一个参量。我们来关注几个同时对其他很多参量造成影响的题目：</p>
+<blockquote>
+<p>我发现我很难把注意力集中到一件工作上</p>
+</blockquote>
+<ul>
+<li>如果回答【是】：【抑郁】【癔病】【精神病态】【精神衰弱】【社会内向】【外显性焦虑】加一分</li>
+<li>如果回答【否】：【支配性】加一分</li>
+</ul>
+<blockquote>
+<p>我希望我能像别人那样快乐</p>
+</blockquote>
+<ul>
+<li>如果回答【是】：【抑郁】【精神病态】【精神衰弱】【社会内向】【外显性焦虑】【依赖性】【控制力】加一分</li>
+</ul>
+<blockquote>
+<p>我经常是快乐的</p>
+</blockquote>
+<ul>
+<li>如果回答【否】：【抑郁】【癔病】【精神病态】【偏执】【外显性焦虑】【依赖性】加一分</li>
+</ul>
+<blockquote>
+<p>许多时候，我觉得浑身无力</p>
+</blockquote>
+<ul>
+<li>如果回答【是】：【疑病】【抑郁】【癔病】【精神衰弱】【依赖性】加一分</li>
+</ul>
+<h2 id="hyhysteria癔病你歇斯底里的程度">Hy（Hysteria）【癔病】：你“歇斯底里”的程度</h2>
+<p>前 200 道题里，有 60 道题涉及对【癔病】这一项加分，得分 30
+以上说明你有大异常。</p>
+<p>其中答【是】加分的有 11 道，有 4 道同时对【疑病】加分，另外 7
+道所描述的症状比【疑病】更反常、更“躯体化”、不属于健康人应有的，例如：</p>
+<blockquote>
+<p>我的喉咙里总好象有一块东西堵着似的</p>
+</blockquote>
+<blockquote>
+<p>我觉得我的头到处都疼</p>
+</blockquote>
+<blockquote>
+<p>每星期至少有一、二次，我突然觉得无缘无故地全身发热</p>
+</blockquote>
+<h2 id="一些有意思的题目">一些有意思的题目</h2>
+<p>从这一些题目，以及前面提到的题目，我们可以揣摩出题者的意图，从而反推出健康人的标准。</p>
+<blockquote>
+<p>一切事情都由老天爷安排好了</p>
+</blockquote>
+<ul>
+<li>如果回答【是】：【社会地位】加一分</li>
+<li>如果回答【否】：【抑郁】和【控制力】加一分</li>
+<li>子曰：“吾十有五而志于学，三十而立，四十而不惑，五十而知天命，六十而耳顺，七十而从心所欲，不逾矩。”</li>
+<li>回答【否】说明你仍然在坚持自己的主观能动性，但南墙还没被你撞破</li>
+</ul>
+<blockquote>
+<p>我几乎每星期都去教堂(或常去寺庙)</p>
+</blockquote>
+<ul>
+<li>如果回答【否】：【抑郁】加一分</li>
+<li>因为 MMPI 是由美国人制定的，两国的文化习俗不同，所以中国常模的 D
+分比美国常模高。</li>
+<li>出题者的意图可能是：活着是需要信仰的。</li>
+</ul>
+<blockquote>
+<p>要使大多数人相信事实的真相，是要经过一番辨论的</p>
+</blockquote>
+<ul>
+<li>如果回答【否】：【校正】【抑郁】【癔病】【男女子气】加一分</li>
+<li>笔者基本没有参与辩论过，所以没法解释【校正】是什么意思。【抑郁】可能是你在某一次辩论里输了，然后【癔病】了，最后你投笔从戎了。</li>
+</ul>
+<blockquote>
+<p>我相信善有善报，恶有恶报</p>
+</blockquote>
+<ul>
+<li>如果回答【是】：【依赖性】加一分</li>
+<li>如果回答【否】：【抑郁】加一分</li>
+<li>你相信是相信了，但可能在等着别人给你报</li>
+</ul>
+<blockquote>
+<p>有时，当我难为情的时候，会出很多汗，这使我非常苦恼</p>
+</blockquote>
+<ul>
+<li>如果回答【是】：【外显性焦虑】加一分</li>
+<li>如果回答【否】：【抑郁】加一分</li>
+<li>看吧，两头都得加。所以不是你得了几分抑郁，就代表你抑郁了</li>
+</ul>
+<blockquote>
+<p>我的脑子有点毛病</p>
+</blockquote>
+<ul>
+<li>如果回答【是】：【诈病】和【精神分裂】加一分</li>
+<li>它把两种情况都考虑到了：黑色幽默的、和自暴自弃的</li>
+</ul>
+<blockquote>
+<p>我的判断力比以往任何时候都好</p>
+</blockquote>
+<ul>
+<li>如果回答【否】：【抑郁】加一分</li>
+</ul>
+<blockquote>
+<p>在我一生中，我从来没有感觉到象现在这么好</p>
+</blockquote>
+<ul>
+<li>如果回答【否】：【校正】【抑郁】和【癔病】加一分</li>
+<li>你做了这么多道，可能一辈子都没人问过你、关心过你的题，如果还答否，就有点说不过去。</li>
+</ul>
+<h2 id="精神分析与认知行为疗法的区别">精神分析与认知行为疗法的区别</h2>
+<p>精神分析：</p>
+<p><img src="/blog/images/psychoanalysis.webp"/></p>
+<p>认知行为疗法：</p>
+<p><img src="/blog/images/CBT.webp"/></p>
+<p><img src="/blog/images/CBT-2.webp"/></p>
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/that.html" rel="prev" title="童年·在人间·我的大学">
+<i class="fa fa-chevron-left"></i> 童年·在人间·我的大学
+                </a>
+</div>
+<div class="post-nav-item">
+<a href="/blog/computer-organization.html" rel="next" title="计算机组成原理">
+                  计算机组成原理 <i class="fa fa-chevron-right"></i>
+</a>
+</div>
+</div>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
+<div class="copyright">
+  2023 – 
+  <span itemprop="copyrightYear">2024</span>
+<span class="with-love">
+<i class="fa fa-heart"></i>
+</span>
+<span class="author" itemprop="copyrightHolder">Ruofan</span>
+</div>
+</div>
+</footer>
+<div aria-label="返回顶部" class="back-to-top" role="button">
+<i class="fa fa-arrow-up fa-lg"></i>
+<span>0%</span>
+</div>
+<div class="reading-progress-bar"></div>
+<noscript>
+<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+<script src="/blog/js/third-party/tags/mermaid.js"></script>
+<script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/blog/js/third-party/math/mathjax.js"></script>
+<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/mmpi.html"}</script>
+<script src="/blog/js/third-party/quicklink.js"></script>
+</body>
+</html>
