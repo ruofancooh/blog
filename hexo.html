@@ -16,7 +16,7 @@
 <meta content="一键生成的背后。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-08-27T12:38:00.000Z" property="article:published_time"/>
-<meta content="2024-08-25T10:57:33.688Z" property="article:modified_time"/>
+<meta content="2024-08-31T05:32:46.339Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/hexo" rel="canonical"/>
@@ -69,7 +69,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#md"><span class="nav-number">1.</span> <span class="nav-text">md</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bm.py"><span class="nav-number">2.</span> <span class="nav-text">bm.py</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bs.bat"><span class="nav-number">3.</span> <span class="nav-text">bs.bat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bg.bat"><span class="nav-number">4.</span> <span class="nav-text">bg.bat</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%8F%E6%9C%BA%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">随机背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#md"><span class="nav-number">2.</span> <span class="nav-text">md</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bm.py"><span class="nav-number">3.</span> <span class="nav-text">bm.py</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bs.bat"><span class="nav-number">4.</span> <span class="nav-text">bs.bat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bg.bat"><span class="nav-number">5.</span> <span class="nav-text">bg.bat</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -131,7 +131,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-08-25T18:57:33+08:00" itemprop="dateModified" title="修改时间：2024-08-25 18:57:33">2024-08-25</time>
+<time datetime="2024-08-31T13:32:46+08:00" itemprop="dateModified" title="修改时间：2024-08-31 13:32:46">2024-08-31</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -147,6 +147,9 @@
 </header>
 <div class="post-body" itemprop="articleBody"><p>一键生成的背后。</p>
 <span id="more"></span>
+<h2 id="随机背景">随机背景</h2>
+<p><code>themes/next/source/_data/styles.styl</code> 里加上：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> {</span><br/><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"https://bing.img.run/rand.php"</span>);</span><br/><span class="line">    <span class="attribute">background-attachment</span>: fixed;</span><br/><span class="line">    <span class="attribute">background-size</span>: cover;</span><br/><span class="line">    <span class="attribute">background-position</span>: center;</span><br/><span class="line">}</span><br/></pre></td></tr></table></figure>
 <h2 id="md">md</h2>
 <figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/></pre></td><td class="code"><pre><span class="line">---</span><br/><span class="line">title: CN02 - 概述 - 体系结构</span><br/><span class="line">date: 2023-09-09 17:00:00</span><br/><span class="line">categories: 计算机网络</span><br/><span class="line"><span class="section">permalink: CN/02/</span></span><br/><span class="line"><span class="section">---</span></span><br/><span class="line"></span><br/><span class="line"><span class="bullet">-</span> OSI 七层协议：参考模型</span><br/><span class="line"><span class="bullet">-</span> TCP/IP 四层协议：即 Internet protocol suite，实际用到的</span><br/><span class="line"><span class="bullet">-</span> 五层协议：教学模型</span><br/><span class="line"></span><br/><span class="line">&lt;!--more--&gt;</span><br/><span class="line"></span><br/><span class="line">（正文）</span><br/></pre></td></tr></table></figure>
 <p><code>permalink:</code>

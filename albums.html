@@ -26,7 +26,7 @@
  矛盾二：你为了打造听歌排行/歌单给别人看，或者为了全收集/完满性而故意听一些歌。你为了证明" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-04-03T16:00:00.000Z" property="article:published_time"/>
-<meta content="2024-08-25T15:03:58.893Z" property="article:modified_time"/>
+<meta content="2024-08-31T11:40:25.282Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/albums" rel="canonical"/>
@@ -141,7 +141,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-08-25T23:03:58+08:00" itemprop="dateModified" title="修改时间：2024-08-25 23:03:58">2024-08-25</time>
+<time datetime="2024-08-31T19:40:25+08:00" itemprop="dateModified" title="修改时间：2024-08-31 19:40:25">2024-08-31</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -165,12 +165,32 @@
 <li>论心：看你有时特别想听一首歌，或者一首歌给你留下了深刻印象
 <ul>
 <li>矛盾三：你对完整专辑里/歌曲里的某个桥段有深刻印象，但是你不会每天都听它（你会害怕它变成矛盾一）。或者把一首曲子单拎出来听的效果没有在专辑里听的效果好。《沉溺在神的砂海》是一个例子。</li>
-<li>矛盾四：你怀着猎奇/崇高/装逼的目的去听，你为了尝醋而不管饺子是什么馅，到后来一不小心听习惯了，但是你没法把这些奇异的东西和你认为正常人应该有的东西整合到一起。一些摇滚歌曲是例子。</li>
+<li>矛盾四：你怀着猎奇/崇高的目的去听，你为了尝醋而不管饺子是什么馅，到后来一不小心听习惯了，但是你没法把这些奇异的东西和你认为正常人应该有的东西整合到一起。一些摇滚歌曲是例子。</li>
 </ul></li>
 </ul>
 <p>矛盾一、三是情感投注适度的问题，二、四则是个人归属感的问题。这四对矛盾揭示了：这里列举的是在以前的一段时间留下了深刻印象的音乐，而不一定是现在喜欢的音乐。</p>
 <p>第五个矛盾等于前面那两个问题叠加起来：把这些音乐分享出来是一件挺尴尬的事儿，因为除了报菜名，还有类似于“原神启动”的效果：你这个人品和曲风是对不上的。</p>
 <span id="more"></span>
+<script>
+function toggleIframe(songType, songId, contianerId, aId) {
+  let container = document.getElementById(contianerId);
+  let a = document.getElementById(aId);
+  if (container === null) {
+    console.log("未获取到contianer");
+  } else if (container.childNodes.length !== 1) {
+    container.removeChild(container.lastChild);
+    a.innerText = "点此收听";
+  } else {
+    let iframe = document.createElement("iframe");
+    iframe.frameBorder = "no";
+    iframe.width = "100%";
+    iframe.height = 86;
+    iframe.src = `//music.163.com/outchain/player?type=${songType}&id=${songId}&auto=0&height=66`;
+    container.appendChild(iframe);
+    a.innerText = "点此收起";
+  }
+}
+</script>
 <h2 id="概念专辑">概念专辑</h2>
 <p>先从概念专辑说起。概念专辑是一个比较有意思的概念，这种专辑是这样一种专辑：专辑里的所有歌是围绕着同一概念创作的。</p>
 <p>据说概念专辑的起源是英国摇滚乐队披头士的《Sgt. Pepper's Lonely Hearts
@@ -182,7 +202,6 @@ Band》（1967）。大概是他们模拟了一个虚假的乐队，这个虚假
 VIP
 的版本里没有。<a id="a1" onclick='toggleIframe(2,"1476062","s1","a1")'>点此收听</a></p>
 </blockquote>
-<script src="/blog/misc/favorite.js"></script>
 <div id="s1">
 </div>
 <p>另一个英国摇滚乐队叫平克弗洛伊德。笔者没去过英国，不知道摇滚什么意思，也不知道乐队什么意思，也没吸过大麻，但是他们的歌就像大麻一样。乐队名字
