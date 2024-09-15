@@ -17,7 +17,7 @@
 <meta content="zh_CN" property="og:locale"/>
 <meta content="https://hrfis.me/blog/images/residual-error.webp" property="og:image"/>
 <meta content="2024-07-21T11:00:00.000Z" property="article:published_time"/>
-<meta content="2024-08-31T05:22:34.790Z" property="article:modified_time"/>
+<meta content="2024-09-15T14:24:14.536Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/residual-error.webp" name="twitter:image"/>
@@ -71,13 +71,13 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">有意思的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E6%8F%90%E7%9F%A5%E8%AF%86%E5%92%8C%E8%BF%90%E7%AE%97%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">前提知识和运算方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sigmoid-%E5%87%BD%E6%95%B0%E5%AF%B9%E6%95%B0%E5%87%A0%E7%8E%87%E5%87%BD%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">Sigmoid 函数（对数几率函数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%92%8C%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E5%87%A0%E4%BD%95%E6%84%8F%E4%B9%89"><span class="nav-number">2.2.</span> <span class="nav-text">矩阵和行列式的几何意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E4%BD%99%E5%AD%90%E5%BC%8F-m_ij-%E5%92%8C%E4%BB%A3%E6%95%B0%E4%BD%99%E5%AD%90%E5%BC%8F-a_ij"><span class="nav-number">2.3.</span> <span class="nav-text">方阵的余子式 \(M_{ij}\) 和代数余子式 \(A_{ij}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E9%A1%BA%E5%BA%8F%E4%B8%BB%E5%AD%90%E5%BC%8F"><span class="nav-number">2.4.</span> <span class="nav-text">方阵的顺序主子式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E4%BC%B4%E9%9A%8F%E7%9F%A9%E9%98%B5-a"><span class="nav-number">2.5.</span> <span class="nav-text">方阵的伴随矩阵 \(A^*\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E9%80%86%E7%9F%A9%E9%98%B5-a-1"><span class="nav-number">2.6.</span> <span class="nav-text">方阵的逆矩阵 \(A^{-1}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC-lambda-%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F"><span class="nav-number">2.7.</span> <span class="nav-text">方阵的特征值 \(\lambda\) 和特征向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5"><span class="nav-number">2.8.</span> <span class="nav-text">正定矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n-%E5%85%83%E5%87%BD%E6%95%B0-fboldsymbolx"><span class="nav-number">2.9.</span> <span class="nav-text">\(n\)
-元函数 \(f(\boldsymbol{x})\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%80%E9%98%B6%E5%AF%BC%E6%95%B0-nabla-fboldsymbolx-dfracpartial-fboldsymbolxpartial-boldsymbolx"><span class="nav-number">2.10.</span> <span class="nav-text">梯度（一阶导数）
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">有意思的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E6%8F%90%E7%9F%A5%E8%AF%86%E5%92%8C%E8%BF%90%E7%AE%97%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">前提知识和运算方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sigmoid-%E5%87%BD%E6%95%B0%E5%AF%B9%E6%95%B0%E5%87%A0%E7%8E%87%E5%87%BD%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">Sigmoid 函数（对数几率函数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%92%8C%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E5%87%A0%E4%BD%95%E6%84%8F%E4%B9%89"><span class="nav-number">3.2.</span> <span class="nav-text">矩阵和行列式的几何意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E4%BD%99%E5%AD%90%E5%BC%8F-m_ij-%E5%92%8C%E4%BB%A3%E6%95%B0%E4%BD%99%E5%AD%90%E5%BC%8F-a_ij"><span class="nav-number">3.3.</span> <span class="nav-text">方阵的余子式 \(M_{ij}\) 和代数余子式 \(A_{ij}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E9%A1%BA%E5%BA%8F%E4%B8%BB%E5%AD%90%E5%BC%8F"><span class="nav-number">3.4.</span> <span class="nav-text">方阵的顺序主子式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E4%BC%B4%E9%9A%8F%E7%9F%A9%E9%98%B5-a"><span class="nav-number">3.5.</span> <span class="nav-text">方阵的伴随矩阵 \(A^*\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E9%80%86%E7%9F%A9%E9%98%B5-a-1"><span class="nav-number">3.6.</span> <span class="nav-text">方阵的逆矩阵 \(A^{-1}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC-lambda-%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F"><span class="nav-number">3.7.</span> <span class="nav-text">方阵的特征值 \(\lambda\) 和特征向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5"><span class="nav-number">3.8.</span> <span class="nav-text">正定矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n-%E5%85%83%E5%87%BD%E6%95%B0-fboldsymbolx"><span class="nav-number">3.9.</span> <span class="nav-text">\(n\)
+元函数 \(f(\boldsymbol{x})\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%80%E9%98%B6%E5%AF%BC%E6%95%B0-nabla-fboldsymbolx-dfracpartial-fboldsymbolxpartial-boldsymbolx"><span class="nav-number">3.10.</span> <span class="nav-text">梯度（一阶导数）
 \(\nabla f(\boldsymbol{x}) = \dfrac{\partial
-f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%B7%E6%A3%AE%E7%9F%A9%E9%98%B5%E4%BA%8C%E9%98%B6%E5%AF%BC%E6%95%B0-nabla2-fboldsymbolx-dfracpartial2-fboldsymbolxpartial-boldsymbolxpartial-boldsymbolxt"><span class="nav-number">2.11.</span> <span class="nav-text">海森矩阵（二阶导数）
+f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%B7%E6%A3%AE%E7%9F%A9%E9%98%B5%E4%BA%8C%E9%98%B6%E5%AF%BC%E6%95%B0-nabla2-fboldsymbolx-dfracpartial2-fboldsymbolxpartial-boldsymbolxpartial-boldsymbolxt"><span class="nav-number">3.11.</span> <span class="nav-text">海森矩阵（二阶导数）
 \(\nabla^2 f(\boldsymbol{x}) =
 \dfrac{\partial^2 f(\boldsymbol{x})}{\partial \boldsymbol{x}{\partial
-\boldsymbol{x}}^T}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%B8%E5%87%BD%E6%95%B0"><span class="nav-number">2.12.</span> <span class="nav-text">凸函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86%E5%85%AC%E5%BC%8F"><span class="nav-number">2.13.</span> <span class="nav-text">矩阵微分公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">3.</span> <span class="nav-text">一元线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-number">3.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">3.2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F"><span class="nav-number">3.3.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84"><span class="nav-number">3.4.</span> <span class="nav-text">公式是怎么来的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">4.</span> <span class="nav-text">多元线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-1"><span class="nav-number">4.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-1"><span class="nav-number">4.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84-1"><span class="nav-number">4.3.</span> <span class="nav-text">公式是怎么来的</span></a></li></ol></li></ol></div>
+\boldsymbol{x}}^T}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%B8%E5%87%BD%E6%95%B0"><span class="nav-number">3.12.</span> <span class="nav-text">凸函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86%E5%85%AC%E5%BC%8F"><span class="nav-number">3.13.</span> <span class="nav-text">矩阵微分公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">4.</span> <span class="nav-text">一元线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-number">4.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">4.2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F"><span class="nav-number">4.3.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84"><span class="nav-number">4.4.</span> <span class="nav-text">公式是怎么来的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">5.</span> <span class="nav-text">多元线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-1"><span class="nav-number">5.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-1"><span class="nav-number">5.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84-1"><span class="nav-number">5.3.</span> <span class="nav-text">公式是怎么来的</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -89,7 +89,7 @@ f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></a></li><li class="nav-item
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/">
-<span class="site-state-item-count">34</span>
+<span class="site-state-item-count">36</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -139,7 +139,7 @@ f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></a></li><li class="nav-item
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-08-31T13:22:34+08:00" itemprop="dateModified" title="修改时间：2024-08-31 13:22:34">2024-08-31</time>
+<time datetime="2024-09-15T22:24:14+08:00" itemprop="dateModified" title="修改时间：2024-09-15 22:24:14">2024-09-15</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -164,6 +164,20 @@ f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></a></li><li class="nav-item
 <li>如果现实中所有问题不是同等重要的，那么必定某些算法适合解决某些特定的问题而不适合解决另一些特定的问题</li>
 <li>从某个数据集里通过某种算法学出来的模型，不一定比从另一个特定的数据集里学出来的另一个模型“好”</li>
 </ul>
+<h2 id="梯度下降法">梯度下降法</h2>
+<p>梯度下降法是用来逼近函数取极小值时的点的。</p>
+<p>以一元下凸函数 f(x) 为例，在右侧任意取一个 x
+值，函数图像在该点处下降最快的方向是该点的导数方向，且导数为正，此时需要向左逼近，把
+x 值变小；如果一开始在左侧取，则导数为负，需要向右逼近，把 x
+值变大。</p>
+<p>我们可以规定新取的 x 值等于上一步的 x
+值减去一个与它的导数符号相同的数，这样就可以保证新的取值是一定沿着上一步相对于极小值的下降方向。</p>
+<p>方向确定了，但是可能会移动过头。由于越平缓的地方导数绝对值是越小的，为了使移动的幅度与平缓程度相称，于是我们可以规定减去的那个数等于导数乘上另一个固定的正实数。</p>
+<p>用梯度下降法求方程的解，即求一个 x 使得函数 f(x) = 0
+。我们为了判断何时问题已经解决地足够好了，可以定义一个损失函数，它是用来量化离解决一个问题还有多长距离的量。</p>
+<p>最终目的是让求的 x 值使得 f(x) 的值更接近
+0，为了量化更接近零的程度，我们可以用原函数的平方作为损失函数。于是问题转化成了用梯度下降法求损失函数的极小值点。</p>
+<p>在编写程序的时候，计算一个点的导数，我们可以采用计算与它相邻极近两点的割线斜率。</p>
 <h2 id="前提知识和运算方法">前提知识和运算方法</h2>
 <p>我们用 <span class="math inline">\(m\)</span> 表示样本数量，与维度
 <span class="math inline">\(n\)</span> 区分开。用 <span class="math inline">\(d\)</span> 表示属性的个数。</p>
@@ -186,8 +200,6 @@ f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></a></li><li class="nav-item
 <li><span class="math inline">\(\boldsymbol{a}^T \boldsymbol{B} =
 \boldsymbol{c}^T\)</span></li>
 <li><span class="math inline">\(\sum_{i=1}^{m}x = m\bar{x}\)</span></li>
-<li><span class="math inline">\((\sum_{i=1}^{m} x_i)^2 = \sum_{i=1}^{m}
-x_i^2 + 2\sum_{1 \leq i &lt; j \leq m} x_i x_j\)</span></li>
 <li>复合函数求导法则：把内层的中介写一遍，连乘</li>
 <li>行列式为零、非满秩、不可逆的方阵称为奇异矩阵</li>
 <li>矩阵的秩：变换为行阶梯型矩阵后的非零行数</li>
