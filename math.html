@@ -8,23 +8,23 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="参考书：西瓜书和南瓜书。这里写的是理论相关的，主要是为了复线性代数挂科三次的仇。离实践使用库是非常遥远的。" name="description"/>
+<meta content="线性代数挂过三次的原因是：那时候不敢去教室上课，对未来呈悲观态度。" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="机器学习理论" property="og:title"/>
-<meta content="https://hrfis.me/blog/ml.html" property="og:url"/>
+<meta content="数学" property="og:title"/>
+<meta content="https://hrfis.me/blog/math.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="参考书：西瓜书和南瓜书。这里写的是理论相关的，主要是为了复线性代数挂科三次的仇。离实践使用库是非常遥远的。" property="og:description"/>
+<meta content="线性代数挂过三次的原因是：那时候不敢去教室上课，对未来呈悲观态度。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="https://hrfis.me/blog/images/residual-error.webp" property="og:image"/>
 <meta content="2024-07-21T11:00:00.000Z" property="article:published_time"/>
-<meta content="2024-09-15T14:24:14.536Z" property="article:modified_time"/>
+<meta content="2024-10-24T13:56:37.000Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/residual-error.webp" name="twitter:image"/>
-<link href="https://hrfis.me/blog/ml" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/ml.html","path":"/ml.html","title":"机器学习理论"}</script>
+<link href="https://hrfis.me/blog/math" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/math.html","path":"/math.html","title":"数学"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>机器学习理论 | 若凡的笔记</title>
+<title>数学 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -71,13 +71,13 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">有意思的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E6%8F%90%E7%9F%A5%E8%AF%86%E5%92%8C%E8%BF%90%E7%AE%97%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">前提知识和运算方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sigmoid-%E5%87%BD%E6%95%B0%E5%AF%B9%E6%95%B0%E5%87%A0%E7%8E%87%E5%87%BD%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">Sigmoid 函数（对数几率函数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%92%8C%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E5%87%A0%E4%BD%95%E6%84%8F%E4%B9%89"><span class="nav-number">3.2.</span> <span class="nav-text">矩阵和行列式的几何意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E4%BD%99%E5%AD%90%E5%BC%8F-m_ij-%E5%92%8C%E4%BB%A3%E6%95%B0%E4%BD%99%E5%AD%90%E5%BC%8F-a_ij"><span class="nav-number">3.3.</span> <span class="nav-text">方阵的余子式 \(M_{ij}\) 和代数余子式 \(A_{ij}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E9%A1%BA%E5%BA%8F%E4%B8%BB%E5%AD%90%E5%BC%8F"><span class="nav-number">3.4.</span> <span class="nav-text">方阵的顺序主子式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E4%BC%B4%E9%9A%8F%E7%9F%A9%E9%98%B5-a"><span class="nav-number">3.5.</span> <span class="nav-text">方阵的伴随矩阵 \(A^*\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E9%80%86%E7%9F%A9%E9%98%B5-a-1"><span class="nav-number">3.6.</span> <span class="nav-text">方阵的逆矩阵 \(A^{-1}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC-lambda-%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F"><span class="nav-number">3.7.</span> <span class="nav-text">方阵的特征值 \(\lambda\) 和特征向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5"><span class="nav-number">3.8.</span> <span class="nav-text">正定矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n-%E5%85%83%E5%87%BD%E6%95%B0-fboldsymbolx"><span class="nav-number">3.9.</span> <span class="nav-text">\(n\)
-元函数 \(f(\boldsymbol{x})\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%80%E9%98%B6%E5%AF%BC%E6%95%B0-nabla-fboldsymbolx-dfracpartial-fboldsymbolxpartial-boldsymbolx"><span class="nav-number">3.10.</span> <span class="nav-text">梯度（一阶导数）
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">有意思的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A6%E5%AE%9A"><span class="nav-number">2.</span> <span class="nav-text">约定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%9F%A5%E8%AF%86"><span class="nav-number">3.</span> <span class="nav-text">概率论与数理统计知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E7%9A%84%E6%9C%9F%E6%9C%9B-efx"><span class="nav-number">3.1.</span> <span class="nav-text">离散型随机变量函数的期望 \(E(f(X))\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E5%9E%8B%E9%9A%8F%E6%9C%BA%E5%8F%98%E9%87%8F%E7%9A%84%E4%BF%A1%E6%81%AF%E7%86%B5-hx"><span class="nav-number">3.2.</span> <span class="nav-text">离散型随机变量的信息熵 \(H(X)\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E9%87%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BF%A1%E6%81%AF%E7%86%B5"><span class="nav-number">3.3.</span> <span class="nav-text">多重集合的信息熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E9%87%8D%E9%9B%86%E5%90%88%E5%88%92%E5%88%86%E5%90%8E%E7%9A%84%E4%BF%A1%E6%81%AF%E7%86%B5"><span class="nav-number">3.4.</span> <span class="nav-text">多重集合划分后的信息熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E5%B0%BC%E6%8C%87%E6%95%B0"><span class="nav-number">3.5.</span> <span class="nav-text">基尼指数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86"><span class="nav-number">4.</span> <span class="nav-text">线性代数知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%92%8C%E8%A1%8C%E5%88%97%E5%BC%8F%E7%9A%84%E5%87%A0%E4%BD%95%E6%84%8F%E4%B9%89"><span class="nav-number">4.1.</span> <span class="nav-text">矩阵和行列式的几何意义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E4%BD%99%E5%AD%90%E5%BC%8F-m_ij-%E5%92%8C%E4%BB%A3%E6%95%B0%E4%BD%99%E5%AD%90%E5%BC%8F-a_ij"><span class="nav-number">4.2.</span> <span class="nav-text">方阵的余子式 \(M_{ij}\) 和代数余子式 \(A_{ij}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E9%A1%BA%E5%BA%8F%E4%B8%BB%E5%AD%90%E5%BC%8F"><span class="nav-number">4.3.</span> <span class="nav-text">方阵的顺序主子式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E4%BC%B4%E9%9A%8F%E7%9F%A9%E9%98%B5-a"><span class="nav-number">4.4.</span> <span class="nav-text">方阵的伴随矩阵 \(A^*\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E9%80%86%E7%9F%A9%E9%98%B5-a-1"><span class="nav-number">4.5.</span> <span class="nav-text">方阵的逆矩阵 \(A^{-1}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC-lambda-%E5%92%8C%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F"><span class="nav-number">4.6.</span> <span class="nav-text">方阵的特征值 \(\lambda\) 和特征向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5"><span class="nav-number">4.7.</span> <span class="nav-text">正定矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5"><span class="nav-number">4.8.</span> <span class="nav-text">正交矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E7%9A%84%E5%A5%87%E5%BC%82%E5%80%BC%E5%88%86%E8%A7%A3"><span class="nav-number">4.9.</span> <span class="nav-text">矩阵的奇异值分解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E6%95%B0%E7%9F%A5%E8%AF%86"><span class="nav-number">5.</span> <span class="nav-text">高数知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sigmoid-%E5%87%BD%E6%95%B0%E5%AF%B9%E6%95%B0%E5%87%A0%E7%8E%87%E5%87%BD%E6%95%B0"><span class="nav-number">5.1.</span> <span class="nav-text">Sigmoid 函数（对数几率函数）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n-%E5%85%83%E5%87%BD%E6%95%B0-fboldsymbolx"><span class="nav-number">5.2.</span> <span class="nav-text">\(n\)
+元函数 \(f(\boldsymbol{x})\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%80%E9%98%B6%E5%AF%BC%E6%95%B0-nabla-fboldsymbolx-dfracpartial-fboldsymbolxpartial-boldsymbolx"><span class="nav-number">5.3.</span> <span class="nav-text">梯度（一阶导数）
 \(\nabla f(\boldsymbol{x}) = \dfrac{\partial
-f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%B7%E6%A3%AE%E7%9F%A9%E9%98%B5%E4%BA%8C%E9%98%B6%E5%AF%BC%E6%95%B0-nabla2-fboldsymbolx-dfracpartial2-fboldsymbolxpartial-boldsymbolxpartial-boldsymbolxt"><span class="nav-number">3.11.</span> <span class="nav-text">海森矩阵（二阶导数）
+f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%B7%E6%A3%AE%E7%9F%A9%E9%98%B5%E4%BA%8C%E9%98%B6%E5%AF%BC%E6%95%B0-nabla2-fboldsymbolx-dfracpartial2-fboldsymbolxpartial-boldsymbolxpartial-boldsymbolxt"><span class="nav-number">5.4.</span> <span class="nav-text">海森矩阵（二阶导数）
 \(\nabla^2 f(\boldsymbol{x}) =
 \dfrac{\partial^2 f(\boldsymbol{x})}{\partial \boldsymbol{x}{\partial
-\boldsymbol{x}}^T}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%B8%E5%87%BD%E6%95%B0"><span class="nav-number">3.12.</span> <span class="nav-text">凸函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86%E5%85%AC%E5%BC%8F"><span class="nav-number">3.13.</span> <span class="nav-text">矩阵微分公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">4.</span> <span class="nav-text">一元线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-number">4.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">4.2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F"><span class="nav-number">4.3.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84"><span class="nav-number">4.4.</span> <span class="nav-text">公式是怎么来的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">5.</span> <span class="nav-text">多元线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-1"><span class="nav-number">5.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-1"><span class="nav-number">5.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84-1"><span class="nav-number">5.3.</span> <span class="nav-text">公式是怎么来的</span></a></li></ol></li></ol></div>
+\boldsymbol{x}}^T}\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%B8%E5%87%BD%E6%95%B0"><span class="nav-number">5.5.</span> <span class="nav-text">凸函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9F%A9%E9%98%B5%E5%BE%AE%E5%88%86%E5%85%AC%E5%BC%8F"><span class="nav-number">5.6.</span> <span class="nav-text">矩阵微分公式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">6.</span> <span class="nav-text">一元线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84"><span class="nav-number">6.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">6.2.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F"><span class="nav-number">6.3.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84"><span class="nav-number">6.4.</span> <span class="nav-text">公式是怎么来的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">7.</span> <span class="nav-text">多元线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E7%9A%84-1"><span class="nav-number">7.1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F-1"><span class="nav-number">7.2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AC%E5%BC%8F%E6%98%AF%E6%80%8E%E4%B9%88%E6%9D%A5%E7%9A%84-1"><span class="nav-number">7.3.</span> <span class="nav-text">公式是怎么来的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95"><span class="nav-number">8.</span> <span class="nav-text">梯度下降法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8E-k-%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC"><span class="nav-number">9.</span> <span class="nav-text">十进制与 K 进制小数互转</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-10"><span class="nav-number">9.1.</span> <span class="nav-text">2 转 10</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-2"><span class="nav-number">9.2.</span> <span class="nav-text">10 转 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-16"><span class="nav-number">9.3.</span> <span class="nav-text">10 转 16</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -89,7 +89,7 @@ f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></a></li><li class="nav-item
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/">
-<span class="site-state-item-count">40</span>
+<span class="site-state-item-count">39</span>
 <span class="site-state-item-name">笔记</span>
 </a>
 </div>
@@ -108,7 +108,7 @@ f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></a></li><li class="nav-item
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/ml.html" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/math.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -118,12 +118,12 @@ f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></a></li><li class="nav-item
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="机器学习理论 | 若凡的笔记" itemprop="name"/>
+<meta content="数学 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          机器学习理论
+          数学
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -139,7 +139,7 @@ f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></a></li><li class="nav-item
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-09-15T22:24:14+08:00" itemprop="dateModified" title="修改时间：2024-09-15 22:24:14">2024-09-15</time>
+<time datetime="2024-10-24T21:56:37+08:00" itemprop="dateModified" title="修改时间：2024-10-24 21:56:37">2024-10-24</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -153,7 +153,7 @@ f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></a></li><li class="nav-item
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>参考书：西瓜书和南瓜书。这里写的是理论相关的，主要是为了复线性代数挂科三次的仇。离实践使用库是非常遥远的。</p>
+<div class="post-body" itemprop="articleBody"><p>线性代数挂过三次的原因是：那时候不敢去教室上课，对未来呈悲观态度。</p>
 <span id="more"></span>
 <h2 id="有意思的概念">有意思的概念</h2>
 <p>归纳法和演绎法：前者是从特殊到一般，后者是从一般到特殊</p>
@@ -164,25 +164,59 @@ f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></a></li><li class="nav-item
 <li>如果现实中所有问题不是同等重要的，那么必定某些算法适合解决某些特定的问题而不适合解决另一些特定的问题</li>
 <li>从某个数据集里通过某种算法学出来的模型，不一定比从另一个特定的数据集里学出来的另一个模型“好”</li>
 </ul>
-<h2 id="梯度下降法">梯度下降法</h2>
-<p>梯度下降法是用来逼近函数取极小值时的点的。</p>
-<p>以一元下凸函数 f(x) 为例，在右侧任意取一个 x
-值，函数图像在该点处下降最快的方向是该点的导数方向，且导数为正，此时需要向左逼近，把
-x 值变小；如果一开始在左侧取，则导数为负，需要向右逼近，把 x
-值变大。</p>
-<p>我们可以规定新取的 x 值等于上一步的 x
-值减去一个与它的导数符号相同的数，这样就可以保证新的取值是一定沿着上一步相对于极小值的下降方向。</p>
-<p>方向确定了，但是可能会移动过头。由于越平缓的地方导数绝对值是越小的，为了使移动的幅度与平缓程度相称，于是我们可以规定减去的那个数等于导数乘上另一个固定的正实数。</p>
-<p>用梯度下降法求方程的解，即求一个 x 使得函数 f(x) = 0
-。我们为了判断何时问题已经解决地足够好了，可以定义一个损失函数，它是用来量化离解决一个问题还有多长距离的量。</p>
-<p>最终目的是让求的 x 值使得 f(x) 的值更接近
-0，为了量化更接近零的程度，我们可以用原函数的平方作为损失函数。于是问题转化成了用梯度下降法求损失函数的极小值点。</p>
-<p>在编写程序的时候，计算一个点的导数，我们可以采用计算与它相邻极近两点的割线斜率。</p>
-<h2 id="前提知识和运算方法">前提知识和运算方法</h2>
+<h2 id="约定">约定</h2>
 <p>我们用 <span class="math inline">\(m\)</span> 表示样本数量，与维度
 <span class="math inline">\(n\)</span> 区分开。用 <span class="math inline">\(d\)</span> 表示属性的个数。</p>
 <p>粗斜体小写字母为列向量，如 <span class="math inline">\(\boldsymbol{x}=(1;2;3)\)</span>，使用分号分隔。其转置为行向量，使用逗号分隔。</p>
-<p>粗斜体大写字母为矩阵。</p>
+<p>粗斜体大写字母为矩阵。在上下文明确的情况下可不用粗体。</p>
+<p>在上下文明确的情况下可省略求和符号的起止。</p>
+<h2 id="概率论与数理统计知识">概率论与数理统计知识</h2>
+<ul>
+<li><span class="math inline">\(\sum x_i = m\bar{x}\)</span></li>
+</ul>
+<h3 id="离散型随机变量函数的期望-efx">离散型随机变量函数的期望 <span class="math inline">\(E(f(X))\)</span></h3>
+<p><a href="https://blog.csdn.net/SpiritedAway1106/article/details/107024984" rel="noopener" target="_blank">参考</a></p>
+<p><span class="math inline">\(f\)</span>
+是连续函数且级数绝对收敛，<span class="math inline">\(E(f(X)) = \sum
+P(x_i)f(x_i)\)</span></p>
+<h3 id="离散型随机变量的信息熵-hx">离散型随机变量的信息熵 <span class="math inline">\(H(X)\)</span></h3>
+<p>信息量 <span class="math inline">\(I(x_i) = -
+\log_2{P(x_i)}\)</span>：投一次正八面体骰子（0-7
+点），有概率均等的八种结果。把每种结果都用 3 bit 的二进制数表示，熵为 3
+bit。</p>
+<ul>
+<li>信息“结果是 1 点”的信息量是 3 bit，得到这个信息之后，熵剩余 0
+bit</li>
+<li>信息“结果是 1 点或 2 点的其中之一”的信息量是 2
+bit，得到这个信息之后，熵剩余 1 bit</li>
+<li>信息“结果是 1、2、3、4 点的其中之一”的信息量是 1
+bit，得到这个信息之后，熵剩余 2 bit</li>
+</ul>
+<p>信息熵 <span class="math inline">\(H(X) = E(I(X)) = - \sum p_i \log_2
+p_i\)</span>。</p>
+<ul>
+<li>投一次正八面体骰子，点数结果的信息熵是 3 bit</li>
+<li>投一次 1% 概率为正面，99% 概率为反面的不均匀硬币，面结果的信息熵约
+0.08 bit</li>
+<li>投一次 25% 概率为正面，75% 概率为反面的不均匀硬币，面结果的信息熵约
+0.811 bit</li>
+</ul>
+<h3 id="多重集合的信息熵">多重集合的信息熵</h3>
+<p>可能的最小值（全同）为 0，最大值（全异）为 log2 唯一值数量。</p>
+<p><span class="math inline">\(A = \{ 1,2,2,2 \}\)</span></p>
+<p><span class="math inline">\(H(A) \approx 0.811\)</span></p>
+<h3 id="多重集合划分后的信息熵">多重集合划分后的信息熵</h3>
+<p>如把多重集合 <span class="math inline">\(\{ 1,2,2,2 \}\)</span>
+划分成两个子集 <span class="math inline">\(\{1\}\)</span> 和 <span class="math inline">\(\{2,2,2\}\)</span> 后，信息熵变为 $0 $</p>
+<p>其划分后的信息熵定义为各个子集熵的加权和，权为子集容量占原集合的比例。</p>
+<p>划分后减少的信息熵称为划分后的信息增益。</p>
+<h3 id="基尼指数">基尼指数</h3>
+<p>可能的最小值（全同）为 0，最大值（全异）为 1 - 唯一值数量的倒数。</p>
+<p><span class="math inline">\(A = \{ 1,2,2,2 \}\)</span></p>
+<p><span class="math inline">\(G(A) = 1- \sum p_i^2 =
+\frac{3}{8}\)</span></p>
+<p>类似地，划分后的基尼指数定义为各个子集基尼指数的加权和，权为子集容量占原集合的比例。</p>
+<h2 id="线性代数知识">线性代数知识</h2>
 <ul>
 <li><span class="math inline">\(\boldsymbol{a}^T \boldsymbol{b} =
 \boldsymbol{b}^T \boldsymbol{a}\)</span></li>
@@ -199,18 +233,9 @@ x 值变小；如果一开始在左侧取，则导数为负，需要向右逼近
 \boldsymbol{c}\)</span></li>
 <li><span class="math inline">\(\boldsymbol{a}^T \boldsymbol{B} =
 \boldsymbol{c}^T\)</span></li>
-<li><span class="math inline">\(\sum_{i=1}^{m}x = m\bar{x}\)</span></li>
-<li>复合函数求导法则：把内层的中介写一遍，连乘</li>
 <li>行列式为零、非满秩、不可逆的方阵称为奇异矩阵</li>
 <li>矩阵的秩：变换为行阶梯型矩阵后的非零行数</li>
 </ul>
-<h3 id="sigmoid-函数对数几率函数">Sigmoid 函数（对数几率函数）</h3>
-<p><span class="math inline">\(S(x) =
-\dfrac{1}{1+e^{-x}}\)</span>，该函数图像长得和 <span class="math inline">\(\dfrac{1}{\pi} \arctan x + \dfrac{1}{2}\)</span>
-差不多</p>
-<p><span class="math display">\[
-\dfrac{1}{1+a^{-x}} + \dfrac{1}{1+a^{x}} = 1
-\]</span></p>
 <h3 id="矩阵和行列式的几何意义">矩阵和行列式的几何意义</h3>
 <ul>
 <li><p>矩阵可表示多个向量：</p>
@@ -242,10 +267,50 @@ x 值变小；如果一开始在左侧取，则导数为负，需要向右逼近
 初等行变换为 <span class="math inline">\(I|A^{-1}\)</span></p>
 <h3 id="方阵的特征值-lambda-和特征向量">方阵的特征值 <span class="math inline">\(\lambda\)</span> 和特征向量</h3>
 <p>方阵左乘它的特征向量，等于把这个特征向量在它的方向上伸缩/反转 <span class="math inline">\(\lambda\)</span> 倍。</p>
-<p>如何求：令特征多项式 <span class="math inline">\(|\lambda
+<p>如何求特征值：令特征多项式 <span class="math inline">\(|\lambda
 \boldsymbol{E} - \boldsymbol{A}| = 0\)</span></p>
+<p>如何求特征向量：求 <span class="math inline">\((\lambda
+\boldsymbol{E} - \boldsymbol{A})\boldsymbol{x} = \boldsymbol{0}\)</span>
+的基础解系</p>
+<p><a href="https://blog.csdn.net/Daniel_tanxz/article/details/89132181" rel="noopener" target="_blank">如何求基础解系</a>：初等行变换成行最简型</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+\boldsymbol{E}_r &amp; \boldsymbol{F} \\
+0 &amp; 0
+\end{pmatrix}
+\]</span></p>
+<p>解矩阵为</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+- \boldsymbol{F} \\
+\boldsymbol{E}_{n-r}
+\end{pmatrix}
+\]</span></p>
 <h3 id="正定矩阵">正定矩阵</h3>
 <p>充要条件：其所有特征值都为正。或者所有顺序主子式为正。</p>
+<h3 id="正交矩阵">正交矩阵</h3>
+<p><span class="math inline">\(AA^T = E\)</span></p>
+<p>正交矩阵的各行是单位向量且两两正交，各列是单位向量且两两正交。</p>
+<h3 id="矩阵的奇异值分解">矩阵的奇异值分解</h3>
+<p>奇异值分解是把一个矩阵分解成三个矩阵相乘：</p>
+<p><span class="math display">\[
+A = U \Sigma V^T
+\]</span></p>
+<p><span class="math inline">\(A\)</span> 是实矩阵的情况下，<span class="math inline">\(U\)</span> 和 <span class="math inline">\(V^T\)</span> 都是正交矩阵，<span class="math inline">\(\Sigma\)</span> 是与 <span class="math inline">\(A\)</span>
+形状相同的对角矩阵，其对角线上的元素叫奇异值，呈非负且按降序排列。</p>
+<p>如何分解：<span class="math inline">\(U\)</span> 的每一列是 <span class="math inline">\(AA^T\)</span> 的特征向量，<span class="math inline">\(V\)</span> 的每一列是 <span class="math inline">\(A^TA\)</span> 的特征向量，<span class="math inline">\(\Sigma\)</span> 对角线上每一个元素是 <span class="math inline">\(A^TA\)</span> 或 <span class="math inline">\(AA^T\)</span>
+的特征值开根号，注意保证各奇异值和特征向量对应。</p>
+<h2 id="高数知识">高数知识</h2>
+<ul>
+<li>复合函数求导法则：把内层的中介写一遍，连乘</li>
+</ul>
+<h3 id="sigmoid-函数对数几率函数">Sigmoid 函数（对数几率函数）</h3>
+<p><span class="math inline">\(S(x) =
+\dfrac{1}{1+e^{-x}}\)</span>，该函数图像长得和 <span class="math inline">\(\dfrac{1}{\pi} \arctan x + \dfrac{1}{2}\)</span>
+差不多</p>
+<p><span class="math display">\[
+\dfrac{1}{1+a^{-x}} + \dfrac{1}{1+a^{x}} = 1
+\]</span></p>
 <h3 id="n-元函数-fboldsymbolx"><span class="math inline">\(n\)</span>
 元函数 <span class="math inline">\(f(\boldsymbol{x})\)</span></h3>
 <p>自变量有 <span class="math inline">\(n\)</span> 个，记作一个 <span class="math inline">\(n\)</span> 维列向量 <span class="math inline">\(\boldsymbol{x}\)</span>。</p>
@@ -415,6 +480,140 @@ E_{\hat{\boldsymbol{w}}} =
 <p>当海森矩阵为正定矩阵时，<span class="math inline">\(E_{\hat{\boldsymbol{w}}}\)</span>
 为严格凸函数。令梯度等于零向量，求得的全局最优解为当 <span class="math inline">\(E_{\hat{\boldsymbol{w}}}\)</span> 取最小值时的
 <span class="math inline">\(\hat{\boldsymbol{w}}\)</span></p>
+<h2 id="梯度下降法">梯度下降法</h2>
+<p>梯度下降法是用来逼近函数取极小值时的点的。</p>
+<p>以一元下凸函数 f(x) 为例，在右侧任意取一个 x
+值，函数图像在该点处下降最快的方向是该点的导数方向，且导数为正，此时需要向左逼近，把
+x 值变小；如果一开始在左侧取，则导数为负，需要向右逼近，把 x
+值变大。</p>
+<p>我们可以规定新取的 x 值等于上一步的 x
+值减去一个与它的导数符号相同的数，这样就可以保证新的取值是一定沿着上一步相对于极小值的下降方向。</p>
+<p>方向确定了，但是可能会移动过头。由于越平缓的地方导数绝对值是越小的，为了使移动的幅度与平缓程度相称，于是我们可以规定减去的那个数等于导数乘上另一个固定的正实数。</p>
+<p>用梯度下降法求方程的解，即求一个 x 使得函数 f(x) = 0
+。我们为了判断何时问题已经解决地足够好了，可以定义一个损失函数，它是用来量化离解决一个问题还有多长距离的量。</p>
+<p>最终目的是让求的 x 值使得 f(x) 的值更接近
+0，为了量化更接近零的程度，我们可以用原函数的平方作为损失函数。于是问题转化成了用梯度下降法求损失函数的极小值点。</p>
+<p>在编写程序的时候，计算一个点的导数，我们可以采用计算与它相邻极近两点的割线斜率。</p>
+<h2 id="十进制与-k-进制小数互转">十进制与 K 进制小数互转</h2>
+<p>K 转 10：每一位分别乘上 K 的次方，再相加。</p>
+<h3 id="转-10">2 转 10</h3>
+<p><strong>有限小数</strong></p>
+<p><span class="math inline">\(11.1011\mathrm{B} = 3.6875\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>项</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{1}\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1\times2^{0}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{-1}\)</span></td>
+<td><span class="math inline">\(0.5\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0\times2^{-2}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(1\times2^{-3}\)</span></td>
+<td><span class="math inline">\(0.125\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1\times2^{-4}\)</span></td>
+<td><span class="math inline">\(0.0625\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>总和</strong></td>
+<td><span class="math inline">\(3.6875\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>无限循环小数</strong></p>
+<p><span class="math inline">\(1.1 \dot{0} 11 \dot{0} ... \mathrm{B} =
+1.7\)</span></p>
+<p>可以转换成分数计算：</p>
+<p><span class="math display">\[
+\begin{aligned}
+1.1 \dot{0} 11 \dot{0} ... \mathrm{B} &amp; = x \\
+11.\dot{0} 11 \dot{0} ... \mathrm{B} &amp; = 2x \\
+110110. \dot{0} 11 \dot{0} ... \mathrm{B} &amp; = 32x \\
+两式相减，110011\mathrm{B} &amp; = 30x \\
+x &amp; = \frac{110011\mathrm{B}}{30} = \frac{51}{30} = 1.7
+\end{aligned}
+\]</span></p>
+<p>10 转 K：</p>
+<p>整数部分仍然除 K 取余，小数部分乘 K 取整，然后相加。</p>
+<h3 id="转-2">10 转 2</h3>
+<p><span class="math inline">\(0.7 = 0.1 \dot{0} 11 \dot{0} ...
+\mathrm{B}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>小数部分乘 2</th>
+<th>取整数部分</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0.7 \times 2 = 1.4\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.4 \times 2 = 0.8\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(0.8 \times 2 = 1.6\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.6 \times 2 = 1.2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(0.2 \times 2 = 0.4\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<h3 id="转-16">10 转 16</h3>
+<p><span class="math inline">\(0.7 = 0.\mathrm{B} \dot{3} ...
+_{16}\)</span></p>
+<table>
+<thead>
+<tr class="header">
+<th>小数部分乘 16</th>
+<th>取整数部分</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(0.7 \times 16 = 11.2\)</span></td>
+<td><span class="math inline">\(\mathrm{B}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0.2 \times 16 = 3.2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+</tr>
+<tr class="odd">
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
@@ -462,7 +661,7 @@ E_{\hat{\boldsymbol{w}}} =
 <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
 <script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/ml.html"}</script>
+<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/math.html"}</script>
 <script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
