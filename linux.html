@@ -4,18 +4,20 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width" name="viewport"/>
-<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 7.3.0" name="generator"/>
+<link href="/blog/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/blog/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/blog/favicon.png" rel="icon" sizes="16x16" type="image/png"/>
+<link color="#222" href="/blog/favicon.png" rel="mask-icon"/>
 <link href="/blog/css/main.css" rel="stylesheet"/>
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
-<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="基础不牢，工具没用明白。
- 123456789101112tophtopps -auxnetstat -anopnc -l &lt;端口号&gt; # 监听传入的连接nc -N &lt;目标主机&gt; &lt;端口号&gt; # 输入 EOF（Ctrl+D）之后终止连接nc -zv &lt;目标主机&gt; &lt;起始端口&gt;-&lt;结束端口&gt; # 不发送数据，输出详细信息sudo" name="description"/>
+<link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
+<meta content="基础不牢，工具没用明白。 123456789101112tophtopps -auxnetstat -anopnc -l &lt;端口号&gt; # 监听传入的连接nc -N &lt;目标主机&gt; &lt;端口号&gt; # 输入 EOF（Ctrl+D）之后终止连接nc -zv &lt;目标主机&gt; &lt;起始端口&gt;-&lt;结束端口&gt; # 不发送数据，输出详细信息sudo" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="Linux" property="og:title"/>
 <meta content="https://hrfis.me/blog/linux.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="基础不牢，工具没用明白。
- 123456789101112tophtopps -auxnetstat -anopnc -l &lt;端口号&gt; # 监听传入的连接nc -N &lt;目标主机&gt; &lt;端口号&gt; # 输入 EOF（Ctrl+D）之后终止连接nc -zv &lt;目标主机&gt; &lt;起始端口&gt;-&lt;结束端口&gt; # 不发送数据，输出详细信息sudo" property="og:description"/>
+<meta content="基础不牢，工具没用明白。 123456789101112tophtopps -auxnetstat -anopnc -l &lt;端口号&gt; # 监听传入的连接nc -N &lt;目标主机&gt; &lt;端口号&gt; # 输入 EOF（Ctrl+D）之后终止连接nc -zv &lt;目标主机&gt; &lt;起始端口&gt;-&lt;结束端口&gt; # 不发送数据，输出详细信息sudo" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-01-14T02:30:00.000Z" property="article:published_time"/>
 <meta content="2024-07-30T06:07:47.916Z" property="article:modified_time"/>
@@ -54,7 +56,7 @@
 </div>
 </div>
 <nav class="site-nav">
-<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+<ul class="main-menu menu"><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
 </ul>
 </nav>
 </header>
@@ -84,7 +86,7 @@
 <div class="site-state-item site-state-posts">
 <a href="/blog/">
 <span class="site-state-item-count">39</span>
-<span class="site-state-item-name">笔记</span>
+<span class="site-state-item-name">日志</span>
 </a>
 </div>
 <div class="site-state-item site-state-categories">
@@ -148,12 +150,12 @@
 </div>
 </header>
 <div class="post-body" itemprop="articleBody"><p>基础不牢，工具没用明白。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/></pre></td><td class="code"><pre><span class="line">top</span><br/><span class="line">htop</span><br/><span class="line">ps -aux</span><br/><span class="line">netstat -anop</span><br/><span class="line">nc -l &lt;端口号&gt; <span class="comment"># 监听传入的连接</span></span><br/><span class="line">nc -N &lt;目标主机&gt; &lt;端口号&gt; <span class="comment"># 输入 EOF（Ctrl+D）之后终止连接</span></span><br/><span class="line">nc -zv &lt;目标主机&gt; &lt;起始端口&gt;-&lt;结束端口&gt; <span class="comment"># 不发送数据，输出详细信息</span></span><br/><span class="line">sudo dpkg-reconfigure tzdata <span class="comment"># 设置时区</span></span><br/><span class="line">sudo <span class="built_in">du</span> -h --max-depth=1</span><br/><span class="line">sudo apt-get remove xxx</span><br/><span class="line">dpkg -l | grep xxx</span><br/><span class="line">apt list --installed | grep xxx</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/></pre></td><td class="code"><pre><span class="line">top</span><br/><span class="line">htop</span><br/><span class="line">ps -aux</span><br/><span class="line">netstat -anop</span><br/><span class="line">nc -l &lt;端口号&gt; <span class="comment"># 监听传入的连接</span></span><br/><span class="line">nc -N &lt;目标主机&gt; &lt;端口号&gt; <span class="comment"># 输入 EOF（Ctrl+D）之后终止连接</span></span><br/><span class="line">nc -zv &lt;目标主机&gt; &lt;起始端口&gt;-&lt;结束端口&gt; <span class="comment"># 不发送数据，输出详细信息</span></span><br/><span class="line"><span class="built_in">sudo</span> dpkg-reconfigure tzdata <span class="comment"># 设置时区</span></span><br/><span class="line"><span class="built_in">sudo</span> <span class="built_in">du</span> -h --max-depth=1</span><br/><span class="line"><span class="built_in">sudo</span> apt-get remove xxx</span><br/><span class="line">dpkg -l | grep xxx</span><br/><span class="line">apt list --installed | grep xxx</span><br/></pre></td></tr></tbody></table></figure>
 <span id="more"></span>
 <h2 id="查看软件版本与帮助">查看软件版本与帮助</h2>
 <p>dpkg 是 Debian 的包管理器。Linux -&gt; Debian -&gt; Ubuntu</p>
 <p>apt 是基于 dpkg 的包管理器</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">xxx -h 或 --<span class="built_in">help</span></span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">xxx -h 或 --<span class="built_in">help</span></span><br/></pre></td></tr></tbody></table></figure>
 <p>一般会有帮助，然后 <code>-V</code> <code>-version</code>
 <code>--version</code> 之类的</p>
 <p>或者<strong>直接看 man
@@ -197,7 +199,7 @@ Volume）</li>
 <p>需求：</p>
 <ol type="1">
 <li>先扩 sda</li>
-<li>从 sda 向 sda3 匀</li>
+<li> 从 sda 向 sda3 匀</li>
 <li>从 sda3 向 lv 匀</li>
 </ol>
 <h3 id="步骤">步骤</h3>
@@ -205,28 +207,28 @@ Volume）</li>
 <li><p>给 VM 的虚拟磁盘扩容</p>
 <p>关机状态下：编辑虚拟机设置 -&gt; 硬盘 -&gt; 扩展</p></li>
 <li><p>从 sda 向 sda3 匀</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo parted</span><br/></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/></pre></td><td class="code"><pre><span class="line">GNU Parted 3.4</span><br/><span class="line">Using /dev/sda</span><br/><span class="line">Welcome to GNU Parted! Type 'help' to view a list of commands.</span><br/><span class="line">(parted) print all</span><br/><span class="line">// 输出……</span><br/><span class="line"></span><br/><span class="line">(parted) print free</span><br/><span class="line">Model: VMware, VMware Virtual S (scsi)</span><br/><span class="line">Disk /dev/sda: 32.2GB</span><br/><span class="line">Sector size (logical/physical): 512B/512B</span><br/><span class="line">Partition Table: gpt</span><br/><span class="line">Disk Flags:</span><br/><span class="line"></span><br/><span class="line">Number  Start   End     Size    File system  Name  Flags</span><br/><span class="line">        17.4kB  1049kB  1031kB  Free Space</span><br/><span class="line"> 1      1049kB  2097kB  1049kB                     bios_grub</span><br/><span class="line"> 2      2097kB  1904MB  1902MB  ext4</span><br/><span class="line"> 3      1904MB  21.5GB  19.6GB</span><br/><span class="line">        21.5GB  32.2GB  10.7GB  Free Space</span><br/><span class="line"></span><br/><span class="line">(parted) resizepart 3</span><br/><span class="line">End?  [21.5GB]? 32.3GB //在后面输入扩到的 End，比 End 略大就是扩到底</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> parted</span><br/></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/><span class="line">15</span><br/><span class="line">16</span><br/><span class="line">17</span><br/><span class="line">18</span><br/><span class="line">19</span><br/><span class="line">20</span><br/><span class="line">21</span><br/><span class="line">22</span><br/></pre></td><td class="code"><pre><span class="line">GNU Parted 3.4</span><br/><span class="line">Using /dev/sda</span><br/><span class="line">Welcome to GNU Parted! Type 'help' to view a list of commands.</span><br/><span class="line">(parted) print all</span><br/><span class="line">// 输出……</span><br/><span class="line"></span><br/><span class="line">(parted) print free</span><br/><span class="line">Model: VMware, VMware Virtual S (scsi)</span><br/><span class="line">Disk /dev/sda: 32.2GB</span><br/><span class="line">Sector size (logical/physical): 512B/512B</span><br/><span class="line">Partition Table: gpt</span><br/><span class="line">Disk Flags:</span><br/><span class="line"></span><br/><span class="line">Number  Start   End     Size    File system  Name  Flags</span><br/><span class="line">        17.4kB  1049kB  1031kB  Free Space</span><br/><span class="line"> 1      1049kB  2097kB  1049kB                     bios_grub</span><br/><span class="line"> 2      2097kB  1904MB  1902MB  ext4</span><br/><span class="line"> 3      1904MB  21.5GB  19.6GB</span><br/><span class="line">        21.5GB  32.2GB  10.7GB  Free Space</span><br/><span class="line"></span><br/><span class="line">(parted) resizepart 3</span><br/><span class="line">End?  [21.5GB]? 32.3GB //在后面输入扩到的 End，比 End 略大就是扩到底</span><br/></pre></td></tr></tbody></table></figure>
 <p>扩完后，<code>sudo pvs</code> 出的 /dev/sda3 会比 <code>lsblk</code>
 出的 sda3 小，执行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo pvresize /dev/sda3</span><br/></pre></td></tr></table></figure></li>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> pvresize /dev/sda3</span><br/></pre></td></tr></tbody></table></figure></li>
 <li><p>从 sda3 向 lv 匀</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo lvresize -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv</span><br/></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> lvresize -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv</span><br/></pre></td></tr></tbody></table></figure>
 <p>扩完后，<code>df -h</code> 出的 /dev/mapper/ubuntu--vg-ubuntu--lv
 还没变，执行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">sudo resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv</span><br/></pre></td></tr></table></figure></li>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv</span><br/></pre></td></tr></tbody></table></figure></li>
 </ol>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
 <a href="/blog/credits.html" rel="prev" title="获取正方教务系统里的成绩信息并对学分求和">
-<i class="fa fa-chevron-left"></i> 获取正方教务系统里的成绩信息并对学分求和
+<i class="fa fa-angle-left"></i> 获取正方教务系统里的成绩信息并对学分求和
                 </a>
 </div>
 <div class="post-nav-item">
 <a href="/blog/discrete-mathematics.html" rel="next" title="离散数学">
-                  离散数学 <i class="fa fa-chevron-right"></i>
+                  离散数学 <i class="fa fa-angle-right"></i>
 </a>
 </div>
 </div>
@@ -237,33 +239,27 @@ Volume）</li>
 </main>
 <footer class="footer">
 <div class="footer-inner">
-<div class="copyright">
-  2023 – 
-  <span itemprop="copyrightYear">2024</span>
-<span class="with-love">
-<i class="fa fa-heart"></i>
-</span>
-<span class="author" itemprop="copyrightHolder">Ruofan</span>
-</div>
 </div>
 </footer>
+<div class="toggle sidebar-toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+</div>
+<div class="sidebar-dimmer"></div>
 <div aria-label="返回顶部" class="back-to-top" role="button">
 <i class="fa fa-arrow-up fa-lg"></i>
 <span>0%</span>
 </div>
-<div class="reading-progress-bar"></div>
 <noscript>
 <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
-<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
-<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://unpkg.com/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/sidebar.js"></script><script src="/blog/js/next-boot.js"></script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js","integrity":"sha256-YbM1pG3wWnzhyYN49g5fPnen+2CKEFaZfopkkwSpNtY="}}</script>
 <script src="/blog/js/third-party/tags/mermaid.js"></script>
-<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
-<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/linux.html"}</script>
-<script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>

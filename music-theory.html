@@ -4,10 +4,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width" name="viewport"/>
-<meta content="#222" name="theme-color"/><meta content="Hexo 6.3.0" name="generator"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 7.3.0" name="generator"/>
+<link href="/blog/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/blog/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/blog/favicon.png" rel="icon" sizes="16x16" type="image/png"/>
+<link color="#222" href="/blog/favicon.png" rel="mask-icon"/>
 <link href="/blog/css/main.css" rel="stylesheet"/>
-<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" rel="stylesheet"/>
-<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"flat"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","sidebar":"fadeInLeft"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
+<link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
 <meta content="音乐基础不牢。" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="乐理" property="og:title"/>
@@ -55,7 +59,7 @@
 </div>
 </div>
 <nav class="site-nav">
-<ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+<ul class="main-menu menu"><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
 </ul>
 </nav>
 </header>
@@ -85,7 +89,7 @@
 <div class="site-state-item site-state-posts">
 <a href="/blog/">
 <span class="site-state-item-count">39</span>
-<span class="site-state-item-name">笔记</span>
+<span class="site-state-item-name">日志</span>
 </a>
 </div>
 <div class="site-state-item site-state-categories">
@@ -154,7 +158,7 @@
 <p>声音是由声源振动产生的，通过机械波传递。</p>
 <p>声音的频率就是机械波的频率，也是声源振动的频率。</p>
 <p>比如声源振动 <span class="math inline">\(440\)</span>
-次每秒，频率就是 <span class="math inline">\(440\mathrm{Hz}\)</span>。“每秒”这个单位 <span class="math inline">\(\mathrm{s^{-1}}\)</span> 也记作赫兹 <span class="math inline">\(\mathrm{Hz}\)</span>，是国际单位制“秒”的导出单位。</p>
+次每秒，频率就是 <span class="math inline">\(440\mathrm{Hz}\)</span>。“每秒” 这个单位 <span class="math inline">\(\mathrm{s^{-1}}\)</span> 也记作赫兹 <span class="math inline">\(\mathrm{Hz}\)</span>，是国际单位制 “秒” 的导出单位。</p>
 <h2 id="钢琴琴键的声音频率">钢琴琴键的声音频率</h2>
 <ol type="1">
 <li><p>规定一个基准频率，比如 <span class="math inline">\(440\mathrm{Hz}\)</span>，作为第一个音。</p></li>
@@ -162,18 +166,18 @@
 <p>这十三个音把一个 <span class="math inline">\(1:2\)</span>
 的频率区间分成了十二个部分，每个音的频率都是对应部分的端点，相邻两音的频率比为
 <span class="math inline">\(1:\sqrt[12]{2}\)</span>。这就是十二平均律。</p></li>
-<li><p>如果把第一个音（<span class="math inline">\(440\mathrm{Hz}\)</span>）记作<code>A4</code>，往前乘十二次，得到
+<li><p>如果把第一个音（<span class="math inline">\(440\mathrm{Hz}\)</span>）记作 <code>A4</code>，往前乘十二次，得到
 <span class="math inline">\(880\mathrm{Hz}\)</span>
-的音，就记作<code>A5</code>。同理，再乘十二次，得到 <span class="math inline">\(1760\mathrm{Hz}\)</span> 就是<code>A6</code>。</p>
+的音，就记作 <code>A5</code>。同理，再乘十二次，得到 <span class="math inline">\(1760\mathrm{Hz}\)</span> 就是 <code>A6</code>。</p>
 <p>还可以往后除，<span class="math inline">\(220\mathrm{Hz}\)</span>
-是<code>A3</code>，<span class="math inline">\(110\mathrm{Hz}\)</span>
-是<code>A2</code>。</p>
+是 <code>A3</code>，<span class="math inline">\(110\mathrm{Hz}\)</span>
+是 <code>A2</code>。</p>
 <p>同理。<span class="math inline">\(27.5\mathrm{Hz}\)</span>
-是<code>A0</code>，<span class="math inline">\(3520\mathrm{Hz}\)</span>
-是<code>A7</code>。</p>
-<p><code>A7</code>再往前乘三次，得到频率为 <span class="math inline">\(3520 \times \sqrt[4]{2} \mathrm{Hz}\)</span>
-的音，记作<code>C8</code>。</p></li>
-<li><p>从<code>A0</code>到<code>C8</code>，有 88 个音，频率构成首项为
+是 <code>A0</code>，<span class="math inline">\(3520\mathrm{Hz}\)</span>
+是 <code>A7</code>。</p>
+<p><code>A7</code> 再往前乘三次，得到频率为 <span class="math inline">\(3520 \times \sqrt[4]{2} \mathrm{Hz}\)</span>
+的音，记作 <code>C8</code>。</p></li>
+<li><p>从 <code>A0</code> 到 <code>C8</code>，有 88 个音，频率构成首项为
 <span class="math inline">\(27.5\)</span>，公比为 <span class="math inline">\(\sqrt[12]{2}\)</span> 的等比数列。这就是 88
 键钢琴每个琴键的频率。</p></li>
 </ol>
@@ -185,9 +189,9 @@
 的两个音之间，音程称为一个<strong>纯八度</strong>（简称八度）。</p>
 <p>快速认识钢琴一个八度里的音：</p>
 <p><img src="/blog/images/piano.webp"/></p>
-<p>两个相邻琴键的频率比，比如<code>C4</code>和<code>C#4</code>之间，频率比为
+<p>两个相邻琴键的频率比，比如 <code>C4</code> 和 <code>C#4</code> 之间，频率比为
 <span class="math inline">\(1:\sqrt[12]{2}\)</span>，称为一个<strong>半音</strong>。也叫小二度。</p>
-<p>两个琴键相隔一个琴键的频率比，比如<code>C4</code>和<code>D4</code>之间，频率比为
+<p>两个琴键相隔一个琴键的频率比，比如 <code>C4</code> 和 <code>D4</code> 之间，频率比为
 <span class="math inline">\(1:\sqrt[6]{2}\)</span>，称为两个半音。也叫一个<strong>全音</strong>或大二度。</p>
 <h2 id="音程速查表">音程速查表</h2>
 <p>一四五八无大小，二三六七没有纯。</p>
@@ -216,114 +220,114 @@
 <tbody>
 <tr class="odd">
 <td>0</td>
-<td>纯一度 P1</td>
+<td> 纯一度 P1</td>
 <td></td>
 <td></td>
 <td></td>
-<td>减二度</td>
+<td> 减二度</td>
 </tr>
 <tr class="even">
-<td>1</td>
+<td> 1</td>
 <td></td>
 <td></td>
-<td>小二度</td>
+<td> 小二度</td>
 <td>增一度</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>2</td>
+<td> 2</td>
 <td></td>
-<td>大二度</td>
+<td> 大二度</td>
 <td></td>
 <td></td>
 <td>减三度</td>
 </tr>
 <tr class="even">
-<td>3</td>
+<td> 3</td>
 <td></td>
 <td></td>
-<td>小三度 m3</td>
-<td>增二度</td>
+<td> 小三度 m3</td>
+<td> 增二度</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>4</td>
+<td> 4</td>
 <td></td>
-<td>大三度 M3</td>
+<td> 大三度 M3</td>
 <td></td>
 <td></td>
-<td>减四度</td>
+<td> 减四度</td>
 </tr>
 <tr class="even">
-<td>5</td>
-<td>纯四度 P4</td>
+<td> 5</td>
+<td> 纯四度 P4</td>
 <td></td>
 <td></td>
-<td>增三度</td>
+<td> 增三度</td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>6</td>
+<td> 6</td>
 <td></td>
 <td></td>
 <td></td>
-<td>增四度</td>
+<td> 增四度</td>
 <td>减五度</td>
 </tr>
 <tr class="even">
-<td>7</td>
-<td>纯五度 P5</td>
+<td> 7</td>
+<td> 纯五度 P5</td>
 <td></td>
 <td></td>
 <td></td>
-<td>减六度</td>
+<td> 减六度</td>
 </tr>
 <tr class="odd">
-<td>8</td>
+<td> 8</td>
 <td></td>
 <td></td>
-<td>小六度 m6</td>
-<td>增五度</td>
+<td> 小六度 m6</td>
+<td> 增五度</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>9</td>
+<td> 9</td>
 <td></td>
-<td>大六度 M6</td>
+<td> 大六度 M6</td>
 <td></td>
 <td></td>
-<td>减七度</td>
+<td> 减七度</td>
 </tr>
 <tr class="odd">
-<td>10</td>
+<td> 10</td>
 <td></td>
 <td></td>
-<td>小七度</td>
+<td> 小七度</td>
 <td>增六度</td>
 <td></td>
 </tr>
 <tr class="even">
-<td>11</td>
+<td> 11</td>
 <td></td>
-<td>大七度</td>
+<td> 大七度</td>
 <td></td>
 <td></td>
 <td>减八度</td>
 </tr>
 <tr class="odd">
-<td>12</td>
-<td>纯八度 P8</td>
+<td> 12</td>
+<td> 纯八度 P8</td>
 <td></td>
 <td></td>
-<td>增七度</td>
+<td> 增七度</td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <ul>
 <li><p>小某度 + 小二度 = 大某度</p></li>
-<li><p>大/纯某度 + 增一度 = 增某度</p></li>
-<li><p>小/纯某度 - 增一度 = 减某度</p></li>
+<li><p>大 / 纯某度 + 增一度 = 增某度</p></li>
+<li><p>小 / 纯某度 - 增一度 = 减某度</p></li>
 <li><p>二度 + 二度的情况包括但不限于：</p>
 <ul>
 <li>小二度 + 小二度 = 大二度</li>
@@ -350,7 +354,7 @@
 <p>最低音称为根音，根音向上 X 度的音称为 X 音，最高音称为冠音。以根音 C
 为例：</p>
 <h3 id="三和弦">三和弦</h3>
-<p>三个大/小三度关系的音（根音、三音、五音），根音到冠音是五度（6~8
+<p>三个大 / 小三度关系的音（根音、三音、五音），根音到冠音是五度（6~8
 半音）。</p>
 <table>
 <colgroup>
@@ -370,27 +374,27 @@
 <tbody>
 <tr class="odd">
 <td>大三和弦</td>
-<td>C</td>
-<td>大三度、纯五度</td>
-<td>7=4+3</td>
+<td> C</td>
+<td> 大三度、纯五度</td>
+<td> 7=4+3</td>
 </tr>
 <tr class="even">
-<td>小三和弦</td>
-<td>Cm</td>
-<td>小三度、纯五度</td>
-<td>7=3+4</td>
+<td> 小三和弦</td>
+<td> Cm</td>
+<td> 小三度、纯五度</td>
+<td> 7=3+4</td>
 </tr>
 <tr class="odd">
-<td>增三和弦</td>
-<td>Caug，C+</td>
-<td>大三度、增五度</td>
-<td>8=4+4</td>
+<td> 增三和弦</td>
+<td> Caug，C+</td>
+<td> 大三度、增五度</td>
+<td> 8=4+4</td>
 </tr>
 <tr class="even">
-<td>减三和弦</td>
-<td>Cdim，C°</td>
-<td>小三度、减五度</td>
-<td>6=3+3</td>
+<td> 减三和弦</td>
+<td> Cdim，C°</td>
+<td> 小三度、减五度</td>
+<td> 6=3+3</td>
 </tr>
 </tbody>
 </table>
@@ -417,50 +421,50 @@
 <tr class="odd">
 <td>大七和弦（大大七和弦）</td>
 <td>Cmaj7、CM7、CΔ7</td>
-<td>大三和弦、大七度</td>
-<td>11=4+3+4</td>
+<td> 大三和弦、大七度</td>
+<td> 11=4+3+4</td>
 </tr>
 <tr class="even">
-<td>属七和弦（大小七和弦）</td>
+<td> 属七和弦（大小七和弦）</td>
 <td>C7</td>
-<td>大三和弦、小七度</td>
-<td>10=4+3+3</td>
+<td> 大三和弦、小七度</td>
+<td> 10=4+3+3</td>
 </tr>
 <tr class="odd">
-<td>小大七和弦</td>
-<td>CmM7</td>
-<td>小三和弦、大七度</td>
-<td>11=3+4+4</td>
+<td> 小大七和弦</td>
+<td> CmM7</td>
+<td> 小三和弦、大七度</td>
+<td> 11=3+4+4</td>
 </tr>
 <tr class="even">
-<td>小七和弦（小小七和弦）</td>
+<td> 小七和弦（小小七和弦）</td>
 <td>Cm7</td>
-<td>小三和弦、小七度</td>
-<td>10=3+4+3</td>
+<td> 小三和弦、小七度</td>
+<td> 10=3+4+3</td>
 </tr>
 <tr class="odd">
-<td>增大七和弦</td>
-<td>CM7+5</td>
-<td>增三和弦、大七度</td>
-<td>11=4+4+3</td>
+<td> 增大七和弦</td>
+<td> CM7+5</td>
+<td> 增三和弦、大七度</td>
+<td> 11=4+4+3</td>
 </tr>
 <tr class="even">
-<td>增小七和弦</td>
-<td>Caug7，C7+5</td>
-<td>增三和弦、小七度</td>
-<td>10=4+4+2</td>
+<td> 增小七和弦</td>
+<td> Caug7，C7+5</td>
+<td> 增三和弦、小七度</td>
+<td> 10=4+4+2</td>
 </tr>
 <tr class="odd">
-<td>导七和弦（减小七和弦）</td>
+<td> 导七和弦（减小七和弦）</td>
 <td>Cm7-5</td>
-<td>减三和弦、小七度</td>
-<td>10=3+3+4</td>
+<td> 减三和弦、小七度</td>
+<td> 10=3+3+4</td>
 </tr>
 <tr class="even">
-<td>减七和弦（减减七和弦）</td>
+<td> 减七和弦（减减七和弦）</td>
 <td>Cdim7，C°7</td>
-<td>减三和弦、减七度</td>
-<td>9=3+3+3</td>
+<td> 减三和弦、减七度</td>
+<td> 9=3+3+3</td>
 </tr>
 </tbody>
 </table>
@@ -477,21 +481,21 @@
 <tbody>
 <tr class="odd">
 <td>强力和弦</td>
-<td>C5</td>
-<td>纯五度</td>
-<td>7</td>
+<td> C5</td>
+<td> 纯五度</td>
+<td> 7</td>
 </tr>
 <tr class="even">
-<td>大六和弦</td>
-<td>C6</td>
-<td>大三和弦 + 大六度</td>
-<td>4+3+2</td>
+<td> 大六和弦</td>
+<td> C6</td>
+<td> 大三和弦 + 大六度</td>
+<td> 4+3+2</td>
 </tr>
 <tr class="odd">
-<td>小六和弦</td>
-<td>Cm6</td>
-<td>小三和弦 + 大六度</td>
-<td>3+4+2</td>
+<td> 小六和弦</td>
+<td> Cm6</td>
+<td> 小三和弦 + 大六度</td>
+<td> 3+4+2</td>
 </tr>
 </tbody>
 </table>
@@ -508,14 +512,14 @@ C5}\)</span>。<code>B#4 = C5</code></p>
 <ul>
 <li><p>音名（pitch name，音高名称）</p>
 <ul>
-<li><p><code>C4</code>、<code>C#4</code>、<code>D4</code>等是音名，对应<strong>绝对音高</strong>。</p></li>
+<li><p><code>C4</code>、<code>C#4</code>、<code>D4</code> 等是音名，对应<strong>绝对音高</strong>。</p></li>
 <li><p>比如 <span class="math inline">\(\mathrm{C4 = 220 \times
 \sqrt[4]{2} Hz}\)</span>。</p></li>
 </ul></li>
 </ul>
 <p><img src="/blog/images/piano.webp"/></p>
 <ul>
-<li><p>唱名（sol-fa note，唱名表示法<a class="footnote-ref" href="#fn1" id="fnref1" role="doc-noteref"><sup>1</sup></a>中的音符）</p>
+<li><p>唱名（sol-fa note，唱名表示法 <a class="footnote-ref" href="#fn1" id="fnref1" role="doc-noteref"><sup>1</sup></a> 中的音符）</p>
 <ul>
 <li><p><code>do</code>、<code>re</code>、<code>mi</code>、<code>fa</code>、<code>sol</code>、<code>la</code>、<code>ti</code>
 是唱名，对应<strong>相对音高</strong>。</p></li>
@@ -535,7 +539,7 @@ C5}\)</span>。<code>B#4 = C5</code></p>
 </blockquote>
 <p><code>A0 B0 C1 D1 E1 F1 G1 A1 B1 ... C4 D4 E4 F4 G4 A4 B4 ... C7 D7 E7 F7 G7 A7 B7 C8</code>
 就是一组升序音阶，对应钢琴的所有白键。</p>
-<p>在上面的例子中，每个八度里用到了七个音名<code>C D E F G A B</code>（不包括区间右端点），这被称为<strong>七声音阶</strong>（heptatonic
+<p>在上面的例子中，每个八度里用到了七个音名 <code>C D E F G A B</code>（不包括区间右端点），这被称为<strong>七声音阶</strong>（heptatonic
 scale）。</p>
 <h2 id="音级">音级</h2>
 <p>七声音阶里有七个音级（degree，刻度）：</p>
@@ -549,39 +553,39 @@ scale）。</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: center;"><span class="math inline">\(Ⅰ\)</span></td>
-<td>主音</td>
-<td>tonic</td>
+<td style="text-align: center;"><span class="math inline"> \(Ⅰ\)</span></td>
+<td> 主音</td>
+<td> tonic</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><span class="math inline">\(Ⅱ\)</span></td>
-<td>上主音</td>
-<td>supertonic</td>
+<td> 上主音</td>
+<td> supertonic</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;"><span class="math inline">\(Ⅲ\)</span></td>
-<td>中音</td>
-<td>mediant</td>
+<td> 中音</td>
+<td> mediant</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><span class="math inline">\(Ⅳ\)</span></td>
-<td>下属音</td>
-<td>subdominant</td>
+<td> 下属音</td>
+<td> subdominant</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;"><span class="math inline">\(Ⅴ\)</span></td>
-<td>属音</td>
-<td>dominant</td>
+<td> 属音</td>
+<td> dominant</td>
 </tr>
 <tr class="even">
 <td style="text-align: center;"><span class="math inline">\(Ⅵ\)</span></td>
-<td>下中音</td>
-<td>submediant</td>
+<td> 下中音</td>
+<td> submediant</td>
 </tr>
 <tr class="odd">
 <td style="text-align: center;"><span class="math inline">\(Ⅶ\)</span></td>
-<td>导音</td>
-<td>subtonic / leading note</td>
+<td> 导音</td>
+<td> subtonic / leading note</td>
 </tr>
 </tbody>
 </table>
@@ -591,7 +595,7 @@ scale）。</p>
 <p><span class="math inline">\(\mathrm{A-B-C-D-E-F-G}\)</span>
 音阶相同吗？</p>
 <p>这两组音阶分别都是同一个八度里的音（不包括右端点）。</p>
-<p>如果把“音阶”理解为【无限扩展到多个八度后，所有音的绝对音高】的话，得到的答案是相同的，因为【它们都使用了钢琴的所有白键】。</p>
+<p>如果把 “音阶” 理解为【无限扩展到多个八度后，所有音的绝对音高】的话，得到的答案是相同的，因为【它们都使用了钢琴的所有白键】。</p>
 <p>但是看别人网上的回答，这两组音阶是不同的。</p>
 <p>原因在于：</p>
 <ul>
@@ -613,19 +617,19 @@ scale）。</p>
 <li>以 <span class="math inline">\(\mathrm{C}\)</span>
 为主音，音程关系为 <span class="math inline">\((2-2-1-2-2-2-1)\)</span>
 的调式，称为 <span class="math inline">\(\mathrm{C}\)</span>
-<strong>自然大调</strong>。<code>C Major</code> 用到的音名为： <span class="math display">\[
+<strong> 自然大调</strong>。<code>C Major</code> 用到的音名为： <span class="math display">\[
 \mathrm{...B3-C4-D4-E4-F4-G4-A4-B4-C5...}
 \]</span></li>
-<li>以 <span class="math inline">\(\mathrm{A}\)</span>
+<li> 以 <span class="math inline">\(\mathrm{A}\)</span>
 为主音，音程关系为 <span class="math inline">\((2-2-1-2-2-2-1)\)</span>
 的调式，称为 <span class="math inline">\(\mathrm{A}\)</span>
-<strong>自然大调</strong>。<code>A Major</code> 用到的音名为： <span class="math display">\[
+<strong> 自然大调</strong>。<code>A Major</code> 用到的音名为： <span class="math display">\[
 \mathrm{...G\sharp3-A4-B4-C\sharp4-D4-E4-F\sharp4-G4\sharp-A5...}
 \]</span></li>
-<li>以 <span class="math inline">\(\mathrm{A}\)</span>
+<li> 以 <span class="math inline">\(\mathrm{A}\)</span>
 为主音，音程关系为 <span class="math inline">\((2-1-2-2-1-2-2)\)</span>
 的调式，称为 <span class="math inline">\(\mathrm{A}\)</span>
-<strong>自然小调</strong>。<code>A Minor</code> 用到的音名为： <span class="math display">\[
+<strong> 自然小调</strong>。<code>A Minor</code> 用到的音名为： <span class="math display">\[
 \mathrm{...G3-A4-B4-C4-D4-E4-F4-G4-A5...}
 \]</span></li>
 </ul>
@@ -645,24 +649,24 @@ mode，教会调式）是指广义的调式，只确定了音程关系，还没�
 <thead>
 <tr class="header">
 <th>调式名</th>
-<th>别名/结构相同的调式</th>
+<th>别名 / 结构相同的调式</th>
 <th>相隔的半音数</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>伊奥尼亚调式<br/>Ionian mode</td>
-<td><strong>自然大调</strong><code>Major</code><br/>中国七声清乐宫调</td>
+<td><strong> 自然大调</strong><code>Major</code><br/>中国七声清乐宫调</td>
 <td><code>2-2-1-2-2-2-1</code></td>
 </tr>
 <tr class="even">
 <td>多利亚调式<br/>Dorian mode</td>
-<td>中国七声清乐商调</td>
+<td> 中国七声清乐商调</td>
 <td><code>2-1-2-2-2-1-2</code></td>
 </tr>
 <tr class="odd">
 <td>弗里几亚调式<br/>Phrygian mode</td>
-<td>中国七声清乐角调</td>
+<td> 中国七声清乐角调</td>
 <td><code>1-2-2-2-1-2-2</code></td>
 </tr>
 <tr class="even">
@@ -672,12 +676,12 @@ mode，教会调式）是指广义的调式，只确定了音程关系，还没�
 </tr>
 <tr class="odd">
 <td>混合利底亚调式<br/>Mixolydian mode</td>
-<td>中国七声清乐徵调</td>
+<td> 中国七声清乐徵调</td>
 <td><code>2-2-1-2-2-1-2</code></td>
 </tr>
 <tr class="even">
 <td>爱奥尼亚调式<br/>Aeolian mode</td>
-<td><strong>自然小调</strong><code>Minor</code><br/>中国七声清乐羽调</td>
+<td><strong> 自然小调</strong><code>Minor</code><br/>中国七声清乐羽调</td>
 <td><code>2-1-2-2-1-2-2</code></td>
 </tr>
 <tr class="odd">
@@ -751,7 +755,7 @@ mode，教会调式）是指广义的调式，只确定了音程关系，还没�
 为主音，构造出弗里几亚调式的音阶，与 <span class="math inline">\(\mathrm{X}\)</span> 自然大调、<span class="math inline">\(\mathrm{Y}\)</span>
 多利亚调使用的琴键相同。</p></li>
 <li><p>……</p></li>
-<li><p>以 <span class="math inline">\(\mathrm{V=(X+2+2+1+2+2)}\)</span>
+<li><p> 以 <span class="math inline">\(\mathrm{V=(X+2+2+1+2+2)}\)</span>
 为主音，构造出自然小调的音阶，与 <span class="math inline">\(\mathrm{X}\)</span> 自然大调、<span class="math inline">\(\mathrm{Y}\)</span> 多利亚调、<span class="math inline">\(\mathrm{Z}\)</span> 弗里几亚调……
 使用的琴键相同。</p></li>
 <li><p>以 <span class="math inline">\(\mathrm{W=(X+2+2+1+2+2+2)}\)</span>
@@ -759,7 +763,7 @@ mode，教会调式）是指广义的调式，只确定了音程关系，还没�
 自然小调使用的琴键相同。</p></li>
 </ul>
 <h2 id="调式音阶">调式音阶</h2>
-<p>调式音阶为主音+音程关系。如：</p>
+<p>调式音阶为主音 + 音程关系。如：</p>
 <p>C 大调音阶为：<span class="math inline">\(\mathrm{C-D-E-F-G-A-B}\)</span></p>
 <p>A 小调音阶为：<span class="math inline">\(\mathrm{A-B-C-D-E-F-G}\)</span></p>
 <p>它们使用的绝对音名相同，叫<strong>关系大小调</strong>。</p>
@@ -768,21 +772,21 @@ mode，教会调式）是指广义的调式，只确定了音程关系，还没�
 大调音阶上取三个三度关系的音级构成和弦。</p>
 <p>有七个音级，每个都可以作为根音，于是七个和弦分别为：</p>
 <p>C Dm Em F G Am B°</p>
-<p>类似地，所有大调的七个三和弦都是【大-小-小-大-大-小-减】，因为：</p>
+<p>类似地，所有大调的七个三和弦都是【大 - 小 - 小 - 大 - 大 - 小 - 减】，因为：</p>
 <ul>
 <li>2-2-1-2-2-2-1
 <ul>
-<li>(2+2)+(1+2)=(4+3)=大三和弦</li>
-<li>(2+1)+(2+2)=(3+4)=小三和弦</li>
+<li>(2+2)+(1+2)=(4+3)= 大三和弦</li>
+<li> (2+1)+(2+2)=(3+4)= 小三和弦</li>
 <li>……</li>
-<li>(1+2)+(2+1)=(3+3)=减三和弦</li>
+<li>(1+2)+(2+1)=(3+3)= 减三和弦</li>
 <li>以此类推</li>
 </ul></li>
 </ul>
 <p>在一级、四级、五级上（以它们为根音）的和弦都是大三和弦，也叫主和弦、下属和弦、属和弦。它们叫大调上的正三和弦，另外四个叫大调上的副三和弦。</p>
-<p>类似地，小调的各级三和弦为：【小-减-大-小-小-大-大】。这和小调相对于大调的音程关系看起来类似，都是把大调的
+<p>类似地，小调的各级三和弦为：【小 - 减 - 大 - 小 - 小 - 大 - 大】。这和小调相对于大调的音程关系看起来类似，都是把大调的
 6 当成小调的 1。</p>
-<p>大调的各级七和弦为：【大-小-小-大-属-小-导】。</p>
+<p>大调的各级七和弦为：【大 - 小 - 小 - 大 - 属 - 小 - 导】。</p>
 <h2 id="五度圈">五度圈</h2>
 <p><a href="https://www.musicca.com/zh/circle-of-fifths" rel="noopener" target="_blank">五度圈</a></p>
 <blockquote>
@@ -793,7 +797,7 @@ mode，教会调式）是指广义的调式，只确定了音程关系，还没�
 <p>C -&gt; G -&gt; D -&gt; A -&gt; E -&gt; B -&gt; F#/Gb -&gt; Db/C#
 -&gt; Ab -&gt; Eb -&gt; Bb -&gt; F -&gt; C</p>
 <p>最后又回到了 C，且这一圈里包含了十二个完整的音名。</p>
-<p>五度圈里顺时针上行是纯五度关系，逆时针上行/顺时针下行是纯四度关系。</p>
+<p>五度圈里顺时针上行是纯五度关系，逆时针上行 / 顺时针下行是纯四度关系。</p>
 <h2 id="和弦的功能">和弦的功能</h2>
 <p>以大调为例。参考<a href="http://yinlvwu.com/2022/09/19/%e5%b8%b8%e7%94%a8%e5%92%8c%e5%bc%a6%e5%8a%9f%e8%83%bd%e8%a7%a3%e6%9e%90%e5%85%a8%e5%9c%a8%e8%bf%99%e4%ba%86%ef%bc%8c%e9%99%84%e5%ae%9e%e7%94%a8%e5%9b%be%e8%a1%a8%ef%bc%81/" rel="noopener" target="_blank">常用和弦功能解析全在这了，附实用图表！</a></p>
 <h3 id="主功能组-tonic">主功能组 Tonic</h3>
@@ -859,7 +863,7 @@ mode，教会调式）是指广义的调式，只确定了音程关系，还没�
 <tbody>
 <tr class="odd">
 <td><strong>单位长度</strong></td>
-<td><span class="math inline">\(81\)</span></td>
+<td><span class="math inline"> \(81\)</span></td>
 <td><span class="math inline">\(72\)</span></td>
 <td><span class="math inline">\(64\)</span></td>
 <td><span class="math inline">\(54\)</span></td>
@@ -880,7 +884,7 @@ mode，教会调式）是指广义的调式，只确定了音程关系，还没�
 \right.
 \]</span></p>
 <p>在上面的基础上继续损益，注意在 <span class="math inline">\(42\frac{2}{3}\)</span>
-处益了两次，然后继续损—益—损— ……</p>
+处益了两次，然后继续损 — 益 — 损 — ……</p>
 <p>并规定 <strong>宫 = 黄钟</strong>，相当于十二平均律简谱的 <span class="math inline">\(\mathbf{1=C}\)</span>，得到十二律的各个音：</p>
 <table>
 <thead>
@@ -894,92 +898,92 @@ mode，教会调式）是指广义的调式，只确定了音程关系，还没�
 </thead>
 <tbody>
 <tr class="odd">
-<td>1</td>
-<td>黄钟</td>
+<td> 1</td>
+<td> 黄钟</td>
 <td>起始音</td>
 <td>损，林钟</td>
-<td><span class="math inline">\(81\)</span></td>
+<td><span class="math inline"> \(81\)</span></td>
 </tr>
 <tr class="even">
 <td>2</td>
-<td>大吕</td>
+<td> 大吕</td>
 <td>蕤宾，益</td>
 <td>损，夷则</td>
-<td><span class="math inline">\(75\frac{23}{27}\)</span></td>
+<td><span class="math inline"> \(75\frac{23}{27}\)</span></td>
 </tr>
 <tr class="odd">
 <td>3</td>
-<td>太簇</td>
+<td> 太簇</td>
 <td>林钟，益</td>
 <td>损，南吕</td>
-<td><span class="math inline">\(72\)</span></td>
+<td><span class="math inline"> \(72\)</span></td>
 </tr>
 <tr class="even">
 <td>4</td>
-<td>夹钟</td>
+<td> 夹钟</td>
 <td>夷则，益</td>
 <td>损，无射</td>
-<td><span class="math inline">\(67\frac{103}{243}\)</span></td>
+<td><span class="math inline"> \(67\frac{103}{243}\)</span></td>
 </tr>
 <tr class="odd">
 <td>5</td>
-<td>姑洗 Xiǎn</td>
-<td>南吕，益</td>
+<td> 姑洗 Xiǎn</td>
+<td> 南吕，益</td>
 <td>损，应钟</td>
-<td><span class="math inline">\(64\)</span></td>
+<td><span class="math inline"> \(64\)</span></td>
 </tr>
 <tr class="even">
 <td>6</td>
-<td>仲吕</td>
+<td> 仲吕</td>
 <td>无射，益</td>
 <td>损，清黄钟</td>
-<td><span class="math inline">\(59\frac{2039}{2187}\)</span></td>
+<td><span class="math inline"> \(59\frac{2039}{2187}\)</span></td>
 </tr>
 <tr class="odd">
 <td>7</td>
-<td>蕤宾</td>
+<td> 蕤宾</td>
 <td>应钟，益</td>
 <td>益，大吕</td>
-<td><span class="math inline">\(56\frac{8}{9}\)</span></td>
+<td><span class="math inline"> \(56\frac{8}{9}\)</span></td>
 </tr>
 <tr class="even">
 <td>8</td>
-<td>林钟</td>
+<td> 林钟</td>
 <td>黄钟，损</td>
 <td>益，太簇</td>
-<td><span class="math inline">\(54\)</span></td>
+<td><span class="math inline"> \(54\)</span></td>
 </tr>
 <tr class="odd">
 <td>9</td>
-<td>夷则</td>
+<td> 夷则</td>
 <td>大吕，损</td>
 <td>益，夹钟</td>
-<td><span class="math inline">\(50\frac{46}{81}\)</span></td>
+<td><span class="math inline"> \(50\frac{46}{81}\)</span></td>
 </tr>
 <tr class="even">
 <td>10</td>
-<td>南吕</td>
+<td> 南吕</td>
 <td>太簇，损</td>
 <td>益，姑洗</td>
-<td><span class="math inline">\(48\)</span></td>
+<td><span class="math inline"> \(48\)</span></td>
 </tr>
 <tr class="odd">
 <td>11</td>
-<td>无射 Yì</td>
-<td>夹钟，损</td>
+<td> 无射 Yì</td>
+<td> 夹钟，损</td>
 <td>益，仲吕</td>
-<td><span class="math inline">\(44\frac{692}{729}\)</span></td>
+<td><span class="math inline"> \(44\frac{692}{729}\)</span></td>
 </tr>
 <tr class="even">
 <td>12</td>
-<td>应钟</td>
+<td> 应钟</td>
 <td>姑洗，损</td>
 <td>益，蕤宾</td>
-<td><span class="math inline">\(42\frac{2}{3}\)</span></td>
+<td><span class="math inline"> \(42\frac{2}{3}\)</span></td>
 </tr>
 <tr class="odd">
 <td>13</td>
-<td>清黄钟</td>
+<td> 清黄钟</td>
 <td>仲吕，损</td>
 <td>……</td>
 <td><span class="math inline">\(39\frac{6265}{6561}\)</span></td>
@@ -987,21 +991,21 @@ mode，教会调式）是指广义的调式，只确定了音程关系，还没�
 </tbody>
 </table>
 <p>另外，可以在<a href="http://read.nlc.cn/user/index" rel="noopener" target="_blank">中国国家数字图书馆</a>查看不同版本的《史记》，宫、商、角、徵、羽对应的音名是不一样的。但<strong>如果认为以下几点同时成立的话，便可以推出
-{宫,商,角,徵,羽} 对应 {黄钟,太簇,姑洗,林钟,南吕}</strong>：</p>
+{宫，商，角，徵，羽} 对应 {黄钟，太簇，姑洗，林钟，南吕}</strong>：</p>
 <ol type="1">
-<li>{黄钟,大吕,太簇,夹钟,姑洗,仲吕,蕤宾,林钟,夷则,南吕,无射,应钟}的音高顺序是正确的，从低音到高音。</li>
+<li>{黄钟，大吕，太簇，夹钟，姑洗，仲吕，蕤宾，林钟，夷则，南吕，无射，应钟} 的音高顺序是正确的，从低音到高音。</li>
 <li>可以把第一条集合里的音类比成十二平均律的一个八度内的音名（绝对音高）。</li>
-<li>可以把{宫,商,角,徵,羽,宫,...}类比成十二平均律的唱名（相对音高）。</li>
+<li>可以把 {宫，商，角，徵，羽，宫，...} 类比成十二平均律的唱名（相对音高）。</li>
 <li>第三条集合里的音，音程关系始终是 <span class="math inline">\(2-2-3-2-3\)</span>。</li>
 <li>令<strong>宫 = 黄钟</strong>。</li>
 </ol>
 <h2 id="参考">参考</h2>
-<p>[1] 维基百科. 十二律[EB/OL].(2023-07-14)[2023-09-02]. <a href="https://zh.wikipedia.org/zh-cn/十二律" rel="noopener" target="_blank">https://zh.wikipedia.org/zh-cn/十二律</a>.</p>
-<p>[2] 司马迁. 史记：卷二十五 律書第三[M/OL].(2020-09-10)[2023-09-02].
-<a href="https://zh.wikisource.org/wiki/史記/卷025" rel="noopener" target="_blank">https://zh.wikisource.org/wiki/史記/卷
+<p>[1] 维基百科. 十二律 [EB/OL].(2023-07-14)[2023-09-02]. <a href="https://zh.wikipedia.org/zh-cn/十二律" rel="noopener" target="_blank">https://zh.wikipedia.org/zh-cn/ 十二律</a>.</p>
+<p>[2] 司马迁. 史记：卷二十五 律書第三 [M/OL].(2020-09-10)[2023-09-02].
+<a href="https://zh.wikisource.org/wiki/史記/卷025" rel="noopener" target="_blank">https://zh.wikisource.org/wiki/ 史記 / 卷
 025</a>.</p>
 <p>[3] leeonix.
-【科普向】中国古代的十二律以及十二平均律[EB/OL].(2019-07-30)[2023-09-02].
+【科普向】中国古代的十二律以及十二平均律 [EB/OL].(2019-07-30)[2023-09-02].
 <a href="https://www.bilibili.com/read/cv3194623/" rel="noopener" target="_blank">https://www.bilibili.com/read/cv3194623</a>.</p>
 <aside class="footnotes footnotes-end-of-document" id="footnotes" role="doc-endnotes">
 <hr/>
@@ -1015,12 +1019,12 @@ mode，教会调式）是指广义的调式，只确定了音程关系，还没�
 <div class="post-nav">
 <div class="post-nav-item">
 <a href="/blog/termux-flask-ngrok.html" rel="prev" title="在 Termux 上使用 Flask">
-<i class="fa fa-chevron-left"></i> 在 Termux 上使用 Flask
+<i class="fa fa-angle-left"></i> 在 Termux 上使用 Flask
                 </a>
 </div>
 <div class="post-nav-item">
 <a href="/blog/hexo.html" rel="next" title="Hexo">
-                  Hexo <i class="fa fa-chevron-right"></i>
+                  Hexo <i class="fa fa-angle-right"></i>
 </a>
 </div>
 </div>
@@ -1031,33 +1035,27 @@ mode，教会调式）是指广义的调式，只确定了音程关系，还没�
 </main>
 <footer class="footer">
 <div class="footer-inner">
-<div class="copyright">
-  2023 – 
-  <span itemprop="copyrightYear">2024</span>
-<span class="with-love">
-<i class="fa fa-heart"></i>
-</span>
-<span class="author" itemprop="copyrightHolder">Ruofan</span>
-</div>
 </div>
 </footer>
+<div class="toggle sidebar-toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+</div>
+<div class="sidebar-dimmer"></div>
 <div aria-label="返回顶部" class="back-to-top" role="button">
 <i class="fa fa-arrow-up fa-lg"></i>
 <span>0%</span>
 </div>
-<div class="reading-progress-bar"></div>
 <noscript>
 <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js"></script>
-<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/next-boot.js"></script>
-<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/9.4.3/mermaid.min.js","integrity":"sha256-e0o3JYsdjqKajf9eOe22FhioYSz9WofRY4dLKo3F6do="}}</script>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://unpkg.com/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/sidebar.js"></script><script src="/blog/js/next-boot.js"></script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js","integrity":"sha256-YbM1pG3wWnzhyYN49g5fPnen+2CKEFaZfopkkwSpNtY="}}</script>
 <script src="/blog/js/third-party/tags/mermaid.js"></script>
-<script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/blog/js/third-party/math/mathjax.js"></script>
-<script crossorigin="anonymous" integrity="sha256-yvJQOINiH9fWemHn0vCA5lsHWJaHs6/ZmO+1Ft04SvM=" src="https://cdnjs.cloudflare.com/ajax/libs/quicklink/2.3.0/quicklink.umd.js"></script>
-<script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":false,"delay":true,"timeout":3000,"priority":true,"url":"https://hrfis.me/blog/music-theory.html"}</script>
-<script src="/blog/js/third-party/quicklink.js"></script>
 </body>
 </html>
