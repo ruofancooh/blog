@@ -20,7 +20,7 @@
 <meta content="一键生成的背后。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-08-27T12:38:00.000Z" property="article:published_time"/>
-<meta content="2024-10-25T11:18:45.875Z" property="article:modified_time"/>
+<meta content="2024-10-28T09:13:21.708Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/hexo" rel="canonical"/>
@@ -135,7 +135,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-10-25T19:18:45+08:00" itemprop="dateModified" title="修改时间：2024-10-25 19:18:45">2024-10-25</time>
+<time datetime="2024-10-28T17:13:21+08:00" itemprop="dateModified" title="修改时间：2024-10-28 17:13:21">2024-10-28</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -156,15 +156,15 @@
 <ol type="1">
 <li>设置 npm 镜像源 </li>
 </ol>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">npm get registry</span><br/><span class="line">npm config set registry <span class="attr">https</span>:<span class="comment">//registry.npmmirror.com/</span></span><br/></pre></td></tr></tbody></table></figure>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">npm get registry</span><br/><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com/</span><br/></pre></td></tr></tbody></table></figure>
 <ol start="2" type="1">
 <li>安装 Hexo 并初始化之后，安装本地预览服务器，先跑 </li>
 </ol>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">npm install hexo-server</span><br/><span class="line">hexo server</span><br/></pre></td></tr></tbody></table></figure>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">npm install hexo-server</span><br/><span class="line">hexo server</span><br/></pre></td></tr></tbody></table></figure>
 <h2 id="next-主题">NexT 主题</h2>
-<p><a href="https://theme-next.js.org/docs/third-party-services/math-equations" rel="noopener" target="_blank">渲染数学公式</a></p>
-<p><a href="https://theme-next.js.org/docs/tag-plugins/mermaid" rel="noopener" target="_blank">Mermaid</a></p>
-<p><a href="https://theme-next.js.org/docs/advanced-settings/custom-files" rel="noopener" target="_blank">随机背景</a></p>
+<p><a href="https://theme-next.js.org/docs/third-party-services/math-equations" rel="noopener" target="_blank">渲染数学公式</a>
+| <a href="https://theme-next.js.org/docs/tag-plugins/mermaid" rel="noopener" target="_blank">Mermaid</a> |
+<a href="https://theme-next.js.org/docs/advanced-settings/custom-files" rel="noopener" target="_blank">随机背景</a></p>
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> {</span><br/><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"https://bing.img.run/rand.php"</span>);</span><br/><span class="line">    <span class="attribute">background-attachment</span>: fixed;</span><br/><span class="line">    <span class="attribute">background-size</span>: cover;</span><br/><span class="line">    <span class="attribute">background-position</span>: center;</span><br/><span class="line">}</span><br/></pre></td></tr></tbody></table></figure>
 <h2 id="md">md</h2>
 <figure class="highlight md"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/></pre></td><td class="code"><pre><span class="line">---</span><br/><span class="line">title: CN02 - 概述 - 体系结构</span><br/><span class="line">date: 2023-09-09 17:00:00</span><br/><span class="line">categories: 计算机网络</span><br/><span class="line"><span class="section">permalink: CN/02/</span></span><br/><span class="line"><span class="section">---</span></span><br/><span class="line"></span><br/><span class="line"><span class="bullet">-</span> OSI 七层协议：参考模型</span><br/><span class="line"><span class="bullet">-</span> TCP/IP 四层协议：即 Internet protocol suite，实际用到的</span><br/><span class="line"><span class="bullet">-</span> 五层协议：教学模型</span><br/><span class="line"></span><br/><span class="line">&lt;!--more--&gt;</span><br/><span class="line"></span><br/><span class="line">（正文）</span><br/></pre></td></tr></tbody></table></figure>
