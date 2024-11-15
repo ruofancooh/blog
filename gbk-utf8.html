@@ -12,21 +12,21 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="牌技不精。 戳牌。仅限于笔者祖父母和外祖父母那一带地区的玩法。" name="description"/>
+<meta content="参考：字符编码 / 解码 | SYMBL | HexED.it" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="川牌规则" property="og:title"/>
-<meta content="https://hrfis.me/blog/84.html" property="og:url"/>
+<meta content="GBK 与 UTF-8 与锟斤拷的成因" property="og:title"/>
+<meta content="https://hrfis.me/blog/gbk-utf8.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="牌技不精。 戳牌。仅限于笔者祖父母和外祖父母那一带地区的玩法。" property="og:description"/>
+<meta content="参考：字符编码 / 解码 | SYMBL | HexED.it" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2024-07-04T11:00:00.000Z" property="article:published_time"/>
-<meta content="2024-11-14T05:33:50.027Z" property="article:modified_time"/>
+<meta content="2024-11-15T11:00:00.000Z" property="article:published_time"/>
+<meta content="2024-11-15T11:25:56.000Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/84" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/84.html","path":"/84.html","title":"川牌规则"}</script>
+<link href="https://hrfis.me/blog/gbk-utf8" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/gbk-utf8.html","path":"/gbk-utf8.html","title":"GBK 与 UTF-8 与锟斤拷的成因"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>川牌规则 | 若凡的笔记</title>
+<title>GBK 与 UTF-8 与锟斤拷的成因 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -73,7 +73,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%8C%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">牌面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%8C%E5%9E%8B%E4%B8%8E%E6%AF%94%E8%BE%83%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.</span> <span class="nav-text">牌型与比较系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%BB%E5%90%91"><span class="nav-number">3.</span> <span class="nav-text">去向</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E6%8F%90%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">前提知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gbk"><span class="nav-number">2.</span> <span class="nav-text">GBK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#utf-8"><span class="nav-number">3.</span> <span class="nav-text">UTF-8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%9F%E6%96%A4%E6%8B%B7%E7%9A%84%E6%88%90%E5%9B%A0"><span class="nav-number">4.</span> <span class="nav-text">锟斤拷的成因</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -104,7 +104,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/84.html" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/gbk-utf8.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -114,12 +114,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="川牌规则 | 若凡的笔记" itemprop="name"/>
+<meta content="GBK 与 UTF-8 与锟斤拷的成因 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          川牌规则
+          GBK 与 UTF-8 与锟斤拷的成因
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -128,14 +128,7 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2024-07-04T19:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-07-04 19:00:00">2024-07-04</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2024-11-14T13:33:50+08:00" itemprop="dateModified" title="修改时间：2024-11-14 13:33:50">2024-11-14</time>
+<time datetime="2024-11-15T19:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-11-15 19:00:00 / 修改时间：19:25:56">2024-11-15</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -143,83 +136,149 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/m/" itemprop="url" rel="index"><span itemprop="name">牢骚系列</span></a>
+<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">实用系列</span></a>
 </span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>牌技不精。</p>
-<p>戳牌。仅限于笔者祖父母和外祖父母那一带地区的玩法。</p>
+<div class="post-body" itemprop="articleBody"><p>参考：<a href="https://www.toolhelper.cn/EncodeDecode/EncodeDecode" rel="noopener" target="_blank">字符编码 / 解码</a>
+| <a href="https://symbl.cc/" rel="noopener" target="_blank">SYMBL</a> | <a href="https://hexed.it/" rel="noopener" target="_blank">HexED.it</a></p>
 <span id="more"></span>
-<h2 id="牌面">牌面</h2>
-<p>21 种 x 4 张 = 84 张牌</p>
-<ul>
-<li>正门：天牌（66 宋江）&gt; 地牌（11 公孙胜）&gt; 人牌（44 秦明）&gt;
-和牌（13 柴进）&gt;</li>
-<li> 长门：长三（33 武松）&gt; 梅十（55 董平）&gt; 板凳（22 鲁智深）</li>
-<li>幺门：疙瘩（15 徐宁）&gt; 幺七（16 索超）&gt; 四六（46 杨志）&gt;
-虎头（56 张清）</li>
-<li>点门：
-<ul>
-<li>黑点：黑九（36 吴用）&gt; 平八（26 林冲）、弯八（35 关胜）&gt;
-黑七（25 花荣）&gt; 黑五（23 朱仝）</li>
-<li>红点：红九（45 卢俊义）&gt; 红七（34 呼延灼）&gt; 红五（14
-李应）&gt;</li>
-</ul></li>
-<li> 猴：公猴 / 红三（12 戴宗）、母猴 / 红六（24 刘唐）</li>
-</ul>
-<h2 id="牌型与比较系统">牌型与比较系统</h2>
-<ul>
-<li><p>重叠牌型。同种牌出 1 张到 4
-张（八种点牌，包括两种黑八都不算是同一种）</p>
-<ul>
-<li>正门 + 长门算一个系统</li>
-<li>幺门算一个系统</li>
-<li>黑点算一个系统</li>
-<li>红点 + 猴算一个系统</li>
-</ul></li>
-</ul>
-<p>如：两张天牌可管两张人牌或两张梅十，但不能管一张梅十、两张黑九或两张幺七；黑九不能管红七。</p>
-<ul>
-<li>组合牌型。组合规则为：天九、地八、人七、和五。一张及以上的（天 / 地 / 人 / 和）牌与一张及以上的对应的（九点 / 八点 / 七点 / 五点）牌组合为
-2 至 12 张的组合牌，例如：
-<ul>
-<li>天牌 + 红九 + 黑九 + 黑九 = 四天九</li>
-<li>地牌 + 黑八 = 两地八</li>
-<li>人牌 + 人牌 + 红七 = 三人七</li>
-<li>和牌 + 和牌 + 红五 + 黑五 = 四和五</li>
-<li>这四种情况算一个系统</li>
-</ul></li>
-</ul>
-<p>如：四地八可管四人七、四和五，但不能管三人七或五和五。</p>
-<h2 id="去向">去向</h2>
-<p>分为手牌、桌面和积分堆。</p>
-<p>接牌时手牌按门类分为不同的列。</p>
+<h2 id="前提知识">前提知识</h2>
+<p>一位十六进制数表示四位二进制数，两位十六进制数表示一个字节。</p>
+<p>ASCII 有 128 个符号，使用一个字节表示，范围是 00000000-01111111 即
+00-7F</p>
+<h2 id="gbk">GBK</h2>
+<p>是 GB2312 的超集，有 21886
+个符号，使用两个字节表示一个符号。当文本中同时包含 GBK 与 ASCII
+字符时，GBK 对 ASCII 字符仍用一个字节表示。</p>
+<p>总体编码范围为 8140-FEFE 之间，首字节在 81-FE 之间，避开了 ASCII 的
+00-7F，尾字节在 40-FE 之间。</p>
+<h2 id="utf-8">UTF-8</h2>
+<p>Unicode：为一个符号分配一个码，常用汉字的范围在 U+4E00 到 U+9FFF</p>
+<p>UTF-8：使用 1 到 4 个字节表示一个 Unicode 码。其中用 1 个字节表示的与
+ASCII 兼容。</p>
+<p>用 n 个字节表示的，头个字节以 n 个 1 带 1 个 0 开头，后面字节全以 10
+开头（在 80-BF 的范围内）。</p>
+<table>
+<colgroup>
+<col style="width: 26%"/>
+<col style="width: 40%"/>
+<col style="width: 32%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Unicode</th>
+<th>UTF-8</th>
+<th> 第二列各个字节的十六进制范围</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td> 0000 0000-0000 007F</td>
+<td>0xxxxxxx</td>
+<td>00-7F</td>
+</tr>
+<tr class="even">
+<td>0000 0080-0000 07FF</td>
+<td>110xxxxx 10xxxxxx</td>
+<td>C0-DF 80-BF</td>
+</tr>
+<tr class="odd">
+<td><strong>0000 0800-0000 FFFF</strong></td>
+<td><strong>1110xxxx 10xxxxxx 10xxxxxx</strong></td>
+<td>E0-EF 80-BF 80-BF</td>
+</tr>
+<tr class="even">
+<td>0001 0000-0010 FFFF</td>
+<td>11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</td>
+<td>F0-F7 80-BF 80-BF 80-BF</td>
+</tr>
+</tbody>
+</table>
+<style>
+    .r{
+        color:red
+    }
+    .o{
+        color:orange
+    }
+    .g{
+        color:green
+    }
+    .b{
+        color:blue
+    }
+</style>
+<p>如【这】的 Unicode 是 <strong>U+<span class="r">8</span><span class="o">F</span><span class="g">D</span><span class="b">9</span></strong> 等于<strong><span class="r"> 1000</span>
+<span class="o">1111</span> <span class="g">1101</span> <span class="b">1001</span></strong>，把它补到空位 x 里：</p>
+<p><strong>1110<span class="r">1000</span> 10<span class="o">1111</span><span class="g">11</span> 10<span class="g">01</span><span class="b">1001</span></strong></p>
+<p>= E8BF99</p>
+<h2 id="锟斤拷的成因">锟斤拷的成因</h2>
 <ol type="1">
-<li>顺序接牌，接到一对公母猴牌直接放到己方的积分堆。如果一对都不成，单猴单出被红点管；如果除了一对还有别的猴，也直接放到积分堆。</li>
-<li>按圈出牌，类似升级、拱猪，但不能垫牌。每一圈里能管必管，要求在同一个比较系统里，且张数相同。管不了时
-pass
-<ul>
-<li>第一个接牌的人为首引</li>
-<li>一圈结束后，牌最大的一方把他在本圈出的一手牌放到己方的积分堆，并作为下一圈的领出</li>
-</ul></li>
-<li>仅一人未出完手牌时，本局结束。积分堆里牌张数最多的一方获胜。</li>
+<li>有一个 GBK 编码的文本文件 A</li>
+<li> 用 UTF-8 编码读 A，其中不符合 UTF-8 规范的十六进制值被解析为字符
+�</li>
+<li>把 A 保存为 UTF-8 格式的新文件 B，则 � 被记录为 EFBFBD</li>
+<li> 再用 GBK 编码读文件 B，如果有相邻的两个 �，即 EFBFBDEFBFBD，则读为
+EFBF BDEF BFBD</li>
+<li> 在 GBK 里，EFBF = 锟，BDEF = 斤，BFBD = 拷</li>
 </ol>
-<p>其他判定规则：如果一位玩家认为自己剩余的手牌全大，可以进行摊牌。三个人
-20 张算赢。如果摊牌失误，就是丢脸了。</p>
+<ul>
+<li>汉字：这是一段测试文本</li>
+<li> GBK：D5E2 CAC7 D2BB B6CE B2E2 CAD4 CEC4 B1BE</li>
+<li> 用 UTF-8 编码读它：D5 E2 CA C7 D2BB B6 CEB2 E2 CA D4 CE C4B1 BE
+<ul>
+<li>D5 表示两字节字符的开始，以 110 开头，但它后面的 E2 并不在 80-BF
+的范围之内，于是 D5 被解析为一个 �</li>
+<li>E2 表示三字节字符的开始，但它后面的 CA 并不在 80-BF 的范围之内，于是
+E2 被解析为一个 �</li>
+<li>……</li>
+<li>D2 表示两字节字符的开始，它后面的 BB 在 80-BF 的范围之内
+<ul>
+<li>于是：D2 BB = 110<span class="r">10010</span> 10<span class="b">111011</span></li>
+<li>0<span class="r">100 10</span><span class="b">11 1011</span> =
+4BB</li>
+<li>U+04BB 为 һ（Cyrillic Small Letter Shha）</li>
+</ul></li>
+<li>……</li>
+<li>CE 表示两字节字符的开始，它后面的 B2 在 80-BF 的范围之内
+<ul>
+<li>于是：CE B2 = 110<span class="r">01110</span> 10<span class="b">110010</span></li>
+<li>0<span class="r">011 10</span><span class="b">11 0010</span> =
+3B2</li>
+<li>U+03B2 为 β（Greek Small Letter Beta）</li>
+</ul></li>
+<li>……</li>
+<li> 读的结果是：����һ�β����ı�</li>
+</ul></li>
+<li>用 UTF-8 的格式保存时
+<ul>
+<li>� = U+FFFD = U+11111111 11111101
+<ul>
+<li>补到 1110xxxx 10xxxxxx 10xxxxxx 里</li>
+<li> 11101111 10111111 10111101 = EFBFBD</li>
+</ul></li>
+<li> 保存的结果是：EFBFBD EFBFBD EFBFBD EFBFBD D2BB EFBFBD CEB2 EFBFBD
+EFBFBD EFBFBD EFBFBD C4B1 EFBFBD</li>
+</ul></li>
+<li> 再用 GBK 编码读
+<ul>
+<li>EFBF BDEF BFBD EFBF BDEF BFBD D2BB EFBF BDCE B2EF BFBD EFBF BDEF
+BFBD EFBF BDC4 B1EF BFBD</li>
+<li> 结果是：锟斤拷锟斤拷一锟轿诧拷锟斤拷锟侥憋拷</li>
+</ul></li>
+</ul>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/defense.html" rel="prev" title="防御">
-<i class="fa fa-angle-left"></i> 防御
+<a href="/blog/win10-dolphin-wii.html" rel="prev" title="Win10 Dolphin 模拟器连接 Wii 手柄教程">
+<i class="fa fa-angle-left"></i> Win10 Dolphin 模拟器连接 Wii 手柄教程
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/game.html" rel="next" title="漫无止境的童年">
-                  漫无止境的童年 <i class="fa fa-angle-right"></i>
-</a>
 </div>
 </div>
 </footer>
