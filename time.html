@@ -24,7 +24,7 @@
 <meta content="https://hrfis.me/blog/images/shuo.webp" property="og:image"/>
 <meta content="https://hrfis.me/blog/images/wang.webp" property="og:image"/>
 <meta content="2024-11-23T11:00:00.000Z" property="article:published_time"/>
-<meta content="2024-11-24T05:59:59.859Z" property="article:modified_time"/>
+<meta content="2024-11-24T12:57:49.882Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/ecliptic.jpg" name="twitter:image"/>
@@ -140,7 +140,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-11-24T13:59:59+08:00" itemprop="dateModified" title="修改时间：2024-11-24 13:59:59">2024-11-24</time>
+<time datetime="2024-11-24T20:57:49+08:00" itemprop="dateModified" title="修改时间：2024-11-24 20:57:49">2024-11-24</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -156,14 +156,14 @@
 <i class="far fa-file-word"></i>
 </span>
 <span class="post-meta-item-text">本文字数：</span>
-<span>2.9k</span>
+<span>3.3k</span>
 </span>
 <span class="post-meta-item" title="阅读时长">
 <span class="post-meta-item-icon">
 <i class="far fa-clock"></i>
 </span>
 <span class="post-meta-item-text">阅读时长 ≈</span>
-<span>10 分钟</span>
+<span>12 分钟</span>
 </span>
 </div>
 </div>
@@ -239,21 +239,43 @@ TAI、UT1 与 UTC 的差值，和下一次的闰秒预告。</p>
 天，闰的一天加到二月里。准确地说，年份能被 400 整除的是闰年，能被 4
 整除且不能被 100 整除的也是闰年，剩下的是平年。</p>
 <h2 id="公历公元纪年和世纪">公历、公元纪年和世纪</h2>
+<p>更准确地说：</p>
+<ul>
+<li>在 1583 年及以后的格里历里，年份能被 400 整除的是闰年，能被 4
+整除且不能被 100 整除的也是闰年，剩下的是平年。闰年有 366 天，平年有 365
+天。</li>
+<li>在格里历里，1582 年有 355 天；在儒略历里，1582 年有 365 天。</li>
+<li>在 4 年至 1581 年的儒略历里，能被 4 整除的必定是闰年 366
+天，剩下的是平年 365 天。</li>
+<li>在前 45 年至 3 年的儒略历里，挺混乱的，参考 <a href="https://en.wikipedia.org/wiki" rel="noopener" target="_blank">Julian calendar</a>。</li>
+<li>在儒略历实施的前一年（公元前 46 年），罗马当年里有 445 天。</li>
+<li>在前 47 年及之前的罗马历法里，平年有 355 天，闰年有 377 或 378
+天。</li>
+</ul>
+<p>公历（格里历）和公元纪年的意思不一样，前者是历法，后者是年号。公元纪年最初是基于儒略历的，6
+世纪的时候，东罗马帝国的僧侣狄奥尼修斯把耶稣基督诞生的那一年作为公元 1
+年（Anno Domini 1，即主的年份 1 年），在此之前的为公元前（Before
+Christ）。</p>
 <p>公元前 46
-年，罗马共和国的儒略・凯萨采纳埃及数学家兼天文学家索西琴尼的计算提出了儒略历，是简单的四年闰一次，平均一年是
-365.25 天，与平回归年的天数有差异。</p>
-<p>误差累积到了 1582 年 10
-月，罗马教皇格里高利十三世将儒略历改为意大利医生兼哲学家阿洛伊修斯的历法，把日历年的平均长度从
+年，罗马共和国的儒略・凯萨采纳埃及数学家兼天文学家索西琴尼的计算提出了儒略历，是简单的四年闰一次。儒略历从公元前
+45 年 1 月 1 日开始实施，这是第一次修 BUG。</p>
+<p>这一改革原本可以顺利实施，但祭司们执行错了，即他们每三年而不是每四年就增加一个闰日。这个错误持续了
+36 年，在此期间多插入了 3
+个不必要的闰日。直到这个错误被发现后，奥古斯都下令在接下来的十二年中不再增加任何闰日，以此来纠正之前因祭司多加的
+3 天，这是第二次修 BUG。</p>
+<p>直到公元 4 年以后，儒略历才按照恺撒的意图运行，所以下一个闰年是公元 8
+年，此后每隔四年就有一个闰年。平均一年 365.25
+天，仍然与平回归年的天数有差异。误差累积到了 1582
+年，复活节的日期与春分相差甚远，罗马教皇格里高利十三世将儒略历改为意大利医生兼哲学家阿洛伊修斯的历法，把日历年的平均长度从
 365.25 天减少到 365.2425 天，即上文的闰年方式。规定 1582 年 10 月 4
-日的后一天是 10 月 15 日，以弥补误差。即现行的格里历、公历。</p>
-<p>公元 525 年，东罗马帝国的僧侣狄奥尼修斯把耶稣基督诞生的那一年作为公元
-1 年（Anno Domini 1，即主的年份 1 年）。</p>
+日的后一天是 10 月 15 日，以弥补误差，这是第三次修
+BUG。即现行的格里历、公历。</p>
 <p>世纪是基于公元纪年体系来划分的时间单位，一个世纪有 100 年。</p>
 <ul>
 <li>没有公元 0 年。</li>
 <li>1 世纪的第一天是 1 年 1 月 1 日。它的前一天是前 1
 世纪的最后一天，是前 1 年 12 月 31 日。</li>
-<li>公元前 5 世纪是前 500 年 1 月 1 日到前 401 年 12 月 31 日。</li>
+<li>公元前 5 世纪是前 500 年的第一天到前 401 年的最后一天。</li>
 <li>20 世纪是 1901 年 1 月 1 日到 2000 年 12 月 31 日。</li>
 </ul>
 <h2 id="一个月有多长时间">一个月有多长时间</h2>
@@ -314,11 +336,13 @@ Conventions</a>）的模型。</p>
 <li>天干：正月的天干 = 年天干 +2</li>
 <li> 地支：十一月为子，正月为寅，二月为卯，依次类推</li>
 </ul></li>
-<li>日柱：1949 年 10 月 1 日 = 甲子，60 天一循环。
+<li>日柱：在北京时间 23 点到 24
+点出生的属于后一天，不属于当天。注意这个算法可能会影响月柱
 <ul>
+<li>1949 年 10 月 1 日 = 甲子，60 天一循环。</li>
 <li>2001 年 1 月 1 日巧合地 = 甲子。参考<a href="https://tool.lu/datecalc/" rel="noopener" target="_blank">日期计算器</a></li>
 </ul></li>
-<li>经笔者单一数据的验证，<a href="https://wannianli.tianqi.com/" rel="noopener" target="_blank">天气万年历</a>的年月日柱是准的。</li>
+<li>经笔者单一数据的验证，<a href="https://wannianli.tianqi.com/" rel="noopener" target="_blank">天气万年历</a>的年月日柱是准的，如果不考虑时辰的话。</li>
 <li>时柱：古人把一天分为十二个时辰，从子时到亥时。
 <ul>
 <li>亥时（人定）相当于现在的晚上 9 点到 11
@@ -362,13 +386,13 @@ Conventions</a>）的模型。</p>
 <span class="post-meta-item-icon">
 <i class="fa fa-chart-line"></i>
 </span>
-<span title="站点总字数">123k</span>
+<span title="站点总字数">124k</span>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
 <i class="fa fa-coffee"></i>
 </span>
-<span title="站点阅读时长">7:28</span>
+<span title="站点阅读时长">7:30</span>
 </span>
 </div>
 </div>
