@@ -12,16 +12,16 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="Hadoop 基础不牢。" name="description"/>
+<meta content="一种不看完整教程安装软件的方法：  在软件安装的目录里面，通常有一个 doc 文件夹 在解压软件包之后，什么配置都别写，上来先启动了再说 找到软件的日志文件在哪里 在日志里搜索 WARN ERROR 在网上搜索或者问 GPT 为什么会出现这个错误  Java 代码运行环境的问题 “连接 HDFS” 是什么意思？再往前问：你是如何知道你的 “集群” 是正在运行着的？用 jps 查看 Java 进程。" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="Hadoop" property="og:title"/>
 <meta content="https://hrfis.me/blog/hadoop.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="Hadoop 基础不牢。" property="og:description"/>
+<meta content="一种不看完整教程安装软件的方法：  在软件安装的目录里面，通常有一个 doc 文件夹 在解压软件包之后，什么配置都别写，上来先启动了再说 找到软件的日志文件在哪里 在日志里搜索 WARN ERROR 在网上搜索或者问 GPT 为什么会出现这个错误  Java 代码运行环境的问题 “连接 HDFS” 是什么意思？再往前问：你是如何知道你的 “集群” 是正在运行着的？用 jps 查看 Java 进程。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="https://flume.apache.org/_images/DevGuide_image00.png" property="og:image"/>
 <meta content="2024-04-26T09:45:00.000Z" property="article:published_time"/>
-<meta content="2024-08-25T10:58:53.284Z" property="article:modified_time"/>
+<meta content="2024-11-30T17:07:22.993Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://flume.apache.org/_images/DevGuide_image00.png" name="twitter:image"/>
@@ -94,7 +94,7 @@ HDFS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-lin
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/">
-<span class="site-state-item-count">37</span>
+<span class="site-state-item-count">36</span>
 <span class="site-state-item-name">日志</span>
 </a>
 </div>
@@ -144,7 +144,7 @@ HDFS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-lin
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-08-25T18:58:53+08:00" itemprop="dateModified" title="修改时间：2024-08-25 18:58:53">2024-08-25</time>
+<time datetime="2024-12-01T01:07:22+08:00" itemprop="dateModified" title="修改时间：2024-12-01 01:07:22">2024-12-01</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -160,47 +160,25 @@ HDFS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-lin
 <i class="far fa-file-word"></i>
 </span>
 <span class="post-meta-item-text">本文字数：</span>
-<span>7.9k</span>
+<span>7.6k</span>
 </span>
 <span class="post-meta-item" title="阅读时长">
 <span class="post-meta-item-icon">
 <i class="far fa-clock"></i>
 </span>
 <span class="post-meta-item-text">阅读时长 ≈</span>
-<span>29 分钟</span>
+<span>28 分钟</span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>Hadoop 基础不牢。</p>
-<span id="more"></span>
-<p>分享一种不看完整教程把集群搭起来的方法：</p>
+<div class="post-body" itemprop="articleBody"><p>一种不看完整教程安装软件的方法：</p>
 <ol type="1">
-<li>在你软件安装的目录里面，通常有一个 doc 文件夹</li>
+<li>在软件安装的目录里面，通常有一个 doc 文件夹</li>
 <li>在解压软件包之后，什么配置都别写，上来先启动了再说</li>
-<li>找到你软件的日志文件在哪里</li>
+<li>找到软件的日志文件在哪里</li>
 <li>在日志里搜索 <code>WARN</code> <code>ERROR</code></li>
 <li>在网上搜索或者问 GPT 为什么会出现这个错误</li>
-</ol>
-<style>
-    .main{
-        width:100%
-    }
-</style>
-<p>Hadoop 是一个软件，它是用 Java 写的，需要运行在 Java
-虚拟机上。你以后还要通过写 Java 代码来连接它其中的一个组件，叫
-HDFS。所有 Java 代码都得过一道 Java 编译器，然后在 JVM（Java
-虚拟机）上运行。</p>
-<p>我们为什么要装 Linux 虚拟机？</p>
-<ol type="1">
-<li>模拟分布式集群</li>
-<li>生产环境都用 Linux</li>
-</ol>
-<p>按理来说：</p>
-<ol type="1">
-<li>Hadoop 需要 JVM 去运行</li>
-<li>在 Windows 上照样可以运行 JVM</li>
-<li>Hadoop 可以运行在 Windows 上</li>
 </ol>
 <h2 id="java-代码运行环境的问题">Java 代码运行环境的问题</h2>
 <p>“连接
@@ -251,21 +229,6 @@ NameNode（如果你物理机搞成功了）</li>
 里（这里用的是 IDEA），按播放键运行。如果报找不到类的错误，注意：在
 <code>$HADOOP_HOME/share/hadoop/子文件夹</code> 下还有一个叫
 <code>lib</code> 的文件夹。</p>
-<p>但是这种方法存在一个潜在的问题：<b>Jar
-包冲突</b>。如果你新建了一个 Scala 2.12.15 的工程，用到 Spark 和
-HDFS，并且在 <code>build.sbt</code> 里什么依赖都没写，只是把 Hadoop
-3.3.6 和 Spark 3.5.1 自带的 Jar 包导进去了，你会遇到这样一个错误：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">Scala module 2.15.2 requires Jackson Databind version &gt;= 2.15.0 and &lt; 2.16.0</span><br/><span class="line">- Found jackson-databind version 2.12.7</span><br/></pre></td></tr></tbody></table></figure>
-<p>这又是几个问题：</p>
-<ol type="1">
-<li>Scala module 2.15.2 是怎么回事？不是 2.12.15 吗？</li>
-<li>Found jackson-databind version 2.12.7 是哪里来的？是 Hadoop 的 Share
-文件夹里的：common 目录下一个，hdfs
-目录下一个。如果把它们删了，上面的报错问题可以解决，但是 NameNode
-会起不起来了。</li>
-</ol>
-<p>幸运的是：在笔者重建了一次工程之后，这个问题就没有出现了。所以可能是
-IDEA 的锅。</p>
 <h2 id="安装-ubuntu-22.04.3">安装 Ubuntu 22.04.3</h2>
 <ol type="1">
 <li>下载 Linux
@@ -1008,13 +971,13 @@ NN，一直在写日志。除此之外上传下载都没问题。</p>
 <span class="post-meta-item-icon">
 <i class="fa fa-chart-line"></i>
 </span>
-<span title="站点总字数">124k</span>
+<span title="站点总字数">121k</span>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
 <i class="fa fa-coffee"></i>
 </span>
-<span title="站点阅读时长">7:30</span>
+<span title="站点阅读时长">7:20</span>
 </span>
 </div>
 <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

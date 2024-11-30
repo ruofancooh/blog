@@ -12,21 +12,21 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="一位十六进制数表示四位二进制数，两位十六进制数表示一个字节。 ASCII 有 128 个符号，使用一个字节表示，范围是 00000000-01111111 即 00-7F 参考：字符编码 / 解码 | SYMBL | HexED.it GBK 是 GB2312 的超集，有 21886 个符号，使用两个字节表示一个符号。当文本中同时包含 GBK 与 ASCII 字符时，GBK 对 ASCII 字符仍" name="description"/>
+<meta content="我们想要使用高德开放平台的 POI 搜索 2.0 中的多边形区域搜索来获取 POI 数据。它的传参需求类似于 114.10,30.53|114.11,30.54 的字符串，为一个矩形范围。对于个人认证的开发者，每天每个账号限制调用 100 次，3 次每秒。且该 API 每次请求只能返回 1 页，1 页最多 25 条，到第九页必定不出数据。  对于某种类型的 POI，它在地图上分布的密度不是固定的。" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="GBK 与 UTF-8 与锟斤拷的成因" property="og:title"/>
-<meta content="https://hrfis.me/blog/gbk-utf8.html" property="og:url"/>
+<meta content="高德地图多边形区域搜索 POI 的划分方法" property="og:title"/>
+<meta content="https://hrfis.me/blog/amap-poi-search.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="一位十六进制数表示四位二进制数，两位十六进制数表示一个字节。 ASCII 有 128 个符号，使用一个字节表示，范围是 00000000-01111111 即 00-7F 参考：字符编码 / 解码 | SYMBL | HexED.it GBK 是 GB2312 的超集，有 21886 个符号，使用两个字节表示一个符号。当文本中同时包含 GBK 与 ASCII 字符时，GBK 对 ASCII 字符仍" property="og:description"/>
+<meta content="我们想要使用高德开放平台的 POI 搜索 2.0 中的多边形区域搜索来获取 POI 数据。它的传参需求类似于 114.10,30.53|114.11,30.54 的字符串，为一个矩形范围。对于个人认证的开发者，每天每个账号限制调用 100 次，3 次每秒。且该 API 每次请求只能返回 1 页，1 页最多 25 条，到第九页必定不出数据。  对于某种类型的 POI，它在地图上分布的密度不是固定的。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2024-11-15T11:00:00.000Z" property="article:published_time"/>
-<meta content="2024-11-30T16:48:59.483Z" property="article:modified_time"/>
+<meta content="2024-11-30T11:00:00.000Z" property="article:published_time"/>
+<meta content="2024-11-30T16:50:41.175Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/gbk-utf8" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/gbk-utf8.html","path":"/gbk-utf8.html","title":"GBK 与 UTF-8 与锟斤拷的成因"}</script>
+<link href="https://hrfis.me/blog/amap-poi-search" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/amap-poi-search.html","path":"/amap-poi-search.html","title":"高德地图多边形区域搜索 POI 的划分方法"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>GBK 与 UTF-8 与锟斤拷的成因 | 若凡的笔记</title>
+<title>高德地图多边形区域搜索 POI 的划分方法 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -73,7 +73,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#gbk"><span class="nav-number">1.</span> <span class="nav-text">GBK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#utf-8"><span class="nav-number">2.</span> <span class="nav-text">UTF-8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%9F%E6%96%A4%E6%8B%B7%E7%9A%84%E6%88%90%E5%9B%A0"><span class="nav-number">3.</span> <span class="nav-text">锟斤拷的成因</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">解决方法</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -104,7 +104,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/gbk-utf8.html" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/amap-poi-search.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -114,12 +114,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="GBK 与 UTF-8 与锟斤拷的成因 | 若凡的笔记" itemprop="name"/>
+<meta content="高德地图多边形区域搜索 POI 的划分方法 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          GBK 与 UTF-8 与锟斤拷的成因
+          高德地图多边形区域搜索 POI 的划分方法
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -128,14 +128,14 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2024-11-15T19:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-11-15 19:00:00">2024-11-15</time>
+<time datetime="2024-11-30T19:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-11-30 19:00:00">2024-11-30</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-12-01T00:48:59+08:00" itemprop="dateModified" title="修改时间：2024-12-01 00:48:59">2024-12-01</time>
+<time datetime="2024-12-01T00:50:41+08:00" itemprop="dateModified" title="修改时间：2024-12-01 00:50:41">2024-12-01</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -151,156 +151,64 @@
 <i class="far fa-file-word"></i>
 </span>
 <span class="post-meta-item-text">本文字数：</span>
-<span>837</span>
+<span>645</span>
 </span>
 <span class="post-meta-item" title="阅读时长">
 <span class="post-meta-item-icon">
 <i class="far fa-clock"></i>
 </span>
 <span class="post-meta-item-text">阅读时长 ≈</span>
-<span>3 分钟</span>
+<span>2 分钟</span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>一位十六进制数表示四位二进制数，两位十六进制数表示一个字节。</p>
-<p>ASCII 有 128 个符号，使用一个字节表示，范围是 00000000-01111111 即
-00-7F</p>
-<p>参考：<a href="https://www.toolhelper.cn/EncodeDecode/EncodeDecode" rel="noopener" target="_blank">字符编码 / 解码</a>
-| <a href="https://symbl.cc/" rel="noopener" target="_blank">SYMBL</a> | <a href="https://hexed.it/" rel="noopener" target="_blank">HexED.it</a></p>
-<h2 id="gbk">GBK</h2>
-<p>是 GB2312 的超集，有 21886
-个符号，使用两个字节表示一个符号。当文本中同时包含 GBK 与 ASCII
-字符时，GBK 对 ASCII 字符仍用一个字节表示。</p>
-<p>总体编码范围为 8140-FEFE 之间，首字节在 81-FE 之间，避开了 ASCII 的
-00-7F，尾字节在 40-FE 之间。</p>
-<h2 id="utf-8">UTF-8</h2>
-<p>Unicode：为一个符号分配一个码，常用汉字的范围在 U+4E00 到 U+9FFF</p>
-<p>UTF-8：使用 1 到 4 个字节表示一个 Unicode 码。其中用 1 个字节表示的与
-ASCII 兼容。</p>
-<p>用 n 个字节（n&gt;1）表示的，头个字节以 n 个 1 带 1 个 0
-开头，后面字节全以 10 开头（在 80-BF 的范围内）。</p>
-<table>
-<colgroup>
-<col style="width: 26%"/>
-<col style="width: 40%"/>
-<col style="width: 32%"/>
-</colgroup>
-<thead>
-<tr class="header">
-<th>Unicode</th>
-<th>UTF-8</th>
-<th> 第二列各个字节的十六进制范围</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td> 0000 0000-0000 007F</td>
-<td>0xxxxxxx</td>
-<td>00-7F</td>
-</tr>
-<tr class="even">
-<td>0000 0080-0000 07FF</td>
-<td>110xxxxx 10xxxxxx</td>
-<td>C0-DF 80-BF</td>
-</tr>
-<tr class="odd">
-<td><strong>0000 0800-0000 FFFF</strong></td>
-<td><strong>1110xxxx 10xxxxxx 10xxxxxx</strong></td>
-<td>E0-EF 80-BF 80-BF</td>
-</tr>
-<tr class="even">
-<td>0001 0000-0010 FFFF</td>
-<td>11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</td>
-<td>F0-F7 80-BF 80-BF 80-BF</td>
-</tr>
-</tbody>
-</table>
-<style>
-    .r{
-        color:red
-    }
-    .o{
-        color:orange
-    }
-    .g{
-        color:green
-    }
-    .b{
-        color:blue
-    }
-</style>
-<p>如【这】的 Unicode 是 <strong>U+<span class="r">8</span><span class="o">F</span><span class="g">D</span><span class="b">9</span></strong> 等于<strong><span class="r"> 1000</span>
-<span class="o">1111</span> <span class="g">1101</span> <span class="b">1001</span></strong>，把它补到空位 x 里：</p>
-<p><strong>1110<span class="r">1000</span> 10<span class="o">1111</span><span class="g">11</span> 10<span class="g">01</span><span class="b">1001</span></strong></p>
-<p>= E8BF99</p>
-<h2 id="锟斤拷的成因">锟斤拷的成因</h2>
-<ol type="1">
-<li>有一个 GBK 编码的文本文件 A</li>
-<li> 用 UTF-8 编码读 A，其中不符合 UTF-8 规范的十六进制值被解析为字符
-�</li>
-<li>把 A 保存为 UTF-8 格式的新文件 B，则 � 被记录为 EFBFBD</li>
-<li> 再用 GBK 编码读文件 B，如果有相邻的两个 �，即 EFBFBDEFBFBD，则读为
-EFBF BDEF BFBD</li>
-<li> 在 GBK 里，EFBF = 锟，BDEF = 斤，BFBD = 拷</li>
-</ol>
+<div class="post-body" itemprop="articleBody"><p>我们想要使用高德开放平台的 POI 搜索 2.0 中的多边形区域搜索来获取 POI
+数据。它的传参需求类似于 <code>114.10,30.53|114.11,30.54</code>
+的字符串，为一个矩形范围。对于个人认证的开发者，每天每个账号限制调用 100
+次，3 次每秒。且该 API 每次请求只能返回 1 页，1 页最多 25
+条，到第九页必定不出数据。</p>
 <ul>
-<li>汉字：这是一段测试文本</li>
-<li> GBK：D5E2 CAC7 D2BB B6CE B2E2 CAD4 CEC4 B1BE</li>
-<li> 用 UTF-8 编码读它：D5 E2 CA C7 D2BB B6 CEB2 E2 CA D4 CE C4B1 BE
-<ul>
-<li>D5 表示两字节字符的开始，以 110 开头，但它后面的 E2 并不在 80-BF
-的范围之内，于是 D5 被解析为一个 �</li>
-<li>E2 表示三字节字符的开始，但它后面的 CA 并不在 80-BF 的范围之内，于是
-E2 被解析为一个 �</li>
-<li>……</li>
-<li>D2 表示两字节字符的开始，它后面的 BB 在 80-BF 的范围之内
-<ul>
-<li>于是：D2 BB = 110<span class="r">10010</span> 10<span class="b">111011</span></li>
-<li>0<span class="r">100 10</span><span class="b">11 1011</span> =
-4BB</li>
-<li>U+04BB 为 һ（Cyrillic Small Letter Shha）</li>
-</ul></li>
-<li>……</li>
-<li>CE 表示两字节字符的开始，它后面的 B2 在 80-BF 的范围之内
-<ul>
-<li>于是：CE B2 = 110<span class="r">01110</span> 10<span class="b">110010</span></li>
-<li>0<span class="r">011 10</span><span class="b">11 0010</span> =
-3B2</li>
-<li>U+03B2 为 β（Greek Small Letter Beta）</li>
-</ul></li>
-<li>……</li>
-<li> 读的结果是：����һ�β����ı�</li>
-</ul></li>
-<li>用 UTF-8 的格式保存时
-<ul>
-<li>� = U+FFFD = U+11111111 11111101
-<ul>
-<li>补到 1110xxxx 10xxxxxx 10xxxxxx 里</li>
-<li> 11101111 10111111 10111101 = EFBFBD</li>
-</ul></li>
-<li> 保存的结果是：EFBFBD EFBFBD EFBFBD EFBFBD D2BB EFBFBD CEB2 EFBFBD
-EFBFBD EFBFBD EFBFBD C4B1 EFBFBD</li>
-</ul></li>
-<li> 再用 GBK 编码读
-<ul>
-<li>EFBF BDEF BFBD EFBF BDEF BFBD D2BB EFBF BDCE B2EF BFBD EFBF BDEF
-BFBD EFBF BDC4 B1EF BFBD</li>
-<li> 结果是：锟斤拷锟斤拷一锟轿诧拷锟斤拷锟侥憋拷</li>
-</ul></li>
+<li>对于某种类型的 POI，它在地图上分布的密度不是固定的。</li>
+<li>还有一个 Web 基础服务
+API - 行政区域查询，它可以返回一个行政区的边界字符串。</li>
+<li>纬线是横着的，而纬度是竖直方向上的，在竖直方向上，1 纬度约为 111
+公里；经线是竖着的，而经度是水平方向上的，在水平方向上，1 经度约为 111
+公里乘上纬度的余弦。</li>
+<li><code>shapely</code> 包的 <code>Polygon</code>
+对象可以表示一个多边形，其 <code>intersects</code>
+方法可以判断两个多边形是否有交。一个 <code>list[Polygon]</code> 可以写进
+<code>geojson</code> 文件里。</li>
+<li><code>geopandas</code> 包可以读写 <code>geojson</code>
+文件，并可以配合 <code>plt</code> 画出 <code>gdf</code>。使用
+<code>pd.concat</code> 连接两个 <code>gdf</code>。</li>
 </ul>
+<h2 id="解决方法">解决方法</h2>
+<p>用多轮筛查，先用大网，后用小网，每轮用数天数次完成。每轮搜索之前，把待搜索的范围划分成一系列与搜索区域有交的小矩形，如在一个
+0.05
+范围内的经纬度网内进行第一轮筛查。专门建一个数据库，用于保存在本轮搜索里每个小搜索区域的状态，是否爬完，爬到第几页了（先将其设置为空字符串）。</p>
+<p>每个小搜索区域有这么几种状态：</p>
+<ul>
+<li>A：已经爬完了</li>
+<li> B：没有爬完，且爬到的页号 = 9（看你具体的循环逻辑）</li>
+<li>C：没有爬完，且爬到的页号 &lt; 9 或为空字符串</li>
+</ul>
+<p>爬到 1 至 8 页，且本页的 poi 个数小于 25
+条时，说明在这个范围内爬完了；爬到第 8 页，且本页的 poi 个数等于 25
+条时，虽然是有很小的概率是爬完了的，但是我们认为它是没有爬完的。</p>
+<p>在每次搜索的时候，遍历状态为 C
+的区域，对其发请求，并更新对应的搜索区域的状态。</p>
+<p>每轮搜索的结束条件：没有状态为 C 的区域了。这时候需要把状态为 B
+的区域导出，进行下一步的划分，如划分成 0.01 的经纬度网。</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/lacan.html" rel="prev" title="拉康精神分析理论碎片">
-<i class="fa fa-angle-left"></i> 拉康精神分析理论碎片
+<a href="/blog/time.html" rel="prev" title="时间和历法">
+<i class="fa fa-angle-left"></i> 时间和历法
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/time.html" rel="next" title="时间和历法">
-                  时间和历法 <i class="fa fa-angle-right"></i>
-</a>
 </div>
 </div>
 </footer>

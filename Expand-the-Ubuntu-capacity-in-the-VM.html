@@ -12,21 +12,21 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="基础不牢，工具没用明白。 123456789101112tophtopps -auxnetstat -anopnc -l &lt;端口号&gt; # 监听传入的连接nc -N &lt;目标主机&gt; &lt;端口号&gt; # 输入 EOF（Ctrl+D）之后终止连接nc -zv &lt;目标主机&gt; &lt;起始端口&gt;-&lt;结束端口&gt; # 不发送数据，输出详细信息sudo" name="description"/>
+<meta content="工具  df -h：查看文件系统使用情况、挂载到的目录 lsblk：查看块设备相关信息、挂载点 parted：分区管理 vgs vgdisplay：卷组信息（Volume Group） pvs pvdisplay：物理卷信息（Physical volume） lvs lvdisplay：逻辑卷信息（Logical Volume）  层次（空间缝隙）  /dev/sda：大概是 VM 设置里分配的硬" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="Linux" property="og:title"/>
-<meta content="https://hrfis.me/blog/linux.html" property="og:url"/>
+<meta content="给 VM 里的 Ubuntu 扩容" property="og:title"/>
+<meta content="https://hrfis.me/blog/Expand-the-Ubuntu-capacity-in-the-VM.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="基础不牢，工具没用明白。 123456789101112tophtopps -auxnetstat -anopnc -l &lt;端口号&gt; # 监听传入的连接nc -N &lt;目标主机&gt; &lt;端口号&gt; # 输入 EOF（Ctrl+D）之后终止连接nc -zv &lt;目标主机&gt; &lt;起始端口&gt;-&lt;结束端口&gt; # 不发送数据，输出详细信息sudo" property="og:description"/>
+<meta content="工具  df -h：查看文件系统使用情况、挂载到的目录 lsblk：查看块设备相关信息、挂载点 parted：分区管理 vgs vgdisplay：卷组信息（Volume Group） pvs pvdisplay：物理卷信息（Physical volume） lvs lvdisplay：逻辑卷信息（Logical Volume）  层次（空间缝隙）  /dev/sda：大概是 VM 设置里分配的硬" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-01-14T02:30:00.000Z" property="article:published_time"/>
-<meta content="2024-07-30T06:07:47.916Z" property="article:modified_time"/>
+<meta content="2024-11-30T16:50:22.714Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/linux" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/linux.html","path":"/linux.html","title":"Linux"}</script>
+<link href="https://hrfis.me/blog/Expand-the-Ubuntu-capacity-in-the-VM" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/Expand-the-Ubuntu-capacity-in-the-VM.html","path":"/Expand-the-Ubuntu-capacity-in-the-VM.html","title":"给 VM 里的 Ubuntu 扩容"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Linux | 若凡的笔记</title>
+<title>给 VM 里的 Ubuntu 扩容 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -73,7 +73,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%BD%AF%E4%BB%B6%E7%89%88%E6%9C%AC%E4%B8%8E%E5%B8%AE%E5%8A%A9"><span class="nav-number">1.</span> <span class="nav-text">查看软件版本与帮助</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E8%BF%9B%E7%A8%8B%E7%BA%BF%E7%A8%8B%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.</span> <span class="nav-text">程序、进程、线程、服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A9%E5%AE%B9"><span class="nav-number">3.</span> <span class="nav-text">扩容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">3.1.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E7%A9%BA%E9%97%B4%E7%BC%9D%E9%9A%99"><span class="nav-number">3.2.</span> <span class="nav-text">层次（空间缝隙）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.3.</span> <span class="nav-text">步骤</span></a></li></ol></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%82%E6%AC%A1%E7%A9%BA%E9%97%B4%E7%BC%9D%E9%9A%99"><span class="nav-number">2.</span> <span class="nav-text">层次（空间缝隙）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">步骤</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -85,7 +85,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/">
-<span class="site-state-item-count">37</span>
+<span class="site-state-item-count">36</span>
 <span class="site-state-item-name">日志</span>
 </a>
 </div>
@@ -104,7 +104,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/linux.html" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/Expand-the-Ubuntu-capacity-in-the-VM.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -114,12 +114,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="Linux | 若凡的笔记" itemprop="name"/>
+<meta content="给 VM 里的 Ubuntu 扩容 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          Linux
+          给 VM 里的 Ubuntu 扩容
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -135,7 +135,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-07-30T14:07:47+08:00" itemprop="dateModified" title="修改时间：2024-07-30 14:07:47">2024-07-30</time>
+<time datetime="2024-12-01T00:50:22+08:00" itemprop="dateModified" title="修改时间：2024-12-01 00:50:22">2024-12-01</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -151,38 +151,19 @@
 <i class="far fa-file-word"></i>
 </span>
 <span class="post-meta-item-text">本文字数：</span>
-<span>655</span>
+<span>343</span>
 </span>
 <span class="post-meta-item" title="阅读时长">
 <span class="post-meta-item-icon">
 <i class="far fa-clock"></i>
 </span>
 <span class="post-meta-item-text">阅读时长 ≈</span>
-<span>2 分钟</span>
+<span>1 分钟</span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>基础不牢，工具没用明白。</p>
-<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/></pre></td><td class="code"><pre><span class="line">top</span><br/><span class="line">htop</span><br/><span class="line">ps -aux</span><br/><span class="line">netstat -anop</span><br/><span class="line">nc -l &lt;端口号&gt; <span class="comment"># 监听传入的连接</span></span><br/><span class="line">nc -N &lt;目标主机&gt; &lt;端口号&gt; <span class="comment"># 输入 EOF（Ctrl+D）之后终止连接</span></span><br/><span class="line">nc -zv &lt;目标主机&gt; &lt;起始端口&gt;-&lt;结束端口&gt; <span class="comment"># 不发送数据，输出详细信息</span></span><br/><span class="line"><span class="built_in">sudo</span> dpkg-reconfigure tzdata <span class="comment"># 设置时区</span></span><br/><span class="line"><span class="built_in">sudo</span> <span class="built_in">du</span> -h --max-depth=1</span><br/><span class="line"><span class="built_in">sudo</span> apt-get remove xxx</span><br/><span class="line">dpkg -l | grep xxx</span><br/><span class="line">apt list --installed | grep xxx</span><br/></pre></td></tr></tbody></table></figure>
-<span id="more"></span>
-<h2 id="查看软件版本与帮助">查看软件版本与帮助</h2>
-<p>dpkg 是 Debian 的包管理器。Linux -&gt; Debian -&gt; Ubuntu</p>
-<p>apt 是基于 dpkg 的包管理器</p>
-<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">xxx -h 或 --<span class="built_in">help</span></span><br/></pre></td></tr></tbody></table></figure>
-<p>一般会有帮助，然后 <code>-V</code> <code>-version</code>
-<code>--version</code> 之类的</p>
-<p>或者<strong>直接看 man
-手册，写得非常详细</strong>。剩下的就是愿不愿意看、愿不愿意查翻译的问题了。</p>
-<p><a href="https://zhuanlan.zhihu.com/p/518891500" rel="noopener" target="_blank">一文读懂 man
-手册</a></p>
-<h2 id="程序进程线程服务">程序、进程、线程、服务</h2>
-<p>程序是代码，静态的，以文件的形式存储在存储介质上。</p>
-<p>进程是在内存里正在运行的程序，有代码段，数据段（存全局变量、静态变量），栈（管理函数的调用和返回、存局部变量、参数）等。</p>
-<p>一个进程可包含一个或多个线程，这些线程共享进程资源。</p>
-<p>服务是特定的一个或多个进程</p>
-<h2 id="扩容">扩容</h2>
-<h3 id="工具">工具</h3>
+<div class="post-body" itemprop="articleBody"><h2 id="工具">工具</h2>
 <ul>
 <li><code>df -h</code>：查看文件系统使用情况、挂载到的目录</li>
 <li><code>lsblk</code>：查看块设备相关信息、挂载点</li>
@@ -194,7 +175,7 @@ volume）</li>
 <li><code>lvs</code> <code>lvdisplay</code>：逻辑卷信息（Logical
 Volume）</li>
 </ul>
-<h3 id="层次空间缝隙">层次（空间缝隙）</h3>
+<h2 id="层次空间缝隙">层次（空间缝隙）</h2>
 <ul>
 <li><code>/dev/sda</code>：大概是 VM 设置里分配的硬盘空间大小
 <ul>
@@ -216,7 +197,7 @@ Volume）</li>
 <li> 从 sda 向 sda3 匀</li>
 <li>从 sda3 向 lv 匀</li>
 </ol>
-<h3 id="步骤">步骤</h3>
+<h2 id="步骤">步骤</h2>
 <ol type="1">
 <li><p>给 VM 的虚拟磁盘扩容</p>
 <p>关机状态下：编辑虚拟机设置 -&gt; 硬盘 -&gt; 扩展</p></li>
@@ -236,8 +217,8 @@ Volume）</li>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/credits.html" rel="prev" title="获取正方教务系统里的成绩信息并对学分求和">
-<i class="fa fa-angle-left"></i> 获取正方教务系统里的成绩信息并对学分求和
+<a href="/blog/wait.html" rel="prev" title="未整理的笔记">
+<i class="fa fa-angle-left"></i> 未整理的笔记
                 </a>
 </div>
 <div class="post-nav-item">
@@ -258,13 +239,13 @@ Volume）</li>
 <span class="post-meta-item-icon">
 <i class="fa fa-chart-line"></i>
 </span>
-<span title="站点总字数">124k</span>
+<span title="站点总字数">121k</span>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
 <i class="fa fa-coffee"></i>
 </span>
-<span title="站点阅读时长">7:30</span>
+<span title="站点阅读时长">7:20</span>
 </span>
 </div>
 <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

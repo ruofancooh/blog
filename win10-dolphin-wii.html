@@ -12,17 +12,17 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="虽然各种原理都不知道，但是最后还是连上了。由于笔者不是第一次连，所以不确定这套操作适不适用第一次。" name="description"/>
+<meta content="环境  Windows 10 Dolphin 5.0-15099  步骤  打开任务栏右下角操作中心里的蓝牙开关 右击 “转到设置”。或者【设置 - 设备 - 蓝牙和其他设备】 点击右边的相关设置 - 设备或打印机。或者【控制面板 - 硬件和声音 - 设备和打印机】 点击 “添加设备”，同时按手柄的 1 和 2 键，这时手柄的四个灯会一起闪 扫描上的标志是 “添加设备” 对话框里出现 Ninten" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="Win10 Dolphin 模拟器连接 Wii 手柄教程" property="og:title"/>
 <meta content="https://hrfis.me/blog/win10-dolphin-wii.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="虽然各种原理都不知道，但是最后还是连上了。由于笔者不是第一次连，所以不确定这套操作适不适用第一次。" property="og:description"/>
+<meta content="环境  Windows 10 Dolphin 5.0-15099  步骤  打开任务栏右下角操作中心里的蓝牙开关 右击 “转到设置”。或者【设置 - 设备 - 蓝牙和其他设备】 点击右边的相关设置 - 设备或打印机。或者【控制面板 - 硬件和声音 - 设备和打印机】 点击 “添加设备”，同时按手柄的 1 和 2 键，这时手柄的四个灯会一起闪 扫描上的标志是 “添加设备” 对话框里出现 Ninten" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="https://hrfis.me/blog/images/dolphin.png" property="og:image"/>
 <meta content="https://hrfis.me/blog/images/wii-remote.webp" property="og:image"/>
 <meta content="2024-10-13T11:00:00.000Z" property="article:published_time"/>
-<meta content="2024-11-14T05:32:46.337Z" property="article:modified_time"/>
+<meta content="2024-11-30T17:07:52.831Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/dolphin.png" name="twitter:image"/>
@@ -88,7 +88,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/">
-<span class="site-state-item-count">37</span>
+<span class="site-state-item-count">36</span>
 <span class="site-state-item-name">日志</span>
 </a>
 </div>
@@ -138,7 +138,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-11-14T13:32:46+08:00" itemprop="dateModified" title="修改时间：2024-11-14 13:32:46">2024-11-14</time>
+<time datetime="2024-12-01T01:07:52+08:00" itemprop="dateModified" title="修改时间：2024-12-01 01:07:52">2024-12-01</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -154,7 +154,7 @@
 <i class="far fa-file-word"></i>
 </span>
 <span class="post-meta-item-text">本文字数：</span>
-<span>337</span>
+<span>263</span>
 </span>
 <span class="post-meta-item" title="阅读时长">
 <span class="post-meta-item-icon">
@@ -166,18 +166,10 @@
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>虽然各种原理都不知道，但是最后还是连上了。由于笔者不是第一次连，所以不确定这套操作适不适用第一次。</p>
-<span id="more"></span>
-<h2 id="环境">环境</h2>
+<div class="post-body" itemprop="articleBody"><h2 id="环境">环境</h2>
 <ul>
 <li>Windows 10</li>
 <li>Dolphin 5.0-15099</li>
-<li> 使用 <a href="https://zadig.akeo.ie/" rel="noopener" target="_blank">Zadig</a> 查看 Options -&gt;
-List All Devices
-<ul>
-<li>蓝牙适配器为：英特尔 (R) 无线 Bluetooth (R)</li>
-<li> 驱动为：BTHUSB (v22.0.0.2)</li>
-</ul></li>
 </ul>
 <h2 id="步骤">步骤</h2>
 <ol type="1">
@@ -223,13 +215,13 @@ List All Devices
 <span class="post-meta-item-icon">
 <i class="fa fa-chart-line"></i>
 </span>
-<span title="站点总字数">124k</span>
+<span title="站点总字数">121k</span>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
 <i class="fa fa-coffee"></i>
 </span>
-<span title="站点阅读时长">7:30</span>
+<span title="站点阅读时长">7:20</span>
 </span>
 </div>
 <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

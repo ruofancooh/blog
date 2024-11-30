@@ -12,19 +12,19 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="统计学家 George Box 说：所有模型都是错的，有些是有用的。这里研究的是对于明尼苏达多相人格测验（Minnesota Multiphasic Personality Inventory）的一系列判断题，回答是或否对最终结果的影响。依据是知乎网友 aweeee 分享的 xlsx 文件。" name="description"/>
+<meta content="统计学家 George Box 说：所有模型都是错的，有些是有用的。这里研究的是对于明尼苏达多相人格测验（Minnesota Multiphasic Personality Inventory）的一系列判断题，回答是或否对最终结果的影响。依据是知乎网友 aweeee 分享的 xlsx 文件。 测试过程  做一道判断题，回答是或否 答完一道题之后，对某一个或者某几个量表加 1 分或不加分 答完所有题" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="明尼苏达多相人格测验" property="og:title"/>
 <meta content="https://hrfis.me/blog/mmpi.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="统计学家 George Box 说：所有模型都是错的，有些是有用的。这里研究的是对于明尼苏达多相人格测验（Minnesota Multiphasic Personality Inventory）的一系列判断题，回答是或否对最终结果的影响。依据是知乎网友 aweeee 分享的 xlsx 文件。" property="og:description"/>
+<meta content="统计学家 George Box 说：所有模型都是错的，有些是有用的。这里研究的是对于明尼苏达多相人格测验（Minnesota Multiphasic Personality Inventory）的一系列判断题，回答是或否对最终结果的影响。依据是知乎网友 aweeee 分享的 xlsx 文件。 测试过程  做一道判断题，回答是或否 答完一道题之后，对某一个或者某几个量表加 1 分或不加分 答完所有题" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="https://hrfis.me/blog/images/psychoanalysis-Freud.webp" property="og:image"/>
 <meta content="https://hrfis.me/blog/images/psychoanalysis-Lacan.webp" property="og:image"/>
 <meta content="https://hrfis.me/blog/images/CBT-AB.webp" property="og:image"/>
 <meta content="https://hrfis.me/blog/images/CBT-C.webp" property="og:image"/>
 <meta content="2024-02-29T16:00:00.000Z" property="article:published_time"/>
-<meta content="2024-11-14T12:45:14.214Z" property="article:modified_time"/>
+<meta content="2024-11-30T17:09:59.186Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/psychoanalysis-Freud.webp" name="twitter:image"/>
@@ -90,7 +90,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/">
-<span class="site-state-item-count">37</span>
+<span class="site-state-item-count">36</span>
 <span class="site-state-item-name">日志</span>
 </a>
 </div>
@@ -140,7 +140,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-11-14T20:45:14+08:00" itemprop="dateModified" title="修改时间：2024-11-14 20:45:14">2024-11-14</time>
+<time datetime="2024-12-01T01:09:59+08:00" itemprop="dateModified" title="修改时间：2024-12-01 01:09:59">2024-12-01</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -148,7 +148,7 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/m/" itemprop="url" rel="index"><span itemprop="name">牢骚系列</span></a>
+<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">实用系列</span></a>
 </span>
 </span>
 <span class="post-meta-item" title="本文字数">
@@ -173,7 +173,6 @@
 Multiphasic Personality
 Inventory）的一系列判断题，回答是或否对最终结果的影响。依据是<a href="https://zhuanlan.zhihu.com/p/600297840" rel="noopener" target="_blank">知乎网友 aweeee</a> 分享的
 <code>xlsx</code> 文件。</p>
-<span id="more"></span>
 <h2 id="测试过程">测试过程</h2>
 <ol type="1">
 <li><p>做一道判断题，回答是或否</p></li>
@@ -496,13 +495,13 @@ deviate）【精神病态】：你过分社牛、反社会、攻击性的程度<
 <span class="post-meta-item-icon">
 <i class="fa fa-chart-line"></i>
 </span>
-<span title="站点总字数">124k</span>
+<span title="站点总字数">121k</span>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
 <i class="fa fa-coffee"></i>
 </span>
-<span title="站点阅读时长">7:30</span>
+<span title="站点阅读时长">7:20</span>
 </span>
 </div>
 <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
