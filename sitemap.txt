@@ -1,4 +1,6 @@
-https://hrfis.me/blog/reason.html
+https://hrfis.me/blog/that.html
+https://hrfis.me/blog/discrete-mathematics.html
+https://hrfis.me/blog/amap-poi-search.html
 https://hrfis.me/blog/mmpi.html
 https://hrfis.me/blog/python.html
 https://hrfis.me/blog/dotx.html
@@ -11,7 +13,6 @@ https://hrfis.me/blog/defense.html
 https://hrfis.me/blog/84.html
 https://hrfis.me/blog/java-web.html
 https://hrfis.me/blog/json.html
-https://hrfis.me/blog/amap-poi-search.html
 https://hrfis.me/blog/Expand-the-Ubuntu-capacity-in-the-VM.html
 https://hrfis.me/blog/gbk-utf8.html
 https://hrfis.me/blog/game.html
@@ -34,6 +35,5 @@ https://hrfis.me/blog/myclock.html
 https://hrfis.me/blog/drive.html
 https://hrfis.me/blog/magisk.html
 https://hrfis.me/blog/wait.html
-https://hrfis.me/blog/discrete-mathematics.html
 https://hrfis.me/blog/categories/index.html
 https://hrfis.me/blog
