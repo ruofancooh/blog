@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hrfis.me/blog/that.html</loc>
+    
+    <lastmod>2024-12-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/wait.html</loc>
+    
+    <lastmod>2024-12-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/hadoop.html</loc>
+    
+    <lastmod>2024-12-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/defense.html</loc>
+    
+    <lastmod>2024-12-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hrfis.me/blog/communicate.html</loc>
     
     <lastmod>2024-12-02</lastmod>
@@ -12,15 +48,6 @@
   
   <url>
     <loc>https://hrfis.me/blog/algorithm.html</loc>
-    
-    <lastmod>2024-12-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/that.html</loc>
     
     <lastmod>2024-12-02</lastmod>
     
@@ -83,15 +110,6 @@
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/hadoop.html</loc>
-    
-    <lastmod>2024-11-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hrfis.me/blog/hexo.html</loc>
     
     <lastmod>2024-11-30</lastmod>
@@ -111,15 +129,6 @@
   
   <url>
     <loc>https://hrfis.me/blog/time.html</loc>
-    
-    <lastmod>2024-11-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/defense.html</loc>
     
     <lastmod>2024-11-30</lastmod>
     
@@ -320,15 +329,6 @@
     <loc>https://hrfis.me/blog/magisk.html</loc>
     
     <lastmod>2024-07-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/wait.html</loc>
-    
-    <lastmod>2024-06-10</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
