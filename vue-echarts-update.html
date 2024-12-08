@@ -12,21 +12,21 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="车技不精。" name="description"/>
+<meta content='环境 12345{  "echarts": "^5.5.1",  "vue": "^3.5.12",  "vue-echarts": "^7.0.3"} import code generator 组合式 API。一个 View 的父组件里面有两个 Echarts 图表的子组件 A 和 B。 问题 图表的数据从何而来：  准备图表的 JSON 格式为一个计算属性，把 data 字段设置为 Ref' name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="驾驶" property="og:title"/>
-<meta content="https://hrfis.me/blog/drive.html" property="og:url"/>
+<meta content="Vue 实现点击 Echarts 图表的一部分后更新另一个图表" property="og:title"/>
+<meta content="https://hrfis.me/blog/vue-echarts-update.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="车技不精。" property="og:description"/>
+<meta content='环境 12345{  "echarts": "^5.5.1",  "vue": "^3.5.12",  "vue-echarts": "^7.0.3"} import code generator 组合式 API。一个 View 的父组件里面有两个 Echarts 图表的子组件 A 和 B。 问题 图表的数据从何而来：  准备图表的 JSON 格式为一个计算属性，把 data 字段设置为 Ref' property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2024-07-27T11:00:00.000Z" property="article:published_time"/>
-<meta content="2024-07-30T06:39:22.316Z" property="article:modified_time"/>
+<meta content="2024-12-08T07:00:00.000Z" property="article:published_time"/>
+<meta content="2024-12-08T08:17:31.928Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/drive" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/drive.html","path":"/drive.html","title":"驾驶"}</script>
+<link href="https://hrfis.me/blog/vue-echarts-update" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/vue-echarts-update.html","path":"/vue-echarts-update.html","title":"Vue 实现点击 Echarts 图表的一部分后更新另一个图表"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>驾驶 | 若凡的笔记</title>
+<title>Vue 实现点击 Echarts 图表的一部分后更新另一个图表 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -73,7 +73,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">关键点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B3%E5%9C%B0%E8%B5%B7%E6%AD%A5"><span class="nav-number">2.</span> <span class="nav-text">平地起步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%9C%E5%9D%A1%E8%B5%B7%E6%AD%A5"><span class="nav-number">3.</span> <span class="nav-text">斜坡起步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%9C%E8%BD%A6"><span class="nav-number">4.</span> <span class="nav-text">停车</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">问题</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -104,7 +104,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/drive.html" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/vue-echarts-update.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -114,12 +114,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="驾驶 | 若凡的笔记" itemprop="name"/>
+<meta content="Vue 实现点击 Echarts 图表的一部分后更新另一个图表 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          驾驶
+          Vue 实现点击 Echarts 图表的一部分后更新另一个图表
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -128,14 +128,7 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2024-07-27T19:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-07-27 19:00:00">2024-07-27</time>
-</span>
-<span class="post-meta-item">
-<span class="post-meta-item-icon">
-<i class="far fa-calendar-check"></i>
-</span>
-<span class="post-meta-item-text">更新于</span>
-<time datetime="2024-07-30T14:39:22+08:00" itemprop="dateModified" title="修改时间：2024-07-30 14:39:22">2024-07-30</time>
+<time datetime="2024-12-08T15:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-12-08 15:00:00 / 修改时间：16:17:31">2024-12-08</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -151,58 +144,73 @@
 <i class="far fa-file-word"></i>
 </span>
 <span class="post-meta-item-text">本文字数：</span>
-<span>218</span>
+<span>490</span>
 </span>
 <span class="post-meta-item" title="阅读时长">
 <span class="post-meta-item-icon">
 <i class="far fa-clock"></i>
 </span>
 <span class="post-meta-item-text">阅读时长 ≈</span>
-<span>1 分钟</span>
+<span>2 分钟</span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>车技不精。</p>
-<span id="more"></span>
-<h2 id="关键点">关键点</h2>
-<ul>
-<li>车钥匙：点火，使发动机工作</li>
-<li>离合器踏板（左）：使发动机和变速箱连接到一起。踩下去是离，抬起来是合。挂挡前必踩离合</li>
-<li>变速杆（档）：改变从变速箱向车轮的转速比例</li>
-<li>刹车踏板（中）：用于减慢车轮转速</li>
-<li>手刹：抬起来是刹，把后轮锁死</li>
-<li>油门踏板（右）：改变流向发动机的汽油流量</li>
-<li>速度计，右边的是发动机，左边的是车轮</li>
-</ul>
-<p>点火前手刹应处于抬起状态，档位为空</p>
-<h2 id="平地起步">平地起步</h2>
+<div class="post-body" itemprop="articleBody"><h2 id="环境">环境</h2>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"echarts"</span><span class="punctuation">:</span> <span class="string">"^5.5.1"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"vue"</span><span class="punctuation">:</span> <span class="string">"^3.5.12"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"vue-echarts"</span><span class="punctuation">:</span> <span class="string">"^7.0.3"</span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></tbody></table></figure>
+<p><a href="https://vue-echarts.dev/#codegen" rel="noopener" target="_blank">import code
+generator</a></p>
+<p>组合式 API。一个 View 的父组件里面有两个 Echarts 图表的子组件 A 和
+B。</p>
+<h2 id="问题">问题</h2>
+<p>图表的数据从何而来：</p>
 <ol type="1">
-<li>点火、踩住离合挂一挡、松手刹</li>
-<li>慢松离合</li>
+<li>准备图表的 JSON 格式为一个计算属性，把 data 字段设置为 Ref 对象</li>
+<li>给 v-chart 标签的 :option 绑定这个计算属性</li>
+<li>写一个更新图表的函数，fetch
+一个文件，转换成图表需要的格式，赋值给那个 Ref.value</li>
+<li> 在 onMounted () 里面调用更新图表的函数</li>
 </ol>
-<h2 id="斜坡起步">斜坡起步</h2>
+<p>点击子组件图表后的事件和参数如何传递给父组件：</p>
 <ol type="1">
-<li>点火、踩住离合和刹车挂一挡、松手刹</li>
-<li>慢松刹车和离合</li>
+<li>在子组件里定义一个发射源 const emit =
+defineEmits (["eventName"]);</li>
+<li> 给子组件 v-chart 标签的 <span class="citation" data-cites="click">@click</span> 绑定一个方法</li>
+<li>该方法带一个参数 param 为图表点击后的参数，在该方法里发射事件
+emit ("eventName", param);</li>
+<li> 在父组件里引用子组件标签处的 <span class="citation" data-cites="event-name">@event-name</span> 绑定一个带参数 param
+的方法，用于接收子组件发射的事件和参数</li>
 </ol>
-<h2 id="停车">停车</h2>
+<p>父组件如何向子组件传消息：</p>
 <ol type="1">
-<li>踩住离合和刹车、挂空挡、拉手刹</li>
-<li>松脚熄火</li>
+<li>在子组件里定义它的属性 </li>
+</ol>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> props = <span class="title function_">defineProps</span>({</span><br/><span class="line">  <span class="attr">propName</span>: {</span><br/><span class="line">    <span class="attr">type</span>: <span class="title class_">String</span>,</span><br/><span class="line">    <span class="attr">default</span>: <span class="string">""</span>,</span><br/><span class="line">  },</span><br/><span class="line">});</span><br/></pre></td></tr></tbody></table></figure>
+<ol start="2" type="1">
+<li>在父组件里引用子组件标签处的 :prop-name 绑定一个 Ref 对象，更新 Ref
+对象</li>
+</ol>
+<p>如何实现点击图表 A 的一部分后，更新图表 B：</p>
+<ol type="1">
+<li>把点击图表 A 后的事件和参数 emit 给父组件</li>
+<li>父组件在 A 组件标签 @ 处绑定的方法处接收，并更新图表 B 标签的
+:prop-name 的 Ref</li>
+<li> 在 B 组件里监视它 props 的变化，调用更新图表的方法 </li>
+</ol>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/></pre></td><td class="code"><pre><span class="line"><span class="title function_">watch</span>(</span><br/><span class="line">  <span class="function">() =&gt;</span> props.<span class="property">propName</span>,</span><br/><span class="line">  <span class="title function_">async</span> (newVal) =&gt; {</span><br/><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">"propName updated:"</span>, newVal);</span><br/><span class="line">    <span class="keyword">await</span> <span class="title function_">updateChartData</span>(newVal);</span><br/><span class="line">  },</span><br/><span class="line">  { <span class="attr">immediate</span>: <span class="literal">true</span> } <span class="comment">//确保在组件初始化时也执行一次回调函数</span></span><br/><span class="line">);</span><br/></pre></td></tr></tbody></table></figure>
+<ol start="5" type="1">
+<li>在更新图表的方法里，根据接收到的参数，fetch 不同的文件或者 filter
+不同的数据，赋给 data 的 Ref.value</li>
 </ol>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/math.html" rel="prev" title="数学">
-<i class="fa fa-angle-left"></i> 数学
+<a href="/blog/amap-poi-search.html" rel="prev" title="高德地图多边形区域搜索 POI 的划分方法">
+<i class="fa fa-angle-left"></i> 高德地图多边形区域搜索 POI 的划分方法
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/economics.html" rel="next" title="经济常识">
-                  经济常识 <i class="fa fa-angle-right"></i>
-</a>
 </div>
 </div>
 </footer>

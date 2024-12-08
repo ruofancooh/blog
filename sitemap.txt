@@ -1,3 +1,5 @@
+https://hrfis.me/blog/amap-poi-search.html
+https://hrfis.me/blog/vue-echarts-update.html
 https://hrfis.me/blog/cook.html
 https://hrfis.me/blog/that.html
 https://hrfis.me/blog/wait.html
@@ -6,7 +8,6 @@ https://hrfis.me/blog/defense.html
 https://hrfis.me/blog/communicate.html
 https://hrfis.me/blog/algorithm.html
 https://hrfis.me/blog/discrete-mathematics.html
-https://hrfis.me/blog/amap-poi-search.html
 https://hrfis.me/blog/mmpi.html
 https://hrfis.me/blog/python.html
 https://hrfis.me/blog/dotx.html
