@@ -12,15 +12,15 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content='环境 12345{  "echarts": "^5.5.1",  "vue": "^3.5.12",  "vue-echarts": "^7.0.3"} import code generator 组合式 API。一个 View 的父组件里面有两个 Echarts 图表的子组件 A 和 B。 问题 图表的数据从何而来：  准备图表的 JSON 格式为一个计算属性，把 data 字段设置为 Ref' name="description"/>
+<meta content='环境 12345{  "echarts": "^5.5.1",  "vue": "^3.5.12",  "vue-echarts": "^7.0.3"} import code generator 组合式 API。一个 View 的父组件里面有两个 Echarts 图表的子组件 A 和 B。 问题 图表的数据从何而来：  在清洗和导出数据的时候直接导出为 Echarts 所需要的 JSON 格式的' name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="Vue 实现点击 Echarts 图表的一部分后更新另一个图表" property="og:title"/>
 <meta content="https://hrfis.me/blog/vue-echarts-update.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content='环境 12345{  "echarts": "^5.5.1",  "vue": "^3.5.12",  "vue-echarts": "^7.0.3"} import code generator 组合式 API。一个 View 的父组件里面有两个 Echarts 图表的子组件 A 和 B。 问题 图表的数据从何而来：  准备图表的 JSON 格式为一个计算属性，把 data 字段设置为 Ref' property="og:description"/>
+<meta content='环境 12345{  "echarts": "^5.5.1",  "vue": "^3.5.12",  "vue-echarts": "^7.0.3"} import code generator 组合式 API。一个 View 的父组件里面有两个 Echarts 图表的子组件 A 和 B。 问题 图表的数据从何而来：  在清洗和导出数据的时候直接导出为 Echarts 所需要的 JSON 格式的' property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-12-08T07:00:00.000Z" property="article:published_time"/>
-<meta content="2024-12-08T08:17:31.928Z" property="article:modified_time"/>
+<meta content="2024-12-09T15:22:56.202Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/vue-echarts-update" rel="canonical"/>
@@ -128,7 +128,14 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2024-12-08T15:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-12-08 15:00:00 / 修改时间：16:17:31">2024-12-08</time>
+<time datetime="2024-12-08T15:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-12-08 15:00:00">2024-12-08</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2024-12-09T23:22:56+08:00" itemprop="dateModified" title="修改时间：2024-12-09 23:22:56">2024-12-09</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -144,7 +151,7 @@
 <i class="far fa-file-word"></i>
 </span>
 <span class="post-meta-item-text">本文字数：</span>
-<span>490</span>
+<span>500</span>
 </span>
 <span class="post-meta-item" title="阅读时长">
 <span class="post-meta-item-icon">
@@ -165,11 +172,13 @@ B。</p>
 <h2 id="问题">问题</h2>
 <p>图表的数据从何而来：</p>
 <ol type="1">
-<li>准备图表的 JSON 格式为一个计算属性，把 data 字段设置为 Ref 对象</li>
-<li>给 v-chart 标签的 :option 绑定这个计算属性</li>
+<li>在清洗和导出数据的时候直接导出为 Echarts 所需要的 JSON
+格式的文件</li>
+<li>准备图表的 option 的 JSON 格式为一个计算属性，把 data 字段设置为 Ref
+对象的 value</li>
+<li> 给 v-chart 标签的 :option 绑定这个计算属性</li>
 <li>写一个更新图表的函数，fetch
 一个文件，转换成图表需要的格式，赋值给那个 Ref.value</li>
-<li> 在 onMounted () 里面调用更新图表的函数</li>
 </ol>
 <p>点击子组件图表后的事件和参数如何传递给父组件：</p>
 <ol type="1">
@@ -199,8 +208,8 @@ emit ("eventName", param);</li>
 </ol>
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/></pre></td><td class="code"><pre><span class="line"><span class="title function_">watch</span>(</span><br/><span class="line">  <span class="function">() =&gt;</span> props.<span class="property">propName</span>,</span><br/><span class="line">  <span class="title function_">async</span> (newVal) =&gt; {</span><br/><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">"propName updated:"</span>, newVal);</span><br/><span class="line">    <span class="keyword">await</span> <span class="title function_">updateChartData</span>(newVal);</span><br/><span class="line">  },</span><br/><span class="line">  { <span class="attr">immediate</span>: <span class="literal">true</span> } <span class="comment">//确保在组件初始化时也执行一次回调函数</span></span><br/><span class="line">);</span><br/></pre></td></tr></tbody></table></figure>
 <ol start="5" type="1">
-<li>在更新图表的方法里，根据接收到的参数，fetch 不同的文件或者 filter
-不同的数据，赋给 data 的 Ref.value</li>
+<li>在更新图表的方法里，根据接收到的参数，fetch 不同的文件，赋给 data 的
+Ref.value</li>
 </ol>
 </div>
 <footer class="post-footer">
