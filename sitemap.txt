@@ -1,3 +1,4 @@
+https://hrfis.me/blog/game.html
 https://hrfis.me/blog/lacan.html
 https://hrfis.me/blog/that.html
 https://hrfis.me/blog/communicate.html
@@ -22,7 +23,6 @@ https://hrfis.me/blog/java-web.html
 https://hrfis.me/blog/json.html
 https://hrfis.me/blog/Expand-the-Ubuntu-capacity-in-the-VM.html
 https://hrfis.me/blog/gbk-utf8.html
-https://hrfis.me/blog/game.html
 https://hrfis.me/blog/book.html
 https://hrfis.me/blog/joke.html
 https://hrfis.me/blog/about/index.html
