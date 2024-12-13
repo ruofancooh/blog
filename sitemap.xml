@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hrfis.me/blog/cook.html</loc>
+    
+    <lastmod>2024-12-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hrfis.me/blog/game.html</loc>
     
     <lastmod>2024-12-12</lastmod>
@@ -59,15 +68,6 @@
     <loc>https://hrfis.me/blog/amap-poi-search.html</loc>
     
     <lastmod>2024-12-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/cook.html</loc>
-    
-    <lastmod>2024-12-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -364,7 +364,7 @@
 
   <url>
     <loc>https://hrfis.me/blog</loc>
-    <lastmod>2024-12-12</lastmod>
+    <lastmod>2024-12-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
