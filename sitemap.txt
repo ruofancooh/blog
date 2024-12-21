@@ -1,5 +1,6 @@
-https://hrfis.me/blog/game.html
 https://hrfis.me/blog/lacan.html
+https://hrfis.me/blog/cbt-debug.html
+https://hrfis.me/blog/game.html
 https://hrfis.me/blog/meme.html
 https://hrfis.me/blog/dining-philosophers-problem.html
 https://hrfis.me/blog/magisk.html

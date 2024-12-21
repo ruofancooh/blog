@@ -12,21 +12,21 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="有三个哲学家坐在一张桌子上准备吃饭，而且他们定的规矩还比较奇怪：  桌子上一共只有三根筷子，筷子的数量是有限的，且在同一个时间只能由一个人拿起来一根筷子。（互斥条件） 当一个人拿起一根筷子之后，除非他吃完饭了，否则他是不会主动放下他已经拿到的筷子的。只有当他吃完饭之后，他才能放下他之前拿到的筷子，让别人拿。而一个人必须要有两根筷子才能吃饭。（持有并等待条件） 一个人不能把别人已经拿到的筷子抢过来给" name="description"/>
+<meta content="认知行为疗法最简单的模型是：情境 → 认知 → 情绪 / 行为。 概念化 概念化是对于一个具体的案例，通过找出模型里每一个概念的具体内容，来理解来访者的问题。 亚伦・贝克的 T 型认知行为模型： 12345某次运行时 → 一段报错的代码流 → 报错信息                  ↑            原以为正确的功能                  ↑以前写代码的时候 → 错误的最底" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="哲学家吃饭问题" property="og:title"/>
-<meta content="https://hrfis.me/blog/dining-philosophers-problem.html" property="og:url"/>
+<meta content="认知行为疗法与 DEBUG" property="og:title"/>
+<meta content="https://hrfis.me/blog/cbt-debug.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="有三个哲学家坐在一张桌子上准备吃饭，而且他们定的规矩还比较奇怪：  桌子上一共只有三根筷子，筷子的数量是有限的，且在同一个时间只能由一个人拿起来一根筷子。（互斥条件） 当一个人拿起一根筷子之后，除非他吃完饭了，否则他是不会主动放下他已经拿到的筷子的。只有当他吃完饭之后，他才能放下他之前拿到的筷子，让别人拿。而一个人必须要有两根筷子才能吃饭。（持有并等待条件） 一个人不能把别人已经拿到的筷子抢过来给" property="og:description"/>
+<meta content="认知行为疗法最简单的模型是：情境 → 认知 → 情绪 / 行为。 概念化 概念化是对于一个具体的案例，通过找出模型里每一个概念的具体内容，来理解来访者的问题。 亚伦・贝克的 T 型认知行为模型： 12345某次运行时 → 一段报错的代码流 → 报错信息                  ↑            原以为正确的功能                  ↑以前写代码的时候 → 错误的最底" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="2024-12-18T09:00:00.000Z" property="article:published_time"/>
-<meta content="2024-12-18T12:47:54.314Z" property="article:modified_time"/>
+<meta content="2024-12-20T22:00:00.000Z" property="article:published_time"/>
+<meta content="2024-12-21T00:44:11.439Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<link href="https://hrfis.me/blog/dining-philosophers-problem" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/dining-philosophers-problem.html","path":"/dining-philosophers-problem.html","title":"哲学家吃饭问题"}</script>
+<link href="https://hrfis.me/blog/cbt-debug" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/cbt-debug.html","path":"/cbt-debug.html","title":"认知行为疗法与 DEBUG"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>哲学家吃饭问题 | 若凡的笔记</title>
+<title>认知行为疗法与 DEBUG | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -61,7 +61,7 @@
 </nav>
 </header>
 <aside class="sidebar">
-<div class="sidebar-inner sidebar-overview-active">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
 <ul class="sidebar-nav">
 <li class="sidebar-nav-toc">
           文章目录
@@ -73,6 +73,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">概念化</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -103,7 +104,7 @@
 <div class="main-inner post posts-expand">
 <div class="post-block">
 <article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
-<link href="https://hrfis.me/blog/dining-philosophers-problem.html" itemprop="mainEntityOfPage"/>
+<link href="https://hrfis.me/blog/cbt-debug.html" itemprop="mainEntityOfPage"/>
 <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <meta content="/blog/images/avatar.gif" itemprop="image"/>
 <meta content="Ruofan" itemprop="name"/>
@@ -113,12 +114,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="哲学家吃饭问题 | 若凡的笔记" itemprop="name"/>
+<meta content="认知行为疗法与 DEBUG | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          哲学家吃饭问题
+          认知行为疗法与 DEBUG
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -127,7 +128,7 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2024-12-18T17:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-12-18 17:00:00 / 修改时间：20:47:54">2024-12-18</time>
+<time datetime="2024-12-21T06:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-12-21 06:00:00 / 修改时间：08:44:11">2024-12-21</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -135,7 +136,7 @@
 </span>
 <span class="post-meta-item-text">分类于</span>
 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">实用系列</span></a>
+<a href="/blog/m/" itemprop="url" rel="index"><span itemprop="name">牢骚系列</span></a>
 </span>
 </span>
 <span class="post-meta-item" title="本文字数">
@@ -143,68 +144,63 @@
 <i class="far fa-file-word"></i>
 </span>
 <span class="post-meta-item-text">本文字数：</span>
-<span>782</span>
+<span>673</span>
 </span>
 <span class="post-meta-item" title="阅读时长">
 <span class="post-meta-item-icon">
 <i class="far fa-clock"></i>
 </span>
 <span class="post-meta-item-text">阅读时长 ≈</span>
-<span>3 分钟</span>
+<span>2 分钟</span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>有三个哲学家坐在一张桌子上准备吃饭，而且他们定的规矩还比较奇怪：</p>
-<ol type="1">
-<li>桌子上一共只有三根筷子，筷子的数量是有限的，且在同一个时间只能由一个人拿起来一根筷子。（互斥条件）</li>
-<li>当一个人拿起一根筷子之后，除非他吃完饭了，否则他是不会主动放下他已经拿到的筷子的。只有当他吃完饭之后，他才能放下他之前拿到的筷子，让别人拿。而一个人必须要有两根筷子才能吃饭。（持有并等待条件）</li>
-<li>一个人不能把别人已经拿到的筷子抢过来给自己用。（非抢占条件）</li>
-<li>这个桌子是圆桌，在每个哲学家的左手边和右手边各放一根筷子，且一个人只能拿这离他最近的两个筷子，不能拿别的。（循环等待条件）</li>
-</ol>
-<p>现在存在这样一种情况：这三个人都先把他们左手边的筷子拿了，都在等右手边的筷子，除非两根筷子都拿到了，否则他们是不会放下已经拿到的筷子的，于是他们就在这里一直等了。现在我们要给他们改一下规矩，他们应该怎么做才能保证所有人都能吃上饭。</p>
+<div class="post-body" itemprop="articleBody"><p>认知行为疗法最简单的模型是：情境 → 认知 → 情绪 / 行为。</p>
+<h2 id="概念化">概念化</h2>
+<p>概念化是对于一个具体的案例，通过找出模型里每一个概念的具体内容，来理解来访者的问题。</p>
+<p>亚伦・贝克的 T 型认知行为模型：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/></pre></td><td class="code"><pre><span class="line">某次运行时 → 一段报错的代码流 → 报错信息</span><br/><span class="line">                  ↑</span><br/><span class="line">            原以为正确的功能</span><br/><span class="line">                  ↑</span><br/><span class="line">以前写代码的时候 → 错误的最底层核心</span><br/></pre></td></tr></tbody></table></figure>
 <ul>
-<li>消除互斥条件：
-<ul>
-<li>把一根筷子折成两根（磁盘共享）。</li>
-<li>或者请一个新人来，当某人想吃饭的时候，必须请示这个新人，让新人给他一次发两根筷子（打印机共享）。</li>
-</ul></li>
-<li>消除持有并等待条件：
-<ul>
-<li>每个人在想吃饭的时候，必须一次性把两根筷子都拿了。（一次性请求所有资源）</li>
-<li>或者当某个人拿不到另一根筷子的时候，要主动把他已经拿到的筷子给放下。（释放没有使用完的资源，可能前功尽弃）</li>
-</ul></li>
-<li>消除非抢占条件：
-<ul>
-<li>当某人想吃饭但是拿不到筷子的时候，可以把别人的筷子抢过来（CPU
-调度、内存管理）。</li>
-</ul></li>
-<li>消除循环等待条件：
-<ul>
-<li>给这三个筷子编上 1、2、3
-号，当某个人拿筷子的时候，必须先拿编号较小的。如 1-A-2-B-3-C-1，这里 A
-把 1 拿了，B 把 2 拿了，C 必须先拿 1，拿不了就等，在等的时间里 B 可以把
-3 拿了，然后释放 2 和 3，然后 A 拿 2、释放 1 和 2，C 再拿 1 和 3</li>
-<li> 或者让奇数号的哲学家必须先拿他左边，后拿他右边的，而偶数号哲学家则与之相反。如
-1-A-2-B-3-C-1，这里 A 把 1 拿了，B 必须先拿 3 拿不了 2，于是 2 可以被 A
-拿，然后 A 释放 1 和 2</li>
-</ul></li>
-<li> 动态避免或检测修复：时间成本和程序复杂性高</li>
-<li>不予理睬：让这三个人从头来一遍（终止线程、重启）</li>
+<li>童年经历：以前写代码的时候</li>
+<li>核心信念：错误的最底层核心</li>
+<li>补偿策略 / 中间信念：错误的表面、原以为正确的功能</li>
+<li>自动思维：一段报错的代码流</li>
+<li>具体情境：某次运行时</li>
+<li>情绪和行为方面的问题：报错信息</li>
 </ul>
-<p>参考书：《操作系统之哲学原理》第 9 章</p>
+<p>逻辑上的顺序：</p>
+<ul>
+<li>童年经历造成核心信念，为应对核心信念出现补偿策略，补偿策略是中间信念的子类，中间信念决定自动思维。在情境下出现自动思维，自动思维造成情绪和行为。</li>
+<li>以前写代码的时候造成一个本质的错误，本质的错误在一个原以为正确的功能里表现出来，一个错误的表面包含在一段代码流里。在某次运行时运行到那一段代码流了，那一段代码流报了一个错。</li>
+</ul>
+<p>横向概念化：</p>
+<ul>
+<li>确定情绪和行为方面的问题，确定具体情境，根据症状和情境找出自动思维</li>
+<li>确定报错类型，确定这一次运行时，根据报错信息找出文件名和行号</li>
+</ul>
+<p>纵向概念化：</p>
+<ul>
+<li>根据自动思维找出核心信念的内容，找童年经历，确定补偿策略的类型和中间信念</li>
+<li>报错信息直接报了，找以前写出来的代码，确定原以为正确的功能的错误的表面</li>
+</ul>
+<p>认知行为疗法的病因观点：</p>
+<ul>
+<li>一段代码流报错是代码运行不了的直接原因，自动思维是情绪 / 行为症状的直接原因</li>
+<li>一段报错的代码流是由错误的最底层核心和某次运行时双重决定的，自动思维是受核心信念和情境双重决定的</li>
+<li>错误的最底层核心是以前写出来的，核心信念是幼年时期形成的</li>
+<li>错误的表面是原以为正确而写出来的，补偿策略是为应付负性核心信念而发展起来的</li>
+<li>原以为正确的功能跑不了了导致报错，补偿策略失效导致今天的心理问题</li>
+</ul>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
 <div class="post-nav-item">
-<a href="/blog/meme.html" rel="prev" title="MEME 图合订本">
-<i class="fa fa-angle-left"></i> MEME 图合订本
+<a href="/blog/dining-philosophers-problem.html" rel="prev" title="哲学家吃饭问题">
+<i class="fa fa-angle-left"></i> 哲学家吃饭问题
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/cbt-debug.html" rel="next" title="认知行为疗法与 DEBUG">
-                  认知行为疗法与 DEBUG <i class="fa fa-angle-right"></i>
-</a>
 </div>
 </div>
 </footer>
