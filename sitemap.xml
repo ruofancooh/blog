@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hrfis.me/blog/that.html</loc>
+    
+    <lastmod>2024-12-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/about/index.html</loc>
+    
+    <lastmod>2024-12-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/meme.html</loc>
+    
+    <lastmod>2024-12-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hrfis.me/blog/lacan.html</loc>
     
     <lastmod>2024-12-26</lastmod>
@@ -12,15 +39,6 @@
   
   <url>
     <loc>https://hrfis.me/blog/wait.html</loc>
-    
-    <lastmod>2024-12-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/meme.html</loc>
     
     <lastmod>2024-12-26</lastmod>
     
@@ -120,15 +138,6 @@
   
   <url>
     <loc>https://hrfis.me/blog/defense.html</loc>
-    
-    <lastmod>2024-12-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/that.html</loc>
     
     <lastmod>2024-12-14</lastmod>
     
@@ -290,15 +299,6 @@
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/about/index.html</loc>
-    
-    <lastmod>2024-11-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hrfis.me/blog/java.html</loc>
     
     <lastmod>2024-10-28</lastmod>
@@ -382,7 +382,7 @@
 
   <url>
     <loc>https://hrfis.me/blog</loc>
-    <lastmod>2024-12-26</lastmod>
+    <lastmod>2024-12-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
