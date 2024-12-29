@@ -12,21 +12,21 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="body { font-family: Arial, sans-serif; }   #options { margin-bottom: 10px; }   .option { margin: 5px 0; }   button { margin-right: 5px; }      添加决定 随机选择  let options = []; const optionsContainer =" name="description"/>
+<meta content="body { font-family: Arial, sans-serif; }   #options { margin-bottom: 10px; }   .option { margin: 5px 0; }   button { margin-right: 5px; }      添加选项 随机决策  let options = []; const optionsContainer =" name="description"/>
 <meta content="article" property="og:type"/>
-<meta content="决定终端机" property="og:title"/>
+<meta content="决策终端机" property="og:title"/>
 <meta content="https://hrfis.me/blog/do.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="body { font-family: Arial, sans-serif; }   #options { margin-bottom: 10px; }   .option { margin: 5px 0; }   button { margin-right: 5px; }      添加决定 随机选择  let options = []; const optionsContainer =" property="og:description"/>
+<meta content="body { font-family: Arial, sans-serif; }   #options { margin-bottom: 10px; }   .option { margin: 5px 0; }   button { margin-right: 5px; }      添加选项 随机决策  let options = []; const optionsContainer =" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-12-29T11:00:00.000Z" property="article:published_time"/>
-<meta content="2024-12-29T07:12:06.995Z" property="article:modified_time"/>
+<meta content="2024-12-29T10:31:50.274Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/do" rel="canonical"/>
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/do.html","path":"/do.html","title":"决定终端机"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/do.html","path":"/do.html","title":"决策终端机"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>决定终端机 | 若凡的笔记</title>
+<title>决策终端机 | 若凡的笔记</title>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -113,12 +113,12 @@
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="决定终端机 | 若凡的笔记" itemprop="name"/>
+<meta content="决策终端机 | 若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
 <h1 class="post-title" itemprop="name headline">
-          决定终端机
+          决策终端机
         </h1>
 <div class="post-meta-container">
 <div class="post-meta">
@@ -127,7 +127,7 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2024-12-29T19:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-12-29 19:00:00 / 修改时间：15:12:06">2024-12-29</time>
+<time datetime="2024-12-29T19:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-12-29 19:00:00 / 修改时间：18:31:50">2024-12-29</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -163,9 +163,9 @@
 </style>
 <div id="options">
 </div>
-<p><input id="newOption" placeholder="输入新的决定..." type="text"/>
-<button onclick="addOption()">添加决定</button>
-<button onclick="chooseRandom()">随机选择</button></p>
+<p><input id="newOption" placeholder="下一步要干什么..." type="text"/>
+<button onclick="addOption()">添加选项</button>
+<button onclick="chooseRandom()">随机决策</button></p>
 <script>
 let options = [];
 const optionsContainer = document.getElementById('options');
@@ -188,7 +188,7 @@ function chooseRandom() {
     } else {
     const randomIndex = Math.floor(Math.random() * options.length);
     const selectedOption = options[randomIndex];
-      alert("选中的决定是: " + selectedOption);
+      alert("下一步应该: " + selectedOption);
     }
 }
 </script>
