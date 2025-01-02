@@ -1,3 +1,4 @@
+https://hrfis.me/blog/donate-blood.html
 https://hrfis.me/blog/that.html
 https://hrfis.me/blog/cbt.html
 https://hrfis.me/blog/meme.html
@@ -16,7 +17,6 @@ https://hrfis.me/blog/music-theory.html
 https://hrfis.me/blog/joke.html
 https://hrfis.me/blog/defense.html
 https://hrfis.me/blog/communicate.html
-https://hrfis.me/blog/donate-blood.html
 https://hrfis.me/blog/vue-echarts-update.html
 https://hrfis.me/blog/amap-poi-search.html
 https://hrfis.me/blog/hadoop.html
