@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hrfis.me/blog/win10-dolphin-wii.html</loc>
+    
+    <lastmod>2025-01-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hrfis.me/blog/cbt.html</loc>
     
     <lastmod>2025-01-06</lastmod>
@@ -86,15 +95,6 @@
     <loc>https://hrfis.me/blog/cook.html</loc>
     
     <lastmod>2024-12-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/win10-dolphin-wii.html</loc>
-    
-    <lastmod>2024-12-21</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -391,7 +391,7 @@
 
   <url>
     <loc>https://hrfis.me/blog</loc>
-    <lastmod>2025-01-06</lastmod>
+    <lastmod>2025-01-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

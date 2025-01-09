@@ -1,3 +1,4 @@
+https://hrfis.me/blog/win10-dolphin-wii.html
 https://hrfis.me/blog/cbt.html
 https://hrfis.me/blog/meme.html
 https://hrfis.me/blog/that.html
@@ -8,7 +9,6 @@ https://hrfis.me/blog/about/index.html
 https://hrfis.me/blog/lacan.html
 https://hrfis.me/blog/wait.html
 https://hrfis.me/blog/cook.html
-https://hrfis.me/blog/win10-dolphin-wii.html
 https://hrfis.me/blog/gbk-utf8.html
 https://hrfis.me/blog/dining-philosophers-problem.html
 https://hrfis.me/blog/magisk.html
