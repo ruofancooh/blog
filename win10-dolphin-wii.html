@@ -12,20 +12,20 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="环境  Windows 10 Dolphin 5.0-15099  步骤  Dolphin 模拟器 - 控制器    打开任务栏右下角操作中心里的蓝牙开关 右击 “转到设置”。或者【设置 - 设备 - 蓝牙和其他设备】 点击右边的相关设置 - 设备或打印机。或者【控制面板 - 硬件和声音 - 设备和打印机】 点击 “添加设备”，同时按手柄的 1 和 2 键，这时手柄的四个灯会一起闪 扫描上的标志是" name="description"/>
+<meta content="环境  Windows 10 Dolphin 2412  看你具体的蓝牙适配器型号  Dolphin 连接游戏控制器有两种模式：直通模式和模拟模式。前者可以连接多个真实手柄；后者只能连接一个真实的手柄（存疑），但可以手柄和电脑键盘混用。 参考 Dolphin Emulator Wiki 的蓝牙直通模式。 步骤  使用 Zadig 把蓝牙适配器的驱动改成 libusbK  Options -&gt;" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="Win10 Dolphin 模拟器连接 Wii 手柄教程" property="og:title"/>
 <meta content="https://hrfis.me/blog/win10-dolphin-wii.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="环境  Windows 10 Dolphin 5.0-15099  步骤  Dolphin 模拟器 - 控制器    打开任务栏右下角操作中心里的蓝牙开关 右击 “转到设置”。或者【设置 - 设备 - 蓝牙和其他设备】 点击右边的相关设置 - 设备或打印机。或者【控制面板 - 硬件和声音 - 设备和打印机】 点击 “添加设备”，同时按手柄的 1 和 2 键，这时手柄的四个灯会一起闪 扫描上的标志是" property="og:description"/>
+<meta content="环境  Windows 10 Dolphin 2412  看你具体的蓝牙适配器型号  Dolphin 连接游戏控制器有两种模式：直通模式和模拟模式。前者可以连接多个真实手柄；后者只能连接一个真实的手柄（存疑），但可以手柄和电脑键盘混用。 参考 Dolphin Emulator Wiki 的蓝牙直通模式。 步骤  使用 Zadig 把蓝牙适配器的驱动改成 libusbK  Options -&gt;" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
-<meta content="https://hrfis.me/blog/images/dolphin.png" property="og:image"/>
 <meta content="https://hrfis.me/blog/images/wii-remote.webp" property="og:image"/>
+<meta content="https://hrfis.me/blog/images/wii-remote-2.webp" property="og:image"/>
 <meta content="2024-10-13T11:00:00.000Z" property="article:published_time"/>
-<meta content="2025-01-11T13:16:09.320Z" property="article:modified_time"/>
+<meta content="2025-01-14T11:28:14.380Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<meta content="https://hrfis.me/blog/images/dolphin.png" name="twitter:image"/>
+<meta content="https://hrfis.me/blog/images/wii-remote.webp" name="twitter:image"/>
 <link href="https://hrfis.me/blog/win10-dolphin-wii" rel="canonical"/>
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/win10-dolphin-wii.html","path":"/win10-dolphin-wii.html","title":"Win10 Dolphin 模拟器连接 Wii 手柄教程"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
@@ -138,7 +138,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2025-01-11T21:16:09+08:00" itemprop="dateModified" title="修改时间：2025-01-11 21:16:09">2025-01-11</time>
+<time datetime="2025-01-14T19:28:14+08:00" itemprop="dateModified" title="修改时间：2025-01-14 19:28:14">2025-01-14</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -154,7 +154,7 @@
 <i class="far fa-file-word"></i>
 </span>
 <span class="post-meta-item-text">本文字数：</span>
-<span>346</span>
+<span>351</span>
 </span>
 <span class="post-meta-item" title="阅读时长">
 <span class="post-meta-item-icon">
@@ -169,28 +169,34 @@
 <div class="post-body" itemprop="articleBody"><h2 id="环境">环境</h2>
 <ul>
 <li>Windows 10</li>
-<li>Dolphin 5.0-15099</li>
+<li>Dolphin 2412</li>
+<li> 看你具体的蓝牙适配器型号</li>
 </ul>
+<p>Dolphin
+连接游戏控制器有两种模式：直通模式和模拟模式。前者可以连接多个真实手柄；后者只能连接一个真实的手柄（存疑），但可以手柄和电脑键盘混用。</p>
+<p>参考 <a href="https://wiki.dolphin-emu.org/index.php?title=Bluetooth_Passthrough" rel="noopener" target="_blank">Dolphin
+Emulator Wiki 的蓝牙直通模式</a>。</p>
 <h2 id="步骤">步骤</h2>
 <ol type="1">
-<li>Dolphin 模拟器 - 控制器</li>
+<li>使用 <a href="https://zadig.akeo.ie/" rel="noopener" target="_blank">Zadig</a> 把蓝牙适配器的驱动改成
+libusbK
+<ul>
+<li>Options -&gt; List All Devices</li>
+<li>Replace Driver</li>
+</ul></li>
+<li> 打开一个游戏</li>
+<li> Dolphin 模拟器 -&gt; 控制器</li>
 </ol>
-<p><img src="/blog/images/dolphin.png"/></p>
-<ol start="2" type="1">
-<li>打开任务栏右下角操作中心里的蓝牙开关</li>
-<li>右击 “转到设置”。或者【设置 - 设备 - 蓝牙和其他设备】</li>
-<li>点击右边的相关设置 - 设备或打印机。或者【控制面板 - 硬件和声音 - 设备和打印机】</li>
-<li>点击 “添加设备”，同时按手柄的 1 和 2
-键，这时手柄的四个灯会一起闪</li>
-<li>扫描上的标志是 “添加设备” 对话框里出现 Nintendo RVL-CNT-01</li>
-<li> 选择 Nintendo RVL-CNT-01 连接，弹出让你填写 PIN
-的对话框，不用管直接下一步</li>
-<li>连上的标志是手柄会震动一下，之后变成只有第一个灯亮</li>
+<p><img src="/blog/images/wii-remote.webp"/></p>
+<ol start="4" type="1">
+<li>点击 “同步”，同时按手柄的 1 和 2 键，这时手柄的四个灯会一起闪</li>
+<li>连上的标志是手柄变成只有一个灯亮，按连接的顺序，第一个连接的手柄是
+1P，亮第一个灯</li>
 </ol>
 <h2 id="手柄离灯条的距离">手柄离灯条的距离</h2>
 <p>据笔者并不怎么精确的测量，手柄前端相对于灯条的水平方向向前 80cm
 处，竖直方向向下 30cm 处为宜，手柄从下往上对着灯条照。</p>
-<p><img src="/blog/images/wii-remote.webp"/></p>
+<p><img src="/blog/images/wii-remote-2.webp"/></p>
 <h2 id="存档转移">存档转移</h2>
 <ul>
 <li>Win
