@@ -12,17 +12,17 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="手柄 --&gt; 蓝牙适配器 --&gt; 蓝牙驱动 --&gt; 操作系统 --&gt; 模拟器  第一个箭头：同时按手柄的 1 和 2 键，或者后盖里面的 SYNC 按钮。 蓝牙适配器：  使用 Zadig 查看蓝牙适配器的 USB ID 和驱动程序版本 在 Bluetooth Passthrough 的 Adapter test results 表格查看硬件测试结果。   直通模式  使用" name="description"/>
+<meta content="手柄 --&gt; 蓝牙适配器 --&gt; 蓝牙驱动 --&gt; 操作系统 --&gt; 模拟器  第一个箭头：同时按手柄的 1 和 2 键，或者后盖里面的 SYNC 按钮。这时手柄的四个灯会一起闪 蓝牙适配器：使用 Zadig 查看蓝牙适配器的 USB ID 和驱动程序版本，Options -&gt; List All Devices  直通模式  在 Bluetooth Passthrou" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="Win10 Dolphin 模拟器连接 Wii 手柄教程" property="og:title"/>
 <meta content="https://hrfis.me/blog/win10-dolphin-wii.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="手柄 --&gt; 蓝牙适配器 --&gt; 蓝牙驱动 --&gt; 操作系统 --&gt; 模拟器  第一个箭头：同时按手柄的 1 和 2 键，或者后盖里面的 SYNC 按钮。 蓝牙适配器：  使用 Zadig 查看蓝牙适配器的 USB ID 和驱动程序版本 在 Bluetooth Passthrough 的 Adapter test results 表格查看硬件测试结果。   直通模式  使用" property="og:description"/>
+<meta content="手柄 --&gt; 蓝牙适配器 --&gt; 蓝牙驱动 --&gt; 操作系统 --&gt; 模拟器  第一个箭头：同时按手柄的 1 和 2 键，或者后盖里面的 SYNC 按钮。这时手柄的四个灯会一起闪 蓝牙适配器：使用 Zadig 查看蓝牙适配器的 USB ID 和驱动程序版本，Options -&gt; List All Devices  直通模式  在 Bluetooth Passthrou" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="https://hrfis.me/blog/images/wii-remote.webp" property="og:image"/>
 <meta content="https://hrfis.me/blog/images/wii-remote-2.webp" property="og:image"/>
 <meta content="2024-10-13T11:00:00.000Z" property="article:published_time"/>
-<meta content="2025-01-14T13:23:52.041Z" property="article:modified_time"/>
+<meta content="2025-01-15T04:38:07.048Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/wii-remote.webp" name="twitter:image"/>
@@ -138,7 +138,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2025-01-14T21:23:52+08:00" itemprop="dateModified" title="修改时间：2025-01-14 21:23:52">2025-01-14</time>
+<time datetime="2025-01-15T12:38:07+08:00" itemprop="dateModified" title="修改时间：2025-01-15 12:38:07">2025-01-15</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -154,7 +154,7 @@
 <i class="far fa-file-word"></i>
 </span>
 <span class="post-meta-item-text">本文字数：</span>
-<span>345</span>
+<span>410</span>
 </span>
 <span class="post-meta-item" title="阅读时长">
 <span class="post-meta-item-icon">
@@ -169,28 +169,32 @@
 <div class="post-body" itemprop="articleBody"><p>手柄 --&gt; 蓝牙适配器 --&gt; 蓝牙驱动 --&gt; 操作系统 --&gt;
 模拟器</p>
 <ul>
-<li>第一个箭头：同时按手柄的 1 和 2 键，或者后盖里面的 SYNC 按钮。</li>
-<li>蓝牙适配器：
-<ul>
-<li>使用 <a href="https://zadig.akeo.ie/" rel="noopener" target="_blank">Zadig</a> 查看蓝牙适配器的 USB
-ID 和驱动程序版本</li>
-<li>在 <a href="https://wiki.dolphin-emu.org/index.php?title=Bluetooth_Passthrough" rel="noopener" target="_blank">Bluetooth
-Passthrough</a> 的 Adapter test results 表格查看硬件测试结果。</li>
-</ul></li>
+<li>第一个箭头：同时按手柄的 1 和 2 键，或者后盖里面的 SYNC
+按钮。这时手柄的四个灯会一起闪</li>
+<li>蓝牙适配器：使用 <a href="https://zadig.akeo.ie/" rel="noopener" target="_blank">Zadig</a>
+查看蓝牙适配器的 USB ID 和驱动程序版本，Options -&gt; List All
+Devices</li>
 </ul>
 <h2 id="直通模式">直通模式</h2>
-<ol type="1">
+<ol start="0" type="1">
+<li>在 <a href="https://wiki.dolphin-emu.org/index.php?title=Bluetooth_Passthrough#Adapter_test_results" rel="noopener" target="_blank">Bluetooth
+Passthrough</a> 的 Adapter test results
+表格查看硬件测试结果，需要一个型号匹配的蓝牙适配器</li>
 <li>使用 Zadig 把蓝牙适配器的驱动改成 libusbK
 <ul>
-<li>Options -&gt; List All Devices</li>
-<li>Replace Driver</li>
+<li>如果想要恢复原来的驱动：
+<ol type="1">
+<li>右击开始图标 -&gt; 设备管理器 -&gt; libusbK USB Devices -&gt;
+卸载设备</li>
+<li>操作 -&gt; 扫描检测硬件改动</li>
+</ol></li>
 </ul></li>
-<li> 打开一个游戏</li>
+<li>打开一个游戏</li>
 <li> Dolphin 模拟器 -&gt; 控制器</li>
 </ol>
 <p><img src="/blog/images/wii-remote.webp"/></p>
 <ol start="4" type="1">
-<li>点击 “同步”，这时手柄的四个灯会一起闪</li>
+<li>点击 “同步”，再同时按手柄的 1 和 2 键</li>
 <li>连上的标志是手柄变成只有一个灯亮，按连接的顺序，第一个连接的手柄是
 1P，亮第一个灯</li>
 </ol>
