@@ -12,15 +12,15 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="计算机基础不牢。" name="description"/>
+<meta content="世界上第一个网页：http://info.cern.ch RFC 文档：“请求评论”（Request For Comments）的文档，公开发布的互联网建议标准，请求公众评论。最后制定互联网标准 STD。" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="计算机网络" property="og:title"/>
 <meta content="https://hrfis.me/blog/computer-network.html" property="og:url"/>
 <meta content="若凡的笔记" property="og:site_name"/>
-<meta content="计算机基础不牢。" property="og:description"/>
+<meta content="世界上第一个网页：http://info.cern.ch RFC 文档：“请求评论”（Request For Comments）的文档，公开发布的互联网建议标准，请求公众评论。最后制定互联网标准 STD。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-09-06T08:30:00.000Z" property="article:published_time"/>
-<meta content="2025-01-19T13:16:36.206Z" property="article:modified_time"/>
+<meta content="2025-01-21T11:58:44.705Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/computer-network" rel="canonical"/>
@@ -73,8 +73,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#isp"><span class="nav-number">1.1.</span> <span class="nav-text">ISP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ixp"><span class="nav-number">1.2.</span> <span class="nav-text">IXP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rfc-%E6%96%87%E6%A1%A3"><span class="nav-number">1.3.</span> <span class="nav-text">RFC 文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%B9%E7%BC%98%E9%83%A8%E5%88%86%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="nav-number">1.4.</span> <span class="nav-text">边缘部分的通信</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cs"><span class="nav-number">1.4.1.</span> <span class="nav-text">C/S</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p2p"><span class="nav-number">1.4.2.</span> <span class="nav-text">P2P</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E9%83%A8%E5%88%86%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="nav-number">1.5.</span> <span class="nav-text">核心部分的通信</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%B5%E8%B7%AF%E4%BA%A4%E6%8D%A2"><span class="nav-number">1.5.1.</span> <span class="nav-text">电路交换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E4%BA%A4%E6%8D%A2"><span class="nav-number">1.5.2.</span> <span class="nav-text">分组交换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%A5%E6%96%87%E4%BA%A4%E6%8D%A2"><span class="nav-number">1.5.3.</span> <span class="nav-text">报文交换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%88%AB"><span class="nav-number">1.6.</span> <span class="nav-text">类别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%89%E4%BD%9C%E7%94%A8%E8%8C%83%E5%9B%B4"><span class="nav-number">1.6.1.</span> <span class="nav-text">按作用范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%89%E4%BD%BF%E7%94%A8%E8%80%85"><span class="nav-number">1.6.2.</span> <span class="nav-text">按使用者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A5%E5%85%A5%E7%BD%91-an"><span class="nav-number">1.6.3.</span> <span class="nav-text">接入网 AN</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">2.</span> <span class="nav-text">性能指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mathrmkmg...-%E7%9A%84%E4%B8%8D%E5%90%8C%E5%90%AB%E4%B9%89"><span class="nav-number">2.1.</span> <span class="nav-text">\(\mathrm{K,M,G...}\) 的不同含义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9F%E7%8E%87"><span class="nav-number">2.2.</span> <span class="nav-text">速率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A6%E5%AE%BD"><span class="nav-number">2.3.</span> <span class="nav-text">带宽</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%91%E5%9F%9F%E4%B8%8A%E7%9A%84mathrmhz"><span class="nav-number">2.3.1.</span> <span class="nav-text">频域上的：\(\mathrm{Hz}\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E5%9F%9F%E4%B8%8A%E7%9A%84mathrmbits"><span class="nav-number">2.3.2.</span> <span class="nav-text">时域上的：\(\mathrm{bit/s}\)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%9E%E5%90%90%E9%87%8F"><span class="nav-number">2.4.</span> <span class="nav-text">吞吐量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E5%BB%B6"><span class="nav-number">2.5.</span> <span class="nav-text">时延</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%91%E9%80%81%E6%97%B6%E5%BB%B6"><span class="nav-number">2.5.1.</span> <span class="nav-text">发送时延</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%A0%E6%92%AD%E6%97%B6%E5%BB%B6"><span class="nav-number">2.5.2.</span> <span class="nav-text">传播时延</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%97%B6%E5%BB%B6"><span class="nav-number">2.5.3.</span> <span class="nav-text">处理时延</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%92%E9%98%9F%E6%97%B6%E5%BB%B6"><span class="nav-number">2.5.4.</span> <span class="nav-text">排队时延</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B"><span class="nav-number">2.5.5.</span> <span class="nav-text">过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E5%BB%B6%E5%B8%A6%E5%AE%BD%E7%A7%AF"><span class="nav-number">2.6.</span> <span class="nav-text">时延带宽积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%8F%E6%AF%94%E7%89%B9%E5%AE%BD%E5%BA%A6"><span class="nav-number">2.7.</span> <span class="nav-text">每比特宽度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rtt"><span class="nav-number">2.8.</span> <span class="nav-text">RTT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E6%95%88%E6%95%B0%E6%8D%AE%E7%8E%87"><span class="nav-number">2.9.</span> <span class="nav-text">有效数据率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E7%8E%87"><span class="nav-number">2.10.</span> <span class="nav-text">利用率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%A1%A8"><span class="nav-number">3.1.</span> <span class="nav-text">体系结构表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pdu"><span class="nav-number">3.2.</span> <span class="nav-text">PDU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E7%9A%84%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="nav-number">3.3.</span> <span class="nav-text">网络协议的三要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%B1%82%E4%B9%8B%E4%B8%8B%E7%9A%84%E4%BC%A0%E8%BE%93%E5%AA%92%E4%BD%93"><span class="nav-number">3.4.</span> <span class="nav-text">物理层之下的传输媒体</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%B1%82"><span class="nav-number">4.</span> <span class="nav-text">物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7"><span class="nav-number">4.0.1.</span> <span class="nav-text">功能特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B%E7%89%B9%E6%80%A7"><span class="nav-number">4.0.2.</span> <span class="nav-text">过程特性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E4%BF%A1%E5%8F%8C%E6%96%B9%E7%9A%84%E4%BA%A4%E4%BA%92%E6%96%B9%E5%BC%8F"><span class="nav-number">4.1.</span> <span class="nav-text">通信双方的交互方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E5%90%91%E9%80%9A%E4%BF%A1%E5%8D%95%E5%B7%A5"><span class="nav-number">4.1.1.</span> <span class="nav-text">单向通信（单工）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8C%E5%90%91%E4%BA%A4%E6%9B%BF%E9%80%9A%E4%BF%A1%E5%8D%8A%E5%8F%8C%E5%B7%A5"><span class="nav-number">4.1.2.</span> <span class="nav-text">双向交替通信（半双工）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8C%E5%90%91%E5%90%8C%E6%97%B6%E9%80%9A%E4%BF%A1%E5%85%A8%E5%8F%8C%E5%B7%A5"><span class="nav-number">4.1.3.</span> <span class="nav-text">双向同时通信（全双工）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E5%92%8C%E8%B0%83%E5%88%B6"><span class="nav-number">4.2.</span> <span class="nav-text">编码和调制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%81%E6%80%A7%E4%B8%8D%E5%BD%92%E9%9B%B6%E7%94%B5%E5%B9%B3polar-nrzl"><span class="nav-number">4.2.1.</span> <span class="nav-text">极性不归零电平（Polar NRZL）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%81%E6%80%A7%E4%B8%8D%E5%BD%92%E9%9B%B6%E5%8F%8D%E8%BD%ACpolar-nrzi"><span class="nav-number">4.2.2.</span> <span class="nav-text">极性不归零反转（Polar NRZI）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%81%E6%80%A7%E5%BD%92%E9%9B%B6polar-rz"><span class="nav-number">4.2.3.</span> <span class="nav-text">极性归零（Polar RZ）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81"><span class="nav-number">4.2.4.</span> <span class="nav-text">曼彻斯特编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B7%AE%E5%88%86%E6%9B%BC%E5%BD%BB%E6%96%AF%E7%89%B9%E7%BC%96%E7%A0%81"><span class="nav-number">4.2.5.</span> <span class="nav-text">差分曼彻斯特编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94"><span class="nav-number">4.2.6.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E5%B8%A6%E8%B0%83%E5%88%B6"><span class="nav-number">4.2.7.</span> <span class="nav-text">基带调制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%A6%E9%80%9A%E8%B0%83%E5%88%B6"><span class="nav-number">4.2.8.</span> <span class="nav-text">带通调制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E6%8C%AF%E5%B9%85%E8%B0%83%E5%88%B6qam"><span class="nav-number">4.2.9.</span> <span class="nav-text">正交振幅调制（QAM）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-number">4.3.</span> <span class="nav-text">通信基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A0%81%E5%85%83"><span class="nav-number">4.3.1.</span> <span class="nav-text">码元</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A5%88%E6%B0%8F%E5%87%86%E5%88%99%E5%A5%88%E5%A5%8E%E6%96%AF%E7%89%B9%E9%A6%99%E5%86%9C%E9%87%87%E6%A0%B7%E5%AE%9A%E7%90%86%E7%9A%84%E4%B8%80%E9%83%A8%E5%88%86"><span class="nav-number">4.3.2.</span> <span class="nav-text">奈氏准则（奈奎斯特 — 香农采样定理的一部分）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%A1%E5%99%AA%E6%AF%94"><span class="nav-number">4.3.3.</span> <span class="nav-text">信噪比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A6%99%E5%86%9C%E5%85%AC%E5%BC%8F%E9%A6%99%E5%86%9C%E5%93%88%E7%89%B9%E8%8E%B1%E5%AE%B9%E9%87%8F%E5%AE%9A%E7%90%86"><span class="nav-number">4.3.4.</span> <span class="nav-text">香农公式（香农 — 哈特莱容量定理）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A5%88%E6%B0%8F%E5%87%86%E5%88%99%E5%92%8C%E9%A6%99%E5%86%9C%E5%85%AC%E5%BC%8F%E7%9A%84%E6%84%8F%E4%B9%89"><span class="nav-number">4.3.5.</span> <span class="nav-text">奈氏准则和香农公式的意义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%A1%E9%81%93%E5%A4%8D%E7%94%A8"><span class="nav-number">4.3.6.</span> <span class="nav-text">信道复用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%91%E5%88%86%E5%A4%8D%E7%94%A8fdm"><span class="nav-number">4.3.7.</span> <span class="nav-text">频分复用（FDM）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E5%88%86%E5%A4%8D%E7%94%A8tdm"><span class="nav-number">4.3.8.</span> <span class="nav-text">时分复用（TDM）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E6%97%B6%E5%88%86%E5%A4%8D%E7%94%A8stdm"><span class="nav-number">4.3.9.</span> <span class="nav-text">统计时分复用（STDM）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A2%E5%88%86%E5%A4%8D%E7%94%A8wdm"><span class="nav-number">4.3.10.</span> <span class="nav-text">波分复用（WDM）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A0%81%E5%88%86%E5%A4%8D%E7%94%A8cdm"><span class="nav-number">4.3.11.</span> <span class="nav-text">码分复用（CDM）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%91%E5%88%86%E5%A4%9A%E5%9D%80%E6%97%B6%E5%88%86%E5%A4%9A%E5%9D%80%E7%A0%81%E5%88%86%E5%A4%9A%E5%9D%80fdmatdmacdma"><span class="nav-number">4.3.12.</span> <span class="nav-text">频分多址 / 时分多址 / 码分多址（FDMA/TDMA/CDMA）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">4.3.13.</span> <span class="nav-text">题目</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="nav-number">5.</span> <span class="nav-text">数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%E6%88%90%E5%B8%A7"><span class="nav-number">5.1.</span> <span class="nav-text">封装成帧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%A7%E5%AE%9A%E7%95%8C%E7%AC%A6"><span class="nav-number">5.1.1.</span> <span class="nav-text">帧定界符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%8F%E6%98%8E%E4%BC%A0%E8%BE%93"><span class="nav-number">5.2.</span> <span class="nav-text">透明传输</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="nav-number">5.2.1.</span> <span class="nav-text">转义字符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%AE%E9%94%99%E6%A3%80%E6%B5%8B"><span class="nav-number">5.3.</span> <span class="nav-text">差错检测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AF%E7%A0%81%E7%8E%87ber"><span class="nav-number">5.3.1.</span> <span class="nav-text">误码率（BER）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%A7%E6%A3%80%E9%AA%8C%E5%BA%8F%E5%88%97fcs"><span class="nav-number">5.3.2.</span> <span class="nav-text">帧检验序列（FCS）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E6%A3%80%E9%AA%8Ccrc"><span class="nav-number">5.3.3.</span> <span class="nav-text">循环冗余检验（CRC）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%A0%E6%AF%94%E7%89%B9%E5%B7%AE%E9%94%99%E4%B8%8E%E6%97%A0%E4%BC%A0%E8%BE%93%E5%B7%AE%E9%94%99"><span class="nav-number">5.3.4.</span> <span class="nav-text">无比特差错与无传输差错</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%82%B9%E5%AF%B9%E7%82%B9%E5%8D%8F%E8%AE%AE-ppp"><span class="nav-number">5.4.</span> <span class="nav-text">点对点协议 PPP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ppp-%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%8A%B6%E6%80%81"><span class="nav-number">5.4.1.</span> <span class="nav-text">PPP 协议的工作状态</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ppp-%E5%B8%A7%E6%A0%BC%E5%BC%8F"><span class="nav-number">5.4.2.</span> <span class="nav-text">PPP 帧格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E4%BC%A0%E8%BE%93%E6%97%B6%E7%9A%84%E5%AD%97%E8%8A%82%E5%A1%AB%E5%85%85"><span class="nav-number">5.4.3.</span> <span class="nav-text">异步传输时的字节填充</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E4%BC%A0%E8%BE%93%E6%97%B6%E7%9A%84%E9%9B%B6%E6%AF%94%E7%89%B9%E5%A1%AB%E5%85%85"><span class="nav-number">5.4.4.</span> <span class="nav-text">同步传输时的零比特填充</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%A6%E5%A4%96"><span class="nav-number">5.4.5.</span> <span class="nav-text">另外</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#csmacd-%E5%8D%8F%E8%AE%AE"><span class="nav-number">5.5.</span> <span class="nav-text">CSMA／CD 协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8D%E8%AF%8D%E8%BE%A8%E6%9E%90csma-%E4%B8%8E-cdma"><span class="nav-number">5.5.1.</span> <span class="nav-text">名词辨析：CSMA 与 CDMA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#csmacd-%E5%8D%8F%E8%AE%AE%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">5.5.2.</span> <span class="nav-text">CSMA/CD 协议工作流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A2%B0%E6%92%9E"><span class="nav-number">5.5.3.</span> <span class="nav-text">碰撞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%BA%E5%8C%96%E7%A2%B0%E6%92%9E"><span class="nav-number">5.5.4.</span> <span class="nav-text">强化碰撞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E9%80%80%E9%81%BF"><span class="nav-number">5.5.5.</span> <span class="nav-text">截断二进制指数退避</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E7%9A%84%E4%BF%A1%E9%81%93%E5%88%A9%E7%94%A8%E7%8E%87"><span class="nav-number">5.6.</span> <span class="nav-text">以太网的信道利用率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E9%A2%98"><span class="nav-number">5.7.</span> <span class="nav-text">例题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#section"><span class="nav-number">5.7.1.</span> <span class="nav-text">【3-24】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#section-1"><span class="nav-number">5.7.2.</span> <span class="nav-text">【3-25】</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="nav-number">5.8.</span> <span class="nav-text">以太网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#windows-%E4%B8%8B%E7%94%A8-cmd-%E6%9F%A5%E7%9C%8B%E7%BD%91%E7%BB%9C%E9%80%82%E9%85%8D%E5%99%A8%E7%9A%84-mac-%E5%9C%B0%E5%9D%80"><span class="nav-number">5.9.</span> <span class="nav-text">Windows 下用 cmd
-查看网络适配器的 MAC 地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mac-%E5%9C%B0%E5%9D%80"><span class="nav-number">5.10.</span> <span class="nav-text">MAC 地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91-v2-%E7%9A%84-mac-%E5%B8%A7%E6%A0%BC%E5%BC%8F"><span class="nav-number">5.11.</span> <span class="nav-text">以太网 V2 的 MAC 帧格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%86%E7%BA%BF%E5%99%A8%E4%B8%8E%E4%BA%A4%E6%8D%A2%E6%9C%BA"><span class="nav-number">5.12.</span> <span class="nav-text">集线器与交换机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E8%87%AA%E5%AD%A6%E4%B9%A0%E5%8A%9F%E8%83%BD"><span class="nav-number">5.13.</span> <span class="nav-text">以太网交换机的自学习功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#base-t-%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="nav-number">5.14.</span> <span class="nav-text">100BASE-T 以太网</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="nav-number">6.</span> <span class="nav-text">网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E7%A7%8D%E6%9C%8D%E5%8A%A1"><span class="nav-number">6.1.</span> <span class="nav-text">两种服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E5%B1%82%E9%9D%A2"><span class="nav-number">6.2.</span> <span class="nav-text">两个层面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%AF%E7%94%B1%E8%A1%A8%E5%92%8C%E8%BD%AC%E5%8F%91%E8%A1%A8"><span class="nav-number">6.3.</span> <span class="nav-text">路由表和转发表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipv4"><span class="nav-number">6.4.</span> <span class="nav-text">IPv4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80"><span class="nav-number">6.5.</span> <span class="nav-text">分类编址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80-cidr"><span class="nav-number">6.6.</span> <span class="nav-text">无分类编址 CIDR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ip-%E5%9C%B0%E5%9D%80%E5%92%8C-mac-%E5%9C%B0%E5%9D%80"><span class="nav-number">6.7.</span> <span class="nav-text">IP 地址和 MAC 地址</span></a></li></ol></li></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E5%B1%82"><span class="nav-number">1.</span> <span class="nav-text">物理层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">编码方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82"><span class="nav-number">2.</span> <span class="nav-text">数据链路层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="nav-number">3.</span> <span class="nav-text">网络层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ipv4-%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80"><span class="nav-number">3.1.</span> <span class="nav-text">IPv4 分类编址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%88%86%E7%B1%BB%E7%BC%96%E5%9D%80-cidr"><span class="nav-number">3.2.</span> <span class="nav-text">无分类编址 CIDR</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">4.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#isp-%E4%B8%8E-ixp"><span class="nav-number">4.1.</span> <span class="nav-text">ISP 与 IXP</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="nav-number">5.</span> <span class="nav-text">性能指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD-k-%E6%98%AF-1024-%E8%BF%98%E6%98%AF-1000"><span class="nav-number">5.1.</span> <span class="nav-text">如何判断 K 是 1024 还是 1000</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A6%E5%AE%BD"><span class="nav-number">5.2.</span> <span class="nav-text">带宽</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%91%E5%9F%9F%E4%B8%8A%E7%9A%84mathrmhz"><span class="nav-number">5.2.1.</span> <span class="nav-text">频域上的：\(\mathrm{Hz}\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E5%9F%9F%E4%B8%8A%E7%9A%84mathrmbits"><span class="nav-number">5.2.2.</span> <span class="nav-text">时域上的：\(\mathrm{bit/s}\)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%9E%E5%90%90%E9%87%8F"><span class="nav-number">5.3.</span> <span class="nav-text">吞吐量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E5%BB%B6"><span class="nav-number">5.4.</span> <span class="nav-text">时延</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%91%E9%80%81%E6%97%B6%E5%BB%B6"><span class="nav-number">5.4.1.</span> <span class="nav-text">发送时延</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%A0%E6%92%AD%E6%97%B6%E5%BB%B6"><span class="nav-number">5.4.2.</span> <span class="nav-text">传播时延</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E6%97%B6%E5%BB%B6"><span class="nav-number">5.4.3.</span> <span class="nav-text">处理时延</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%92%E9%98%9F%E6%97%B6%E5%BB%B6"><span class="nav-number">5.4.4.</span> <span class="nav-text">排队时延</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B"><span class="nav-number">5.4.5.</span> <span class="nav-text">过程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E5%BB%B6%E5%B8%A6%E5%AE%BD%E7%A7%AF"><span class="nav-number">5.5.</span> <span class="nav-text">时延带宽积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%8F%E6%AF%94%E7%89%B9%E5%AE%BD%E5%BA%A6"><span class="nav-number">5.6.</span> <span class="nav-text">每比特宽度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rtt"><span class="nav-number">5.7.</span> <span class="nav-text">RTT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E6%95%88%E6%95%B0%E6%8D%AE%E7%8E%87"><span class="nav-number">5.8.</span> <span class="nav-text">有效数据率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E7%8E%87"><span class="nav-number">5.9.</span> <span class="nav-text">利用率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E6%8C%AF%E5%B9%85%E8%B0%83%E5%88%B6qam"><span class="nav-number">5.10.</span> <span class="nav-text">正交振幅调制（QAM）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E4%BF%A1%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="nav-number">5.11.</span> <span class="nav-text">通信基础概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A5%88%E6%B0%8F%E5%87%86%E5%88%99%E5%A5%88%E5%A5%8E%E6%96%AF%E7%89%B9%E9%A6%99%E5%86%9C%E9%87%87%E6%A0%B7%E5%AE%9A%E7%90%86%E7%9A%84%E4%B8%80%E9%83%A8%E5%88%86"><span class="nav-number">5.11.1.</span> <span class="nav-text">奈氏准则（奈奎斯特 — 香农采样定理的一部分）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%A1%E5%99%AA%E6%AF%94"><span class="nav-number">5.11.2.</span> <span class="nav-text">信噪比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A6%99%E5%86%9C%E5%85%AC%E5%BC%8F%E9%A6%99%E5%86%9C%E5%93%88%E7%89%B9%E8%8E%B1%E5%AE%B9%E9%87%8F%E5%AE%9A%E7%90%86"><span class="nav-number">5.11.3.</span> <span class="nav-text">香农公式（香农 — 哈特莱容量定理）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A5%88%E6%B0%8F%E5%87%86%E5%88%99%E5%92%8C%E9%A6%99%E5%86%9C%E5%85%AC%E5%BC%8F%E7%9A%84%E6%84%8F%E4%B9%89"><span class="nav-number">5.11.4.</span> <span class="nav-text">奈氏准则和香农公式的意义</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%A1%E9%81%93%E5%A4%8D%E7%94%A8"><span class="nav-number">6.</span> <span class="nav-text">信道复用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%91%E5%88%86%E5%A4%8D%E7%94%A8fdm"><span class="nav-number">6.1.</span> <span class="nav-text">频分复用（FDM）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E5%88%86%E5%A4%8D%E7%94%A8tdm"><span class="nav-number">6.2.</span> <span class="nav-text">时分复用（TDM）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%9F%E8%AE%A1%E6%97%B6%E5%88%86%E5%A4%8D%E7%94%A8stdm"><span class="nav-number">6.3.</span> <span class="nav-text">统计时分复用（STDM）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B3%A2%E5%88%86%E5%A4%8D%E7%94%A8wdm"><span class="nav-number">6.3.1.</span> <span class="nav-text">波分复用（WDM）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A0%81%E5%88%86%E5%A4%8D%E7%94%A8cdm"><span class="nav-number">6.3.2.</span> <span class="nav-text">码分复用（CDM）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%91%E5%88%86%E5%A4%9A%E5%9D%80%E6%97%B6%E5%88%86%E5%A4%9A%E5%9D%80%E7%A0%81%E5%88%86%E5%A4%9A%E5%9D%80fdmatdmacdma"><span class="nav-number">6.3.3.</span> <span class="nav-text">频分多址 / 时分多址 / 码分多址（FDMA/TDMA/CDMA）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">6.3.4.</span> <span class="nav-text">题目</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82-1"><span class="nav-number">7.</span> <span class="nav-text">数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%81%E8%A3%85%E6%88%90%E5%B8%A7"><span class="nav-number">7.1.</span> <span class="nav-text">封装成帧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%A7%E5%AE%9A%E7%95%8C%E7%AC%A6"><span class="nav-number">7.1.1.</span> <span class="nav-text">帧定界符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%8F%E6%98%8E%E4%BC%A0%E8%BE%93"><span class="nav-number">7.2.</span> <span class="nav-text">透明传输</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="nav-number">7.2.1.</span> <span class="nav-text">转义字符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%AE%E9%94%99%E6%A3%80%E6%B5%8B"><span class="nav-number">7.3.</span> <span class="nav-text">差错检测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%AF%E7%A0%81%E7%8E%87ber"><span class="nav-number">7.3.1.</span> <span class="nav-text">误码率（BER）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%A7%E6%A3%80%E9%AA%8C%E5%BA%8F%E5%88%97fcs"><span class="nav-number">7.3.2.</span> <span class="nav-text">帧检验序列（FCS）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E5%86%97%E4%BD%99%E6%A3%80%E9%AA%8Ccrc"><span class="nav-number">7.3.3.</span> <span class="nav-text">循环冗余检验（CRC）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%A0%E6%AF%94%E7%89%B9%E5%B7%AE%E9%94%99%E4%B8%8E%E6%97%A0%E4%BC%A0%E8%BE%93%E5%B7%AE%E9%94%99"><span class="nav-number">7.3.4.</span> <span class="nav-text">无比特差错与无传输差错</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%82%B9%E5%AF%B9%E7%82%B9%E5%8D%8F%E8%AE%AE-ppp"><span class="nav-number">7.4.</span> <span class="nav-text">点对点协议 PPP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ppp-%E5%B8%A7%E6%A0%BC%E5%BC%8F"><span class="nav-number">7.4.1.</span> <span class="nav-text">PPP 帧格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%82%E6%AD%A5%E4%BC%A0%E8%BE%93%E6%97%B6%E7%9A%84%E5%AD%97%E8%8A%82%E5%A1%AB%E5%85%85"><span class="nav-number">7.4.2.</span> <span class="nav-text">异步传输时的字节填充</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8C%E6%AD%A5%E4%BC%A0%E8%BE%93%E6%97%B6%E7%9A%84%E9%9B%B6%E6%AF%94%E7%89%B9%E5%A1%AB%E5%85%85"><span class="nav-number">7.4.3.</span> <span class="nav-text">同步传输时的零比特填充</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%A6%E5%A4%96"><span class="nav-number">7.4.4.</span> <span class="nav-text">另外</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#csmacd-%E5%8D%8F%E8%AE%AE"><span class="nav-number">7.5.</span> <span class="nav-text">CSMA／CD 协议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8D%E8%AF%8D%E8%BE%A8%E6%9E%90csma-%E4%B8%8E-cdma"><span class="nav-number">7.5.1.</span> <span class="nav-text">名词辨析：CSMA 与 CDMA</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#csmacd-%E5%8D%8F%E8%AE%AE%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="nav-number">7.5.2.</span> <span class="nav-text">CSMA/CD 协议工作流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A2%B0%E6%92%9E"><span class="nav-number">7.5.3.</span> <span class="nav-text">碰撞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%BA%E5%8C%96%E7%A2%B0%E6%92%9E"><span class="nav-number">7.5.4.</span> <span class="nav-text">强化碰撞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%AA%E6%96%AD%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%8C%87%E6%95%B0%E9%80%80%E9%81%BF"><span class="nav-number">7.5.5.</span> <span class="nav-text">截断二进制指数退避</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E7%9A%84%E4%BF%A1%E9%81%93%E5%88%A9%E7%94%A8%E7%8E%87"><span class="nav-number">7.6.</span> <span class="nav-text">以太网的信道利用率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E9%A2%98"><span class="nav-number">7.7.</span> <span class="nav-text">例题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#section"><span class="nav-number">7.7.1.</span> <span class="nav-text">【3-24】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#section-1"><span class="nav-number">7.7.2.</span> <span class="nav-text">【3-25】</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="nav-number">7.8.</span> <span class="nav-text">以太网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%9A%84%E8%87%AA%E5%AD%A6%E4%B9%A0%E5%8A%9F%E8%83%BD"><span class="nav-number">7.9.</span> <span class="nav-text">以太网交换机的自学习功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#base-t-%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="nav-number">7.10.</span> <span class="nav-text">100BASE-T 以太网</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -136,7 +135,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2025-01-19T21:16:36+08:00" itemprop="dateModified" title="修改时间：2025-01-19 21:16:36">2025-01-19</time>
+<time datetime="2025-01-21T19:58:44+08:00" itemprop="dateModified" title="修改时间：2025-01-21 19:58:44">2025-01-21</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -152,68 +151,119 @@
 <i class="far fa-file-word"></i>
 </span>
 <span class="post-meta-item-text">本文字数：</span>
-<span>10k</span>
+<span>7.7k</span>
 </span>
 <span class="post-meta-item" title="阅读时长">
 <span class="post-meta-item-icon">
 <i class="far fa-clock"></i>
 </span>
 <span class="post-meta-item-text">阅读时长 ≈</span>
-<span>33 分钟</span>
+<span>26 分钟</span>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><p>计算机基础不牢。</p>
+<div class="post-body" itemprop="articleBody"><p>世界上第一个网页：<a href="http://info.cern.ch" rel="noopener" target="_blank">http://info.cern.ch</a></p>
+<p>RFC 文档：“请求评论”（Request For
+Comments）的文档，公开发布的互联网建议标准，请求公众评论。最后制定互联网标准
+STD。</p>
 <span id="more"></span>
+<h2 id="物理层">物理层</h2>
+<p>RJ45 水晶头的接线方式有两种，多使用
+T568B：橙白 | 橙、绿白 | 蓝、蓝白 | 绿、棕白 | 棕。传的是数字信号。</p>
+<p>集线器工作在物理层。</p>
+<ul>
+<li>物理层之下的传输媒体
+<ul>
+<li>导引性传输媒体：双绞线、光缆、同轴电缆、架空明线</li>
+<li>非导引性传输媒体：空气或真空</li>
+</ul></li>
+</ul>
+<p>网卡负责把有线或无线电信号与比特流互转。</p>
+<ul>
+<li>通信双方的交互方式
+<ul>
+<li>单向通信（单工）：一段单行道。电视、广播。</li>
+<li>双向交替通信（半双工）：一段有两个车道的马路，但是规定在一边的车道有车正在走时，另一边（相反方向）的车道不能有车走。对讲机。</li>
+<li>双向同时通信（全双工）：一段正常的两个车道的马路。</li>
+</ul></li>
+</ul>
+<h3 id="编码方式">编码方式</h3>
+<p>编码的终点是码，即数字信号。</p>
+<p>如何把比特和电压互相转换。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/></pre></td><td class="code"><pre><span class="line"> 1  1  0  0  1</span><br/><span class="line"></span><br/><span class="line">‾‾‾‾‾‾______‾‾‾    # 极性不归零电平 Polar NRZL，Non-Return-to-Zero level</span><br/><span class="line"></span><br/><span class="line">‾‾‾_________‾‾‾    # 极性不归零反转 Polar NRZI，Non-return-to-zero inverted，边界遇 1 跳变</span><br/><span class="line"></span><br/><span class="line">-‾--‾--_--_--‾-    # 极性归零 Polar RZ，Return-to-Zero，正脉冲凸，负脉冲凹</span><br/><span class="line"></span><br/><span class="line">‾_|‾_|_‾|_‾|‾_|    # 曼彻斯特编码（G.E. Thomas Convention）</span><br/><span class="line"></span><br/><span class="line">‾_|_‾|_‾|_‾|‾_|    # 差分曼彻斯特编码（G.E. Thomas Convention）</span><br/></pre></td></tr></tbody></table></figure>
+<p>曼彻斯特编码：中心始终跳变</p>
+<ul>
+<li>G.E. Thomas Convention：
+<ul>
+<li>中心向下跳变，<code>‾_</code>，<code>1</code></li>
+<li>中心向上跳变，<code>_‾</code>，<code>0</code></li>
+<li>简记：<strong>下为 1</strong></li>
+</ul></li>
+<li>IEEE 802.3 Convention 和上面的定义相反</li>
+</ul>
+<p>差分曼彻斯特编码：中心始终跳变</p>
+<ul>
+<li>G.E. Thomas Convention：
+<ul>
+<li>左边界无跳变，<code>1</code>
+<ul>
+<li><code>_|_‾</code></li>
+<li><code>‾|‾_</code></li>
+</ul></li>
+<li>左边界有跳变，<code>0</code>
+<ul>
+<li><code>_|‾_</code></li>
+<li><code>‾|_‾</code></li>
+</ul></li>
+<li>简记：<strong>左连为 1</strong></li>
+</ul></li>
+<li>IEEE 802.3 Convention 和上面的定义相反</li>
+</ul>
+<h2 id="数据链路层">数据链路层</h2>
+<p>Windows 查看网络适配器的 MAC 地址：ipconfig /all</p>
+<p>MAC 地址有 6 个字节。全 1 的地址（FF:FF:FF:FF:FF:</p>
+<ul>
+<li>前三个字节是 IEEE
+的注册管理机构分配的，后三个字节是厂家自行分配的</li>
+<li>第一个字节最低位：0 为单播，1 为多播</li>
+</ul>
+<p>以太网 V2 的 MAC 头部：目标 MAC + 源 MAC + 类型
+0800【IPv4】/80DD【IPv6】</p>
+<p>下到物理层：在 MAC 帧前面插入 7 字节的前同步码和 1
+字节的帧定界符：就是
+<code>10101010 10101010 ... 10101010 10101011</code>。交替的 10
+用于时钟同步，最后一个字节的最后一个比特变了，告诉接收端，后面的就是 MAC
+帧。不用标记帧结束，因为是曼彻斯特编码，一直在跳变，脱离原本的规律了就是帧结束了。</p>
+<p>交换机工作在数据链路层，全双工。并且不使用 CSMA/CD
+协议，但仍然使用以太网的帧结构。</p>
+<p>交换机的每一个接口都是一个冲突域。</p>
+<p>交换机分为直通交换和存储转发。直通交换不校验 FCS，直接读 6
+字节的目标地址（有时包含前导码）。</p>
+<h2 id="网络层">网络层</h2>
+<h3 id="ipv4-分类编址">IPv4 分类编址</h3>
+<p>4 个字节。</p>
+<p>A 类地址：三字节主机号，网络号之前是 0</p>
+<p>B 类地址：两字节主机号，网络号之前是 10</p>
+<p>C 类地址：一字节主机号，网络号之前是 110</p>
+<p>主机号全 1 是广播地址，全 0 是该子网</p>
+<h3 id="无分类编址-cidr">无分类编址 CIDR</h3>
+<p>子网掩码：用于标记用 IP 地址前面的几位来表示网络地址。</p>
+<p>子网掩码类似 <code>255.248.0.0</code>
+（<code>11111111 11111000 00000000 00000000</code>），即用前面 13
+位表示网络地址，后面的位表示主机地址。记作 <code>IP地址/13</code>。</p>
+<hr/>
 <p>（注意：这里的知识是未经验证的，是从谢老的那本书主观复述一遍的，不一定正确，且笔者写完之后就没有再看过了）</p>
 <h2 id="概述">概述</h2>
-<p>一些通用的、可编程的（含
-CPU）硬件连接起来，可以传输多种不同类型的数据。</p>
-<ul>
-<li>互连网 internet：通用名词，一群计算机连起来。</li>
-<li>互联网 Internet：专用名词，全球计算机连起来。</li>
-</ul>
-<p>世界上第一个网页：<a href="http://info.cern.ch" rel="noopener" target="_blank">http://info.cern.ch</a></p>
-<h3 id="isp">ISP</h3>
-<p>互联网服务提供者（Internet Service
-Provider），可以是移动联通电信公司，也可以是非营利组织。</p>
-<ul>
-<li>主干 ISP：国</li>
-<li>地区 ISP：省</li>
-<li>本地 ISP：省以下</li>
-</ul>
-<p>内容提供者可以连接各级 ISP 和 IXP。</p>
-<h3 id="ixp">IXP</h3>
-<p>互联网交换点（Internet eXchange Point），让两个 ISP 直接相连。</p>
-<p>比如两个同级 ISP 交换信息时，可以通过 IXP，而不必通过上级 ISP。</p>
-<h3 id="rfc-文档">RFC 文档</h3>
-<p>“请求评论”（Request For
-Comments）的文档，公开发布的互联网建议标准，请求公众评论。</p>
-<p>最后制定互联网标准 STD。</p>
-<ul>
-<li>边缘部分：所有用户直接使用的主机。又叫端系统。</li>
-<li>核心部分：大量网络和连接网络的路由器。</li>
-</ul>
-<h3 id="边缘部分的通信">边缘部分的通信</h3>
-<p>计算机通信，实际上是进程间通过端口号通信。</p>
-<h4 id="cs">C/S</h4>
-<p>客户 - 服务器</p>
-<p>客户和服务器都是指进程。</p>
-<h4 id="p2p">P2P</h4>
-<p>peer to peer，peer：平等的。</p>
-<p>本质是 C/S，每台主机既是 C 又是 S。</p>
-<h3 id="核心部分的通信">核心部分的通信</h3>
-<h4 id="电路交换">电路交换</h4>
-<p>三步走：建立连接 -&gt; 占线通信 -&gt; 释放连接</p>
-<ul>
-<li>占线，两台机器间通信完了才能接受与其他机器通信</li>
-<li>效率低（时间利用密度低，占线过程中会有不收发信息的时候）</li>
-</ul>
-<h4 id="分组交换">分组交换</h4>
-<p>存储转发，类比快递收寄</p>
+<p>计算机网络分边缘部分和核心部分。</p>
+<p>边缘部分是我们所有人直接使用的主机，如手机和电脑。核心部分是除了边缘主机之外的所有硬件设施，如交换机、路由器、网线。接入网是边缘部分向核心部分过渡的部分。</p>
+<p>边缘部分的通信分 C/S 模式和 P2P
+模式。两者的区别是学生向老师请教题目和学生之间互相讲题，在下载文件之后做不做种。</p>
+<p>核心部分的通信：电路交换是提前联系用一辆专车运货；分组交换是把货物拆分成小的快递，再经过各种站点发送出去；报文交换是将货物作为一个整体，通过多个中转站运送。前两者的区别是一手和多手，后两者的区别是切不切片。</p>
+<p>分组交换：</p>
 <ol type="1">
-<li>把报文分组，每组写上头部信息。（包裹大包分成小包，写上序号、寄出地和目的地等）</li>
+<li>TCP
+协议把报文分组，每组写上头部信息。（包裹大包分成小包，写上序号、寄出地和目的地等）</li>
 <li>通过路由器一级一级地转发到目的地。</li>
 </ol>
 <pre><code class="mermaid">
@@ -243,35 +293,16 @@ section 3 号包
 <li> 5-10 时间 1 号包裹从 B 站到 C 站、2 号包裹从 A 站到 B 站</li>
 <li> 10-15 时间 1 号包裹从 C 站到 D 站、2 号包裹从 B 站到 C 站、3
 号包裹从 A 站到 B 站</li>
-<li>……</li>
-<li>（书上的图是以空间为横轴，以时间为纵轴）</li>
 </ul>
 <ol start="3" type="1">
-<li>把各个包裹合并。
-<ul>
-<li>不会占线，速度比报文交换快</li>
-<li>排队等路由器转发</li>
-<li>动态分配线路，不保证带宽</li>
-<li>增加开销（合并的时候）</li>
-</ul></li>
+<li>把各个包裹合并。</li>
 </ol>
-<h4 id="报文交换">报文交换</h4>
-<p>也是存储转发，但是不分组，直接发完整的。</p>
-<h3 id="类别">类别</h3>
-<h4 id="按作用范围">按作用范围</h4>
-<ul>
-<li>WAN：广域网，几十到几千公里</li>
-<li> MAN：城域网，5~50km</li>
-<li>LAN：局域网，1km</li>
-<li>PAN：个人局域网，10m</li>
-</ul>
-<h4 id="按使用者">按使用者</h4>
-<ul>
-<li>公用网</li>
-<li>专用网</li>
-</ul>
-<h4 id="接入网-an">接入网 AN</h4>
-<p>不是核心部分，也不是边缘部分。</p>
+<h3 id="isp-与-ixp">ISP 与 IXP</h3>
+<p>互联网服务提供者（Internet Service
+Provider），可以是移动联通电信公司，也可以是非营利组织。</p>
+<p>主干 ISP：国 | 地区 ISP：省 | 本地 ISP：省以下</p>
+<p>两个同级 ISP 交换信息时，可以通过互联网交换点（Internet eXchange
+Point）IXP，而不必通过上级 ISP。</p>
 <h2 id="性能指标">性能指标</h2>
 <ul>
 <li><span class="math inline">\(\mathrm{K,M,G...}\)</span>
@@ -283,26 +314,10 @@ section 3 号包
 <li> RTT 和有效数据（速）率</li>
 <li>（网络）利用率</li>
 </ul>
-<h3 id="mathrmkmg...-的不同含义"><span class="math inline">\(\mathrm{K,M,G...}\)</span> 的不同含义</h3>
-<p>基数不同：</p>
-<ul>
-<li>在计算机领域，<span class="math inline">\(\mathrm{K =
-2^{10}}\)</span>，<span class="math inline">\(\mathrm{M =
-2^{10}K}\)</span>……</li>
-<li> 在通信的领域，<span class="math inline">\(\mathrm{K =
-10^{3}}\)</span>，<span class="math inline">\(\mathrm{M =
-10^{3}K}\)</span>……</li>
-</ul>
-<p>数据通过网线或空气传播时，是在通信的领域。</p>
-<p>一般 <span class="math inline">\(\mathrm{MB}\)</span> 指 <span class="math inline">\(\mathrm{2^{10} \times 2^{10} \times 8
-bit}\)</span>，</p>
-<p><span class="math inline">\(\mathrm{Mbit}\)</span> 指 <span class="math inline">\(\mathrm{10^{3} \times 10^{3} bit}\)</span>，</p>
-<p>具体问题具体分析。如果追求准确的话，<span class="math inline">\(\mathrm{2^{10} \times 2^{10} \times 8
-bit}\)</span> 用 <span class="math inline">\(\mathrm{MiB}\)</span>
-表示。</p>
-<h3 id="速率">速率</h3>
-<p><span class="math inline">\(\mathrm{bit/s}\)</span></p>
-<p><strong>通常</strong>指额定速率。</p>
+<h3 id="如何判断-k-是-1024-还是-1000">如何判断 K 是 1024 还是 1000</h3>
+<p>Kibi：内存、存储容量，KiB = KB = 1024B</p>
+<p>Kilo：网络带宽，K = 1000，国际单位制的词头</p>
+<p>速率：<span class="math inline">\(\mathrm{bit/s}\)</span></p>
 <h3 id="带宽">带宽</h3>
 <h4 id="频域上的mathrmhz">频域上的：<span class="math inline">\(\mathrm{Hz}\)</span></h4>
 <p>信号频率范围 <span class="math inline">\(\mathrm{200Hz \sim
@@ -388,258 +403,7 @@ axisFormat %S
 <p><span class="math inline">\(网络利用率 = 1 -
 \dfrac {空闲时延}{当前时延}\)</span></p>
 <p>利用率越高，当前时延越大（堵车）。</p>
-<h2 id="体系结构">体系结构</h2>
-<h3 id="体系结构表">体系结构表</h3>
-<table>
-<tbody><tr>
-<td>
-应用层
-</td>
-<td rowspan="3">
-应用层
-</td>
-<td rowspan="3">
-应用层
-</td>
-<td rowspan="3">
-HTTP FTP SMTP DNS POP SSH TLS/SSL……
-</td>
-<td>
-……
-</td>
-</tr>
-<tr>
-<td>
-表示层（语法层）
-</td>
-<td>
-数据格式转换、字符编码、压缩、加解密、序列化
-</td>
-</tr>
-<tr>
-<td>
-会话层
-</td>
-<td>
-创建、管理和维护会话
-</td>
-</tr>
-<tr>
-<td>
-传输层
-</td>
-<td>
-传输层
-</td>
-<td>
-传输层
-</td>
-<td>
-TCP UDP……
-</td>
-<td>
-自下而上第一个提供<b>端到端</b>的服务。UDP 提供无连接不可靠的数据报服务。TCP 提供有连接<b>可靠</b>的数据报服务
-</td>
-</tr>
-<tr>
-<td>
-网络层
-</td>
-<td>
-网络层
-</td>
-<td>
-网络层
-</td>
-<td>
-IP ARP……
-</td>
-<td>
-路由选择。提供无连接不可靠的数据报服务
-</td>
-</tr>
-<tr>
-<td>
-数据链路层
-</td>
-<td rowspan="2">
-链路层
-</td>
-<td>
-数据链路层
-</td>
-<td rowspan="2">
-ARQ HDLC PPP……
-</td>
-<td>
-差错控制（循环冗余校验 CRC、帧检验序列 FCS、海明码、 奇偶校验……）
-点对点的流量控制
-</td>
-</tr>
-<tr>
-<td>
-物理层
-</td>
-<td>
-物理层
-</td>
-<td>
-讨论用多大的电压表示 0 和 1，比特如何在空气中传播
-</td>
-</tr>
-<tr>
-<th>
-OSI
-</th>
-<th>
-TCP/IP
-</th>
-<th>
-教学模型
-</th>
-<th>
-协议
-</th>
-<th>
-任务
-</th>
-</tr>
-</tbody></table>
-<p>在网络体系结构中，<strong>不包含协议的内部实现细节</strong>。只是一个框架。</p>
-<h3 id="pdu">PDU</h3>
-<p>Protocol Data Unit，协议数据单元。</p>
-<p>每一层的协议把数据封装成不同的 PDU。</p>
-<h3 id="网络协议的三要素">网络协议的三要素</h3>
-<ul>
-<li>语法：数据的结构、格式、编码方式
-<ul>
-<li>HTTP 协议中的请求和响应消息的格式</li>
-<li> TCP 协议中的数据包格式</li>
-</ul></li>
-<li>语义：数据的含义、解释，在传输过程中的意义和目的
-<ul>
-<li>HTTP 协议中的请求和响应消息的含义</li>
-<li> TCP 协议中的数据包序列号</li>
-</ul></li>
-<li>同步：数据传输的时序
-<ul>
-<li>TCP 协议中的流量控制和拥塞控制</li>
-</ul></li>
-</ul>
-<h3 id="物理层之下的传输媒体">物理层之下的传输媒体</h3>
-<p><strong>不在体系结构之内。</strong> 或者说第 0 层。</p>
-<ul>
-<li>导引性传输媒体
-<ul>
-<li>双绞线（网线）</li>
-<li>光缆：给光纤加上保护套，里面还填充了其他东西。
-<ul>
-<li>单模光纤：非常细，光传输时不会发生多次反射。适用于长距离、高速数据传输。</li>
-<li>多模光纤：适用于短距离数据传输。</li>
-</ul></li>
-<li>同轴电缆</li>
-<li>架空明线</li>
-</ul></li>
-<li>非导引性传输媒体
-<ul>
-<li>自由空间，空气或真空。
-<ul>
-<li>多径效应</li>
-<li>微波接力</li>
-</ul></li>
-</ul></li>
-</ul>
-<h2 id="物理层">物理层</h2>
-<p>物理层讨论的是如何传比特的，用什么协议（规程）。不解释比特的意思。</p>
-<p>它尽量隔开了传输媒体（铜线、光纤等）和上一层（数据链路层）之间的关系。</p>
-<p>物理层确定了<strong>与传输媒体接口有关的一些特性：</strong></p>
-<p>机械特性：接线器的形状与尺寸、引脚数目和排列方式、固定和锁定装置等。</p>
-<p>电气特性：电压、电流、电阻、电容、电感、阻抗、信号速率等。</p>
-<p>指明各条导线上的电压范围。</p>
-<h4 id="功能特性">功能特性</h4>
-<p><strong>数据传输的方式</strong></p>
-<p>串行或并行</p>
-<p><strong>编码方式</strong></p>
-<p>指明某条导线上某一电平的电压的意义。或者说，指明 0，1
-分别用哪个范围内的电压表示。即 <strong>比特 &lt;-&gt; 电压</strong>
-的对应关系。</p>
-<h4 id="过程特性">过程特性</h4>
-<p>事件顺序，流程。</p>
-<ul>
-<li>通信双方的交互方式：单向通信、双向交替通信、双向同时通信</li>
-<li>编码和调制</li>
-<li>编码方式：极性不归零电平（Polar NRZL）、极性不归零反转（Polar
-NRZI）、极性归零（Polar RZ）、曼彻斯特编码、差分曼彻斯特编码</li>
-<li>基带调制、带通调制、正交振幅调制（QAM）</li>
-</ul>
-<h3 id="通信双方的交互方式">通信双方的交互方式</h3>
-<h4 id="单向通信单工">单向通信（单工）</h4>
-<p>一段单行道。电视、广播。</p>
-<h4 id="双向交替通信半双工">双向交替通信（半双工）</h4>
-<p>一段有两个车道的马路，但是规定在一边的车道有车正在走时，另一边（相反方向）的车道不能有车走。对讲机。</p>
-<h4 id="双向同时通信全双工">双向同时通信（全双工）</h4>
-<p>一段正常的两个车道的马路。</p>
-<h3 id="编码和调制">编码和调制</h3>
-<ul>
-<li>把信号（数或者模）转换为数字信号，叫编码。</li>
-<li>把信号（数或者模）转换为模拟信号，叫调制。</li>
-</ul>
-<p>上面的抽象成了简单的情况，还是要根据语义判断。</p>
-<p>参考了：<a href="https://zhuanlan.zhihu.com/p/601728934" rel="noopener" target="_blank">编码技术（RZ、NRZ、NRZI、曼彻斯特、差分曼彻斯特等）</a></p>
-<h4 id="极性不归零电平polar-nrzl">极性不归零电平（Polar NRZL）</h4>
-<p>Non-Return-to-Zero level</p>
-<ul>
-<li>正电平，<code>‾</code>，<code>1</code></li>
-<li>负电平，<code>_</code>，<code>0</code></li>
-</ul>
-<h4 id="极性不归零反转polar-nrzi">极性不归零反转（Polar NRZI）</h4>
-<p>Non-return-to-zero inverted</p>
-<p>中心不跳变，边界遇 1 跳变（反转）。</p>
-<h4 id="极性归零polar-rz">极性归零（Polar RZ）</h4>
-<p>Return-to-Zero</p>
-<ul>
-<li>正脉冲，凸（<code>-‾-</code>），<code>1</code></li>
-<li>负脉冲，凹（<code>-_-</code>），<code>0</code></li>
-</ul>
-<h4 id="曼彻斯特编码">曼彻斯特编码</h4>
-<p>中心始终跳变</p>
-<ul>
-<li>G.E. Thomas Convention：
-<ul>
-<li>中心向下跳变，<code>‾_</code>，<code>1</code></li>
-<li>中心向上跳变，<code>_‾</code>，<code>0</code></li>
-<li>简记：<strong>下为 1</strong></li>
-</ul></li>
-<li>IEEE 802.3 Convention 和上面的定义相反</li>
-</ul>
-<h4 id="差分曼彻斯特编码">差分曼彻斯特编码</h4>
-<p>中心始终跳变</p>
-<ul>
-<li>G.E. Thomas Convention：
-<ul>
-<li>左边界无跳变，<code>1</code>
-<ul>
-<li><code>_|_‾</code></li>
-<li><code>‾|‾_</code></li>
-</ul></li>
-<li>左边界有跳变，<code>0</code>
-<ul>
-<li><code>_|‾_</code></li>
-<li><code>‾|_‾</code></li>
-</ul></li>
-<li>简记：<strong>左连为 1</strong></li>
-</ul></li>
-<li>IEEE 802.3 Convention 和上面的定义相反</li>
-</ul>
-<h4 id="对比">对比</h4>
-<p>（如果 <code>#</code> 号没对齐，可以尝试换设备查看）</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/></pre></td><td class="code"><pre><span class="line"> 1  1  0  0  1</span><br/><span class="line"></span><br/><span class="line">‾‾‾‾‾‾______‾‾‾    # 极性不归零电平 Polar NRZL</span><br/><span class="line"></span><br/><span class="line">‾‾‾_________‾‾‾    # 极性不归零反转 Polar NRZI</span><br/><span class="line"></span><br/><span class="line">-‾--‾--_--_--‾-    # 极性归零 Polar RZ</span><br/><span class="line"></span><br/><span class="line">‾_|‾_|_‾|_‾|‾_|    # 曼彻斯特编码（G.E. Thomas Convention）</span><br/><span class="line"></span><br/><span class="line">‾_|_‾|_‾|_‾|‾_|    # 差分曼彻斯特编码（G.E. Thomas Convention）</span><br/></pre></td></tr></tbody></table></figure>
-<h4 id="基带调制">基带调制</h4>
-<p>基带信号就是原始的数字信号，把基带信号转换成另一种数字信号就叫基带调制。也叫编码。</p>
-<h4 id="带通调制">带通调制</h4>
-<p>使用载波的。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line">‾‾‾‾‾‾______‾‾‾    # 基带信号</span><br/><span class="line"></span><br/><span class="line">MWMWMW------MWM    # 调幅（AM）</span><br/><span class="line"></span><br/><span class="line">MWMWMWПUПUПUMWM    # 调频（FM）</span><br/><span class="line"></span><br/><span class="line">MWMWMWWMWMWMMWM    # 调相（PM）</span><br/></pre></td></tr></tbody></table></figure>
-<h4 id="正交振幅调制qam">正交振幅调制（QAM）</h4>
+<h3 id="正交振幅调制qam">正交振幅调制（QAM）</h3>
 <p>简单地理解就是：</p>
 <p><span class="math display">\[
 \begin {aligned}
@@ -689,27 +453,10 @@ y &amp; = A\sin (\omega x + \phi) \\
 <li>信道长度</li>
 <li>信道带宽</li>
 <li>信噪比</li>
-<li><a href="/blog/CN/03/#编码方式">编码方式</a></li>
-<li><a href="/blog/CN/05">信道复用方式</a></li>
 <li>信号传播速度（电磁波在介质中的传播速度）<strong>不会影响</strong>信道数据的传输速率</li>
 </ul></li>
 </ul>
-<!--more-->
-<h4 id="码元">码元</h4>
-<p>码元，就是用来表示【码】的单个【元】。</p>
-<ul>
-<li>【码】就是串 <code>010100...</code></li>
-<li>【元】就是符号（x 元 x 次方程）。</li>
-<li>【码元】就是用来表示长串的众多符号中的单个符号。</li>
-</ul>
-<p>比如串 <code>1001 1111</code>，可以分隔成前后两部分，记作
-<code>9F</code>。</p>
-<p><code>9</code> 和 <code>F</code>
-都是码元，是不同的码元，它们分别一一对应（双射）了一个四位二进制数。</p>
-<p>如果分隔成八个部分，那 <code>0</code> 和 <code>1</code>
-也是码元。</p>
-<p><span class="math inline">\(\{一，壹，Ⅰ，①，...\}\)</span>
-都是码元，这是多个码元对应一个比特 <code>1</code> 的情况。</p>
+<p>码元：就是用来表示【码】的单个【元】。</p>
 <p>类比信号，码就是波形，码元就是在发送和解读波形时，可以分辨的最小单位波形。</p>
 <h4 id="奈氏准则奈奎斯特香农采样定理的一部分">奈氏准则（奈奎斯特 — 香农采样定理的一部分）</h4>
 <p>奈奎斯特这个人推导出的准则：</p>
@@ -756,27 +503,12 @@ y &amp; = A\sin (\omega x + \phi) \\
 <li>只要信息传输速率低于极限速率，就一定能找到某种方法实现无差错的传输。</li>
 </ul>
 <p>计算传输速率时，取奈氏准则和香农公式的结果小的。</p>
-<h4 id="信道复用">信道复用</h4>
-<ul>
-<li>频分复用（FDM）</li>
-<li>时分复用（TDM）</li>
-<li>统计时分复用（STDM）</li>
-<li>波分复用（WDM）</li>
-<li>码分复用（CDM）</li>
-<li>频分多址 / 时分多址 / 码分多址（FDMA/TDMA/CDMA）</li>
-</ul>
-<h4 id="频分复用fdm">频分复用（FDM）</h4>
-<ul>
-<li>Frequency Division Multiplexing</li>
-<li>Frequency：频率</li>
-<li> Division：划分</li>
-<li> Multiplex：多种的</li>
-</ul>
-<p>把一个大频带划分成若干个小频带，把不同的信号分别调制到这些小频带里。</p>
-<p>比如 A 信号占用 <span class="math inline">\(\mathrm{10-11kHz}\)</span>，B 信号占用 <span class="math inline">\(\mathrm{11-12kHz}\)</span>…… 把它们一起发出去。</p>
-<p>相当于 CPU 多核进程并行。</p>
+<h2 id="信道复用">信道复用</h2>
+<h3 id="频分复用fdm">频分复用（FDM）</h3>
+<p>Frequency Division
+Multiplexing，把一个大频带划分成若干个小频带，把不同的信号分别调制到这些小频带里。</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/></pre></td><td class="code"><pre><span class="line">^频率</span><br/><span class="line">|</span><br/><span class="line">|-----------------</span><br/><span class="line">|C信号</span><br/><span class="line">|-----------------</span><br/><span class="line">|B信号</span><br/><span class="line">|-----------------</span><br/><span class="line">|A信号</span><br/><span class="line">|-----------------</span><br/><span class="line">|</span><br/><span class="line">|-----------------------&gt;时间</span><br/></pre></td></tr></tbody></table></figure>
-<h4 id="时分复用tdm">时分复用（TDM）</h4>
+<h3 id="时分复用tdm">时分复用（TDM）</h3>
 <ul>
 <li>Time Division Multiplexing</li>
 </ul>
@@ -786,7 +518,7 @@ y &amp; = A\sin (\omega x + \phi) \\
 <p>每个 TDM 帧内保证每组信号都传了，就是没传也要保留留给它的空时隙。</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/></pre></td><td class="code"><pre><span class="line">^频率</span><br/><span class="line">|</span><br/><span class="line">|--------------------------</span><br/><span class="line">|A|B|C|A|B|C| |B|C|A| |C|</span><br/><span class="line">|--------------------------</span><br/><span class="line">|     |     |     |     |</span><br/><span class="line">|TDM帧|TDM帧|TDM帧|TDM帧|</span><br/><span class="line">|------------------------------&gt;时间</span><br/></pre></td></tr></tbody></table></figure>
 <p>这造成信道利用率不高。</p>
-<h4 id="统计时分复用stdm">统计时分复用（STDM）</h4>
+<h3 id="统计时分复用stdm">统计时分复用（STDM）</h3>
 <ul>
 <li>Statistic：统计</li>
 </ul>
@@ -904,7 +636,7 @@ D \\
 <li>C 站没有发送</li>
 <li> D 站发送了 <code>1</code></li>
 </ul>
-<h2 id="数据链路层">数据链路层</h2>
+<h2 id="数据链路层-1">数据链路层</h2>
 <p>物理层没法解决的三个问题：</p>
 <ol type="1">
 <li>发出去之后，哪一方接收</li>
@@ -1040,8 +772,6 @@ Protocol)。填表。</li>
 <li>是有连接，面向字节的协议</li>
 </ul></li>
 </ul>
-<h4 id="ppp-协议的工作状态">PPP 协议的工作状态</h4>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/><span class="line">14</span><br/></pre></td><td class="code"><pre><span class="line">【链路静止】：保安没看见你</span><br/><span class="line">| 猫呼叫路由器，建立物理层连接：和保安搭话</span><br/><span class="line">v</span><br/><span class="line">【链路建立】：保安听见你了，问你来干什么</span><br/><span class="line">| LCP配置协商：我要进学校</span><br/><span class="line">| 失败：保安听不懂你的广东话，【链路静止】</span><br/><span class="line">v</span><br/><span class="line">【鉴别】：验证你的身份</span><br/><span class="line">| 失败：【链路终止】-&gt;【链路静止】</span><br/><span class="line">v</span><br/><span class="line">【网络层协议】：登记</span><br/><span class="line">| NCP配置协商：填表</span><br/><span class="line">v</span><br/><span class="line">【链路打开】：让你进了</span><br/></pre></td></tr></tbody></table></figure>
 <h4 id="ppp-帧格式">PPP 帧格式</h4>
 <table style="width:100%;">
 <colgroup>
@@ -1315,73 +1045,6 @@ CSMA/CD 协议。
 <li>实现以太网协议</li>
 </ul></li>
 </ul>
-<!--more-->
-<h3 id="windows-下用-cmd-查看网络适配器的-mac-地址">Windows 下用 cmd
-查看网络适配器的 MAC 地址</h3>
-<figure class="highlight cmd"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="built_in">ipconfig</span> /all</span><br/></pre></td></tr></tbody></table></figure>
-<p>适配器的 MAC
-地址又叫硬件地址 / 物理地址。一台计算机可以有多个适配器。</p>
-<h3 id="mac-地址">MAC 地址</h3>
-<p><a href="https://standards.ieee.org/wp-content/uploads/import/documents/tutorials/eui.pdf" rel="noopener" target="_blank">EUI</a>-48：</p>
-<ul>
-<li>前三个字节是 IEEE 的注册管理机构分配的</li>
-<li>后三个字节是厂家自行分配的</li>
-<li>第一个字节最低位：0 为单播，1 为多播</li>
-<li>全 1 的地址（FF:FF:FF:FF:FF:FF）是广播地址</li>
-</ul>
-<h3 id="以太网-v2-的-mac-帧格式">以太网 V2 的 MAC 帧格式</h3>
-<table>
-<colgroup>
-<col style="width: 9%"/>
-<col style="width: 16%"/>
-<col style="width: 16%"/>
-<col style="width: 47%"/>
-<col style="width: 6%"/>
-<col style="width: 2%"/>
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>字段名</strong></th>
-<th>目标地址</th>
-<th>源地址</th>
-<th>类型（上一层用的什么协议）</th>
-<th>数据</th>
-<th> FCS</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong> 字节数</strong></td>
-<td> 6</td>
-<td>6</td>
-<td>2</td>
-<td>46~1500</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td><strong> 值</strong></td>
-<td> xx:xx:xx:xx:xx:xx</td>
-<td>xx:xx:xx:xx:xx:xx</td>
-<td>0800【IPv4 数据报】<br/>80DD【IPv6 数据报】<br/></td>
-<td>……</td>
-<td>……</td>
-</tr>
-</tbody>
-</table>
-<p>数据部分不足 46 字节时，补到 46 字节。</p>
-<p>MAC 子层 -&gt; 物理层：在 MAC 帧前面插入 7 字节的前同步码和 1
-字节的帧定界符：</p>
-<p>就是 <code>10101010 10101010 ... 10101010 10101011</code>。交替的 10
-用于时钟同步，最后一个字节的最后一个比特变了，告诉接收端，后面的就是 MAC
-帧。</p>
-<p>不用标记帧结束，因为是曼彻斯特编码，一直在跳变，脱离原本的规律了就是帧结束了。</p>
-<h3 id="集线器与交换机">集线器与交换机</h3>
-<p>集线器工作在物理层</p>
-<p>交换机工作在数据链路层，全双工。并且不使用 CSMA/CD
-协议，但仍然使用以太网的帧结构。</p>
-<p>交换机的每一个接口都是一个冲突域。</p>
-<p>交换机分为直通交换和存储转发。直通交换不校验 FCS，直接读 6
-字节的目标地址（有时包含前导码）。</p>
 <h3 id="以太网交换机的自学习功能">以太网交换机的自学习功能</h3>
 <p>一些机器连在交换机的不同端口上。</p>
 <p>源机器发送帧到目标机器，通过交换机。</p>
@@ -1398,65 +1061,6 @@ CSMA/CD 协议。
 <li>标准是 IEEE 802.3u，半双工时使用 CSMA/CD 协议，全双工时不使用。</li>
 <li>争用期为 5.12 μs，帧最小间隔 0.96 μs，是 10 Mbit/s
 以太网的十分之一。</li>
-</ul>
-<h2 id="网络层">网络层</h2>
-<h3 id="两种服务">两种服务</h3>
-<p>网络层应该向运输层提供怎样的服务？面向连接的还是无连接的？</p>
-<p>可靠交付应该由谁来完成？是网络还是端系统？</p>
-<ul>
-<li>虚电路服务：面向连接的，可靠通信由网络来保证</li>
-<li>数据报服务：无连接的，可靠通信由用户主机保证</li>
-</ul>
-<p>现在用数据报服务。</p>
-<h3 id="两个层面">两个层面</h3>
-<p>在路由器之间有两类传送的信息：分组数据和路由数据。</p>
-<p>于是把网络层抽象地划分为 “数据层面” 和 “控制层面”。</p>
-<p>在数据层面（或者说转发层面），每个路由器独立地通过本机的转发表转发分组。在控制层面，多个路由器协同动作创建路由表。</p>
-<h3 id="路由表和转发表">路由表和转发表</h3>
-<h3 id="ipv4">IPv4</h3>
-<p>4 个字节，32 个二进制位。</p>
-<p>快速计算单字节：</p>
-<ul>
-<li>从高到低：128 64 32 16 8 4 2 1</li>
-<li> 高一位 / 两位 / 三位 / 四位一：128 192 224 240</li>
-<li> 高五位 / 六位 / 七位一：248 252 254</li>
-<li> 全一：255</li>
-</ul>
-<h3 id="分类编址">分类编址</h3>
-<ul>
-<li>A 类：网络号 1 个字节，主机号 3 个字节，<code>0</code> 开头</li>
-<li> B 类：网络号 2 个字节，主机号 2 个字节，<code>10</code> 开头</li>
-<li> C 类：网络号 3 个字节，主机号 1 个字节，<code>110</code> 开头</li>
-<li> D 类：多播地址，<code>1110</code> 开头</li>
-<li> E 类：保留使用，<code>1111</code> 开头</li>
-</ul>
-<p>点分十进制表示最高字节的范围：</p>
-<ul>
-<li>A 类：0 - 127</li>
-<li>B 类：128 - 191</li>
-<li>C 类：192 - 223</li>
-<li>D 类：224 - 239</li>
-<li>E 类：240 - 255</li>
-</ul>
-<p>主机号全零为网络地址。网络号和主机号都全零为默认路由。</p>
-<h3 id="无分类编址-cidr">无分类编址 CIDR</h3>
-<p>IP 地址与子网掩码做按位与运算。</p>
-<p>子网掩码类似 <code>255.248.0.0</code>
-（<code>11111111 11111000 00000000 00000000</code>）</p>
-<p>与 IP 地址长度相同。前面全是 <code>1</code> 后面全是
-<code>0</code>，用于标记 IP 地址用前面的几位表示网络地址。</p>
-<p>此例子有 13 个 <code>1</code>，即网络前缀长度是 13，用前面 13
-位表示网络地址，后面的位表示主机地址。记作 <code>IP地址/13</code>。</p>
-<p>CIDR 编址又叫【构造超网】（相对于子网来说）</p>
-<h3 id="ip-地址和-mac-地址">IP 地址和 MAC 地址</h3>
-<p>IP 地址相当于工作单位的地址，MAC 地址相当于身份证号。</p>
-<ul>
-<li>运输层：TCP 报文的首部为端口号。再加一个首部信息，传给网络层</li>
-<li>网络层：IP 数据报的首部为 IP
-地址。再加一个首部信息、一个尾部信息，传给数据链路层</li>
-<li>数据链路层：MAC 帧的首部为 MAC
-地址（源和目标）+ 协议类型【6+6+2】，尾部为
-FCS【4】，数据部分【46~1500】</li>
 </ul>
 </div>
 <footer class="post-footer">
@@ -1484,13 +1088,13 @@ FCS【4】，数据部分【46~1500】</li>
 <span class="post-meta-item-icon">
 <i class="fa fa-chart-line"></i>
 </span>
-<span title="站点总字数">123k</span>
+<span title="站点总字数">120k</span>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
 <i class="fa fa-coffee"></i>
 </span>
-<span title="站点阅读时长">6:49</span>
+<span title="站点阅读时长">6:41</span>
 </span>
 </div>
 <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
