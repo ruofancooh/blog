@@ -1,6 +1,8 @@
+https://hrfis.me/blog/wait.html
+https://hrfis.me/blog/computer-network.html
+https://hrfis.me/blog/java.html
 https://hrfis.me/blog/psychology.html
 https://hrfis.me/blog/lacan.html
-https://hrfis.me/blog/computer-network.html
 https://hrfis.me/blog/5.html
 https://hrfis.me/blog/that.html
 https://hrfis.me/blog/game.html
@@ -12,7 +14,6 @@ https://hrfis.me/blog/cook.html
 https://hrfis.me/blog/meme.html
 https://hrfis.me/blog/donate-blood.html
 https://hrfis.me/blog/about/index.html
-https://hrfis.me/blog/wait.html
 https://hrfis.me/blog/gbk-utf8.html
 https://hrfis.me/blog/magisk.html
 https://hrfis.me/blog/economics.html
@@ -32,11 +33,9 @@ https://hrfis.me/blog/84.html
 https://hrfis.me/blog/java-web.html
 https://hrfis.me/blog/Expand-the-Ubuntu-capacity-in-the-VM.html
 https://hrfis.me/blog/book.html
-https://hrfis.me/blog/java.html
 https://hrfis.me/blog/math.html
 https://hrfis.me/blog/albums.html
 https://hrfis.me/blog/termux-flask-ngrok.html
 https://hrfis.me/blog/myclock.html
-https://hrfis.me/blog/drive.html
 https://hrfis.me/blog/categories/index.html
 https://hrfis.me/blog
