@@ -11,6 +11,33 @@
   </url>
   
   <url>
+    <loc>https://hrfis.me/blog/economics.html</loc>
+    
+    <lastmod>2025-01-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/music-theory.html</loc>
+    
+    <lastmod>2025-01-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/5.html</loc>
+    
+    <lastmod>2025-01-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hrfis.me/blog/discrete-mathematics.html</loc>
     
     <lastmod>2025-01-27</lastmod>
@@ -59,15 +86,6 @@
     <loc>https://hrfis.me/blog/lacan.html</loc>
     
     <lastmod>2025-01-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/5.html</loc>
-    
-    <lastmod>2025-01-20</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -165,24 +183,6 @@
   
   <url>
     <loc>https://hrfis.me/blog/magisk.html</loc>
-    
-    <lastmod>2024-12-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/economics.html</loc>
-    
-    <lastmod>2024-12-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/music-theory.html</loc>
     
     <lastmod>2024-12-16</lastmod>
     
