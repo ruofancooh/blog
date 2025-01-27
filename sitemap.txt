@@ -1,5 +1,6 @@
-https://hrfis.me/blog/wait.html
 https://hrfis.me/blog/psychology.html
+https://hrfis.me/blog/discrete-mathematics.html
+https://hrfis.me/blog/wait.html
 https://hrfis.me/blog/game.html
 https://hrfis.me/blog/computer-network.html
 https://hrfis.me/blog/java.html
@@ -23,7 +24,6 @@ https://hrfis.me/blog/vue-echarts-update.html
 https://hrfis.me/blog/amap-poi-search.html
 https://hrfis.me/blog/hadoop.html
 https://hrfis.me/blog/algorithm.html
-https://hrfis.me/blog/discrete-mathematics.html
 https://hrfis.me/blog/python.html
 https://hrfis.me/blog/dotx.html
 https://hrfis.me/blog/hexo.html
