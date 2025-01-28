@@ -77,6 +77,9 @@ const updateColor = ({ r, g, b }) => {
 
   // Update color box
   elements.colorBox.style.backgroundColor = `rgb(${r},${g},${b})`;
+
+  // Clear any previous error
+  elements.hexError.textContent = "";
 };
 
 const handleInput = (source) => {
@@ -93,16 +96,26 @@ const handleInput = (source) => {
     b = parseInt(elements.blue.value);
   } else if (source === "hex") {
     const hexValue = elements.hex.value.trim();
-    if (!/^#?([0-9A-Fa-f]{3}){1,2}$/.test(hexValue)) {
+
+    // 清除之前的错误信息
+    elements.hexError.textContent = "";
+
+    // 检查 HEX 格式是否有效
+    if (!/^#?([0-9A-Fa-f]{0,6})$/.test(hexValue)) {
       elements.hexError.textContent = "Invalid HEX format";
       return;
     }
 
+    // 去掉 # 号
     let hexClean = hexValue.replace(/^#/, "");
-    if (hexClean.length === 3) {
-      hexClean = hexClean.split("").map(c => c + c).join("");
+
+    // 如果 HEX 值不完整，不更新颜色
+    if (hexClean.length !== 6) {
+      elements.hexError.textContent = "Incomplete HEX value";
+      return;
     }
 
+    // 解析 HEX 值
     r = parseInt(hexClean.substr(0, 2), 16);
     g = parseInt(hexClean.substr(2, 2), 16);
     b = parseInt(hexClean.substr(4, 2), 16);
@@ -113,6 +126,7 @@ const handleInput = (source) => {
     }
   }
 
+  // 更新颜色
   updateColor({ r, g, b });
 };
 
