@@ -1,145 +1,129 @@
+const elements = {
+  hue: document.getElementById("hue"),
+  saturation: document.getElementById("saturation"),
+  valueInput: document.getElementById("value"),
+  red: document.getElementById("red"),
+  green: document.getElementById("green"),
+  blue: document.getElementById("blue"),
+  hex: document.getElementById("hex"),
+  colorBox: document.getElementById("colorBox"),
+  hueValue: document.getElementById("hueValue"),
+  saturationValue: document.getElementById("saturationValue"),
+  valueValue: document.getElementById("valueValue"),
+  hexError: document.getElementById("hexError"),
+  redValue: document.getElementById("redValue"),
+  greenValue: document.getElementById("greenValue"),
+  blueValue: document.getElementById("blueValue"),
+};
+
 const hsvToRgb = (h, s, v) => {
-  let r,
-    g,
-    b,
-    i = Math.floor(h * 6),
-    f = h * 6 - i,
-    p = v * (1 - s),
-    q = v * (1 - f * s),
-    t = v * (1 - (1 - f) * s);
-  switch (i % 6) {
-    case 0:
-      (r = v), (g = t), (b = p);
-      break;
-    case 1:
-      (r = q), (g = v), (b = p);
-      break;
-    case 2:
-      (r = p), (g = v), (b = t);
-      break;
-    case 3:
-      (r = p), (g = q), (b = v);
-      break;
-    case 4:
-      (r = t), (g = p), (b = v);
-      break;
-    case 5:
-      (r = v), (g = p), (b = q);
-      break;
-  }
-  return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+  h *= 6;
+  const i = Math.floor(h);
+  const f = h - i;
+  const p = v * (1 - s);
+  const q = v * (1 - f * s);
+  const t = v * (1 - (1 - f) * s);
+
+  const [r, g, b] = i % 6 === 0 ? [v, t, p] :
+                    i % 6 === 1 ? [q, v, p] :
+                    i % 6 === 2 ? [p, v, t] :
+                    i % 6 === 3 ? [p, q, v] :
+                    i % 6 === 4 ? [t, p, v] :
+                    [v, p, q];
+
+  return { r: Math.round(r * 255), g: Math.round(g * 255), b: Math.round(b * 255) };
 };
+
 const rgbToHsv = (r, g, b) => {
-  (r /= 255), (g /= 255), (b /= 255);
-  let h,
-    s,
-    v = Math.max(r, g, b),
-    d = v - Math.min(r, g, b);
-  s = v === 0 ? 0 : d / v;
-  if (v === d) h = 0;
-  else
-    switch (v) {
-      case r:
-        h = (g - b) / d + (g < b ? 6 : 0);
-        break;
-      case g:
-        h = (b - r) / d + 2;
-        break;
-      case b:
-        h = (r - g) / d + 4;
-        break;
-    }
-  h /= 6;
-  return [h, s, v];
-};
-const rgbToHex = (r, g, b) =>
-  `#${((1 << 24) + (r << 16) + (g << 8) + b)
-    .toString(16)
-    .slice(1)
-    .toUpperCase()}`;
-const hexToRgb = (hex) => {
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result
-    ? [
-        parseInt(result[1], 16),
-        parseInt(result[2], 16),
-        parseInt(result[3], 16),
-      ]
-    : null;
-};
-const update = (from) => {
-  let r, g, b, h, s, v;
-  if (from === "hsv") {
-    h = +document.getElementById("hue").value;
-    s = +document.getElementById("saturation").value;
-    v = +document.getElementById("value").value;
-    [r, g, b] = hsvToRgb(h, s, v);
-    updateValues({ red: r, green: g, blue: b });
-  } else if (from === "rgb") {
-    r = +document.getElementById("red").value;
-    g = +document.getElementById("green").value;
-    b = +document.getElementById("blue").value;
-    [h, s, v] = rgbToHsv(r, g, b);
-    updateValues({ hue: h, saturation: s, value: v });
-  } else if (from === "hex") {
-    const hex = document.getElementById("hex").value;
-    if (hex.length === 7 && hexToRgb(hex)) {
-      [r, g, b] = hexToRgb(hex);
-      [h, s, v] = rgbToHsv(r, g, b);
-      updateValues({
-        hue: h,
-        saturation: s,
-        value: v,
-        red: r,
-        green: g,
-        blue: b,
-      });
-    }
+  [r, g, b] = [r / 255, g / 255, b / 255];
+  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  const d = max - min;
+  const s = max === 0 ? 0 : d / max;
+  let h = 0;
+
+  if (max !== min) {
+    h = max === r ? (g - b) / d + (g < b ? 6 : 0) :
+        max === g ? (b - r) / d + 2 :
+        (r - g) / d + 4;
+    h /= 6;
   }
-  updateDisplayValues({
-    hue: h,
-    saturation: s,
-    value: v,
-    red: r,
-    green: g,
-    blue: b,
-  });
-  const hex = rgbToHex(r, g, b);
-  document.getElementById("hex").value = hex;
-  document.getElementById("hexError").textContent = hexToRgb(hex)
-    ? ""
-    : "Invalid Hex Color";
-  document.getElementById("colorBox").style.backgroundColor = hex;
+
+  return { h, s, v: max };
 };
-const updateValues = (values) => {
-  for (const [key, value] of Object.entries(values)) {
-    document.getElementById(key).value = value;
-  }
+
+const rgbToHex = (r, g, b) => `#${[r, g, b].map(x => x.toString(16).padStart(2, "0")).join("").toUpperCase()}`;
+
+const updateColor = ({ r, g, b }) => {
+  const { h, s, v } = rgbToHsv(r, g, b);
+
+  // Update RGB fields
+  elements.red.value = r;
+  elements.redValue.textContent = r;
+  elements.green.value = g;
+  elements.greenValue.textContent = g;
+  elements.blue.value = b;
+  elements.blueValue.textContent = b;
+
+  // Update HSV fields
+  elements.hue.value = h.toFixed(2);
+  elements.hueValue.textContent = h.toFixed(2);
+  elements.saturation.value = s.toFixed(2);
+  elements.saturationValue.textContent = s.toFixed(2);
+  elements.valueInput.value = v.toFixed(2);
+  elements.valueValue.textContent = v.toFixed(2);
+
+  // Update HEX field
+  elements.hex.value = rgbToHex(r, g, b);
+
+  // Update color box
+  elements.colorBox.style.backgroundColor = `rgb(${r},${g},${b})`;
 };
-const updateDisplayValues = (values) => {
-  for (const [key, value] of Object.entries(values)) {
-    const displayElement = document.getElementById(`${key}Value`);
-    if (displayElement) {
-      displayElement.textContent =
-        typeof value === "number" ? value.toFixed(2) : value;
+
+const handleInput = (source) => {
+  let r, g, b;
+
+  if (source === "hsv") {
+    const h = parseFloat(elements.hue.value);
+    const s = parseFloat(elements.saturation.value);
+    const v = parseFloat(elements.valueInput.value);
+    ({ r, g, b } = hsvToRgb(h, s, v));
+  } else if (source === "rgb") {
+    r = parseInt(elements.red.value);
+    g = parseInt(elements.green.value);
+    b = parseInt(elements.blue.value);
+  } else if (source === "hex") {
+    const hexValue = elements.hex.value.trim();
+    if (!/^#?([0-9A-Fa-f]{3}){1,2}$/.test(hexValue)) {
+      elements.hexError.textContent = "Invalid HEX format";
+      return;
+    }
+
+    let hexClean = hexValue.replace(/^#/, "");
+    if (hexClean.length === 3) {
+      hexClean = hexClean.split("").map(c => c + c).join("");
+    }
+
+    r = parseInt(hexClean.substr(0, 2), 16);
+    g = parseInt(hexClean.substr(2, 2), 16);
+    b = parseInt(hexClean.substr(4, 2), 16);
+
+    if (isNaN(r) || isNaN(g) || isNaN(b)) {
+      elements.hexError.textContent = "Invalid HEX value";
+      return;
     }
   }
+
+  updateColor({ r, g, b });
 };
-["hue", "saturation", "value", "red", "green", "blue"].forEach((id) => {
-  document
-    .getElementById(id)
-    .addEventListener("input", () =>
-      update(
-        id === "hue" || id === "saturation" || id === "value" ? "hsv" : "rgb"
-      )
-    );
-});
-document.getElementById("hex").addEventListener("input", (e) => {
-  const hex = e.target.value;
-  if (hex.length === 7) {
-    update("hex");
-  } else {
-    document.getElementById("hexError").textContent = "Invalid Hex Color";
-  }
-});
-update("hsv");
+
+// Event listeners
+elements.hue.addEventListener("input", () => handleInput("hsv"));
+elements.saturation.addEventListener("input", () => handleInput("hsv"));
+elements.valueInput.addEventListener("input", () => handleInput("hsv"));
+elements.red.addEventListener("input", () => handleInput("rgb"));
+elements.green.addEventListener("input", () => handleInput("rgb"));
+elements.blue.addEventListener("input", () => handleInput("rgb"));
+elements.hex.addEventListener("input", () => handleInput("hex"));
+
+// Initial update
+handleInput("hsv");
