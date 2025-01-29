@@ -24,61 +24,87 @@ const hsvToRgb = (h, s, v) => {
   const q = v * (1 - f * s);
   const t = v * (1 - (1 - f) * s);
 
-  const [r, g, b] = i % 6 === 0 ? [v, t, p] :
-                    i % 6 === 1 ? [q, v, p] :
-                    i % 6 === 2 ? [p, v, t] :
-                    i % 6 === 3 ? [p, q, v] :
-                    i % 6 === 4 ? [t, p, v] :
-                    [v, p, q];
+  const [r, g, b] =
+    i % 6 === 0
+      ? [v, t, p]
+      : i % 6 === 1
+      ? [q, v, p]
+      : i % 6 === 2
+      ? [p, v, t]
+      : i % 6 === 3
+      ? [p, q, v]
+      : i % 6 === 4
+      ? [t, p, v]
+      : [v, p, q];
 
-  return { r: Math.round(r * 255), g: Math.round(g * 255), b: Math.round(b * 255) };
+  return {
+    r: Math.round(r * 255),
+    g: Math.round(g * 255),
+    b: Math.round(b * 255),
+  };
 };
 
 const rgbToHsv = (r, g, b) => {
   [r, g, b] = [r / 255, g / 255, b / 255];
-  const max = Math.max(r, g, b), min = Math.min(r, g, b);
+  const max = Math.max(r, g, b),
+    min = Math.min(r, g, b);
   const d = max - min;
   const s = max === 0 ? 0 : d / max;
   let h = 0;
 
   if (max !== min) {
-    h = max === r ? (g - b) / d + (g < b ? 6 : 0) :
-        max === g ? (b - r) / d + 2 :
-        (r - g) / d + 4;
+    h =
+      max === r
+        ? (g - b) / d + (g < b ? 6 : 0)
+        : max === g
+        ? (b - r) / d + 2
+        : (r - g) / d + 4;
     h /= 6;
   }
 
   return { h, s, v: max };
 };
 
-const rgbToHex = (r, g, b) => `#${[r, g, b].map(x => x.toString(16).padStart(2, "0")).join("").toUpperCase()}`;
+const rgbToHex = (r, g, b) =>
+  `#${[r, g, b]
+    .map((x) => x.toString(16).padStart(2, "0"))
+    .join("")
+    .toUpperCase()}`;
 
-const updateColor = ({ r, g, b }) => {
-  const { h, s, v } = rgbToHsv(r, g, b);
+const updateColor = (rgb, hsv) => {
+  // 更新RGB字段
+  elements.red.value = rgb.r;
+  elements.redValue.textContent = rgb.r;
+  elements.green.value = rgb.g;
+  elements.greenValue.textContent = rgb.g;
+  elements.blue.value = rgb.b;
+  elements.blueValue.textContent = rgb.b;
 
-  // Update RGB fields
-  elements.red.value = r;
-  elements.redValue.textContent = r;
-  elements.green.value = g;
-  elements.greenValue.textContent = g;
-  elements.blue.value = b;
-  elements.blueValue.textContent = b;
+  // 更新HSV字段
+  if (hsv) {
+    elements.hue.value = hsv.h.toFixed(2);
+    elements.hueValue.textContent = hsv.h.toFixed(2);
+    elements.saturation.value = hsv.s.toFixed(2);
+    elements.saturationValue.textContent = hsv.s.toFixed(2);
+    elements.valueInput.value = hsv.v.toFixed(2);
+    elements.valueValue.textContent = hsv.v.toFixed(2);
+  } else {
+    const { h, s, v } = rgbToHsv(rgb.r, rgb.g, rgb.b);
+    elements.hue.value = h.toFixed(2);
+    elements.hueValue.textContent = h.toFixed(2);
+    elements.saturation.value = s.toFixed(2);
+    elements.saturationValue.textContent = s.toFixed(2);
+    elements.valueInput.value = v.toFixed(2);
+    elements.valueValue.textContent = v.toFixed(2);
+  }
 
-  // Update HSV fields
-  elements.hue.value = h.toFixed(2);
-  elements.hueValue.textContent = h.toFixed(2);
-  elements.saturation.value = s.toFixed(2);
-  elements.saturationValue.textContent = s.toFixed(2);
-  elements.valueInput.value = v.toFixed(2);
-  elements.valueValue.textContent = v.toFixed(2);
+  // 更新HEX字段
+  elements.hex.value = rgbToHex(rgb.r, rgb.g, rgb.b);
 
-  // Update HEX field
-  elements.hex.value = rgbToHex(r, g, b);
+  // 更新颜色框
+  elements.colorBox.style.backgroundColor = `rgb(${rgb.r},${rgb.g},${rgb.b})`;
 
-  // Update color box
-  elements.colorBox.style.backgroundColor = `rgb(${r},${g},${b})`;
-
-  // Clear any previous error
+  // 清除错误信息
   elements.hexError.textContent = "";
 };
 
@@ -90,10 +116,13 @@ const handleInput = (source) => {
     const s = parseFloat(elements.saturation.value);
     const v = parseFloat(elements.valueInput.value);
     ({ r, g, b } = hsvToRgb(h, s, v));
+    // 传递hsv参数以直接使用输入值
+    updateColor({ r, g, b }, { h, s, v });
   } else if (source === "rgb") {
     r = parseInt(elements.red.value);
     g = parseInt(elements.green.value);
     b = parseInt(elements.blue.value);
+    updateColor({ r, g, b });
   } else if (source === "hex") {
     const hexValue = elements.hex.value.trim();
 
@@ -124,13 +153,11 @@ const handleInput = (source) => {
       elements.hexError.textContent = "Invalid HEX value";
       return;
     }
+    updateColor({ r, g, b });
   }
-
-  // 更新颜色
-  updateColor({ r, g, b });
 };
 
-// Event listeners
+// 事件监听器保持不变
 elements.hue.addEventListener("input", () => handleInput("hsv"));
 elements.saturation.addEventListener("input", () => handleInput("hsv"));
 elements.valueInput.addEventListener("input", () => handleInput("hsv"));
@@ -139,5 +166,5 @@ elements.green.addEventListener("input", () => handleInput("rgb"));
 elements.blue.addEventListener("input", () => handleInput("rgb"));
 elements.hex.addEventListener("input", () => handleInput("hex"));
 
-// Initial update
+// 初始更新
 handleInput("hsv");
