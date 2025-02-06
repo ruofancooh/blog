@@ -1,4 +1,5 @@
 https://hrfis.me/blog/psychology.html
+https://hrfis.me/blog/5.html
 https://hrfis.me/blog/game.html
 https://hrfis.me/blog/math.html
 https://hrfis.me/blog/computer-network.html
@@ -6,7 +7,6 @@ https://hrfis.me/blog/music-theory.html
 https://hrfis.me/blog/computer-organization.html
 https://hrfis.me/blog/install-rj45-network-cable.html
 https://hrfis.me/blog/economics.html
-https://hrfis.me/blog/5.html
 https://hrfis.me/blog/discrete-mathematics.html
 https://hrfis.me/blog/wait.html
 https://hrfis.me/blog/java.html
