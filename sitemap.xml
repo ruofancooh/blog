@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://hrfis.me/blog/psychology.html</loc>
+    <loc>https://hrfis.me/blog/game.html</loc>
     
-    <lastmod>2025-02-18</lastmod>
+    <lastmod>2025-02-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/discrete-mathematics.html</loc>
+    
+    <lastmod>2025-02-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -12,6 +21,15 @@
   
   <url>
     <loc>https://hrfis.me/blog/that.html</loc>
+    
+    <lastmod>2025-02-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/psychology.html</loc>
     
     <lastmod>2025-02-18</lastmod>
     
@@ -32,15 +50,6 @@
     <loc>https://hrfis.me/blog/5.html</loc>
     
     <lastmod>2025-02-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/game.html</loc>
-    
-    <lastmod>2025-02-02</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -93,15 +102,6 @@
   
   <url>
     <loc>https://hrfis.me/blog/economics.html</loc>
-    
-    <lastmod>2025-01-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/discrete-mathematics.html</loc>
     
     <lastmod>2025-01-27</lastmod>
     
@@ -364,7 +364,7 @@
 
   <url>
     <loc>https://hrfis.me/blog</loc>
-    <lastmod>2025-02-18</lastmod>
+    <lastmod>2025-02-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
