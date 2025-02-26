@@ -1,8 +1,8 @@
 https://hrfis.me/blog/that.html
+https://hrfis.me/blog/psychology.html
 https://hrfis.me/blog/wait.html
 https://hrfis.me/blog/cook.html
 https://hrfis.me/blog/hadoop.html
-https://hrfis.me/blog/psychology.html
 https://hrfis.me/blog/game.html
 https://hrfis.me/blog/discrete-mathematics.html
 https://hrfis.me/blog/meme.html
