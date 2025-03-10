@@ -2,7 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hrfis.me/blog/time.html</loc>
+    
+    <lastmod>2025-03-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hrfis.me/blog/that.html</loc>
+    
+    <lastmod>2025-03-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/lacan.html</loc>
     
     <lastmod>2025-03-10</lastmod>
     
@@ -137,15 +155,6 @@
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/lacan.html</loc>
-    
-    <lastmod>2025-01-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hrfis.me/blog/moto-c117-alarm-diy.html</loc>
     
     <lastmod>2025-01-18</lastmod>
@@ -255,15 +264,6 @@
   
   <url>
     <loc>https://hrfis.me/blog/gimp-make-words-on-the-photographed-paper-clearer.html</loc>
-    
-    <lastmod>2024-11-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/time.html</loc>
     
     <lastmod>2024-11-30</lastmod>
     
