@@ -1240,7 +1240,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #1c658e;
+    background: #47cfff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2696,12 +2696,6 @@ header.header {
   .sidebar {
     display: none;
   }
-}
-body {
-  background-image: url("https://bing.img.run/rand.php");
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
 }
 .headband {
   display: none;
