@@ -5,10 +5,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width" name="viewport"/>
 <meta content="#222" name="theme-color"/><meta content="Hexo 7.3.0" name="generator"/>
-<link href="/blog/favicon.png" rel="apple-touch-icon" sizes="180x180"/>
-<link href="/blog/favicon.png" rel="icon" sizes="32x32" type="image/png"/>
-<link href="/blog/favicon.png" rel="icon" sizes="16x16" type="image/png"/>
-<link color="#222" href="/blog/favicon.png" rel="mask-icon"/>
+<link href="/blog/favicon.ico" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/blog/favicon.ico" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/blog/favicon.ico" rel="icon" sizes="16x16" type="image/png"/>
+<link color="#222" href="/blog/favicon.ico" rel="mask-icon"/>
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
@@ -16,7 +16,7 @@
 <meta content="article" property="og:type"/>
 <meta content="Hadoop" property="og:title"/>
 <meta content="https://hrfis.me/blog/hadoop.html" property="og:url"/>
-<meta content="若凡的笔记" property="og:site_name"/>
+<meta content="​若凡的笔记" property="og:site_name"/>
 <meta content='一种不看完整教程安装软件的方法：  在软件安装的目录里面，通常有一个 doc 文件夹 在解压软件包之后，什么配置都别写，上来先启动了再说 找到软件的日志文件在哪里 在日志里搜索 WARN ERROR 在网上搜索或者问 GPT 为什么会出现这个错误  VSCode 远程附加调试 hadoop-env.sh 1export 某某_OPTS="-agentlib:jdwp=transport=dt_so' property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="https://hrfis.me/blog/images/MapReduce.webp" property="og:image"/>
@@ -29,7 +29,34 @@
 <link href="https://hrfis.me/blog/hadoop" rel="canonical"/>
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/hadoop.html","path":"/hadoop.html","title":"Hadoop"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hadoop | 若凡的笔记</title>
+<title>Hadoop | ​若凡的笔记</title>
+<script>
+(function() {
+  function getMoonPhaseEmoji() {
+    // 基准新月日期（UTC时间）
+    const baseDate = new Date('2023-01-21T00:00:00Z');
+    const currentDate = new Date();
+    
+    // 计算天数差
+    const timeDiff = currentDate - baseDate;
+    const dayDiff = timeDiff / (1000 * 3600 * 24);
+    
+    // 计算月相阶段（0-8）
+    const phase = (dayDiff % 29.53) / 29.53 * 8;
+    
+    // 月相emoji映射
+    const phases = ['🌑', '🌒', '🌓', '🌔', '🌕', '🌖', '🌗', '🌘', '🌑'];
+    const index = Math.floor(phase);
+    
+    return phases[index];
+  }
+
+  // 替换标题中的​ ZERO WIDTH SPACE
+  const placeholder = '​';
+  const emoji = getMoonPhaseEmoji();
+  document.title = document.title.replace(placeholder, emoji+" ");
+})();
+</script>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -49,7 +76,7 @@
 <div class="site-meta">
 <a class="brand" href="/blog/" rel="start">
 <i class="logo-line"></i>
-<p class="site-title">若凡的笔记</p>
+<p class="site-title">​若凡的笔记</p>
 <i class="logo-line"></i>
 </a>
 <p class="site-subtitle" itemprop="description">一个伪善的人</p>
@@ -121,11 +148,11 @@ HDFS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-lin
 <meta content="Ruofan" itemprop="name"/>
 </span>
 <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-<meta content="若凡的笔记" itemprop="name"/>
+<meta content="​若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
-<meta content="Hadoop | 若凡的笔记" itemprop="name"/>
+<meta content="Hadoop | ​若凡的笔记" itemprop="name"/>
 <meta content="" itemprop="description"/>
 </span>
 <header class="post-header">
