@@ -23,33 +23,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"categories/实用系列/index.html","title":""}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>分类: 实用系列 | ​若凡的笔记</title>
-<script>
-(function() {
-  function getMoonPhaseEmoji() {
-    // 基准新月日期（UTC时间）
-    const baseDate = new Date('2023-01-21T00:00:00Z');
-    const currentDate = new Date();
-    
-    // 计算天数差
-    const timeDiff = currentDate - baseDate;
-    const dayDiff = timeDiff / (1000 * 3600 * 24);
-    
-    // 计算月相阶段（0-8）
-    const phase = (dayDiff % 29.53) / 29.53 * 8;
-    
-    // 月相emoji映射
-    const phases = ['🌑', '🌒', '🌓', '🌔', '🌕', '🌖', '🌗', '🌘', '🌑'];
-    const index = Math.floor(phase);
-    
-    return phases[index];
-  }
-
-  // 替换标题中的​ ZERO WIDTH SPACE
-  const placeholder = '​';
-  const emoji = getMoonPhaseEmoji();
-  document.title = document.title.replace(placeholder, emoji+" ");
-})();
-</script>
+<script src="/blog/moon.js"></script>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -108,7 +82,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/">
-<span class="site-state-item-count">36</span>
+<span class="site-state-item-count">34</span>
 <span class="site-state-item-name">日志</span>
 </a>
 </div>
@@ -176,20 +150,6 @@
 <div class="post-title">
 <a class="post-title-link" href="/blog/donate-blood.html" itemprop="url">
 <span itemprop="name">献血的流程和注意事项</span>
-</a>
-</div>
-</header>
-</article>
-<article itemscope="" itemtype="http://schema.org/Article">
-<header class="post-header">
-<div class="post-meta-container">
-<time content="2024-12-08" datetime="2024-12-08T15:00:00+08:00" itemprop="dateCreated">
-          12-08
-        </time>
-</div>
-<div class="post-title">
-<a class="post-title-link" href="/blog/vue-echarts-update.html" itemprop="url">
-<span itemprop="name">Vue 实现点击 Echarts 图表的一部分后更新另一个图表</span>
 </a>
 </div>
 </header>
@@ -288,20 +248,6 @@
 <div class="post-title">
 <a class="post-title-link" href="/blog/cook.html" itemprop="url">
 <span itemprop="name">菜谱</span>
-</a>
-</div>
-</header>
-</article>
-<article itemscope="" itemtype="http://schema.org/Article">
-<header class="post-header">
-<div class="post-meta-container">
-<time content="2024-05-26" datetime="2024-05-26T14:00:00+08:00" itemprop="dateCreated">
-          05-26
-        </time>
-</div>
-<div class="post-title">
-<a class="post-title-link" href="/blog/dotx.html" itemprop="url">
-<span itemprop="name">Word 文档模板留存</span>
 </a>
 </div>
 </header>

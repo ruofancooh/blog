@@ -27,33 +27,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/amap-poi-search.html","path":"/amap-poi-search.html","title":"高德地图多边形区域搜索 POI 的划分方法"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>高德地图多边形区域搜索 POI 的划分方法 | ​若凡的笔记</title>
-<script>
-(function() {
-  function getMoonPhaseEmoji() {
-    // 基准新月日期（UTC时间）
-    const baseDate = new Date('2023-01-21T00:00:00Z');
-    const currentDate = new Date();
-    
-    // 计算天数差
-    const timeDiff = currentDate - baseDate;
-    const dayDiff = timeDiff / (1000 * 3600 * 24);
-    
-    // 计算月相阶段（0-8）
-    const phase = (dayDiff % 29.53) / 29.53 * 8;
-    
-    // 月相emoji映射
-    const phases = ['🌑', '🌒', '🌓', '🌔', '🌕', '🌖', '🌗', '🌘', '🌑'];
-    const index = Math.floor(phase);
-    
-    return phases[index];
-  }
-
-  // 替换标题中的​ ZERO WIDTH SPACE
-  const placeholder = '​';
-  const emoji = getMoonPhaseEmoji();
-  document.title = document.title.replace(placeholder, emoji+" ");
-})();
-</script>
+<script src="/blog/moon.js"></script>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -113,7 +87,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/">
-<span class="site-state-item-count">36</span>
+<span class="site-state-item-count">34</span>
 <span class="site-state-item-name">日志</span>
 </a>
 </div>
@@ -245,8 +219,8 @@ API - 行政区域查询，它可以返回一个行政区的边界字符串。</
                 </a>
 </div>
 <div class="post-nav-item">
-<a href="/blog/vue-echarts-update.html" rel="next" title="Vue 实现点击 Echarts 图表的一部分后更新另一个图表">
-                  Vue 实现点击 Echarts 图表的一部分后更新另一个图表 <i class="fa fa-angle-right"></i>
+<a href="/blog/donate-blood.html" rel="next" title="献血的流程和注意事项">
+                  献血的流程和注意事项 <i class="fa fa-angle-right"></i>
 </a>
 </div>
 </div>

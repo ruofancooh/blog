@@ -32,33 +32,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/time.html","path":"/time.html","title":"时间和历法"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>时间和历法 | ​若凡的笔记</title>
-<script>
-(function() {
-  function getMoonPhaseEmoji() {
-    // 基准新月日期（UTC时间）
-    const baseDate = new Date('2023-01-21T00:00:00Z');
-    const currentDate = new Date();
-    
-    // 计算天数差
-    const timeDiff = currentDate - baseDate;
-    const dayDiff = timeDiff / (1000 * 3600 * 24);
-    
-    // 计算月相阶段（0-8）
-    const phase = (dayDiff % 29.53) / 29.53 * 8;
-    
-    // 月相emoji映射
-    const phases = ['🌑', '🌒', '🌓', '🌔', '🌕', '🌖', '🌗', '🌘', '🌑'];
-    const index = Math.floor(phase);
-    
-    return phases[index];
-  }
-
-  // 替换标题中的​ ZERO WIDTH SPACE
-  const placeholder = '​';
-  const emoji = getMoonPhaseEmoji();
-  document.title = document.title.replace(placeholder, emoji+" ");
-})();
-</script>
+<script src="/blog/moon.js"></script>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -118,7 +92,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/">
-<span class="site-state-item-count">36</span>
+<span class="site-state-item-count">34</span>
 <span class="site-state-item-name">日志</span>
 </a>
 </div>

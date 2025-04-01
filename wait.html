@@ -21,7 +21,7 @@
 <meta content="zh_CN" property="og:locale"/>
 <meta content="https://hrfis.me/blog/images/decision-tree.webp" property="og:image"/>
 <meta content="2023-09-26T09:45:00.000Z" property="article:published_time"/>
-<meta content="2025-02-21T03:35:07.200Z" property="article:modified_time"/>
+<meta content="2025-04-01T05:44:04.307Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/decision-tree.webp" name="twitter:image"/>
@@ -29,33 +29,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/wait.html","path":"/wait.html","title":"未整理的笔记"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>未整理的笔记 | ​若凡的笔记</title>
-<script>
-(function() {
-  function getMoonPhaseEmoji() {
-    // 基准新月日期（UTC时间）
-    const baseDate = new Date('2023-01-21T00:00:00Z');
-    const currentDate = new Date();
-    
-    // 计算天数差
-    const timeDiff = currentDate - baseDate;
-    const dayDiff = timeDiff / (1000 * 3600 * 24);
-    
-    // 计算月相阶段（0-8）
-    const phase = (dayDiff % 29.53) / 29.53 * 8;
-    
-    // 月相emoji映射
-    const phases = ['🌑', '🌒', '🌓', '🌔', '🌕', '🌖', '🌗', '🌘', '🌑'];
-    const index = Math.floor(phase);
-    
-    return phases[index];
-  }
-
-  // 替换标题中的​ ZERO WIDTH SPACE
-  const placeholder = '​';
-  const emoji = getMoonPhaseEmoji();
-  document.title = document.title.replace(placeholder, emoji+" ");
-})();
-</script>
+<script src="/blog/moon.js"></script>
 <noscript>
 <link href="/blog/css/noscript.css" rel="stylesheet"/>
 </noscript>
@@ -103,10 +77,11 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#json"><span class="nav-number">1.</span> <span class="nav-text">JSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3-vscode-%E9%9B%86%E6%88%90%E7%BB%88%E7%AB%AF%E6%8C%89%E9%94%AE%E4%B8%8E%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%86%B2%E7%AA%81"><span class="nav-number">2.</span> <span class="nav-text">解决 VSCode
-集成终端按键与快捷键冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8-browser-sync-%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2"><span class="nav-number">3.</span> <span class="nav-text">用
-browser-sync 实现在文件内容改变后立即刷新页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java"><span class="nav-number">4.</span> <span class="nav-text">Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">5.</span> <span class="nav-text">关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">6.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">7.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">8.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3"><span class="nav-number">9.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#javabean"><span class="nav-number">10.</span> <span class="nav-text">JavaBean</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsp"><span class="nav-number">11.</span> <span class="nav-text">JSP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA-jsp-%E6%96%87%E4%BB%B6%E7%9A%84%E7%A4%BA%E4%BE%8B"><span class="nav-number">12.</span> <span class="nav-text">一个 JSP 文件的示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsp-%E8%BF%90%E8%A1%8C%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">13.</span> <span class="nav-text">JSP 运行的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsp-%E6%8C%87%E4%BB%A4%E4%B8%8E-jsp-%E5%8A%A8%E4%BD%9C"><span class="nav-number">14.</span> <span class="nav-text">jsp 指令与 jsp 动作？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E4%B8%80%E4%B8%AA-jsp-%E9%A1%B5%E9%87%8C%E5%A6%82%E4%BD%95%E6%8A%8A%E8%A1%A8%E5%8D%95%E4%BC%A0%E9%80%92%E7%BB%99%E5%8F%A6%E4%B8%80%E4%B8%AA-jsp-%E9%A1%B5%E5%8F%A6%E4%B8%80%E4%B8%AA-jsp-%E9%A1%B5%E5%A6%82%E4%BD%95%E6%8E%A5%E6%94%B6"><span class="nav-number">15.</span> <span class="nav-text">在一个
-jsp 页里，如何把表单传递给另一个 jsp 页？另一个 jsp 页如何接收？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E5%92%8C%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91"><span class="nav-number">16.</span> <span class="nav-text">重定向和请求转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%82%B9%E4%B8%80%E4%B8%AA%E6%8C%89%E9%92%AE%E5%87%BA%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%96%B0%E8%A1%A8%E5%8D%95"><span class="nav-number">17.</span> <span class="nav-text">如何实现点一个按钮出现一个新表单？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#filter-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">18.</span> <span class="nav-text">Filter 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-jdbc-%E8%BF%9E%E6%8E%A5-mysql"><span class="nav-number">19.</span> <span class="nav-text">如何使用 JDBC 连接 MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">20.</span> <span class="nav-text">插入的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">21.</span> <span class="nav-text">乱码的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="nav-number">22.</span> <span class="nav-text">排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-number">22.1.</span> <span class="nav-text">二分查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="nav-number">22.2.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="nav-number">22.3.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="nav-number">22.4.</span> <span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="nav-number">22.5.</span> <span class="nav-text">快速排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98"><span class="nav-number">23.</span> <span class="nav-text">数据挖掘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%BA%A6%E9%87%8F"><span class="nav-number">23.1.</span> <span class="nav-text">属性与度量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90"><span class="nav-number">23.2.</span> <span class="nav-text">关联分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%A4%BA%E4%BE%8B"><span class="nav-number">23.3.</span> <span class="nav-text">决策树示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%92%88%E5%AF%B9%E8%B4%AD%E7%89%A9%E7%AF%AE%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90"><span class="nav-number">23.4.</span> <span class="nav-text">针对购物篮数据集的关联分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy-%E5%BA%93%E7%9A%84%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87%E8%AF%AD%E6%B3%95"><span class="nav-number">23.5.</span> <span class="nav-text">numpy 库的多维数组切片语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apriori-%E7%AE%97%E6%B3%95"><span class="nav-number">23.6.</span> <span class="nav-text">Apriori 算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%B8%A2%E5%B0%BE%E8%8A%B1%E6%95%B0%E6%8D%AE%E9%9B%86%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%E7%A4%BA%E4%BE%8B"><span class="nav-number">23.7.</span> <span class="nav-text">鸢尾花数据集关联分析示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-number">24.</span> <span class="nav-text">动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84%E6%80%8E%E4%B9%88%E6%BB%9A"><span class="nav-number">24.1.</span> <span class="nav-text">滚动数组怎么滚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%AC%E6%A5%BC%E6%A2%AF"><span class="nav-number">24.2.</span> <span class="nav-text">70. 爬楼梯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%9C%80%E5%B0%8F%E8%8A%B1%E8%B4%B9%E7%88%AC%E6%A5%BC%E6%A2%AF"><span class="nav-number">24.3.</span> <span class="nav-text">746. 使用最小花费爬楼梯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D"><span class="nav-number">24.4.</span> <span class="nav-text">198. 打家劫舍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A9%BE%E9%A9%B6"><span class="nav-number">25.</span> <span class="nav-text">驾驶</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#json"><span class="nav-number">1.</span> <span class="nav-text">JSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-%E5%AE%9E%E7%8E%B0%E7%82%B9%E5%87%BB-echarts-%E5%9B%BE%E8%A1%A8%E7%9A%84%E4%B8%80%E9%83%A8%E5%88%86%E5%90%8E%E6%9B%B4%E6%96%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%9B%BE%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">Vue 实现点击
+Echarts 图表的一部分后更新另一个图表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#word-%E6%96%87%E6%A1%A3%E6%A8%A1%E6%9D%BF%E7%95%99%E5%AD%98"><span class="nav-number">3.</span> <span class="nav-text">Word 文档模板留存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3-vscode-%E9%9B%86%E6%88%90%E7%BB%88%E7%AB%AF%E6%8C%89%E9%94%AE%E4%B8%8E%E5%BF%AB%E6%8D%B7%E9%94%AE%E5%86%B2%E7%AA%81"><span class="nav-number">4.</span> <span class="nav-text">解决 VSCode
+集成终端按键与快捷键冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8-browser-sync-%E5%AE%9E%E7%8E%B0%E5%9C%A8%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%94%B9%E5%8F%98%E5%90%8E%E7%AB%8B%E5%8D%B3%E5%88%B7%E6%96%B0%E9%A1%B5%E9%9D%A2"><span class="nav-number">5.</span> <span class="nav-text">用
+browser-sync 实现在文件内容改变后立即刷新页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java"><span class="nav-number">6.</span> <span class="nav-text">Java</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">7.</span> <span class="nav-text">关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">8.</span> <span class="nav-text">运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">9.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">10.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3"><span class="nav-number">11.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#javabean"><span class="nav-number">12.</span> <span class="nav-text">JavaBean</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsp"><span class="nav-number">13.</span> <span class="nav-text">JSP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA-jsp-%E6%96%87%E4%BB%B6%E7%9A%84%E7%A4%BA%E4%BE%8B"><span class="nav-number">14.</span> <span class="nav-text">一个 JSP 文件的示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsp-%E8%BF%90%E8%A1%8C%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">15.</span> <span class="nav-text">JSP 运行的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsp-%E6%8C%87%E4%BB%A4%E4%B8%8E-jsp-%E5%8A%A8%E4%BD%9C"><span class="nav-number">16.</span> <span class="nav-text">jsp 指令与 jsp 动作？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E4%B8%80%E4%B8%AA-jsp-%E9%A1%B5%E9%87%8C%E5%A6%82%E4%BD%95%E6%8A%8A%E8%A1%A8%E5%8D%95%E4%BC%A0%E9%80%92%E7%BB%99%E5%8F%A6%E4%B8%80%E4%B8%AA-jsp-%E9%A1%B5%E5%8F%A6%E4%B8%80%E4%B8%AA-jsp-%E9%A1%B5%E5%A6%82%E4%BD%95%E6%8E%A5%E6%94%B6"><span class="nav-number">17.</span> <span class="nav-text">在一个
+jsp 页里，如何把表单传递给另一个 jsp 页？另一个 jsp 页如何接收？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%E5%92%8C%E8%AF%B7%E6%B1%82%E8%BD%AC%E5%8F%91"><span class="nav-number">18.</span> <span class="nav-text">重定向和请求转发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%82%B9%E4%B8%80%E4%B8%AA%E6%8C%89%E9%92%AE%E5%87%BA%E7%8E%B0%E4%B8%80%E4%B8%AA%E6%96%B0%E8%A1%A8%E5%8D%95"><span class="nav-number">19.</span> <span class="nav-text">如何实现点一个按钮出现一个新表单？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#filter-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">20.</span> <span class="nav-text">Filter 是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-jdbc-%E8%BF%9E%E6%8E%A5-mysql"><span class="nav-number">21.</span> <span class="nav-text">如何使用 JDBC 连接 MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">22.</span> <span class="nav-text">插入的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">23.</span> <span class="nav-text">乱码的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="nav-number">24.</span> <span class="nav-text">排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE"><span class="nav-number">24.1.</span> <span class="nav-text">二分查找</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="nav-number">24.2.</span> <span class="nav-text">插入排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="nav-number">24.3.</span> <span class="nav-text">选择排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="nav-number">24.4.</span> <span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="nav-number">24.5.</span> <span class="nav-text">快速排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98"><span class="nav-number">25.</span> <span class="nav-text">数据挖掘</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E4%B8%8E%E5%BA%A6%E9%87%8F"><span class="nav-number">25.1.</span> <span class="nav-text">属性与度量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90"><span class="nav-number">25.2.</span> <span class="nav-text">关联分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91%E7%A4%BA%E4%BE%8B"><span class="nav-number">25.3.</span> <span class="nav-text">决策树示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%92%88%E5%AF%B9%E8%B4%AD%E7%89%A9%E7%AF%AE%E6%95%B0%E6%8D%AE%E9%9B%86%E7%9A%84%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90"><span class="nav-number">25.4.</span> <span class="nav-text">针对购物篮数据集的关联分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#numpy-%E5%BA%93%E7%9A%84%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87%E8%AF%AD%E6%B3%95"><span class="nav-number">25.5.</span> <span class="nav-text">numpy 库的多维数组切片语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apriori-%E7%AE%97%E6%B3%95"><span class="nav-number">25.6.</span> <span class="nav-text">Apriori 算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%B8%A2%E5%B0%BE%E8%8A%B1%E6%95%B0%E6%8D%AE%E9%9B%86%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%E7%A4%BA%E4%BE%8B"><span class="nav-number">25.7.</span> <span class="nav-text">鸢尾花数据集关联分析示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="nav-number">26.</span> <span class="nav-text">动态规划</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BB%9A%E5%8A%A8%E6%95%B0%E7%BB%84%E6%80%8E%E4%B9%88%E6%BB%9A"><span class="nav-number">26.1.</span> <span class="nav-text">滚动数组怎么滚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%88%AC%E6%A5%BC%E6%A2%AF"><span class="nav-number">26.2.</span> <span class="nav-text">70. 爬楼梯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%9C%80%E5%B0%8F%E8%8A%B1%E8%B4%B9%E7%88%AC%E6%A5%BC%E6%A2%AF"><span class="nav-number">26.3.</span> <span class="nav-text">746. 使用最小花费爬楼梯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D"><span class="nav-number">26.4.</span> <span class="nav-text">198. 打家劫舍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A9%BE%E9%A9%B6"><span class="nav-number">27.</span> <span class="nav-text">驾驶</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -118,7 +93,7 @@ jsp 页里，如何把表单传递给另一个 jsp 页？另一个 jsp 页如何
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/">
-<span class="site-state-item-count">36</span>
+<span class="site-state-item-count">34</span>
 <span class="site-state-item-name">日志</span>
 </a>
 </div>
@@ -168,7 +143,7 @@ jsp 页里，如何把表单传递给另一个 jsp 页？另一个 jsp 页如何
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2025-02-21T11:35:07+08:00" itemprop="dateModified" title="修改时间：2025-02-21 11:35:07">2025-02-21</time>
+<time datetime="2025-04-01T13:44:04+08:00" itemprop="dateModified" title="修改时间：2025-04-01 13:44:04">2025-04-01</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -184,14 +159,14 @@ jsp 页里，如何把表单传递给另一个 jsp 页？另一个 jsp 页如何
 <i class="far fa-file-word"></i>
 </span>
 <span class="post-meta-item-text">本文字数：</span>
-<span>8.9k</span>
+<span>9.8k</span>
 </span>
 <span class="post-meta-item" title="阅读时长">
 <span class="post-meta-item-icon">
 <i class="far fa-clock"></i>
 </span>
 <span class="post-meta-item-text">阅读时长 ≈</span>
-<span>30 分钟</span>
+<span>33 分钟</span>
 </span>
 </div>
 </div>
@@ -206,6 +181,74 @@ jsp 页里，如何把表单传递给另一个 jsp 页？另一个 jsp 页如何
 <p>Python：</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br/><span class="line">json_str = json.dumps(py_obj)</span><br/><span class="line">py_obj = json.loads(json_str)</span><br/></pre></td></tr></tbody></table></figure>
 <span id="more"></span>
+<h2 id="vue-实现点击-echarts-图表的一部分后更新另一个图表">Vue 实现点击
+Echarts 图表的一部分后更新另一个图表</h2>
+<p>环境：</p>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/></pre></td><td class="code"><pre><span class="line"><span class="punctuation">{</span></span><br/><span class="line">  <span class="attr">"echarts"</span><span class="punctuation">:</span> <span class="string">"^5.5.1"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"vue"</span><span class="punctuation">:</span> <span class="string">"^3.5.12"</span><span class="punctuation">,</span></span><br/><span class="line">  <span class="attr">"vue-echarts"</span><span class="punctuation">:</span> <span class="string">"^7.0.3"</span></span><br/><span class="line"><span class="punctuation">}</span></span><br/></pre></td></tr></tbody></table></figure>
+<p><a href="https://vue-echarts.dev/#codegen" rel="noopener" target="_blank">import code
+generator</a></p>
+<p>组合式 API。一个 View 的父组件里面有两个 Echarts 图表的子组件 A 和
+B。</p>
+<p>问题：图表的数据从何而来：</p>
+<ol type="1">
+<li>在清洗和导出数据的时候直接导出为 Echarts 所需要的 JSON
+格式的文件</li>
+<li>准备图表的 option 的 JSON 格式为一个计算属性，把 data 字段设置为 Ref
+对象的 value</li>
+<li> 给 v-chart 标签的 :option 绑定这个计算属性</li>
+<li>写一个更新图表的函数，fetch
+一个文件，转换成图表需要的格式，赋值给那个 Ref.value</li>
+</ol>
+<p>点击子组件图表后的事件和参数如何传递给父组件：</p>
+<ol type="1">
+<li>在子组件里定义一个发射源 const emit =
+defineEmits (["eventName"]);</li>
+<li> 给子组件 v-chart 标签的 <span class="citation" data-cites="click">@click</span> 绑定一个方法</li>
+<li>该方法带一个参数 param 为图表点击后的参数，在该方法里发射事件
+emit ("eventName", param);</li>
+<li> 在父组件里引用子组件标签处的 <span class="citation" data-cites="event-name">@event-name</span> 绑定一个带参数 param
+的方法，用于接收子组件发射的事件和参数</li>
+</ol>
+<p>父组件如何向子组件传消息：</p>
+<ol type="1">
+<li>在子组件里定义它的属性 </li>
+</ol>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> props = <span class="title function_">defineProps</span>({</span><br/><span class="line">  <span class="attr">propName</span>: {</span><br/><span class="line">    <span class="attr">type</span>: <span class="title class_">String</span>,</span><br/><span class="line">    <span class="attr">default</span>: <span class="string">""</span>,</span><br/><span class="line">  },</span><br/><span class="line">});</span><br/></pre></td></tr></tbody></table></figure>
+<ol start="2" type="1">
+<li>在父组件里引用子组件标签处的 :prop-name 绑定一个 Ref 对象，更新 Ref
+对象</li>
+</ol>
+<p>如何实现点击图表 A 的一部分后，更新图表 B：</p>
+<ol type="1">
+<li>把点击图表 A 后的事件和参数 emit 给父组件</li>
+<li>父组件在 A 组件标签 @ 处绑定的方法处接收，并更新图表 B 标签的
+:prop-name 的 Ref</li>
+<li> 在 B 组件里监视它 props 的变化，调用更新图表的方法 </li>
+</ol>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/></pre></td><td class="code"><pre><span class="line"><span class="title function_">watch</span>(</span><br/><span class="line">  <span class="function">() =&gt;</span> props.<span class="property">propName</span>,</span><br/><span class="line">  <span class="title function_">async</span> (newVal) =&gt; {</span><br/><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">"propName updated:"</span>, newVal);</span><br/><span class="line">    <span class="keyword">await</span> <span class="title function_">updateChartData</span>(newVal);</span><br/><span class="line">  },</span><br/><span class="line">  { <span class="attr">immediate</span>: <span class="literal">true</span> } <span class="comment">//确保在组件初始化时也执行一次回调函数</span></span><br/><span class="line">);</span><br/></pre></td></tr></tbody></table></figure>
+<ol start="5" type="1">
+<li>在更新图表的方法里，根据接收到的参数，fetch 不同的文件，赋给 data 的
+Ref.value</li>
+</ol>
+<h2 id="word-文档模板留存">Word 文档模板留存</h2>
+<ol type="1">
+<li>对称页边距，留出一点装订距离。上下 2.5 cm，内 3 cm，外 2.5 cm</li>
+<li> 第一面是封面，第二面是目录。页码从第三面开始编
+1，奇数页在右下角，偶数页在左下角</li>
+<li>所有中英文标题都是黑体加粗，格式都是
+<code>1.1.标题</code>。一级标题三号，二级标题四号，三级标题小四。不缩进</li>
+<li>所有正文中文都是宋体，西文都是 Times New
+Roman。字号都是小四。首行缩进两字符，左对齐</li>
+<li>所有标题和正文段落都是段前段后 0，行距 1.5 倍</li>
+<li>大部分代码用截图，把 VSCode 的背景调到纯白</li>
+<li>把 VSCode 编辑器的字体调为中文宋体，西文 Consolas</li>
+<li> 单独定义一个图片样式，应用于段落的阴影边框，宽度 0.75 磅</li>
+<li>小部分短的代码（Shell
+命令之类的）单独定义一个代码样式继承自正文，使用与图片同款的边框，首行缩进
+2 字符</li>
+<li>参考文献样式继承自 “列表段落”，悬挂缩进 2
+字符，左对齐，允许西文在单词中间换行</li>
+</ol>
 <h2 id="解决-vscode-集成终端按键与快捷键冲突">解决 VSCode
 集成终端按键与快捷键冲突</h2>
 <p><code>Ctrl + Shift + P</code>
