@@ -2,9 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://hrfis.me/blog/psychology.html</loc>
+    <loc>https://hrfis.me/blog/game.html</loc>
     
-    <lastmod>2025-04-28</lastmod>
+    <lastmod>2025-04-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/donate-blood.html</loc>
+    
+    <lastmod>2025-04-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/wait.html</loc>
+    
+    <lastmod>2025-04-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/math.html</loc>
+    
+    <lastmod>2025-04-29</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -13,34 +40,25 @@
   <url>
     <loc>https://hrfis.me/blog/that.html</loc>
     
-    <lastmod>2025-04-28</lastmod>
+    <lastmod>2025-04-29</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/5.html</loc>
+    <loc>https://hrfis.me/blog/psychology.html</loc>
     
-    <lastmod>2025-04-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/book.html</loc>
-    
-    <lastmod>2025-04-27</lastmod>
+    <lastmod>2025-04-29</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/game.html</loc>
+    <loc>https://hrfis.me/blog/albums.html</loc>
     
-    <lastmod>2025-04-27</lastmod>
+    <lastmod>2025-04-29</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -50,42 +68,6 @@
     <loc>https://hrfis.me/blog/lacan.html</loc>
     
     <lastmod>2025-04-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/albums.html</loc>
-    
-    <lastmod>2025-04-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/donate-blood.html</loc>
-    
-    <lastmod>2025-04-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/wait.html</loc>
-    
-    <lastmod>2025-04-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/discrete-mathematics.html</loc>
-    
-    <lastmod>2025-04-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -155,24 +137,6 @@
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/math.html</loc>
-    
-    <lastmod>2025-02-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/computer-network.html</loc>
-    
-    <lastmod>2025-01-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hrfis.me/blog/music-theory.html</loc>
     
     <lastmod>2025-01-29</lastmod>
@@ -182,36 +146,9 @@
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/computer-organization.html</loc>
-    
-    <lastmod>2025-01-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/install-rj45-network-cable.html</loc>
-    
-    <lastmod>2025-01-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hrfis.me/blog/economics.html</loc>
     
     <lastmod>2025-01-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/moto-c117-alarm-diy.html</loc>
-    
-    <lastmod>2025-01-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -281,15 +218,6 @@
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/84.html</loc>
-    
-    <lastmod>2024-11-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hrfis.me/blog/Expand-the-Ubuntu-capacity-in-the-VM.html</loc>
     
     <lastmod>2024-11-30</lastmod>
@@ -308,15 +236,6 @@
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/myclock.html</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hrfis.me/blog/categories/index.html</loc>
     
     <lastmod>2023-09-29</lastmod>
@@ -328,7 +247,7 @@
 
   <url>
     <loc>https://hrfis.me/blog</loc>
-    <lastmod>2025-04-28</lastmod>
+    <lastmod>2025-04-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
