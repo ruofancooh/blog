@@ -20,7 +20,7 @@
 <meta content="一位十六进制数表示四位二进制数，两位十六进制数表示一个字节。 ASCII 有 128 个符号，使用一个字节表示，范围是 00000000-01111111 即 00-7F 参考：字符编码 / 解码 | SYMBL | HexED.it GBK 是 GB2312 的超集，有 21886 个符号，使用两个字节表示一个符号。当文本中同时包含 GBK 与 ASCII 字符时，GBK 对 ASCII 字符仍" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-11-15T11:00:00.000Z" property="article:published_time"/>
-<meta content="2024-12-21T02:13:18.784Z" property="article:modified_time"/>
+<meta content="2025-05-31T06:08:04.491Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/gbk-utf8" rel="canonical"/>
@@ -137,7 +137,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2024-12-21T10:13:18+08:00" itemprop="dateModified" title="修改时间：2024-12-21 10:13:18">2024-12-21</time>
+<time datetime="2025-05-31T14:08:04+08:00" itemprop="dateModified" title="修改时间：2025-05-31 14:08:04">2025-05-31</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -153,7 +153,7 @@
 <i class="far fa-file-word"></i>
 </span>
 <span class="post-meta-item-text">本文字数：</span>
-<span>839</span>
+<span>833</span>
 </span>
 <span class="post-meta-item" title="阅读时长">
 <span class="post-meta-item-icon">
@@ -238,7 +238,7 @@ ASCII 兼容。</p>
 <p>= E8BF99</p>
 <h2 id="锟斤拷的成因">锟斤拷的成因</h2>
 <ol type="1">
-<li>有一个 GBK 编码的文本文件 A</li>
+<li>有一个文件 A</li>
 <li> 用 UTF-8 编码读 A，其中不符合 UTF-8 规范的十六进制值被解析为字符
 �（Replacement Character）</li>
 <li>把 A 保存为 UTF-8 格式的新文件 B，则 � 被记录为 EFBFBD</li>

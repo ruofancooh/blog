@@ -1,3 +1,4 @@
+https://hrfis.me/blog/gbk-utf8.html
 https://hrfis.me/blog/psychology.html
 https://hrfis.me/blog/that.html
 https://hrfis.me/blog/jing-yi-jing-xuan.html
@@ -18,7 +19,6 @@ https://hrfis.me/blog/hadoop.html
 https://hrfis.me/blog/music-theory.html
 https://hrfis.me/blog/economics.html
 https://hrfis.me/blog/win10-dolphin-wii.html
-https://hrfis.me/blog/gbk-utf8.html
 https://hrfis.me/blog/magisk.html
 https://hrfis.me/blog/gimp-make-words-on-the-photographed-paper-clearer.html
 https://hrfis.me/blog/Expand-the-Ubuntu-capacity-in-the-VM.html
