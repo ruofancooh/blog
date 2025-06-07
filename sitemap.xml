@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://hrfis.me/blog/communication.html</loc>
+    <loc>https://hrfis.me/blog/that.html</loc>
     
     <lastmod>2025-06-07</lastmod>
     
@@ -21,15 +21,6 @@
   
   <url>
     <loc>https://hrfis.me/blog/psychology.html</loc>
-    
-    <lastmod>2025-06-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/that.html</loc>
     
     <lastmod>2025-06-01</lastmod>
     
