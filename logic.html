@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 7.3.0" name="generator"/>
+<link href="/blog/favicon.ico" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/blog/favicon.ico" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/blog/favicon.ico" rel="icon" sizes="16x16" type="image/png"/>
+<link color="#222" href="/blog/favicon.ico" rel="mask-icon"/>
+<link href="/blog/css/main.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
+<meta content="推断的有效性和可靠性 一个推断是两个及以上的句子的集合。包括前提的句子和结论的句子 一个推断是有效的 &lt;-&gt; 不存在当所有前提为真时，结论为假 一个推断是可靠的 &lt;-&gt; 论证是有效的 且 它的所有前提实际为真 假言三段论是类似于这样的推断：  A -&gt; B B -&gt; C  因此，A -&gt; C  把真值表画出来之后，可以看到：当前提均为真时，结论一定为真。说" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="逻辑" property="og:title"/>
+<meta content="https://hrfis.me/blog/logic.html" property="og:url"/>
+<meta content="​若凡的笔记" property="og:site_name"/>
+<meta content="推断的有效性和可靠性 一个推断是两个及以上的句子的集合。包括前提的句子和结论的句子 一个推断是有效的 &lt;-&gt; 不存在当所有前提为真时，结论为假 一个推断是可靠的 &lt;-&gt; 论证是有效的 且 它的所有前提实际为真 假言三段论是类似于这样的推断：  A -&gt; B B -&gt; C  因此，A -&gt; C  把真值表画出来之后，可以看到：当前提均为真时，结论一定为真。说" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="https://hrfis.me/blog/images/AEIO.webp" property="og:image"/>
+<meta content="2025-06-08T01:00:00.000Z" property="article:published_time"/>
+<meta content="2025-06-08T15:26:06.254Z" property="article:modified_time"/>
+<meta content="Ruofan" property="article:author"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://hrfis.me/blog/images/AEIO.webp" name="twitter:image"/>
+<link href="https://hrfis.me/blog/logic" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/logic.html","path":"/logic.html","title":"逻辑"}</script>
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>逻辑 | ​若凡的笔记</title>
+<script src="/blog/moon.js"></script>
+<noscript>
+<link href="/blog/css/noscript.css" rel="stylesheet"/>
+</noscript>
+</head>
+<body itemscope="" itemtype="http://schema.org/WebPage">
+<div class="headband"></div>
+<main class="main">
+<div class="column">
+<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+<div class="site-nav-toggle">
+<div aria-label="切换导航栏" class="toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+</div>
+</div>
+<div class="site-meta">
+<a class="brand" href="/blog/" rel="start">
+<i class="logo-line"></i>
+<p class="site-title">​若凡的笔记</p>
+<i class="logo-line"></i>
+</a>
+<p class="site-subtitle" itemprop="description">普通人</p>
+</div>
+<div class="site-nav-right">
+<div aria-label="搜索" class="toggle popup-trigger" role="button">
+</div>
+</div>
+</div>
+<nav class="site-nav">
+<ul class="main-menu menu"><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+</ul>
+</nav>
+</header>
+<aside class="sidebar">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<ul class="sidebar-nav">
+<li class="sidebar-nav-toc">
+          文章目录
+        </li>
+<li class="sidebar-nav-overview">
+          站点概览
+        </li>
+</ul>
+<div class="sidebar-panel-container">
+<!--noindex-->
+<div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E6%96%AD%E7%9A%84%E6%9C%89%E6%95%88%E6%80%A7%E5%92%8C%E5%8F%AF%E9%9D%A0%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">推断的有效性和可靠性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%87%E8%A8%80%E5%91%BD%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">假言命题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A8%80%E5%91%BD%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">直言命题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A8%80%E5%91%BD%E9%A2%98%E7%9A%84%E6%8D%A2%E8%B4%A8%E5%92%8C%E6%8D%A2%E4%BD%8D"><span class="nav-number">4.</span> <span class="nav-text">直言命题的换质和换位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A8%80%E4%B8%89%E6%AE%B5%E8%AE%BA"><span class="nav-number">5.</span> <span class="nav-text">直言三段论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E8%A8%80%E4%B8%89%E6%AE%B5%E8%AE%BA"><span class="nav-number">6.</span> <span class="nav-text">选言三段论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%A2%E5%BC%8F%E8%B0%AC%E8%AF%AF"><span class="nav-number">7.</span> <span class="nav-text">形式谬误</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E8%B0%AC%E8%AF%AF"><span class="nav-number">7.1.</span> <span class="nav-text">命题逻辑谬误</span></a></li></ol></li></ol></div>
+</div>
+<!--/noindex-->
+<div class="site-overview-wrap sidebar-panel">
+<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<p class="site-author-name" itemprop="name">Ruofan</p>
+<div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+<nav class="site-state">
+<div class="site-state-item site-state-posts">
+<a href="/blog/">
+<span class="site-state-item-count">25</span>
+<span class="site-state-item-name">日志</span>
+</a>
+</div>
+<div class="site-state-item site-state-categories">
+<a href="/blog/categories/">
+<span class="site-state-item-count">3</span>
+<span class="site-state-item-name">分类</span></a>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<div class="main-inner post posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/logic.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="​若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="逻辑 | ​若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h1 class="post-title" itemprop="name headline">
+          逻辑
+        </h1>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2025-06-08T09:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2025-06-08 09:00:00 / 修改时间：23:26:06">2025-06-08</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-folder"></i>
+</span>
+<span class="post-meta-item-text">分类于</span>
+<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+<a href="/blog/p/" itemprop="url" rel="index"><span itemprop="name">实用系列</span></a>
+</span>
+</span>
+<span class="post-meta-item" title="本文字数">
+<span class="post-meta-item-icon">
+<i class="far fa-file-word"></i>
+</span>
+<span class="post-meta-item-text">本文字数：</span>
+<span>2.3k</span>
+</span>
+<span class="post-meta-item" title="阅读时长">
+<span class="post-meta-item-icon">
+<i class="far fa-clock"></i>
+</span>
+<span class="post-meta-item-text">阅读时长 ≈</span>
+<span>8 分钟</span>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody"><h2 id="推断的有效性和可靠性">推断的有效性和可靠性</h2>
+<p>一个推断是两个及以上的句子的集合。包括前提的句子和结论的句子</p>
+<p>一个推断是有效的 &lt;-&gt; 不存在当所有前提为真时，结论为假</p>
+<p>一个推断是可靠的 &lt;-&gt; 论证是有效的 且 它的所有前提实际为真</p>
+<p>假言三段论是类似于这样的推断：</p>
+<ol type="1">
+<li>A -&gt; B</li>
+<li>B -&gt; C</li>
+<li> 因此，A -&gt; C</li>
+</ol>
+<p>把真值表画出来之后，可以看到：当前提均为真时，结论一定为真。说明这个推断是有效的</p>
+<p>可靠性是针对一个具体论证实例的。当 ABC
+取具体的值的时候（一次真值指派），如果还能保证两个前提都是为真的，那么推断是可靠的</p>
+<table>
+<thead>
+<tr class="header">
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>A→B（前提 1）</th>
+<th>B→C（前提 2）</th>
+<th>A→C（结论）</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="假言命题">假言命题</h2>
+<p>形如 A -&gt; B
+的，叫条件命题，或者假言命题，是命题逻辑的范畴。它陈述的是某一事物情况是另一件事物情况的条件。</p>
+<ul>
+<li>充分条件：如果 A 那么 B。A -&gt; B
+为蕴含。当蕴含的前件为假时，复合命题为真；当蕴含的前件为真时，复合命题为后件的真值；</li>
+<li>充要条件：A &lt;-&gt; B，当 A 和 B
+真值一致时，复合命题为真，否则为假</li>
+</ul>
+<h2 id="直言命题">直言命题</h2>
+<p>形如 所有 A 都是 B
+的叫直言命题，是传统逻辑的范畴。直言命题陈述的是两个类之间的包含关系。每一个命题的结构是：[量项][主项][连项][谓项]。量项包括全称量词、特称量词和单称量词；连项包括肯定和否定。</p>
+<p>每一个直言命题有四种语气：AEIO 分别代表全肯，全否，特肯，特否。</p>
+<ul>
+<li>A 型：全称肯定（所有 S 是 P），例如 “所有人都是会死的”。</li>
+<li>E 型：全称否定（没有 S 是 P），例如 “没有人是完美的”。</li>
+<li>I 型：特称肯定（有些 S 是 P），例如 “有些鸟会飞”。</li>
+<li>O 型：特称否定（有些 S 不是 P），例如 “有些苹果不是红色的”。</li>
+</ul>
+<h2 id="直言命题的换质和换位">直言命题的换质和换位</h2>
+<p>对直言命题来说，换质是指通过改变命题的 “质”（肯定或否定），并对谓词取补集，得到一个新命题。换质后，新命题与原命题逻辑等价。操作步骤：</p>
+<ul>
+<li>A 型（所有 S 是 P） → 换质为 E 型（没有 S 是非 P）。</li>
+<li>E 型（没有 S 是 P） → 换质为 A 型（所有 S 是非 P）。</li>
+<li>I 型（有些 S 是 P） → 换质为 O 型（有些 S 不是非 P）。</li>
+<li>O 型（有些 S 不是 P） → 换质为 I 型（有些 S 是非 P）。</li>
+</ul>
+<p>特点：换质是有效且等值的操作，适用于所有直言命题类型（A、E、I、O）。</p>
+<p>换位：通过交换主词（Subject）和谓词（Predicate）的位置，得到一个新命题。换位后，新命题不一定与原命题等价。规则：</p>
+<ul>
+<li>E 型（没有 S 是 P） → 换位为 E 型（没有 P 是
+S）。例如：“没有人是完美的” → “没有完美的人”（等价）。</li>
+<li>I 型（有些 S 是 P） → 换位为 I 型（有些 P 是 S）。例如：“有些鸟会飞”
+→ “有些会飞的是鸟”（等价）。</li>
+<li>A 型（所有 S 是 P） → 换位无效。标准换位不能直接应用，因为 “所有 S 是
+P” 换位为 “所有 P 是
+S” 不一定成立。例如：“所有人都是会死的” 换位为 “所有会死的都是人” 是假的（动物也会死）。</li>
+<li>O 型（有些 S 不是 P） →
+换位无效。不能直接换位。例如：“有些苹果不是红色的” 换位为 “有些红色的不是苹果” 可能真也可能假，不等价。</li>
+</ul>
+<p>特点：换位只对 E 型和 I 型 有效（新命题与原命题等价），对 A 型和 O
+型无效（可能产生不等价命题）。</p>
+<h2 id="直言三段论">直言三段论</h2>
+<p>直言三段论由三个直言命题组成，AAA-1 的直言三段论是这样的：</p>
+<ol type="1">
+<li>所有 M 是 P</li>
+<li> 所有 S 是 M</li>
+<li> 因此，所有 S 是 P</li>
+</ol>
+<p>在结论中的主词记为 S 是小项，谓词记为 P 是大项。包括 P
+的前提是大前提，包括 S
+的前提是小前提。没有出现在结论里，而在两个前提里重复出现的是中项 M。</p>
+<table>
+<colgroup>
+<col style="width: 26%"/>
+<col style="width: 34%"/>
+<col style="width: 39%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>肯定：谓项都不周延</th>
+<th>否定：谓项都周延</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>全称：主项都周延</strong></td>
+<td> A：所有主 + 是谓 -，主包含在谓里</td>
+<td> E：没有主 + 是谓 +，主谓互斥</td>
+</tr>
+<tr class="even">
+<td><strong>特称：主项都不周延</strong></td>
+<td> I：有些主 - 是谓 -，主谓有交</td>
+<td> O：有些主 - 不是谓 +，主不包含在谓里</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/blog/images/AEIO.webp"/></p>
+<p>周延指的是，一个词项涵盖了他的所有外延。+ 记为周延，- 记为不周延。</p>
+<blockquote>
+<p>小明是只有一只脚的；小明是人；因此，人是只有一只脚的</p>
+</blockquote>
+<p>在它的结论中人是周延的，指的是所有人。而在小前提中的人是没有周延的，只包括小明一个人。</p>
+<ul>
+<li>全称判断的主项都周延：因为是以所有 / 没有…… 开头的。单称命题主词包括的对象只有一个，所以也周延</li>
+<li>否定判断的谓项都周延：所有武汉人 + 都不是湖南人 +（全否
+E），或有些武汉人 - 不是湖南人 +（特否
+O），这里的湖南人包括了所有湖南人。武汉人不会是所有湖南人中的任一个</li>
+<li>特称判断的主项都不周延：因为是以有些…… 开头的</li>
+<li>肯定判断的谓项都不周延：所有武汉人 + 都是湖北人 -（全肯
+A），或有些武汉人 - 是湖北人 -（特肯
+I），这里的湖北人不是指的所有湖北人。武汉人只是湖北人的一部分，不是所有湖北人</li>
+</ul>
+<p>格指的是，在大前提和小前提中，大项、小项和中项的排列顺序。结论的顺序一定是
+S-P，小项 - 大项</p>
+<ul>
+<li>第 1 格：中项一左一右，是分开的。大前提 M-P，小前提 S-M</li>
+<li> 第 2 格：中项都在右边。大前提 P-M，小前提 S-M</li>
+<li> 第 3 格：中项都在左边。大前提 M-P，小前提 M-S</li>
+<li> 第 4 格：中项一右一左，是聚集的。大前提 P-M，小前提 M-S</li>
+</ul>
+<blockquote>
+<p>小明只有一只脚；小明是人；因此，人只有一只脚</p>
+</blockquote>
+<p>它的中项都在左边，所以是第三格。全肯 A，AAA-3 属于无效推理</p>
+<p>一个 EIO-2 的有效的三段论是这样的：</p>
+<ol type="1">
+<li>没有安徽人是湖北人（全否 E）</li>
+<li>有些中国人是湖北人（特肯 I）</li>
+<li>因此，有些中国人不是安徽人（特否 O）</li>
+</ol>
+<p>如何判断三段论有效性：需要满足下列的所有规则。<a href="https://zh.wikipedia.org/wiki/%E7%9B%B4%E8%A8%80%E4%B8%89%E6%AE%B5%E8%AE%BA#%E6%9C%89%E6%95%88%E4%B8%89%E6%AE%B5%E8%AB%96%E5%BC%8F" rel="noopener" target="_blank">或者画韦恩图，或者查表</a></p>
+<ol type="1">
+<li>结论中否定命题的数目必须和前提中否定命题的数目相等</li>
+<li>结论中特称命题的数目必须和前提中特称命题的数目相等</li>
+<li>结论中周延的词必须在前提中周延</li>
+<li>中项必须周延至少一次</li>
+</ol>
+<h2 id="选言三段论">选言三段论</h2>
+<ol type="1">
+<li>P 或 Q</li>
+<li> 非 P</li>
+<li> 所以 Q</li>
+</ol>
+<p>它对应肯定选言的谬误：</p>
+<ol type="1">
+<li>P 或 Q</li>
+<li>P</li>
+<li> 所以 Q 为假</li>
+</ol>
+<h2 id="形式谬误">形式谬误</h2>
+<p>形式谬误的推理过程是无效的。</p>
+<h3 id="命题逻辑谬误">命题逻辑谬误</h3>
+<p>手电筒发光有两个条件：电池有电，且开关打开了。</p>
+<ul>
+<li>肯定后件：如果手电筒发光了，那么它是有电的；手电筒是有电的；因此手电筒正在发光</li>
+<li>否定前件：如果手电筒发光了，那么它是有电的；手电筒没有发光；因此手电筒是没电的</li>
+</ul>
+<p>发现肯定后件、否定前件、肯定选言、否定联言的方式都是：通过真值表的复合命题列，加上简单命题其中的一列，找另一个简单命题列在真值表里有两种的情况，强制把它推向其中一种。如：</p>
+<table>
+<colgroup>
+<col style="width: 24%"/>
+<col style="width: 21%"/>
+<col style="width: 54%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>P：手电筒正在发光</th>
+<th> Q：它的电池有电</th>
+<th>蕴含：若手电筒正在发光，则它的电池有电</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td> 0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>“若 P 则 Q” 为真时
+<ul>
+<li>P 为假时，Q 有两种情况（否定前件谬误：若 P 则 Q 为真，P 为假，推出 Q
+为假）</li>
+<li>P 为真时，Q
+只有一种情况（这是有效的，肯定前件的推理。手电筒正在发光，说明它的电池一定有电）</li>
+<li>Q 为假时，P
+只有一种情况（这是有效的，否定后件的推理。手电筒的电池没电，说明它一定不会发光）</li>
+<li>Q 为真时，P 有两种情况（肯定后件谬误：若 P 则 Q，Q，因此 P）</li>
+</ul></li>
+</ul>
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/jing-yi-jing-xuan.html" rel="prev" title="抽奖 - 累积话费 - 3G 违约 - 京译精选的套路方式">
+<i class="fa fa-angle-left"></i> 抽奖 - 累积话费 - 3G 违约 - 京译精选的套路方式
+                </a>
+</div>
+<div class="post-nav-item">
+</div>
+</div>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
+<div class="wordcount">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="fa fa-chart-line"></i>
+</span>
+<span title="站点总字数">134k</span>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="fa fa-coffee"></i>
+</span>
+<span title="站点阅读时长">7:26</span>
+</span>
+</div>
+<div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+</div>
+</footer>
+<div class="toggle sidebar-toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+</div>
+<div class="sidebar-dimmer"></div>
+<div aria-label="返回顶部" class="back-to-top" role="button">
+<i class="fa fa-arrow-up fa-lg"></i>
+<span>0%</span>
+</div>
+<noscript>
+<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://unpkg.com/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/sidebar.js"></script><script src="/blog/js/next-boot.js"></script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js","integrity":"sha256-YbM1pG3wWnzhyYN49g5fPnen+2CKEFaZfopkkwSpNtY="}}</script>
+<script src="/blog/js/third-party/tags/mermaid.js"></script>
+<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/blog/js/third-party/math/mathjax.js"></script>
+</body>
+</html>
