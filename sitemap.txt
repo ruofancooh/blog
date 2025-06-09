@@ -1,6 +1,7 @@
+https://hrfis.me/blog/that.html
+https://hrfis.me/blog/math.html
 https://hrfis.me/blog/logic.html
 https://hrfis.me/blog/psychology.html
-https://hrfis.me/blog/that.html
 https://hrfis.me/blog/game.html
 https://hrfis.me/blog/gbk-utf8.html
 https://hrfis.me/blog/jing-yi-jing-xuan.html
@@ -11,7 +12,6 @@ https://hrfis.me/blog/joke.html
 https://hrfis.me/blog/lacan.html
 https://hrfis.me/blog/wait.html
 https://hrfis.me/blog/amap-poi-search.html
-https://hrfis.me/blog/math.html
 https://hrfis.me/blog/hexo.html
 https://hrfis.me/blog/about/index.html
 https://hrfis.me/blog/time.html

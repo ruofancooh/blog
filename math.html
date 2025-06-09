@@ -21,7 +21,7 @@
 <meta content="zh_CN" property="og:locale"/>
 <meta content="https://hrfis.me/blog/images/residual-error.webp" property="og:image"/>
 <meta content="2024-07-21T11:00:00.000Z" property="article:published_time"/>
-<meta content="2025-04-29T06:16:01.680Z" property="article:modified_time"/>
+<meta content="2025-06-09T17:40:08.551Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/residual-error.webp" name="twitter:image"/>
@@ -145,7 +145,7 @@ f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></a></li><li class="nav-item
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2025-04-29T14:16:01+08:00" itemprop="dateModified" title="修改时间：2025-04-29 14:16:01">2025-04-29</time>
+<time datetime="2025-06-10T01:40:08+08:00" itemprop="dateModified" title="修改时间：2025-06-10 01:40:08">2025-06-10</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -161,14 +161,14 @@ f(\boldsymbol{x})}{\partial \boldsymbol{x}}\)</span></a></li><li class="nav-item
 <i class="far fa-file-word"></i>
 </span>
 <span class="post-meta-item-text">本文字数：</span>
-<span>5.6k</span>
+<span>6.1k</span>
 </span>
 <span class="post-meta-item" title="阅读时长">
 <span class="post-meta-item-icon">
 <i class="far fa-clock"></i>
 </span>
 <span class="post-meta-item-text">阅读时长 ≈</span>
-<span>19 分钟</span>
+<span>20 分钟</span>
 </span>
 </div>
 </div>
@@ -671,13 +671,42 @@ b\)</span>。即张三对李四<strong>有</strong>师生关系 <span class="mat
 <p>恒等关系 <span class="math inline">\(I_A\)</span>：所有人都和自己连上线了，但是互相之间没有线。我</p>
 <p>性质：</p>
 <ul>
-<li>自反的：所有人都和自己连上线了，不一定和对方连不连。这叫正常</li>
-<li>非自反的：有和自己连线的，也有不和自己连线的，不一定和对方连不连。这叫混沌</li>
-<li>反自反的：所有人都不和自己连线，不一定和对方连不连。这叫忘我</li>
-<li>对称的：所有连线都是双向的，或者自指。这叫朋友</li>
-<li>非对称的：</li>
-<li>反对称的：</li>
+<li><p>自反的：对于所有
+a，必须都和自己有关系。所有人都和自己连上线了，不一定和对方连不连。关系矩阵主对角线上都是
+1</p></li>
+<li><p> 反自反的：对于所有
+a，都不能和自己有关系。所有人都不和自己连线，不一定和对方连不连。</p></li>
+<li><p>对称的：对于所有 ab，如果 a 对 b 有关系，b 一定对 a
+有关系。所有连线都是双向的，或者自环。关系矩阵关于主对角线对称</p></li>
+<li><p>反对称的：对于所有 ab，如果 a 对 b 有关系，且 b 对 a 有关系，那么
+ab
+一定相等。不存在双向的连线（但可以自环）。关系矩阵关于主对角线反对称，对应对称位置的值相反</p></li>
+<li><p>可传递的：对于所有 abc，如果 a 对 b 有关系，b 对 c 有关系，那么 a
+和 c 必须有关系。对于任意一条长度为 2
+的连续（同向）路径，它的起点必须可以直接通往终点。</p></li>
+<li><p>在非空集合上，一个自反关系一定不是反自反的，一个对称关系可能也是反对称的</p></li>
+<li><p>在空集上，空关系同时是自反、反自反、对称、反对称、可传递的。由于没有元素，条件 “空真” 地成立</p></li>
+<li><p>等价关系是自反、对称且可传递的关系。</p></li>
+<li><p>偏序关系是自反、反对称和可传递的关系。</p></li>
 </ul>
+<p>对整数集来说：</p>
+<ul>
+<li>恒等关系既是对称的，也是反对称的。因为它是集合里所有元素的自环。</li>
+<li>恒等关系是等价关系</li>
+<li>小于等于关系是非对称的。由 1 &lt;= 2，但 2 不 &lt;= 1</li>
+<li> 小于等于关系是反对称的。如果 a &lt;= b，且 b &lt;= a，那么 a
+一定等于 b</li>
+</ul>
+<p>闭包是指，对一个不一定具有某个性质的，集合 A 上的关系
+pho，通过并的操作使它具有某个性质。在原来的线里多加几根线</p>
+<ul>
+<li>自反闭包 r：pho 并上 A 的恒等关系</li>
+<li>对称闭包 s：pho 并上 pho 的逆关系</li>
+<li>传递闭包 t：pho 的次方从 1 连并到 A
+的基数。次方是同一个关系多次复合，复合是找从起点集合到终点集合的连续路</li>
+</ul>
+<p>r (pho)、s (pho)、t (pho) 分别是集合 A 上包含 pho
+的最小自反 / 对称 / 可传递的关系。</p>
 <h3 id="命题逻辑二值逻辑">命题逻辑（二值逻辑）</h3>
 <p>命题：参考洪帆主编的《离散数学基础（第三版）》，并加上了自己的狭隘理解，同时满足以下三条：</p>
 <ol type="1">
@@ -696,7 +725,7 @@ x 是什么东西的。后者……）。所以它们<strong>不是命题</stron
 </blockquote>
 <p>它是一个命题。它的真值可以被判断，因为这件事已经发生了，但需要我们<a href="https://www.zhcw.com/kjxx/pl3/" rel="noopener" target="_blank">查询资料</a>。</p>
 <blockquote>
-<p>2024 年 1 月 17 号体彩排列三的开奖号码是 555<br/> <a href="https://music.163.com/song?id=1883951953" rel="noopener" target="_blank">太阳系外有宇宙人</a></p>
+<p>2024 年 1 月 17 号体彩排列三的开奖号码是 555<br/> &gt; <a href="https://music.163.com/song?id=1883951953" rel="noopener" target="_blank">太阳系外有宇宙人</a></p>
 </blockquote>
 <p>它们都是命题。它们的真值可以被判断，但不是现在。</p>
 <p>命题连结词，一元的只有：否定 <span class="math inline">\(\neg\)</span>，非……。下面都是二元的。</p>
@@ -768,13 +797,13 @@ x 是什么东西的。后者……）。所以它们<strong>不是命题</stron
 <span class="post-meta-item-icon">
 <i class="fa fa-chart-line"></i>
 </span>
-<span title="站点总字数">136k</span>
+<span title="站点总字数">137k</span>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
 <i class="fa fa-coffee"></i>
 </span>
-<span title="站点阅读时长">7:34</span>
+<span title="站点阅读时长">7:35</span>
 </span>
 </div>
 <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
