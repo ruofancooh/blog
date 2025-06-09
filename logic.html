@@ -12,19 +12,20 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="推断的有效性和可靠性 一个推断是两个及以上的句子的集合。包括前提的句子和结论的句子 一个推断是有效的 &lt;-&gt; 不存在当所有前提为真时，结论为假 一个推断是可靠的 &lt;-&gt; 论证是有效的 且 它的所有前提实际为真 假言三段论是类似于这样的推断：  A -&gt; B B -&gt; C  因此，A -&gt; C  把真值表画出来之后，可以看到：当前提均为真时，结论一定为真。说" name="description"/>
+<meta content="推断的有效性和可靠性 推断是前提的集合加上结论。前提最少有一句，结论只有一句。 一个推断是有效的 &lt;=&gt; 不存在当所有前提为真时，结论为假的情况  小明是人（P） 小明不是人（非 P） 因此，张三会飞（Q）  评估有效性需要把所有真值指派的情况列出来：    P  非 P Q     0 1  未知    1 0  未知    列出来后发现：不存在当所有前提为真时，结论为假的情况。所以" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="逻辑" property="og:title"/>
 <meta content="https://hrfis.me/blog/logic.html" property="og:url"/>
 <meta content="​若凡的笔记" property="og:site_name"/>
-<meta content="推断的有效性和可靠性 一个推断是两个及以上的句子的集合。包括前提的句子和结论的句子 一个推断是有效的 &lt;-&gt; 不存在当所有前提为真时，结论为假 一个推断是可靠的 &lt;-&gt; 论证是有效的 且 它的所有前提实际为真 假言三段论是类似于这样的推断：  A -&gt; B B -&gt; C  因此，A -&gt; C  把真值表画出来之后，可以看到：当前提均为真时，结论一定为真。说" property="og:description"/>
+<meta content="推断的有效性和可靠性 推断是前提的集合加上结论。前提最少有一句，结论只有一句。 一个推断是有效的 &lt;=&gt; 不存在当所有前提为真时，结论为假的情况  小明是人（P） 小明不是人（非 P） 因此，张三会飞（Q）  评估有效性需要把所有真值指派的情况列出来：    P  非 P Q     0 1  未知    1 0  未知    列出来后发现：不存在当所有前提为真时，结论为假的情况。所以" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
+<meta content="https://hrfis.me/blog/images/p==q.webp" property="og:image"/>
 <meta content="https://hrfis.me/blog/images/AEIO.webp" property="og:image"/>
 <meta content="2025-06-08T01:00:00.000Z" property="article:published_time"/>
-<meta content="2025-06-08T15:26:06.254Z" property="article:modified_time"/>
+<meta content="2025-06-09T15:07:49.765Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
-<meta content="https://hrfis.me/blog/images/AEIO.webp" name="twitter:image"/>
+<meta content="https://hrfis.me/blog/images/p==q.webp" name="twitter:image"/>
 <link href="https://hrfis.me/blog/logic" rel="canonical"/>
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/logic.html","path":"/logic.html","title":"逻辑"}</script>
 <script class="next-config" data-name="calendar" type="application/json">""</script>
@@ -77,7 +78,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E6%96%AD%E7%9A%84%E6%9C%89%E6%95%88%E6%80%A7%E5%92%8C%E5%8F%AF%E9%9D%A0%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">推断的有效性和可靠性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%87%E8%A8%80%E5%91%BD%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">假言命题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A8%80%E5%91%BD%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">直言命题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A8%80%E5%91%BD%E9%A2%98%E7%9A%84%E6%8D%A2%E8%B4%A8%E5%92%8C%E6%8D%A2%E4%BD%8D"><span class="nav-number">4.</span> <span class="nav-text">直言命题的换质和换位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B4%E8%A8%80%E4%B8%89%E6%AE%B5%E8%AE%BA"><span class="nav-number">5.</span> <span class="nav-text">直言三段论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E8%A8%80%E4%B8%89%E6%AE%B5%E8%AE%BA"><span class="nav-number">6.</span> <span class="nav-text">选言三段论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%A2%E5%BC%8F%E8%B0%AC%E8%AF%AF"><span class="nav-number">7.</span> <span class="nav-text">形式谬误</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E8%B0%AC%E8%AF%AF"><span class="nav-number">7.1.</span> <span class="nav-text">命题逻辑谬误</span></a></li></ol></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E6%96%AD%E7%9A%84%E6%9C%89%E6%95%88%E6%80%A7%E5%92%8C%E5%8F%AF%E9%9D%A0%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">推断的有效性和可靠性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91"><span class="nav-number">2.</span> <span class="nav-text">命题逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E5%85%AC%E5%BC%8F%E7%9A%84%E7%AD%89%E5%80%BC%E5%85%B3%E7%B3%BB%E5%92%8C%E8%95%B4%E5%90%AB%E5%85%B3%E7%B3%BB"><span class="nav-number">2.1.</span> <span class="nav-text">命题公式的等值关系和蕴含关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E5%85%AC%E5%BC%8F%E7%9A%84%E7%AD%89%E5%80%BC%E6%BC%94%E7%AE%97"><span class="nav-number">2.2.</span> <span class="nav-text">命题公式的等值演算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8C%83%E5%BC%8F"><span class="nav-number">2.3.</span> <span class="nav-text">范式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E9%80%BB%E8%BE%91"><span class="nav-number">3.</span> <span class="nav-text">传统逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E8%A8%80%E5%91%BD%E9%A2%98"><span class="nav-number">3.1.</span> <span class="nav-text">直言命题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E8%A8%80%E5%91%BD%E9%A2%98%E7%9A%84%E6%8D%A2%E8%B4%A8%E5%92%8C%E6%8D%A2%E4%BD%8D"><span class="nav-number">3.2.</span> <span class="nav-text">直言命题的换质和换位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E8%A8%80%E4%B8%89%E6%AE%B5%E8%AE%BA"><span class="nav-number">3.3.</span> <span class="nav-text">直言三段论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%A2%E5%BC%8F%E8%B0%AC%E8%AF%AF"><span class="nav-number">4.</span> <span class="nav-text">形式谬误</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E8%B0%AC%E8%AF%AF"><span class="nav-number">4.1.</span> <span class="nav-text">命题逻辑谬误</span></a></li></ol></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -132,7 +133,14 @@
 <i class="far fa-calendar"></i>
 </span>
 <span class="post-meta-item-text">发表于</span>
-<time datetime="2025-06-08T09:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2025-06-08 09:00:00 / 修改时间：23:26:06">2025-06-08</time>
+<time datetime="2025-06-08T09:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2025-06-08 09:00:00">2025-06-08</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2025-06-09T23:07:49+08:00" itemprop="dateModified" title="修改时间：2025-06-09 23:07:49">2025-06-09</time>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
@@ -148,31 +156,56 @@
 <i class="far fa-file-word"></i>
 </span>
 <span class="post-meta-item-text">本文字数：</span>
-<span>2.3k</span>
+<span>4.6k</span>
 </span>
 <span class="post-meta-item" title="阅读时长">
 <span class="post-meta-item-icon">
 <i class="far fa-clock"></i>
 </span>
 <span class="post-meta-item-text">阅读时长 ≈</span>
-<span>8 分钟</span>
+<span>15 分钟</span>
 </span>
 </div>
 </div>
 </header>
 <div class="post-body" itemprop="articleBody"><h2 id="推断的有效性和可靠性">推断的有效性和可靠性</h2>
-<p>一个推断是两个及以上的句子的集合。包括前提的句子和结论的句子</p>
-<p>一个推断是有效的 &lt;-&gt; 不存在当所有前提为真时，结论为假</p>
-<p>一个推断是可靠的 &lt;-&gt; 论证是有效的 且 它的所有前提实际为真</p>
+<p>推断是前提的集合加上结论。前提最少有一句，结论只有一句。</p>
+<p>一个推断是有效的 &lt;=&gt; 不存在当所有前提为真时，结论为假的情况</p>
+<ol type="1">
+<li>小明是人（P）</li>
+<li>小明不是人（非 P）</li>
+<li>因此，张三会飞（Q）</li>
+</ol>
+<p>评估有效性需要把所有真值指派的情况列出来：</p>
+<table>
+<thead>
+<tr class="header">
+<th>P</th>
+<th> 非 P</th>
+<th>Q</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td> 未知</td>
+</tr>
+<tr class="even">
+<td> 1</td>
+<td>0</td>
+<td> 未知</td>
+</tr>
+</tbody>
+</table>
+<p>列出来后发现：不存在当所有前提为真时，结论为假的情况。所以这个推断是有效的。从矛盾的前提可以推出任何结论。</p>
+<p>一个推断是可靠的 &lt;=&gt; 论证是有效的 且 它的所有前提实际为真</p>
 <p>假言三段论是类似于这样的推断：</p>
 <ol type="1">
 <li>A -&gt; B</li>
 <li>B -&gt; C</li>
 <li> 因此，A -&gt; C</li>
 </ol>
-<p>把真值表画出来之后，可以看到：当前提均为真时，结论一定为真。说明这个推断是有效的</p>
-<p>可靠性是针对一个具体论证实例的。当 ABC
-取具体的值的时候（一次真值指派），如果还能保证两个前提都是为真的，那么推断是可靠的</p>
 <table>
 <thead>
 <tr class="header">
@@ -251,16 +284,204 @@
 </tr>
 </tbody>
 </table>
-<h2 id="假言命题">假言命题</h2>
+<p>把真值表画出来之后，可以看到：当前提均为真时，结论一定为真。说明这个推断是有效的</p>
+<p>可靠性是针对一个具体论证实例的。当 ABC
+取具体的值的时候（一次真值指派），如果还能保证两个前提都是为真的，那么推断是可靠的</p>
+<p>对于这个推断来说：</p>
+<ol type="1">
+<li>A -&gt; B（如果小明是湖北省出生的人，那么小明会飞）</li>
+<li>B -&gt; C（如果小明会飞，那么小明的身份证以 42 开头）</li>
+<li>因此，A -&gt; C（因此，如果小明是湖北省出生的人，那么小明的身份证以
+42 开头）</li>
+</ol>
+<p>现在我们知道的信息是：小明确实是湖北省出生的人，身份证以 42
+开头，也不会飞。那么 A=1，B=0，C=1，对应真值表的倒数第三行</p>
+<p>首先它是有效的。其次它是不可靠的（即使它的结论为真），因为第一个前提是假的，它没有保证所有前提都为真</p>
+<p>对于这个推断来说：</p>
+<ol type="1">
+<li>A -&gt; B（如果小明是湖南人，那么小明是网络小说里的人物）</li>
+<li>B -&gt; C（如果小明是网络小说里的人物，那么小明会飞）</li>
+<li>因此，A -&gt; C（因此，如果小明是湖南人，那么小明会飞）</li>
+</ol>
+<p>现在我们知道的信息是：小明确实是网络小说里的湖南人，会飞。那么
+A=1，B=1，C=1</p>
+<p>首先它是有效的。其次它是可靠的，因为他的所有前提都是真的（即使第一个前提看起来有点问题），结论也是真的。</p>
+<p>第一个前提和结论都违背了常识，但在逻辑中，这并不影响推断的有效性或可靠性。逻辑只关心真值，而这里
+A→B 的真值由小明的具体属性保证（A 真且 B 真）。A→B
+的 “问题” 在于它的语义内容（内容上不现实），而非逻辑真值。逻辑只处理 “如果
+A 则 B” 的真假，不处理 “为什么 A 会导致 B”。</p>
+<h2 id="命题逻辑">命题逻辑</h2>
+<p>在命题逻辑中，命题用大写字母表示，它的真值只能取 0 或
+1，所以也叫二值逻辑。具有确定真值的命题叫命题常元，真值不确定的命题叫命题变元。</p>
+<p>运算符（命题连接词）优先级：非、且、或、蕴含、等值</p>
 <p>形如 A -&gt; B
-的，叫条件命题，或者假言命题，是命题逻辑的范畴。它陈述的是某一事物情况是另一件事物情况的条件。</p>
+的，叫条件命题，或者假言命题，它陈述的是某一事物情况是另一件事物情况的条件。</p>
 <ul>
 <li>充分条件：如果 A 那么 B。A -&gt; B
 为蕴含。当蕴含的前件为假时，复合命题为真；当蕴含的前件为真时，复合命题为后件的真值；</li>
 <li>充要条件：A &lt;-&gt; B，当 A 和 B
 真值一致时，复合命题为真，否则为假</li>
 </ul>
-<h2 id="直言命题">直言命题</h2>
+<p>命题公式的递归定义：</p>
+<ol type="1">
+<li>0、1 是命题公式</li>
+<li>命题变元是命题公式</li>
+<li>如果 A 是命题公式，那么！A 是命题公式</li>
+<li>如果 A 和 B 是命题公式，那么 (A and B)、(A or B)、(A -&gt; B)、(A
+&lt;-&gt; B) 是命题公式</li>
+<li>只有有限次利用上述四点所产生的符号串才是命题公式</li>
+</ol>
+<p>真值表是对于一个命题公式，把它的命题变元的真值指派的所有情况列出来，再计算结果。</p>
+<ul>
+<li>重言式 &lt;=&gt; 1（对它的所有真值指派都为 1）如 A or 1</li>
+<li> 矛盾式 &lt;=&gt; 0（对它的所有真值指派都为 0）如 A and !A</li>
+</ul>
+<p>如果对命题公式 F 的真值指派中，存在一个是取值为真的，那么 F
+称为可满足的公式。重言式 =&gt; 可满足的公式</p>
+<p>命题公式的代换实例是指，对一个命题公式，把它的一个命题变元 A
+用另一个公式 B 代换，且它里面的所有 A 都被 B 代换了。</p>
+<p>代入规则：重言式的代换实例仍然是重言式。因为重言式 &lt;=&gt;
+1，不受被代换的命题变元取值影响。</p>
+<p>子公式是指一个命题公式的一部分（连续的几个符号），且它仍然是公式。</p>
+<p>置换规则：对一个命题公式里 A 的子公式 B，如果用与该子公式等值的公式 C
+去替代子公式 B，那么替换后得到的 D 与 A 等值。</p>
+<p>对偶：对一个命题公式，把它的所有且或变号，01
+互变，得到的新公式是原公式的对偶。</p>
+<h3 id="命题公式的等值关系和蕴含关系">命题公式的等值关系和蕴含关系</h3>
+<p>等值关系可以双向推，蕴含关系只能从左向右推。</p>
+<ul>
+<li>等值演算 (&lt;=&gt;) 像是告诉你两个数学表达式（如 (a+b)² 和 a² + 2ab
++ b²）在数值上总是相等的，你可以互相替换。</li>
+<li>蕴含关系 (=&gt;) 像是告诉你一条推理规则（如 “如果 a &gt; b 且 b &gt;
+c，那么 a &gt;
+c”）。它定义了从已知事实推导出新事实的合法途径。反过来不一定成立</li>
+</ul>
+<p>&lt;-&gt; 是命题连接词，经 &lt;-&gt; 连接后的是命题公式。而 &lt;=&gt;
+是命题公式之间的关系符号，表示两个命题公式之间的等值关系。</p>
+<p>A &lt;=&gt; B 充要条件：</p>
+<ul>
+<li>A &lt;-&gt; B 是永真式（&lt;=&gt; 的定义）</li>
+<li>在任一组真值指派后，这两个公式的值一致（&lt;-&gt; 的定义）</li>
+</ul>
+<hr/>
+<p>=&gt; 表示命题公式间的蕴含关系。</p>
+<p>A =&gt; B 充要条件：</p>
+<ul>
+<li>A -&gt; B 是永真式（=&gt; 的定义）</li>
+<li>在对他们进行的所有真值指派里，当 A 为真时，B 一定为真
+<ul>
+<li>必要性：如果 A -&gt; B 是重言式，意味 A 和 B 的取值只可能在第
+1、2、4 行里。所以说，在对他们进行的所有真值指派里，当 A 为真时，B
+一定为真</li>
+<li>充分性：如果对 AB 进行的所有真值指派里，当 A 为真时，B
+一定为真，意味 A 和 B 的取值只可能在第 4 行里。所以 A -&gt; B
+是永真式</li>
+</ul></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th> A</th>
+<th>B</th>
+<th>A-&gt;B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>前件也可以是一个集合。若 {A,B} =&gt;
+C，说明：在对他们进行的所有真值指派里，当 {A,B} 中公式同时为真时，C
+一定为真。对于一个推断，前提为 A 和 B，结论为
+C。如果这个推断是有效的，那么 {A,B} =&gt; C</p>
+<p>如何推证 A =&gt; B：有两种方法：</p>
+<ol type="1">
+<li>先假定 A 为真，再检查 B 的真值。如果 B
+一定为真，蕴含关系成立；否则不成立。</li>
+<li>先假定 B 为假，再检查 A 的真值。如果 A
+不可能为真，蕴含关系成立；否则不成立。</li>
+</ol>
+<p>对 P and Q =&gt; P 来说：</p>
+<ul>
+<li>假定前件 P and Q 为真，那么 P 一定为真。所以蕴含关系成立</li>
+<li>假定后件 P 为假，那么前件为假（不可能为真），所以蕴含关系成立</li>
+</ul>
+<p>对 P or Q =&gt; P 来说：</p>
+<ul>
+<li>假定前件 P or Q
+为真，那么后件的真值是不确定的。所以蕴含关系不成立</li>
+<li>假定后件 P
+为假，那么前件的真值是不确定的（可能为真），所以蕴含关系不成立</li>
+</ul>
+<h3 id="命题公式的等值演算">命题公式的等值演算</h3>
+<ul>
+<li>对于两个命题，单独的或和且间有交换律，三个命题间有结合律。和乘法和加法类似
+<ul>
+<li>（A 且 B）或（A 且 C）&lt;=&gt; A 且（B 或 C）</li>
+</ul></li>
+<li>两命题且或的运算
+<ul>
+<li>且 1 或 0 不变：同一律</li>
+<li>且 0 或 1 短路：零一律</li>
+<li>且自身或自身不变：等幂律</li>
+<li>矛且 0，矛或 1：互否律</li>
+</ul></li>
+<li>吸收律：三个命题以一且一或连接，后两个有括号，且前两个命题相同，那么它的值为第一个命题的值</li>
+<li>德摩根律：多个命题以且 / 或连接，括号外有一个非，那么可以把非分配到括号里的各个命题上，并把且或变号</li>
+<li> P 蕴含 Q &lt;=&gt; 非 P 或 Q &lt;=&gt; (P 蕴含 Q) 且 (Q 蕴含 P)</li>
+<li>P 等值 Q：析取范式，非号聚集；合取范式，非号分散</li>
+<li>对命题公式 A 最外面加非后，与 A 的对偶公式等值</li>
+</ul>
+<p><img src="/blog/images/p==q.webp"/></p>
+<h3 id="范式">范式</h3>
+<p>析 V 合 ^</p>
+<ul>
+<li>质合取式：由命题变元或其否定以连且的方式连接到一起。P and Q and
+!R</li>
+<li> 质析取式：由命题变元或其否定以连或的方式连接到一起。P or Q or
+!R</li>
+<li> 析取范式：质合取式的析取：括号外是 V。（且且）或（且且）</li>
+<li>合取范式：括号外是合取 ^</li>
+</ul>
+<p>任一公式都可变换成与它等值的析取范式或者合取范式，可能不止一种。变换的过程：</p>
+<ol type="1">
+<li>把蕴含改写成：非 P 或
+Q，等值改写成：析取范式非号聚集；合取范式非号分散</li>
+<li>用德摩根律把括号外的否定号向内深入到命题变元身上</li>
+<li>用双重否定律消去非非</li>
+<li>用分配律把：
+<ul>
+<li>P 且（Q 或 R）变成（P 且 Q）或（P 且 R）的析取范式</li>
+<li> P 或（Q 且 R）变成（P 或 Q）且（P 或 R）的合取范式</li>
+</ul></li>
+</ol>
+<ul>
+<li>由一些命题变元产生的最小项，是类似于连且的质合取式，但是没有重复的变元。如对于命题变元
+A 和 B， A 且 非 A 且 B 是一个质和取式，但不是最小项。最小项类似 A 且 非
+B</li>
+<li> 由一些命题变元产生的最大项，是类似于连或的质析取式，但是没有重复的变元。</li>
+</ul>
+<h2 id="传统逻辑">传统逻辑</h2>
+<h3 id="直言命题">直言命题</h3>
 <p>形如 所有 A 都是 B
 的叫直言命题，是传统逻辑的范畴。直言命题陈述的是两个类之间的包含关系。每一个命题的结构是：[量项][主项][连项][谓项]。量项包括全称量词、特称量词和单称量词；连项包括肯定和否定。</p>
 <p>每一个直言命题有四种语气：AEIO 分别代表全肯，全否，特肯，特否。</p>
@@ -270,7 +491,7 @@
 <li>I 型：特称肯定（有些 S 是 P），例如 “有些鸟会飞”。</li>
 <li>O 型：特称否定（有些 S 不是 P），例如 “有些苹果不是红色的”。</li>
 </ul>
-<h2 id="直言命题的换质和换位">直言命题的换质和换位</h2>
+<h3 id="直言命题的换质和换位">直言命题的换质和换位</h3>
 <p>对直言命题来说，换质是指通过改变命题的 “质”（肯定或否定），并对谓词取补集，得到一个新命题。换质后，新命题与原命题逻辑等价。操作步骤：</p>
 <ul>
 <li>A 型（所有 S 是 P） → 换质为 E 型（没有 S 是非 P）。</li>
@@ -293,7 +514,7 @@ S” 不一定成立。例如：“所有人都是会死的” 换位为 “所�
 </ul>
 <p>特点：换位只对 E 型和 I 型 有效（新命题与原命题等价），对 A 型和 O
 型无效（可能产生不等价命题）。</p>
-<h2 id="直言三段论">直言三段论</h2>
+<h3 id="直言三段论">直言三段论</h3>
 <p>直言三段论由三个直言命题组成，AAA-1 的直言三段论是这样的：</p>
 <ol type="1">
 <li>所有 M 是 P</li>
@@ -335,15 +556,18 @@ S” 不一定成立。例如：“所有人都是会死的” 换位为 “所�
 <p>小明是只有一只脚的；小明是人；因此，人是只有一只脚的</p>
 </blockquote>
 <p>在它的结论中人是周延的，指的是所有人。而在小前提中的人是没有周延的，只包括小明一个人。</p>
+<p>当我们说 “A 是 B” 的时候，往往意味着 A 在 B 的范围内，A 是 B
+的一部分；说 “A 不是 B” 的时候，往往意味着 A 一点都不在 B 里面。</p>
+<p>所以说肯定判断的谓项都不周延，否定判断的谓项都周延。</p>
 <ul>
-<li>全称判断的主项都周延：因为是以所有 / 没有…… 开头的。单称命题主词包括的对象只有一个，所以也周延</li>
-<li>否定判断的谓项都周延：所有武汉人 + 都不是湖南人 +（全否
-E），或有些武汉人 - 不是湖南人 +（特否
-O），这里的湖南人包括了所有湖南人。武汉人不会是所有湖南人中的任一个</li>
+<li>肯定判断的谓项都不周延：所有武汉人 + 都是科学家 -（全肯
+A），或有些武汉人 - 是科学家 -（特肯
+I），这里的科学家没有周延到所有科学家</li>
+<li>否定判断的谓项都周延：所有武汉人 + 都不是科学家 +（全否
+E），或有些武汉人 - 不是科学家 +（特否
+O），这里的科学家周延到了所有科学家</li>
 <li>特称判断的主项都不周延：因为是以有些…… 开头的</li>
-<li>肯定判断的谓项都不周延：所有武汉人 + 都是湖北人 -（全肯
-A），或有些武汉人 - 是湖北人 -（特肯
-I），这里的湖北人不是指的所有湖北人。武汉人只是湖北人的一部分，不是所有湖北人</li>
+<li>全称判断的主项都周延：因为是以所有 / 没有…… 开头的。单称命题主词包括的对象只有一个，所以也周延</li>
 </ul>
 <p>格指的是，在大前提和小前提中，大项、小项和中项的排列顺序。结论的顺序一定是
 S-P，小项 - 大项</p>
@@ -357,12 +581,13 @@ S-P，小项 - 大项</p>
 <p>小明只有一只脚；小明是人；因此，人只有一只脚</p>
 </blockquote>
 <p>它的中项都在左边，所以是第三格。全肯 A，AAA-3 属于无效推理</p>
-<p>一个 EIO-2 的有效的三段论是这样的：</p>
+<p>一个 EIO-2 的有效的（但不可靠的）三段论是这样的：</p>
 <ol type="1">
-<li>没有安徽人是湖北人（全否 E）</li>
-<li>有些中国人是湖北人（特肯 I）</li>
+<li>没有安徽人是科学家（全否 E）</li>
+<li>有些中国人是科学家（特肯 I）</li>
 <li>因此，有些中国人不是安徽人（特否 O）</li>
 </ol>
+<p>如果把科学家替换成湖北人，就是有效且可靠的。</p>
 <p>如何判断三段论有效性：需要满足下列的所有规则。<a href="https://zh.wikipedia.org/wiki/%E7%9B%B4%E8%A8%80%E4%B8%89%E6%AE%B5%E8%AE%BA#%E6%9C%89%E6%95%88%E4%B8%89%E6%AE%B5%E8%AB%96%E5%BC%8F" rel="noopener" target="_blank">或者画韦恩图，或者查表</a></p>
 <ol type="1">
 <li>结论中否定命题的数目必须和前提中否定命题的数目相等</li>
@@ -370,7 +595,9 @@ S-P，小项 - 大项</p>
 <li>结论中周延的词必须在前提中周延</li>
 <li>中项必须周延至少一次</li>
 </ol>
-<h2 id="选言三段论">选言三段论</h2>
+<h2 id="形式谬误">形式谬误</h2>
+<p>形式谬误的推理过程是无效的。</p>
+<p>有效的选言三段论是这样的：也叫析取三段论，或拒取式。</p>
 <ol type="1">
 <li>P 或 Q</li>
 <li> 非 P</li>
@@ -382,8 +609,6 @@ S-P，小项 - 大项</p>
 <li>P</li>
 <li> 所以 Q 为假</li>
 </ol>
-<h2 id="形式谬误">形式谬误</h2>
-<p>形式谬误的推理过程是无效的。</p>
 <h3 id="命题逻辑谬误">命题逻辑谬误</h3>
 <p>手电筒发光有两个条件：电池有电，且开关打开了。</p>
 <ul>
@@ -462,13 +687,13 @@ S-P，小项 - 大项</p>
 <span class="post-meta-item-icon">
 <i class="fa fa-chart-line"></i>
 </span>
-<span title="站点总字数">134k</span>
+<span title="站点总字数">136k</span>
 </span>
 <span class="post-meta-item">
 <span class="post-meta-item-icon">
 <i class="fa fa-coffee"></i>
 </span>
-<span title="站点阅读时长">7:26</span>
+<span title="站点阅读时长">7:34</span>
 </span>
 </div>
 <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
