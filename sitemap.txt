@@ -1,7 +1,7 @@
-https://hrfis.me/blog/math.html
 https://hrfis.me/blog/that.html
-https://hrfis.me/blog/psychology.html
 https://hrfis.me/blog/game.html
+https://hrfis.me/blog/math.html
+https://hrfis.me/blog/psychology.html
 https://hrfis.me/blog/gbk-utf8.html
 https://hrfis.me/blog/jing-yi-jing-xuan.html
 https://hrfis.me/blog/donate-blood.html
