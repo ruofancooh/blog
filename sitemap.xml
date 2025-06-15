@@ -4,16 +4,7 @@
   <url>
     <loc>https://hrfis.me/blog/math.html</loc>
     
-    <lastmod>2025-06-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/game.html</loc>
-    
-    <lastmod>2025-06-11</lastmod>
+    <lastmod>2025-06-15</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,7 +13,16 @@
   <url>
     <loc>https://hrfis.me/blog/that.html</loc>
     
-    <lastmod>2025-06-11</lastmod>
+    <lastmod>2025-06-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/game.html</loc>
+    
+    <lastmod>2025-06-12</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -238,7 +238,7 @@
 
   <url>
     <loc>https://hrfis.me/blog</loc>
-    <lastmod>2025-06-12</lastmod>
+    <lastmod>2025-06-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
