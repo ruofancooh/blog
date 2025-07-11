@@ -2,18 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://hrfis.me/blog/psychology.html</loc>
+    <loc>https://hrfis.me/blog/that.html</loc>
     
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2025-07-11</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/that.html</loc>
+    <loc>https://hrfis.me/blog/psychology.html</loc>
     
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2025-07-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/music-theory.html</loc>
+    
+    <lastmod>2025-07-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/game.html</loc>
+    
+    <lastmod>2025-07-11</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -23,15 +41,6 @@
     <loc>https://hrfis.me/blog/math.html</loc>
     
     <lastmod>2025-06-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/game.html</loc>
-    
-    <lastmod>2025-06-12</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -155,15 +164,6 @@
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/music-theory.html</loc>
-    
-    <lastmod>2025-01-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hrfis.me/blog/economics.html</loc>
     
     <lastmod>2025-01-27</lastmod>
@@ -229,7 +229,7 @@
 
   <url>
     <loc>https://hrfis.me/blog</loc>
-    <lastmod>2025-07-10</lastmod>
+    <lastmod>2025-07-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
