@@ -1,4 +1,5 @@
 https://hrfis.me/blog/psychology.html
+https://hrfis.me/blog/cook.html
 https://hrfis.me/blog/that.html
 https://hrfis.me/blog/dyw.html
 https://hrfis.me/blog/game.html
@@ -15,7 +16,6 @@ https://hrfis.me/blog/amap-poi-search.html
 https://hrfis.me/blog/hexo.html
 https://hrfis.me/blog/about/index.html
 https://hrfis.me/blog/time.html
-https://hrfis.me/blog/cook.html
 https://hrfis.me/blog/hadoop.html
 https://hrfis.me/blog/economics.html
 https://hrfis.me/blog/win10-dolphin-wii.html
