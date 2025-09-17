@@ -12,15 +12,15 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="建站 除了 Hexo 官网文档之外的操作：  设置 npm 镜像源   12npm get registrynpm config set registry https://registry.npmmirror.com/  安装 Hexo 并初始化之后，安装本地预览服务器，先跑   12npm install hexo-serverhexo server NexT 主题 渲染数学公式 | Merma" name="description"/>
+<meta content="建站 除了 Hexo 官网文档之外的操作：  设置 npm 镜像源   12npm get registrynpm config set registry https://registry.npmmirror.com/  安装 Hexo 并初始化之后，安装本地预览服务器，先跑   12npm install hexo-serverhexo server 公钥和私钥 张三想给李四邮寄一个机密文件，不" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="Hexo" property="og:title"/>
 <meta content="https://hrfis.me/blog/hexo.html" property="og:url"/>
 <meta content="​若凡的笔记" property="og:site_name"/>
-<meta content="建站 除了 Hexo 官网文档之外的操作：  设置 npm 镜像源   12npm get registrynpm config set registry https://registry.npmmirror.com/  安装 Hexo 并初始化之后，安装本地预览服务器，先跑   12npm install hexo-serverhexo server NexT 主题 渲染数学公式 | Merma" property="og:description"/>
+<meta content="建站 除了 Hexo 官网文档之外的操作：  设置 npm 镜像源   12npm get registrynpm config set registry https://registry.npmmirror.com/  安装 Hexo 并初始化之后，安装本地预览服务器，先跑   12npm install hexo-serverhexo server 公钥和私钥 张三想给李四邮寄一个机密文件，不" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-08-27T12:38:00.000Z" property="article:published_time"/>
-<meta content="2025-09-14T15:49:05.647Z" property="article:modified_time"/>
+<meta content="2025-09-17T09:13:39.252Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/hexo" rel="canonical"/>
@@ -75,7 +75,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%99"><span class="nav-number">1.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-%E4%B8%BB%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">NexT 主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#md"><span class="nav-number">3.</span> <span class="nav-text">md</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bm.py"><span class="nav-number">4.</span> <span class="nav-text">bm.py</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bs.bat"><span class="nav-number">5.</span> <span class="nav-text">bs.bat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bg.bat"><span class="nav-number">6.</span> <span class="nav-text">bg.bat</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%99"><span class="nav-number">1.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5"><span class="nav-number">2.</span> <span class="nav-text">公钥和私钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-%E4%B8%BB%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">NexT 主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#md"><span class="nav-number">4.</span> <span class="nav-text">md</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bm.py"><span class="nav-number">5.</span> <span class="nav-text">bm.py</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bs.bat"><span class="nav-number">6.</span> <span class="nav-text">bs.bat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bg.bat"><span class="nav-number">7.</span> <span class="nav-text">bg.bat</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -132,7 +132,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2025-09-14T23:49:05+08:00" itemprop="dateModified" title="修改时间：2025-09-14 23:49:05">2025-09-14</time>
+<time datetime="2025-09-17T17:13:39+08:00" itemprop="dateModified" title="修改时间：2025-09-17 17:13:39">2025-09-17</time>
 </span>
 </div>
 </div>
@@ -147,6 +147,11 @@
 <li>安装 Hexo 并初始化之后，安装本地预览服务器，先跑 </li>
 </ol>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">npm install hexo-server</span><br/><span class="line">hexo server</span><br/></pre></td></tr></tbody></table></figure>
+<h2 id="公钥和私钥">公钥和私钥</h2>
+<p>张三想给李四邮寄一个机密文件，不希望文件的内容被第三者看到。假设他们是之前从来没有见过面的，且只有邮寄这一条路可用于传递信息。于是张三把文件装在了一个盒子里，并上了自己的锁，把上锁后的盒子邮寄给了李四。这就可以保证盒子被截获后，文件依然保密。</p>
+<p>问题来了，李四是没有张三那把锁的钥匙的，这意味着如果李四想看文件，还需要把张三把钥匙也邮寄过去。比如在网上发送一个带密码的压缩包给对方，如果对方想解压，还必须把密码也发送过去。</p>
+<p>李四想：问题是我打不开你的锁，那么你可以用我的锁啊。我先把我的锁邮寄给你，你用我的锁把文件加密后邮寄过来，我再用我的钥匙把它打开。这样就可以保证钥匙不会泄露。</p>
+<p>李四的那把锁叫公钥，锁的钥匙叫私钥。所有人想给李四邮寄文件时，都可以用李四的公钥把文件加密，但加密后的文件只有有私钥的人才能打开。</p>
 <h2 id="next-主题">NexT 主题</h2>
 <p><a href="https://theme-next.js.org/docs/third-party-services/math-equations" rel="noopener" target="_blank">渲染数学公式</a>
 | <a href="https://theme-next.js.org/docs/tag-plugins/mermaid" rel="noopener" target="_blank">Mermaid</a> |
@@ -156,13 +161,6 @@
 <figure class="highlight md"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/><span class="line">8</span><br/><span class="line">9</span><br/><span class="line">10</span><br/><span class="line">11</span><br/><span class="line">12</span><br/><span class="line">13</span><br/></pre></td><td class="code"><pre><span class="line">---</span><br/><span class="line">title: CN02 - 概述 - 体系结构</span><br/><span class="line">date: 2023-09-09 17:00:00</span><br/><span class="line"><span class="section">permalink: CN/02/</span></span><br/><span class="line"><span class="section">---</span></span><br/><span class="line"></span><br/><span class="line"><span class="bullet">-</span> OSI 七层协议：参考模型</span><br/><span class="line"><span class="bullet">-</span> TCP/IP 四层协议：即 Internet protocol suite，实际用到的</span><br/><span class="line"><span class="bullet">-</span> 五层协议：教学模型</span><br/><span class="line"></span><br/><span class="line">&lt;!--more--&gt;</span><br/><span class="line"></span><br/><span class="line">（正文）</span><br/></pre></td></tr></tbody></table></figure>
 <p><code>permalink:</code>
 告诉框架就按这个链接渲染。没有这个字段时，就按站点配置文件里设置的渲染（年 / 月 / 日 / 文章名之类的）。</p>
-<ul>
-<li>在 <code>/blog/categories/某分类/index.html</code>
-里有一些属于此分类的文章链接。</li>
-<li>而在 <code>/blog/categories/index.html</code> 里的链接都是指向
-<code>/blog/categories/某分类/index.html</code> 的。</li>
-</ul>
-<p>所以：</p>
 <ul>
 <li>在每次渲染前，要设置文章的标题和 <code>permalink</code>。</li>
 <li>在每次渲染后：

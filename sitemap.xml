@@ -4,7 +4,7 @@
   <url>
     <loc>https://hrfis.me/blog/worker.html</loc>
     
-    <lastmod>2025-09-15</lastmod>
+    <lastmod>2025-09-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -13,7 +13,25 @@
   <url>
     <loc>https://hrfis.me/blog/hexo.html</loc>
     
-    <lastmod>2025-09-14</lastmod>
+    <lastmod>2025-09-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/game.html</loc>
+    
+    <lastmod>2025-09-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/donate-blood.html</loc>
+    
+    <lastmod>2025-09-15</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -92,15 +110,6 @@
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/donate-blood.html</loc>
-    
-    <lastmod>2025-09-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hrfis.me/blog/me.html</loc>
     
     <lastmod>2025-09-14</lastmod>
@@ -120,15 +129,6 @@
   
   <url>
     <loc>https://hrfis.me/blog/time.html</loc>
-    
-    <lastmod>2025-09-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/game.html</loc>
     
     <lastmod>2025-09-14</lastmod>
     
@@ -247,7 +247,7 @@
 
   <url>
     <loc>https://hrfis.me/blog</loc>
-    <lastmod>2025-09-15</lastmod>
+    <lastmod>2025-09-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
