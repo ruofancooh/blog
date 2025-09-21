@@ -11,6 +11,24 @@
   </url>
   
   <url>
+    <loc>https://hrfis.me/blog/worker.html</loc>
+    
+    <lastmod>2025-09-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/game.html</loc>
+    
+    <lastmod>2025-09-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hrfis.me/blog/me.html</loc>
     
     <lastmod>2025-09-20</lastmod>
@@ -20,25 +38,7 @@
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/game.html</loc>
-    
-    <lastmod>2025-09-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hrfis.me/blog/hexo.html</loc>
-    
-    <lastmod>2025-09-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/worker.html</loc>
     
     <lastmod>2025-09-17</lastmod>
     
