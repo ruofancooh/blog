@@ -1,6 +1,5 @@
 https://hrfis.me/blog/that.html
 https://hrfis.me/blog/me.html
-https://hrfis.me/blog/2025/%E6%A0%BC%E5%BC%8F%E5%A1%94%E6%B2%BB%E7%96%97/
 https://hrfis.me/blog/game.html
 https://hrfis.me/blog/hexo.html
 https://hrfis.me/blog/worker.html
