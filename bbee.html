@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 7.3.0" name="generator"/>
+<link href="/blog/favicon.ico" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/blog/favicon.ico" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/blog/favicon.ico" rel="icon" sizes="16x16" type="image/png"/>
+<link color="#222" href="/blog/favicon.ico" rel="mask-icon"/>
+<link href="/blog/css/main.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
+<meta content="本文介绍了游戏《苍翼：混沌效应》及其一种有趣的玩法。 BBEE 《苍翼：混沌效应》（Blazblue Entropy Effect，简称 BBEE）为日本格斗游戏《苍翼默示录》系列正版授权游戏，由中国游戏公司 91Act 开发。游戏世界观和正作无关，开发团队把该系列里的一些游戏角色及其招式沿用了过来，打造了一款 2D 横版，带肉鸽性质的动作游戏。 BBEE 的输出分 “潜能” 和 “策略” 两大块" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="诺爱儿空摘火咬" property="og:title"/>
+<meta content="https://hrfis.me/blog/bbee.html" property="og:url"/>
+<meta content="​若凡的笔记" property="og:site_name"/>
+<meta content="本文介绍了游戏《苍翼：混沌效应》及其一种有趣的玩法。 BBEE 《苍翼：混沌效应》（Blazblue Entropy Effect，简称 BBEE）为日本格斗游戏《苍翼默示录》系列正版授权游戏，由中国游戏公司 91Act 开发。游戏世界观和正作无关，开发团队把该系列里的一些游戏角色及其招式沿用了过来，打造了一款 2D 横版，带肉鸽性质的动作游戏。 BBEE 的输出分 “潜能” 和 “策略” 两大块" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="2025-09-21T09:45:00.000Z" property="article:published_time"/>
+<meta content="2025-09-22T15:04:00.940Z" property="article:modified_time"/>
+<meta content="Ruofan" property="article:author"/>
+<meta content="summary" name="twitter:card"/>
+<link href="https://hrfis.me/blog/bbee" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/bbee.html","path":"/bbee.html","title":"诺爱儿空摘火咬"}</script>
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>诺爱儿空摘火咬 | ​若凡的笔记</title>
+<script src="/blog/moon.js"></script>
+<noscript>
+<link href="/blog/css/noscript.css" rel="stylesheet"/>
+</noscript>
+</head>
+<body itemscope="" itemtype="http://schema.org/WebPage">
+<div class="headband"></div>
+<main class="main">
+<div class="column">
+<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+<div class="site-nav-toggle">
+<div aria-label="切换导航栏" class="toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+</div>
+</div>
+<div class="site-meta">
+<a class="brand" href="/blog/" rel="start">
+<i class="logo-line"></i>
+<p class="site-title">​若凡的笔记</p>
+<i class="logo-line"></i>
+</a>
+<p class="site-subtitle" itemprop="description">普通人</p>
+</div>
+<div class="site-nav-right">
+<div aria-label="搜索" class="toggle popup-trigger" role="button">
+</div>
+</div>
+</div>
+<nav class="site-nav">
+<ul class="main-menu menu"><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+</ul>
+</nav>
+</header>
+<aside class="sidebar">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<ul class="sidebar-nav">
+<li class="sidebar-nav-toc">
+          文章目录
+        </li>
+<li class="sidebar-nav-overview">
+          站点概览
+        </li>
+</ul>
+<div class="sidebar-panel-container">
+<!--noindex-->
+<div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bbee"><span class="nav-number">1.</span> <span class="nav-text">BBEE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BA%E7%88%B1%E5%84%BF"><span class="nav-number">2.</span> <span class="nav-text">诺爱儿</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%81%AB%E5%92%AC"><span class="nav-number">3.</span> <span class="nav-text">火咬</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E7%A9%BA%E6%91%98"><span class="nav-number">4.</span> <span class="nav-text">如何空摘</span></a></li></ol></div>
+</div>
+<!--/noindex-->
+<div class="site-overview-wrap sidebar-panel">
+<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<p class="site-author-name" itemprop="name">Ruofan</p>
+<div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+<nav class="site-state">
+<div class="site-state-item site-state-posts">
+<a href="/blog/">
+<span class="site-state-item-count">26</span>
+<span class="site-state-item-name">日志</span>
+</a>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<div class="main-inner post posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/bbee.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="​若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="诺爱儿空摘火咬 | ​若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h1 class="post-title" itemprop="name headline">
+          诺爱儿空摘火咬
+        </h1>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2025-09-21T17:45:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2025-09-21 17:45:00">2025-09-21</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2025-09-22T23:04:00+08:00" itemprop="dateModified" title="修改时间：2025-09-22 23:04:00">2025-09-22</time>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody"><p>本文介绍了游戏《苍翼：混沌效应》及其一种有趣的玩法。</p>
+<h2 id="bbee">BBEE</h2>
+<p>《苍翼：混沌效应》（Blazblue Entropy
+Effect，简称 BBEE）为日本格斗游戏《苍翼默示录》系列正版授权游戏，由中国游戏公司 91Act 开发。游戏世界观和正作无关，开发团队把该系列里的一些游戏角色及其招式沿用了过来，打造了一款 2D 横版，带肉鸽性质的动作游戏。</p>
+<p>BBEE 的输出分 “潜能” 和 “策略” 两大块。潜能是需要玩家手动去按的，即对人物的搓招，游戏的动作部分。如玩家依次按普攻・技能键所打出的招式会和只按一个键打出的招式不同。策略是一种随人物动作触发，不耗蓝的身外技能。如【冲刺燃烧】策略为，在人物的冲刺动作经过敌人后，对敌人施加一段时间的燃烧效果。如果你想解放双手，甚至一招秒掉 BOOS，就多选策略；如果想搓招，就多选潜能。前者被称为轮椅打法，意思是，让霍金来打，都能打过。</p>
+<p>同时，游戏的难度梯度是有一个逐级的跨越的，在后续还可以选择自己调整难度，即 “混沌值”。所以，该游戏对动作游戏新手和老手都很友好。就像其制作人厂长说的一样，是一款乱按也能玩得很炫酷的游戏。</p>
+<h2 id="诺爱儿">诺爱儿</h2>
+<p>诺爱儿・梵米利昂（Noel
+Vermillion）是该游戏里玩家可以操控的角色之一，即自机。</p>
+<p>在 BBEE 里，诺爱尔普攻的武器是双枪，重击是霰弹枪，技能有机关枪、手雷、榴弹、火箭弹、激光炮等，被誉为 “行走的武器库”。她的性格按原作属于是比较内敛的，但招式名字的平均长度是最烫嘴的。在击败 BOOS 之后，还有一种不相信自己打过了的感觉。这也是一个比较有意思的地方。</p>
+<p>她的上手难度，或者说前期纯靠手法打不好的程度目前在 “新人最不推荐的角色” 中排在正数第二。因为她是一个远程攻击占大头的角色，其被动技能为对离自身约 1.6 个冲刺距离之外的敌人有 1.6 倍的乘算伤害。这意味着我们不能把她完全当做一个近战输出的角色来打，她是游戏里为数不多的远程输出角色之一。而在前期还没有拿到潜能的情况下，她的近战输出是比其他自机弱的，所以相对于其他自机更不好上手。</p>
+<p>诺爱儿的轮椅打法是技能冰爆，即使用【技能寒冷 - 寒气爆发 - 冰霜爆破 - 冰霜脉冲】这一策略组。在满潜的情况下，一管大招可以直接把 BOOS 打掉 17w 血。不靠策略的输出，前期有重击、冲 a、起爆栓和左轮，后期有枪斗术、连发火箭弹和蓄力的掩护天降。</p>
+<h2 id="火咬">火咬</h2>
+<p>NAN-FIRE BITE，俗称火咬，是 BBEE 第四大关的关底 BOOS 之一。</p>
+<p>她的战斗房间是所有 BOOS 战里 y 轴最高的，因为她在战斗中途会飞到老高的天上去放激光。对于这个动作，我们要么先在地上躲，等她开完大之后落地再打，要么和她一起飞上天，追着打。之所以有玩家会去选后者，除了想去贯彻动作游戏要有动作的玩法之外，最主要还是因为能获得这个成就：</p>
+<p>击落她的难点在于：</p>
+<p>第一，她的高度是很高的，对于绝大多数自机，在地面上根本打不到它，且她的高度用正常的三段跳根本跳不上去，还需要借助一些带向上位移的技能。这考验了玩家搓招的耐心；</p>
+<p>只有两台自机是例外的，一个叫九重，另一个叫雷琪儿，她们都可以直接站在地上把火咬摘下来。九重的大激光柱子可以一直向上顶到天花板上，再加上自动追踪，就近似于全屏攻击了，雷琪儿更是有一个真正意义上全屏攻击的技能，她们都是远比诺爱儿轮椅的。那我们为什么还要用诺爱儿摘呢，为了好玩，好看。</p>
+<p>第二，在她放激光时，如果自机碰到了，会直接被击飞。这意味着自机在向上位移的同时还要躲避她的激光（除非自机有霸体或者无敌，比如传承了白面、琴恩的被动，或用了九重的传承技，或者卡自身技能的无敌帧)；这仍然考验了玩家搓招的耐心。</p>
+<p>第三，当她在空中放激光时，只有把她打破防后，她才会落地，此时判定为空摘成功。BOOS 破防的机制是：在其做出特定的动作，或掉到一个足够低的血量之后，此时攻击 BOOS，其会在原地眩晕一段时间并不做出任何动作，此时我们称为破防。火咬的破防点有两个：落地动作后摇，和低血破防。当她在天上的时候，我们只能选择第二个。这意味着我们在位移上去之后，还要打一段足够的输出。</p>
+<h2 id="如何空摘">如何空摘</h2>
+<p>这里针对的是 “意识挑战” 倒数第二关里的进阶火咬，其招式和进阶难度 “意识训练” 里的一样，初始血量是 w，破防血量是 5w。</p>
+<p>B 站 UP 在其视频中已经总结出了空摘的公式打法。所以我们需要做的只是背下这套连招，然后在合适的时间里，一键不错的按出来。</p>
+<p>先把火咬压到 10w 血。起跳时机：火咬飞到背景雕像的角上</p>
+<ol type="1">
+<li>跳 - 制地爆射 5 次 - 左轮（动作结束后火咬的第一根激光出来）</li>
+<li>跳 - 制地爆射 5 次 - 左轮</li>
+<li>跳（三跳用完）- 制地爆射 2 次 - 左轮</li>
+<li>右冲扔雷 - 一发火箭弹</li>
+<li>左轮 - 左冲 a - 左轮 - 右冲挂起爆栓（三冲用完）</li>
+<li>点喝药 - 立刻接掩护 - 连发火箭弹把火咬打到 5 万血破防。</li>
+</ol>
+<p>为什么要点一次喝药，因为诺爱儿在空中冲刺之后，接技能是</p>
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/worker.html" rel="prev" title="汽车线束操作工">
+<i class="fa fa-angle-left"></i> 汽车线束操作工
+                </a>
+</div>
+<div class="post-nav-item">
+</div>
+</div>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
+<div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+</div>
+</footer>
+<div class="toggle sidebar-toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+</div>
+<div class="sidebar-dimmer"></div>
+<div aria-label="返回顶部" class="back-to-top" role="button">
+<i class="fa fa-arrow-up fa-lg"></i>
+<span>0%</span>
+</div>
+<noscript>
+<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://unpkg.com/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/sidebar.js"></script><script src="/blog/js/next-boot.js"></script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js","integrity":"sha256-YbM1pG3wWnzhyYN49g5fPnen+2CKEFaZfopkkwSpNtY="}}</script>
+<script src="/blog/js/third-party/tags/mermaid.js"></script>
+<script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/blog/js/third-party/math/mathjax.js"></script>
+</body>
+</html>

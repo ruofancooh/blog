@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width" name="viewport"/>
+<meta content="#222" name="theme-color"/><meta content="Hexo 7.3.0" name="generator"/>
+<link href="/blog/favicon.ico" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/blog/favicon.ico" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/blog/favicon.ico" rel="icon" sizes="16x16" type="image/png"/>
+<link color="#222" href="/blog/favicon.ico" rel="mask-icon"/>
+<link href="/blog/css/main.css" rel="stylesheet"/>
+<link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
+<meta content="大部分可以再认，少部分可以再现，更少部分可以迁移。" name="description"/>
+<meta content="article" property="og:type"/>
+<meta content="数学碎片" property="og:title"/>
+<meta content="https://hrfis.me/blog/math.html" property="og:url"/>
+<meta content="​若凡的笔记" property="og:site_name"/>
+<meta content="大部分可以再认，少部分可以再现，更少部分可以迁移。" property="og:description"/>
+<meta content="zh_CN" property="og:locale"/>
+<meta content="https://hrfis.me/blog/images/P==Q.webp" property="og:image"/>
+<meta content="https://hrfis.me/blog/images/P-and-not-P.webp" property="og:image"/>
+<meta content="https://hrfis.me/blog/images/111.webp" property="og:image"/>
+<meta content="https://hrfis.me/blog/images/AEIO.webp" property="og:image"/>
+<meta content="https://hrfis.me/blog/images/residual-error.webp" property="og:image"/>
+<meta content="https://hrfis.me/blog/images/%E5%85%B3%E7%B3%BB-0.webp" property="og:image"/>
+<meta content="https://hrfis.me/blog/images/%E5%85%B3%E7%B3%BB-1.webp" property="og:image"/>
+<meta content="https://hrfis.me/blog/images/%E5%85%B3%E7%B3%BB-2.webp" property="og:image"/>
+<meta content="https://hrfis.me/blog/images/%E5%87%BD%E6%95%B0-1.webp" property="og:image"/>
+<meta content="https://hrfis.me/blog/images/%E8%BF%90%E7%AE%97-1.webp" property="og:image"/>
+<meta content="https://hrfis.me/blog/images/%E8%BF%90%E7%AE%97-2.webp" property="og:image"/>
+<meta content="2024-07-21T11:00:00.000Z" property="article:published_time"/>
+<meta content="2025-09-14T14:51:26.883Z" property="article:modified_time"/>
+<meta content="Ruofan" property="article:author"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="https://hrfis.me/blog/images/P==Q.webp" name="twitter:image"/>
+<link href="https://hrfis.me/blog/math" rel="canonical"/>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://hrfis.me/blog/math.html","path":"/math.html","title":"数学碎片"}</script>
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>数学碎片 | ​若凡的笔记</title>
+<script src="/blog/moon.js"></script>
+<noscript>
+<link href="/blog/css/noscript.css" rel="stylesheet"/>
+</noscript>
+</head>
+<body itemscope="" itemtype="http://schema.org/WebPage">
+<div class="headband"></div>
+<main class="main">
+<div class="column">
+<header class="header" itemscope="" itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+<div class="site-nav-toggle">
+<div aria-label="切换导航栏" class="toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+</div>
+</div>
+<div class="site-meta">
+<a class="brand" href="/blog/" rel="start">
+<i class="logo-line"></i>
+<p class="site-title">​若凡的笔记</p>
+<i class="logo-line"></i>
+</a>
+<p class="site-subtitle" itemprop="description">普通人</p>
+</div>
+<div class="site-nav-right">
+<div aria-label="搜索" class="toggle popup-trigger" role="button">
+</div>
+</div>
+</div>
+<nav class="site-nav">
+<ul class="main-menu menu"><li class="menu-item menu-item-about"><a href="/blog/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+</ul>
+</nav>
+</header>
+<aside class="sidebar">
+<div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+<ul class="sidebar-nav">
+<li class="sidebar-nav-toc">
+          文章目录
+        </li>
+<li class="sidebar-nav-overview">
+          站点概览
+        </li>
+</ul>
+<div class="sidebar-panel-container">
+<!--noindex-->
+<div class="post-toc-wrap sidebar-panel">
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E6%96%AD%E7%9A%84%E6%9C%89%E6%95%88%E6%80%A7%E5%92%8C%E5%8F%AF%E9%9D%A0%E6%80%A7"><span class="nav-number">1.</span> <span class="nav-text">推断的有效性和可靠性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91"><span class="nav-number">2.</span> <span class="nav-text">命题逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E5%85%AC%E5%BC%8F%E7%9A%84%E7%AD%89%E5%80%BC%E5%85%B3%E7%B3%BB%E5%92%8C%E8%95%B4%E5%90%AB%E5%85%B3%E7%B3%BB"><span class="nav-number">2.1.</span> <span class="nav-text">命题公式的等值关系和蕴含关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E5%85%AC%E5%BC%8F%E7%9A%84%E7%AD%89%E5%80%BC%E6%BC%94%E7%AE%97"><span class="nav-number">2.2.</span> <span class="nav-text">命题公式的等值演算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8C%83%E5%BC%8F"><span class="nav-number">2.3.</span> <span class="nav-text">范式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%93%E8%AF%8D%E9%80%BB%E8%BE%91"><span class="nav-number">3.</span> <span class="nav-text">谓词逻辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E9%80%BB%E8%BE%91"><span class="nav-number">4.</span> <span class="nav-text">传统逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E8%A8%80%E5%91%BD%E9%A2%98"><span class="nav-number">4.1.</span> <span class="nav-text">直言命题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E8%A8%80%E5%91%BD%E9%A2%98%E7%9A%84%E6%8D%A2%E8%B4%A8%E5%92%8C%E6%8D%A2%E4%BD%8Dai-%E7%94%9F%E6%88%90"><span class="nav-number">4.2.</span> <span class="nav-text">直言命题的换质和换位【AI
+生成】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E8%A8%80%E4%B8%89%E6%AE%B5%E8%AE%BA"><span class="nav-number">4.3.</span> <span class="nav-text">直言三段论</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%A2%E5%BC%8F%E8%B0%AC%E8%AF%AF"><span class="nav-number">5.</span> <span class="nav-text">形式谬误</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91%E8%B0%AC%E8%AF%AF"><span class="nav-number">5.1.</span> <span class="nav-text">命题逻辑谬误</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E5%8E%BB%E7%9A%84%E7%A2%8E%E7%89%87"><span class="nav-number">6.</span> <span class="nav-text">过去的碎片</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1%E7%9F%A5%E8%AF%86"><span class="nav-number">6.1.</span> <span class="nav-text">概率论与数理统计知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86"><span class="nav-number">6.2.</span> <span class="nav-text">线性代数知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E6%95%B0%E7%9F%A5%E8%AF%86"><span class="nav-number">6.3.</span> <span class="nav-text">高数知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">6.4.</span> <span class="nav-text">一元线性回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="nav-number">6.5.</span> <span class="nav-text">多元线性回归</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95"><span class="nav-number">6.6.</span> <span class="nav-text">梯度下降法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E8%BF%9B%E5%88%B6%E4%B8%8E-k-%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E4%BA%92%E8%BD%AC"><span class="nav-number">7.</span> <span class="nav-text">十进制与 K 进制小数互转</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-10"><span class="nav-number">7.1.</span> <span class="nav-text">2 转 10</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-2"><span class="nav-number">7.2.</span> <span class="nav-text">10 转 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC-16"><span class="nav-number">7.3.</span> <span class="nav-text">10 转 16</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6"><span class="nav-number">8.</span> <span class="nav-text">离散数学</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB"><span class="nav-number">8.1.</span> <span class="nav-text">关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">8.2.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%85%83%E8%BF%90%E7%AE%97%E4%B8%8E%E4%BB%A3%E6%95%B0%E7%B3%BB%E7%BB%9F"><span class="nav-number">8.3.</span> <span class="nav-text">二元运算与代数系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BE%A4"><span class="nav-number">8.4.</span> <span class="nav-text">群</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E9%A2%98%E9%80%BB%E8%BE%91-1"><span class="nav-number">8.5.</span> <span class="nav-text">命题逻辑</span></a></li></ol></li></ol></div>
+</div>
+<!--/noindex-->
+<div class="site-overview-wrap sidebar-panel">
+<div class="site-author animated" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<p class="site-author-name" itemprop="name">Ruofan</p>
+<div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+<nav class="site-state">
+<div class="site-state-item site-state-posts">
+<a href="/blog/">
+<span class="site-state-item-count">26</span>
+<span class="site-state-item-name">日志</span>
+</a>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<div class="main-inner post posts-expand">
+<div class="post-block">
+<article class="post-content" itemscope="" itemtype="http://schema.org/Article" lang="zh-CN">
+<link href="https://hrfis.me/blog/math.html" itemprop="mainEntityOfPage"/>
+<span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<meta content="/blog/images/avatar.gif" itemprop="image"/>
+<meta content="Ruofan" itemprop="name"/>
+</span>
+<span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+<meta content="​若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<span hidden="" itemprop="post" itemscope="" itemtype="http://schema.org/CreativeWork">
+<meta content="数学碎片 | ​若凡的笔记" itemprop="name"/>
+<meta content="" itemprop="description"/>
+</span>
+<header class="post-header">
+<h1 class="post-title" itemprop="name headline">
+          数学碎片
+        </h1>
+<div class="post-meta-container">
+<div class="post-meta">
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar"></i>
+</span>
+<span class="post-meta-item-text">发表于</span>
+<time datetime="2024-07-21T19:00:00+08:00" itemprop="dateCreated datePublished" title="创建时间：2024-07-21 19:00:00">2024-07-21</time>
+</span>
+<span class="post-meta-item">
+<span class="post-meta-item-icon">
+<i class="far fa-calendar-check"></i>
+</span>
+<span class="post-meta-item-text">更新于</span>
+<time datetime="2025-09-14T22:51:26+08:00" itemprop="dateModified" title="修改时间：2025-09-14 22:51:26">2025-09-14</time>
+</span>
+</div>
+</div>
+</header>
+<div class="post-body" itemprop="articleBody"><p>大部分可以再认，少部分可以再现，更少部分可以迁移。</p>
+<span id="more"></span>
+<h2 id="推断的有效性和可靠性">推断的有效性和可靠性</h2>
+<p>推断是前提的集合加上结论。前提最少有一句，结论只有一句。</p>
+<p>一个推断是有效的：</p>
+<ul>
+<li>&lt;=&gt; 不存在当所有前提为真时，结论为假的情况</li>
+<li> &lt;=&gt; 对所有前提且的结果 =&gt; 结论</li>
+<li> &lt;=&gt; （对所有前提且的结果 -&gt; 结论）为重言式</li>
+</ul>
+<ol type="1">
+<li>小明是人（P）</li>
+<li>小明不是人（非 P）</li>
+<li>因此，张三会飞（Q）</li>
+</ol>
+<p>评估有效性需要把所有真值指派的情况列出来：</p>
+<table>
+<thead>
+<tr>
+<th>P</th>
+<th> 非 P</th>
+<th>Q</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td> 未知</td>
+</tr>
+<tr>
+<td> 1</td>
+<td>0</td>
+<td> 未知</td>
+</tr>
+</tbody>
+</table>
+<p>列出来后发现：不存在当所有前提为真时，结论为假的情况。所以这个推断是有效的。从矛盾的前提可以推出任何结论。</p>
+<p>一个推断是可靠的 &lt;=&gt; 论证是有效的 且 它的所有前提实际为真</p>
+<p>假言三段论是类似于这样的推断：</p>
+<ol type="1">
+<li>A -&gt; B</li>
+<li>B -&gt; C</li>
+<li> 因此，A -&gt; C</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>A→B（前提 1）</th>
+<th>B→C（前提 2）</th>
+<th>A→C（结论）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>把真值表画出来之后，可以看到：当前提均为真时，结论一定为真。说明这个推断是有效的</p>
+<p>可靠性是针对一个具体论证实例的。当 ABC
+取具体的值的时候（一次真值指派），如果还能保证两个前提都是为真的，那么推断是可靠的</p>
+<p>对于这个推断来说：</p>
+<ol type="1">
+<li>A -&gt; B（如果小明是湖北省出生的人，那么小明会飞）</li>
+<li>B -&gt; C（如果小明会飞，那么小明的身份证以 42 开头）</li>
+<li>因此，A -&gt; C（因此，如果小明是湖北省出生的人，那么小明的身份证以
+42 开头）</li>
+</ol>
+<p>现在我们知道的信息是：小明确实是湖北省出生的人，身份证以 42
+开头，也不会飞。那么 A=1，B=0，C=1，对应真值表的倒数第三行</p>
+<p>首先它是有效的。其次它是不可靠的（即使它的结论为真），因为第一个前提是假的，它没有保证所有前提都为真</p>
+<p>对于这个推断来说：</p>
+<ol type="1">
+<li>A -&gt; B（如果小明是湖南人，那么小明是网络小说里的人物）</li>
+<li>B -&gt; C（如果小明是网络小说里的人物，那么小明会飞）</li>
+<li>因此，A -&gt; C（因此，如果小明是湖南人，那么小明会飞）</li>
+</ol>
+<p>现在我们知道的信息是：小明确实是网络小说里的湖南人，会飞。那么
+A=1，B=1，C=1</p>
+<p>首先它是有效的。其次它是可靠的，因为他的所有前提都是真的（即使第一个前提看起来有点问题），结论也是真的。【AI
+判定】</p>
+<p>【AI
+生成】第一个前提和结论都违背了常识，但在逻辑中，这并不影响推断的有效性或可靠性。逻辑只关心真值，而这里
+A→B 的真值由小明的具体属性保证（A 真且 B 真）。A→B
+的 “问题” 在于它的语义内容（内容上不现实），而非逻辑真值。逻辑只处理 “如果
+A 则 B” 的真假，不处理 “为什么 A 会导致 B”。</p>
+<h2 id="命题逻辑">命题逻辑</h2>
+<p>在命题逻辑中，命题用大写字母表示，它的真值只能取 0 或
+1，所以也叫二值逻辑。具有确定真值的命题叫命题常元，真值不确定的命题叫命题变元。</p>
+<p>运算符（命题连接词）优先级：非、且、或、蕴含、等值</p>
+<p>形如 A -&gt; B
+的，叫条件命题，或者假言命题，它陈述的是某一事物情况是另一件事物情况的条件。</p>
+<ul>
+<li>充分条件：如果 A 那么 B。A -&gt; B
+为蕴含。当蕴含的前件为假时，复合命题为真；当蕴含的前件为真时，复合命题为后件的真值；</li>
+<li>充要条件：A &lt;-&gt; B，当 A 和 B
+真值一致时，复合命题为真，否则为假</li>
+</ul>
+<p>命题公式的递归定义：</p>
+<ol type="1">
+<li>0、1 是命题公式</li>
+<li>命题变元是命题公式</li>
+<li>如果 A 是命题公式，那么！A 是命题公式</li>
+<li>如果 A 和 B 是命题公式，那么 (A and B)、(A or B)、(A -&gt; B)、(A
+&lt;-&gt; B) 是命题公式</li>
+<li>只有有限次利用上述四点所产生的符号串才是命题公式</li>
+</ol>
+<p>真值表是对于一个命题公式，把它的命题变元的真值指派的所有情况列出来，再计算结果。</p>
+<ul>
+<li>重言式 &lt;=&gt; 1（对它的所有真值指派都为 1）如 A or 1</li>
+<li> 矛盾式 &lt;=&gt; 0（对它的所有真值指派都为 0）如 A and !A</li>
+</ul>
+<p>如果对命题公式 F 的真值指派中，存在一个是取值为真的，那么 F
+称为可满足的公式。重言式 =&gt; 可满足的公式</p>
+<p>命题公式的代换实例是指，对一个命题公式，把它的一个命题变元 A
+用另一个公式 B 代换，且它里面的所有 A 都被 B 代换了。</p>
+<p>代入规则：重言式的代换实例仍然是重言式。因为重言式 &lt;=&gt;
+1，不受被代换的命题变元取值影响。</p>
+<p>子公式是指一个命题公式的一部分（连续的几个符号），且它仍然是公式。</p>
+<p>置换规则：对一个命题公式里 A 的子公式 B，如果用与该子公式等值的公式 C
+去替代子公式 B，那么替换后得到的 D 与 A 等值。</p>
+<p>对偶：对一个命题公式，把它的所有且或变号，01
+互变，得到的新公式是原公式的对偶。</p>
+<h3 id="命题公式的等值关系和蕴含关系">命题公式的等值关系和蕴含关系</h3>
+<p>等值关系可以双向推，蕴含关系只能从左向右推。</p>
+<ul>
+<li>等值演算 (&lt;=&gt;) 像是告诉你两个数学表达式（如 (a+b)² 和 a² + 2ab
++ b²）在数值上总是相等的，你可以互相替换。</li>
+<li>蕴含关系 (=&gt;) 像是告诉你一条推理规则（如 “如果 a &gt; b 且 b &gt;
+c，那么 a &gt;
+c”）。它定义了从已知事实推导出新事实的合法途径。反过来不一定成立</li>
+</ul>
+<p>&lt;-&gt; 是命题连接词，经 &lt;-&gt; 连接后的是命题公式。而 &lt;=&gt;
+是命题公式之间的关系符号，表示两个命题公式之间的等值关系。</p>
+<p>A &lt;=&gt; B 充要条件：</p>
+<ul>
+<li>A &lt;-&gt; B 是永真式（&lt;=&gt; 的定义）</li>
+<li>在任一组真值指派后，这两个公式的值一致（&lt;-&gt; 的定义）</li>
+</ul>
+<hr/>
+<p>=&gt; 表示命题公式间的蕴含关系。</p>
+<p>A =&gt; B 充要条件：</p>
+<ul>
+<li>A -&gt; B 是永真式（=&gt; 的定义）</li>
+<li>在对他们进行的所有真值指派里，当 A 为真时，B 一定为真
+<ul>
+<li>必要性：如果 A -&gt; B 是重言式，意味 A 和 B 的取值只可能在第
+1、2、4 行里。所以说，在对他们进行的所有真值指派里，当 A 为真时，B
+一定为真</li>
+<li>充分性：如果对 AB 进行的所有真值指派里，当 A 为真时，B
+一定为真，意味 A 和 B 的取值只可能在第 4 行里。所以 A -&gt; B
+是永真式</li>
+</ul></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th> A</th>
+<th>B</th>
+<th>A-&gt;B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>前件也可以是一个集合。若 {A,B} =&gt;
+C，说明：在对他们进行的所有真值指派里，当 {A,B} 中公式同时为真时，C
+一定为真。对于一个推断，前提为 A 和 B，结论为
+C。如果这个推断是有效的，那么 {A,B} =&gt; C，或者说（A 且 B）=&gt;
+C，或者说 （A 且 B）-&gt; C &lt;=&gt; 1</p>
+<p>如何推证 A =&gt; B：有两种方法：</p>
+<ol type="1">
+<li>先假定 A 为真，再检查 B 的真值。如果 B
+一定为真，蕴含关系成立；否则不成立。</li>
+<li>先假定 B 为假，再检查 A 的真值。如果 A
+不可能为真，蕴含关系成立；否则不成立。</li>
+</ol>
+<p>对 P and Q =&gt; P 来说：</p>
+<ul>
+<li>假定前件 P and Q 为真，那么 P 一定为真。所以蕴含关系成立</li>
+<li>假定后件 P 为假，那么前件为假（不可能为真），所以蕴含关系成立</li>
+</ul>
+<p>对 P or Q =&gt; P 来说：</p>
+<ul>
+<li>假定前件 P or Q
+为真，那么后件的真值是不确定的。所以蕴含关系不成立</li>
+<li>假定后件 P
+为假，那么前件的真值是不确定的（可能为真），所以蕴含关系不成立</li>
+</ul>
+<h3 id="命题公式的等值演算">命题公式的等值演算</h3>
+<ul>
+<li>对于两个命题，单独的或和且间有交换律，三个命题间有结合律。和乘法和加法类似
+<ul>
+<li>分配律：（A 且 B）或（A 且 C）&lt;=&gt; A 且（B 或 C）</li>
+</ul></li>
+<li>两命题且或的运算
+<ul>
+<li>且 1 或 0 不变：同一律</li>
+<li>且 0 或 1 短路：零一律</li>
+<li>且自身或自身不变：等幂律</li>
+<li>矛且 0，矛或 1：互否律</li>
+</ul></li>
+<li>吸收律：三个命题以一且一或连接，后两个有括号，且前两个命题相同，那么它的值为第一个命题的值</li>
+<li> P 蕴含 Q &lt;=&gt; 非 P 或 Q &lt;=&gt; (P 蕴含 Q) 且 (Q 蕴含 P)</li>
+<li>P 等值 Q：析取范式，非号聚集；合取范式，非号分散</li>
+</ul>
+<p><img src="/blog/images/P==Q.webp"/></p>
+<ul>
+<li>对命题公式 A 最外面加非 &lt;=&gt; 把 A
+的对偶公式里的所有命题变元加非
+<ul>
+<li>德摩根律：多个命题以且 / 或连接，括号外有一个非，那么可以把非分配到括号里的各个命题上，并把且或变号</li>
+</ul></li>
+</ul>
+<p>通过命题公式的等值演算证明，一对矛盾的前提可以推出任何结论：</p>
+<p><img src="/blog/images/P-and-not-P.webp"/></p>
+<h3 id="范式">范式</h3>
+<p>当我们说 ^A 的主？[析合] 取范式是 B$ 的时候，意味着 A&lt;=&gt;B。</p>
+<p>析取就是或，合取就是且。</p>
+<ul>
+<li>质合取式：由命题变元或其否定以连且的方式连接到一起。P and Q and !R
+<ul>
+<li>质合取式是矛盾式的充要条件是，它里面同时含有一个命题变元及其否定</li>
+<li>充分性：矛且为 0，0 且短路</li>
+<li>必要性：假设质合取式中没有同时含有一个命题变元及其否定，那么总能指派真值使得它每个部分全
+1，整体为 1 不矛盾，假设不成立</li>
+</ul></li>
+<li>质析取式：由命题变元或其否定以连或的方式连接到一起。P or Q or !R
+<ul>
+<li>质析取式是重言式的充要条件是，它里面同时含有一个命题变元及其否定</li>
+<li>充分性：矛或为 1，1 或短路</li>
+<li>必要性：假设质合取式中没有同时含有一个命题变元及其否定，那么总能指派真值使得它每个部分全
+0，整体为 0 不重言，假设不成立</li>
+</ul></li>
+<li>析取范式：外层是析取，内层是质合取式。（且且）或（且且）或（且且）</li>
+<li>合取范式：外层是合取，内层是质析取式</li>
+</ul>
+<p>任一公式都可变换成与它等值的析取范式或者合取范式，可能不止一种。变换的过程：</p>
+<ol type="1">
+<li>把蕴含改写成：非 P 或
+Q，等值改写成：析取范式非号聚集；合取范式非号分散</li>
+<li>用德摩根律把括号外的否定号向内深入到命题变元身上</li>
+<li>用双重否定律消去非非</li>
+<li>用分配律把：
+<ul>
+<li>P 且（Q 或 R）变成（P 且 Q）或（P 且 R）的析取范式</li>
+<li> P 或（Q 且 R）变成（P 或 Q）且（P 或 R）的合取范式</li>
+</ul></li>
+</ol>
+<ul>
+<li>由一些命题变元产生的最小项，是类似于连且的质合取式，但是没有重复的变元。如对于命题变元
+A 和 B， A 且 非 A 且 B 是一个质和取式，但不是最小项。最小项类似 A 且 非
+B
+<ul>
+<li>对所有最小项进行真值指派，在每次真值指派里，有且只有一个最小项取值为
+1</li>
+<li> 对某一个最小项进行真值指派，在所有真值指派里，有且只有一次取值为
+1</li>
+</ul></li>
+<li> 由一些命题变元产生的最大项，是类似于连或的质析取式，但是没有重复的变元。</li>
+<li>主析取范式：由不同最小项为质合取式形成的析取范式。如变元 A、B
+的其中一个主析取范式是：（A 且 B）或（非 A 且 B）</li>
+<li>主合取范式：由不同最大项为质析取式形成的合取范式。如变元 A、B
+的其中一个主合取范式是：（A 或 B）且（A 或 非 B）</li>
+</ul>
+<p>A 是重言式：</p>
+<ul>
+<li>&lt;=&gt; A
+的合取范式中（外层连且）每一质析取式（内层连或）都至少有一对矛盾的命题变元
+<ul>
+<li>充分性：矛或为 1，内层短路，全且 1 为 1</li>
+<li> 必要性：假设 A 的某一质析取式 Ai 不包括互矛的，那么 Ai
+不是重言式，进而存在一组真值指派使 Ai 为假，外层连且短路为假，与 A
+是永真式矛盾，假设不成立</li>
+</ul></li>
+<li> &lt;=&gt; A 的主析取范式中出现了所有最小项
+<ul>
+<li>充分性：对它的所有最小项进行一次真值指派后，必定是一个真而其他全假，因为最小项是连且的，只有一种情况取
+1。1 在连或中短路，所以主析取范式为重言式</li>
+<li>必要性：假设 A
+的主析取范式中没有出现所有最小项，至少漏了一个，那么对于某次真值指派，可能恰好为漏的那一项为
+1，其他项都为 0 的情况，造成析取的结果是 0，与 A
+是重言式矛盾，假设不成立</li>
+</ul></li>
+</ul>
+<p>A 是矛盾式：</p>
+<ul>
+<li>&lt;=&gt; A
+的析取范式中（外层连或）每一质合取式（内层连且）都至少有一对矛盾的命题变元
+<ul>
+<li>充分性：矛且为 0，内层短路，全或 0 为 0</li>
+</ul></li>
+<li>&lt;=&gt; A 的主析取范式是空公式 0</li>
+</ul>
+<p><img src="/blog/images/111.webp"/></p>
+<h2 id="谓词逻辑">谓词逻辑</h2>
+<p>可以独立存在的物体称为个体。可以是形象的如人，抽象的如唯物主义。</p>
+<p>一元谓词刻画的是个体的性质，n 元谓词刻画的是 n 个个体之间的关系。</p>
+<p>下面的谓词讨论的是谓词常元，不包括谓词变元。</p>
+<ul>
+<li>一元谓词 P：是大学生</li>
+<li>个体常元 a：张三</li>
+<li>个体变元 x</li>
+<li> 简单命题函数 P (x)：x
+是大学生。当命题函数里的所有个体变元都取值后，且可以计算出真值，才为命题</li>
+<li>命题、零元谓词 P (a)：张三是大学生</li>
+<li>二元谓词 Q：前者比后者高</li>
+<li>简单命题函数 Q (x,y)：x 比 y 高</li>
+<li>个体常元 b：李四</li>
+<li>命题、零元谓词 Q (a,b)：张三比李四高</li>
+<li>复合命题函数 P (x) and Q (x,y)：x 是大学生，且 x 比 y 高</li>
+<li>在命题函数中，个体变元的取值范围叫个体域，是命题函数的定义域</li>
+<li>量词有全称量词 ∀（个体域中任取一 x），存在量词 ∃（个体域中至少存在一
+x），存在唯一量词 ∃!（个体域中存在唯一一 x）</li>
+<li>全总个体域：一切事物构成的集合</li>
+</ul>
+<blockquote>
+<p>人总是会犯错误的<br/> 有的人用左手写字</p>
+</blockquote>
+<ul>
+<li>H (x)：x 是人</li>
+<li> M (x)：x 会犯错误</li>
+<li> L (x)：x 用左手写字</li>
+<li>∀x (H (x) -&gt; M (x))：在全总个体域里的世间万物里任取 x，如果 x
+是人，那么 x 是会犯错误的</li>
+<li>∃x (H (x) and L (x))：在全总个体域里的世间万物存在 x，x 是人且 x
+用左手写字</li>
+</ul>
+<p>原子谓词公式是不含量词的谓词 P</p>
+<p>量词 “[任取 | 存在] x” 的优先级比命题连接词的优先级高，并与其右的谓词公式
+P 左结合。x 称为量词的指导变元，P 称为量词的辖域。</p>
+<p>在 “[任取 | 存在] x” 的辖域里，x 是约束变元，x 之外的变元是自由变元。</p>
+<h2 id="传统逻辑">传统逻辑</h2>
+<h3 id="直言命题">直言命题</h3>
+<p>形如 所有 A 都是 B
+的叫直言命题，是传统逻辑的范畴。直言命题陈述的是两个类之间的包含关系。每一个命题的结构是：[量项][主项][连项][谓项]。量项包括全称量词、特称量词和单称量词；连项包括肯定和否定。</p>
+<p>每一个直言命题有四种语气：AEIO 分别代表全肯，全否，特肯，特否。</p>
+<ul>
+<li>A 型：全称肯定（所有 S 是 P），例如 “所有人都是会死的”。</li>
+<li>E 型：全称否定（没有 S 是 P），例如 “没有人是完美的”。</li>
+<li>I 型：特称肯定（有些 S 是 P），例如 “有些鸟会飞”。</li>
+<li>O 型：特称否定（有些 S 不是 P），例如 “有些苹果不是红色的”。</li>
+</ul>
+<h3 id="直言命题的换质和换位ai-生成">直言命题的换质和换位【AI
+生成】</h3>
+<p>对直言命题来说，换质是指通过改变命题的 “质”（肯定或否定），并对谓词取补集，得到一个新命题。换质后，新命题与原命题逻辑等价。操作步骤：</p>
+<ul>
+<li>A 型（所有 S 是 P） → 换质为 E 型（没有 S 是非 P）。</li>
+<li>E 型（没有 S 是 P） → 换质为 A 型（所有 S 是非 P）。</li>
+<li>I 型（有些 S 是 P） → 换质为 O 型（有些 S 不是非 P）。</li>
+<li>O 型（有些 S 不是 P） → 换质为 I 型（有些 S 是非 P）。</li>
+</ul>
+<p>特点：换质是有效且等值的操作，适用于所有直言命题类型（A、E、I、O）。</p>
+<p>换位：通过交换主词（Subject）和谓词（Predicate）的位置，得到一个新命题。换位后，新命题不一定与原命题等价。规则：</p>
+<ul>
+<li>E 型（没有 S 是 P） → 换位为 E 型（没有 P 是
+S）。例如：“没有人是完美的” → “没有完美的人”（等价）。</li>
+<li>I 型（有些 S 是 P） → 换位为 I 型（有些 P 是 S）。例如：“有些鸟会飞”
+→ “有些会飞的是鸟”（等价）。</li>
+<li>A 型（所有 S 是 P） → 换位无效。标准换位不能直接应用，因为 “所有 S 是
+P” 换位为 “所有 P 是
+S” 不一定成立。例如：“所有人都是会死的” 换位为 “所有会死的都是人” 是假的（动物也会死）。</li>
+<li>O 型（有些 S 不是 P） →
+换位无效。不能直接换位。例如：“有些苹果不是红色的” 换位为 “有些红色的不是苹果” 可能真也可能假，不等价。</li>
+</ul>
+<p>特点：换位只对 E 型和 I 型 有效（新命题与原命题等价），对 A 型和 O
+型无效（可能产生不等价命题）。</p>
+<h3 id="直言三段论">直言三段论</h3>
+<p>直言三段论由三个直言命题组成，AAA-1 的直言三段论是这样的：</p>
+<ol type="1">
+<li>所有 M 是 P</li>
+<li> 所有 S 是 M</li>
+<li> 因此，所有 S 是 P</li>
+</ol>
+<p>在结论中的主词记为 S 是小项，谓词记为 P 是大项。包括 P
+的前提是大前提，包括 S
+的前提是小前提。没有出现在结论里，而在两个前提里重复出现的是中项 M。</p>
+<table>
+<colgroup>
+<col style="width: 26%"/>
+<col style="width: 34%"/>
+<col style="width: 39%"/>
+</colgroup>
+<thead>
+<tr>
+<th></th>
+<th>肯定：谓项都不周延</th>
+<th>否定：谓项都周延</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>全称：主项都周延</strong></td>
+<td> A：所有主 + 是谓 -，主包含在谓里</td>
+<td> E：没有主 + 是谓 +，主谓互斥</td>
+</tr>
+<tr>
+<td><strong>特称：主项都不周延</strong></td>
+<td> I：有些主 - 是谓 -，主谓有交</td>
+<td> O：有些主 - 不是谓 +，主不包含在谓里</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/blog/images/AEIO.webp"/></p>
+<p>周延指的是，一个词项涵盖了他的所有外延。+ 记为周延，- 记为不周延。</p>
+<blockquote>
+<p>小明是只有一只脚的；小明是人；因此，人是只有一只脚的</p>
+</blockquote>
+<p>在它的结论中人是周延的，指的是所有人。而在小前提中的人是没有周延的，只包括小明一个人。</p>
+<p>当我们说 “A 是 B” 的时候，往往意味着 A 在 B 的范围内，A 是 B
+的一部分；说 “A 不是 B” 的时候，往往意味着 A 一点都不在 B 里面。</p>
+<p>所以说肯定判断的谓项都不周延，否定判断的谓项都周延。</p>
+<ul>
+<li>肯定判断的谓项都不周延：所有武汉人 + 都是科学家 -（全肯
+A），或有些武汉人 - 是科学家 -（特肯
+I），这里的科学家没有周延到所有科学家</li>
+<li>否定判断的谓项都周延：所有武汉人 + 都不是科学家 +（全否
+E），或有些武汉人 - 不是科学家 +（特否
+O），这里的科学家周延到了所有科学家</li>
+<li>特称判断的主项都不周延：因为是以有些…… 开头的</li>
+<li>全称判断的主项都周延：因为是以所有 / 没有…… 开头的。单称命题主词包括的对象只有一个，所以也周延</li>
+</ul>
+<p>格指的是，在大前提和小前提中，大项、小项和中项的排列顺序。结论的顺序一定是
+S-P，小项 - 大项</p>
+<ul>
+<li>第 1 格：中项一左一右，是分开的。大前提 M-P，小前提 S-M</li>
+<li> 第 2 格：中项都在右边。大前提 P-M，小前提 S-M</li>
+<li> 第 3 格：中项都在左边。大前提 M-P，小前提 M-S</li>
+<li> 第 4 格：中项一右一左，是聚集的。大前提 P-M，小前提 M-S</li>
+</ul>
+<blockquote>
+<p>小明只有一只脚；小明是人；因此，人只有一只脚</p>
+</blockquote>
+<p>它的中项都在左边，所以是第三格。全肯 A，AAA-3 属于无效推理</p>
+<p>一个 EIO-2 的有效的（但不可靠的）三段论是这样的：</p>
+<ol type="1">
+<li>没有安徽人是科学家（全否 E）</li>
+<li>有些中国人是科学家（特肯 I）</li>
+<li>因此，有些中国人不是安徽人（特否 O）</li>
+</ol>
+<p>如果把科学家替换成湖北人，就是有效且可靠的。</p>
+<p>如何判断三段论有效性：需要满足下列的所有规则。<a href="https://zh.wikipedia.org/wiki/%E7%9B%B4%E8%A8%80%E4%B8%89%E6%AE%B5%E8%AE%BA#%E6%9C%89%E6%95%88%E4%B8%89%E6%AE%B5%E8%AB%96%E5%BC%8F" rel="noopener" target="_blank">或者画韦恩图，或者查表</a></p>
+<ol type="1">
+<li>结论中否定命题的数目必须和前提中否定命题的数目相等</li>
+<li>结论中特称命题的数目必须和前提中特称命题的数目相等</li>
+<li>结论中周延的词必须在前提中周延</li>
+<li>中项必须周延至少一次</li>
+</ol>
+<p>如果语境上不能假设所有提及的集合非空，部分推论将会无效。</p>
+<h2 id="形式谬误">形式谬误</h2>
+<p>形式谬误的推理过程是无效的。</p>
+<p>有效的选言三段论是这样的：也叫析取三段论，或拒取式。</p>
+<ol type="1">
+<li>P 或 Q</li>
+<li> 非 P</li>
+<li> 所以 Q</li>
+</ol>
+<p>它对应肯定选言的谬误：</p>
+<ol type="1">
+<li>P 或 Q</li>
+<li>P</li>
+<li> 所以 Q 为假</li>
+</ol>
+<h3 id="命题逻辑谬误">命题逻辑谬误</h3>
+<p>手电筒发光有两个条件：电池有电，且开关打开了。</p>
+<ul>
+<li>肯定后件：如果手电筒发光了，那么它是有电的；手电筒是有电的；因此手电筒正在发光</li>
+<li>否定前件：如果手电筒发光了，那么它是有电的；手电筒没有发光；因此手电筒是没电的</li>
+</ul>
+<p>发现肯定后件、否定前件、肯定选言、否定联言的方式都是：通过真值表的复合命题列，加上简单命题其中的一列，找另一个简单命题列在真值表里有两种的情况，强制把它推向其中一种。如：</p>
+<table>
+<colgroup>
+<col style="width: 24%"/>
+<col style="width: 21%"/>
+<col style="width: 54%"/>
+</colgroup>
+<thead>
+<tr>
+<th>P：手电筒正在发光</th>
+<th> Q：它的电池有电</th>
+<th>蕴含：若手电筒正在发光，则它的电池有电</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> 0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>“若 P 则 Q” 为真时
+<ul>
+<li>P 为假时，Q 有两种情况（否定前件谬误：若 P 则 Q 为真，P 为假，推出 Q
+为假）</li>
+<li>P 为真时，Q
+只有一种情况（这是有效的，肯定前件的推理。手电筒正在发光，说明它的电池一定有电）</li>
+<li>Q 为假时，P
+只有一种情况（这是有效的，否定后件的推理。手电筒的电池没电，说明它一定不会发光）</li>
+<li>Q 为真时，P 有两种情况（肯定后件谬误：若 P 则 Q，Q，因此 P）</li>
+</ul></li>
+</ul>
+<h2 id="过去的碎片">过去的碎片</h2>
+<p>我们用 <span class="math inline">\(m\)</span> 表示样本数量，与维度
+<span class="math inline">\(n\)</span> 区分开。用 <span class="math inline">\(d\)</span> 表示属性的个数。</p>
+<p>粗斜体小写字母为列向量，如 <span class="math inline">\(\boldsymbol{x}=(1;2;3)\)</span>，使用分号分隔。其转置为行向量，使用逗号分隔。</p>
+<p>粗斜体大写字母为矩阵。在上下文明确的情况下可不用粗体。</p>
+<p>在上下文明确的情况下可省略求和符号的起止。</p>
+<h3 id="概率论与数理统计知识">概率论与数理统计知识</h3>
+<p><span class="math inline">\(\sum x_i = m\bar{x}\)</span></p>
+<p>离散型随机变量函数的期望 <span class="math inline">\(E(f(X))\)</span>：<a href="https://blog.csdn.net/SpiritedAway1106/article/details/107024984" rel="noopener" target="_blank">参考</a>。<span class="math inline">\(f\)</span> 是连续函数且级数绝对收敛，<span class="math inline">\(E(f(X)) = \sum P(x_i)f(x_i)\)</span></p>
+<p>离散型随机变量的信息熵 <span class="math inline">\(H(X)\)</span>：</p>
+<p>信息量 <span class="math inline">\(I(x_i) = -
+\log_2{P(x_i)}\)</span>：投一次正八面体骰子（0-7
+点），有概率均等的八种结果。把每种结果都用 3 bit 的二进制数表示，熵为 3
+bit。</p>
+<ul>
+<li>信息 “结果是 1 点” 的信息量是 3 bit，得到这个信息之后，熵剩余 0
+bit</li>
+<li> 信息 “结果是 1 点或 2 点的其中之一” 的信息量是 2
+bit，得到这个信息之后，熵剩余 1 bit</li>
+<li> 信息 “结果是 1、2、3、4 点的其中之一” 的信息量是 1
+bit，得到这个信息之后，熵剩余 2 bit</li>
+</ul>
+<p>信息熵 <span class="math inline">\(H(X) = E(I(X)) = - \sum p_i \log_2
+p_i\)</span>。</p>
+<ul>
+<li>投一次正八面体骰子，点数结果的信息熵是 3 bit</li>
+<li> 投一次 1% 概率为正面，99% 概率为反面的不均匀硬币，面结果的信息熵约
+0.08 bit</li>
+<li> 投一次 25% 概率为正面，75% 概率为反面的不均匀硬币，面结果的信息熵约
+0.811 bit</li>
+</ul>
+<p>多重集合的信息熵：可能的最小值（全同）为 0，最大值（全异）为 log2
+唯一值数量。</p>
+<p><span class="math inline">\(A = \{ 1,2,2,2 \}\)</span></p>
+<p><span class="math inline">\(H(A) \approx 0.811\)</span></p>
+<p>多重集合划分后的信息熵：如把多重集合 <span class="math inline">\(\{
+1,2,2,2 \}\)</span> 划分成两个子集 <span class="math inline">\(\{1\}\)</span> 和 <span class="math inline">\(\{2,2,2\}\)</span> 后，信息熵变为 <span class="math inline">\(0\)</span>。其划分后的信息熵定义为各个子集熵的加权和，权为子集容量占原集合的比例。划分后减少的信息熵称为划分后的信息增益。</p>
+<p>基尼指数：可能的最小值（全同）为 0，最大值（全异）为 1 -
+唯一值数量的倒数。</p>
+<p><span class="math inline">\(A = \{ 1,2,2,2 \}\)</span></p>
+<p><span class="math inline">\(G(A) = 1- \sum p_i^2 =
+\frac{3}{8}\)</span></p>
+<p>类似地，划分后的基尼指数定义为各个子集基尼指数的加权和，权为子集容量占原集合的比例。</p>
+<h3 id="线性代数知识">线性代数知识</h3>
+<ul>
+<li><span class="math inline">\(\boldsymbol{a}^T \boldsymbol{b} =
+\boldsymbol{b}^T \boldsymbol{a}\)</span></li>
+<li><span class="math inline">\((\boldsymbol{A} + \boldsymbol{B})^T =
+\boldsymbol{A}^T + \boldsymbol{B}^T\)</span></li>
+<li><span class="math inline">\((\boldsymbol{AB})^T =
+\boldsymbol{B}^T\boldsymbol{A}^T\)</span></li>
+<li> 矩阵和向量乘法分配律注意保证顺序不变，因为没有乘法交换律</li>
+<li>积的求和可以改写成两向量相乘 <span class="math inline">\(\sum_{i=1}^m x_iy_i =
+\boldsymbol{x}^T\boldsymbol{y}\)</span></li>
+<li> 遇到 “行向量乘列向量加标量” 的形式，可以把标量拆分成 1
+和它本身，再分别补到前面那两个向量的尾巴上</li>
+<li><span class="math inline"> \(\boldsymbol{A}\boldsymbol{b} =
+\boldsymbol{c}\)</span></li>
+<li><span class="math inline">\(\boldsymbol{a}^T \boldsymbol{B} =
+\boldsymbol{c}^T\)</span></li>
+<li> 行列式为零、非满秩、不可逆的方阵称为奇异矩阵</li>
+<li>矩阵的秩：变换为行阶梯型矩阵后的非零行数</li>
+</ul>
+<p>矩阵和行列式的几何意义：</p>
+<ul>
+<li><p>矩阵可表示多个向量：</p>
+<ul>
+<li>二阶行列式的绝对值是矩阵的两个列向量所张成的平行四边形的面积；</li>
+<li>三阶行列式的绝对值是矩阵的三个列向量所张成的平行六面体的体积；</li>
+<li>矩阵的秩是各向量张成空间的维数</li>
+</ul></li>
+<li><p>矩阵可表示对一个空间基（单位格子）的线性变换：</p>
+<ul>
+<li>用变换矩阵左乘一个向量，就是把该向量所在的空间做了变换。新坐标在旧空间里的位置与旧坐标在新空间里的位置一致。变换矩阵的行列式为新空间的单位格子相对于旧空间单位格子的面积 / 体积改变的倍数。</li>
+<li>行列式为零说明是降维打击，损失了信息，变换不可逆。</li>
+<li>行列式为负说明空间的手性改变了</li>
+</ul></li>
+</ul>
+<p>方阵的余子式 <span class="math inline">\(M_{ij}\)</span> 和代数余子式
+<span class="math inline">\(A_{ij}\)</span>：它们都是行列式，可以求值。</p>
+<ul>
+<li>余子式为划掉原方阵第 <span class="math inline">\(i\)</span> 行 <span class="math inline">\(j\)</span> 列后剩余的方阵的行列式。</li>
+<li>代数余子式为余子式加一个正 / 负号，看 <span class="math inline">\(i+j\)</span> 是偶数还是奇数。</li>
+</ul>
+<p>方阵的顺序主子式：一个正方形框从左上角开始拉。它们都是行列式，可以求值。</p>
+<p>方阵的伴随矩阵 <span class="math inline">\(A^*\)</span>：它是这样一个矩阵：新矩阵上每个位置的元素是原矩阵的一个代数余子式，代数余子式的下标和新矩阵位置的下标行列互换。对于二阶矩阵，它的伴随矩阵是主交换、副取反。</p>
+<p>方阵的逆矩阵 <span class="math inline">\(A^{-1}\)</span>：等于伴随矩阵乘上行列式的倒数。</p>
+<p>高斯 - 若尔当方法：把增广矩阵 <span class="math inline">\(A|I\)</span>
+初等行变换为 <span class="math inline">\(I|A^{-1}\)</span></p>
+<p>方阵的特征值 <span class="math inline">\(\lambda\)</span>
+和特征向量：</p>
+<ul>
+<li>方阵左乘它的特征向量，等于把这个特征向量在它的方向上伸缩 / 反转 <span class="math inline">\(\lambda\)</span> 倍。</li>
+<li>如何求特征值：令特征多项式 <span class="math inline">\(|\lambda
+\boldsymbol{E} - \boldsymbol{A}| = 0\)</span></li>
+<li> 如何求特征向量：求 <span class="math inline">\((\lambda
+\boldsymbol{E} - \boldsymbol{A})\boldsymbol{x} = \boldsymbol{0}\)</span>
+的基础解系</li>
+<li><a href="https://blog.csdn.net/Daniel_tanxz/article/details/89132181" rel="noopener" target="_blank">如何求基础解系</a>：初等行变换成行最简型</li>
+</ul>
+<p><span class="math display">\[
+\begin{pmatrix}
+\boldsymbol{E}_r &amp; \boldsymbol{F} \\
+0 &amp; 0
+\end{pmatrix}
+\]</span></p>
+<p>解矩阵为</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+- \boldsymbol{F} \\
+\boldsymbol{E}_{n-r}
+\end{pmatrix}
+\]</span></p>
+<p>正定矩阵充要条件：其所有特征值都为正。或者所有顺序主子式为正。</p>
+<p>正交矩阵：<span class="math inline">\(AA^T =
+E\)</span>。正交矩阵的各行是单位向量且两两正交，各列是单位向量且两两正交。</p>
+<p>矩阵的奇异值分解是把一个矩阵分解成三个矩阵相乘：</p>
+<p><span class="math display">\[
+A = U \Sigma V^T
+\]</span></p>
+<p><span class="math inline">\(A\)</span> 是实矩阵的情况下，<span class="math inline">\(U\)</span> 和 <span class="math inline">\(V^T\)</span> 都是正交矩阵，<span class="math inline">\(\Sigma\)</span> 是与 <span class="math inline">\(A\)</span>
+形状相同的对角矩阵，其对角线上的元素叫奇异值，呈非负且按降序排列。</p>
+<p>如何分解：<span class="math inline">\(U\)</span> 的每一列是 <span class="math inline">\(AA^T\)</span> 的特征向量，<span class="math inline">\(V\)</span> 的每一列是 <span class="math inline">\(A^TA\)</span> 的特征向量，<span class="math inline">\(\Sigma\)</span> 对角线上每一个元素是 <span class="math inline">\(A^TA\)</span> 或 <span class="math inline">\(AA^T\)</span>
+的特征值开根号，注意保证各奇异值和特征向量对应。</p>
+<h3 id="高数知识">高数知识</h3>
+<p>复合函数求导法则：把内层的中介写一遍，连乘</p>
+<p>Sigmoid 函数（对数几率函数）：<span class="math inline">\(S(x) =
+\dfrac{1}{1+e^{-x}}\)</span>，该函数图像长得和 <span class="math inline">\(\dfrac{1}{\pi} \arctan x + \dfrac{1}{2}\)</span>
+差不多</p>
+<p><span class="math display">\[
+\dfrac{1}{1+a^{-x}} + \dfrac{1}{1+a^{x}} = 1
+\]</span></p>
+<p><span class="math inline">\(n\)</span> 元函数 <span class="math inline">\(f(\boldsymbol{x})\)</span>：自变量有 <span class="math inline">\(n\)</span> 个，记作一个 <span class="math inline">\(n\)</span> 维列向量 <span class="math inline">\(\boldsymbol{x}\)</span>。</p>
+<p>梯度（一阶导数） <span class="math inline">\(\nabla f(\boldsymbol{x})
+= \dfrac{\partial f(\boldsymbol{x})}{\partial
+\boldsymbol{x}}\)</span></p>
+<p>梯度是一个 <span class="math inline">\(n\)</span>
+维向量，各个分量是原函数在其各个自变量分量上的偏导函数 <span class="math inline">\(\dfrac{\partial f(\boldsymbol{x})}{\partial
+{x_i}}\)</span>，前提是各个偏导数都存在。如：</p>
+<p><span class="math display">\[
+\nabla (5x_1+4x_1x_2+x_3) = (5+4x_2,4x_1,1)
+\]</span></p>
+<p>海森矩阵（二阶导数） <span class="math inline">\(\nabla^2
+f(\boldsymbol{x}) = \dfrac{\partial^2 f(\boldsymbol{x})}{\partial
+\boldsymbol{x}{\partial
+\boldsymbol{x}}^T}\)</span>：海森方阵的每一个元素是原函数的二阶偏导数，前提是各个二阶偏导数都存在。如：</p>
+<p><span class="math display">\[
+\nabla^2(2x_1 + x_1x_2) =
+\begin{pmatrix}
+0 &amp; 1 \\
+1 &amp; 0
+\end{pmatrix}
+\]</span></p>
+<p>凸函数：这里的凸函数指下凸函数。</p>
+<p>凸函数任意两点的连线一定在函数图像上面，或与函数图像重合。如果一定在上面，我们称它为严格的凸函数。</p>
+<p>一元严格凸函数的例子：<span class="math inline">\(y =
+x^2\)</span></p>
+<p>一元非严格凸函数的例子： <span class="math inline">\(y = x +
+1\)</span></p>
+<p>如何判定一元函数是凸函数 / 严格凸函数：其二阶导数在区间上恒大于等于 / 大于零</p>
+<p>如何判定<strong>多元函数</strong>是凸函数 / <strong>严格凸函数</strong>：其<strong>海森矩阵</strong>在区间上是半正定 / <strong>正定</strong>的</p>
+<p>矩阵微分公式：</p>
+<ul>
+<li><p><span class="math inline">\(\frac{\partial \boldsymbol{a}^T
+\boldsymbol{x}}{\partial \boldsymbol{x}} = \frac{\partial
+\boldsymbol{x}^T \boldsymbol{a}}{\partial \boldsymbol{x}} =
+\boldsymbol{a}\)</span> （南瓜书）</p></li>
+<li><p><span class="math inline">\(\frac{\partial \boldsymbol{A}
+\boldsymbol{x}}{\partial \boldsymbol{x}^T} = \boldsymbol{A}\)</span>
+（南瓜书）</p></li>
+<li><p><span class="math inline">\(\frac{\partial \boldsymbol{A}
+\boldsymbol{x}}{\partial \boldsymbol{x}} = \boldsymbol{A}^T\)</span>
+（https://en.wikipedia.org/wiki/Matrix_calculus
+的<strong>分母布局</strong>）</p></li>
+<li><p><span class="math inline">\(\frac{\partial \boldsymbol{x}^T
+\boldsymbol{A} \boldsymbol{x}}{\partial \boldsymbol{x}} =
+(\boldsymbol{A} + \boldsymbol{A}^T)
+\boldsymbol{x}\)</span>（南瓜书）</p></li>
+</ul>
+<h3 id="一元线性回归">一元线性回归</h3>
+<p>目的：找出与平面直角坐标系上的 <span class="math inline">\(m\)</span>
+个散点 <span class="math inline">\((x_i,y_i)\)</span> 最接近的直线 <span class="math inline">\(\hat{y} = wx+b\)</span></p>
+<p>找出使残差平方和最小的直线的斜率、截距，即求：</p>
+<p><span class="math display">\[
+(w^*,b^*) = \underset{(w,b)}{\mathrm{arg\ min}} \sum_{i=1}^{m}
+(y_i-wx_i-b)^2
+\]</span></p>
+<p><img src="/blog/images/residual-error.webp"/></p>
+<p>观测值（已知的，用于训练模型的样本 <span class="math inline">\(y\)</span> 值）：<span class="math inline">\(y_i\)</span></p>
+<p>估计值（给定一个 <span class="math inline">\(x_i\)</span> 用模型
+<span class="math inline">\(\hat{y} = wx+b\)</span> 算出来的值）：<span class="math inline">\(\hat{y_i}\)</span></p>
+<p>残差：<span class="math inline">\(y_i-\hat{y_i} =
+y_i-wx_i-b\)</span></p>
+<p>这个公式是高中数学的内容，可以写成向量形式：</p>
+<p><span class="math display">\[
+\begin{aligned}
+w &amp;= \frac{\boldsymbol{x}^T\boldsymbol{y} - m\bar{x}\bar{y}}
+{\boldsymbol{x}^T\boldsymbol{x}-m\bar{x}^2}
+= \frac{\boldsymbol{x}_d^T \boldsymbol{y}_d}{\boldsymbol{x}_d^T
+\boldsymbol{x}_d} \\
+b &amp;= \bar{y} - w\bar{x}
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(\boldsymbol{x}_d\)</span> 的各个分量是
+<span class="math inline">\(x_i - \bar{x}\)</span></p>
+<p>公式是怎么来的：</p>
+<ol type="1">
+<li>残差平方和是关于 <span class="math inline">\(w\)</span> 和 <span class="math inline">\(b\)</span> 的二元函数，其海森矩阵为：</li>
+</ol>
+<p><span class="math display">\[
+\begin{pmatrix}
+2 \sum_{i=1}^m x_i^2 &amp; 2 \sum_{i=1}^m x_i \\
+2 \sum_{i=1}^m x_i &amp; 2m
+\end{pmatrix}
+\]</span></p>
+<p>只要有一个非零的 <span class="math inline">\(x\)</span>
+值，它的一阶主子式就为正；由柯西不等式的一般形式，只要有不相等的 <span class="math inline">\(x\)</span>，它的二阶主子式就为正。做一元线性回归至少需要三个不同的点，如果所有
+<span class="math inline">\(x\)</span>
+值相同，或者都为零，就不用这个公式算了。只要用这个公式算，它的海森矩阵就是正定的，它是严格凸函数。</p>
+<ol start="2" type="1">
+<li>令梯度等于零向量，改写成用矩阵求解线性方程组的形式</li>
+<li>两边左乘系数矩阵的逆矩阵，得到 <span class="math inline">\((w;b)\)</span></li>
+<li> 把 <span class="math inline">\(w\)</span> 的分子分母同时除以 <span class="math inline">\(m\)</span></li>
+<li> 目标直线必定过均值点</li>
+</ol>
+<h3 id="多元线性回归">多元线性回归</h3>
+<p>目的：找出 <span class="math inline">\(n+1\)</span> 维欧式空间里与
+<span class="math inline">\(m\)</span> 个散点最接近的超平面：</p>
+<p><span class="math inline">\(f(\boldsymbol{x}) = \boldsymbol{w}^T
+\boldsymbol{x} + b\)</span> 的各项参数</p>
+<blockquote>
+<p>注意：这里的所有自变量（元）是一个 <span class="math inline">\(n\)</span> 维向量 <span class="math inline">\(\boldsymbol{x}\)</span>。<span class="math inline">\(\boldsymbol{w}\)</span>
+是各个一次项的系数。函数的解析式是个一次多项式</p>
+</blockquote>
+<p>“最接近” 也可表示为 <span class="math inline">\(f(\boldsymbol{x}_i)
+\simeq y_i\)</span>，即用模型算出来的值几乎等于观测值。</p>
+<p>“行向量乘列向量加标量” 的形式，把标量 <span class="math inline">\(b\)</span> 拆分成 <span class="math inline">\(b\)</span> 和 <span class="math inline">\(1\)</span>，写到前面那两个向量的尾巴上。记 <span class="math inline">\(\hat{\boldsymbol{w}} =
+(\boldsymbol{w};b)\)</span>，<span class="math inline">\(\hat{\boldsymbol{x}} =
+(\boldsymbol{x};1)\)</span>，则：</p>
+<p><span class="math display">\[
+f(\boldsymbol{x}) = \hat{\boldsymbol{w}}^T \hat{\boldsymbol{x}} =
+\hat{\boldsymbol{x}}^T \hat{\boldsymbol{w}}
+\]</span></p>
+<p>公式：</p>
+<p>当 <span class="math inline">\(\boldsymbol{X}^T\boldsymbol{X}\)</span>
+为正定矩阵时，<span class="math inline">\(\hat{\boldsymbol{w}}\)</span>
+的全局最优解为：</p>
+<p><span class="math display">\[
+(\boldsymbol{X}^T\boldsymbol{X})^{-1} \boldsymbol{X}^T\boldsymbol{y}
+\]</span></p>
+<p>此时的模型为：</p>
+<p><span class="math display">\[
+f(\hat{\boldsymbol{x_i}}) = \hat{\boldsymbol{x}}_i^T
+(\boldsymbol{X}^T\boldsymbol{X})^{-1} \boldsymbol{X}^T\boldsymbol{y}
+\]</span></p>
+<p>公式是怎么来的：</p>
+<p>找出使残差平方和 <span class="math inline">\(E_{\hat{\boldsymbol{w}}}\)</span>
+最小的各项的系数与常数项向量 <span class="math inline">\(\hat{\boldsymbol{w}}^*\)</span>，即求：</p>
+<p><span class="math display">\[
+\underset{\hat{\boldsymbol{w}}}{\mathrm{arg\ min}}
+\sum_{i=1}^{m}
+(y_i - \hat{\boldsymbol{x}}_i^T \hat{\boldsymbol{w}})^2
+\]</span></p>
+<p>平方求和可改写成向量相乘，把括号里的向下影分身：</p>
+<p><span class="math display">\[
+E_{\hat{\boldsymbol{w}}} =
+\sum_{i=1}^{m}
+(y_i - \hat{\boldsymbol{x}}_i^T \hat{\boldsymbol{w}})^2 =
+(\boldsymbol{y} - \boldsymbol{X} \hat{\boldsymbol{w}})^T
+(\boldsymbol{y} - \boldsymbol{X} \hat{\boldsymbol{w}})
+\]</span></p>
+<blockquote>
+<p>这里影分身后的 <span class="math inline">\(\boldsymbol{y}\)</span> 和
+<span class="math inline">\(\boldsymbol{X}\)</span> 都有 <span class="math inline">\(m\)</span> 行，<span class="math inline">\(\boldsymbol{X}\)</span> 的每一行为 <span class="math inline">\(\hat{\boldsymbol{x}}_i^T\)</span></p>
+</blockquote>
+<p>把 <span class="math inline">\(E_{\hat{\boldsymbol{w}}}\)</span>
+展开，再对 <span class="math inline">\(\hat{\boldsymbol{w}}\)</span>
+求导得：</p>
+<p><span class="math display">\[
+\nabla E_{\hat{\boldsymbol{w}}} =
+2 \boldsymbol{X}^T (\boldsymbol{X} \hat{\boldsymbol{w}} -
+\boldsymbol{y})
+\]</span></p>
+<p><span class="math inline">\(E_{\hat{\boldsymbol{w}}}\)</span>
+的海森矩阵是一阶导数再对 <span class="math inline">\(\hat{\boldsymbol{w}}^T\)</span> 求一次导：</p>
+<p><span class="math display">\[
+\nabla^2 E_{\hat{\boldsymbol{w}}} =
+2 \boldsymbol{X}^T \boldsymbol{X}
+\]</span></p>
+<p>当海森矩阵为正定矩阵时，<span class="math inline">\(E_{\hat{\boldsymbol{w}}}\)</span>
+为严格凸函数。令梯度等于零向量，求得的全局最优解为当 <span class="math inline">\(E_{\hat{\boldsymbol{w}}}\)</span> 取最小值时的
+<span class="math inline">\(\hat{\boldsymbol{w}}\)</span></p>
+<h3 id="梯度下降法">梯度下降法</h3>
+<p>梯度下降法是用来逼近函数取极小值时的点的。</p>
+<p>以一元下凸函数 f (x) 为例，在右侧任意取一个 x
+值，函数图像在该点处下降最快的方向是该点的导数方向，且导数为正，此时需要向左逼近，把
+x 值变小；如果一开始在左侧取，则导数为负，需要向右逼近，把 x
+值变大。</p>
+<p>我们可以规定新取的 x 值等于上一步的 x
+值减去一个与它的导数符号相同的数，这样就可以保证新的取值是一定沿着上一步相对于极小值的下降方向。</p>
+<p>方向确定了，但是可能会移动过头。由于越平缓的地方导数绝对值是越小的，为了使移动的幅度与平缓程度相称，于是我们可以规定减去的那个数等于导数乘上另一个固定的正实数。</p>
+<p>用梯度下降法求方程的解，即求一个 x 使得函数 f (x) = 0
+。我们为了判断何时问题已经解决地足够好了，可以定义一个损失函数，它是用来量化离解决一个问题还有多长距离的量。</p>
+<p>最终目的是让求的 x 值使得 f (x) 的值更接近
+0，为了量化更接近零的程度，我们可以用原函数的平方作为损失函数。于是问题转化成了用梯度下降法求损失函数的极小值点。</p>
+<p>在编写程序的时候，计算一个点的导数，我们可以采用计算与它相邻极近两点的割线斜率。</p>
+<h2 id="十进制与-k-进制小数互转">十进制与 K 进制小数互转</h2>
+<p>K 转 10：每一位分别乘上 K 的次方，再相加。</p>
+<h3 id="转-10">2 转 10</h3>
+<p><strong>有限小数</strong></p>
+<p><span class="math inline">\(11.1011\mathrm{B} = 3.6875\)</span></p>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline"> \(1\times2^{1}\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(1\times2^{0}\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(1\times2^{-1}\)</span></td>
+<td><span class="math inline">\(0.5\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(0\times2^{-2}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(1\times2^{-3}\)</span></td>
+<td><span class="math inline">\(0.125\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(1\times2^{-4}\)</span></td>
+<td><span class="math inline">\(0.0625\)</span></td>
+</tr>
+<tr>
+<td><strong> 总和</strong></td>
+<td><span class="math inline"> \(3.6875\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>无限循环小数</strong></p>
+<p><span class="math inline">\(1.1 \dot{0} 11 \dot{0} ... \mathrm{B} =
+1.7\)</span></p>
+<p>可以转换成分数计算：</p>
+<p><span class="math display">\[
+\begin {aligned}
+1.1 \dot {0} 11 \dot {0} ... \mathrm {B} &amp; = x \\
+11.\dot {0} 11 \dot {0} ... \mathrm {B} &amp; = 2x \\
+110110. \dot {0} 11 \dot {0} ... \mathrm {B} &amp; = 32x \\
+两式相减，110011\mathrm {B} &amp; = 30x \\
+x &amp; = \frac {110011\mathrm {B}}{30} = \frac {51}{30} = 1.7
+\end {aligned}
+\]</span></p>
+<p>10 转 K：</p>
+<p>整数部分仍然除 K 取余，小数部分乘 K 取整，然后相加。</p>
+<h3 id="转-2">10 转 2</h3>
+<p><span class="math inline">\(0.7  = 0.1 \dot{0} 11 \dot{0} ...
+\mathrm{B}\)</span></p>
+<table>
+<thead>
+<tr>
+<th>小数部分乘 2</th>
+<th> 取整数部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline"> \(0.7 \times 2 = 1.4\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(0.4 \times 2 = 0.8\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(0.8 \times 2 = 1.6\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(0.6 \times 2 = 1.2\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(0.2 \times 2 = 0.4\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<h3 id="转-16">10 转 16</h3>
+<p><span class="math inline">\(0.7  = 0.\mathrm{B} \dot{3} ...
+_{16}\)</span></p>
+<table>
+<thead>
+<tr>
+<th>小数部分乘 16</th>
+<th> 取整数部分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline"> \(0.7 \times 16 = 11.2\)</span></td>
+<td><span class="math inline">\(\mathrm{B}\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(0.2 \times 16 = 3.2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+</tr>
+<tr>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<h2 id="离散数学">离散数学</h2>
+<p>基础不牢。虽然之前及格了，但是什么都没学会。</p>
+<p>集合 A 的所有子集组成的集合，是集合 A 的幂集。{1,2} 的幂集是
+<code>{{},{1},{2},{1,2}}</code>。</p>
+<p>空集的幂集是 <code>{{}}</code> ，基数是 1。A
+的幂集的基数 &gt; A 的基数。</p>
+<p>元素都是集合的集合，称为集族。</p>
+<h3 id="关系">关系</h3>
+<p>集合：所有 <span class="math inline">\((10,60)\)</span>
+岁的人是一个集合 <span class="math inline">\(A\)</span>，所有 <span class="math inline">\((30,80)\)</span> 岁的人是一个集合 <span class="math inline">\(B\)</span>。当然有人同时属于这两个群体，也有同时不属于的。</p>
+<p>笛卡尔积：把 <span class="math inline">\(A\)</span> 放到左边，<span class="math inline">\(B\)</span>
+放到右边。把左边的所有人和右边的所有人多对多配对，用一根根线连起来。这些<strong>所有线的集合</strong>叫笛卡尔积
+<span class="math inline">\(A \times
+B\)</span>。当然也有自己连自己的，以及连了两次、左右互换的。注意，这些线是有方向的，是从左往右连，即
+<span class="math inline">\(A \times B \not\equiv B \times
+A\)</span></p>
+<p>关系：从这些线里任意取几根，或者全取，或者一根都不取。<strong>取出来的这几根线</strong>叫关系，记作
+<span class="math inline">\(\rho\)</span>。即关系是笛卡尔积的子集。<span class="math inline">\(\rho \subseteq A \times B\)</span>。<span class="math inline">\(\rho\)</span> 是从 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(B\)</span>
+的一个关系，也是有顺序的。如果取出来的这几根线左边全是老师，线右边全是对应老师的学生，则
+<span class="math inline">\(\rho\)</span> 是从 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(B\)</span> 的师生关系。张三在左边的 <span class="math inline">\(A\)</span> 里面，代号是 <span class="math inline">\(a\)</span>，李四在右边的 <span class="math inline">\(B\)</span> 里面，代号是 <span class="math inline">\(b\)</span>，连接它们的线记作 <span class="math inline">\((a,b)\)</span>。如果这条线<strong>在</strong>
+<span class="math inline"> \(\rho\)</span> 里面，则记作 <span class="math inline">\(a \rho
+b\)</span>。即张三对李四<strong>有</strong>师生关系 <span class="math inline">\(\rho\)</span>，张三是李四的老师。不止他们两个人在师生关系
+<span class="math inline">\(\rho\)</span>
+里面。张三对李四的这根线，<strong>在取出来的线集 <span class="math inline">\(\rho\)</span>
+里面</strong>。这些线的集合才叫关系，而 <span class="math inline">\((a,b)\)</span> 不叫关系，再起码也得 <span class="math inline">\(\{(a,b)\}\)</span>。即 <span class="math inline">\(a \rho b\)</span> 的意思是 <span class="math inline">\((a,b) \in \rho\)</span>， <span class="math inline">\((a,b)\)</span> 这根线在 <span class="math inline">\(\rho\)</span> 这个线集里面。</p>
+<p>定义域和值域：现在有一个从 <span class="math inline">\(A\)</span> 到
+<span class="math inline">\(B\)</span> 的师生关系 <span class="math inline">\(\rho\)</span>，就是从 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(B\)</span>
+有一些线。被师生关系牵住的左边的所有人（老师），称为<strong>这个</strong>师生关系的定义域。右边的所有人（学生），称为<strong>这个</strong>师生关系的值域。这个师生关系是建立在
+<span class="math inline">\(A\)</span> -&gt; <span class="math inline">\(B\)</span> 这两个群体<strong>之上</strong>的。</p>
+<p>逆关系：从 <span class="math inline">\(B\)</span> 到 <span class="math inline">\(A\)</span> 的生师关系。记作 <span class="math inline">\(\tilde{\rho}\)</span>。是 <span class="math inline">\(A\)</span> 的各个序偶反过来写。</p>
+<p>集合 <span class="math inline">\(A\)</span>
+上的关系：这两边可以放同一个集合，即从 <span class="math inline">\(A\)</span> 到 <span class="math inline">\(A\)</span> 的关系 <span class="math inline">\(\rho\)</span>，直接叫集合 <span class="math inline">\(A\)</span>
+上的关系。即<strong>单个群体内部之间的线，包括自己连自己</strong>。</p>
+<p>前面说了，关系 <span class="math inline">\(\subseteq\)</span>
+笛卡尔积。对于 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(A\)</span>
+的笛卡尔积，两边交换位置是相等的，可以记作 <span class="math inline">\(A^2\)</span>。集合 <span class="math inline">\(A\)</span> 上的关系 <span class="math inline">\(\rho \subseteq A^2\)</span>。注意在此时，不一定有
+<span class="math inline">\(\rho = \tilde{\rho}\)</span>。如果 <span class="math inline">\((你，她)\in \rho\)</span> 且 <span class="math inline">\(\rho\)</span> 是暗恋 ，不能保证 <span class="math inline">\((你，她)\in \tilde {\rho}\)</span>。<a href="https://music.163.com/#/song?id=430026359" rel="noopener" target="_blank"><strong>你对别人有暗恋关系，不能保证你对别人有暗恋关系的逆</strong></a>。</p>
+<p><img src="/blog/images/关系-0.webp"/></p>
+<p>普遍关系 <span class="math inline">\(U_A\)</span>：所有人都连上线了，包括和自己。即这个关系<strong>等于笛卡尔积</strong>
+<span class="math inline"> \(A^2\)</span>。大家</p>
+<p>恒等关系 <span class="math inline">\(I_A\)</span>：所有人都和自己连上线了，但是互相之间没有线。我</p>
+<p>具有特定性质的关系：</p>
+<ul>
+<li>自反的：对于所有
+a，必须都和自己有关系。所有人都和自己连上线了，不一定和对方连不连。关系矩阵主对角线上都是
+1。对于集合 A，如果它上的关系 rho 是自反的，那么 rho 里的序偶里一定有 A
+的所有元素各个复读一遍</li>
+<li>反自反的：对于所有
+a，都不能和自己有关系。所有人都不和自己连线，不一定和对方连不连。没有复读的</li>
+<li>对称的：对于所有 ab，如果 a 对 b 有关系，b 一定对 a
+有关系。所有连线都是双向的，或者自环。关系矩阵关于主对角线对称。对于所有的
+ab，如果有 (a,b)，那么一定有 (b,a)</li>
+<li> 反对称的：对于所有 ab，如果 a 对 b 有关系，且 b 对 a 有关系，那么 ab
+一定相等。不存在双向的连线（但可以自环）。关系矩阵关于主对角线反对称，对应对称位置的值相反。对于不等的
+ab，如果有 (a,b)，那么一定没有 (b,a)</li>
+<li> 恒等关系既是对称的，也是反对称的。因为它是集合里所有元素的自环。</li>
+<li>可传递的：对于所有 abc，如果 a 对 b 有关系，b 对 c 有关系，那么 a 和
+c 必须有关系。对于任意一条长度为 2
+的连续（同向）路径，它的起点必须可以直接通往终点。</li>
+</ul>
+<p><img src="/blog/images/关系-1.webp"/></p>
+<ul>
+<li><p>在非空集合上，一个自反关系一定不是反自反的，一个对称关系可能也是反对称的</p></li>
+<li><p>在空集上，空关系同时是自反、反自反、对称、反对称、可传递的。由于没有元素，条件 “空真” 地成立</p></li>
+<li><p>等价关系是自反、对称且可传递的关系。</p></li>
+<li><p>偏序关系是自反、反对称和可传递的关系。</p></li>
+</ul>
+<p><img src="/blog/images/关系-2.webp"/></p>
+<p>对实数集来说：</p>
+<ul>
+<li>小于等于关系是自反的。对于所有 a，有 a &lt;= a</li>
+<li> 小于等于关系是非对称的。由 1 &lt;= 2，但 2 不 &lt;= 1</li>
+<li> 小于等于关系是反对称的。如果 a &lt;= b，且 b &lt;= a，那么 a
+一定等于 b</li>
+<li> 小于等于关系是可传递的。所以实数集上的 “小于等于” 关系是偏序。偏序用符号
+≤ 表示。</li>
+</ul>
+<p>闭包是指，对一个不一定具有某个性质的，集合 A 上的关系
+rho，通过并的操作使它具有某个性质。在原来的线里多加几根线</p>
+<ul>
+<li>自反闭包 r：rho 并上 A 的恒等关系</li>
+<li>对称闭包 s：rho 并上 rho 的逆关系</li>
+<li>传递闭包 t：rho 的次方从 1 连并到 A
+的基数。次方是同一个关系多次复合，复合是找从起点集合到终点集合的连续路。关系的复合是可结合的</li>
+</ul>
+<p>r (rho)、s (rho)、t (rho) 分别是集合 A 上包含 rho
+的最小自反 / 对称 / 可传递的关系。</p>
+<p>对于一个等价关系，它的某个元素的等价类，从关系图上看，就是这个元素一坨所在的所有元素。等价分划就是把一坨一坨的分开。</p>
+<p>{1,2,3}
+的所有分划是：<code>{{1,2,3}}、{{1},{2,3}}、{{1,2},{3}}、{{1,3},2}、{{1},{2},{3}}</code></p>
+<p>A 的平凡分划就是
+{A}，是它上普遍关系导出的等价分划，是最粗的分划。最细的分划就是切成臊子，是恒等关系导出的等价分划。</p>
+<h3 id="函数">函数</h3>
+<p>函数是从集合 A（起点）到集合
+B（终点）的一种特殊的关系。任取起点里的一个元素（像源），它保证往终点的某个像引出了有且只有一条线。</p>
+<p>从 A 到 B 的：</p>
+<ul>
+<li>关系，线可以有一对多的；函数，线不能有一对多的</li>
+<li>关系，定义域是 A 的子集；函数，定义域为 A</li>
+</ul>
+<p>函数的定义域是 A（因为是任取），值域是 B
+的子集（因为可能引到同一个终点元素身上），值域包是 B。</p>
+<p>如果 A 和 B
+是可数集，那么值域的元素个数可能等于定义域（双射），可能小于定义域（极端的都引到同一个终点元素身上），不可能大于定义域。</p>
+<p>内射的函数是，对于一个函数，任取起点里的两个不等元素，它们两个不会引到终点里的同一个元素上（没有多对一，再加上函数的定义保证它没有一对多，所以都是<strong>一对一</strong>）。即同一个像源只映射同一个像。A
+基数 == 值域元素个数 &lt;= B
+基数。当内射的值域取满值域包时，内射变为双射。</p>
+<p>满射就是，<strong>值域取满值域包</strong>。终点的所有元素都被起点连了。A
+基数大于等于 B 基数，<strong>可能有多对一的情况</strong>。</p>
+<p>内射且满射，称为双射。双射是一一对应的（内射保证），像和像源的个数相同，且等于
+B 的基数（满射保证取满值域包）</p>
+<p><img src="/blog/images/函数-1.webp"/></p>
+<p>幂等函数是指，对一个集合 A 上的函数 f，与自身复合任意次后（&gt;=2
+的整数）仍为 f</p>
+<p>A 与 B 等势（A~B） &lt;=&gt; 存在从 A 到 B
+的双射函数。实数集的所有开区间的子集都和实数集等势，我们都可以画出一个看起来像正切函数的一支的图像，把定义域映射到
+R</p>
+<ul>
+<li>可计数集
+<ul>
+<li>有限集：元素个数为某个正整数 m，基数是 m。或为空集，基数是 0。如
+{1,2,3}</li>
+<li> 可数集（无限的，且可以排成无穷序列的形式）：与自然数集
+N={0,1,2,3,...} 等势的集合，基数是阿列夫零。如 {2,4,6,8,...} 是 N
+的各个元素两倍 + 2 的双射
+<ul>
+<li>可数集与 [可数集 | 有限集] 的并集是可数集，[有限个 | 可数个] 可数集的并集是可数集</li>
+<li>有理数集 Q
+是可数集，任一个有理数都可以写成分数的形式，分子和分母所有可能的取值都是可数的。任一个有理数都可以写成有限小数或无限循环小数的形式</li>
+</ul></li>
+</ul></li>
+<li>不可数集（无限的）
+<ul>
+<li>无理数集是不可数的。无理数是无限不循环小数</li>
+</ul></li>
+</ul>
+<p>对于一个集族如 S = {A,B,C,D}，如果 A 与 B 的基数都是阿列夫零，C 与 D
+的基数都是阿列夫一，那么 S 上存在一个等价关系
+{(A,A),(A,B),(B,B),(C,D),(C,C),(D,D)}，它的等价分划是 <code>{{A,B},{C,D}}</code>，A
+的等价类是 {A,B}，A 和 B 同基（基数相同）。</p>
+<h3 id="二元运算与代数系统">二元运算与代数系统</h3>
+<p>A = {1,2,3}</p>
+<p>A^2 = {(1,1),(1,2),(1,3),(2,1),(2,2),(2,3),(3,1),(3,2),(3,3)}</p>
+<p>A^3 = {(1,1,1),...}</p>
+<p>函数 A^2 -&gt; A：是 A 上的一个二元运算。n 元运算是把 A^n 映射到
+A。</p>
+<p>关系（或者说函数） {((1,1),2), ((1,2),3)} 不是 A
+上的二元运算，因为定义域不等于 A^2，A
+上的元素不是都和它自己以及和其他任一个元素起关系了。A 上的二元运算是从 A
+的笛卡尔积向 A 的映射，它的定义域里一定有 A
+里所有元素的不同排列方式的序偶。</p>
+<p>为什么除不是实数集上的二元运算，因为 (n,0) 的结果在 R
+里没有对应的像，所以 (n,0)
+不在定义域里，而运算要求定义域里一定要有值域包元素的所有序偶。</p>
+<p>减是实数集上的二元运算，但不是自然数集上的二元运算，因为 (1,4)
+如果有像，那么 -3
+是不在自然数集里的。减在实数集上封闭，在自然数集上不封闭。</p>
+<p>封闭：对于 A 上的二元运算 ◦，S 是 A 的子集，如果对于所有 S^2
+里的元素，在运算之后的结果在 S 里面，那么 ◦ 在 S 上是封闭的。</p>
+<p>对于二元运算 *：A^2 -&gt; A：</p>
+<ul>
+<li>单位元与元素运算，结果为原元素，e * a = a</li>
+<li> 零元与元素运算，结果为零元， z * a = z</li>
+<li> 幂等元和他自身运算的结果不变。二元运算的单位元和零元都是幂等元</li>
+<li>左单位元和 a 运算，a 不变。a 和右零元运算，结果为右零元</li>
+<li>不可能同时有不等值的 [左 | 右][单位元 | 零元]</li>
+<li>a 与其右逆元运算，结果是 e</li>
+<li> 当 A 的基数大于 1
+时，且存在单位元和零元时，那么它们不会是同一个元素</li>
+</ul>
+<p>实数集上的乘法运算，单位元是 1，零元是 0。对于非零元素
+a，它的逆元是其倒数</p>
+<p>实数集上的加法运算，单位元是 0，没有零元。对于元素
+a，它的逆元是其相反数</p>
+<p>实数集上的减法运算，右单位元是
+0，没有左单位元，没有零元。逆元是根据单位元定义的，所以没有逆元</p>
+<p>对于一个元素不多的二元运算，我们可以画出运算表，它的行标为左元素，列标为右元素，内容为运算结果。可以通过运算表里元素排列的形状判断某一个元素是不是单位元或零元。如图所示：</p>
+<p><img src="/blog/images/运算-1.webp"/></p>
+<p>{0,1} 上的：</p>
+<p><img src="/blog/images/运算-2.webp"/></p>
+<ul>
+<li>且运算，单位元是 1，零元是 0。且 1 不变，且 0 短路。</li>
+<li>或运算，单位元是 0，零元是 1。或 0 不变，或 1 短路。</li>
+<li>蕴含运算，左单位元是 1，右零元是 1</li>
+<li> 等值运算，单位元是 1</li>
+</ul>
+<p>&lt;S;o1,o2...&gt; 是代数系统。S 是非空集，称为代数系统的域，on
+是一个或多个定义在 S 上的运算（可以不同阶）。</p>
+<p>代数系统的基数是 S 的基数，若 S
+是有限集，则代数系统是有限代数系统。</p>
+<p>整环：对于一个代数系统 &lt;J;+,*&gt;，J
+是非空集，+ 和 * 是其上的二元运算，如果同时满足六个性质，则该代数系统为整环：</p>
+<ul>
+<li>+ 和 * 都满足交换律</li>
+<li> + 和 * 都满足结合律</li>
+<li> * 对于 + 满足分配律：a*(b+c) = a*b+a*c</li>
+<li>+ 和 * 都有单位元</li>
+<li>任取元素 a 对 + 可逆，a+a 的逆元 = “+ 的单位元”</li>
+<li> 对 * 的消去律：任取非 “+ 的单位元” 的 a，由 a*b = a*c，可得 b=c</li>
+</ul>
+<p>对 &lt;{0,1}; 或，且 &gt; 来说：</p>
+<ul>
+<li>两个运算的交换律、结合律、分配律都满足</li>
+<li>或的单位元是 0，且的单位元是 1</li>
+<li> 没有对或的可逆性：对 1
+来说，不存在它的逆元可以通过与它运算来获得或的单位元
+0，所以或是不可逆的。所以该代数系统不是整环</li>
+<li>有对且的消去律：由：1 且 b = 1 且 c，可得出
+b=c，所以满足对且的消去律。</li>
+</ul>
+<h3 id="群">群</h3>
+<p>对于代数系统 &lt;S;*&gt;，S 是非空集，* 是 S 上的二元运算 S^2 -&gt;
+S</p>
+<ul>
+<li>如果 * 是可结合的，则该代数系统为半群</li>
+<li>若半群有单位元，则该半群为独异点</li>
+<li>若独异点的域里每个元素都有逆元，则该独异点为群</li>
+<li>若群的运算 * 是可交换的，则该群为阿贝尔群</li>
+</ul>
+<h3 id="命题逻辑-1">命题逻辑</h3>
+<p>命题：参考洪帆主编的《离散数学基础（第三版）》，并加上了自己的狭隘理解，同时满足以下三条：</p>
+<ol type="1">
+<li>它是一个陈述句</li>
+<li>它有一个自带的<strong>属性</strong>，叫<strong>真值</strong>，取
+<span class="math inline">\(0\)</span> 或 <span class="math inline">\(1\)</span></li>
+<li> 它的真值可以<strong>被判断</strong>（没有说被谁判断、在什么时间被判断）</li>
+</ol>
+<blockquote>
+<p>2x - 3 = 0 <br/> 这句话是假的</p>
+</blockquote>
+<p>我们<strong>永远</strong>没法判断它们的真值是 <span class="math inline">\(0\)</span> 还是 <span class="math inline">\(1\)</span>（如果前者是一个陈述句而不是方程，我们不知道
+x 是什么东西的。后者……）。所以它们<strong>不是命题</strong>。</p>
+<blockquote>
+<p>2024 年 1 月 16 号体彩排列三的开奖号码是 703</p>
+</blockquote>
+<p>它是一个命题。它的真值可以被判断，因为这件事已经发生了，但需要我们<a href="https://www.zhcw.com/kjxx/pl3/" rel="noopener" target="_blank">查询资料</a>。</p>
+<blockquote>
+<p>2024 年 1 月 17 号体彩排列三的开奖号码是 555<br/> &gt; <a href="https://music.163.com/song?id=1883951953" rel="noopener" target="_blank">太阳系外有宇宙人</a></p>
+</blockquote>
+<p>它们都是命题。它们的真值可以被判断，但不是现在。</p>
+<p>命题连结词，一元的只有：否定 <span class="math inline">\(\neg\)</span>，非……。下面都是二元的。</p>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">logic</span>(<span class="params">P: <span class="built_in">bool</span>, Q: <span class="built_in">bool</span></span>) -&gt; <span class="built_in">bool</span>:</span><br/></pre></td></tr></tbody></table></figure>
+<p>现在有一份鱼和一份熊掌。作为前件和后件。如果我们吃了，件的真值记为
+<span class="math inline">\(1\)</span>，否则记为 <span class="math inline">\(0\)</span>；如果我们满足了（吃好了），复合命题的真值记为
+<span class="math inline">\(1\)</span>，否则记为 <span class="math inline">\(0\)</span></p>
+<p>合取 <span class="math inline">\(\wedge\)</span>
+…… 且……：全吃了，我才满足</p>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P <span class="keyword">and</span> Q</span><br/></pre></td></tr></tbody></table></figure>
+<p>析取 <span class="math inline">\(\vee\)</span>
+…… 或……（可兼的或）：只要有吃的，我就满足</p>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P <span class="keyword">or</span> Q</span><br/></pre></td></tr></tbody></table></figure>
+<p>不可兼的叫<strong>异或</strong>。区别是：异或的鱼和熊掌只能吃一个，同时吃会生病。</p>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P ^ Q</span><br/></pre></td></tr></tbody></table></figure>
+<p>等值 <span class="math inline">\(\leftrightarrow\)</span>
+…… 当且仅当……：是异或的对立面：同或、完美主义：要么都吃，要么都不吃，只吃一个我就难受。</p>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P == Q</span><br/></pre></td></tr></tbody></table></figure>
+<p>蕴含 <span class="math inline">\(\rightarrow\)</span> …… 若则……：</p>
+<p>现在有【生】和【义】，作为前件和后件。如果我们保留了，件的真值记为
+<span class="math inline">\(1\)</span>，否则记为 <span class="math inline">\(0\)</span>；如果我们满足了（垂名了），复合命题的真值记为
+<span class="math inline">\(1\)</span>，否则记为 <span class="math inline">\(0\)</span></p>
+<p>注意：</p>
+<ul>
+<li>在蕴含的前件为假的情况下，复合命题为真。</li>
+<li>在蕴含的前件为真的情况下，复合命题的真值为后件的真值。</li>
+</ul>
+<p>如果我们<a href="https://music.163.com/song?id=2058806391" rel="noopener" target="_blank">把【生】舍了</a>，那还管它义不义，名字直接刻碑上了。或者这样记：如果一个人的<a href="https://music.163.com/song?id=4237850" rel="noopener" target="_blank">前提都搞错了</a>，那就没有必要和他讨论了，你说得都对。</p>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="literal">True</span> <span class="keyword">if</span> <span class="keyword">not</span> P <span class="keyword">else</span> Q</span><br/><span class="line"><span class="keyword">return</span> (<span class="keyword">not</span> P) <span class="keyword">or</span> Q</span><br/><span class="line"><span class="keyword">return</span> <span class="keyword">not</span> (P <span class="keyword">and</span> (<span class="keyword">not</span> Q))</span><br/></pre></td></tr></tbody></table></figure>
+<p>一个文字游戏：除非 P，否则不 Q</p>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> P:</span><br/><span class="line">    <span class="keyword">return</span> Q</span><br/><span class="line"><span class="keyword">else</span>:</span><br/><span class="line">    <span class="keyword">return</span> <span class="keyword">not</span> Q</span><br/></pre></td></tr></tbody></table></figure>
+<p>就是当且仅当</p>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> P == Q</span><br/></pre></td></tr></tbody></table></figure>
+</div>
+<footer class="post-footer">
+<div class="post-nav">
+<div class="post-nav-item">
+<a href="/blog/cook.html" rel="prev" title="菜谱">
+<i class="fa fa-angle-left"></i> 菜谱
+                </a>
+</div>
+<div class="post-nav-item">
+<a href="/blog/economics.html" rel="next" title="经济常识">
+                  经济常识 <i class="fa fa-angle-right"></i>
+</a>
+</div>
+</div>
+</footer>
+</article>
+</div>
+</div>
+</main>
+<footer class="footer">
+<div class="footer-inner">
+<div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> &amp; <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+</div>
+</footer>
+<div class="toggle sidebar-toggle" role="button">
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+<span class="toggle-line"></span>
+</div>
+<div class="sidebar-dimmer"></div>
+<div aria-label="返回顶部" class="back-to-top" role="button">
+<i class="fa fa-arrow-up fa-lg"></i>
+<span>0%</span>
+</div>
+<noscript>
+<div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script crossorigin="anonymous" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js"></script>
+<script crossorigin="anonymous" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" src="https://unpkg.com/pangu@4.0.7/dist/browser/pangu.min.js"></script>
+<script src="/blog/js/comments.js"></script><script src="/blog/js/utils.js"></script><script src="/blog/js/sidebar.js"></script><script src="/blog/js/next-boot.js"></script>
+<script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://unpkg.com/mermaid@10.9.1/dist/mermaid.min.js","integrity":"sha256-YbM1pG3wWnzhyYN49g5fPnen+2CKEFaZfopkkwSpNtY="}}</script>
+<script src="/blog/js/third-party/tags/mermaid.js"></script>
+<script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://unpkg.com/mathjax@3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/blog/js/third-party/math/mathjax.js"></script>
+</body>
+</html>
