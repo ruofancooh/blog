@@ -20,7 +20,7 @@
 <meta content="我们想要使用高德开放平台的 POI 搜索 2.0 中的多边形区域搜索来获取 POI 数据。它的传参需求类似于 114.10,30.53|114.11,30.54 的字符串，为一个矩形范围。对于个人认证的开发者，每天每个账号限制调用 100 次（实际情况可能比 100 次略多几十次），3 次每秒。且该 API 每次请求只能返回 1 页，1 页最多 25 条，到第九页必定不出数据。  对于某种类型的" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2024-11-30T11:00:00.000Z" property="article:published_time"/>
-<meta content="2025-09-14T14:50:01.287Z" property="article:modified_time"/>
+<meta content="2025-10-05T12:55:48.821Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/amap-poi-search" rel="canonical"/>
@@ -132,7 +132,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2025-09-14T22:50:01+08:00" itemprop="dateModified" title="修改时间：2025-09-14 22:50:01">2025-09-14</time>
+<time datetime="2025-10-05T20:55:48+08:00" itemprop="dateModified" title="修改时间：2025-10-05 20:55:48">2025-10-05</time>
 </span>
 </div>
 </div>
@@ -157,6 +157,7 @@ API - 行政区域查询，它可以返回一个行政区的边界字符串。</
 文件，并可以配合 <code>plt</code> 画出 <code>gdf</code>。使用
 <code>pd.concat</code> 连接两个 <code>gdf</code>。</li>
 </ul>
+<span id="more"></span>
 <h2 id="解决方法">解决方法</h2>
 <p>用多轮筛查，先用大网，后用小网，每轮用数天数次完成。每轮搜索之前，把待搜索的范围划分成一系列与搜索区域有交的小矩形，如在一个
 0.05
