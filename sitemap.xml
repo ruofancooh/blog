@@ -2,9 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hrfis.me/blog/truth-assignment.html</loc>
+    
+    <lastmod>2025-11-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hrfis.me/blog/that.html</loc>
     
-    <lastmod>2025-11-11</lastmod>
+    <lastmod>2025-11-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/worker.html</loc>
+    
+    <lastmod>2025-11-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/wait.html</loc>
+    
+    <lastmod>2025-11-12</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -14,24 +41,6 @@
     <loc>https://hrfis.me/blog/albums.html</loc>
     
     <lastmod>2025-11-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/worker.html</loc>
-    
-    <lastmod>2025-11-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/truth-assignment.html</loc>
-    
-    <lastmod>2025-11-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -75,15 +84,6 @@
   
   <url>
     <loc>https://hrfis.me/blog/lacan.html</loc>
-    
-    <lastmod>2025-10-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/wait.html</loc>
     
     <lastmod>2025-10-29</lastmod>
     
@@ -247,7 +247,7 @@
 
   <url>
     <loc>https://hrfis.me/blog</loc>
-    <lastmod>2025-11-11</lastmod>
+    <lastmod>2025-11-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

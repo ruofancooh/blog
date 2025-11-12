@@ -1,13 +1,13 @@
-https://hrfis.me/blog/that.html
-https://hrfis.me/blog/albums.html
-https://hrfis.me/blog/worker.html
 https://hrfis.me/blog/truth-assignment.html
+https://hrfis.me/blog/that.html
+https://hrfis.me/blog/worker.html
+https://hrfis.me/blog/wait.html
+https://hrfis.me/blog/albums.html
 https://hrfis.me/blog/me.html
 https://hrfis.me/blog/about/index.html
 https://hrfis.me/blog/psychology.html
 https://hrfis.me/blog/donate-blood.html
 https://hrfis.me/blog/lacan.html
-https://hrfis.me/blog/wait.html
 https://hrfis.me/blog/meme.html
 https://hrfis.me/blog/time.html
 https://hrfis.me/blog/game.html
