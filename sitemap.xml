@@ -4,16 +4,7 @@
   <url>
     <loc>https://hrfis.me/blog/truth-assignment.html</loc>
     
-    <lastmod>2025-11-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/worker.html</loc>
-    
-    <lastmod>2025-11-14</lastmod>
+    <lastmod>2025-11-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,7 +13,25 @@
   <url>
     <loc>https://hrfis.me/blog/that.html</loc>
     
-    <lastmod>2025-11-12</lastmod>
+    <lastmod>2025-11-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/meme.html</loc>
+    
+    <lastmod>2025-11-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/worker.html</loc>
+    
+    <lastmod>2025-11-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -84,15 +93,6 @@
   
   <url>
     <loc>https://hrfis.me/blog/lacan.html</loc>
-    
-    <lastmod>2025-10-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/meme.html</loc>
     
     <lastmod>2025-10-29</lastmod>
     
@@ -247,7 +247,7 @@
 
   <url>
     <loc>https://hrfis.me/blog</loc>
-    <lastmod>2025-11-14</lastmod>
+    <lastmod>2025-11-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
