@@ -12,15 +12,15 @@
 <link href="/blog/css/main.css" rel="stylesheet"/>
 <link crossorigin="anonymous" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" rel="stylesheet"/>
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hrfis.me","root":"/blog/","images":"/blog/images","scheme":"Gemini","darkmode":false,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/blog/js/config.js"></script>
-<meta content="建站 除了 Hexo 官网文档之外的操作：  设置 npm 镜像源   12npm get registrynpm config set registry https://registry.npmmirror.com/  安装 Hexo 并初始化之后，安装本地预览服务器，先跑   12npm install hexo-serverhexo server" name="description"/>
+<meta content="Hexo 是一个博客框架，它把带 YAML Front matter 的 Markdown 文件通过 Node.js 和 Pandoc 渲染成静态的 html 文件。NexT 是针对 Hexo 的主题，可以理解为 CSS。" name="description"/>
 <meta content="article" property="og:type"/>
 <meta content="Hexo" property="og:title"/>
 <meta content="https://hrfis.me/blog/hexo.html" property="og:url"/>
 <meta content="​若凡的笔记" property="og:site_name"/>
-<meta content="建站 除了 Hexo 官网文档之外的操作：  设置 npm 镜像源   12npm get registrynpm config set registry https://registry.npmmirror.com/  安装 Hexo 并初始化之后，安装本地预览服务器，先跑   12npm install hexo-serverhexo server" property="og:description"/>
+<meta content="Hexo 是一个博客框架，它把带 YAML Front matter 的 Markdown 文件通过 Node.js 和 Pandoc 渲染成静态的 html 文件。NexT 是针对 Hexo 的主题，可以理解为 CSS。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-08-27T12:38:00.000Z" property="article:published_time"/>
-<meta content="2025-10-05T12:55:25.321Z" property="article:modified_time"/>
+<meta content="2025-11-17T13:43:10.465Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/hexo" rel="canonical"/>
@@ -87,7 +87,7 @@
 <nav class="site-state">
 <div class="site-state-item site-state-posts">
 <a href="/blog/">
-<span class="site-state-item-count">26</span>
+<span class="site-state-item-count">25</span>
 <span class="site-state-item-name">日志</span>
 </a>
 </div>
@@ -132,12 +132,37 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2025-10-05T20:55:25+08:00" itemprop="dateModified" title="修改时间：2025-10-05 20:55:25">2025-10-05</time>
+<time datetime="2025-11-17T21:43:10+08:00" itemprop="dateModified" title="修改时间：2025-11-17 21:43:10">2025-11-17</time>
 </span>
 </div>
 </div>
 </header>
-<div class="post-body" itemprop="articleBody"><h2 id="建站">建站</h2>
+<div class="post-body" itemprop="articleBody"><p><a href="https://hexo.io/zh-cn/docs/" rel="noopener" target="_blank">Hexo</a> 是一个博客框架，它把带
+<a href="https://jekyllrb.com/docs/front-matter/" rel="noopener" target="_blank">YAML Front matter</a>
+的 <a href="https://markdown.com.cn/" rel="noopener" target="_blank">Markdown</a> 文件通过 <a href="https://nodejs.org" rel="noopener" target="_blank">Node.js</a> 和 <a href="https://pandoc.org/" rel="noopener" target="_blank">Pandoc</a> 渲染成静态的 html 文件。<a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT</a> 是针对 Hexo 的主题，可以理解为
+CSS。</p>
+<span id="more"></span>
+<p><a href="https://docs.github.com/zh/pages/getting-started-with-github-pages" rel="noopener" target="_blank">Github
+Pages</a>
+用于托管静态网页，就是放在上面就不能动了，没有数据库，更新页面要重新上传。创建一个名为
+<code>yourusername.github.io</code> 的仓库，分支为
+<code>gh-pages</code>。然后可以访问
+<code>yourusername.github.io</code>。之后再创建的名为
+<code>sample</code> 且分支为 <code>gh-pages</code> 的仓库，为
+<code>yourusername.github.io/sample</code>。</p>
+<p><a href="https://www.dynadot.com/" rel="noopener" target="_blank">Dynadot</a>
+是一个域名提供商，买一个域名。设置 DNS 为 Dynadot DNS。域名记录，A
+记录指向 <code>185.199.109.153</code>，AAAA 记录指向
+<code>2606:50c0:8001::153</code>。这两个是 Github Pages 的公共
+IP，可以通过 ping <code>yourusername.github.io</code>。子域名 www 的
+CNAME 记录指向
+<code>yourusername.github.io</code>。对应仓库（根仓库）的根目录加一个
+<code>CNAME</code> 文件，内容为购买的域名。仓库设置 -&gt; pages -&gt;
+Custom domain -&gt; Enforce HTTPS。然后等 Github 检查 DNS，排队从 Let's
+Encrypt 获取 SSL 证书。</p>
+<p>你可以使用 <a href="https://www.whois.com/whois" rel="noopener" target="_blank">Whois</a> 来查询这些一键生成的页面背后的操作者是谁。在
+Github 查看<a href="https://github.com/ruofancooh/blog-source/commits/main" rel="noopener" target="_blank">笔记修改历史</a>。</p>
+<h2 id="建站">建站</h2>
 <p>除了 Hexo 官网文档之外的操作：</p>
 <ol type="1">
 <li>设置 npm 镜像源 </li>
@@ -147,7 +172,6 @@
 <li>安装 Hexo 并初始化之后，安装本地预览服务器，先跑 </li>
 </ol>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">npm install hexo-server</span><br/><span class="line">hexo server</span><br/></pre></td></tr></tbody></table></figure>
-<span id="more"></span>
 <h2 id="如何在新设备上推送">如何在新设备上推送</h2>
 <p>安装 nodejs，pandoc，python，bs4，ssh，git</p>
 <p>克隆笔记源：</p>
