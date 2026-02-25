@@ -20,7 +20,7 @@
 <meta content="Hexo 是一个博客框架，它把带 YAML Front matter 的 Markdown 文件通过 Node.js 和 Pandoc 渲染成静态的 html 文件。NexT 是针对 Hexo 的主题，可以理解为 CSS。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-08-27T12:38:00.000Z" property="article:published_time"/>
-<meta content="2026-02-09T15:01:49.032Z" property="article:modified_time"/>
+<meta content="2026-02-25T16:54:53.100Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/hexo" rel="canonical"/>
@@ -75,7 +75,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%99"><span class="nav-number">1.</span> <span class="nav-text">建站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E6%96%B0%E8%AE%BE%E5%A4%87%E4%B8%8A%E6%8E%A8%E4%BB%93%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">在新设备上推仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5"><span class="nav-number">3.</span> <span class="nav-text">公钥和私钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-%E4%B8%BB%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">NexT 主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#md"><span class="nav-number">5.</span> <span class="nav-text">md</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E6%96%B0%E8%AE%BE%E5%A4%87%E4%B8%8A%E6%8E%A8%E4%BB%93%E5%BA%93"><span class="nav-number">3.</span> <span class="nav-text">在新设备上推仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5"><span class="nav-number">4.</span> <span class="nav-text">公钥和私钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-%E4%B8%BB%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">NexT 主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#md"><span class="nav-number">6.</span> <span class="nav-text">md</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -132,7 +132,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2026-02-09T23:01:49+08:00" itemprop="dateModified" title="修改时间：2026-02-09 23:01:49">2026-02-09</time>
+<time datetime="2026-02-26T00:54:53+08:00" itemprop="dateModified" title="修改时间：2026-02-26 00:54:53">2026-02-26</time>
 </span>
 </div>
 </div>
@@ -162,7 +162,26 @@ Custom domain -&gt; Enforce HTTPS。然后等 Github 检查 DNS，排队从 Let'
 Encrypt 获取 SSL 证书。</p>
 <p>你可以使用 <a href="https://www.whois.com/whois" rel="noopener" target="_blank">Whois</a> 来查询这些一键生成的页面背后的操作者是谁。在
 Github 查看<a href="https://github.com/ruofancooh/blog-source/commits/main" rel="noopener" target="_blank">笔记修改历史</a>。</p>
-<h2 id="建站">建站</h2>
+<ol type="1">
+<li>写笔记的源文件，md 格式</li>
+<li>用 npx hexo g 生成文件到 public 目录</li>
+<li>用 python 敷写目录里的系列文件，并用 rsync 把目录移动到另一个仓库</li>
+<li>用 git 推送仓库到 Github</li>
+</ol>
+<h2 id="概念">概念</h2>
+网页：网页文件的后缀一般是.html，超文本标记语言。它是一个文本文件，超的地方在于，比如在两个
+<p>
+</p>
+<p>标签之间表示一个段落，我们可以给这个标签单独设置样式如字体字号，并和其他段落标签排版。我们也可以点一个按钮后删除一个段落。HTML 有两个兄弟，CSS 管样式和排版，JavaScript 管人机交互和计算。</p>
+<p>代码和环境：写代码就是人指挥电脑该如何做事，编程语言介于人话和机器话之间，首先保证人能看懂，还要一个翻译官把它翻译成机器能听懂，这个翻译官称为环境。JavaScript 就是一种编程语言，它的环境可以是浏览器内核，也可以是 Node.js。</p>
+<p>浏览器：用浏览器打开网页就像用播放器打开视频，得先把网页从别人的服务器上下载到本地。当然自己也可以当自己的服务器，客户端和服务端占 localhost 的不同端口号。</p>
+<p>Markdown：用标记符号给通常的文本做了扩展，如用 ## 表示二级标题，用一个空行表示换行，这样撰写者可以不管排版只写内容。它和 html 都是文本文件，且写它比写 html 文件容易。它还可以内嵌 html 标签。</p>
+<p>Hexo：把 Markdown 文件转码成 html 文件，并生成有特定目录结构的文件夹，这个文件夹称为网站。它是 Node.js 环境下的一个软件。</p>
+<p>npm：Node.js 环境的包管理器，即应用商店。用它来下载安装 Hexo</p>
+<p>git：</p>
+<p>签名与身份验证：git
+push 给远程仓库时，github 会根据发送者提前提交的公钥来生成一个挑战，发送者用私钥对挑战进行签名并发回 github，github 再用公钥验证签名，如果通过，说明确实是这个用户。</p>
+<h2 id="操作">操作</h2>
 <p>除了 Hexo 官网文档之外的操作：</p>
 <ol type="1">
 <li>设置 npm 镜像源 </li>
@@ -181,7 +200,6 @@ Github 查看<a href="https://github.com/ruofancooh/blog-source/commits/main" re
 <p>把公钥添加到 GitHub Settings → SSH and GPG keys</p>
 <p>改 push 的链接：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@github.com:ruofancooh/blog.git</span><br/><span class="line">git config --global user.email <span class="string">"you@example.com"</span></span><br/><span class="line">git config --global user.name <span class="string">"Your Name"</span></span><br/></pre></td></tr></tbody></table></figure>
-<p>用<a href="">三个脚本</a>生成网页。</p>
 <p>推：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">git add .</span><br/><span class="line">git commit -m <span class="string">"text"</span></span><br/><span class="line">git push</span><br/></pre></td></tr></tbody></table></figure>
 <h2 id="公钥和私钥">公钥和私钥</h2>
