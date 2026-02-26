@@ -20,7 +20,7 @@
 <meta content="Hexo 是一个博客框架，它把带 YAML Front matter 的 Markdown 文件通过 Node.js 和 Pandoc 渲染成静态的 html 文件。NexT 是针对 Hexo 的主题，可以理解为 CSS。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-08-27T12:38:00.000Z" property="article:published_time"/>
-<meta content="2026-02-25T16:54:53.100Z" property="article:modified_time"/>
+<meta content="2026-02-26T13:52:20.041Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/hexo" rel="canonical"/>
@@ -75,7 +75,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E6%96%B0%E8%AE%BE%E5%A4%87%E4%B8%8A%E6%8E%A8%E4%BB%93%E5%BA%93"><span class="nav-number">3.</span> <span class="nav-text">在新设备上推仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5"><span class="nav-number">4.</span> <span class="nav-text">公钥和私钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-%E4%B8%BB%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">NexT 主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#md"><span class="nav-number">6.</span> <span class="nav-text">md</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5"><span class="nav-number">3.</span> <span class="nav-text">公钥和私钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-%E4%B8%BB%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">NexT 主题</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -132,7 +132,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2026-02-26T00:54:53+08:00" itemprop="dateModified" title="修改时间：2026-02-26 00:54:53">2026-02-26</time>
+<time datetime="2026-02-26T21:52:20+08:00" itemprop="dateModified" title="修改时间：2026-02-26 21:52:20">2026-02-26</time>
 </span>
 </div>
 </div>
@@ -151,7 +151,7 @@ Pages</a>
 <code>sample</code> 且分支为 <code>gh-pages</code> 的仓库，为
 <code>yourusername.github.io/sample</code>。</p>
 <p><a href="https://www.dynadot.com/" rel="noopener" target="_blank">Dynadot</a>
-是一个域名提供商，买一个域名。设置 DNS 为 Dynadot DNS。域名记录，A
+是一个域名注册商，买一个域名。设置 DNS 为 Dynadot DNS。域名记录，A
 记录指向 <code>185.199.109.153</code>，AAAA 记录指向
 <code>2606:50c0:8001::153</code>。这两个是 Github Pages 的公共
 IP，可以通过 ping <code>yourusername.github.io</code>。子域名 www 的
@@ -182,26 +182,20 @@ Github 查看<a href="https://github.com/ruofancooh/blog-source/commits/main" re
 <p>签名与身份验证：git
 push 给远程仓库时，github 会根据发送者提前提交的公钥来生成一个挑战，发送者用私钥对挑战进行签名并发回 github，github 再用公钥验证签名，如果通过，说明确实是这个用户。</p>
 <h2 id="操作">操作</h2>
-<p>除了 Hexo 官网文档之外的操作：</p>
-<ol type="1">
-<li>设置 npm 镜像源 </li>
-</ol>
+<p>更换 npm 镜像源</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">npm get registry</span><br/><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com/</span><br/></pre></td></tr></tbody></table></figure>
-<ol start="2" type="1">
-<li>安装 Hexo 并初始化之后，安装本地预览服务器，先跑 </li>
-</ol>
-<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">npm install hexo-server</span><br/><span class="line">hexo server</span><br/></pre></td></tr></tbody></table></figure>
-<h2 id="在新设备上推仓库">在新设备上推仓库</h2>
+<p>禁用对非 ASCII 字符的转义，让 git status 输出中文字符。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">git config --global core.quotepath <span class="literal">false</span></span><br/></pre></td></tr></tbody></table></figure>
 <p>安装 nodejs，pandoc，python，bs4，ssh，git</p>
 <p>克隆笔记源：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ruofancooh/blog-source.git</span><br/><span class="line"><span class="built_in">cd</span> blog-source</span><br/><span class="line">npm install</span><br/></pre></td></tr></tbody></table></figure>
-<p>用 ssh 生成一个公钥</p>
+<p>用 ssh 生成一对密钥</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C <span class="string">"your_email@example.com"</span></span><br/><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br/></pre></td></tr></tbody></table></figure>
 <p>把公钥添加到 GitHub Settings → SSH and GPG keys</p>
 <p>改 push 的链接：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@github.com:ruofancooh/blog.git</span><br/><span class="line">git config --global user.email <span class="string">"you@example.com"</span></span><br/><span class="line">git config --global user.name <span class="string">"Your Name"</span></span><br/></pre></td></tr></tbody></table></figure>
 <p>推：</p>
-<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">git add .</span><br/><span class="line">git commit -m <span class="string">"text"</span></span><br/><span class="line">git push</span><br/></pre></td></tr></tbody></table></figure>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/></pre></td><td class="code"><pre><span class="line">git add .</span><br/><span class="line">git status</span><br/><span class="line">git commit -m <span class="string">"text"</span></span><br/><span class="line">git push</span><br/></pre></td></tr></tbody></table></figure>
 <h2 id="公钥和私钥">公钥和私钥</h2>
 <p>张三想给李四邮寄一个机密文件，不希望文件的内容被第三者看到。假设他们是之前从来没有见过面的，且只有邮寄这一条路可用于传递信息。于是张三把文件装在了一个盒子里，并上了自己的锁，把上锁后的盒子邮寄给了李四。这就可以保证盒子被截获后，文件依然保密。</p>
 <p>问题来了，李四是没有张三那把锁的钥匙的，这意味着如果李四想看文件，还需要把张三把钥匙也邮寄过去。比如我们在网上发送一个带密码的压缩包给对方，如果对方想解压，还需要我们把密码也发送过去。我们应该如何保证密码本身不被截获。</p>
@@ -212,19 +206,6 @@ push 给远程仓库时，github 会根据发送者提前提交的公钥来生�
 | <a href="https://theme-next.js.org/docs/tag-plugins/mermaid" rel="noopener" target="_blank">Mermaid</a> |
 <a href="https://theme-next.js.org/docs/advanced-settings/custom-files" rel="noopener" target="_blank">随机背景</a></p>
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> {</span><br/><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"https://bing.img.run/rand.php"</span>);</span><br/><span class="line">    <span class="attribute">background-attachment</span>: fixed;</span><br/><span class="line">    <span class="attribute">background-size</span>: cover;</span><br/><span class="line">    <span class="attribute">background-position</span>: center;</span><br/><span class="line">}</span><br/></pre></td></tr></tbody></table></figure>
-<h2 id="md">md</h2>
-<figure class="highlight md"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">title: CN02 - 概述 - 体系结构</span><br/><span class="line">date: 2023-09-09 17:00:00</span><br/><span class="line">permalink: CN/02/</span><br/></pre></td></tr></tbody></table></figure>
-<p><code>permalink:</code>
-告诉框架就按这个链接渲染。没有这个字段时，就按站点配置文件里设置的渲染（年 / 月 / 日 / 文章名之类的）。</p>
-<ul>
-<li>在每次渲染前，要设置文章的标题和 <code>permalink</code>。</li>
-<li>在每次渲染后：
-<ol type="1">
-<li>用 <code>/blog/archives/index.html</code> 覆盖
-<code>/blog/index.html</code></li>
-<li>删除 <code>/blog/archives/</code> 文件夹</li>
-</ol></li>
-</ul>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
