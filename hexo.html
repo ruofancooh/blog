@@ -20,7 +20,7 @@
 <meta content="Hexo 是一个博客框架，它把带 YAML Front matter 的 Markdown 文件通过 Node.js 和 Pandoc 渲染成静态的 html 文件。NexT 是针对 Hexo 的主题，可以理解为 CSS。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-08-27T12:38:00.000Z" property="article:published_time"/>
-<meta content="2026-02-26T13:52:20.041Z" property="article:modified_time"/>
+<meta content="2026-03-07T15:25:59.102Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/hexo" rel="canonical"/>
@@ -75,7 +75,7 @@
 <div class="sidebar-panel-container">
 <!--noindex-->
 <div class="post-toc-wrap sidebar-panel">
-<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5"><span class="nav-number">3.</span> <span class="nav-text">公钥和私钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-%E4%B8%BB%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">NexT 主题</span></a></li></ol></div>
+<div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5"><span class="nav-number">3.</span> <span class="nav-text">公钥和私钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-%E4%B8%BB%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">NexT 主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git"><span class="nav-number">5.</span> <span class="nav-text">Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#termux"><span class="nav-number">6.</span> <span class="nav-text">Termux</span></a></li></ol></div>
 </div>
 <!--/noindex-->
 <div class="site-overview-wrap sidebar-panel">
@@ -132,7 +132,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2026-02-26T21:52:20+08:00" itemprop="dateModified" title="修改时间：2026-02-26 21:52:20">2026-02-26</time>
+<time datetime="2026-03-07T23:25:59+08:00" itemprop="dateModified" title="修改时间：2026-03-07 23:25:59">2026-03-07</time>
 </span>
 </div>
 </div>
@@ -165,7 +165,7 @@ Github 查看<a href="https://github.com/ruofancooh/blog-source/commits/main" re
 <ol type="1">
 <li>写笔记的源文件，md 格式</li>
 <li>用 npx hexo g 生成文件到 public 目录</li>
-<li>用 python 敷写目录里的系列文件，并用 rsync 把目录移动到另一个仓库</li>
+<li>用 rsync 把目录移动到另一个仓库，再用 python 敷写目录里的系列文件</li>
 <li>用 git 推送仓库到 Github</li>
 </ol>
 <h2 id="概念">概念</h2>
@@ -184,8 +184,6 @@ push 给远程仓库时，github 会根据发送者提前提交的公钥来生�
 <h2 id="操作">操作</h2>
 <p>更换 npm 镜像源</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/></pre></td><td class="code"><pre><span class="line">npm get registry</span><br/><span class="line">npm config <span class="built_in">set</span> registry https://registry.npmmirror.com/</span><br/></pre></td></tr></tbody></table></figure>
-<p>禁用对非 ASCII 字符的转义，让 git status 输出中文字符。</p>
-<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">git config --global core.quotepath <span class="literal">false</span></span><br/></pre></td></tr></tbody></table></figure>
 <p>安装 nodejs，pandoc，python，bs4，ssh，git</p>
 <p>克隆笔记源：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ruofancooh/blog-source.git</span><br/><span class="line"><span class="built_in">cd</span> blog-source</span><br/><span class="line">npm install</span><br/></pre></td></tr></tbody></table></figure>
@@ -194,6 +192,7 @@ push 给远程仓库时，github 会根据发送者提前提交的公钥来生�
 <p>把公钥添加到 GitHub Settings → SSH and GPG keys</p>
 <p>改 push 的链接：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/></pre></td><td class="code"><pre><span class="line">git remote set-url origin git@github.com:ruofancooh/blog.git</span><br/><span class="line">git config --global user.email <span class="string">"you@example.com"</span></span><br/><span class="line">git config --global user.name <span class="string">"Your Name"</span></span><br/></pre></td></tr></tbody></table></figure>
+<p>脚本。</p>
 <p>推：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/></pre></td><td class="code"><pre><span class="line">git add .</span><br/><span class="line">git status</span><br/><span class="line">git commit -m <span class="string">"text"</span></span><br/><span class="line">git push</span><br/></pre></td></tr></tbody></table></figure>
 <h2 id="公钥和私钥">公钥和私钥</h2>
@@ -205,7 +204,28 @@ push 给远程仓库时，github 会根据发送者提前提交的公钥来生�
 <p><a href="https://theme-next.js.org/docs/third-party-services/math-equations" rel="noopener" target="_blank">渲染数学公式</a>
 | <a href="https://theme-next.js.org/docs/tag-plugins/mermaid" rel="noopener" target="_blank">Mermaid</a> |
 <a href="https://theme-next.js.org/docs/advanced-settings/custom-files" rel="noopener" target="_blank">随机背景</a></p>
-<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> {</span><br/><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"https://bing.img.run/rand.php"</span>);</span><br/><span class="line">    <span class="attribute">background-attachment</span>: fixed;</span><br/><span class="line">    <span class="attribute">background-size</span>: cover;</span><br/><span class="line">    <span class="attribute">background-position</span>: center;</span><br/><span class="line">}</span><br/></pre></td></tr></tbody></table></figure>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> {</span><br/><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"https://bing.img.run/rand.php"</span>);</span><br/><span class="line">    <span class="attribute">background-attachment</span>: fixed;</span><br/><span class="line">    <span class="attribute">background-size</span>: cover;</span><br/><span class="line">    <span class="attribute">background-position</span>: center;</span><br/><span class="line">}</span><br/><span class="line"></span><br/></pre></td></tr></tbody></table></figure>
+<h2 id="git">Git</h2>
+<p>工作区：除.git 目录本身所在的文件夹，当前能直接编辑的所有文件。</p>
+<p>暂存区：使用 git add. 把当前所有修改写到.git/index 文件里。</p>
+<p>版本库：岁月史书，历史的所有修改记录。</p>
+<p>禁用对非 ASCII 字符的转义，让 git status 输出中文字符。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">git config --global core.quotepath <span class="literal">false</span></span><br/></pre></td></tr></tbody></table></figure>
+<p>撤销上一次 commit</p>
+<ul>
+<li>撤销 commit，保留暂存区修改 git reset --soft HEAD~1</li>
+<li> 撤销 commit，保留工作区修改 git reset HEAD~1</li>
+<li> 彻底撤销 commit 并丢弃所有修改 git reset --hard HEAD~1</li>
+<li> 已推送到远程，安全撤销 git revert HEAD</li>
+<li> 修改上一次 commit 信息 / 补充文件 git commit --amend</li>
+</ul>
+<p>从 Git 历史记录中删除已经不在当前工作区的大文件以减少 .git
+文件夹的大小</p>
+<h2 id="termux">Termux</h2>
+<p>在安卓手机上模拟 Linux 环境的 app。</p>
+<p>hexo 需要 node.js 环境，还要用到 ssh 和 git。根据笔者已有的知识，这些软件在 liunx 或 Windows 命令行下运行成功过。所以如何在手机上运行这些软件？最容易想到的是在手机上找一个命令行环境。</p>
+<p>termux 和 linux 的本质区别：</p>
+<p>安卓手机的文件系统是 exfat，Linux 的文件系统是 ext4。前者没有权限、符号链接一说。所以如果在</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
