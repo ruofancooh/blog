@@ -4,16 +4,7 @@
   <url>
     <loc>https://hrfis.me/blog/that.html</loc>
     
-    <lastmod>2026-03-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/hexo.html</loc>
-    
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-03-08</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,7 +13,7 @@
   <url>
     <loc>https://hrfis.me/blog/worker.html</loc>
     
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-03-08</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -30,6 +21,15 @@
   
   <url>
     <loc>https://hrfis.me/blog/amap-poi-search.html</loc>
+    
+    <lastmod>2026-03-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/hexo.html</loc>
     
     <lastmod>2026-03-07</lastmod>
     
@@ -220,7 +220,7 @@
 
   <url>
     <loc>https://hrfis.me/blog</loc>
-    <lastmod>2026-03-07</lastmod>
+    <lastmod>2026-03-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
