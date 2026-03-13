@@ -1240,7 +1240,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #0ffa8c;
+    background: #8aff37;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2699,4 +2699,10 @@ header.header {
 }
 .headband {
   display: none;
+}
+ul,
+ol {
+  padding-left: 10px; /* 左侧内边距 */
+  margin-left: 0; /* 移除左侧外边距（如果需要） */
+  list-style-position: inside; /* 将符号/编号放在文本流内部 */
 }

@@ -20,7 +20,7 @@
 <meta content="Hexo 是一个博客框架，它把带 YAML Front matter 的 Markdown 文件通过 Node.js 和 Pandoc 渲染成静态的 html 文件。NexT 是针对 Hexo 的主题，可以理解为 CSS。" property="og:description"/>
 <meta content="zh_CN" property="og:locale"/>
 <meta content="2023-08-27T12:38:00.000Z" property="article:published_time"/>
-<meta content="2026-03-07T15:25:59.102Z" property="article:modified_time"/>
+<meta content="2026-03-12T09:16:29.504Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <link href="https://hrfis.me/blog/hexo" rel="canonical"/>
@@ -132,7 +132,7 @@
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2026-03-07T23:25:59+08:00" itemprop="dateModified" title="修改时间：2026-03-07 23:25:59">2026-03-07</time>
+<time datetime="2026-03-12T17:16:29+08:00" itemprop="dateModified" title="修改时间：2026-03-12 17:16:29">2026-03-12</time>
 </span>
 </div>
 </div>
@@ -165,7 +165,7 @@ Github 查看<a href="https://github.com/ruofancooh/blog-source/commits/main" re
 <ol type="1">
 <li>写笔记的源文件，md 格式</li>
 <li>用 npx hexo g 生成文件到 public 目录</li>
-<li>用 rsync 把目录移动到另一个仓库，再用 python 敷写目录里的系列文件</li>
+<li>把目录移动到另一个仓库，再修改目录里的文件。因为我不喜欢它生成的主页，想用归档页做主页。</li>
 <li>用 git 推送仓库到 Github</li>
 </ol>
 <h2 id="概念">概念</h2>
@@ -207,7 +207,8 @@ push 给远程仓库时，github 会根据发送者提前提交的公钥来生�
 <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/><span class="line">2</span><br/><span class="line">3</span><br/><span class="line">4</span><br/><span class="line">5</span><br/><span class="line">6</span><br/><span class="line">7</span><br/></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> {</span><br/><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">"https://bing.img.run/rand.php"</span>);</span><br/><span class="line">    <span class="attribute">background-attachment</span>: fixed;</span><br/><span class="line">    <span class="attribute">background-size</span>: cover;</span><br/><span class="line">    <span class="attribute">background-position</span>: center;</span><br/><span class="line">}</span><br/><span class="line"></span><br/></pre></td></tr></tbody></table></figure>
 <h2 id="git">Git</h2>
 <p>工作区：除.git 目录本身所在的文件夹，当前能直接编辑的所有文件。</p>
-<p>暂存区：使用 git add. 把当前所有修改写到.git/index 文件里。</p>
+<p>暂存区：使用 git add. 把当前所有修改写到.git/index
+文件里。下次从这里 commit</p>
 <p>版本库：岁月史书，历史的所有修改记录。</p>
 <p>禁用对非 ASCII 字符的转义，让 git status 输出中文字符。</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br/></pre></td><td class="code"><pre><span class="line">git config --global core.quotepath <span class="literal">false</span></span><br/></pre></td></tr></tbody></table></figure>
@@ -222,10 +223,9 @@ push 给远程仓库时，github 会根据发送者提前提交的公钥来生�
 <p>从 Git 历史记录中删除已经不在当前工作区的大文件以减少 .git
 文件夹的大小</p>
 <h2 id="termux">Termux</h2>
-<p>在安卓手机上模拟 Linux 环境的 app。</p>
-<p>hexo 需要 node.js 环境，还要用到 ssh 和 git。根据笔者已有的知识，这些软件在 liunx 或 Windows 命令行下运行成功过。所以如何在手机上运行这些软件？最容易想到的是在手机上找一个命令行环境。</p>
-<p>termux 和 linux 的本质区别：</p>
-<p>安卓手机的文件系统是 exfat，Linux 的文件系统是 ext4。前者没有权限、符号链接一说。所以如果在</p>
+<p>hexo 需要 node.js 环境，还要用到 ssh 和 git。根据笔者已有的知识，这些软件在 linux 或 Windows 命令行下运行成功过。所以如何在手机上运行这些软件？容易想到的是在手机上找一个命令行环境。</p>
+<p>termux 模拟的命令行环境在 /data/data/com.termux/files，在没有 root 权限的前提下无法通过文件管理器访问它，这使得修改笔记源文件变得很不方便。有三条路，获取 root 权限；使用命令行下的文本编辑器和命令来修改移动文件；在 /sdcard 下放一份副本，需要预览或生成的时候再复制到 termux 路径下。第三者是最省事的，这里使用一个<a href="https://github.com/ruofancooh/blog-source/blob/main/hrf" rel="noopener" target="_blank">脚本</a>实现。</p>
+<p>可以直接运行在 /sdcard 里的 node.js 项目吗？如果你在 termux 里 cd 到 storage 并尝试在里面用 npm 安装 node_modules，它会报错不支持符号链接，这是因为安卓手机的文件系统没有符号链接这一说。用另一种邪门的方法安装会很慢，且安装完之后，另外我们还没法给自定义 sh 脚本加上执行权限。</p>
 </div>
 <footer class="post-footer">
 <div class="post-nav">
