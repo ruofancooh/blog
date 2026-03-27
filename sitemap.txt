@@ -1,6 +1,6 @@
 https://hrfis.me/blog/that.html
-https://hrfis.me/blog/psychology.html
 https://hrfis.me/blog/truth-assignment.html
+https://hrfis.me/blog/psychology.html
 https://hrfis.me/blog/worker.html
 https://hrfis.me/blog/game.html
 https://hrfis.me/blog/hexo.html
