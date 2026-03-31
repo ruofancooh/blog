@@ -23,7 +23,7 @@
 <meta content="https://hrfis.me/blog/images/MapReduce.webp" property="og:image"/>
 <meta content="https://flume.apache.org/_images/DevGuide_image00.png" property="og:image"/>
 <meta content="2023-09-26T09:45:00.000Z" property="article:published_time"/>
-<meta content="2026-02-25T16:54:53.288Z" property="article:modified_time"/>
+<meta content="2026-03-29T13:13:29.333Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/rj45.webp" name="twitter:image"/>
@@ -146,7 +146,7 @@ HDFS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-lin
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2026-02-26T00:54:53+08:00" itemprop="dateModified" title="修改时间：2026-02-26 00:54:53">2026-02-26</time>
+<time datetime="2026-03-29T21:13:29+08:00" itemprop="dateModified" title="修改时间：2026-03-29 21:13:29">2026-03-29</time>
 </span>
 </div>
 </div>
@@ -697,9 +697,8 @@ P E B</p>
 <p>向十进制转：各个位的十进制值乘上以原进制为底、该位与小数点的相对位置为指数的幂，再相加。其中小数点左边一位的相对位置为零，小数点右边一位的相对位置为负一，以此类推。</p>
 <p>从十进制向外转：除 k 取余法 + 乘 k
 取整法。整数部分用短除法列竖式，用新进制的基数去除，除到商为零为止，之前的所有余数从下向上排列为新数的整数部分；小数部分乘上新进制的基数，取积的整数部分为新数的小数部分，积的小数部分继续与基数乘，直到积的小数部分为零或者出现循环节为止。</p>
-<p>对于一个 1000 以内的十进制数转成二进制，除 k
-取余法还是太教科书了，你可以直接把它拆分成 2
-的幂相加，因为加减法不容易出错。</p>
+<p>对于一个 1000 以内的十进制数转成二进制，可改用把它拆分成 2
+的幂相加，因为加减法相对不容易出错。</p>
 <p>二八十六互转：四位二进制位与一位十六进制位在 [0,16) 这个整数范围内一一对应。小数点前后的部分直接按片段替换。三位二进制位与一位八进制位在 [0,8) 这个整数范围内一一对应。小数点前后的部分直接按片段替换。八与十六互转时，以二作为桥梁。</p>
 <blockquote>
 <p>浮点数的编码方式？</p>
