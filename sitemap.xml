@@ -4,6 +4,15 @@
   <url>
     <loc>https://hrfis.me/blog/that.html</loc>
     
+    <lastmod>2026-04-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/hexo.html</loc>
+    
     <lastmod>2026-04-10</lastmod>
     
     <changefreq>monthly</changefreq>
@@ -68,15 +77,6 @@
     <loc>https://hrfis.me/blog/game.html</loc>
     
     <lastmod>2026-03-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/hexo.html</loc>
-    
-    <lastmod>2026-03-12</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -193,7 +193,7 @@
 
   <url>
     <loc>https://hrfis.me/blog</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
