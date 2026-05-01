@@ -4,7 +4,16 @@
   <url>
     <loc>https://hrfis.me/blog/worker.html</loc>
     
-    <lastmod>2026-04-24</lastmod>
+    <lastmod>2026-04-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/meme.html</loc>
+    
+    <lastmod>2026-04-30</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -173,15 +182,6 @@
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/meme.html</loc>
-    
-    <lastmod>2026-02-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://hrfis.me/blog/gbk-utf8.html</loc>
     
     <lastmod>2026-02-25</lastmod>
@@ -193,7 +193,7 @@
 
   <url>
     <loc>https://hrfis.me/blog</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
