@@ -27,7 +27,7 @@
 <meta content="https://hrfis.me/blog/images/MapReduce.webp" property="og:image"/>
 <meta content="https://flume.apache.org/_images/DevGuide_image00.png" property="og:image"/>
 <meta content="2023-09-26T09:45:00.000Z" property="article:published_time"/>
-<meta content="2026-05-06T00:48:27.319Z" property="article:modified_time"/>
+<meta content="2026-04-08T16:10:51.663Z" property="article:modified_time"/>
 <meta content="Ruofan" property="article:author"/>
 <meta content="summary" name="twitter:card"/>
 <meta content="https://hrfis.me/blog/images/hw-0.webp" name="twitter:image"/>
@@ -152,7 +152,7 @@ HDFS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-lin
 <i class="far fa-calendar-check"></i>
 </span>
 <span class="post-meta-item-text">更新于</span>
-<time datetime="2026-05-06T08:48:27+08:00" itemprop="dateModified" title="修改时间：2026-05-06 08:48:27">2026-05-06</time>
+<time datetime="2026-04-09T00:10:51+08:00" itemprop="dateModified" title="修改时间：2026-04-09 00:10:51">2026-04-09</time>
 </span>
 </div>
 </div>
@@ -1024,7 +1024,7 @@ N_\mathrm{C}\)</span></p>
 </blockquote>
 <ol type="1">
 <li><p>把十进制转换为二进制</p>
-<p><span class="math inline">\(12 = 1100 \mathrm{B}\)</span></p></li>
+<p><span class="math inline">\(12  = 1100 \mathrm{B}\)</span></p></li>
 <li><p> 用以 <span class="math inline">\(2\)</span>
 为基数的科学计数法表示，并保证【尾数的小数点前是 <span class="math inline">\(1\)</span>】</p>
 <p><span class="math inline">\(= 1.1\mathrm{B} \times (2^3)\)</span></p>
@@ -2002,101 +2002,101 @@ HDFS</h3>
 <col style="width: 71%"/>
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>name</th>
 <th>value</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>yarn.nodemanager.aux-services</td>
 <td>mapreduce_shuffle</td>
 </tr>
-<tr class="even">
+<tr>
 <td>yarn.resourcemanager.ha.enabled</td>
 <td>true</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>yarn.resourcemanager.recovery.enabled</td>
 <td>true</td>
 </tr>
-<tr class="even">
+<tr>
 <td>yarn.resourcemanager.store.class</td>
 <td>org.apache.hadoop.yarn.server.resourcemanager.recovery.ZKRMStateStore</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>yarn.resourcemanager.zk-address</td>
 <td>ubuntu101:2181,ubuntu102:2181,ubuntu103:2181</td>
 </tr>
-<tr class="even">
+<tr>
 <td>yarn.resourcemanager.cluster-id</td>
 <td>cluster-yarn1</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>yarn.resourcemanager.ha.rm-ids</td>
 <td>rm1,rm2,rm3</td>
 </tr>
-<tr class="even">
+<tr>
 <td>yarn.resourcemanager.hostname.rm1</td>
 <td>ubuntu101</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>yarn.resourcemanager.hostname.rm2</td>
 <td>ubuntu102</td>
 </tr>
-<tr class="even">
+<tr>
 <td>yarn.resourcemanager.hostname.rm3</td>
 <td>ubuntu103</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>yarn.resourcemanager.webapp.address.rm1</td>
 <td>ubuntu101:8088</td>
 </tr>
-<tr class="even">
+<tr>
 <td>yarn.resourcemanager.webapp.address.rm2</td>
 <td>ubuntu102:8088</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>yarn.resourcemanager.webapp.address.rm3</td>
 <td>ubuntu103:8088</td>
 </tr>
-<tr class="even">
+<tr>
 <td>yarn.resourcemanager.address.rm1</td>
 <td>ubuntu101:8032</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>yarn.resourcemanager.address.rm2</td>
 <td>ubuntu102:8032</td>
 </tr>
-<tr class="even">
+<tr>
 <td>yarn.resourcemanager.address.rm3</td>
 <td>ubuntu103:8032</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>yarn.resourcemanager.scheduler.address.rm1</td>
 <td>ubuntu101:8030</td>
 </tr>
-<tr class="even">
+<tr>
 <td>yarn.resourcemanager.scheduler.address.rm2</td>
 <td>ubuntu102:8030</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>yarn.resourcemanager.scheduler.address.rm3</td>
 <td>ubuntu103:8030</td>
 </tr>
-<tr class="even">
+<tr>
 <td>yarn.resourcemanager.resource-tracker.address.rm1</td>
 <td>ubuntu101:8031</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>yarn.resourcemanager.resource-tracker.address.rm2</td>
 <td>ubuntu102:8031</td>
 </tr>
-<tr class="even">
+<tr>
 <td>yarn.resourcemanager.resource-tracker.address.rm3</td>
 <td>ubuntu103:8031</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>yarn.nodemanager.env-whitelist</td>
 <td>JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME</td>
 </tr>
