@@ -1,3 +1,5 @@
+https://hrfis.me/blog/lacan.html
+https://hrfis.me/blog/meme.html
 https://hrfis.me/blog/albums.html
 https://hrfis.me/blog/worker.html
 https://hrfis.me/blog/him.html
@@ -7,8 +9,6 @@ https://hrfis.me/blog/game.html
 https://hrfis.me/blog/psychology.html
 https://hrfis.me/blog/about/index.html
 https://hrfis.me/blog/wait.html
-https://hrfis.me/blog/meme.html
-https://hrfis.me/blog/lacan.html
 https://hrfis.me/blog/cook.html
 https://hrfis.me/blog/economics.html
 https://hrfis.me/blog/magisk.html
