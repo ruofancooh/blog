@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://hrfis.me/blog/him.html</loc>
+    <loc>https://hrfis.me/blog/music-theory.html</loc>
     
     <lastmod>2026-07-16</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/psychology.html</loc>
+    <loc>https://hrfis.me/blog/meme.html</loc>
     
     <lastmod>2026-07-16</lastmod>
     
@@ -29,7 +29,16 @@
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/music-theory.html</loc>
+    <loc>https://hrfis.me/blog/him.html</loc>
+    
+    <lastmod>2026-07-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/psychology.html</loc>
     
     <lastmod>2026-07-16</lastmod>
     
@@ -84,15 +93,6 @@
   
   <url>
     <loc>https://hrfis.me/blog/lacan.html</loc>
-    
-    <lastmod>2026-06-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/meme.html</loc>
     
     <lastmod>2026-06-02</lastmod>
     
