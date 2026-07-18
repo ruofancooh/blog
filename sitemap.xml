@@ -4,7 +4,7 @@
   <url>
     <loc>https://hrfis.me/blog/music-theory.html</loc>
     
-    <lastmod>2026-07-17</lastmod>
+    <lastmod>2026-07-18</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -12,15 +12,6 @@
   
   <url>
     <loc>https://hrfis.me/blog/meme2.html</loc>
-    
-    <lastmod>2026-07-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/meme.html</loc>
     
     <lastmod>2026-07-16</lastmod>
     
@@ -101,6 +92,15 @@
   </url>
   
   <url>
+    <loc>https://hrfis.me/blog/meme.html</loc>
+    
+    <lastmod>2026-06-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hrfis.me/blog/hexo.html</loc>
     
     <lastmod>2026-06-01</lastmod>
@@ -166,7 +166,7 @@
 
   <url>
     <loc>https://hrfis.me/blog</loc>
-    <lastmod>2026-07-17</lastmod>
+    <lastmod>2026-07-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
