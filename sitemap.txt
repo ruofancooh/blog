@@ -1,3 +1,4 @@
+https://hrfis.me/blog/game.html
 https://hrfis.me/blog/music-theory.html
 https://hrfis.me/blog/meme2.html
 https://hrfis.me/blog/him.html
@@ -10,7 +11,6 @@ https://hrfis.me/blog/worker.html
 https://hrfis.me/blog/lacan.html
 https://hrfis.me/blog/meme.html
 https://hrfis.me/blog/hexo.html
-https://hrfis.me/blog/game.html
 https://hrfis.me/blog/about/index.html
 https://hrfis.me/blog/magisk.html
 https://hrfis.me/blog/time.html
