@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://hrfis.me/blog/game.html</loc>
+    <loc>https://hrfis.me/blog/meme2.html</loc>
     
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/him.html</loc>
+    
+    <lastmod>2026-07-26</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -14,24 +23,6 @@
     <loc>https://hrfis.me/blog/music-theory.html</loc>
     
     <lastmod>2026-07-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/meme2.html</loc>
-    
-    <lastmod>2026-07-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/him.html</loc>
-    
-    <lastmod>2026-07-16</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -119,6 +110,15 @@
   </url>
   
   <url>
+    <loc>https://hrfis.me/blog/game.html</loc>
+    
+    <lastmod>2026-06-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hrfis.me/blog/about/index.html</loc>
     
     <lastmod>2026-05-12</lastmod>
@@ -166,7 +166,7 @@
 
   <url>
     <loc>https://hrfis.me/blog</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
