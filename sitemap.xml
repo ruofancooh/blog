@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://hrfis.me/blog/bion.html</loc>
+    <loc>https://hrfis.me/blog/music-theory.html</loc>
     
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-08-29</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://hrfis.me/blog/music-theory.html</loc>
+    <loc>https://hrfis.me/blog/bion.html</loc>
     
     <lastmod>2026-08-28</lastmod>
     
@@ -175,7 +175,7 @@
 
   <url>
     <loc>https://hrfis.me/blog</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
