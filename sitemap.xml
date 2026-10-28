@@ -4,6 +4,15 @@
   <url>
     <loc>https://hrfis.me/blog/man-on-the-moon.html</loc>
     
+    <lastmod>2026-10-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hrfis.me/blog/music-theory.html</loc>
+    
     <lastmod>2026-10-27</lastmod>
     
     <changefreq>monthly</changefreq>
@@ -12,15 +21,6 @@
   
   <url>
     <loc>https://hrfis.me/blog/him.html</loc>
-    
-    <lastmod>2026-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hrfis.me/blog/music-theory.html</loc>
     
     <lastmod>2026-10-25</lastmod>
     
@@ -130,7 +130,7 @@
 
   <url>
     <loc>https://hrfis.me/blog</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
